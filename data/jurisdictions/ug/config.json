@@ -1,0 +1,265 @@
+{
+  "code": "ug",
+  "name": "Uganda",
+  "name_en": "Republic of Uganda",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "note": "Legislation is enacted and published in English. Acts as passed appear in the Uganda Gazette Acts Supplement (Uganda Printing and Publishing Corporation, Entebbe) and on Parliament's document repository as scanned PDFs; the Laws of Uganda revised edition consolidates Acts under chapter numbers. Drafting follows Westminster conventions: Parts, numbered sections with an inline heading, parenthesised subsections and lettered paragraphs, schedules at the end.",
+  "default_document_class": "act",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "note": "Acts as passed (Gazette Acts Supplement, Parliament CMIS) and as consolidated in the Laws of Uganda revised edition, where each Act carries a chapter number ('Cap. 230'). The chapter number is a citation, so 'chapter' is deliberately absent from this hierarchy: a revised-edition cover line 'CHAPTER 230' names the Act, and reading it as a container would wrap the whole Act in a phantom chapter.",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_upper",
+          "note": "'PART IV—CONTRIBUTIONS': roman numeral, em dash, heading in capitals."
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_upper",
+          "note": "Seen inside schedules that carry regulations ('DIVISION I—GENERAL PROVISIONS ...', Local Governments (Amendment) (No. 2) Act, 2008, Fifth Schedule)."
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "marker_form": "arabic_period",
+          "note": "Sections print as '11. Employee's share of standard contribution': the number and a full stop, then the heading on the same line, with no keyword. The revised edition and Acts as passed share this form."
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Schedule (sch)",
+          "akn_element": "hcontainer",
+          "eid_abbrev": "sch",
+          "akn_name": "schedule",
+          "level": "grouping",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": []
+    },
+    "si": {
+      "label": "Statutory Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "note": "Regulations, orders and rules made under an Act and published in the Gazette's Statutory Instruments Supplement. The basic unit prints as 'regulation' (or 'rule', 'paragraph' in an order) and maps to AKN section with the reg eId prefix. The SI numbering form is recorded as an open ambiguity in validation until a Supplement has been read through the pipeline.",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Regulation (reg)",
+          "akn_element": "section",
+          "eid_abbrev": "reg",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "marker_form": "arabic_period"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Schedule (sch)",
+          "akn_element": "hcontainer",
+          "eid_abbrev": "sch",
+          "akn_name": "schedule",
+          "level": "grouping",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": []
+    }
+  },
+  "frbr": {
+    "country_code": "ug",
+    "uri_patterns": {
+      "act": "/akn/ug/act/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "sample_uris": {
+      "Local Governments (Amendment) (No. 2) Act, 2008": "/akn/ug/act/2008/8",
+      "Income Tax (Amendment) Act, 2012": "/akn/ug/act/2012/4"
+    },
+    "note": "An Act's FRBR number is its number as passed ('Act 8 of 2008'), read from the cover or the running head. A revised-edition chapter number ('Cap. 230') identifies the consolidation in the Laws of Uganda and is not the FRBR number; minting a work URI from a revised-edition text needs the year and number of the original enactment."
+  },
+  "numbering": {
+    "act_citation": "{Short Title}, {year}",
+    "act_citation_alt": "Act {number} of {year}",
+    "citations": {
+      "cap": "Cap. {chapter}"
+    },
+    "insertion_style": "alphanumeric",
+    "note": "Acts are cited by short title with a comma before the year ('Local Governments (Amendment) (No. 2) Act, 2008') or as 'Act 8 of 2008'; consolidated Acts by chapter ('Cap. 230'). Inserted units take a letter suffix ('(3a)')."
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by Parliament as follows:",
+      "position": "preamble",
+      "note": "Read in Acts of 2008, 2012 and 2024 as ingested; the closing punctuation is a colon or an em dash.",
+      "document_class": [
+        "act"
+      ]
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended",
+    "cross_reference_format": "short_title_and_year",
+    "trigger_phrases": [
+      "is amended by",
+      "by inserting immediately after",
+      "by substituting for",
+      "by repealing"
+    ],
+    "amending_body_structure": "The amending Act names the principal Act once in section 1 and refers to it as 'the principal Act' thereafter; each section amends one provision by inserting, substituting or repealing quoted text introduced by 'the following—'."
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ug/parliament",
+      "showAs": "Parliament of Uganda"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ug/uganda-gazette",
+      "showAs": "The Uganda Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "member_since": "1962-10-25"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none",
+      "member_since": "1962-10-09"
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none"
+    },
+    {
+      "body": "eac",
+      "direct_effect": "none",
+      "note": "East African Community partner state. Community instruments are not modelled as direct effect in this profile."
+    },
+    {
+      "body": "comesa",
+      "direct_effect": "none"
+    },
+    {
+      "body": "igad",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 4,
+    "bluebell_tested": true,
+    "unresolved_ambiguities": 2,
+    "documents_examined_note": "National Social Security Fund Act (Cap. 230, revised edition, 38-page scan); Local Governments (Amendment) (No. 2) Act, 2008 (12-page scan); Income Tax (Amendment) Act, 2012 (4-page scan); Excise Duty (Amendment) Act, 2024 (text-layer PDF). All four ingested end to end; the anchor scan reads 64 sections in the NSSF Act and 18 in the 2008 Act, and the 2008 Act's scaffold round-trips through Bluebell with no findings.",
+    "ambiguities": [
+      "A reference in running prose ('Schedule 1 to this Act', 'the Fifth Schedule') is claimed as a schedule container, so the NSSF Act's scaffold carries phantom hcontainers inside Parts I, III, IV and IX and the validator reports markup_as_text.",
+      "The Statutory Instruments Supplement numbering form has not been read through the pipeline; the si class is a hypothesis from the Act hierarchy."
+    ],
+    "laws_africa_reference": "ulii.org publishes unofficial consolidations built by Laws.Africa; official texts are the Gazette and the revised edition."
+  },
+  "ocr_header_patterns": [
+    "^\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+.+$",
+    "^.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5}\\s*$",
+    "^Act\\s+\\d+\\s+.+\\bAct(\\s+\\d{4})?\\s*$"
+  ],
+  "furniture_line_patterns": [
+    "^\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+.+$",
+    "^.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5}\\s*$",
+    "^Act\\s+\\d+\\s+.+\\bAct(\\s+\\d{4})?\\s*$"
+  ],
+  "furniture_inline_patterns": [
+    "\\b\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]?\\s+[A-Z][A-Za-z ()]+ Act\\b"
+  ],
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

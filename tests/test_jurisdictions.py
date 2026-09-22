@@ -565,7 +565,7 @@ def test_the_flagged_set_is_deliberate() -> None:
         if json.loads(p.read_text()).get("public_reference")
     )
     assert flagged == on_disk
-    assert len(flagged) == 102
+    assert len(flagged) == 103
     assert {"ee", "fi", "gb", "ie", "it", "nz"} <= set(flagged)
 
 
