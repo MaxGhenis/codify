@@ -5,7 +5,7 @@ expression syntax to opt in or out.
 
 | Marker        | Requires                                       | CI behaviour                                                                 |
 | ------------- | ---------------------------------------------- | ---------------------------------------------------------------------------- |
-| `integration` | Postgres (migrated to head; see `docs/offline-suite.md`) | excluded from the per-push job; `lexicon-integration.yml` runs a subset |
+| `integration` | Postgres (migrated to head; see `docs/offline-suite.md`) | run by the `integration` CI job |
 | `live_llm`    | A LiteLLM gateway (`LITELLM_BASE_URL`, exported) | never in CI; can incur charges                                             |
 
 Common selectors, from the repository root:
