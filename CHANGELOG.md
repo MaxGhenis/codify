@@ -36,8 +36,8 @@ Breaks, in that the structurer's output changes for documents it already read:
      grades every numbering gap `warning` and adds a leading-gap `number_gap`
      when the first article or section is numbered above 1. A gap beside an
      unreadable page is no longer called a repeal.
-3. `validate_akn(provenance="native")`, which the native AKN, FORMEX and Riigi
-   Teataja lanes pass, skips `identity_year_implausible` and
+3. `validate_akn(provenance="native")`, which the lanes reading publisher XML
+   (native AKN, FORMEX and the other publisher formats) pass, skips `identity_year_implausible` and
    `identity_year_unconverted_hijri`: a publisher's own date is not a misparse.
    Callers that do not pass `provenance` see the previous checks.
 
