@@ -151,6 +151,8 @@ def build_agent(model: Model, store: EvidenceStore) -> Agent[RepairDeps, EditPla
         instructions=_INSTRUCTIONS,
         name="akn-repair",
         retries=REVISION_BUDGET,
+        # Extra tool calls beside submit_plan are skipped, not run.
+        end_strategy="early",
     )
 
     @agent.instructions
