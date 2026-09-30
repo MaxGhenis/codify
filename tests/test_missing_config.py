@@ -32,6 +32,7 @@ def _args(source: pathlib.Path, out: pathlib.Path, jurisdiction: str) -> argpars
         jurisdiction=jurisdiction,
         model="unused",
         ocr_model=None,
+        fallback_model=None,
         quiet=True,
     )
 

@@ -12,8 +12,42 @@ Breaks, in that the structurer's output changes for documents it already read:
    attestation after it leaves the body. Conclusion lifting, signatory grouping
    and the page-region signal read phrases the same way. A blank phrase no
    longer matches.
+2. Losses are reported instead of reading as success, so a run that finished
+   clean before can now grade `warning` or `blocking`, or fail:
+   - A page the model refused on a content filter, or an inked page read empty,
+     is recorded: `PageResult.finish_reason` and `PageExtracted.finish_reason`,
+     an `unreadable_page` error finding, `pages_unreadable` in the bundle
+     manifest, and an editorial remark in the AKN where the page stood. The
+     structurer now receives the unreadable-page marker and places the remark
+     itself; `combine_text_for_structure` no longer strips it.
+   - Body-fill records what it achieved (`ScanTrace.body_fill`). Bodies copied
+     from the source after the model failed them are a `body_fill_verbatim`
+     warning; bodies left empty a `body_fill_incomplete` error. When no call
+     wrote any body, the structurer raises `BodyFillError`, or under
+     `halt_policy="land"` records a `body_fill_failed` halt. The scan trace is
+     emitted once, after body-fill.
+   - `coverage.json` `ratio` is the lowest of the anchor, body-fill and page
+     ratios; the anchor figure moves to `anchor_ratio`. The manifest carries the
+     structural grade.
+   - A jurisdiction config that is absent or does not validate raises where it
+     is read. Anchor-scan helpers, title helpers, the region vocabulary, the
+     enrich passes and the repair dossier used to catch it and return defaults.
+   - `validate_akn(provenance="extracted")`, which the PDF and text lanes pass,
+     grades every numbering gap `warning` and adds a leading-gap `number_gap`
+     when the first article or section is numbered above 1. A gap beside an
+     unreadable page is no longer called a repeal.
+3. `validate_akn(provenance="native")`, which the native AKN, FORMEX and Riigi
+   Teataja lanes pass, skips `identity_year_implausible` and
+   `identity_year_unconverted_hijri`: a publisher's own date is not a misparse.
+   Callers that do not pass `provenance` see the previous checks.
 
 New, additive:
+
+- `ingest-one --fallback-model`, defaulting to
+  `LITELLM_CONTENT_FILTER_FALLBACK_MODEL`: the model retried when the first
+  refuses a page on a content filter.
+- `validate_akn` takes `provenance`, `unreadable_pages` and `body_fill`;
+  `codify.jurisdictions.CONFIG_FAULTS`; `codify.core.llm.content_filtered`.
 
 - `document_classes.<class>.number_source` in the jurisdiction config:
   `"stated"` (the default, unchanged behaviour) or `"title_identity"`, which

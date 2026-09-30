@@ -29,6 +29,7 @@ from codify.pipeline.enrich.anchors import (
 from codify.pipeline.enrich.arabic_normalise import JOINER_STRIP_TABLE
 from codify.pipeline.enrich.container_coverage import container_coverage_probe
 from codify.pipeline.enrich.kinds import CONTAINER_KINDS, kind_to_kw
+from codify.pipeline.enrich.ocr import DEGRADED_MARKER_RE
 from codify.pipeline.enrich.scaffold import (
     BodyBlock,
     BodyFillResponse,
@@ -66,6 +67,29 @@ class StructureHalt:
 
 
 @dataclass(frozen=True)
+class BodyFillTrace:
+    """What body-fill achieved against what the scaffold asked of it. `expected`
+    counts units with body text in the source; `verbatim` were copied from it
+    unstructured after the model failed them, and `empty` got nothing."""
+
+    windows: int
+    calls: int
+    calls_failed: int
+    expected: int
+    verbatim: tuple[str, ...] = ()
+    empty: tuple[str, ...] = ()
+
+    @property
+    def model_filled(self) -> int:
+        return self.expected - len(self.verbatim) - len(self.empty)
+
+    @property
+    def ratio(self) -> float | None:
+        """Share of expected bodies the model wrote; None when none were expected."""
+        return self.model_filled / self.expected if self.expected else None
+
+
+@dataclass(frozen=True)
 class ScanTrace:
     """The deterministic half of a structuring run: the scan fixes the document's shape
     before any model call, so an ingest that produced nothing is explained here rather
@@ -83,6 +107,8 @@ class ScanTrace:
     # Guarded heading-vs-container probe: {present, found, grouping_declared}. The
     # ingest probe turns a below-floor ratio into a container_coverage warning.
     container: dict[str, int | bool] | None = None
+    # None where body-fill never ran: no scaffold, or nothing to fill.
+    body_fill: BodyFillTrace | None = None
 
 
 PROMPTS_DIR = Path(__file__).parent / "prompts"
@@ -233,6 +259,57 @@ TABLE_ROWS_RULE = (
 )
 
 
+def _unreadable_remark(page: int) -> str:
+    return f"{{{{*[Page {page} of the source could not be read]}}}}"
+
+
+def _lift_unreadable_markers(text: str) -> tuple[str, list[tuple[int, int]]]:
+    """The text without unreadable-page marker lines, and (offset, page) for each,
+    the offset indexing the returned text. Kept out of what the model fills."""
+    kept: list[str] = []
+    found: list[tuple[int, int]] = []
+    pos = 0
+    for line in text.split("\n"):
+        m = DEGRADED_MARKER_RE.match(line)
+        if m:
+            found.append((pos, int(m.group(1))))
+            continue
+        kept.append(line)
+        pos += len(line) + 1
+    return "\n".join(kept), found
+
+
+def _with_remarks_inline(text: str, markers: list[tuple[int, int]]) -> str:
+    """Put each marker back where it stood, as a remark paragraph of its own."""
+    for offset, page in sorted(markers, reverse=True):
+        at = min(offset, len(text))
+        text = f"{text[:at]}\n\n{_unreadable_remark(page)}\n\n{text[at:]}"
+    return text
+
+
+def _place_unreadable_remarks(
+    markers: list[tuple[int, int]],
+    anchors: list[StructuralAnchor],
+    by_eid: dict[str, BodyBlock],
+    basic: str | None,
+) -> None:
+    """Append each marker's remark to the provision whose body the lost page
+    continued, or the first provision when the page precedes them all."""
+    hosts = sorted(
+        (a for a in anchors if not a.quoted_amendment and _expects_body(a.kind, basic)),
+        key=lambda a: a.char_offset,
+    )
+    if not hosts:
+        return
+    for offset, page in markers:
+        before = [a for a in hosts if a.char_offset <= offset]
+        host = before[-1] if before else hosts[0]
+        block = by_eid.get(host.akn_eid) or BodyBlock(eid=host.akn_eid)
+        remark = _unreadable_remark(page)
+        lines = [*block.lines, remark] if before else [remark, *block.lines]
+        by_eid[host.akn_eid] = block.model_copy(update={"lines": lines})
+
+
 def _verbatim_single_section(text: str) -> str:
     """Wrap anchorless document text in one SECTION so the body survives as a
     provision instead of being discarded. Used only when no structural anchors
@@ -307,11 +384,12 @@ class AnchorCoverageError(RuntimeError):
 
 
 class BodyFillError(RuntimeError):
-    """Every window's body-fill failed and nothing recovered it."""
+    """Body-fill failed and the model wrote no body for the document."""
 
-    def __init__(self, *, windows: int) -> None:
+    def __init__(self, *, windows: int, detail: str | None = None) -> None:
         super().__init__(
-            f"body fill produced no text for any of {windows} window(s); "
+            detail
+            or f"body fill produced no text for any of {windows} window(s); "
             "the scaffold is correct and the document has no body"
         )
         self.windows = windows
@@ -386,6 +464,7 @@ async def text_to_bluebell_scaffolded(
     and a blocking version names the gap where a failed run leaves nothing to find.
     Nothing measured, and stranded markers, still raise."""
     text = normalise_rtl_extract(text)
+    text, unreadable = _lift_unreadable_markers(text)
     config = load_config(country)
     regex = cached_regex(country, doctype)
     scan = scan_anchors_with_ambiguity(text, regex, country=country, doctype=doctype)
@@ -415,7 +494,11 @@ async def text_to_bluebell_scaffolded(
 
     halts: list[StructureHalt] = []
 
-    def _trace(scaffold: str | None = None, fallback: str | None = None) -> None:
+    def _trace(
+        scaffold: str | None = None,
+        fallback: str | None = None,
+        body_fill: BodyFillTrace | None = None,
+    ) -> None:
         if on_scan:
             on_scan(
                 ScanTrace(
@@ -426,6 +509,7 @@ async def text_to_bluebell_scaffolded(
                     ambiguity=tuple(scan.ambiguity),
                     halts=tuple(halts),
                     container=container,
+                    body_fill=body_fill,
                 )
             )
 
@@ -615,7 +699,7 @@ async def text_to_bluebell_scaffolded(
                 "scaffold_no_anchors", country=country, doctype=doctype, fallback="verbatim_section"
             )
             _trace(fallback="verbatim_section")
-            return _verbatim_single_section(text)
+            return _verbatim_single_section(_with_remarks_inline(text, unreadable))
         logger.warning("scaffold_no_anchors", country=country, doctype=doctype, fallback="empty")
         _trace(fallback="empty")
         return "PREFACE\n\nBODY\n"
@@ -656,156 +740,207 @@ async def text_to_bluebell_scaffolded(
     scaffold, eid_to_anchor = scaffold_from_anchors(
         anchors, preface=preface, preamble=preamble, country=country, conclusions=bound.conclusions
     )
-    _trace(scaffold=scaffold)
     windows = windows_from_anchors(text, anchors)
     if not windows:
         # Containers only: nothing to fill, and the skeleton ships as the document.
         logger.warning("body_fill_skipped", reason="no_basic_unit_anchors", anchors=len(anchors))
+        _trace(scaffold=scaffold)
         return scaffold
 
-    base_additions: list[str] = []
-    if config is not None:
-        base_additions.append(_build_jurisdiction_context(config, doctype))
+    # One trace per run, after body-fill, carrying what it achieved; emitted on
+    # the way out of a failure too, so the scaffold is never lost with it.
+    fill_trace: list[BodyFillTrace] = []
+    try:
+        base_additions: list[str] = []
+        if config is not None:
+            base_additions.append(_build_jurisdiction_context(config, doctype))
 
-    semaphore = asyncio.Semaphore(MAX_CONCURRENT_SECTIONS)
-    completed = 0
-    failed = 0
-    total = len(windows)
+        semaphore = asyncio.Semaphore(MAX_CONCURRENT_SECTIONS)
+        completed = 0
+        failed = 0
+        calls = 0
+        total = len(windows)
 
-    def nonlocal_failed() -> None:
-        nonlocal failed
-        failed += 1
+        def nonlocal_failed() -> None:
+            nonlocal failed
+            failed += 1
 
-    async def fill_window(window: Window, label: str) -> BodyFillResponse:
-        nonlocal completed
-        async with semaphore:
-            window_scaffold = _scaffold_for_window(window.anchors, eid_to_anchor)
-            # Tagged, not concatenated: the source is OCR of a document the
-            # pipeline did not write, and a line in it shaped like an
-            # instruction reads as one when it arrives bare. The tag carries a
-            # digest of the slice, so a source containing a closing tag cannot
-            # end the span early and nothing has to be stripped from it:
-            # censoring a provision would be the worse failure.
-            body = window.text[window.body_start : window.body_end]
-            tag = f"source-{hashlib.sha256(body.encode()).hexdigest()[:12]}"
-            user_prompt = f"<scaffold>\n{window_scaffold}\n</scaffold>\n\n<{tag}>\n{body}\n</{tag}>"
-            # Per window, and only where the nester would build a table.
-            additions = list(base_additions)
-            if has_table(body.splitlines()):
-                additions.append(TABLE_ROWS_RULE)
-            window_system = _body_fill_system(*additions)
-            try:
-                response = await client.chat_schema(
-                    user_prompt,
-                    BodyFillResponse,
-                    system=window_system,
-                    model=model,
+        async def fill_window(window: Window, label: str) -> BodyFillResponse:
+            nonlocal completed, calls
+            calls += 1
+            async with semaphore:
+                window_scaffold = _scaffold_for_window(window.anchors, eid_to_anchor)
+                # Tagged, not concatenated: the source is OCR of a document the
+                # pipeline did not write, and a line in it shaped like an
+                # instruction reads as one when it arrives bare. The tag carries a
+                # digest of the slice, so a source containing a closing tag cannot
+                # end the span early and nothing has to be stripped from it:
+                # censoring a provision would be the worse failure.
+                body = window.text[window.body_start : window.body_end]
+                tag = f"source-{hashlib.sha256(body.encode()).hexdigest()[:12]}"
+                user_prompt = (
+                    f"<scaffold>\n{window_scaffold}\n</scaffold>\n\n<{tag}>\n{body}\n</{tag}>"
                 )
-            except Exception as exc:
-                nonlocal_failed()
-                logger.warning(
-                    "body_fill_failed",
-                    chunk=label,
-                    anchors=len(window.anchors),
-                    error=f"{type(exc).__name__}: {str(exc)[:160]}",
+                # Per window, and only where the nester would build a table.
+                additions = list(base_additions)
+                if has_table(body.splitlines()):
+                    additions.append(TABLE_ROWS_RULE)
+                window_system = _body_fill_system(*additions)
+                try:
+                    response = await client.chat_schema(
+                        user_prompt,
+                        BodyFillResponse,
+                        system=window_system,
+                        model=model,
+                    )
+                except Exception as exc:
+                    nonlocal_failed()
+                    logger.warning(
+                        "body_fill_failed",
+                        chunk=label,
+                        anchors=len(window.anchors),
+                        error=f"{type(exc).__name__}: {str(exc)[:160]}",
+                    )
+                    response = BodyFillResponse(bodies=[])
+                owned = {a.akn_eid for a in window.anchors if not a.quoted_amendment}
+                rejected = [block.eid for block in response.bodies if block.eid not in owned]
+                if rejected:
+                    logger.warning("body_fill_unowned_targets", chunk=label, eids=rejected)
+                response = BodyFillResponse(
+                    bodies=[block for block in response.bodies if block.eid in owned]
                 )
-                response = BodyFillResponse(bodies=[])
-            owned = {a.akn_eid for a in window.anchors if not a.quoted_amendment}
-            rejected = [block.eid for block in response.bodies if block.eid not in owned]
-            if rejected:
-                logger.warning("body_fill_unowned_targets", chunk=label, eids=rejected)
-            response = BodyFillResponse(
-                bodies=[block for block in response.bodies if block.eid in owned]
+            completed += 1
+            if on_progress:
+                on_progress(min(completed / total, 1.0), f"window {completed}/{total}")
+            if on_stream:
+                on_stream(response.model_dump_json())
+            return response
+
+        # eid → body; a non-empty body always wins so recovery refills overwrite drops.
+        by_eid: dict[str, BodyBlock] = {}
+
+        def absorb(responses: list[BodyFillResponse]) -> None:
+            for r in responses:
+                for block in r.bodies:
+                    if block.lines or block.eid not in by_eid:
+                        by_eid[block.eid] = block
+
+        absorb(await asyncio.gather(*[fill_window(w, f"w{i}") for i, w in enumerate(windows)]))
+
+        # An overflowed window drops every body (LengthFinishReasonError) and a
+        # succeeded one can still omit some; both surface as empty anchors that have
+        # source text. Bare-heading anchors are legitimately empty and left alone; the
+        # rest re-fill in progressively smaller windows.
+        has_body_source = _anchors_with_body_source(text, anchors)
+        basic = basic_unit_kind(config, doctype)
+        with_body = [
+            a.akn_eid
+            for a in anchors
+            if _expects_body(a.kind, basic) and a.akn_eid in has_body_source
+        ]
+        for max_per in (2, 1):
+            targets = {
+                a.akn_eid
+                for a in anchors
+                if _expects_body(a.kind, basic)
+                and a.akn_eid in has_body_source
+                and not by_eid.get(a.akn_eid, _EMPTY_BLOCK).lines
+            }
+            if not targets:
+                break
+            recovery = [
+                w
+                for w in windows_from_anchors(
+                    text, anchors, max_per_window=max_per, min_per_window=1, target_size=10**9
+                )
+                if any(a.akn_eid in targets for a in w.anchors)
+            ]
+            if not recovery:
+                break
+            logger.info(
+                "body_fill_recovery", empty=len(targets), windows=len(recovery), max_per=max_per
             )
-        completed += 1
-        if on_progress:
-            on_progress(min(completed / total, 1.0), f"window {completed}/{total}")
-        if on_stream:
-            on_stream(response.model_dump_json())
-        return response
+            absorb(
+                await asyncio.gather(
+                    *[fill_window(w, f"r{max_per}-{i}") for i, w in enumerate(recovery)]
+                )
+            )
 
-    # eid → body; a non-empty body always wins so recovery refills overwrite drops.
-    by_eid: dict[str, BodyBlock] = {}
-
-    def absorb(responses: list[BodyFillResponse]) -> None:
-        for r in responses:
-            for block in r.bodies:
-                if block.lines or block.eid not in by_eid:
-                    by_eid[block.eid] = block
-
-    absorb(await asyncio.gather(*[fill_window(w, f"w{i}") for i, w in enumerate(windows)]))
-
-    # An overflowed window drops every body (LengthFinishReasonError) and a
-    # succeeded one can still omit some; both surface as empty anchors that have
-    # source text. Bare-heading anchors are legitimately empty and left alone; the
-    # rest re-fill in progressively smaller windows.
-    has_body_source = _anchors_with_body_source(text, anchors)
-    basic = basic_unit_kind(config, doctype)
-    for max_per in (2, 1):
-        targets = {
+        # Some windows overflow the output-token budget because the model loops on the
+        # content rather than by size, so even a single-anchor window fails. Splice the
+        # raw source span in: an imperfect body beats a dropped one.
+        still_empty = {
             a.akn_eid
             for a in anchors
             if _expects_body(a.kind, basic)
             and a.akn_eid in has_body_source
             and not by_eid.get(a.akn_eid, _EMPTY_BLOCK).lines
         }
-        if not targets:
-            break
-        recovery = [
-            w
-            for w in windows_from_anchors(
-                text, anchors, max_per_window=max_per, min_per_window=1, target_size=10**9
-            )
-            if any(a.akn_eid in targets for a in w.anchors)
-        ]
-        if not recovery:
-            break
-        logger.info(
-            "body_fill_recovery", empty=len(targets), windows=len(recovery), max_per=max_per
+        fallback: list[BodyBlock] = []
+        if still_empty:
+            try:
+                fallback = [
+                    b
+                    for b in fill_bodies_verbatim(text, anchors).bodies
+                    if b.eid in still_empty and b.lines
+                ]
+            except Exception as exc:  # noqa: BLE001, never let the fallback break ingest
+                logger.warning("body_fill_verbatim_fallback_failed", error=str(exc)[:160])
+                fallback = []
+            if fallback:
+                logger.info("body_fill_verbatim_fallback", count=len(fallback))
+                absorb([BodyFillResponse(bodies=fallback)])
+        verbatim = {b.eid for b in fallback}
+        stats = BodyFillTrace(
+            windows=total,
+            calls=calls,
+            calls_failed=failed,
+            expected=len(with_body),
+            verbatim=tuple(e for e in with_body if e in verbatim),
+            empty=tuple(e for e in with_body if not by_eid.get(e, _EMPTY_BLOCK).lines),
         )
-        absorb(
-            await asyncio.gather(
-                *[fill_window(w, f"r{max_per}-{i}") for i, w in enumerate(recovery)]
+        fill_trace.append(stats)
+
+        if failed == total and not any(b.lines for b in by_eid.values()):
+            # Every window failed and nothing recovered it, so the document has a
+            # correct skeleton and no law in it. Left to succeed, it reaches the
+            # write gate as a near-empty AKN and reads as a structuring result.
+            raise BodyFillError(windows=total)
+        if failed and stats.expected and not stats.model_filled:
+            # The model wrote no body: what remains is source text copied in
+            # unstructured, which must not read as a structuring result.
+            logger.warning(
+                "body_fill_no_model_output", calls=calls, failed=failed, expected=stats.expected
             )
+            detail = (
+                f"{failed} of {calls} body-fill calls failed and none wrote a body; "
+                f"{len(stats.verbatim)} of {stats.expected} bodies are source text "
+                f"copied in unstructured and {len(stats.empty)} are empty"
+            )
+            if halt_policy != "land":
+                raise BodyFillError(windows=total, detail=detail)
+            halts.append(
+                StructureHalt(
+                    gate="body_fill_failed",
+                    kind=basic or "",
+                    spans=stats.expected,
+                    detail=detail,
+                    captured=0,
+                    expected=stats.expected,
+                    ratio=0.0,
+                )
+            )
+
+        literal_eids = preserve_source_tables(text, anchors, by_eid)
+        _place_unreadable_remarks(unreadable, anchors, by_eid, basic)
+        return assemble_filled_scaffold(
+            scaffold,
+            eid_to_anchor,
+            BodyFillResponse(bodies=list(by_eid.values())),
+            literal_body_eids=literal_eids,
         )
-
-    # Some windows overflow the output-token budget because the model loops on the
-    # content rather than by size, so even a single-anchor window fails. Splice the
-    # raw source span in: an imperfect body beats a dropped one.
-    still_empty = {
-        a.akn_eid
-        for a in anchors
-        if _expects_body(a.kind, basic)
-        and a.akn_eid in has_body_source
-        and not by_eid.get(a.akn_eid, _EMPTY_BLOCK).lines
-    }
-    if still_empty:
-        try:
-            fallback = [
-                b
-                for b in fill_bodies_verbatim(text, anchors).bodies
-                if b.eid in still_empty and b.lines
-            ]
-        except Exception as exc:  # noqa: BLE001, never let the fallback break ingest
-            logger.warning("body_fill_verbatim_fallback_failed", error=str(exc)[:160])
-            fallback = []
-        if fallback:
-            logger.info("body_fill_verbatim_fallback", count=len(fallback))
-            absorb([BodyFillResponse(bodies=fallback)])
-
-    if failed == total and not any(b.lines for b in by_eid.values()):
-        # Every window failed and nothing recovered it, so the document has a
-        # correct skeleton and no law in it. Left to succeed, it reaches the
-        # write gate as a near-empty AKN and reads as a structuring result.
-        raise BodyFillError(windows=total)
-
-    literal_eids = preserve_source_tables(text, anchors, by_eid)
-    return assemble_filled_scaffold(
-        scaffold,
-        eid_to_anchor,
-        BodyFillResponse(bodies=list(by_eid.values())),
-        literal_body_eids=literal_eids,
-    )
+    finally:
+        _trace(scaffold=scaffold, body_fill=fill_trace[0] if fill_trace else None)
 
 
 __all__ = [
@@ -813,6 +948,7 @@ __all__ = [
     "AnchorInvariantError",
     "BodyFillError",
     "BODY_FILL_PROMPT",
+    "BodyFillTrace",
     "ScanTrace",
     "basic_unit_kind",
     "normalise_rtl_extract",

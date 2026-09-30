@@ -9,18 +9,18 @@ Model-assisted operations require a configured endpoint and may incur charges.
 
 The generated `bundle/` directory contains:
 
-| File                | Contents                                                       |
-| ------------------- | -------------------------------------------------------------- |
-| `pages/`            | Page images rendered for inspection after the run              |
-| `source.txt`        | Extracted text transcription                                   |
-| `anchors.jsonl`     | Structural markers detected during the scanning pass           |
-| `ambiguity.jsonl`   | Ambiguous structural spans found during scanning               |
-| `coverage.json`     | Provision count metrics (expected vs. captured)                |
-| `scaffold.bluebell` | Structural skeleton generated prior to filling provision text  |
-| `final.akn.xml`     | Generated Akoma Ntoso 3.0 document                             |
-| `validator.json`    | Structural validation findings                                 |
-| `manifest.json`     | Run metadata, including model identifiers and config hashes    |
-| `events.jsonl`      | Pipeline event history, including progress and failures        |
+| File                | Contents                                                      |
+| ------------------- | ------------------------------------------------------------- |
+| `pages/`            | Page images rendered for inspection after the run             |
+| `source.txt`        | Extracted text transcription                                  |
+| `anchors.jsonl`     | Structural markers detected during the scanning pass          |
+| `ambiguity.jsonl`   | Ambiguous structural spans found during scanning              |
+| `coverage.json`     | Anchor, body-fill and page coverage; `ratio` is the lowest    |
+| `scaffold.bluebell` | Structural skeleton generated prior to filling provision text |
+| `final.akn.xml`     | Generated Akoma Ntoso 3.0 document                            |
+| `validator.json`    | Structural validation findings                                |
+| `manifest.json`     | Run metadata, unreadable pages and the structural grade       |
+| `events.jsonl`      | Pipeline event history, including progress and failures       |
 
 Jurisdiction rules identify the document's structure. The model fills the text
 within the detected sections and articles.
@@ -100,16 +100,17 @@ directories; explicitly exported shell variables take precedence. Note that `pyt
 `alembic` do not read `.env` files automatically and require variables to be exported in
 your environment. See [`.env.example`](../.env.example) for the default setup.
 
-| Variable                | Purpose                                                                                 |
-| ----------------------- | --------------------------------------------------------------------------------------- |
-| `LITELLM_BASE_URL`      | Base URL for the OpenAI-compatible chat endpoint                                        |
-| `LITELLM_API_KEY`       | API key for the chat endpoint                                                           |
-| `LITELLM_MODEL`         | Default model used for body fill (overridden by `--model`)                              |
-| `POSTGRES_URL`          | Postgres connection string for migrations and tests (defaults to local Compose service) |
-| `AZURE_OPENAI_ENDPOINT` | Endpoint for the optional secondary Azure AI Foundry OCR engine                         |
-| `AZURE_OPENAI_API_KEY`  | API key for the optional Azure OCR engine                                               |
-| `LANGFUSE_PUBLIC_KEY`   | Public key for optional Langfuse tracing                                                |
-| `LANGFUSE_SECRET_KEY`   | Secret key for optional Langfuse tracing                                                |
+| Variable                                | Purpose                                                                                 |
+| --------------------------------------- | --------------------------------------------------------------------------------------- |
+| `LITELLM_BASE_URL`                      | Base URL for the OpenAI-compatible chat endpoint                                        |
+| `LITELLM_API_KEY`                       | API key for the chat endpoint                                                           |
+| `LITELLM_MODEL`                         | Default model used for body fill (overridden by `--model`)                              |
+| `LITELLM_CONTENT_FILTER_FALLBACK_MODEL` | Model retried when the first refuses a page on a content filter (`--fallback-model`)    |
+| `POSTGRES_URL`                          | Postgres connection string for migrations and tests (defaults to local Compose service) |
+| `AZURE_OPENAI_ENDPOINT`                 | Endpoint for the optional secondary Azure AI Foundry OCR engine                         |
+| `AZURE_OPENAI_API_KEY`                  | API key for the optional Azure OCR engine                                               |
+| `LANGFUSE_PUBLIC_KEY`                   | Public key for optional Langfuse tracing                                                |
+| `LANGFUSE_SECRET_KEY`                   | Secret key for optional Langfuse tracing                                                |
 
 ## Jurisdictions
 

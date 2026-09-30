@@ -279,16 +279,155 @@ class _AlwaysFailingLLMClient:
         raise AssertionError("unused")
 
 
+_XA_TEXT = """\
+Coastal Lights Act, 2015
+
+PART I
+PRELIMINARY
+
+Section 1
+This Act may be cited as the Coastal Lights Act.
+
+Section 2
+In this Act "light" means a lighthouse, beacon or buoy.
+
+PART II
+THE KEEPER OF LIGHTS
+
+Section 3
+The Minister shall appoint a Keeper of Lights for a term of five years.
+
+Section 4
+A person who obscures a light without consent commits an offence.
+"""
+
+_XA_EIDS = ["part_I__sec_1", "part_I__sec_2", "part_II__sec_3", "part_II__sec_4"]
+
+
+class _EchoUnless:
+    """Writes one line per eId it is asked for, and fails any window whose source
+    carries ``refuse``, so a chosen provision can never be filled."""
+
+    _EID_RE = re.compile(r"eid=(\S+)")
+
+    def __init__(self, refuse: str | None = None) -> None:
+        self.refuse = refuse
+        self.prompts: list[str] = []
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        self.prompts.append(prompt)
+        if self.refuse and self.refuse in prompt:
+            raise RuntimeError("gateway said no")
+        eids = self._EID_RE.findall(prompt)
+        return schema(bodies=[BodyBlock(eid=e, lines=[f"Body of {e}."]) for e in eids])
+
+
 @pytest.mark.asyncio
-async def test_scaffolded_verbatim_fallback_when_llm_always_fails():
-    """When every LLM call fails (repetition loop unfixable by splitting), the
-    article bodies are spliced verbatim from source so nothing is left empty."""
+async def test_no_model_output_lands_blocking_with_the_source_text():
+    """Every call failed: the bodies are the source copied in, and the run says so
+    with a halt rather than reading as a structuring result."""
+    traces: list = []
     result = await text_to_bluebell_scaffolded(
-        _AL_TEXT, client=_AlwaysFailingLLMClient(), country="al", doctype="ligj"
+        _XA_TEXT,
+        client=_AlwaysFailingLLMClient(),
+        country="xa",
+        doctype="act",
+        on_scan=traces.append,
+        halt_policy="land",
     )
-    # Source body text is present despite the LLM never returning anything.
-    assert "Ky ligj rregullon veprimtarinë e organizatave." in result
-    assert "Ministria përgjegjëse është Ministria e Drejtësisë." in result
+    assert "The Minister shall appoint a Keeper of Lights" in result
+    assert len(traces) == 1, traces
+    fill = traces[0].body_fill
+    assert (fill.calls_failed == fill.calls, fill.model_filled, list(fill.verbatim)) == (
+        True,
+        0,
+        _XA_EIDS,
+    )
+    assert [h.gate for h in traces[0].halts] == ["body_fill_failed"]
+
+
+@pytest.mark.asyncio
+async def test_no_model_output_fails_the_run_under_the_fail_policy():
+    traces: list = []
+    with pytest.raises(BodyFillError, match="none wrote a body"):
+        await text_to_bluebell_scaffolded(
+            _XA_TEXT,
+            client=_AlwaysFailingLLMClient(),
+            country="xa",
+            doctype="act",
+            on_scan=traces.append,
+        )
+    # The trace still reaches the caller on the way out of the failure.
+    assert [t.body_fill.model_filled for t in traces] == [0]
+
+
+@pytest.mark.asyncio
+async def test_one_unfillable_provision_is_recorded_not_hidden():
+    traces: list = []
+    client = _EchoUnless(refuse="Keeper of Lights for a term")
+    result = await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=client, country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.expected, fill.model_filled, fill.verbatim, fill.empty) == (
+        4,
+        3,
+        ("part_II__sec_3",),
+        (),
+    )
+    assert fill.calls_failed > 0 and not traces[0].halts
+    assert "The Minister shall appoint a Keeper of Lights" in result
+
+
+@pytest.mark.asyncio
+async def test_a_complete_fill_records_every_body_as_the_model_s():
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_EchoUnless(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.expected, fill.model_filled, fill.calls_failed, fill.ratio) == (4, 4, 0, 1.0)
+
+
+@pytest.mark.asyncio
+async def test_an_unreadable_page_becomes_a_remark_where_it_stood():
+    """The marker never reaches the model, and the AKN keeps a visible remark in
+    the provision the lost page continued."""
+    from codify.pipeline.enrich.bluebell import parse_to_akn
+
+    text = _XA_TEXT.replace("\nPART II\n", "\n⟦page 2 unreadable⟧\n\nPART II\n")
+    client = _EchoUnless()
+    result = await text_to_bluebell_scaffolded(text, client=client, country="xa", doctype="act")
+
+    assert not [p for p in client.prompts if "unreadable" in p]
+    sec_2 = result.split("SECTION 2", 1)[1].split("PART II", 1)[0]
+    assert "{{*[Page 2 of the source could not be read]}}" in sec_2, result
+    akn = parse_to_akn(result, "xa", doctype="act", date="2015", number="9")
+    assert re.search(r"<remark[^>]*>\[Page 2 of the source could not be read\]</remark>", akn)
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_before_the_first_provision_opens_it():
+    text = _XA_TEXT.replace("PART I\n", "⟦page 1 unreadable⟧\n\nPART I\n", 1)
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    sec_1 = result.split("SECTION 1", 1)[1].split("SECTION 2", 1)[0]
+    assert sec_1.index("Page 1 of the source") < sec_1.index("Body of part_I__sec_1."), sec_1
+
+
+@pytest.mark.asyncio
+async def test_an_anchorless_document_keeps_the_remark_in_place():
+    text = "First paragraph of prose.\n\n⟦page 2 unreadable⟧\n\nLast paragraph of prose.\n"
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    first, remark, last = (
+        result.index("First paragraph"),
+        result.index("Page 2 of the source"),
+        result.index("Last paragraph"),
+    )
+    assert first < remark < last, result
 
 
 _PS_TATWEEL_BODY = """\

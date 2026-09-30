@@ -21,6 +21,9 @@ class PageExtracted(_EventBase):
     # Why the text layer was not trusted, for a page that went to OCR. Empty
     # when it was trusted, so a reader can tell a scan from a rejected extract.
     divert_reason: str = ""
+    # The vision route's finish reason, so a content-filter refusal is not read
+    # as a blank page. Empty where no vision call was made.
+    finish_reason: str = ""
 
 
 class MetadataExtracted(_EventBase):

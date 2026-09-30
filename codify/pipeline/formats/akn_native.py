@@ -122,7 +122,7 @@ async def ingest(
             yield ValidationIssued(issue={"deduped_eids": deduped})
 
         try:
-            for issue in validate_akn(xml):
+            for issue in validate_akn(xml, provenance="native"):
                 yield ValidationIssued(issue=issue)
         except Exception as exc:  # noqa: BLE001
             logger.warning("validator_failed", error=str(exc))

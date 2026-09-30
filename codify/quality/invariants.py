@@ -50,6 +50,10 @@ _REMEDIES = {
         "Landed rather than refused; the hidden provisions were never anchored, "
         "so the route is the source text and its unclosed quote, not the AKN."
     ),
+    "body_fill_failed": (
+        "Landed rather than refused; no model call wrote a body, so the route is "
+        "a re-run once the model answers, not repair."
+    ),
 }
 
 

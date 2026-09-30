@@ -222,7 +222,7 @@ def year_from_calendar(year: str | int, calendar: str, country: str = "") -> int
             return None
         try:
             return to_gregorian_year(year, country)
-        except (CalendarConversionError, LookupError):
+        except CalendarConversionError:
             return None
     try:
         n = _coerce_int(year)
@@ -454,7 +454,7 @@ def labelled_year_as_gregorian(
         month, day = month_day if month_day is not None else (None, None)
         try:
             return to_gregorian_year(token, country, month=month, day=day, month_grid="local")
-        except (CalendarConversionError, LookupError):
+        except CalendarConversionError:
             return None
     return year_from_calendar(token, label, country)
 

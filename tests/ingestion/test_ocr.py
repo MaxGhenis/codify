@@ -252,16 +252,14 @@ def test_both_combiners_agree_on_the_marker_and_span_it():
     assert [s.page for s in spans] == [1, 2]
 
 
-def test_the_marker_is_stripped_before_the_structurer():
-    """Provenance in the combined text, never provision text: the structurer
-    input carries the surrounding pages but not the marker."""
+def test_the_marker_reaches_the_structurer():
+    """The structurer lifts the marker into an editorial remark, so the region
+    filter must hand it over rather than strip it."""
     from codify.pipeline.enrich.region_text import combine_text_for_structure
 
     text = "First page.\n\n⟦page 2 unreadable⟧\n\nThird page."
-    structured = combine_text_for_structure(text, {})
 
-    assert "unreadable" not in structured
-    assert "First page." in structured and "Third page." in structured
+    assert combine_text_for_structure(text, {}) == text
 
 
 @pytest.mark.asyncio
@@ -1331,3 +1329,98 @@ class TestComposedRead:
         assert results[0].layout is not None
         assert results[1].layout is None
         assert results[1].text.startswith("المادة ١")
+
+
+def test_a_refused_page_is_unreadable_whatever_its_ink():
+    """A content-filter refusal says the page had text to refuse, so a low ink
+    reading does not turn it into a blank leaf."""
+    from codify.pipeline.enrich.ocr import unreadable_pages
+
+    pages = [
+        PageResult(page_number=1, text="First page.", method="text_extraction"),
+        PageResult(
+            page_number=2,
+            text="",
+            method="vision_ocr",
+            divert_reason="too_short",
+            ink=0.004,
+            finish_reason="content_filter: RECITATION",
+        ),
+        PageResult(
+            page_number=3, text="", method="vision_ocr", divert_reason="too_short", ink=0.004
+        ),
+        PageResult(page_number=4, text="", method="vision_ocr", divert_reason="too_short"),
+    ]
+    assert unreadable_pages(pages) == {2: "content_filter: RECITATION", 4: "empty_read"}
+    assert combine_page_texts(pages) == (
+        "First page.\n\n⟦page 2 unreadable⟧\n\n⟦page 4 unreadable⟧"
+    )
+
+
+def test_a_page_the_rival_recovered_is_not_unreadable():
+    from codify.pipeline.enrich.ocr import unreadable_pages
+
+    page = PageResult(
+        page_number=1,
+        text="from the rival",
+        method="mistral_ocr",
+        finish_reason="content_filter: RECITATION",
+    )
+    assert unreadable_pages([page]) == {}
+
+
+@pytest.mark.asyncio
+async def test_extraction_keeps_the_vision_finish_reason(monkeypatch) -> None:
+    """End to end through the fan-out: the reason the model gave rides the page."""
+    import codify.pipeline.enrich.ocr as ocr_mod
+    from codify.core.llm import VisionText
+    from codify.pipeline.enrich.ocr import unreadable_pages
+
+    class _Page:
+        def extract_text(self) -> str:
+            return ""
+
+    class _Reader:
+        def __init__(self, *_a: object, **_k: object) -> None:
+            self.pages = [_Page()]
+
+    async def _no_layout(*_a: object, **_k: object) -> tuple[dict, dict]:
+        return {}, {}
+
+    async def _refused(*_a: object, **_k: object) -> str:
+        return VisionText("", "content_filter: RECITATION")
+
+    async def _fake_window(_pdf: bytes, first: int, last: int, _dpi: int) -> dict[int, bytes]:
+        return {n: b"\x89PNG" for n in range(first, last + 1)}
+
+    monkeypatch.setattr(ocr_mod, "PdfReader", _Reader)
+    monkeypatch.setattr(ocr_mod, "_layout_pass", _no_layout)
+    monkeypatch.setattr(ocr_mod, "_ocr_page_with_context", _refused)
+    monkeypatch.setattr(ocr_mod, "_render_window", _fake_window)
+    monkeypatch.setattr(ocr_mod, "ink_ratio", lambda _b: 0.3)
+
+    pages = await extract_text_from_pdf(b"%PDF-fake", client=object())
+
+    assert [p.finish_reason for p in pages] == ["content_filter: RECITATION"]
+    assert unreadable_pages(pages) == {1: "content_filter: RECITATION"}
+
+
+@pytest.mark.asyncio
+async def test_the_page_reader_passes_the_finish_reason_through_cleaning() -> None:
+    from codify.core.llm import VisionText
+    from codify.pipeline.enrich import ocr
+
+    class _Client:
+        async def vision(self, **_k: object) -> str:
+            return VisionText("## Heading\nBody", "stop")
+
+    out = await ocr._ocr_page_with_context(
+        b"%PDF",
+        1,
+        1,
+        _Client(),
+        "",
+        image_bytes=b"\x89PNG",
+        render_if_missing=False,  # type: ignore[arg-type]
+    )
+    assert (getattr(out, "finish_reason", None), "Body" in out) == ("stop", True)

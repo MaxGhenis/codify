@@ -14,7 +14,15 @@ from functools import lru_cache
 from typing import Any, Literal, NamedTuple, cast
 
 import structlog
-from pydantic import BaseModel, ConfigDict, Field, computed_field, field_validator, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    ValidationError,
+    computed_field,
+    field_validator,
+    model_validator,
+)
 
 from codify.data_paths import data_dir
 
@@ -1370,6 +1378,11 @@ class JurisdictionDataMissing(JurisdictionConfigError):
     """The data is not in this tree at all, as opposed to being present and
     wrong. Only absence is a legitimate skip; a config that ships and
     contradicts itself is a defect wherever it is read."""
+
+
+# A config that is absent or does not validate. A caller tolerating its own
+# failures re-raises these first: a thinner result is not a fallback.
+CONFIG_FAULTS: tuple[type[Exception], ...] = (JurisdictionConfigError, ValidationError)
 
 
 def load_config(country_code: str) -> JurisdictionConfig:

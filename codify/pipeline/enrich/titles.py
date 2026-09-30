@@ -9,14 +9,10 @@ from __future__ import annotations
 import re
 from collections.abc import Iterable
 
-import structlog
 from lxml import etree
-from pydantic import ValidationError
 
 from codify.akn._schema import parse_xml
-from codify.jurisdictions import try_load_config
-
-logger = structlog.get_logger()
+from codify.jurisdictions import load_config
 
 # The closer is paired to the opener that actually matched. Scanning a set of
 # closers instead truncates any unquoted name at its first apostrophe, which
@@ -84,12 +80,8 @@ def _citation_pattern(country: str) -> re.Pattern[str] | None:
     """Declared lead-ins for this jurisdiction's short-title clause."""
     if not country:
         return None
-    try:
-        config = try_load_config(country)
-    except (ValidationError, OSError, ValueError):
-        logger.error("jurisdiction_config_unreadable", country=country, exc_info=True)
-        return None
-    structuring = config.structuring if config else None
+    config = load_config(country)
+    structuring = config.structuring
     leads = [lead for lead in (structuring.citation_lead_ins if structuring else []) if lead]
     subjects = [s for s in (structuring.citation_subjects if structuring else []) if s]
     # Anchored on the instrument or not at all. The same phrasing names the
@@ -111,12 +103,8 @@ def _citation_pattern(country: str) -> re.Pattern[str] | None:
 def _designation_rule(country: str) -> str | None:
     if not country:
         return None
-    try:
-        config = try_load_config(country)
-    except (ValidationError, OSError, ValueError):
-        logger.error("jurisdiction_config_unreadable", country=country, exc_info=True)
-        return None
-    structuring = config.structuring if config else None
+    config = load_config(country)
+    structuring = config.structuring
     return structuring.designation_rule if structuring else None
 
 
@@ -212,12 +200,8 @@ def long_title_lead_ins(country: str) -> tuple[str, ...]:
     """Declared openings of a document's own long title, e.g. `An Act`."""
     if not country:
         return ()
-    try:
-        config = try_load_config(country)
-    except (ValidationError, OSError, ValueError):
-        logger.error("jurisdiction_config_unreadable", country=country, exc_info=True)
-        return ()
-    structuring = config.structuring if config else None
+    config = load_config(country)
+    structuring = config.structuring
     return tuple(lead for lead in (structuring.long_title_lead_ins if structuring else []) if lead)
 
 

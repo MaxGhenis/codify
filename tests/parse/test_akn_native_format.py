@@ -346,3 +346,41 @@ def test_canonicalisation_leaves_component_identifications_alone() -> None:
     nested = root.find(".//{*}attachment//{*}identification/{*}FRBRWork")
     assert nested.find("{*}FRBRthis").get("value") == "http://x/id/xpa/2018/12/!schedule_1"
     assert nested.find("{*}FRBRuri").get("value") == "http://x/id/xpa/2018/12"
+
+
+_OLD_NATIVE = """<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+ <act>
+  <meta><identification source="#src"><FRBRWork>
+    <FRBRthis value="/akn/xz/act/1766/4/!main"/>
+    <FRBRuri value="/akn/xz/act/1766/4"/>
+    <FRBRdate date="1766-03-18" name="enacted"/>
+  </FRBRWork>
+  <FRBRExpression>
+    <FRBRthis value="/akn/xz/act/1766/4/eng@1766-03-18/!main"/>
+    <FRBRuri value="/akn/xz/act/1766/4/eng@1766-03-18"/>
+    <FRBRdate date="1766-03-18" name="enacted"/>
+    <FRBRlanguage language="eng"/>
+  </FRBRExpression></identification></meta>
+  <body>
+    <section eId="section-3"><num>3</num><content><p>Three.</p></content></section>
+    <section eId="section-4"><num>4</num><content><p>Four.</p></content></section>
+  </body>
+ </act>
+</akomaNtoso>"""
+
+
+async def test_a_publisher_s_old_act_does_not_grade_as_a_misparse(tmp_path: Path) -> None:
+    """A statute book's own markup holds acts from before 1800 and excerpts that
+    start mid-sequence; neither is a reading error to grade against."""
+    from codify.pipeline.enrich.validator import validate_akn
+    from codify.pipeline.events import ValidationIssued
+    from codify.pipeline.formats.akn_native import ingest
+
+    src = tmp_path / "old.akn"
+    src.write_text(_OLD_NATIVE, encoding="utf-8")
+    checks = [
+        e.issue.get("check") async for e in ingest(src, "xz") if isinstance(e, ValidationIssued)
+    ]
+    assert not [c for c in checks if c and c.startswith(("identity_", "number_gap"))], checks
+    # The same document read without its provenance is still flagged.
+    assert "identity_year_implausible" in {i["check"] for i in validate_akn(_OLD_NATIVE)}

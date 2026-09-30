@@ -883,7 +883,7 @@ def test_the_cpu_bound_passes_run_on_the_pipeline_pool(
     # reads the file, sniffs the format and derives the URI, since each of those
     # touches the whole document and would otherwise run on the loop first.
     assert "formex_conversion" in dispatched, dispatched
-    assert "validate_akn" in dispatched, dispatched
+    assert "_validate_native" in dispatched, dispatched
     # Dispatch alone cannot see where the work lands: only the thread name
     # distinguishes this pool from the shared default executor, and only the
     # thread distinguishes reading and sniffing inside the callable from before it.

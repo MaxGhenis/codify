@@ -19,7 +19,7 @@ from codify.core.tracing import (
     get_current_session,
     langfuse_trace_context,
 )
-from codify.jurisdictions import try_load_config
+from codify.jurisdictions import CONFIG_FAULTS, try_load_config
 from codify.pipeline.enrich.bluebell import parse_to_akn
 from codify.pipeline.enrich.cover_reconciliation import extract_cover_article_numbers
 from codify.pipeline.enrich.metadata import calendar_hint, extract_metadata
@@ -28,6 +28,7 @@ from codify.pipeline.enrich.ocr import (
     combine_page_texts_with_spans,
     extract_text_from_pdf,
     furniture_inline_patterns,
+    unreadable_pages,
 )
 from codify.pipeline.enrich.region_text import combine_text_for_structure
 from codify.pipeline.enrich.regions import (
@@ -70,6 +71,7 @@ class _ScanCollector:
         self.orphaned_drops: list[dict[str, Any]] = []
         self.container: dict[str, Any] | None = None
         self.halts: list[dict[str, Any]] = []
+        self.body_fill: dict[str, Any] | None = None
 
     def __call__(self, trace: ScanTrace) -> None:
         self.orphaned_drops.extend(
@@ -79,6 +81,8 @@ class _ScanCollector:
         )
         self.container = trace.container
         self.halts.extend(asdict(h) for h in trace.halts)
+        if trace.body_fill is not None:
+            self.body_fill = asdict(trace.body_fill)
         if self._forward is not None:
             self._forward(trace)
 
@@ -140,6 +144,7 @@ async def ingest(
                 method="ocr" if page.method != "text_extraction" else "text",
                 text_len=len(page.text),
                 divert_reason=page.divert_reason,
+                finish_reason=page.finish_reason,
             )
         if on_pages:
             on_pages(pages)
@@ -259,6 +264,9 @@ async def _ingest_pages(
     # born-digital / vision route, where structure_text falls back to raw_text.
     try:
         regions = _regions_from_pages(pages, jurisdiction_code, desc.year)
+    except CONFIG_FAULTS as exc:
+        yield Failed(stage="regions", error=f"{type(exc).__name__}: {exc}")
+        return
     except Exception as exc:  # noqa: BLE001
         logger.warning("regions_unavailable", error=str(exc))
         regions = {}
@@ -364,6 +372,9 @@ async def _ingest_pages(
                 source_text=raw_text,
                 orphaned_drops=scan.orphaned_drops or None,
                 container_coverage=scan.container or None,
+                provenance="extracted",
+                unreadable_pages=unreadable_pages(pages) or None,
+                body_fill=scan.body_fill,
             ):
                 yield ValidationIssued(issue=issue)
             yield Enriched(pass_name="validator")  # noqa: S106
