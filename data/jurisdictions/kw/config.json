@@ -1,0 +1,368 @@
+{
+  "code": "kw",
+  "name": "State of Kuwait",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (قانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab/Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_ordinal",
+          "note": "Used only in major codes (Civil Code, Commercial Code). الكتاب الأول, الكتاب الثاني."
+        },
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal",
+          "note": "Primary structural grouping in all laws of moderate length. الباب الأول, الباب الثاني. May appear at top level or within a Book."
+        },
+        {
+          "local_term": "فصل (Fasl/Division)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "Higher division ABOVE the article — not the basic unit. Bluebell workaround: use DIVISION keyword; post-process <division> → <section> in output XML. الفصل الأول, الفصل الثاني."
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "THE basic citable unit of all Kuwaiti legislation. Numbered continuously throughout the entire law regardless of Book/Chapter/Division boundaries. مادة 1, مادة 2. Insertion: مكرراً (bis) suffix → art_5bis."
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled",
+          "note": "Unlabelled paragraph breaks within an article (cited positionally), or labelled with أولاً/ثانياً (ordinals) or (أ)/(ب)/(ج) (Arabic letters). Some modern laws use (1)/(2)/(3)."
+        },
+        {
+          "local_term": "بند (Band/Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha",
+          "note": "Numbered list items within a paragraph: (1)،(2)،(3) or (أ)،(ب)،(ج). Normalise Arabic letters to Latin for eIds: أ→a, ب→b, ج→c, etc."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "proviso",
+          "note": "Conditional proviso appended to an article with independent legal effect. Rare in civil law tradition but occasionally found in Sharia-influenced personal status provisions.",
+          "local_term": "مع مراعاة"
+        }
+      ]
+    },
+    "decree_law": {
+      "label": "Decree-Law (مرسوم بقانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl/Division)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Amiri Decree-Laws issued under Constitution Art. 71 when National Assembly is not in session. Structurally identical to ordinary laws. Distinguished by enacting formula (Amiri rather than parliamentary). Must be presented to Assembly at its next session. FRBR subtype: decree-law."
+    },
+    "emiri_decree": {
+      "label": "Emiri Decree (مرسوم أميري)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive decrees issued by the Amir for administrative matters (appointments, organisation of ministries, etc.). Typically short (5-20 articles). Does not require National Assembly approval. FRBR subtype: emiri-decree."
+    },
+    "ministerial_decision": {
+      "label": "Ministerial Decision (قرار وزاري)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subsidiary legislation issued by a minister to implement a parent law. Published in Al-Kuwait Al-Yawm. Short title typically identifies the parent law: 'Ministerial Decision No. X of YYYY Regarding the Implementing Regulations of Law No. Y of YYYY'. FRBR subtype: ministerial-decision."
+    },
+    "constitution": {
+      "label": "Constitution (الدستور)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal",
+          "note": "The 1962 Constitution has 5 Chapters (Abwab): State and System of Government; Basic Constituents of Kuwaiti Society; Public Rights and Duties; Legislative Power; Executive Power; Judicial Power; General and Transitional Provisions."
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Articles 1-183 (1962 Constitution as amended). Continuous numbering throughout."
+        }
+      ],
+      "hcontainers": [],
+      "note": "The Constitution of the State of Kuwait, promulgated 11 November 1962. Amended by Decree-Law No. 1 of 1963. Still in force. Fasl is not used in the Constitution — only Bab > Article."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "kw",
+    "uri_patterns": {
+      "act": "/akn/kw/act/{year}/{number}",
+      "decree_law": "/akn/kw/act/decree-law/{year}/{number}",
+      "emiri_decree": "/akn/kw/act/emiri-decree/{year}/{number}",
+      "ministerial_decision": "/akn/kw/act/ministerial-decision/{year}/{number}",
+      "bill": "/akn/kw/bill/{year}/{slug}",
+      "constitution": "/akn/kw/act/constitution/1962/constitution"
+    },
+    "date_calendar": "gregorian",
+    "note": "Kuwait uses Gregorian dates in all official legal publications. Hijri dates may appear alongside Gregorian in prefaces as a cultural convention but are not the official date for URI construction. Law number and year taken directly from the citation قانون رقم [N] لسنة [YYYY]. Arabic-script numerals (٠-٩) in scanned PDFs must be normalised to Western Arabic (0-9) for URI construction."
+  },
+  "numbering": {
+    "act_citation": "قانون رقم {number} لسنة {year}",
+    "act_citation_latin": "Law No. {number} of {year}",
+    "article_basic_unit": "مادة",
+    "article_basic_unit_latin": "Maddah",
+    "insertion_style": "bis_suffix",
+    "insertion_arabic": "مكرراً",
+    "insertion_latin": "bis",
+    "insertion_example": "مادة 5 مكرراً → art_5bis",
+    "article_numbering": "continuous_throughout_law",
+    "paragraph_label_normalisation": {
+      "أ": "a",
+      "ب": "b",
+      "ج": "c",
+      "د": "d",
+      "هـ": "e",
+      "و": "f",
+      "ز": "g",
+      "ح": "h",
+      "ط": "i",
+      "ي": "j",
+      "أولاً": "1",
+      "ثانياً": "2",
+      "ثالثاً": "3",
+      "رابعاً": "4",
+      "خامساً": "5",
+      "سادساً": "6",
+      "سابعاً": "7",
+      "ثامناً": "8",
+      "تاسعاً": "9"
+    }
+  },
+  "enacting_formulae": [
+    {
+      "arabic": "بسم الله الرحمن الرحيم\nباسم الشعب\nأصدر مجلس الأمة القانون الآتي نصه، وقد صدّقنا عليه وأصدرناه",
+      "transliteration": "Bismi Allahi Al-Rahmani Al-Raheem / Bism Al-Sha'b / Asdar Majlis Al-Umma Al-Qanun Al-Ati Nassuh, wa qad saddaqna alayhi wa asdaranah",
+      "translation": "In the name of God, the Most Gracious, the Most Merciful. In the name of the People. The National Assembly has enacted the following law, and We have ratified and promulgated it.",
+      "position": "preamble",
+      "era": "parliamentary_law",
+      "from": "1962-11-11",
+      "enacting_body_tlc": "nationalAssembly"
+    },
+    {
+      "arabic": "بسم الله الرحمن الرحيم\nنحن [اسم الأمير]، أمير دولة الكويت\nبعد الاطلاع على الدستور ... أصدرنا المرسوم الآتي",
+      "translation": "In the name of God, the Most Gracious, the Most Merciful. We, [Amir's name], Amir of the State of Kuwait, having reviewed the Constitution... have issued the following decree:",
+      "position": "preamble",
+      "era": "decree_law",
+      "enacting_body_tlc": "amir",
+      "note": "Used for مراسيم بقوانين (Decree-Laws) issued when Assembly is not in session per Constitution Art. 71, and for مراسيم أميرية (Emiri Decrees). The preamble typically recites the constitutional provisions consulted."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "تستبدل بالمادة [X] من القانون رقم [Y] لسنة [YYYY] النص الآتي:",
+    "phrasing_substitution_latin": "The following text shall replace Article X of Law No. Y of YYYY:",
+    "phrasing_addition": "يضاف إلى القانون رقم [Y] لسنة [YYYY] مادة جديدة برقم [X مكرراً] نصها الآتي:",
+    "phrasing_repeal": "تُلغى المادة [X] من القانون رقم [Y] لسنة [YYYY]",
+    "cross_reference_format": "law_number_and_year",
+    "cross_reference_example": "القانون رقم 67 لسنة 1980"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kw/national-assembly",
+      "showAs": "National Assembly of Kuwait"
+    },
+    {
+      "eId": "amir",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/amir",
+      "showAs": "Amir of the State of Kuwait"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kw/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/speaker",
+      "showAs": "Speaker of the National Assembly"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kw/constitutional-court",
+      "showAs": "Constitutional Court"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kw/al-kuwait-al-yawm",
+      "showAs": "Al-Kuwait Al-Yawm (Kuwait Official Gazette)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Kuwaiti legislation uses ARTICLE (مادة/Maddah) as basic unit — never SECTION. Hierarchy for major codes: BOOK > CHAPTER > [DIVISION for فصل] > ARTICLE. Ordinary laws: [CHAPTER >] [DIVISION >] ARTICLE. Short laws: ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة and POINT for بند. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, CHAPTER, DIVISION, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic numerals ٠-٩ should be normalised to 0-9 in structural position markers. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis. Arabic letter labels (أ،ب،ج) in paragraphs/points → (a),(b),(c). Ordinal paragraph labels (أولاً، ثانياً) → PARAGRAPH 1, PARAGRAPH 2. The Basmalah (بسم الله الرحمن الرحيم) opens nearly all documents — treat as preamble intro, not enacted text. RTL Arabic script throughout."
+  },
+  "supranational_memberships": [
+    {
+      "body": "gcc",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Founding GCC member (1981). GCC Unified Laws (trademark, patent, customs, arbitration) implemented by Kuwait through domestic legislation — no direct effect. GCC instruments cross-referenced in metadata via proposed /akn/gcc/ URI scheme."
+    },
+    {
+      "body": "arab-league",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "direct_effect_exceptions": [
+        "Security Council Chapter VII resolutions — binding"
+      ],
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "natural",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif",
+    "note": "Arabic RTL display. Article numbers appear in Arabic text as 'مادة 5' or 'المادة الخامسة' (ordinal form); pipeline normalises to Western Arabic for eIds. Review UI must support RTL text direction (direction: rtl; unicode-bidi: embed). Bab/Fasl headings are styled as titled headings (not marginal notes)."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

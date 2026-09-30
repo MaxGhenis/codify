@@ -1,0 +1,421 @@
+{
+  "code": "at",
+  "name": "Austria",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "deu"
+  ],
+  "authoritative_language": "deu",
+  "document_classes": {
+    "act": {
+      "label": "Bundesgesetz",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Teil",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_german",
+          "note": "Highest division in large codes (e.g. ABGB). Erster/Zweiter/Dritter Teil → 1/2/3."
+        },
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_period",
+          "note": "Standard higher division in Bundesgesetze. '1. Hauptstück', '2. Hauptstück'."
+        },
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_period",
+          "note": "Grouping level within Hauptstück. NOT the basic unit. '1. Abschnitt', '2. Abschnitt'."
+        },
+        {
+          "local_term": "§ (Paragraph)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Fundamental citable unit. Symbol § precedes number. Continuous throughout law."
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "Subsection below §. Cited as 'Abs. 1', 'Abs. 2'. Displayed as (1), (2)."
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period",
+          "note": "Numbered point within Absatz. '1.', '2.'. Cited as 'Z 1', 'Z 2'."
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized",
+          "note": "Lettered point within Ziffer. 'a)', 'b)'. Cited as 'lit. a', 'lit. b'."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "subliteral",
+          "description": "Sub-Litera subdivision (rare)",
+          "bluebell_note": "No Bluebell keyword; requires post-processing",
+          "local_term": "Subliteral"
+        }
+      ]
+    },
+    "bvg": {
+      "label": "Bundesverfassungsgesetz",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_alpha",
+          "note": "B-VG uses Roman or letter-prefixed Hauptstücke (e.g. 'A. Allgemeine Bestimmungen', 'I.')"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Basic unit in constitutional laws. 'Art. 1', 'Art. 2'. Same AKN element as § in ordinary laws."
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitutional laws use Artikel as basic unit instead of §. Same hierarchy above and below. B-VG itself uses /akn/at/act/constitution/1920/bvg URI."
+    },
+    "vo": {
+      "label": "Verordnung",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "§ (Paragraph)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Verordnungen use § as basic unit, same as Bundesgesetze. No higher divisions in most short ordinances."
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "BGBl. II ordinances. Enable formula cites the parent Bundesgesetz § that grants ministerial authority."
+    },
+    "sv": {
+      "label": "Staatsvertrag",
+      "akn_element": "act",
+      "bluebell_compatible": false,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "International treaties use Artikel as basic unit. Published BGBl. III (post-1997) or undivided BGBl (pre-1997)."
+        }
+      ],
+      "hcontainers": [],
+      "note": "BGBl. III state treaties. Bluebell not compatible for full treaty structure (multi-language, international format). Requires custom pipeline handling."
+    },
+    "constitution": {
+      "label": "Bundes-Verfassungsgesetz (B-VG)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "B-VG Hauptstücke labelled with Roman numerals or letters (A., B., etc.)"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The B-VG is a special document: enacted 1920, amended 1929, republished BGBl. 1/1930, reinstated 1945. FRBR URI anchored to 1920 enactment year."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "at",
+    "uri_patterns": {
+      "act": "/akn/at/act/{year}/{number}",
+      "bvg": "/akn/at/act/bvg/{year}/{number}",
+      "vo": "/akn/at/act/vo/{year}/{number}",
+      "sv": "/akn/at/act/sv/{year}/{number}",
+      "bill": "/akn/at/bill/{year}/{number}",
+      "constitution": "/akn/at/act/constitution/1920/bvg"
+    },
+    "date_calendar": "gregorian",
+    "bgbl_note": "BGBl citation format is Nr./year (number-then-year). BGBl. I Nr. 165/1999 → year=1999, number=165. Pre-1997 undivided: BGBl. 210/1958 → year=1958, number=210."
+  },
+  "numbering": {
+    "act_citation_post1997": "BGBl. I Nr. {number}/{year}",
+    "act_citation_pre1997": "BGBl. {number}/{year}",
+    "vo_citation": "BGBl. II Nr. {number}/{year}",
+    "sv_citation": "BGBl. III Nr. {number}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "§ 14a, § 14b, § 22a"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Der Nationalrat hat beschlossen:",
+      "position": "preamble",
+      "document_class": "act",
+      "era": "second-republic",
+      "from": "1945-04-27"
+    },
+    {
+      "text": "Auf Grund des § {N} des {Stammgesetz}, BGBl. {citation}, wird verordnet:",
+      "position": "preamble",
+      "document_class": "vo",
+      "era": "second-republic",
+      "from": "1945-04-27",
+      "note": "Enabling provision citation precedes body. Specific § varies per ordinance."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_replacement": "§ {N} {lautet|erhält folgende Fassung}:",
+    "phrasing_deletion": "§ {N} {entfällt|wird aufgehoben}.",
+    "phrasing_insertion": "Nach § {N} wird folgender § {Na} eingefügt:",
+    "phrasing_inline": "In § {N} Abs. {N} {Z N} wird das Wort '{old}' durch das Wort '{new}' ersetzt.",
+    "cross_reference_format": "short_title_and_bgbl",
+    "cross_reference_example": "das Datenschutzgesetz (DSG), BGBl. I Nr. 165/1999",
+    "consolidation": "RIS 'Bundesrecht konsolidiert' — informational only; authentic text is BGBl."
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/nationalrat",
+      "showAs": "Nationalrat"
+    },
+    {
+      "eId": "bundesrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/bundesrat",
+      "showAs": "Bundesrat"
+    },
+    {
+      "eId": "parlament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/parlament",
+      "showAs": "Parlament Österreich"
+    },
+    {
+      "eId": "bundespraesident",
+      "class": "TLCRole",
+      "href": "/ontology/role/at/bundespraesident",
+      "showAs": "Bundespräsident"
+    },
+    {
+      "eId": "bundeskanzler",
+      "class": "TLCRole",
+      "href": "/ontology/role/at/bundeskanzler",
+      "showAs": "Bundeskanzler"
+    },
+    {
+      "eId": "bundesminister",
+      "class": "TLCRole",
+      "href": "/ontology/role/at/bundesminister",
+      "showAs": "Bundesminister"
+    },
+    {
+      "eId": "vfgh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/vfgh",
+      "showAs": "Verfassungsgerichtshof"
+    },
+    {
+      "eId": "vwgh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/vwgh",
+      "showAs": "Verwaltungsgerichtshof"
+    },
+    {
+      "eId": "ogh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/ogh",
+      "showAs": "Oberster Gerichtshof"
+    },
+    {
+      "eId": "bgbl",
+      "class": "TLCObject",
+      "href": "/ontology/obj/at/bgbl",
+      "showAs": "Bundesgesetzblatt"
+    },
+    {
+      "eId": "bundeskanzleramt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/bundeskanzleramt",
+      "showAs": "Bundeskanzleramt"
+    },
+    {
+      "eId": "oesterreich",
+      "class": "TLCLocation",
+      "href": "/ontology/place/at",
+      "showAs": "Österreich"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_file": "structure_at.txt",
+    "prompt_additions": "Austrian civil law: § (Paragraph) is the basic unit mapped to ARTICLE in Bluebell. Hauptstück maps to CHAPTER. Abschnitt maps to SECTION (higher division, not basic unit). Absatz maps to PARAGRAPH. Ziffer maps to POINT. Litera maps to INDENT. Constitutional laws use Artikel instead of §, same Bluebell mapping."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "direct_effect": "direct",
+      "member_since": "1995-01-01",
+      "superseded_subjects": [
+        "customs_union",
+        "competition",
+        "data_protection_gdpr",
+        "financial_services",
+        "environmental_standards"
+      ],
+      "note": "EU Regulations apply directly. Directives require transposition via Bundesgesetz."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "member_since": "1956-04-16",
+      "superseded_subjects": [],
+      "note": "ECHR has constitutional rank in Austria (BGBl. 59/1964). ECtHR judgments are binding."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "basic_unit_symbol": "§",
+    "constitutional_basic_unit_symbol": "Art.",
+    "note": "Austrian legislative text uses § symbol for paragraph citations. Headings appear inline after the § number on RIS, not as marginal notes. DSG-style heading format: '§ 4. Anwendungsbereich und Durchführungsbestimmung'."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

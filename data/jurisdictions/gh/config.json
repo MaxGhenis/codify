@@ -1,0 +1,340 @@
+{
+  "code": "gh",
+  "name": "Ghana",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "alpha_upper",
+          "note": "Some Acts use 'Division' at this level; map to chapter"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "act_chapter": {
+      "label": "Act of Parliament (Chapter-based, complex legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word",
+          "note": "Companies Act 2019 uses CHAPTER ONE, CHAPTER TWO; map ordinal words to arabic for eId"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "alpha_upper",
+          "note": "Parts (A, B, C) appear within Chapters in complex acts"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Used for complex codifying acts (Companies Act 2019, etc.) that use Chapter > Part > Section. Chapters use ordinal word numbering (ONE, TWO) which must be normalised to arabic for eIds."
+    },
+    "li": {
+      "label": "Legislative Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "LIs use 'regulation' as basic unit term; maps to AKN section. Numbered sequentially as L.I. NNNN."
+    },
+    "ci": {
+      "label": "Constitutional Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "CIs are made under powers conferred by the Constitution. Numbered sequentially as C.I. NN."
+    },
+    "ei": {
+      "label": "Executive Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Paragraph",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "EIs are of executive (non-legislative) character per Interpretation Act 2009. Numbered as E.I. NN. Not subsidiary legislation per strict classification but included for completeness."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "1992 Constitution has 26 Chapters with Articles as the basic unit. Articles are cited as 'Article 106' not 'section 106'. Map Article -> section in AKN for structural purposes; display layer renders as 'Article'."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "gh",
+    "uri_patterns": {
+      "act": "/akn/gh/act/{year}/{number}",
+      "li": "/akn/gh/act/li/{year}/{number}",
+      "ci": "/akn/gh/act/ci/{year}/{number}",
+      "ei": "/akn/gh/act/ei/{year}/{number}",
+      "bill": "/akn/gh/bill/{year}/{number}",
+      "constitution": "/akn/gh/act/{year}/constitution"
+    },
+    "notes": "Acts use a single continuous sequential numbering run since First Republic (1960). Act 720 is the 720th act since 1960, not the 720th act of 2006. LIs use L.I. NNNN sequential numbers; CIs use C.I. NN sequential numbers; EIs use E.I. NN sequential numbers. GhaLII uses /akn/gh/act/li/, /akn/gh/act/ci/ subtypes confirmed.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act {number}",
+    "act_citation_alt": "Act {number} of {year}",
+    "act_citation_with_year": "{short_title}, {year} (Act {number})",
+    "li_citation": "L.I. {number}",
+    "ci_citation": "C.I. {number}",
+    "ei_citation": "E.I. {number}",
+    "insertion_style": "alphanumeric",
+    "note": "Act numbers are continuous across all years since 1960 — the year in the citation is the enactment year, not the number's year. E.g., 'Whistleblower Act, 2006 (Act 720)' = the 720th act since 1960, enacted in 2006."
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by Parliament as follows:",
+      "position": "preamble",
+      "era": "republic",
+      "note": "Standard formula for all Acts of the Republic of Ghana since 1960. Parliament acts alone — no reference to a head of state in the enacting formula."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by the deletion of... and the insertion of...",
+    "phrasing_alt": "is amended by the substitution of...",
+    "cross_reference_format": "short_title_and_act_number",
+    "note": "Amendment acts cite the principal enactment by short title and act number, e.g., 'the Public Procurement Act, 2003 (Act 663) referred to in this Act as the principal enactment'. Deletions and insertions are described textually (Commonwealth-style) rather than by setting out full replacement text."
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gh/parliament",
+      "showAs": "Parliament of Ghana"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/gh/president",
+      "showAs": "President of the Republic of Ghana"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/gh/speaker",
+      "showAs": "Speaker of Parliament"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/gh/attorney-general",
+      "showAs": "Attorney-General"
+    },
+    {
+      "eId": "nationalHouseOfChiefs",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gh/national-house-of-chiefs",
+      "showAs": "National House of Chiefs"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/gh/ghana-gazette",
+      "showAs": "Ghana Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Ghana Acts use continuous arabic section numbering that does not restart per Part. Complex codifying acts (e.g., Companies Act) may use Chapter > Part > Section with chapters named by ordinal words (CHAPTER ONE). Sections are always cited as 'section N', never 'article N', except in the Constitution where 'Article N' is used."
+  },
+  "supranational_memberships": [
+    {
+      "body": "ecowas",
+      "direct_effect": "direct",
+      "note": "Ghana is a founding ECOWAS member. ECOWAS Community Acts (Supplementary Acts) have direct effect in member states. GhaLII also covers ECOWAS legislation.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

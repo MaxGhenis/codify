@@ -1,0 +1,259 @@
+{
+  "code": "et",
+  "name": "Ethiopia",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "ethiopian",
+  "languages": [
+    "amh",
+    "eng"
+  ],
+  "authoritative_language": "amh",
+  "document_classes": {
+    "act": {
+      "label": "Proclamation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-Article",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph (lettered)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "regulation": {
+      "label": "Council of Ministers Regulation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-Article",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph (lettered)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Same hierarchy as proclamations"
+    },
+    "constitution": {
+      "label": "Constitution of the FDRE",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-Article",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph (lettered)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "11 chapters, no Parts"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "et",
+    "uri_patterns": {
+      "act": "/akn/et/act/{year}/{number}",
+      "regulation": "/akn/et/act/regulation/{year}/{number}",
+      "directive": "/akn/et/act/directive/{year}/{number}",
+      "constitution": "/akn/et/act/constitution/1995/1",
+      "bill": "/akn/et/bill/{year}/{number}",
+      "regional_act": "/akn/et-{region}/act/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Gregorian year used in FRBR URIs for international interoperability. Ethiopian calendar date stored as FRBRalias.",
+    "calendar_conversion": {
+      "kind": "ethiopian",
+      "note": "Ethiopian calendar. ~7-8 years behind Gregorian; 13 months (12 × 30 days + Pagumē). New Year falls ~11 September. Conversion is non-trivial. FRBR URIs use Gregorian."
+    }
+  },
+  "numbering": {
+    "act_citation": "Proclamation No. {number}/{year}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "NOW, THEREFORE, in accordance with Article 55(1) of the Constitution of the Federal Democratic Republic of Ethiopia, it is hereby proclaimed as follows:",
+      "position": "preamble",
+      "era": "fdre",
+      "from": "1995-08-21"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil",
+    "phrasing": "Article X of Proclamation No. Y/Z is hereby amended as follows:",
+    "cross_reference_format": "short_title_and_proclamation_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "hpr",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/et/house-of-peoples-representatives",
+      "showAs": "House of Peoples' Representatives"
+    },
+    {
+      "eId": "hof",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/et/house-of-federation",
+      "showAs": "House of Federation"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/et/president",
+      "showAs": "President"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/et/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/et/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "negaritGazeta",
+      "class": "TLCObject",
+      "href": "/ontology/obj/et/negarit-gazeta",
+      "showAs": "Federal Negarit Gazeta"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": "structure_civil.txt",
+    "prompt_additions": "Ethiopia uses ARTICLE as basic unit. Sub-Article (1), (2) maps to PARAGRAPH. Lettered items (a), (b) map to POINT. WHEREAS preamble clauses precede the enacting formula. Parts use ordinal English words: PART ONE, PART TWO. Ethiopian calendar year differs from Gregorian by 7-8 years."
+  },
+  "supranational_memberships": [
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "centered",
+    "heading_case": "upper_case",
+    "script": "ethiopic",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

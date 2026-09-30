@@ -1,0 +1,392 @@
+{
+  "code": "ma",
+  "name": "Morocco",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "dual",
+  "frbr_calendar": "gregorian",
+  "languages": [
+    "ara",
+    "fra",
+    "zgh"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "loi": {
+      "label": "Loi",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman",
+          "note": "Higher division above articles — NOT the basic unit (French civil law convention)"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa (numbered)",
+          "akn_element": "subsection",
+          "eid_abbrev": "al",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "note": "Used when alinéas are explicitly numbered. Unnumbered alinéas use <alinea> element (no Bluebell keyword — requires post-processing)."
+        },
+        {
+          "local_term": "Paragraphe",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "proviso",
+          "note": "Reservations within articles — use <hcontainer name='proviso'>",
+          "local_term": "Proviso"
+        }
+      ]
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa (numbered)",
+          "akn_element": "subsection",
+          "eid_abbrev": "al",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraphe",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "dahir": {
+      "label": "Dahir",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Standalone dahirs (no accompanying loi). Dahirs that promulgate a loi are modelled under the loi document class, with the dahir preamble as <preamble>."
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive decrees (Décrets) issued by the Chef du Gouvernement. Numbered 2-YY-NNN."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution du Maroc 2011. Titles group articles directly."
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "ma",
+    "uri_patterns": {
+      "loi": "/akn/ma/act/{year}/{law-number}",
+      "loi_organique": "/akn/ma/act/organic/{year}/{law-number}",
+      "dahir": "/akn/ma/act/dahir/{year}/{dahir-number}",
+      "decret": "/akn/ma/act/decree/{year}/{decree-number}",
+      "bill": "/akn/ma/bill/{year}/{law-number}",
+      "constitution": "/akn/ma/act/constitution/2011/constitution"
+    },
+    "date_calendar": "gregorian",
+    "alias_calendar": "hijri",
+    "notes": [
+      "Law number segment is the YY-NNN portion of the official Loi n° YY-NNN identifier (hyphens retained).",
+      "Dahir number segment drops the leading '1-' category prefix (e.g., Dahir n° 1-11-91 → URI segment '11-91').",
+      "Decree number segment drops the leading '2-' category prefix.",
+      "Hijri date stored as <FRBRalias showAs='hijriDate'> in document metadata.",
+      "Bilingual documents: Arabic expression /ara@{date}, French expression /fra@{date}. Both are authoritative originals; Arabic is constitutionally prevailing.",
+      "Inserted articles: bis/ter/quater suffix convention (e.g., art_4bis, art_4ter) or hyphenated decimal (art_4-1)."
+    ]
+  },
+  "numbering": {
+    "law_citation": "Loi n° {law-number}",
+    "organic_citation": "Loi organique n° {law-number}",
+    "dahir_citation": "Dahir n° 1-{dahir-number}",
+    "decree_citation": "Décret n° 2-{decree-number}",
+    "insertion_style": "bis_ter",
+    "insertion_alt": "hyphenated_decimal",
+    "note": "Two-digit year in law numbers refers to legislative session year, not calendar year of promulgation. Disambiguation: if number portion >99, it is the sequential number not the year."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Le Parlement a adopté et délibéré ce qui suit :",
+      "position": "preamble",
+      "type": "parliamentary",
+      "language": "fra"
+    },
+    {
+      "text": "Le Parlement a adopté et délibéré la loi organique dont la teneur suit :",
+      "position": "preamble",
+      "type": "parliamentary_organic",
+      "language": "fra"
+    },
+    {
+      "text": "Nous, Mohammed VI, Roi du Maroc,\nVu la Constitution, notamment ses articles 42 et 50,\nAvons décidé ce qui suit :",
+      "position": "preamble",
+      "type": "royal_promulgation",
+      "language": "fra",
+      "note": "Dahir promulgation formula. Precedes the law text in the BO. Model as <preamble><formula name='promulgationFormula'>."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "L'article [N] de la loi n° [YY-NNN] est modifié comme suit :",
+    "phrasing_insertion": "Il est inséré, après l'article [N] de la loi précitée, un article [N bis] ainsi rédigé :",
+    "phrasing_repeal": "L'article [N] de la loi n° [YY-NNN] est abrogé.",
+    "cross_reference_format": "law_number_and_name"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlement",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ma/parlement",
+      "showAs": "Parlement du Maroc"
+    },
+    {
+      "eId": "chambreRepresentants",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ma/chambre-representants",
+      "showAs": "Chambre des Représentants"
+    },
+    {
+      "eId": "chambreConseillers",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ma/chambre-conseillers",
+      "showAs": "Chambre des Conseillers"
+    },
+    {
+      "eId": "roi",
+      "class": "TLCRole",
+      "href": "/ontology/role/ma/roi",
+      "showAs": "Roi du Maroc"
+    },
+    {
+      "eId": "chefGouvernement",
+      "class": "TLCRole",
+      "href": "/ontology/role/ma/chef-gouvernement",
+      "showAs": "Chef du Gouvernement"
+    },
+    {
+      "eId": "ministre",
+      "class": "TLCRole",
+      "href": "/ontology/role/ma/ministre",
+      "showAs": "Ministre"
+    },
+    {
+      "eId": "courConstitutionnelle",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ma/cour-constitutionnelle",
+      "showAs": "Cour Constitutionnelle"
+    },
+    {
+      "eId": "conseilOulemas",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ma/conseil-oulemas",
+      "showAs": "Conseil Supérieur des Oulémas"
+    },
+    {
+      "eId": "bulletinOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ma/bulletin-officiel",
+      "showAs": "Bulletin Officiel du Royaume du Maroc"
+    },
+    {
+      "eId": "maroc",
+      "class": "TLCLocation",
+      "href": "/ontology/place/ma",
+      "showAs": "Royaume du Maroc"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Basic unit is ARTICLE (not SECTION). SECTION is a higher division above articles. Hierarchy: BOOK > TITLE > CHAPTER > SECTION > ARTICLE > SUBSECTION/PARAGRAPH. Dual calendar: extract both Gregorian and Hijri dates from document headers. Both Arabic and French text appear — process the language version specified in the job metadata. Alinéas within articles: if numbered use SUBSECTION; if unnumbered flag for post-processing as <alinea> element."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "member_since": "1963-05-25",
+      "rejoined_on": "2017-01-30",
+      "note": "Morocco was a founding member of the Organisation of African Unity (OAU) in 1963. It left the OAU on 12 November 1984 in protest at the admission of the Sahrawi Arab Democratic Republic (SADR / Western Sahara). Morocco remained outside the pan-African body for 33 years and rejoined the African Union on 30 January 2017 at the 28th AU Summit in Addis Ababa. SADR also remains an AU member; Morocco's rejoining was conditional on the existing AU framework, not on any change in SADR's status."
+    },
+    {
+      "body": "eu-association",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "EU-Morocco Association Agreement 2000. Creates approximation obligations but not direct effect."
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "arabic_and_latin",
+    "rtl": true,
+    "rtl_languages": [
+      "ara",
+      "zgh"
+    ],
+    "ltr_languages": [
+      "fra"
+    ],
+    "font_preference": "sans_serif",
+    "note": "Arabic text is RTL; French text is LTR. UI must support bidirectional rendering."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

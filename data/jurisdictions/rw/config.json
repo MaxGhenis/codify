@@ -1,0 +1,362 @@
+{
+  "code": "rw",
+  "name": "Rwanda",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "kin",
+    "eng",
+    "fra"
+  ],
+  "authoritative_language": "kin",
+  "document_classes": {
+    "law": {
+      "label": "Law",
+      "akn_element": "act",
+      "akn_subtype": "law",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "ordinal_english",
+          "note": "Higher division grouping articles — NOT the basic unit. Present only in larger laws."
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "ordinal_english",
+          "note": "Higher division L3. Used in major codes only."
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "First article uses ordinal label 'One/premier/mbere'; subsequent use Arabic numerals."
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Point",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Civil law article-based hierarchy. CHAPTER is highest division; ARTICLE is basic unit. Do not confuse SECTION (higher division) with Anglophone section (basic unit)."
+    },
+    "ol": {
+      "label": "Organic Law",
+      "akn_element": "act",
+      "akn_subtype": "ol",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Organic Laws require two-thirds majority in each chamber. Citation includes .OL suffix (e.g., N° 002/2021.OL). Structure identical to ordinary laws. Store .OL citation as FRBRalias."
+    },
+    "po": {
+      "label": "Presidential Order",
+      "akn_element": "act",
+      "akn_subtype": "po",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": []
+    },
+    "pmo": {
+      "label": "Prime Minister's Order",
+      "akn_element": "act",
+      "akn_subtype": "pmo",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": []
+    },
+    "mo": {
+      "label": "Ministerial Order",
+      "akn_element": "act",
+      "akn_subtype": "mo",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial Orders are typically short; Chapter divisions rare."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "akn_subtype": "constitution",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": []
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "rw",
+    "uri_patterns": {
+      "law": "/akn/rw/act/law/{year}/{number}",
+      "ol": "/akn/rw/act/ol/{year}/{number}",
+      "po": "/akn/rw/act/po/{year}/{number}",
+      "pmo": "/akn/rw/act/pmo/{year}/{number}",
+      "mo": "/akn/rw/act/mo/{year}/{number}",
+      "reg": "/akn/rw/act/reg/{year}/{number}",
+      "bill": "/akn/rw/bill/{year}/{number}",
+      "constitution": "/akn/rw/act/constitution/2003/constitution"
+    },
+    "date_calendar": "gregorian",
+    "multilingual_expressions": true,
+    "language_expression_note": "Three parallel FRBR expressions per work: kin (authoritative), eng, fra. All are co-originals, not translations. Use FRBRtranslation only if one demonstrably derives from another."
+  },
+  "numbering": {
+    "act_citation": "Law N° {number}/{year} of {date}",
+    "ol_citation": "Organic Law N° {number}/{year}.OL of {date}",
+    "po_citation": "Presidential Order N° {number}/{year} of {date}",
+    "pmo_citation": "Prime Minister's Order N° {number}/{year} of {date}",
+    "mo_citation": "Ministerial Order N° {number}/{year} of {date}",
+    "insertion_style": "bis_ter",
+    "insertion_note": "Francophone bis/ter convention: Article 5 bis, Article 12 ter. eIds: art_5bis, art_12ter."
+  },
+  "enacting_formulae": [
+    {
+      "text": "THE PARLIAMENT HAS ADOPTED AND WE SANCTION, PROMULGATE THE FOLLOWING LAW AND ORDER IT BE PUBLISHED IN THE OFFICIAL GAZETTE OF THE REPUBLIC OF RWANDA.",
+      "text_kin": "INTEKO ISHINGA AMATEGEKO YEMEJE, NONE NATWE DUHAMIJE, DUTANGAJE ITEGEKO RITEYE RITYA KANDI DUTEGETSE KO RYANDIKWA MU IGAZETI YA LETA YA REPUBULIKA Y'U RWANDA.",
+      "text_fra": "LE PARLEMENT A ADOPTÉ ET NOUS SANCTIONNONS, PROMULGUONS LA LOI DONT LA TENEUR SUIT ET ORDONNONS QU'ELLE SOIT PUBLIÉE AU JOURNAL OFFICIEL DE LA RÉPUBLIQUE DU RWANDA.",
+      "position": "preamble",
+      "applies_to": [
+        "law",
+        "po",
+        "pmo",
+        "mo",
+        "reg"
+      ]
+    },
+    {
+      "text": "THE PARLIAMENT HAS ADOPTED AND WE SANCTION, PROMULGATE THE FOLLOWING ORGANIC LAW AND ORDER IT BE PUBLISHED IN THE OFFICIAL GAZETTE OF THE REPUBLIC OF RWANDA.",
+      "position": "preamble",
+      "applies_to": [
+        "ol"
+      ]
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "is amended as follows",
+    "insertion_convention": "bis_ter",
+    "cross_reference_format": "full_citation_then_principal_law"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/rw/parliament",
+      "showAs": "Parliament of Rwanda"
+    },
+    {
+      "eId": "chamberOfDeputies",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/rw/chamber-of-deputies",
+      "showAs": "Chamber of Deputies"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/rw/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/rw/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/rw/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/rw/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/rw/official-gazette",
+      "showAs": "Official Gazette of the Republic of Rwanda"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Rwanda uses ARTICLE as the basic unit (civil law tradition). CHAPTER is the highest division; SECTION groups articles within chapters (not a basic unit). First article is numbered 'Article One' / 'Article premier' / 'Ingingo ya mbere' — treat as Article 1. Subsequent articles use Arabic numerals. Law numbers follow format 'Law N° NN/YYYY of DD/MM/YYYY'. Organic Laws have '.OL' suffix in citation."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eac",
+      "direct_effect": "none",
+      "member_since": "2007-07-01",
+      "superseded_subjects": [],
+      "note": "EAC instruments require parliamentary transposition. Rwanda Constitution does not confer direct effect on international treaties."
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "trilingual_display": true
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

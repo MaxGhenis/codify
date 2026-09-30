@@ -1,0 +1,493 @@
+{
+  "code": "ae",
+  "name": "United Arab Emirates",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic",
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "eng"
+  ],
+  "authoritative_language": "ara",
+  "note": "Three distinct legal sub-systems require separate hierarchy profiles: (1) federal/emirate civil law — article-based; (2) DIFC (Dubai) — English common law, section-based; (3) ADGM (Abu Dhabi) — English common law, section-based. This config covers the federal/emirate tradition. DIFC and ADGM use document_class overrides.",
+  "document_classes": {
+    "federal_law": {
+      "label": "Federal Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "prompt_variant": "ae",
+      "hierarchy": [
+        {
+          "local_term": "Book",
+          "local_term_ara": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_words",
+          "note": "Codes only (e.g., Civil Code has 5 Books). Most laws do not use Book."
+        },
+        {
+          "local_term": "Part",
+          "local_term_ara": "باب",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words",
+          "note": "Primary higher division in most federal laws. English translations use 'Part', 'Title', or 'Chapter' for باب."
+        },
+        {
+          "local_term": "Chapter",
+          "local_term_ara": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Article",
+          "local_term_ara": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Basic citable unit throughout all UAE federal legislation. Continuous numbering regardless of chapter boundaries."
+        },
+        {
+          "local_term": "Clause",
+          "local_term_ara": "بند",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "note": "First subdivision of an article. Cited as 'Clause (1) of Article 5' or 'Article 5(1)'."
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "note": "Second subdivision. Some laws use uppercase (A), (B) instead of (a), (b)."
+        },
+        {
+          "local_term": "Item",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic_closing_paren",
+          "note": "Third subdivision. Rare. Format: 1), 2), 3)."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Annex",
+          "local_term_ara": "ملحق",
+          "akn_element": "attachment",
+          "note": "Federal annexes. Wrapped in <attachments><attachment>.",
+          "name": "annex"
+        }
+      ]
+    },
+    "federal_decree_law": {
+      "label": "Federal Decree-Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "prompt_variant": "ae",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "local_term_ara": "باب",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Chapter",
+          "local_term_ara": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Article",
+          "local_term_ara": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "local_term_ara": "بند",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Item",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Most current UAE primary legislation since ~2020 is issued as Federal Decree-Laws. Structurally identical to Federal Laws. FRBRsubtype: 'decree-law'."
+    },
+    "cabinet_resolution": {
+      "label": "Cabinet Resolution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "prompt_variant": "ae",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "local_term_ara": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Article",
+          "local_term_ara": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive regulations implementing federal laws. Issued by the Cabinet. FRBRsubtype: 'cabinet-resolution'."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "prompt_variant": "ae",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "local_term_ara": "باب",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words",
+          "note": "Constitution has 10 Parts (باب)."
+        },
+        {
+          "local_term": "Chapter",
+          "local_term_ara": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Article",
+          "local_term_ara": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "152 articles, continuous."
+        }
+      ],
+      "hcontainers": []
+    },
+    "difc_law": {
+      "label": "DIFC Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": null,
+      "frbr_locality": "ae-difc",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "note": "Confirmed in DIFC Digital Assets Law No. 2/2024 and Law of Security No. 4/2024."
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "DIFC uses English common law. Enacted by the Ruler of Dubai. Uses section as basic unit, not article. FRBR locality: ae-difc."
+    },
+    "adgm_act": {
+      "label": "ADGM Act / Regulation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": null,
+      "frbr_locality": "ae-adgm",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "note": "Confirmed: ADGM Interpretation Regulations s.12(1)."
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "ADGM (Abu Dhabi Global Market) uses English common law. Has directly adopted ~50 English law statutes. FRBR locality: ae-adgm."
+    }
+  },
+  "default_document_class": "federal_decree_law",
+  "frbr": {
+    "country_code": "ae",
+    "uri_patterns": {
+      "federal_law": "/akn/ae/act/{year}/{number}",
+      "federal_decree_law": "/akn/ae/act/{year}/{number}",
+      "cabinet_resolution": "/akn/ae/act/cabinet-resolution/{year}/{number}",
+      "ministerial_resolution": "/akn/ae/act/ministerial-resolution/{year}/{number}",
+      "bill": "/akn/ae/bill/{year}/{number}",
+      "constitution": "/akn/ae/act/constitution/1971/constitution",
+      "difc_law": "/akn/ae-difc/act/{year}/{number}",
+      "adgm_act": "/akn/ae-adgm/act/{year}/{short-title-slug}"
+    },
+    "date_calendar": "gregorian",
+    "hijri_alias": true,
+    "note": "Federal Law and Federal Decree-Law share the same URI pattern. Instrument type (federal-law vs decree-law) is recorded as FRBRsubtype in metadata."
+  },
+  "numbering": {
+    "act_citation": "Federal Law No. ({number}) of {year}",
+    "decree_law_citation": "Federal Decree-Law No. ({number}) of {year}",
+    "cabinet_resolution_citation": "Cabinet Resolution No. ({number}) of {year}",
+    "difc_law_citation": "DIFC Law No. ({number}) of {year}",
+    "insertion_note": "Egyptian civil law tradition uses 'mukrar' (مكرر) for inserted articles (Article 5 مكرر = Article 5 bis). UAE may follow this convention."
+  },
+  "enacting_formulae": [
+    {
+      "text": "We, [President's name], President of the United Arab Emirates, Having reviewed the Constitution, [list of reviewed laws], Based on the proposal of [Minister] and the approval of the Cabinet, Have issued the following Decree-Law:",
+      "position": "preamble",
+      "document_types": [
+        "federal_decree_law"
+      ],
+      "language": "eng",
+      "note": "[PARTIALLY VERIFIED] Pattern confirmed from legal publications. Exact Arabic text not read verbatim from official PDF — verify before production use."
+    },
+    {
+      "text": "We, [President's name], President of the United Arab Emirates, Having reviewed the Constitution, [list of reviewed laws], Based on the proposal of [Minister], After the approval of the Cabinet, And the ratification of the Federal Supreme Council, Have issued the following Law:",
+      "position": "preamble",
+      "document_types": [
+        "federal_law"
+      ],
+      "language": "eng",
+      "note": "[PARTIALLY VERIFIED] Standard legislative process formula."
+    },
+    {
+      "text": "This Law is made by the Ruler of Dubai.",
+      "position": "preamble",
+      "document_types": [
+        "difc_law"
+      ],
+      "language": "eng",
+      "note": "Confirmed from DIFC law publications. Short single-sentence formula."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article (N) of [Law citation] shall be replaced by the following: / shall be cancelled",
+    "cross_reference_format": "type_number_year_title",
+    "note": "UAE amendment laws frequently repeal and entirely replace predecessor laws rather than amending them article-by-article. The Federal Decree-Law model (one comprehensive law replacing another) is the most common pattern for major legislation since 2020."
+  },
+  "core_tlcs": [
+    {
+      "eId": "federalSupremeCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ae/federal-supreme-council",
+      "showAs": "Federal Supreme Council"
+    },
+    {
+      "eId": "fnc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ae/federal-national-council",
+      "showAs": "Federal National Council"
+    },
+    {
+      "eId": "cabinet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ae/cabinet",
+      "showAs": "UAE Cabinet"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ae/president",
+      "showAs": "President of the United Arab Emirates"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ae/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ae/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "federalSupremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ae/federal-supreme-court",
+      "showAs": "Federal Supreme Court"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ae/official-gazette",
+      "showAs": "Al Jarida Al Rasmiya (UAE Official Gazette)"
+    },
+    {
+      "eId": "rulerOfDubai",
+      "class": "TLCRole",
+      "href": "/ontology/role/ae/ruler-of-dubai",
+      "showAs": "Ruler of Dubai"
+    },
+    {
+      "eId": "difcAuthority",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ae-difc/authority",
+      "showAs": "Dubai International Financial Centre Authority"
+    },
+    {
+      "eId": "adgmRA",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ae-adgm/registration-authority",
+      "showAs": "ADGM Registration Authority"
+    },
+    {
+      "eId": "uae",
+      "class": "TLCLocation",
+      "href": "/ontology/place/ae",
+      "showAs": "United Arab Emirates"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "UAE federal legislation uses ARTICLE as the basic unit (مادة, maddah), not SECTION. The hierarchy is: BOOK (codes only) > PART > CHAPTER > ARTICLE > SUBSECTION (numbered clauses) > PARAGRAPH (lettered sub-clauses). Article numbering is continuous throughout the law regardless of Chapter/Part boundaries. Headings after the ARTICLE number are the article title. DIFC and ADGM laws use SECTION as the basic unit and follow Anglophone structure.",
+    "rtl_script": true,
+    "rtl_note": "Arabic source documents are right-to-left. The OCR pipeline must handle Arabic bidi text. Structural keywords in the Arabic source will be in Arabic script; English translations use the English keywords listed above."
+  },
+  "supranational_memberships": [
+    {
+      "body": "gcc",
+      "direct_effect": "none",
+      "note": "GCC Unified Laws require adoption by domestic decree/law before taking effect. E.g., Common Customs Law adopted by UAE Federal Decree 85/2007.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "note": "UN Security Council Chapter VII resolutions are binding on the UAE government but require domestic implementation."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "article_title",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "sans_serif",
+    "bilingual_note": "uaelegislation.gov.ae publishes Arabic (authoritative) and English (official translation) in parallel. Render Arabic RTL with English LTR alongside."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

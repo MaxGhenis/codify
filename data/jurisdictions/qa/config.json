@@ -1,0 +1,383 @@
+{
+  "code": "qa",
+  "name": "Qatar",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (Qanun)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Book (Kitab)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "note": "Used in the Civil Code (1,188 arts) and other codes. Rare in ordinary legislation."
+        },
+        {
+          "local_term": "Part (Qism/Juz')",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic",
+          "note": "Used in the Constitution (5 parts) and some codes."
+        },
+        {
+          "local_term": "Chapter (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "note": "Primary higher division in most laws: Labour Law, Family Law, Penal Code."
+        },
+        {
+          "local_term": "Section (Fasl)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Higher division WITHIN a chapter. NOT the basic unit — never confuse with Anglophone 'section'."
+        },
+        {
+          "local_term": "Article (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph (Faqra — numbered)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "(1), (2), (3) within an article."
+        },
+        {
+          "local_term": "Item (lettered)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized",
+          "note": "(a), (b), (c) enumerated items within a paragraph."
+        },
+        {
+          "local_term": "Sub-item",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "roman_lower_parenthesized",
+          "note": "(i), (ii), (iii). Rare; appear in complex codes."
+        }
+      ],
+      "hcontainers": []
+    },
+    "emiri_decree": {
+      "label": "Emiri Decree (Marsoom Amiri)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Article (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by Emir under Art. 70 (Shura not in session) or for executive/organisational matters. Force of law equal to enacted Laws."
+    },
+    "ministerial_decision": {
+      "label": "Ministerial Decision (Qarar Wizari)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial implementing regulations. No separate number series from other ministerial decisions."
+    },
+    "constitution": {
+      "label": "Permanent Constitution of Qatar",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part (Qism)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "note": "5 parts: The State (1-17), Guiding Principles (18-33), Rights (34-58), Powers (59-140), Concluding (141-150)."
+        },
+        {
+          "local_term": "Chapter (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "note": "Used only within Part Four (Organization of Powers): 5 chapters."
+        },
+        {
+          "local_term": "Article (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "150 articles continuous. Part Four subdivided into 5 chapters (General, Emir, Legislature, Executive, Judiciary). No schedules."
+    },
+    "qfc_regulation": {
+      "label": "QFC Regulation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "QFC instruments are drafted in English using English common law conventions. Section is the basic unit. Use jurisdiction code qa-qfc for FRBR URIs."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "qa",
+    "uri_patterns": {
+      "act": "/akn/qa/act/{year}/{number}",
+      "emiri_decree": "/akn/qa/act/decree/{year}/{number}",
+      "emiri_decision": "/akn/qa/act/decision/{year}/{number}",
+      "cabinet_decision": "/akn/qa/act/cabinet/{year}/{number}",
+      "ministerial_decision": "/akn/qa/act/ministerial/{year}/{number}",
+      "bill": "/akn/qa/bill/{year}/{number}",
+      "constitution": "/akn/qa/act/constitution/2004/constitution",
+      "official_gazette": "/akn/qa/officialGazette/{year}/{issue}",
+      "qfc_regulation": "/akn/qa-qfc/act/{year}/{identifier}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Gregorian year in FRBR URI (internationally conventional, matches Al Meezan English index and WIPO Lex). Hijri date stored as FRBRalias. [REQUIRES HUMAN SIGN-OFF — see unresolved ambiguity 1]"
+  },
+  "numbering": {
+    "act_citation": "Law No. ({number}) of {year}",
+    "decree_citation": "Emiri Decree No. ({number}) of {year}",
+    "decision_citation": "Emiri Decision No. ({number}) of {year}",
+    "insertion_style": "mkarrar",
+    "insertion_note": "Civil law tradition uses wholesale article replacement. If insertion occurs, Arabic مكرر (mkarrar = repeated/bis) suffix expected, e.g., Article (5) mkarrar → art_5mkarrar."
+  },
+  "enacting_formulae": [
+    {
+      "text": "We, Tamim bin Hamad Al-Thani, Emir of the State of Qatar, After perusal of the Constitution, [recitals of prior relevant legislation], And pursuant to the proposal of the Council of Ministers, Have promulgated the following law:",
+      "position": "preamble",
+      "era": "post-2013",
+      "from": "2013-06-25",
+      "note": "Tamim succeeded Hamad bin Khalifa on 25 June 2013."
+    },
+    {
+      "text": "We, Hamad bin Khalifa Al-Thani, Emir of the State of Qatar, After perusal of the Constitution, [recitals], And pursuant to the proposal of the Council of Ministers, Have promulgated the following law:",
+      "position": "preamble",
+      "era": "post-constitution",
+      "from": "2004-06-09",
+      "to": "2013-06-25"
+    },
+    {
+      "text": "We, Hamad bin Khalifa Al-Thani, Emir of the State of Qatar, After perusal of [prior law or basic law], Have decided the following:",
+      "position": "preamble",
+      "era": "pre-constitution",
+      "to": "2004-06-09",
+      "note": "Pre-Constitution laws issued by Emiri Decree without Shura Council involvement."
+    },
+    {
+      "text": "[Emir's name and title], After perusal of the Constitution, [recitals], Have decided the following:",
+      "position": "preamble",
+      "type": "emiri_decision",
+      "note": "Formula for Emiri Decisions (executive instruments). Signature block at conclusions."
+    }
+  ],
+  "amendments": {
+    "style": "wholesale_replacement",
+    "phrasing": "Article ({N}) of Law No. ({NN}) of {year} shall be amended to read as follows: / Article ({N}) shall be added to Law No. ({NN}) of {year} to read as follows: / Article ({N}) of Law No. ({NN}) of {year} shall be repealed.",
+    "cross_reference_format": "law_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "shuraCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa/shura-council",
+      "showAs": "Shura Council"
+    },
+    {
+      "eId": "emir",
+      "class": "TLCRole",
+      "href": "/ontology/role/qa/emir",
+      "showAs": "Emir of the State of Qatar"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa/ministry-of-justice",
+      "showAs": "Ministry of Justice"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/qa/official-gazette",
+      "showAs": "Al-Jarida Al-Rasmiyya"
+    },
+    {
+      "eId": "qfcAuthority",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa-qfc/qfc-authority",
+      "showAs": "Qatar Financial Centre Authority"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Qatar uses ARTICLE (مادة, maddah) as the basic unit — numbered continuously throughout the law. Chapter (باب, bab) and Section (فصل, fasl) are higher divisions ABOVE articles, not below them. Section is NOT the basic unit. Article numbers appear in parentheses in Qatari convention: 'Article (5)'. Source documents are in Arabic (RTL); English translations may exist but Arabic is authoritative. Paragraph subdivisions within articles use (1), (2) numbering; lettered items use (a), (b). Most short laws have no subdivisions within articles. The signature block (Emir's name, date) appears at the END of the document — model as <conclusions>, not <preamble>."
+  },
+  "supranational_memberships": [
+    {
+      "body": "gcc",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "GCC Unified Laws require domestic transposition by Emiri Decree or Law to take effect. No automatic direct effect. Qatar has transposed GCC Trademark Law (Decree No. 7/2014), GCC Customs Law, and other GCC instruments."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "UN Security Council Chapter VII resolutions are binding; implementation requires domestic legislation."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "plural_legal_systems": [
+    {
+      "track": "state_civil_law",
+      "applies_to": "All persons in Qatar for most matters",
+      "language": "ara",
+      "basic_unit": "article",
+      "notes": "Egyptian-influenced civil law. Codes: Civil Code (Law 22/2004), Penal Code (Law 11/2004), Labour Law (Law 14/2004), Civil Procedure Code (Law 13/1990 as amended)."
+    },
+    {
+      "track": "islamic_personal_status",
+      "applies_to": "Muslims for marriage, divorce, inheritance, child custody",
+      "language": "ara",
+      "basic_unit": "article",
+      "school": "Hanbali (default); other Sunni schools on judge's discretion",
+      "primary_instrument": "Family Law No. (22) of 2006",
+      "notes": "Hanbali school is the default. Courts may apply Maliki, Shafi'i, or Hanafi schools when Hanbali has no applicable ruling. Non-Muslims governed by their own personal law."
+    },
+    {
+      "track": "qfc_common_law",
+      "applies_to": "Entities licensed in the Qatar Financial Centre",
+      "language": "eng",
+      "basic_unit": "section",
+      "jurisdiction_code": "qa-qfc",
+      "court": "Qatar International Court and Dispute Resolution Centre (QICDRC)",
+      "notes": "Established by Law No. (7) of 2005. Proceedings in English. Common law precedent applies. Separate FRBR locality code qa-qfc."
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif",
+    "note": "Arabic source is RTL. English translations are LTR. Pipeline must handle both. Article headings (where present) are typically bold inline headings, not marginal notes."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

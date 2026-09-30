@@ -1,0 +1,477 @@
+{
+  "code": "be",
+  "name": "Belgium",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "nld",
+    "fra",
+    "deu"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "act": {
+      "label": "Loi / Wet (Federal Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term_fr": "Titre",
+          "local_term_nl": "Titel",
+          "local_term_de": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_ordinal",
+          "note": "Higher division L1. Roman ordinal: Ier, II, III (FR); I, II, III (NL). Not all acts use Titres.",
+          "local_term": "Titre"
+        },
+        {
+          "local_term_fr": "Chapitre",
+          "local_term_nl": "Hoofdstuk",
+          "local_term_de": "Kapitel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "note": "Higher division L2. Most acts use at minimum Chapitres.",
+          "local_term": "Chapitre"
+        },
+        {
+          "local_term_fr": "Section",
+          "local_term_nl": "Afdeling",
+          "local_term_de": "Abschnitt",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "Higher division L3. Belgian 'section' is above articles — NOT the basic unit. Map to DIVISION in Bluebell to avoid collision with AKN section-as-basic-unit semantics.",
+          "local_term": "Section"
+        },
+        {
+          "local_term_fr": "Sous-section",
+          "local_term_nl": "Onderafdeling",
+          "local_term_de": "Unterabschnitt",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "Higher division L4. Rare — used only in large codes.",
+          "local_term": "Sous-section"
+        },
+        {
+          "local_term_fr": "Article",
+          "local_term_nl": "Artikel",
+          "local_term_de": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Basic unit. Abbreviated as 'Art.' in text. Continuous Arabic numbering throughout act regardless of Title/Chapter.",
+          "local_term": "Article"
+        },
+        {
+          "local_term_fr": "Paragraphe (§)",
+          "local_term_nl": "Paragraaf (§)",
+          "local_term_de": "Paragraph (§)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "section_symbol_ordinal",
+          "note": "Formal subdivision within article. § 1er, § 2 (FR); § 1, § 2 (NL). Not all articles have § subdivisions.",
+          "local_term": "Paragraphe (§)"
+        },
+        {
+          "local_term_fr": "Alinéa",
+          "local_term_nl": "Lid",
+          "local_term_de": "Absatz",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_unnumbered",
+          "note": "Unnumbered paragraph block within article or §. Proxy-mapped to SUBSECTION in Bluebell; post-processing renames element to alinea in AKN XML.",
+          "local_term": "Alinéa"
+        },
+        {
+          "local_term_fr": "Point (1°, 2°...)",
+          "local_term_nl": "Punt (1°, 2°...)",
+          "local_term_de": "Punkt (1°, 2°...)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "degree_notation",
+          "note": "Enumerated items using degree notation: 1°, 2°, 3°. Very common in Belgian legislation. Structuring prompt must convert degree notation to POINT N form for Bluebell.",
+          "local_term": "Point (1°, 2°...)"
+        },
+        {
+          "local_term_fr": "Lettre (a), b)...)",
+          "local_term_nl": "Letter (a), b)...)",
+          "local_term_de": "Buchstabe (a), b)...)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_closing_paren",
+          "note": "Sub-items under a numbered point. Lowercase letter with closing parenthesis: a), b), c).",
+          "local_term": "Lettre (a), b)...)"
+        }
+      ],
+      "hcontainers": []
+    },
+    "special_act": {
+      "label": "Loi spéciale / Bijzondere wet (Special Majority Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term_fr": "Titre",
+          "local_term_nl": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_ordinal",
+          "local_term": "Titre"
+        },
+        {
+          "local_term_fr": "Chapitre",
+          "local_term_nl": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "local_term_fr": "Article",
+          "local_term_nl": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        },
+        {
+          "local_term_fr": "Paragraphe (§)",
+          "local_term_nl": "Paragraaf (§)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "section_symbol_ordinal",
+          "local_term": "Paragraphe (§)"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Same structure as ordinary act. Distinction is in adoption procedure (qualified majority), not document structure."
+    },
+    "royal_decree": {
+      "label": "Arrêté royal / Koninklijk Besluit",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term_fr": "Chapitre",
+          "local_term_nl": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "local_term_fr": "Article",
+          "local_term_nl": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        },
+        {
+          "local_term_fr": "Paragraphe (§)",
+          "local_term_nl": "Paragraaf (§)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "section_symbol_ordinal",
+          "local_term": "Paragraphe (§)"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Delegated legislation enacted by the King on advice of the Government. Identified by promulgation date. Same article-based structure as primary legislation."
+    },
+    "constitution": {
+      "label": "Constitution de Belgique / Belgische Grondwet",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term_fr": "Titre",
+          "local_term_nl": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_ordinal",
+          "local_term": "Titre"
+        },
+        {
+          "local_term_fr": "Chapitre",
+          "local_term_nl": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "local_term_fr": "Section",
+          "local_term_nl": "Afdeling",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_ordinal",
+          "local_term": "Section"
+        },
+        {
+          "local_term_fr": "Article",
+          "local_term_nl": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of 1831 (rev. 2014). Uses Titre > Chapitre > Section > Article hierarchy. Continuous Arabic article numbering from Art. 1 to Art. 195."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "be",
+    "uri_patterns": {
+      "act": "/akn/be/act/{year}/{unique-id}",
+      "special_act": "/akn/be/act/special/{year}/{unique-id}",
+      "royal_decree": "/akn/be/act/ar/{year}/{unique-id}",
+      "ministerial_order": "/akn/be/act/am/{year}/{unique-id}",
+      "bill": "/akn/be/bill/{year}/{chamber-doc-number}",
+      "constitution": "/akn/be/act/constitution/1831/constitution"
+    },
+    "sub_national_uri_patterns": {
+      "flemish_decree": "/akn/be-vl/act/{year}/{unique-id}",
+      "walloon_decree": "/akn/be-wa/act/{year}/{unique-id}",
+      "french_community_decree": "/akn/be-fw/act/{year}/{unique-id}",
+      "brussels_ordinance": "/akn/be-bru/act/{year}/{unique-id}",
+      "german_community_decree": "/akn/be-dg/act/{year}/{unique-id}"
+    },
+    "eli_pattern": "http://www.ejustice.just.fgov.be/eli/{type}/{year}/{month}/{day}/{unique-id}/justel",
+    "eli_type_map": {
+      "act": "loi",
+      "royal_decree": "arrete",
+      "constitution": "constitution"
+    },
+    "date_calendar": "gregorian",
+    "number_field": "moniteur_unique_id",
+    "number_format": "10-digit numeric, year-prefixed (e.g. 2024005008)",
+    "note": "Acts identified by promulgation date, not sequential act number. The 10-digit Moniteur unique ID is used as the {number} segment. When unknown, use slugified French short title temporarily."
+  },
+  "multilingual": {
+    "parallel_originals": true,
+    "languages": [
+      "nld",
+      "fra"
+    ],
+    "optional_languages": [
+      "deu"
+    ],
+    "note": "Dutch and French versions are parallel originals — equally authoritative, not translations. Model as separate FRBR expressions. Do NOT use FRBRtranslation. German version is published with delay and applies primarily to German-speaking Community territory.",
+    "expression_uri_pattern": "/akn/be/act/{year}/{unique-id}/{lang}@{publication-date}"
+  },
+  "numbering": {
+    "act_citation_fr": "loi du {DD mois AAAA}",
+    "act_citation_nl": "wet van {DD maand JJJJ}",
+    "act_citation_de": "Gesetz vom {TT. Monat JJJJ}",
+    "article_abbreviation": "Art.",
+    "paragraph_symbol": "§",
+    "paragraph_first_ordinal_fr": "§ 1er",
+    "paragraph_first_ordinal_nl": "§ 1",
+    "list_item_style": "degree_notation",
+    "list_item_examples": [
+      "1°",
+      "2°",
+      "3°"
+    ],
+    "sub_item_style": "alpha_lower_closing_paren",
+    "sub_item_examples": [
+      "a)",
+      "b)",
+      "c)"
+    ],
+    "royal_decree_citation_fr": "arrêté royal du {DD mois AAAA}",
+    "royal_decree_citation_nl": "koninklijk besluit van {DD maand JJJJ}"
+  },
+  "enacting_formulae": [
+    {
+      "text_fr": "PHILIPPE, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
+      "text_nl": "FILIP, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :",
+      "position": "preamble",
+      "era": "Philippe/Filip",
+      "from": "2013-07-21"
+    },
+    {
+      "text_fr": "ALBERT, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
+      "text_nl": "ALBERT, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :",
+      "position": "preamble",
+      "era": "Albert II",
+      "from": "1993-08-09",
+      "to": "2013-07-21"
+    },
+    {
+      "text_fr": "BAUDOUIN, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
+      "position": "preamble",
+      "era": "Baudouin/Boudewijn",
+      "from": "1951-07-11",
+      "to": "1993-08-09"
+    }
+  ],
+  "conclusions_formulae": [
+    {
+      "text_fr": "Promulguons la présente loi, ordonnons qu'elle soit revêtue du sceau de l'État et publiée par le Moniteur belge.",
+      "text_nl": "Kondigen deze wet af, bevelen dat zij met 's Lands zegel zal worden bekleed en door het Belgisch Staatsblad zal worden bekendgemaakt.",
+      "position": "conclusions",
+      "era": "Philippe/Filip",
+      "from": "2013-07-21"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_fr": "L'article X de la loi du [date] est remplacé par ce qui suit : / À l'article X, les mots «...» sont remplacés par les mots «...».",
+    "phrasing_nl": "Artikel X van de wet van [date] wordt vervangen als volgt : / In artikel X worden de woorden «...» vervangen door de woorden «...».",
+    "cross_reference_format": "date_based",
+    "cross_reference_example_fr": "la loi du 25 avril 2014",
+    "cross_reference_example_nl": "de wet van 25 april 2014"
+  },
+  "core_tlcs": [
+    {
+      "eId": "chambre",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/chambre",
+      "showAs": "Chambre des représentants"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/senat",
+      "showAs": "Sénat de Belgique"
+    },
+    {
+      "eId": "conseilEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/conseil-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "gouvernementFederal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/gouvernement-federal",
+      "showAs": "Gouvernement fédéral"
+    },
+    {
+      "eId": "roi",
+      "class": "TLCRole",
+      "href": "/ontology/role/be/roi",
+      "showAs": "Le Roi des Belges"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/be/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "moniteurBelge",
+      "class": "TLCObject",
+      "href": "/ontology/obj/be/moniteur-belge",
+      "showAs": "Moniteur belge / Belgisch Staatsblad"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Belgium uses ARTICLE as the basic unit (civil law tradition). Hierarchy: TITLE > CHAPTER > DIVISION > ARTICLE > PARAGRAPH > SUBSECTION (proxy for alinea). Belgian 'section' (afdeling) is a higher division above articles — map to DIVISION keyword. List items use degree notation (1°, 2°, 3°) — convert to POINT 1, POINT 2, POINT 3. Sub-items (a), b)) map to INDENT a, INDENT b. Process one language version (French or Dutch) per run. Alineas are unnumbered paragraph blocks within articles or paragraphs."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "direct_effect": "direct",
+      "instrument_types": [
+        "regulation",
+        "decision"
+      ],
+      "transposition_required": [
+        "directive"
+      ],
+      "frbr_namespace": "/akn/eu/",
+      "superseded_subjects": [],
+      "note": "Belgium is a founding EU member (1957). EU Regulations apply directly. Directives require transposition via federal or sub-national legislation depending on competence distribution."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "instrument_types": [
+        "convention",
+        "echr_judgment"
+      ],
+      "transposition_required": [
+        "convention"
+      ],
+      "superseded_subjects": [],
+      "note": "Belgium has ratified ECHR. ECHR judgments are binding on Belgium but require legislative action to implement."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "instrument_types": [
+        "sc_chapter_vii_resolution"
+      ],
+      "superseded_subjects": [],
+      "note": "UN Security Council Chapter VII resolutions are binding. General multilateral treaty obligations apply."
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "mixed",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Belgian legislation uses inline headings for chapters and sections (not marginal notes). Article headings (if any) are typically brief inline titles."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,350 @@
+{
+  "code": "kh",
+  "name": "Cambodia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "khm"
+  ],
+  "authoritative_language": "khm",
+  "document_classes": {
+    "act": {
+      "label": "Preah Reach Kram (Royal Kram / Primary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Book",
+          "local_term_khmer": "ក្បាល",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "note": "Civil Code only; rare in ordinary legislation"
+        },
+        {
+          "local_term": "Part",
+          "local_term_khmer": "ផ្នែក",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Chapter",
+          "local_term_khmer": "ជំពូក",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (higher div)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman",
+          "note": "Higher division above article — NOT the basic unit"
+        },
+        {
+          "local_term": "Sub-section (higher div)",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "roman",
+          "note": "Civil Code / Labor Law only"
+        },
+        {
+          "local_term": "Article",
+          "local_term_khmer": "មាត្រា",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "local_term_khmer": "កថាខណ្ឌ",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Point",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Indent",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "anukret": {
+      "label": "Anukret (Sub-Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Sub-decrees signed by Prime Minister after cabinet adoption. Same article-based structure as Krams."
+    },
+    "prakas": {
+      "label": "Prakas (Ministerial Proclamation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by individual ministers. Typically shorter; may have no higher divisions."
+    },
+    "constitution": {
+      "label": "Constitution of the Kingdom of Cambodia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "16 chapters, 158 articles (as of 9th amendment 2021). Continuous article numbering."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "kh",
+    "uri_patterns": {
+      "act": "/akn/kh/act/{year}/{number}",
+      "anukret": "/akn/kh/act/anukret/{year}/{number}",
+      "reach_kret": "/akn/kh/act/reach-kret/{year}/{number}",
+      "prakas": "/akn/kh/act/prakas/{year}/{number}",
+      "bill": "/akn/kh/bill/{year}/{slugified-short-title}",
+      "constitution": "/akn/kh/act/constitution/1993/constitution"
+    },
+    "date_calendar": "gregorian",
+    "kram_number_decoding": {
+      "format": "NS/RKM/MMYY/NNN",
+      "year_extraction": "4-digit from MMYY (century prefix 20 assumed for YY < 50)",
+      "number_extraction": "NNN as integer (drop leading zeros)",
+      "alias": "Store full NS/RKM/MMYY/NNN as FRBRalias"
+    }
+  },
+  "numbering": {
+    "act_citation": "Preah Reach Kram No. NS/RKM/{MMYY}/{NNN}",
+    "anukret_citation": "Anukret No. {NNN}.ANK.BK",
+    "prakas_citation": "Prakas No. {NNN}",
+    "insertion_style": "bis_ter",
+    "insertion_style_note": "Assumed French-influenced bis/ter/quater."
+  },
+  "enacting_formulae": [
+    {
+      "label": "Preah Reach Kram (current, post-1993)",
+      "position": "preamble",
+      "era": "post-constitution",
+      "from": "1993-09-24",
+      "structure": "header_block + royal_style + having_seen_clauses + promulgate_clause + parliamentary_adoption_recital",
+      "text": "PREAH REACH KRAM No. NS/RKM/[MMYY]/[NNN]\n\nWe, [Royal style of the King],\n\nHaving seen the Constitution of the Kingdom of Cambodia;\nHaving seen the Royal Kram No. NS/RKM/0801/14 dated 28 January 2008 on the promulgation of the Law on the Organization and Functioning of the Council of Ministers;\nHaving seen [relevant prior legislation];\nHaving proposed by [the Prime Minister];\n\nPromulgate:\n\nThe Law on [Subject] passed by the National Assembly on [date] in the [ordinal] plenary session of the [ordinal] legislature and reviewed and approved by the Senate in accordance with the form and spirit of the law without revision on [date] during the [ordinal] plenary session of the [ordinal] legislature, the content of which is as follows:"
+    }
+  ],
+  "amendments": {
+    "style": "structural_civil_law",
+    "phrasing": "Article [N] of the Law on [Subject] is amended to read as follows:",
+    "insertion_phrasing": "A new Article [N] bis is inserted after Article [N] of the Law on [Subject] as follows:",
+    "repeal_phrasing": "Article [N] of the Law on [Subject] is hereby repealed.",
+    "cross_reference_format": "short_title_and_kram_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/parliament",
+      "showAs": "Parliament of Cambodia"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "constitutionalCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/constitutional-council",
+      "showAs": "Constitutional Council"
+    },
+    {
+      "eId": "king",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/king",
+      "showAs": "King of Cambodia"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "presidentNationalAssembly",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/president-national-assembly",
+      "showAs": "President of the National Assembly"
+    },
+    {
+      "eId": "presidentSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/president-senate",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/ministry-of-justice",
+      "showAs": "Ministry of Justice"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/supreme-court",
+      "showAs": "Supreme Court"
+    },
+    {
+      "eId": "reachKech",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kh/reach-kech",
+      "showAs": "Reach Kech"
+    },
+    {
+      "eId": "cambodia",
+      "class": "TLCLocation",
+      "href": "/ontology/place/kh",
+      "showAs": "Kingdom of Cambodia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Cambodia uses ARTICLE (not SECTION) as the basic unit. Hierarchy for most laws: CHAPTER > ARTICLE. For codes (Civil Code, Labor Code): BOOK or PART > CHAPTER > [SECTION >] ARTICLE. Subdivisions within articles: PARAGRAPH (1)(2)(3) > POINT (a)(b)(c) > INDENT (i)(ii)(iii). SECTION is reserved for higher-division use only. Article numbering is continuous throughout the whole instrument, not restarting per chapter."
+  },
+  "supranational_memberships": [
+    {
+      "body": "asean",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ASEAN follows sovereignty-centred approach. No direct effect. All ASEAN commitments require domestic transposition by Kram or Anukret."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Acceded 2004. WTO obligations require domestic implementation."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "chapter_title_then_article",
+    "heading_case": "upper_case",
+    "script": "khmer",
+    "rtl": false,
+    "font_preference": "sans-serif",
+    "khmer_unicode_range": "U+1780-U+17FF",
+    "note": "Primary text in Khmer script. Pipeline must support Khmer OCR. English translations are unofficial."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

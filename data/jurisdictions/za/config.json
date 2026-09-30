@@ -1,0 +1,402 @@
+{
+  "code": "za",
+  "name": "South Africa",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "afr",
+    "zul",
+    "xho",
+    "nso",
+    "sot",
+    "tsn",
+    "ssw",
+    "ven",
+    "tso",
+    "nbl"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_alpha"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Chapters used in major statutes and the Constitution. Parts used within chapters or directly. Sections numbered continuously throughout act, not restarting per chapter/part."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "14 chapters (arabic numerals), 244 sections numbered continuously 1-244 across all chapters, 8 schedules. No enacting formula — preamble is constitutional declaration. No Parts in the Constitution."
+    },
+    "regulation": {
+      "label": "Regulation (Government Notice)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "GN Regulations use 'regulation N' as basic unit term but map to AKN section. eIds will be sec_N. FRBR URI uses 'gn' subtype: /akn/za/act/gn/{year}/{number}. GN R numbers get lowercase 'r' prefix in number segment (e.g., GN R740 → r740)."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "za",
+    "uri_patterns": {
+      "act": "/akn/za/act/{year}/{number}",
+      "regulation": "/akn/za/act/gn/{year}/{number}",
+      "bill": "/akn/za/bill/{year}/{number}",
+      "constitution": "/akn/za/act/constitution/1996/constitution",
+      "officialGazette": "/akn/za/officialGazette/government-gazette/{date}/{gazette-number}",
+      "provincial_act": "/akn/za-{province-code}/act/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "notes": "Expression date = gazette publication date (not presidential assent date). Primary expression language: eng. FRBR URI conventions match Laws.Africa reference implementation exactly — do not deviate."
+  },
+  "numbering": {
+    "act_citation": "Act {number} of {year}",
+    "act_citation_alt": "Act No. {number} of {year}",
+    "regulation_citation": "GN R{number} of {year}",
+    "regulation_citation_plain": "GN {number} of {year}",
+    "gazette_citation": "Government Gazette No. {gazette-number} of {date}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by the Parliament of the Republic of South Africa, as follows:—",
+      "position": "preamble",
+      "era": "post-constitution",
+      "from": "1997-02-04"
+    },
+    {
+      "text": "BE IT ENACTED by the State President and the Parliament of the Republic of South Africa, as follows:",
+      "position": "preamble",
+      "era": "tricameral",
+      "from": "1984-01-01",
+      "to": "1994-04-26"
+    },
+    {
+      "text": "The [Minister], in terms of section [N] of the [Act], makes the following regulations:",
+      "position": "preamble",
+      "era": "current",
+      "document_class": "regulation",
+      "note": "Exact ministerial title and enabling section vary by instrument"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is hereby amended by the substitution for... of the following...",
+    "phrasing_insertion": "is hereby amended by the insertion after section [N] of the following section:",
+    "phrasing_repeal": "is hereby repealed",
+    "cross_reference_format": "short_title_and_year_and_act_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/parliament",
+      "showAs": "Parliament of South Africa"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "ncop",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/ncop",
+      "showAs": "National Council of Provinces"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/speaker",
+      "showAs": "Speaker of the National Assembly"
+    },
+    {
+      "eId": "chairpersonNcop",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/chairperson-ncop",
+      "showAs": "Chairperson of the National Council of Provinces"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/constitutional-court",
+      "showAs": "Constitutional Court"
+    },
+    {
+      "eId": "governmentGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/za/government-gazette",
+      "showAs": "Government Gazette"
+    },
+    {
+      "eId": "governmentPrinter",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/government-printing-works",
+      "showAs": "Government Printing Works"
+    },
+    {
+      "eId": "southAfrica",
+      "class": "TLCLocation",
+      "href": "/ontology/place/za",
+      "showAs": "Republic of South Africa"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "South African legislation uses 'CHAPTER' as the highest division in major statutes and the Constitution. 'PART' is used within chapters or directly in shorter acts. Sections are numbered continuously throughout the entire act — they do NOT restart per chapter or part. The enacting formula is 'BE IT ENACTED by the Parliament of the Republic of South Africa, as follows:—'. Government Notice Regulations use 'regulation N' as the basic unit term but should be structured using the SECTION keyword. Part numbering may be Arabic (Part 1), Roman (Part I), or alphabetic (Part A)."
+  },
+  "supranational_memberships": [
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "sadc",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "SADC is intergovernmental, not supranational. Protocols require domestic legislation to have effect."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "sub_national": {
+    "enabled": true,
+    "units": [
+      {
+        "name": "Western Cape",
+        "code": "za-wc",
+        "type": "province"
+      },
+      {
+        "name": "Eastern Cape",
+        "code": "za-ec",
+        "type": "province"
+      },
+      {
+        "name": "Northern Cape",
+        "code": "za-nc",
+        "type": "province"
+      },
+      {
+        "name": "KwaZulu-Natal",
+        "code": "za-kzn",
+        "type": "province"
+      },
+      {
+        "name": "Free State",
+        "code": "za-fs",
+        "type": "province"
+      },
+      {
+        "name": "Gauteng",
+        "code": "za-gp",
+        "type": "province"
+      },
+      {
+        "name": "Mpumalanga",
+        "code": "za-mp",
+        "type": "province"
+      },
+      {
+        "name": "Limpopo",
+        "code": "za-lp",
+        "type": "province"
+      },
+      {
+        "name": "North West",
+        "code": "za-nw",
+        "type": "province"
+      }
+    ],
+    "note": "Each province has its own legislature producing provincial acts. Municipal by-laws use za-{municipality-code} format (e.g., za-ec443 for Mbizana)."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "source_adapters": [
+    {
+      "kind": "akn_native",
+      "name": "laws_africa",
+      "url_template": "https://api.laws.africa/v3{frbr_uri}.xml",
+      "auth_scheme": "token",
+      "auth_env_var": "LAWS_AFRICA_API_KEY",
+      "notes": "Laws.Africa Content API, AKN XML for South African legislation."
+    }
+  ],
+  "public_reference": true
+}

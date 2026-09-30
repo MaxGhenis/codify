@@ -1,0 +1,494 @@
+{
+  "code": "cm",
+  "name": "Cameroon",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "common_law",
+    "customary",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra",
+    "eng"
+  ],
+  "authoritative_language": "fra",
+  "document_classes": {
+    "loi": {
+      "label": "Loi / Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre / Book",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "note": "Used only in large codes (Code pénal has Livre I, Livre II); absent from most ordinary laws."
+        },
+        {
+          "local_term": "Titre / Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre / Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (higher) / Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "note": "Higher division grouping articles — NOT the basic unit. DIVISION keyword avoids collision. Absent in short laws."
+        },
+        {
+          "local_term": "Article / Section (basic)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "French: 'Article 1er', 'Article 2'. English parallel: 'Section 1', 'Section 2'. Both map to AKN article. Continuous throughout the entire law regardless of higher divisions."
+        },
+        {
+          "local_term": "Alinéa / Subsection",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "sequential_implicit",
+          "note": "Unnumbered paragraph within article. No Bluebell keyword; requires post-processing."
+        },
+        {
+          "local_term": "Point (1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": []
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre / Book",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre / Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre / Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (higher)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article / Section (basic)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "sequential_implicit"
+        },
+        {
+          "local_term": "Point (1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Codes receive a stable 'code-{slug}' subtype in the FRBR URI so they maintain identity across amendments. English text uses 'Section N' for the basic unit (Article N in French)."
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential ordinances under Constitution Art. 28. Numbered Ordonnance n° YYYY/NNN. FRBR subtype: ordonnance."
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential decrees implementing legislation. Numbered Décret n° YYYY/NNN. FRBR subtype: decret."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Partie / Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Constitution uses PARTIE (French) / PART (English) — Anglophone term adopted into bilingual constitution. 13 Parts."
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of 1972, as revised. Uses PARTIE/PART (not TITRE/TITLE) as highest division — unique to the constitution. Articles numbered continuously (Art. 1 through Art. 68 approx)."
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "cm",
+    "uri_patterns": {
+      "loi": "/akn/cm/act/{year}/{number}",
+      "ordonnance": "/akn/cm/act/ordonnance/{year}/{number}",
+      "decret": "/akn/cm/act/decret/{year}/{number}",
+      "code": "/akn/cm/act/{code-slug}/{year}/{number}",
+      "bill": "/akn/cm/bill/{year}/{number}",
+      "constitution": "/akn/cm/act/constitution/1972/constitution"
+    },
+    "number_format": "YYYY/NNN",
+    "number_separator": "/",
+    "number_zero_padded": true,
+    "number_digits": 3,
+    "date_calendar": "gregorian",
+    "language_codes": [
+      "fra",
+      "eng"
+    ],
+    "expression_note": "Both fra and eng are co-equal parallel originals. Neither uses FRBRtranslation. Expression URI: /akn/cm/act/{year}/{number}/{lang}@{date}."
+  },
+  "numbering": {
+    "loi_citation": "Loi n° {year}/{number} du {day} {month} {year}",
+    "loi_citation_en": "Law No {year}/{number} of {day} {month} {year}",
+    "ordonnance_citation": "Ordonnance n° {year}/{number} du {day} {month} {year}",
+    "decret_citation": "Décret n° {year}/{number} du {day} {month} {year}",
+    "article_first": "Article 1er",
+    "article_first_en": "Section 1",
+    "article_subsequent": "Article {number}",
+    "article_subsequent_en": "Section {number}",
+    "insertion_style": "hyphen_or_bis",
+    "insertion_examples": [
+      "Art. 5 bis",
+      "Art. 5 ter",
+      "Art. 5-1",
+      "Art. 5-2"
+    ],
+    "note": "Year/number separator is forward slash (/) not hyphen. Numbers are zero-padded to 3 digits. Pre-1990 laws used two-digit years (YY/NNN); expand to YYYY in URIs."
+  },
+  "enacting_formulae": [
+    {
+      "text": "L'Assemblée nationale et le Sénat ont délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
+      "text_en": "The National Assembly and the Senate deliberated and adopted, the President of the Republic hereby promulgates the Law set out below:",
+      "position": "preamble",
+      "era": "bicameral_current",
+      "from": "2013-01-01",
+      "verified": true,
+      "note": "Formula confirmed from Cameroon legislative practice. Senate first sat in 2013 (100 senators sworn in May 2013). Bicameral formula confirmed as standard from Cameroon Tribune reports on 2024 laws. Source: https://www.senat.cm/ and https://www.cameroon-tribune.cm/"
+    },
+    {
+      "text": "L'Assemblée nationale a délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
+      "text_en": "The National Assembly deliberated and adopted, the President of the Republic hereby promulgates the Law set out below:",
+      "position": "preamble",
+      "era": "unicameral_transitional",
+      "from": "1996-01-18",
+      "to": "2013-01-01",
+      "note": "Senate created by 1996 Constitution but did not sit until 2013. Unicameral formula used during this period."
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nPromulgue l'ordonnance dont la teneur suit :",
+      "position": "preamble",
+      "era": "ordonnance",
+      "note": "Ordonnance enabling clause. 'Vu' recitals cite constitutional basis and enabling legislation. Promulgated by President under Art. 28."
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\n{additional_vus}\nDécrète :",
+      "position": "preamble",
+      "era": "decret",
+      "note": "Decree enabling clause."
+    }
+  ],
+  "amendments": {
+    "style": "textual_french",
+    "phrasing": "modifiant et complétant certaines dispositions de la loi n° {number} du {date}",
+    "repeal_replace": "les dispositions de l'article {N} ... sont modifiées et remplacées ainsi qu'il suit",
+    "insertion": "Il est inséré dans la loi n° ..., un article {N bis} ainsi rédigé",
+    "repeal": "Les dispositions de l'article {N} ... sont abrogées",
+    "cross_reference_format": "loi_number_and_date",
+    "cross_reference_example": "la loi n° 2016/007 du 12 juillet 2016 portant Code Pénal"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlement",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/parlement",
+      "showAs": "Parlement du Cameroun"
+    },
+    {
+      "eId": "assemblee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/assemblee-nationale",
+      "showAs": "Assemblée nationale"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/senat",
+      "showAs": "Sénat"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "presidentAssemblee",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/president-assemblee-nationale",
+      "showAs": "Président de l'Assemblée nationale"
+    },
+    {
+      "eId": "presidentSenat",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/president-senat",
+      "showAs": "Président du Sénat"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/premier-ministre",
+      "showAs": "Premier Ministre"
+    },
+    {
+      "eId": "ministreJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/ministre-justice",
+      "showAs": "Ministre de la Justice, Garde des Sceaux"
+    },
+    {
+      "eId": "ministre",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/ministre",
+      "showAs": "Ministre"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/conseil-constitutionnel",
+      "showAs": "Conseil Constitutionnel"
+    },
+    {
+      "eId": "courSupreme",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/cour-supreme",
+      "showAs": "Cour Suprême"
+    },
+    {
+      "eId": "courAppel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/cour-appel",
+      "showAs": "Cour d'Appel"
+    },
+    {
+      "eId": "ccja",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ohada/ccja",
+      "showAs": "Cour Commune de Justice et d'Arbitrage (OHADA)"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/cm/journal-officiel",
+      "showAs": "Journal Officiel de la République du Cameroun"
+    },
+    {
+      "eId": "cameroun",
+      "class": "TLCLocation",
+      "href": "/ontology/place/cm",
+      "showAs": "République du Cameroun"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Basic unit is ARTICLE (not SECTION). In the French text: 'Article 1er', 'Article 2'… In the English bilingual text: 'Section 1', 'Section 2'… — both map to Bluebell ARTICLE keyword and AKN article element. Hierarchy above articles: TITLE (Titre) > CHAPTER (Chapitre) > DIVISION (Section as higher grouping). Use BOOK (Livre) only for the largest codes. Article numbering is continuous throughout the entire document regardless of higher divisions. Subdivisions within articles: unnumbered alinéas, then POINT (1°, 2°…), then INDENT (tiret –). The Constitution uses PART (Partie) not TITLE as its highest division."
+  },
+  "supranational_memberships": [
+    {
+      "body": "ohada",
+      "direct_effect": "override",
+      "member_since": "1993-10-17",
+      "superseded_subjects": [
+        "company_law",
+        "commercial_law",
+        "insolvency",
+        "arbitration",
+        "security_interests",
+        "transport_law",
+        "accounting",
+        "collective_procedures",
+        "electronic_commerce"
+      ],
+      "note": "OHADA founding member. Uniform Acts supersede conflicting domestic law automatically under OHADA Treaty Art. 10. 11 Uniform Acts in force. FRBR URI space: /akn/ohada/act/..."
+    },
+    {
+      "body": "cemac",
+      "direct_effect": "direct",
+      "member_since": "1994-03-16",
+      "superseded_subjects": [
+        "banking_regulation",
+        "monetary_policy",
+        "customs_union",
+        "capital_markets",
+        "financial_markets",
+        "insurance_regulation"
+      ],
+      "note": "CEMAC founding member. Regulations directly applicable; incompatible national laws null and void (CEMAC Treaty Additive Art. 21). BEAC (central bank) and COSUMAF (capital markets) issue binding instruments. FRBR URI space: /akn/cemac/act/..."
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "AU member. Banjul Charter binding in principle; AU instruments generally require domestic transposition."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "locale_fra": "fr-CM",
+    "locale_eng": "en-CM"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

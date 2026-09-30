@@ -1,0 +1,360 @@
+{
+  "code": "tz",
+  "name": "Tanzania",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "swa"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Used in Constitution and some complex acts; not the common consolidated-edition chapter reference"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper",
+          "note": "Sub-Part grouping in large acts (e.g., Mining Act). No Bluebell keyword — requires post-processing. hcontainer name='division'."
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "division",
+          "local_term": "Division",
+          "note": "Sub-Part grouping; lettered A, B, C. Requires post-processing — no Bluebell keyword."
+        }
+      ]
+    },
+    "ordinance": {
+      "label": "Ordinance (pre-independence)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "frbr_subtype": "ord",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Laws enacted by the colonial Legislative Council of Tanganyika before independence (9 December 1961). Cited by Ordinance number and year; now consolidated as Chapters of the Laws of Tanzania."
+    },
+    "gn": {
+      "label": "Government Notice (Subsidiary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "frbr_subtype": "gn",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subsidiary legislation published as Government Notices (GN) in the Gazette Subsidiary Legislation Supplement. Basic unit is 'regulation' or 'rule' but maps to AKN section."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "frbr_subtype": "constitution",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of the United Republic of Tanzania (Cap. 2, 1977 as amended). Uses both Chapter and Part as higher divisions."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "tz",
+    "uri_patterns": {
+      "act": "/akn/tz/act/{year}/{number}",
+      "ordinance": "/akn/tz/act/ord/{year}/{number}",
+      "gn": "/akn/tz/act/gn/{year}/{number}",
+      "bill": "/akn/tz/bill/{year}/{number}",
+      "constitution": "/akn/tz/act/constitution/1977/constitution",
+      "officialGazette": "/akn/tz/officialGazette/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "locality_codes": {
+      "zanzibar": "tz-znz"
+    }
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "Cap. {chapter}",
+    "act_citation_consolidated": "[CAP. {chapter} R.E. {re_year}]",
+    "gn_citation": "G.N. No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "ENACTED by the Parliament of the United Republic of Tanzania.",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1961-12-09"
+    },
+    {
+      "text": "BE IT ENACTED by the Governor of Tanganyika, with the advice and consent of the Legislative Council thereof, as follows:",
+      "position": "preamble",
+      "era": "colonial-ordinance",
+      "to": "1961-12-09"
+    },
+    {
+      "text": "[Minister/Authority], in exercise of the powers conferred by section [N] of the [Parent Act], hereby makes the following Regulations:",
+      "position": "preamble",
+      "era": "subsidiary-legislation",
+      "document_class": "gn",
+      "note": "Enabling formula varies; parent act and enabling section must be extracted and linked as TLC references."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "vehicle": "written_laws_miscellaneous_amendments",
+    "phrasing": "by deleting... and substituting for it the following",
+    "cross_reference_format": "short_title_and_cap"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tz/parliament",
+      "showAs": "Parliament of the United Republic of Tanzania"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tz/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/tz/president",
+      "showAs": "President of the United Republic"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/tz/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/tz/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "chiefParliamentaryDraftsman",
+      "class": "TLCRole",
+      "href": "/ontology/role/tz/chief-parliamentary-draftsman",
+      "showAs": "Chief Parliamentary Draftsman"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/tz/official-gazette",
+      "showAs": "Gazette of the United Republic of Tanzania"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Tanzania uses PART > SECTION as the standard hierarchy (Commonwealth/East African pattern). Some large acts (e.g., Mining Act) have a Division level within Parts (Division A, Division B, Division C) — treat these as hcontainer groupings, not as standard hierarchy elements. Section numbering is continuous throughout the act, not restarting per Part. Subsidiary legislation (Government Notices) uses 'regulation' or 'rule' as the basic unit term — map to SECTION keyword."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eac",
+      "direct_effect": "none",
+      "note": "Tanzania domesticated the EAC Treaty via Act of 2001. EAC law lacks consistent direct effect or supremacy in Tanzanian domestic courts — instruments require explicit domestication.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "sadc",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Southern African Development Community. Limited direct effect; most instruments require domestic transposition. SADC Tribunal weakened after 2014 Protocol."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

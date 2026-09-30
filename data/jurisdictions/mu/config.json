@@ -1,0 +1,296 @@
+{
+  "code": "mu",
+  "name": "Mauritius",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "fra"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "gn": {
+      "label": "Government Notice (Subsidiary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "GNs use 'regulation' or 'rule' as the basic unit term but map to AKN section"
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Chapters, not Parts"
+    },
+    "civil_code": {
+      "label": "French Civil Code (Code Civil Mauricien / Code de Commerce)",
+      "akn_element": "act",
+      "bluebell_compatible": false,
+      "basic_unit": "article",
+      "language": "fra",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "roman",
+          "name_attr": "livre"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "roman",
+          "name_attr": "titre"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "livre",
+          "local_term": "Livre",
+          "bluebell_proxy": "SUBSECTION"
+        },
+        {
+          "name": "titre",
+          "local_term": "Titre",
+          "bluebell_proxy": "SUBSECTION"
+        }
+      ],
+      "requires_postprocessing": true,
+      "note": "French-language codes inherited from French colonial period. Require separate prompt variant structure_mu_civil.txt."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "mu",
+    "uri_patterns": {
+      "act": "/akn/mu/act/{year}/{number}",
+      "gn": "/akn/mu/act/genn/{year}/{number}",
+      "bill": "/akn/mu/bill/{year}/{number}",
+      "constitution": "/akn/mu/act/constitution/1968/constitution",
+      "act_cap": "/akn/mu/act/cap{number}/cap{number}"
+    },
+    "date_calendar": "gregorian",
+    "note": "URI patterns follow Laws.Africa/MauritiusLII conventions for interoperability. For Acts with known Act No.: use year/number. For older consolidated Acts (Cap. only): use cap{NNN}/cap{NNN} fallback; store Cap. as FRBRalias."
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "Cap. {number}",
+    "gn_citation": "GN No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "ENACTED by the Parliament of Mauritius, as follows —",
+      "position": "preamble",
+      "era": "post-republic",
+      "from": "1992-03-12"
+    },
+    {
+      "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the National Assembly of Mauritius and by the authority of the same as follows:",
+      "position": "preamble",
+      "era": "pre-republic",
+      "from": "1968-03-12",
+      "to": "1992-03-12"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and replacing... / by inserting, after section N, the following new section —",
+    "cross_reference_format": "short_title_and_act_no"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mu/parliament",
+      "showAs": "Parliament of Mauritius"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mu/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/mu/president",
+      "showAs": "President of the Republic of Mauritius"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/mu/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "governmentGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mu/government-gazette",
+      "showAs": "Government Gazette of Mauritius"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Mauritius uses PART (Roman numerals) > SECTION (Arabic continuous) hierarchy for all English-language Acts. Section 1 = Short title, Section 2 = Interpretation. Enacting formula: 'ENACTED by the Parliament of Mauritius, as follows —'. Presidential assent block appears at document head before the preface ('I assent — [Name], President of the Republic of Mauritius'). Omit the 'Arrangement of Sections' table of contents from AKN body. If document is in French (Code Civil Mauricien, Code de Commerce), do NOT use this prompt — route to specialist review.",
+    "civil_code_prompt_variant": "structure_mu_civil.txt"
+  },
+  "supranational_memberships": [
+    {
+      "body": "comesa",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "sadc",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

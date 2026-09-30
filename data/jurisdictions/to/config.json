@@ -1,0 +1,265 @@
+{
+  "code": "to",
+  "name": "Tonga",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "ton"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic",
+          "note": "Present in complex Acts only (e.g., Income Tax Act). Many Acts go directly Part > Section."
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "si": {
+      "label": "Subsidiary Legislation (Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Regulations use 'regulation' as basic unit term but map to AKN section. REGULATION is not a Bluebell keyword — use SECTION."
+    },
+    "constitution": {
+      "label": "Constitution of Tonga",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses 'Clause' as basic unit (not 'Section'), but maps to AKN section element for Bluebell compatibility. Three Parts: I (Rights), II (Government), III (Land)."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "to",
+    "uri_patterns": {
+      "act": "/akn/to/act/{year}/{number}",
+      "si": "/akn/to/act/si/{year}/{slug}",
+      "bill": "/akn/to/bill/{year}/{slug}",
+      "constitution": "/akn/to/act/constitution/1875/constitution"
+    },
+    "uri_fallback_cap": "When only a chapter number is available, use cap{decimal} as both year and number segments, e.g. Cap.11.05 → /akn/to/act/cap11.05/cap11.05. Store chapter number as FRBRalias.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "Cap. {decimal}",
+    "insertion_style": "alphanumeric",
+    "note": "Dual numbering: sessional (Act No. N of YYYY) and consolidated decimal chapter (Cap. X.YY or X.YY.ZZ for SI). Chapter numbers changed between 1988 and 2020 revised editions — use 2020 edition numbers as canonical."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Be it enacted by the King and Legislative Assembly of Tonga in the Legislature of the Kingdom as follows:",
+      "position": "preamble",
+      "era": "current",
+      "from": "1875-11-04",
+      "note": "Unchanged since the Constitution of 1875. Invokes both King and Legislative Assembly."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and substituting...",
+    "cross_reference_format": "short_title_and_year_or_cap"
+  },
+  "core_tlcs": [
+    {
+      "eId": "legislature",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/to/legislative-assembly",
+      "showAs": "Legislative Assembly of Tonga (Fale Alea)"
+    },
+    {
+      "eId": "king",
+      "class": "TLCRole",
+      "href": "/ontology/role/to/king",
+      "showAs": "His Majesty the King"
+    },
+    {
+      "eId": "privyCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/to/privy-council",
+      "showAs": "Privy Council"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/to/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/to/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/to/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "govGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/to/government-gazette",
+      "showAs": "Tonga Government Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Tonga Acts use PART > SECTION as the standard hierarchy. Complex Acts (e.g., tax, financial) also use DIVISION between PART and SECTION (PART > DIVISION > SECTION). Use DIVISION only when explicitly present in the source document. Constitution uses PART > SECTION (Clauses map to SECTION). Subsidiary legislation uses SECTION for individual regulations (REGULATION is not a Bluebell keyword). The enacting formula is: 'Be it enacted by the King and Legislative Assembly of Tonga in the Legislature of the Kingdom as follows:'"
+  },
+  "supranational_memberships": [
+    {
+      "body": "pacific-islands-forum",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "pacer-plus",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

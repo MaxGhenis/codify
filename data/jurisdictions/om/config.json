@@ -1,0 +1,259 @@
+{
+  "code": "om",
+  "name": "Oman",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Nizam (Royal Decree Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kitab (Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "note": "Used only in the largest codes (Civil Transactions Law). Rare."
+        },
+        {
+          "local_term": "Juz' (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Fasl (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Higher division above the article, NOT the basic unit. Civil law usage of 'section'."
+        },
+        {
+          "local_term": "Maddah (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Faqrah (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Band (Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by Royal Decree (RD No. number/year). Article numbering is continuous throughout the entire law."
+    },
+    "basic_law": {
+      "label": "Al-Nizam al-Asasi (Basic Law of the State)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddah (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The Basic Law functions as Oman's constitution. Enacted by Royal Decree. Current: RD 6/2021. Previous: RD 101/1996."
+    },
+    "implementing_regulation": {
+      "label": "La'iha Tanfidhiyya (Implementing Regulation / Ministerial Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Fasl (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddah (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Faqrah (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by ministerial decision to implement a parent nizam. Uses 'si' subtype in FRBR URI."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "om",
+    "uri_patterns": {
+      "act": "/akn/om/act/{year}/{number}",
+      "basic_law": "/akn/om/act/constitution/{year}/{number}",
+      "implementing_regulation": "/akn/om/act/si/{year}/{number}",
+      "bill": "/akn/om/bill/{year}/{number}",
+      "royal_order": "/akn/om/doc/royal-order/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Oman uses Gregorian calendar as primary dating system for legislation. Royal Decrees are cited as No. {number}/{year} with Gregorian year. Differs from Saudi Arabia which uses Hijri."
+  },
+  "numbering": {
+    "act_citation": "Royal Decree No. {number}/{year}",
+    "insertion_style": "bis",
+    "insertion_note": "Inserted articles use 'bis' suffix (مكرر): Article 5 bis. eId: art_5bis. Inconsistently applied — many amendments use wholesale replacement by new Royal Decree instead."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Having reviewed the Basic Law of the State, And in pursuance of the public interest, We hereby decree the following:",
+      "text_ara": "بعد الاطلاع على النظام الأساسي للدولة، وبناءً على ما تقتضيه المصلحة العامة، رسمنا بما هو آت:",
+      "position": "preamble",
+      "era": "post-basic-law-2021",
+      "from": "2021-01-11",
+      "note": "References Basic Law RD 6/2021. Arabic is authoritative."
+    },
+    {
+      "text": "Having reviewed the Basic Law of the Sultanate issued by Royal Decree No. 101/96, And in pursuance of the public interest, We hereby decree the following:",
+      "text_ara": "بعد الاطلاع على النظام الأساسي للدولة الصادر بالمرسوم السلطاني رقم ١٠١/٩٦، وبناءً على ما تقتضيه المصلحة العامة، رسمنا بما هو آت:",
+      "position": "preamble",
+      "era": "post-basic-law-1996",
+      "from": "1996-11-06",
+      "to": "2021-01-11",
+      "note": "References Basic Law RD 101/1996. Used between 1996 and 2021."
+    }
+  ],
+  "amendments": {
+    "style": "wholesale_replacement_or_textual",
+    "phrasing": "يُستبدل بنص المادة ({N}) ... النص الآتي / Article ({N}) of [Law] shall be replaced by the following:",
+    "cross_reference_format": "royal_decree_number_gregorian_year",
+    "note": "Major revisions use wholesale replacement (new RD supersedes old). Targeted amendments substitute specific articles. Both patterns must be handled."
+  },
+  "core_tlcs": [
+    {
+      "eId": "sultan",
+      "class": "TLCRole",
+      "href": "/ontology/role/om/sultan",
+      "showAs": "Sultan of Oman"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/om/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "majlisAlShura",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/om/majlis-al-shura",
+      "showAs": "Majlis al-Shura"
+    },
+    {
+      "eId": "councilOfState",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/om/council-of-state",
+      "showAs": "Council of State"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/om/official-gazette",
+      "showAs": "Official Gazette of Oman"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Oman uses ARTICLE as the basic unit (Maddah / مادة). CHAPTER (Bab / باب) and SECTION (Fasl / فصل) are higher divisions above the article, not the basic unit. PART (Juz' / جزء) and BOOK (Kitab / كتاب) appear in large codes. Paragraphs within articles use PARAGRAPH (Faqrah / فقرة). Items use POINT (Band / بند). Arabic is RTL; article numbering is continuous throughout the entire law, never restarting per chapter. The enacting formula appears in the preamble as the Sultan's decree."
+  },
+  "supranational_memberships": [
+    {
+      "body": "gcc",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "GCC Unified Laws require domestic transposition by Royal Decree. GCC instruments are not directly effective in Oman."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

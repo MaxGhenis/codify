@@ -1,0 +1,469 @@
+{
+  "code": "ro",
+  "name": "Romania",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ron"
+  ],
+  "authoritative_language": "ron",
+  "document_classes": {
+    "lege": {
+      "label": "Lege (Act of Parliament)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Cartea",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Partea",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "CRITICAL: Secțiune is a higher grouping ABOVE articles, not the basic unit. Use DIVISION keyword to avoid confusion with Anglophone section-as-basic-unit. Verify keyword mapping with Bluebell parser."
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Punctul",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_fullstop"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Paragraful (§)",
+          "name": "paragraf",
+          "note": "Structural paragraph (§1, §2) within a Secțiune; rare outside codes. Requires post-processing — not producible directly by Bluebell."
+        }
+      ]
+    },
+    "oug": {
+      "label": "Ordonanță de urgență (Emergency Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Partea",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Punctul",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_fullstop"
+        }
+      ],
+      "hcontainers": [],
+      "note": "OUG structure mirrors Lege; enacted by Government under Art. 115 Constitution, not Parliament. Enacting body TLC must be Guvernul, not Parlamentul."
+    },
+    "og": {
+      "label": "Ordonanță (Government Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Simple government ordinance (not emergency). Similar structure to OUG but typically shorter."
+    },
+    "hg": {
+      "label": "Hotărâre de Guvern (Government Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government decisions implementing laws. Typically shorter, article-based. May include annexes (Anexe)."
+    },
+    "constitution": {
+      "label": "Constituția României",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Title/Chapter/Section above articles. Articles numbered continuously (Art. 1–156 in current Constitution)."
+    }
+  },
+  "default_document_class": "lege",
+  "frbr": {
+    "country_code": "ro",
+    "uri_patterns": {
+      "lege": "/akn/ro/act/{year}/{number}",
+      "oug": "/akn/ro/act/oug/{year}/{number}",
+      "og": "/akn/ro/act/og/{year}/{number}",
+      "hg": "/akn/ro/act/hg/{year}/{number}",
+      "ordin": "/akn/ro/act/ordin/{year}/{number}",
+      "bill": "/akn/ro/bill/{year}/{slug}",
+      "constitution": "/akn/ro/act/constitution/1991/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Legea nr. {number}/{year}",
+    "act_citation_oug": "Ordonanța de urgență nr. {number}/{year}",
+    "act_citation_hg": "Hotărârea Guvernului nr. {number}/{year}",
+    "article_insertion_style": "superscript",
+    "article_insertion_example": "Art. 7^1",
+    "article_eid_insertion": "art_7-1",
+    "section_ordinal_style": "romanian_ordinal",
+    "section_ordinal_note": "Secțiunea 1, Secțiunea a 2-a, Secțiunea a 3-a (ordinal from 2nd onwards)"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Parlamentul României adoptă prezenta lege.",
+      "position": "preamble",
+      "type": "lege",
+      "era": "current"
+    },
+    {
+      "text": "În temeiul art. 115 alin. (4) din Constituția României, republicată, Guvernul României adoptă prezenta ordonanță de urgență.",
+      "position": "preamble",
+      "type": "oug",
+      "era": "current"
+    },
+    {
+      "text": "În temeiul art. 108 din Constituția României, republicată, Guvernul României adoptă prezenta hotărâre.",
+      "position": "preamble",
+      "type": "hg",
+      "era": "current"
+    },
+    {
+      "text": "În temeiul art. 77 alin. (1) din Constituție, promulgăm [titlul legii] și dispunem publicarea ei în Monitorul Oficial al României, Partea I.",
+      "position": "conclusions",
+      "type": "lege_promulgation",
+      "era": "current",
+      "note": "Presidential promulgation decree — appears AFTER body in Monitorul Oficial. Model as <conclusions><formula name='promulgationFormula'>."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_modification": "se modifică și va avea următorul cuprins:",
+    "phrasing_insertion": "se introduce un nou articol, articolul X, cu următorul cuprins:",
+    "phrasing_repeal": "se abrogă.",
+    "cross_reference_format": "type_number_year_title",
+    "cross_reference_example": "Legea nr. 287/2009 privind Codul civil",
+    "quoted_text_intro": "va avea următorul cuprins:"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/parliament",
+      "showAs": "Parlamentul României"
+    },
+    {
+      "eId": "cameraDeputatilor",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/camera-deputatilor",
+      "showAs": "Camera Deputaților"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/senat",
+      "showAs": "Senatul"
+    },
+    {
+      "eId": "presedinte",
+      "class": "TLCRole",
+      "href": "/ontology/role/ro/presedinte",
+      "showAs": "Președintele României"
+    },
+    {
+      "eId": "guvern",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/guvern",
+      "showAs": "Guvernul României"
+    },
+    {
+      "eId": "primMinistru",
+      "class": "TLCRole",
+      "href": "/ontology/role/ro/prim-ministru",
+      "showAs": "Prim-ministrul"
+    },
+    {
+      "eId": "curteaConstitutionala",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/curtea-constitutionala",
+      "showAs": "Curtea Constituțională a României"
+    },
+    {
+      "eId": "monitorulOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ro/monitorul-oficial",
+      "showAs": "Monitorul Oficial al României"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "2007-01-01",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "customs_union",
+        "single_market",
+        "competition",
+        "agriculture_cap",
+        "data_protection_gdpr",
+        "financial_services",
+        "environment_eu",
+        "consumer_protection_eu"
+      ],
+      "note": "EU Regulations apply directly. EU Directives require transposition into Romanian law. EUR-Lex/Cellar is the authoritative source for EU instruments. AKN4EU profile applies."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ECHR ratified 1994. ECtHR judgments binding. Does not directly supersede Romanian legislation but requires compliance."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_bold",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "diacritics": [
+      "ă",
+      "â",
+      "î",
+      "ș",
+      "ț"
+    ],
+    "diacritics_note": "Romanian uses ș (s-comma) and ț (t-comma), NOT ş (s-cedilla) and ţ (t-cedilla). The cedilla variants are legacy encoding errors. Ensure correct Unicode: U+0219 (ș), U+021B (ț)."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

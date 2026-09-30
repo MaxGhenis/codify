@@ -1,0 +1,381 @@
+{
+  "code": "ua",
+  "name": "Ukraine",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ukr"
+  ],
+  "authoritative_language": "ukr",
+  "document_classes": {
+    "law": {
+      "label": "Law of Ukraine",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "local_term_en": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Глава (глави, главі, главу, главою, главах)",
+          "local_term_en": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "§",
+          "local_term_en": "Paragraph (§)",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Підпараграф (підпараграфа, підпараграфу, підпараграфі)",
+          "local_term_en": "Sub-paragraph",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
+          "local_term_en": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "частина (частини, частині, частину, частиною, частинах)",
+          "local_term_en": "Part",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "пункт (пункту, пункті, пунктом, пунктів, пунктах)",
+          "local_term_en": "Clause/Point",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_alpha_cyrillic"
+        },
+        {
+          "local_term": "підпункт (підпункту, підпункті, підпунктом, підпунктах)",
+          "local_term_en": "Sub-clause",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_or_numeric"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ordinary laws may omit Розділ (Section) for short acts. Article numbering is always continuous throughout entire law, never restarting per Section."
+    },
+    "code": {
+      "label": "Code of Ukraine",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Книга (книги, книзі, книгу, книгою, книгах)",
+          "local_term_en": "Book",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal"
+        },
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "local_term_en": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Глава (глави, главі, главу, главою, главах)",
+          "local_term_en": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "§",
+          "local_term_en": "Paragraph (§)",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Підпараграф (підпараграфа, підпараграфу, підпараграфі)",
+          "local_term_en": "Sub-paragraph",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
+          "local_term_en": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "частина (частини, частині, частину, частиною, частинах)",
+          "local_term_en": "Part",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "пункт (пункту, пункті, пунктом, пунктів, пунктах)",
+          "local_term_en": "Clause/Point",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_alpha_cyrillic"
+        },
+        {
+          "local_term": "підпункт (підпункту, підпункті, підпунктом, підпунктах)",
+          "local_term_en": "Sub-clause",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_or_numeric"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "generalPart",
+          "local_term": "Загальна частина",
+          "local_term_en": "General Part",
+          "note": "Highest division in Criminal Code — above Sections. No Bluebell keyword; use BOOK as proxy and rename via post-processing."
+        },
+        {
+          "name": "specialPart",
+          "local_term": "Особлива частина",
+          "local_term_en": "Special Part",
+          "note": "Highest division in Criminal Code alongside General Part."
+        }
+      ],
+      "note": "Full Book > Section > Chapter > Article hierarchy used in Civil Code. Criminal Code uses General Part / Special Part above Sections (model as hcontainer). Article numbering always continuous throughout entire code."
+    },
+    "constitution": {
+      "label": "Constitution of Ukraine",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "local_term_en": "Section",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Constitution has no Book level; Розділ is the sole higher division so maps to 'chapter' not 'section'"
+        },
+        {
+          "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
+          "local_term_en": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "15 Розділи (I–XV), 161 articles continuous. Розділ maps to chapter (not section) because it is the sole higher division with nothing above it."
+    },
+    "resolution": {
+      "label": "Resolution of the Cabinet of Ministers",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "local_term_en": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Стаття/пункт (статті, пункту)",
+          "local_term_en": "Article/Clause",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Cabinet resolutions (Постанови) follow similar structure to ordinary laws."
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "ua",
+    "uri_patterns": {
+      "law": "/akn/ua/act/{year}/{number}",
+      "code": "/akn/ua/act/{year}/{number}",
+      "constitution": "/akn/ua/act/constitution/1996/254k-96-vr",
+      "bill": "/akn/ua/bill/{year}/{number}",
+      "resolution": "/akn/ua/act/resolution/{year}/{number}",
+      "decree": "/akn/ua/act/decree/{year}/{number}"
+    },
+    "number_extraction": "full_seq_convocation",
+    "number_note": "Law numbers are formatted as '№ {seq}-{convocation_roman}'. Keep the FULL '{seq}-{convocation}' form as {number} (e.g. № 2341-III → number=2341-III): sequences restart per convocation and convocations change mid-year, so the bare sequence can collide in transition years. Year is the year of adoption.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "law_citation": "Закон України від {date} № {number}-{convocation}",
+    "law_citation_en": "Law of Ukraine No. {number}-{convocation} of {date}",
+    "vvr_citation": "VVR, {year}, № {issue}, ст. {item}",
+    "insertion_style": "superscript_numeric",
+    "insertion_note": "Inserted articles use superscript numeral suffix: Article 96¹ (plain: 96-1, eId: art_96-1). No renumbering of existing articles."
+  },
+  "enacting_formulae": [
+    {
+      "text": "The Verkhovna Rada of Ukraine hereby adopts this Law:",
+      "text_ukr": "Верховна Рада України ухвалює цей Закон:",
+      "position": "preamble",
+      "document_class": "law",
+      "verification": "PARTIALLY_VERIFIED"
+    },
+    {
+      "text": "The Verkhovna Rada of Ukraine adopts this Code:",
+      "text_ukr": "Верховна Рада України ухвалює цей Кодекс:",
+      "position": "preamble",
+      "document_class": "code",
+      "verification": "PARTIALLY_VERIFIED"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article N of the Law of Ukraine [...] (VVR, YYYY, No. NN, Art. NNN) shall be amended as follows:",
+    "sub_phrasing": [
+      "part [N] shall be set out in the following wording:",
+      "the words '...' shall be replaced with the words '...'",
+      "shall be supplemented with a new part of the following wording:",
+      "Article N¹ shall be added after Article N as follows:"
+    ],
+    "cross_reference_format": "title_and_vvr_citation"
+  },
+  "core_tlcs": [
+    {
+      "eId": "vr",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ua/verkhovna-rada",
+      "showAs": "Verkhovna Rada of Ukraine"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ua/president",
+      "showAs": "President of Ukraine"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/ua/speaker-verkhovna-rada",
+      "showAs": "Speaker of the Verkhovna Rada"
+    },
+    {
+      "eId": "cabinet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ua/cabinet-ministers",
+      "showAs": "Cabinet of Ministers of Ukraine"
+    },
+    {
+      "eId": "vvr",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ua/vidomosti-vr",
+      "showAs": "Відомості Верховної Ради України"
+    },
+    {
+      "eId": "ovu",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ua/ofitsiynyi-visnyk",
+      "showAs": "Офіційний вісник України"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase. Civil-law numbering: inline points like '1.' or '(1)' under an article are body content, not structural anchors — keep them as text."
+  },
+  "supranational_memberships": [
+    {
+      "body": "council-of-europe",
+      "member_since": "1995",
+      "direct_effect": "indirect_transposition",
+      "direct_effect_note": "ECHR ratified 1997; ECtHR judgments binding. Convention rights must be respected in domestic legislation.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "eu",
+      "status": "candidate",
+      "candidate_since": "2022-06-23",
+      "negotiations_opened": "2023-12-14",
+      "direct_effect": "none",
+      "direct_effect_note": "EU law requires transposition under Association Agreement. No direct effect — EU instruments are targets for legislative alignment, not applicable law.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "direct_effect_note": "UN Security Council Chapter VII resolutions are binding but implemented via domestic acts."
+    },
+    {
+      "body": "wto",
+      "member_since": "2008",
+      "direct_effect": "none",
+      "direct_effect_note": "WTO obligations incorporated via domestic legislation."
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "title_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "note": "Ukrainian Cyrillic script. Law titles and body text in Ukrainian. English translations available on zakon.rada.gov.ua for many laws."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

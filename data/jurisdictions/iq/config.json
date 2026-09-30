@@ -1,0 +1,410 @@
+{
+  "code": "iq",
+  "name": "Republic of Iraq",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "kur"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (قانون / Qanun)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab/Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_ordinal",
+          "note": "Used only in major codes (Civil Code, Penal Code, Commercial Code). الكتاب الأول, الكتاب الثاني."
+        },
+        {
+          "local_term": "قسم (Qism/Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_ordinal",
+          "note": "Intermediate level found in the Penal Code between Kitab and Fasl. Not present in all codes. القسم الأول, القسم الثاني."
+        },
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal",
+          "note": "Primary structural grouping in most laws. الباب الأول, الباب الثاني. May appear at top level (without Kitab) or within a Kitab/Qism."
+        },
+        {
+          "local_term": "فصل (Fasl/Section-div)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "Higher division ABOVE the article basic unit. الفصل الأول, الفصل الثاني. Bluebell workaround: use DIVISION keyword; post-process to rename <division> → <section> in AKN output. Same pattern as Egyptian profile."
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "THE basic unit. Numbered continuously throughout the entire law regardless of Kitab/Bab/Fasl boundaries. مادة (N). Insertion: مكرراً (bis) suffix → art_5bis."
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit_or_arabic",
+          "note": "Paragraph break within an article. May be unlabelled (cited positionally) or explicitly numbered (1)(2)(3) or (أولاً)(ثانياً). Detect numbering style from document."
+        },
+        {
+          "local_term": "بند (Band/Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha_abjad",
+          "note": "Numbered list items: (1)(2)(3) or (أ)(ب)(ج). Normalise Arabic-script numerals and Abjad letters to Western Arabic/Latin for eId construction."
+        }
+      ],
+      "hcontainers": []
+    },
+    "decree_law": {
+      "label": "Presidential Decree (مرسوم جمهوري)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential decrees and Revolutionary Command Council (RCC) decree-laws from the pre-2003 era. Structurally identical to ordinary laws. Distinguished by enacting formula and FRBR subtype 'decree-law'. RCC-era decrees (1968–2003) use revolutionaryCommandCouncil TLC."
+    },
+    "regulation": {
+      "label": "Executive Regulation (نظام / تعليمات)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra/Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive regulations (نظام) and ministerial instructions (تعليمات) subsidiary to a parent law. Published in Al-Waqā'i' al-'Irāqiyah."
+    },
+    "cpa_order": {
+      "label": "CPA Order (أمر السلطة المؤقتة)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "note": "CPA Orders are in English and use Anglophone section-based structure, not Arabic article structure."
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Coalition Provisional Authority Orders, Regulations, Memoranda (May 2003 – June 2004). English-language documents. Anglophone section-based hierarchy. Many remain in force per TAL Art. 26 unless expressly repealed."
+    },
+    "constitution": {
+      "label": "Constitution (الدستور)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab/Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal",
+          "note": "2005 Constitution has 6 Chapters (Abwab). الباب الأول: المبادئ الأساسية, الباب الثاني: الحقوق والحريات, etc."
+        },
+        {
+          "local_term": "فصل (Fasl/Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "Same DIVISION workaround as for acts."
+        },
+        {
+          "local_term": "مادة (Maddah/Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "144 Articles in the 2005 Constitution, numbered continuously."
+        }
+      ],
+      "hcontainers": []
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "iq",
+    "uri_patterns": {
+      "act": "/akn/iq/act/{year}/{number}",
+      "decree_law": "/akn/iq/act/decree-law/{year}/{number}",
+      "regulation": "/akn/iq/act/regulation/{year}/{slug}",
+      "cpa_order": "/akn/iq/act/cpa-order/{number}",
+      "cpa_regulation": "/akn/iq/act/cpa-regulation/{number}",
+      "bill": "/akn/iq/bill/{year}/{slug}",
+      "constitution": "/akn/iq/act/constitution/2005/constitution",
+      "tal": "/akn/iq/act/constitution/2004/tal",
+      "krg_act": "/akn/iq-ku/act/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "note": "Law number and year taken from citation رقم [N] لسنة [YYYY]. Arabic-script numerals (٠-٩) must be normalised to Western Arabic (0-9) for URI construction. CPA Orders have no year in the URI — numbered sequentially from 1. KRG legislation uses iq-ku sub-national code."
+  },
+  "numbering": {
+    "act_citation": "قانون رقم {number} لسنة {year}",
+    "act_citation_latin": "Law No. {number} of {year}",
+    "article_basic_unit": "مادة",
+    "article_basic_unit_latin": "Maddah",
+    "insertion_style": "bis_suffix",
+    "insertion_arabic": "مكرراً",
+    "insertion_latin": "bis",
+    "insertion_example": "مادة 5 مكرراً → art_5bis",
+    "article_numbering": "continuous_throughout_law"
+  },
+  "enacting_formulae": [
+    {
+      "arabic": "أصدر مجلس النواب القانون الآتي نصه:",
+      "transliteration": "Asdar Majlis al-Nuwwab al-Qanun al-Ati Nassuh",
+      "translation": "The Council of Representatives has enacted the following law:",
+      "position": "preamble",
+      "era": "post-2005-constitution",
+      "from": "2006-01-01",
+      "enacting_body_tlc": "councilOfRepresentatives"
+    },
+    {
+      "arabic": "باسم الشعب",
+      "transliteration": "Ba-ism al-Sha'b",
+      "translation": "In the name of the People",
+      "position": "preamble",
+      "era": "post-2003-general",
+      "note": "Presidential promulgation preamble that appears in the gazette header alongside the law text. Precedes or accompanies the CoR enacting formula.",
+      "enacting_body_tlc": "president"
+    },
+    {
+      "text": "Pursuant to my authority as Administrator of the Coalition Provisional Authority (CPA), relevant UN Security Council resolutions, including Resolution 1483 (2003) and 1511 (2003), and the laws and usages of war, I hereby promulgate the following:",
+      "position": "preamble",
+      "era": "cpa-2003-2004",
+      "from": "2003-05-16",
+      "to": "2004-06-28",
+      "enacting_body_tlc": "cpaAdministrator"
+    },
+    {
+      "arabic": "قرار مجلس قيادة الثورة",
+      "transliteration": "Qarar Majlis Qiyadat al-Thawra",
+      "translation": "Resolution of the Revolutionary Command Council",
+      "position": "preamble",
+      "era": "rcc-1968-2003",
+      "from": "1968-07-17",
+      "to": "2003-04-09",
+      "enacting_body_tlc": "revolutionaryCommandCouncil"
+    },
+    {
+      "arabic": "يصدر برلمان كردستان - العراق القانون التالي:",
+      "translation": "The Kurdistan Parliament – Iraq enacts the following law:",
+      "position": "preamble",
+      "era": "krg-1992-present",
+      "from": "1992-07-15",
+      "enacting_body_tlc": "kurdistanParliament"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "تستبدل المادة (N) من القانون رقم (X) لسنة (YYYY) بالنص الآتي:",
+    "phrasing_substitution_latin": "Article N of Law No. X of YYYY is replaced by the following text:",
+    "phrasing_addition": "تضاف إلى القانون رقم (X) لسنة (YYYY) مادة جديدة برقم (N مكرراً) نصها الآتي:",
+    "phrasing_repeal": "تلغى المادة (N) من القانون رقم (X) لسنة (YYYY)",
+    "cross_reference_format": "law_number_and_year",
+    "cross_reference_example": "القانون رقم (111) لسنة 1969"
+  },
+  "core_tlcs": [
+    {
+      "eId": "councilOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/council-of-representatives",
+      "showAs": "Council of Representatives"
+    },
+    {
+      "eId": "kurdistanParliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq-ku/kurdistan-parliament",
+      "showAs": "Kurdistan Parliament – Iraq"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "cpa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/coalition-provisional-authority",
+      "showAs": "Coalition Provisional Authority"
+    },
+    {
+      "eId": "revolutionaryCommandCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/revolutionary-command-council",
+      "showAs": "Revolutionary Command Council"
+    },
+    {
+      "eId": "governingCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/governing-council",
+      "showAs": "Iraqi Governing Council"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "cpaAdministrator",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/cpa-administrator",
+      "showAs": "CPA Administrator"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/speaker",
+      "showAs": "Speaker of the Council of Representatives"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/iq/al-waqaie-al-iraqiyya",
+      "showAs": "Al-Waqā'i' al-'Irāqiyah"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Arabic and Kurdish RTL text. Basic unit is ARTICLE (مادة/Maddah), not SECTION. Hierarchy for major codes: BOOK > [PART >] CHAPTER > [DIVISION for فصل/Fasl] > ARTICLE. Simple laws: [CHAPTER >] ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة/Faqra and POINT for بند/Band. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, PART, CHAPTER, DIVISION, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic-script numerals ٠-٩ should be normalised to 0-9 in structural position markers only. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis. CPA Orders use English section-based structure — use SECTION/SUBSECTION/PARAGRAPH hierarchy instead, with structure_iq_cpa.txt variant."
+  },
+  "supranational_memberships": [
+    {
+      "body": "arab-league",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Founding member (1945). No direct-effect supranational legal instruments. Conventions require ratification and domestic enabling legislation."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "direct_effect_exceptions": [
+        "Security Council Chapter VII resolutions — binding on member states"
+      ],
+      "superseded_subjects": []
+    }
+  ],
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "natural",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif",
+    "note": "Arabic RTL primary display. Article numbers may appear in Arabic-script numerals (٥) or Western Arabic (5); pipeline normalises to Western Arabic for eIds. Kurdish Sorani also uses Perso-Arabic script (RTL). Review UI must set direction: rtl; unicode-bidi: embed."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

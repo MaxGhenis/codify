@@ -1,0 +1,241 @@
+{
+  "code": "la",
+  "name": "Lao People's Democratic Republic",
+  "type": "national",
+  "tradition": [
+    "socialist",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "lao"
+  ],
+  "authoritative_language": "lao",
+  "document_classes": {
+    "act": {
+      "label": "Law (National Assembly)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part (ພາກ)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter (ໝວດ)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article (ມາດຕາ)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Point / Sub-item",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Article numbering is continuous throughout the law — does not restart per Chapter or Part."
+    },
+    "decree": {
+      "label": "Presidential or Government Decree",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article (ມາດຕາ)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Decrees are typically short instruments; often no higher divisions above Article level."
+    },
+    "ordinance": {
+      "label": "Ordinance (National Assembly Standing Committee)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter (ໝວດ)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article (ມາດຕາ)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ordinances enacted by the NA Standing Committee between sessions. Similar structure to laws but typically shorter."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter (ໝວດ)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article (ມາດຕາ)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1991 Constitution uses Chapters (no Parts). Revised 2003 and 2015 — each revision is a new FRBR expression of the same work."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "la",
+    "uri_patterns": {
+      "act": "/akn/la/act/{year}/{number}",
+      "decree": "/akn/la/act/decree/{year}/{number}",
+      "ordinance": "/akn/la/act/ordinance/{year}/{number}",
+      "bill": "/akn/la/bill/{year}/{number}",
+      "constitution": "/akn/la/act/constitution/1991/constitution"
+    },
+    "date_calendar": "gregorian",
+    "number_note": "Laws numbered as No. NN/NA; use the numeric part only as {number}. When number is ambiguous, use slugified short title."
+  },
+  "numbering": {
+    "act_citation": "Law No. {number}/NA of {date}",
+    "decree_citation": "Decree No. {number}/PS of {date}"
+  },
+  "enacting_formulae": [
+    {
+      "text": "The National Assembly of the Lao People's Democratic Republic hereby enacts this Law",
+      "position": "preamble",
+      "era": "post-1991",
+      "note": "English translation only. Lao-script original is authoritative. Full formula includes session reference and constitutional basis recitals.",
+      "from": "1991-08-14"
+    }
+  ],
+  "amendments": {
+    "style": "full_replacement_or_textual",
+    "phrasing": "full replacement of laws common; standalone amendment laws also used",
+    "cross_reference_format": "law_name_and_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/la/national-assembly",
+      "showAs": "National Assembly of the Lao PDR"
+    },
+    {
+      "eId": "lprp",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/la/lprp",
+      "showAs": "Lao People's Revolutionary Party"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/la/president",
+      "showAs": "President of the Lao PDR"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/la/prime-minister",
+      "showAs": "Prime Minister of the Lao PDR"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/la/ministry-of-justice",
+      "showAs": "Ministry of Justice"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/la/official-gazette",
+      "showAs": "Lao PDR Official Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Hierarchy is PART > CHAPTER > ARTICLE > PARAGRAPH > POINT. Article numbering is continuous throughout the law and does not restart per Chapter or Part. Lao PDR follows the French civil law tradition inherited from the colonial period."
+  },
+  "supranational_memberships": [
+    {
+      "body": "asean",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ASEAN is intergovernmental only. All ASEAN instruments require domestic transposition. No automatic direct effect in Lao PDR."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "WTO member since January 2013. Obligations implemented via domestic legislation (IP Law, Investment Law, etc.)."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "article_heading",
+    "heading_case": "sentence_case",
+    "script": "lao",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "font_note": "Lao script requires a Unicode font with Lao block support (e.g., Noto Sans Lao, Phetsarath OT). Latin fallback for transliterations."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,523 @@
+{
+  "code": "gr",
+  "name": "Greece",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ell"
+  ],
+  "authoritative_language": "ell",
+  "document_classes": {
+    "nomos": {
+      "label": "Nomos (Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Βιβλίο (Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "greek_ordinal_to_arabic",
+          "note": "Used in codes only (Civil Code 5 Books). Not used in ordinary Nomoi."
+        },
+        {
+          "local_term": "Μέρος (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "greek_ordinal_word"
+        },
+        {
+          "local_term": "Κεφάλαιο (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "greek_capital_letter",
+          "note": "Κεφάλαιο Α΄, Β΄, Γ΄ — normalise to Arabic for eId"
+        },
+        {
+          "local_term": "Τμήμα (Section/Division)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "greek_capital_letter",
+          "note": "Higher division below Chapter. Maps to AKN section-as-container. Bluebell DIVISION used as proxy."
+        },
+        {
+          "local_term": "Άρθρο (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic",
+          "note": "Older codes may use Roman numerals; normalise to Arabic for eId"
+        },
+        {
+          "local_term": "Εδάφιο / Περίπτωση (Sub-paragraph)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "greek_lower_letter",
+          "note": "α), β), γ) — normalise to a, b, c for eId"
+        },
+        {
+          "local_term": "Σημείο (Point)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_or_double_greek"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Παράρτημα (Annex/Schedule)",
+          "akn_element": "attachment",
+          "note": "Παράρτημα Α΄, Β΄ etc. Use <attachments><attachment>.",
+          "name": "παράρτημα_(annex/schedule)"
+        }
+      ]
+    },
+    "presidential_decree": {
+      "label": "Προεδρικό Διάταγμα (Presidential Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Κεφάλαιο (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "greek_capital_letter"
+        },
+        {
+          "local_term": "Άρθρο (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Εδάφιο / Περίπτωση (Sub-paragraph)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "greek_lower_letter"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential Decrees (ΠΔ) published in ΦΕΚ Α΄. Require ministerial countersignature. Issued under specific legislative authorisation."
+    },
+    "ministerial_decision": {
+      "label": "Υπουργική Απόφαση / Κοινή Υπουργική Απόφαση (Ministerial / Joint Ministerial Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Άρθρο (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial Decisions (ΥΑ/ΚΥΑ) published in ΦΕΚ Β΄. Identified by protocol number + gazette citation, not sequential number. See FRBR URI section."
+    },
+    "constitution": {
+      "label": "Σύνταγμα (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Μέρος (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Άρθρο (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The Constitution has 4 Parts and 120 Articles continuous throughout. Paragraphs within articles use Arabic numerals. No Schedules."
+    },
+    "code": {
+      "label": "Κώδικας (Code — Civil, Penal, Civil Procedure, etc.)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Βιβλίο (Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Κεφάλαιο (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_or_greek_letter"
+        },
+        {
+          "local_term": "Άρθρο (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_or_arabic",
+          "note": "Older codes use Roman numerals (I, II, III); normalise to Arabic for eId."
+        },
+        {
+          "local_term": "Εδάφιο (Clause)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Civil Code: 5 Books, Articles 1–2035 continuous. Enacted 1940, entered force 1946. Penal Code: Articles continuous throughout. No ΦΕΚ-style numbering — identify by descriptive FRBR slug."
+    },
+    "bill": {
+      "label": "Σχέδιο Νόμου (Bill)",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Κεφάλαιο (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "greek_capital_letter"
+        },
+        {
+          "local_term": "Άρθρο (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Εδάφιο (Sub-paragraph)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "greek_lower_letter"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Bills deposited in Vouli before vote. No act number assigned until enactment. Use slugified Greek title for FRBR URI."
+    }
+  },
+  "default_document_class": "nomos",
+  "frbr": {
+    "country_code": "gr",
+    "uri_patterns": {
+      "nomos": "/akn/gr/act/{year}/{number}",
+      "presidential_decree": "/akn/gr/act/pd/{year}/{number}",
+      "ministerial_decision": "/akn/gr/act/kya/{year}/{gazette-ref}",
+      "legislative_act_pnp": "/akn/gr/act/pnp/{year}/{number}",
+      "bill": "/akn/gr/bill/{year}/{slugified-title}",
+      "constitution": "/akn/gr/act/constitution/1975/syntagma",
+      "civil_code": "/akn/gr/act/1940/civil-code",
+      "penal_code": "/akn/gr/act/1950/penal-code"
+    },
+    "date_calendar": "gregorian",
+    "language_code": "ell",
+    "notes": [
+      "Law number is sequential integer assigned at enactment. Format: {number}/{year} in Greek citation, maps to /akn/gr/act/{year}/{number} in FRBR URI.",
+      "Presidential Decrees (ΠΔ) use subtype 'pd'.",
+      "Legislative Acts (ΠΝΠ) issued by executive under Art. 44 Constitution use subtype 'pnp'.",
+      "Codes pre-date the number/year system; use descriptive slugs."
+    ]
+  },
+  "numbering": {
+    "act_citation": "Ν. {number}/{year}",
+    "act_citation_alt": "νόμος {number}/{year}",
+    "pd_citation": "ΠΔ {number}/{year}",
+    "insertion_style": "greek_letter_suffix",
+    "insertion_example": "Άρθρο 5Α, Άρθρο 5Β",
+    "note": "Inserted articles append a Greek capital letter (Α, Β, Γ); normalise to ASCII Latin capital for eId (5A, 5B, 5C)."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Ο ΠΡΟΕΔΡΟΣ ΤΗΣ ΕΛΛΗΝΙΚΗΣ ΔΗΜΟΚΡΑΤΙΑΣ\nΕκδίδομε τον ακόλουθο νόμο που ψήφισε η Βουλή:",
+      "translation": "THE PRESIDENT OF THE HELLENIC REPUBLIC\nWe promulgate the following law which the Parliament has voted:",
+      "position": "preamble",
+      "document_class": "nomos",
+      "note": "based on constitutional practice (Art. 42 Constitution)."
+    },
+    {
+      "text": "Ο ΠΡΟΕΔΡΟΣ ΤΗΣ ΕΛΛΗΝΙΚΗΣ ΔΗΜΟΚΡΑΤΙΑΣ\nΈχοντας υπόψη: [...]\nΑποφασίζουμε:",
+      "translation": "THE PRESIDENT OF THE HELLENIC REPUBLIC\nHaving regard to: [...]\nWe decide:",
+      "position": "preamble",
+      "document_class": "presidential_decree",
+      "note": "Presidential Decrees include recitals of the authorising provisions before the operative text. Recitals map to <recitals> in AKN preamble."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "η παράγραφος X του άρθρου Y αντικαθίσταται ως εξής: «...»",
+    "phrasing_translation": "paragraph X of article Y is replaced as follows: «...»",
+    "insertion_phrasing": "μετά το άρθρο X προστίθεται άρθρο XΑ ως εξής:",
+    "repeal_phrasing": "το άρθρο X καταργείται",
+    "quoted_text_delimiter": "«»",
+    "cross_reference_format": "ν. {number}/{year}",
+    "consolidation": "none_official",
+    "consolidation_note": "No official consolidation service exists. Private databases (NOMOS/Sakkoulas, Isocrates/DSANET) provide unofficial consolidated texts. Pipeline should treat all ingested documents as point-in-time (at ΦΕΚ publication date)."
+  },
+  "core_tlcs": [
+    {
+      "eId": "vouli",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/vouli",
+      "showAs": "Βουλή των Ελλήνων"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/president",
+      "showAs": "Πρόεδρος της Δημοκρατίας"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/prime-minister",
+      "showAs": "Πρωθυπουργός"
+    },
+    {
+      "eId": "ministerOfJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/minister-of-justice",
+      "showAs": "Υπουργός Δικαιοσύνης"
+    },
+    {
+      "eId": "ministerialCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/ministerial-council",
+      "showAs": "Υπουργικό Συμβούλιο"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/minister",
+      "showAs": "Υπουργός"
+    },
+    {
+      "eId": "stE",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/council-of-state",
+      "showAs": "Συμβούλιο της Επικρατείας"
+    },
+    {
+      "eId": "areosPagos",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/areos-pagos",
+      "showAs": "Άρειος Πάγος"
+    },
+    {
+      "eId": "elegktiko",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/elegktiko-synedrio",
+      "showAs": "Ελεγκτικό Συνέδριο"
+    },
+    {
+      "eId": "ethnTyp",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/ethniko-typografeio",
+      "showAs": "Εθνικό Τυπογραφείο"
+    },
+    {
+      "eId": "fek",
+      "class": "TLCObject",
+      "href": "/ontology/obj/gr/fek",
+      "showAs": "Εφημερίδα της Κυβερνήσεως (ΦΕΚ)"
+    },
+    {
+      "eId": "greece",
+      "class": "TLCLocation",
+      "href": "/ontology/place/gr",
+      "showAs": "Ελληνική Δημοκρατία"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
+  },
+  "gazette": {
+    "name": "Εφημερίδα της Κυβερνήσεως",
+    "abbreviation": "ΦΕΚ",
+    "publisher": "Εθνικό Τυπογραφείο",
+    "online": "https://search.et.gr/en/fek/",
+    "primary_series_for_laws": "Α΄",
+    "primary_series_for_delegated": "Β΄",
+    "series": [
+      {
+        "code": "Α",
+        "contents": "Laws, Presidential Decrees, acts of Ministerial Council, international treaties"
+      },
+      {
+        "code": "Β",
+        "contents": "Ministerial and Joint Ministerial Decisions (regulatory)"
+      },
+      {
+        "code": "Γ",
+        "contents": "Individual administrative acts (appointments, transfers, promotions) — summary form"
+      },
+      {
+        "code": "Δ",
+        "contents": "Land use, urban planning, grants of public property"
+      },
+      {
+        "code": "ΑΑΠ",
+        "contents": "Compulsory expropriations and urban planning matters"
+      },
+      {
+        "code": "ΥΟΔΔ",
+        "contents": "Special-position employees and public sector administrative bodies"
+      },
+      {
+        "code": "ΑΕ-ΕΠΕ-ΓΕΜΗ",
+        "contents": "Companies (SA, Ltd) and General Commercial Registry"
+      },
+      {
+        "code": "ΕΒΙ",
+        "contents": "Commercial and industrial property (trademarks, patents)"
+      },
+      {
+        "code": "ΑΣΕΠ",
+        "contents": "Supreme Personnel Selection Council announcements"
+      },
+      {
+        "code": "ΔΔΣ",
+        "contents": "Public procurement announcements"
+      },
+      {
+        "code": "ΑΕΙΔ",
+        "contents": "Supreme Special Court decisions"
+      },
+      {
+        "code": "ΟΠΚ",
+        "contents": "Political party and coalition financing"
+      },
+      {
+        "code": "ΝΠΔΔ",
+        "contents": "Legal persons under public law (discontinued 2006)"
+      }
+    ],
+    "issue_citation_format": "ΦΕΚ {series}΄ {issue_number}/{year}",
+    "citation_example": "ΦΕΚ Α΄ 80/2015"
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "1981-01-01",
+      "direct_effect": "direct",
+      "superseded_subjects": [],
+      "note": "EU Regulations apply directly. EU Directives require transposition via Nomos. Large proportion of recent Greek legislation is directive transposition. AKN4EU profile covers the EU instrument layer."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "note": "ECHR binding via ECtHR judgments. Greece ratified ECHR in 1974."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "article_rubric",
+    "heading_case": "mixed",
+    "script": "greek",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Greek legislation uses article rubrics (bold headings above or within the article text) rather than Anglophone-style marginal notes. The rubric is part of the enacted text, not an editorial addition."
+  },
+  "language_notes": {
+    "register": "Modern Greek (Dimotiki) from 1976 onwards. Pre-1976 legislation in Katharevousa (archaic formal register). OCR and NLP models must handle both. Flag pre-1976 documents in metadata.",
+    "script": "Greek alphabet. All structural terms in Greek: Άρθρο (article), Κεφάλαιο (chapter), Παράγραφος (paragraph), Εδάφιο (clause), Νόμος (law), Προεδρικό Διάταγμα (presidential decree), Εφημερίδα της Κυβερνήσεως (government gazette).",
+    "normalisation": "Greek capital letter ordinals (Α΄, Β΄, Γ΄) → Arabic for eId. Greek lowercase sub-paragraph labels (α, β, γ) → Latin lowercase (a, b, c) for eId."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

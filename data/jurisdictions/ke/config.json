@@ -1,0 +1,346 @@
+{
+  "code": "ke",
+  "name": "Kenya",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "swa"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_continuous",
+          "note": "Used in complex acts (e.g., Companies Act) to subdivide Parts. Apply name='division' in post-processing."
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "division",
+          "bluebell_keyword": "DIVISION",
+          "note": "Sub-Part division used in complex statutes",
+          "local_term": "Division"
+        }
+      ]
+    },
+    "legal_notice": {
+      "label": "Legal Notice (Subsidiary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation / Rule",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-regulation / Sub-rule",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Legal Notices use 'regulation' or 'rule' as the basic unit term but map to AKN section. The local term is a display concern. Numbered as 'Legal Notice No. N of YYYY'."
+    },
+    "constitution": {
+      "label": "Constitution of Kenya",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "prompt_variant": "structure_ke_constitution",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Chapter > (Part) > Article hierarchy. Articles numbered continuously 1-264 across all Chapters. Requires a separate Bluebell structuring prompt variant."
+    },
+    "bill": {
+      "label": "Bill",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Bills use 'clause' as the basic unit term (becomes 'section' after enactment), but structurally identical to Acts. Map to SECTION in Bluebell."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "ke",
+    "uri_patterns": {
+      "act": "/akn/ke/act/{year}/{number}",
+      "legal_notice": "/akn/ke/act/ln/{year}/{number}",
+      "bill": "/akn/ke/bill/{year}/{number}",
+      "constitution": "/akn/ke/act/2010/constitution",
+      "county_act": "/akn/ke-{county_code}/act/{year}/{number}",
+      "eac_instrument": "/akn/aa-eac/act/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "county_codes": "ke-001 (Mombasa) through ke-047 — see AKN4Africa Recommendation for full mapping"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "Cap. {number}",
+    "legal_notice_citation": "Legal Notice No. {number} of {year}",
+    "insertion_style": "alphanumeric",
+    "note": "Dual numbering system: Act No./year for post-independence legislation; Cap. number for consolidated revised edition. Both appear in cross-references."
+  },
+  "enacting_formulae": [
+    {
+      "text": "ENACTED by the Parliament of Kenya, as follows—",
+      "position": "preamble",
+      "era": "post-2010-constitution",
+      "from": "2010-08-27"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended — (a) by deleting ... and substituting therefor ...",
+    "cross_reference_format": "short_title_and_act_number",
+    "omnibus_style": "schedule_table",
+    "omnibus_note": "Statute Law (Miscellaneous Amendments) Acts use a Schedule table format (principal act / provision / amendment) rather than conventional body sections."
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ke/parliament",
+      "showAs": "Parliament of Kenya"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ke/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ke/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ke/president",
+      "showAs": "President of Kenya"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/ke/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "chiefKadhi",
+      "class": "TLCRole",
+      "href": "/ontology/role/ke/chief-kadhi",
+      "showAs": "Chief Kadhi"
+    },
+    {
+      "eId": "nclr",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ke/nclr",
+      "showAs": "National Council for Law Reporting"
+    },
+    {
+      "eId": "kenyaGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ke/kenya-gazette",
+      "showAs": "Kenya Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Kenya uses 'PART I—PRELIMINARY' heading style (em-dash separator). Sections numbered continuously throughout the act. Amendment phrasing: 'is amended — (a) by deleting ... and substituting therefor'. Marginal notes appear as section headings.",
+    "constitution_prompt_variant": "structure_ke_constitution"
+  },
+  "supranational_memberships": [
+    {
+      "body": "eac",
+      "frbr_prefix": "aa-eac",
+      "direct_effect": "none",
+      "note": "EAC instruments lack direct applicability in Kenya. Must be transposed into domestic law. Kenya Law publishes EAC legislation separately.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "comesa",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "part_separator": "em_dash",
+    "part_example": "PART I—PRELIMINARY"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

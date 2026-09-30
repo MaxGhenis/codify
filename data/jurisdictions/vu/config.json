@@ -1,0 +1,262 @@
+{
+  "code": "vu",
+  "name": "Vanuatu",
+  "type": "national",
+  "tradition": [
+    "customary",
+    "common_law",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "fra",
+    "bis"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "division",
+          "local_term": "Division",
+          "bluebell_keyword": "SUBSECTION",
+          "note": "Intermediate level between Part and Section, rare in Vanuatu legislation. Use hcontainer name='division' if observed."
+        }
+      ]
+    },
+    "ord": {
+      "label": "Subsidiary Legislation (Order / Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Regulation/Rule",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Orders and Regulations use 'regulation' or 'rule' as basic unit term but map to AKN section. eId uses 'sec_N'."
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Vanuatu",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Chapters (not Parts) as higher division. Sections are the basic unit throughout."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "vu",
+    "uri_patterns": {
+      "act": "/akn/vu/act/{year}/{number}",
+      "act_consolidated": "/akn/vu/act/cap{NNN}/cap{NNN}",
+      "ord": "/akn/vu/act/ord/{year}/{number}",
+      "bill": "/akn/vu/bill/{year}/{number}",
+      "constitution": "/akn/vu/act/constitution/1980/constitution"
+    },
+    "date_calendar": "gregorian",
+    "multilingual": true,
+    "language_expressions": [
+      "eng",
+      "fra"
+    ],
+    "note": "English and French versions are parallel originals with equal authority (not translations). Each language gets a separate Expression-level URI. Use /eng@ and /fra@ suffixes. Do NOT use FRBRtranslation."
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "Cap. {number}",
+    "insertion_style": "alphanumeric",
+    "note": "Dual numbering system: post-consolidation acts cited as 'No. N of YYYY'; consolidated acts cited as 'Cap. NNN'. Cap number is canonical for consolidated legislation."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Be it enacted by the President and Parliament as follows:",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1980-07-30"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "Delete '...' substitute '...' / After [provision] Insert '...'",
+    "cross_reference_format": "short_title_and_cap",
+    "omnibus_vehicle": "Statute Law (Miscellaneous Provisions) Act"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vu/parliament",
+      "showAs": "Parliament of Vanuatu"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/speaker",
+      "showAs": "Speaker of Parliament"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "malvatuMauri",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vu/malvatu-mauri",
+      "showAs": "Malvatu Mauri — National Council of Chiefs"
+    },
+    {
+      "eId": "stateLawOffice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vu/state-law-office",
+      "showAs": "State Law Office"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/vu/official-gazette",
+      "showAs": "Republic of Vanuatu Official Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Vanuatu uses 'Be it enacted by the President and Parliament as follows:' as the enacting formula. Parts are the primary higher division (PART 1, PART 2). The Constitution uses Chapters instead of Parts. English and French versions are parallel originals — process each language separately. Acts are numbered 'No. N of YYYY' or 'Cap. NNN' for consolidated legislation."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "pacific-islands-forum",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Pacific Islands Forum — intergovernmental only, no direct-effect instruments"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Acceded 2012; WTO obligations require domestic implementation"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,469 @@
+{
+  "code": "me",
+  "name": "Montenegro",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "cnr",
+    "srp",
+    "bos",
+    "sqi",
+    "hrv"
+  ],
+  "authoritative_language": "cnr",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon (Act/Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Deo",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_arabic",
+          "note": "Highest structural division in large codes. DEO PRVI or I DEO — ordinal or Roman normalised to Arabic for eId (part_1, part_2). Uncommon except in large codes."
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic",
+          "note": "Main structural division. GLAVA I, GLAVA II — Roman numerals normalised to Arabic (chp_1, chp_2). Most common higher division in primary legislation."
+        },
+        {
+          "local_term": "Odjeljak",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Mid-level division below Glava. Higher division only — NOT the basic unit. Odjeljak 1, Odjeljak 2. Montenegrin uses Ijekavian form 'Odjeljak', NOT the Serbian Ekavian 'Odsek'. The Montenegrin Constitution (2007) and post-independence legislation consistently use Ijekavian throughout."
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "BASIC UNIT. Continuous Arabic numbering throughout entire act regardless of higher divisions. Written 'Član 1', 'Član 5'. Never resets per chapter or part. Cited as 'član X ovog zakona'."
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "(1), (2), (3). Numbered when two or more stavovi exist in an article. Single-stav articles typically have no (1) marker."
+        },
+        {
+          "local_term": "Tačka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "note": "1), 2), 3) or a), b), c) — lettered or numbered items within a stav. At least two required in practice."
+        },
+        {
+          "local_term": "Alineja",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "unnumbered",
+          "note": "Unnumbered sub-point within a tačka. Marked by dash or indent. Maps to AKN alinea. Less common in modern legislation."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Prelazne i završne odredbe",
+          "name": "transitional-final",
+          "description": "Transitional and Final Provisions block at end of act. Typically a final Glava or unnumbered heading block.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Primary legislation enacted by Skupština Crne Gore. Article numbering continuous throughout act."
+    },
+    "uredba": {
+      "label": "Uredba (Government Decree/Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tačka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by Vlada Crne Gore under delegating authority of primary legislation."
+    },
+    "pravilnik": {
+      "label": "Pravilnik (Regulation/Rulebook)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "note": "Less common in pravilnici; many are short and chapter-free."
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tačka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial rulebooks. Simpler structure, often chapter-free."
+    },
+    "odluka": {
+      "label": "Odluka (Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Decisions issued by Skupština, Vlada, or Predsjednik. Typically short, no higher divisions."
+    },
+    "naredba": {
+      "label": "Naredba (Order)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive orders. Typically very short, issued by ministers or government."
+    },
+    "constitution": {
+      "label": "Ustav Crne Gore (Constitution of Montenegro)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Dio",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Constitutional divisions. 2007 Constitution uses uppercase Roman headings: I. OSNOVNE ODREDBE, II. PRAVA I SLOBODE etc. Normalise to Arabic for eId."
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "2007 Constitution has 158 articles numbered continuously."
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of Montenegro, adopted 19 October 2007 at independence of state from union with Serbia. Codifies Montenegrin as the official language; recognises Cyrillic and Latin as co-official scripts."
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "me",
+    "uri_patterns": {
+      "zakon": "/akn/me/act/{year}/{item-number}",
+      "zakon_slug": "/akn/me/act/{year}/{slug}",
+      "uredba": "/akn/me/act/uredba/{year}/{item-number}",
+      "pravilnik": "/akn/me/act/pravilnik/{year}/{item-number}",
+      "odluka": "/akn/me/act/odluka/{year}/{item-number}",
+      "naredba": "/akn/me/act/naredba/{year}/{item-number}",
+      "bill": "/akn/me/bill/{year}/{slug}",
+      "constitution": "/akn/me/act/constitution/2007/ustav"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "item-number is the Službeni list item number within the gazette issue. Gazette citation format: Sl. list CG, br. {issue}/{year}. Work URI always uses initial enactment year; amendments create new expressions. When item-number unknown, use slugified short title as fallback (slug variant)."
+  },
+  "numbering": {
+    "act_citation": "Sl. list CG, br. {issue}/{year-short}",
+    "act_citation_full": "Službeni list Crne Gore, br. {issue}/{year}",
+    "act_citation_alt": "\"Sl. list CG\", br. {issue}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "Član 5a, Član 5b",
+    "article_numbering": "continuous_throughout_act",
+    "subdivision_stav": "arabic_parenthesized",
+    "subdivision_tacka": "arabic_stop_or_alpha_lower_parenthesized"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Skupština Crne Gore {ordinal} saziva, na sjednici {date}, donijela je",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "2006-06-03",
+      "verified": true,
+      "note": "Parliamentary adoption formula. Skupština is unicameral, 81 members. Ijekavian form 'donijela' (not Ekavian 'donela'). The ordinal convocation number ('desetog saziva' etc.) and session date appear in the gazette header. Verb 'donijela je' (adopted) confirmed for zakon class. Note: Montenegrin language (cnr) uses Ijekavian forms throughout — 'donijeti', 'izmjene', 'odredbe', 'odjeljak' — distinguishing it from Serbian Ekavian."
+    },
+    {
+      "text": "Na osnovu člana {delegating_article} Zakona o {subject}, Vlada Crne Gore, na sjednici od {date}, donijela je",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "2006-06-03",
+      "verified": true,
+      "note": "Government decree formula. Delegating provision reference is mandatory. Verb 'donijela je' also used for uredbe — distinguished from zakon by enacting body (Vlada vs Skupština) not by verb."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "mijenja se i glasi",
+    "phrasing_deletion": "briše se",
+    "phrasing_addition": "dodaje se novi ... koji glasi",
+    "amendment_act_naming": "Zakon o izmjenama i dopunama Zakona o {subject}",
+    "cross_reference_format": "law_name_and_gazette_citation",
+    "cross_reference_example": "Zakon o parničnom postupku (Sl. list CG, br. 22/04, 76/06)",
+    "intra_act_reference": "u smislu člana X stava Y ovog zakona"
+  },
+  "core_tlcs": [
+    {
+      "eId": "skupstina",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/skupstina",
+      "showAs": "Skupština Crne Gore"
+    },
+    {
+      "eId": "predsjednikSkupstine",
+      "class": "TLCRole",
+      "href": "/ontology/role/me/predsjednik-skupstine",
+      "showAs": "Predsjednik Skupštine Crne Gore"
+    },
+    {
+      "eId": "predsjednikCrneGore",
+      "class": "TLCRole",
+      "href": "/ontology/role/me/predsjednik-crne-gore",
+      "showAs": "Predsjednik Crne Gore"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/vlada",
+      "showAs": "Vlada Crne Gore"
+    },
+    {
+      "eId": "ustavniSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/ustavni-sud",
+      "showAs": "Ustavni sud Crne Gore"
+    },
+    {
+      "eId": "vrhovniSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/vrhovni-sud",
+      "showAs": "Vrhovni sud Crne Gore"
+    },
+    {
+      "eId": "sluzbeniList",
+      "class": "TLCObject",
+      "href": "/ontology/obj/me/sluzbeni-list",
+      "showAs": "Službeni list Crne Gore"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Montenegrin legislation uses ARTICLE (Član) as the basic unit — NOT SECTION. SECTION is only a higher division (Odjeljak — Ijekavian form; NOT 'Odsek' which is Serbian Ekavian). Article numbering is continuous throughout the entire act and never resets per chapter or part. Articles are written 'Član 1', 'Član 5'. Stav (paragraph) is numbered (1), (2), (3) only when two or more stavovi exist; single-stav articles have no (1) marker. Tačka (point) within stavovi are numbered 1), 2) or a), b) with closing parenthesis — NOT period-stop. Alineja (unnumbered sub-point) maps to ALINEA keyword. Montenegrin uses Ijekavian forms throughout: 'donijeti' (not 'doneti'), 'izmjene' (not 'izmene'), 'odjeljak' (not 'odeljak'). Montenegrin text uses Latin script as primary; Cyrillic may appear in older texts — treat both as the same language (cnr). The gazette promulgation header is NOT part of the enacted law — begin digitisation from the act title (ZAKON O...). Cross-references cite 'Sl. list CG' with issue and year. Amendment acts are named 'Zakon o izmjenama i dopunama Zakona o ...'.",
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^Zakon\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "zakon",
+        "priority": 60,
+        "note": "Primary legislation (Zakon) identifiable from title."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Uredba\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "uredba",
+        "priority": 70,
+        "note": "Government decrees (Uredba) identifiable from title."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Pravilnik\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "pravilnik",
+        "priority": 70,
+        "note": "Ministerial rulebooks (Pravilnik) identifiable from title."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Odluka\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "odluka",
+        "priority": 70,
+        "note": "Decisions (Odluka) identifiable from title."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "Ustav\\s+Crne\\s+Gore",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 100,
+        "note": "Montenegrin Constitution uniquely identified by title."
+      }
+    ]
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Member since 2007-05-11. ECHR binding via ratification. European Court of Human Rights judgments applied by Ustavni sud."
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "NATO member since 2017-06-05. Smallest NATO member by population (~620,000). Defence legislation aligns with NATO standards."
+    },
+    {
+      "body": "eu-candidate",
+      "status": "candidate",
+      "member_since": "2010-12-17",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "EU candidate since 2010-12-17; accession negotiations opened 2012-06-29 — most advanced Western Balkans candidate. Chapters 23 (Judiciary) and 24 (Justice) opened first per new methodology. Does NOT yet have direct-effect EU law. Harmonisation obligations exist under SAA (Stabilisation and Association Agreement, in force 2010-04-01)."
+    },
+    {
+      "body": "osce",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "cefta",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Central European Free Trade Agreement member. Regional trade framework with other Western Balkans states."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Latin script is primary for legislation; 2007 Constitution recognises both Latin and Cyrillic as co-official scripts. Modern legislation (post-2006) predominantly Latin. OCR must handle Montenegrin diacritics: š, č, ž, ć, đ (same set as Croatian/Serbian Latin). Headings typically in ALL CAPS."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "binding_regimes": [
+    {
+      "code": "eurozone-informal",
+      "kind": "bilateral_regime",
+      "direct_effect": "none",
+      "note": "Montenegro unilaterally adopted the euro (EUR) in 2002 — prior to EU candidacy and without ECB/eurozone membership. Not a formal eurozone member; no seat on ECB Governing Council. This is a unilateral arrangement, not an EU instrument. Euro use is domestic policy, not a supranational direct-effect obligation. Pipeline note: monetary legislation may reference EUR without implying EU membership."
+    }
+  ],
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

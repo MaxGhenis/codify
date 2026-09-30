@@ -1,0 +1,325 @@
+{
+  "code": "am",
+  "name": "Armenia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "hye"
+  ],
+  "authoritative_language": "hye",
+  "document_classes": {
+    "act": {
+      "label": "Law of the Republic of Armenia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Division (Բաժին)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "note": "Codes only (Civil Code has 5 divisions). Not used in ordinary acts."
+        },
+        {
+          "local_term": "Part (Բաժինք)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic",
+          "note": "Higher grouping in codes (Labour Code has 3 parts). Not used in simple acts."
+        },
+        {
+          "local_term": "Chapter (Գլուխ)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article (Հոդված)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Part within Article (մաս)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Point (կետ)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        },
+        {
+          "local_term": "Sub-point (ենթakетկ)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "transitionalProvisions",
+          "local_term": "Transitional and Final Provisions (Անցումային դրույթ)",
+          "note": "Final chapter of acts; may use hcontainer if not matching chapter pattern"
+        }
+      ]
+    },
+    "constitutional_law": {
+      "label": "Constitutional Law of the Republic of Armenia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter (Գлуխ)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article (Հոдватс)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Part within Article (մաس)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Point (կětq)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Requires 3/5 supermajority in National Assembly. Same structural pattern as ordinary laws."
+    },
+    "decision": {
+      "label": "Government Decision",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter (Գloux)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article (Հоdvats)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Part within Article (mas)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subsidiary legislation enacted by Government (Կառавartарության Voroshum). Citation format: N {number}-N."
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Armenia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter (Glux)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article (Hodvats)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "9 chapters, 117 articles. Adopted 5 July 1995, amended 2005 and 2015."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "am",
+    "uri_patterns": {
+      "act": "/akn/am/act/{year}/{number}",
+      "constitutional_law": "/akn/am/act/constitutional-law/{year}/{number}",
+      "decision": "/akn/am/act/decision/{year}/{number}",
+      "decree": "/akn/am/act/decree/{year}/{number}",
+      "bill": "/akn/am/bill/{year}/{number}",
+      "constitution": "/akn/am/act/constitution/1995/constitution"
+    },
+    "date_calendar": "gregorian",
+    "language_code": "hye"
+  },
+  "numbering": {
+    "act_citation": "HO-{number}-N of {date}",
+    "act_citation_note": "HO = Հ.Օ. (Հայաuтан Orenlq, RA Law). Sequential within year. Number resets each year.",
+    "constitutional_law_citation": "HO-{number}-N (Constitutional Law) of {date}",
+    "decision_citation": "N {number}-N of {date}",
+    "decree_citation": "NH-{number}-N of {date}",
+    "article_numbering": "arabic_continuous",
+    "article_numbering_note": "Articles numbered continuously throughout entire act; do not restart per Chapter",
+    "subdivision_numbering": "arabic_parenthesized_parts_then_arabic_points",
+    "insertion_style": "superscript_or_decimal",
+    "insertion_style_note": "Inserted articles may use Article 5¹ or Article 5.1 notation."
+  },
+  "enacting_formulae": [
+    {
+      "text": "LAW OF THE REPUBLIC OF ARMENIA\n[Title]\nAdopted by the National Assembly of the Republic of Armenia on [date]",
+      "position": "preface",
+      "era": "current",
+      "from": "1991-09-23",
+      "note": "No Anglophone-style 'Be it enacted' formula. The adoption attribution in the preface header is the functional equivalent. In Armenian: Ընдunнвад э Хайаstaни Ханрапетутян Азгаын Жогови когмits [ամuathiw]-ин."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article N of Law HO-{N}-N shall be supplemented by a new part with the following content: ... / Part N of Article N shall be amended as follows: ... / Article N shall be declared void.",
+    "amendment_act_title_pattern": "Law of the Republic of Armenia on Making Amendments and Supplements to the Law of the Republic of Armenia on [Subject]",
+    "cross_reference_format": "title_and_HO_number_and_date",
+    "repeal_phrasing": "shall be declared void (ուժ կortsratskh ճanaсhel)"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/am/national-assembly",
+      "showAs": "National Assembly of the Republic of Armenia"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/am/president",
+      "showAs": "President of the Republic of Armenia"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/am/prime-minister",
+      "showAs": "Prime Minister of the Republic of Armenia"
+    },
+    {
+      "eId": "government",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/am/government",
+      "showAs": "Government of the Republic of Armenia"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/am/constitutional-court",
+      "showAs": "Constitutional Court of the Republic of Armenia"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/am/official-gazette",
+      "showAs": "Official Gazette of the Republic of Armenia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Hierarchy is CHAPTER > ARTICLE > PARAGRAPH > POINT. Articles are numbered continuously throughout the entire act — they do not restart per chapter. Parts within articles (Armenian: մաس, 'mas') map to PARAGRAPH. Points within parts (Armenian: կetq) map to POINT. There is no SUBSECTION level in Armenian legislation. The document heading block ('LAW OF THE REPUBLIC OF ARMENIA / [Title] / Adopted by the National Assembly on [date]') maps to PREFACE, not PREAMBLE. Only include PREAMBLE if the act has substantive recitals. The President's signature block at the end maps to CONCLUSIONS."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eaeu",
+      "full_name": "Eurasian Economic Union",
+      "member_since": "2015-01-02",
+      "direct_effect": "direct",
+      "direct_effect_note": "EAEU Regulations have direct effect per EAEU Court ruling of April 2017. EAEU Customs Code directly applicable. Domestic law in customs, technical regulations, and sanitary/phytosanitary standards may be superseded.",
+      "superseded_subjects": [
+        "customs",
+        "trade_regulation",
+        "technical_standards",
+        "sanitary_standards",
+        "cross_border_competition"
+      ]
+    },
+    {
+      "body": "council-of-europe",
+      "full_name": "Council of Europe",
+      "member_since": "2001-01-25",
+      "direct_effect": "none",
+      "direct_effect_note": "ECHR judgments are binding on Armenia. Convention rights must be applied by domestic courts. Requires no transposition but has constitutional-level effect.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "cis",
+      "full_name": "Commonwealth of Independent States",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "full_name": "United Nations",
+      "direct_effect": "none",
+      "direct_effect_note": "UN Security Council Chapter VII resolutions are binding. General Assembly resolutions are non-binding.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "integrated",
+    "heading_case": "title_case",
+    "script": "armenian",
+    "script_note": "Armenian script (Հayeren). Unicode block: U+0531–U+058F (Armenian), U+FB13–U+FB17 (Armenian ligatures). Left-to-right. Not Latin, not Cyrillic.",
+    "rtl": false,
+    "font_preference": "serif",
+    "font_recommendation": "Noto Serif Armenian, Mshtakan",
+    "bcp47_language_tag": "hy-AM"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

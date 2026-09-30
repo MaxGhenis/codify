@@ -1,0 +1,440 @@
+{
+  "code": "my",
+  "name": "Malaysia",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "islamic",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "msa",
+    "eng"
+  ],
+  "authoritative_language": "msa",
+  "authoritative_language_note": "Bahasa Malaysia authoritative for post-1967 legislation. English authoritative for pre-1967 colonial-era legislation. Many Acts published bilingually; BM text prevails in conflict.",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part (Bahagian)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Division (Divisyen)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "note": "Division subdivides Part in complex Acts like Companies Act 2016. Maps to AKN chapter. Not all Acts use this level."
+        },
+        {
+          "local_term": "Section (Seksyen)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection (Subseksyen)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph (Perenggan)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph (Subperenggan)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso (Syarat)",
+          "name": "proviso",
+          "note": "'Provided that...' clauses within sections"
+        }
+      ]
+    },
+    "subsidiary": {
+      "label": "Subsidiary Legislation / Regulations [P.U.(A)]",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part (Bahagian)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation (Peraturan)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph (Perenggan)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Regulations use 'regulation' as basic unit term but structural role is identical to 'section'. Maps to AKN section. Cited as P.U.(A) YYYY/NN."
+    },
+    "constitution": {
+      "label": "Federal Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Article (Perkara)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Federal Constitution uses 'Article' (Perkara) as basic unit, not 'section'. Unique to the Constitution; all ordinary legislation uses 'section'."
+    },
+    "state_enactment": {
+      "label": "State Enactment (Enakmen Negeri)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Bahagian (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seksyen (Section)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subseksyen (Subsection)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Perenggan (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subperenggan (Subparagraph)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Laws enacted by State Legislative Assemblies (Dewan Undangan Negeri) of 13 states. Called Enactments (Enakmen) in Peninsular Malaysia and Sabah; Ordinances (Ordinan) in Sarawak. Structurally identical to Federal Acts. FRBR URI uses ISO 3166-2 state sub-national code."
+    },
+    "syariah_enactment": {
+      "label": "Syariah Enactment / Islamic Law Legislation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Bahagian (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seksyen (Section)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subseksyen (Subsection)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Perenggan (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subperenggan (Subparagraph)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Islamic law legislation enacted by State Legislative Assemblies under the State List (Federal Constitution, Ninth Schedule). Applies to Muslims only. FRBR URI uses my-{state-code}/act/syariah/{year}/{number}. Federal Territory Islamic legislation is Federal Acts, not State Enactments."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "my",
+    "uri_patterns": {
+      "act": "/akn/my/act/{year}/{act-number}",
+      "subsidiary_pua": "/akn/my/act/si/{year}/{number}",
+      "subsidiary_pub": "/akn/my/doc/si-b/{year}/{number}",
+      "bill": "/akn/my/bill/{year}/{number}",
+      "constitution": "/akn/my/act/constitution/1957/constitution",
+      "state_enactment": "/akn/my-{state-code}/act/{year}/{number}",
+      "syariah_enactment": "/akn/my-{state-code}/act/syariah/{year}/{number}",
+      "sarawak_ordinance": "/akn/my-sw/act/{year}/{number}",
+      "amendment_act": "/akn/my/act/amendment/{a-number}"
+    },
+    "date_calendar": "gregorian",
+    "uri_notes": [
+      "Federal Acts: date = original enactment year; number = cumulative Act integer (e.g., 777, 854). Acts do NOT use year-sequential numbering.",
+      "Older Acts with Cap. numbers only: use cap{NNN} as placeholder until enactment year is confirmed, e.g., /akn/my/act/cap136/cap136.",
+      "Amendment Acts have 'A' prefix number (e.g., Act A1701). Represent as /akn/my/act/amendment/a1701.",
+      "State sub-national codes (ISO 3166-2): Johor=my-01, Kedah=my-02, Kelantan=my-03, Melaka=my-04, Negeri Sembilan=my-05, Pahang=my-06, Penang=my-07, Perak=my-08, Perlis=my-09, Selangor=my-10, Terengganu=my-11, Sabah=my-12/my-sb, Sarawak=my-13/my-sw, Kuala Lumpur FT=my-14, Labuan FT=my-15, Putrajaya FT=my-16.",
+      "PU(A) = substantive subsidiary legislation; PU(B) = administrative instruments (appointments, notifications). Map PU(B) as doc type."
+    ]
+  },
+  "numbering": {
+    "act_citation": "{Short Title} {Year} [Act {number}]",
+    "act_citation_example": "Companies Act 2016 [Act 777]",
+    "act_citation_alt": "Cap. {number}",
+    "act_citation_alt_note": "Cap. numbers for pre-1969 revised laws",
+    "amendment_act_citation": "Act A{number}",
+    "subsidiary_pua_citation": "P.U.(A) {year}/{number}",
+    "subsidiary_pub_citation": "P.U.(B) {year}/{number}",
+    "state_enactment_citation": "Enactment No. {number} of {year}",
+    "sarawak_ordinance_citation": "Ordinance No. {number} of {year}",
+    "insertion_style": "alphanumeric",
+    "insertion_note": "Inserted sections: 3A, 3B. Inserted subsections: (1A), (1B). No renumbering on amendment."
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by the Seri Paduka Baginda Yang di-Pertuan Agong with the advice and consent of the Dewan Negara and Dewan Rakyat in Parliament assembled, and by the authority of the same, as follows:",
+      "language": "eng",
+      "position": "preamble",
+      "type": "federal_act_english"
+    },
+    {
+      "text": "DIPERBUAT oleh Seri Paduka Baginda Yang di-Pertuan Agong dengan nasihat dan persetujuan Dewan Negara dan Dewan Rakyat dalam Parlimen bersidang, dan dengan kuasa daripadanya, seperti yang berikut:",
+      "language": "msa",
+      "position": "preamble",
+      "type": "federal_act_bm"
+    },
+    {
+      "text": "In exercise of the powers conferred by section {N} of the {Parent Act}, the {Minister} makes the following regulations:",
+      "language": "eng",
+      "position": "preamble",
+      "type": "subsidiary_legislation_english"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by inserting... / by deleting... and substituting...",
+    "cross_reference_format": "short_title_year_and_act_number_brackets",
+    "cross_reference_example": "Companies Act 2016 [Act 777]"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/my/parliament",
+      "showAs": "Parliament of Malaysia"
+    },
+    {
+      "eId": "dewanRakyat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/my/dewan-rakyat",
+      "showAs": "Dewan Rakyat"
+    },
+    {
+      "eId": "dewanNegara",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/my/dewan-negara",
+      "showAs": "Dewan Negara"
+    },
+    {
+      "eId": "ydpa",
+      "class": "TLCRole",
+      "href": "/ontology/role/my/yang-di-pertuan-agong",
+      "showAs": "Yang di-Pertuan Agong"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/my/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/my/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/my/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "agc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/my/attorney-generals-chambers",
+      "showAs": "Attorney General's Chambers"
+    },
+    {
+      "eId": "federalGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/my/federal-gazette",
+      "showAs": "Warta Kerajaan Persekutuan"
+    },
+    {
+      "eId": "federalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/my/federal-court",
+      "showAs": "Federal Court of Malaysia"
+    },
+    {
+      "eId": "malaysia",
+      "class": "TLCLocation",
+      "href": "/ontology/place/my",
+      "showAs": "Malaysia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Malaysia post-1967 Acts are bilingual (BM + English). BM text is authoritative. The Act number in square brackets (e.g., [Act 777]) is the canonical identifier — always record this in FRBRalias metadata. Federal Constitution uses 'Article' (Perkara) as basic unit, not 'section' — detect and switch hierarchy accordingly. Some large Acts use 'Division' within Parts; map Division to AKN chapter element using CHAPTER keyword. Proviso clauses ('Provided that...') map to hcontainer name='proviso'."
+  },
+  "supranational_memberships": [
+    {
+      "body": "asean",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ASEAN founding member (1967). No supranational direct effect; sovereignty-based intergovernmental model. ASEAN commitments require domestic transposition."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "UN Security Council Chapter VII resolutions are binding on Malaysia as a UN member; implemented through domestic Acts."
+    },
+    {
+      "body": "oic",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Organisation of Islamic Cooperation member. No binding supranational law."
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Commonwealth member. No binding supranational law."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "bilingual": true,
+    "primary_script_language": "msa",
+    "secondary_script_language": "eng"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

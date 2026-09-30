@@ -1,0 +1,310 @@
+{
+  "code": "se",
+  "name": "Sweden",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "swe"
+  ],
+  "authoritative_language": "swe",
+  "document_classes": {
+    "act": {
+      "label": "Lag",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Avdelning",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned",
+          "note": "Unnumbered in source; pipeline assigns sequential integers from 2 (first stycke is direct article content)"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Strecksats",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_assigned"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Swedish Paragraf (§) maps to AKN article, consistent with DE/DK/EE/AT/CZ civil law convention. § numbers are continuous across all Kapitel."
+    },
+    "fordning": {
+      "label": "Förordning",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Strecksats",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_assigned"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government ordinance (delegated secondary legislation). Same SFS numbering series as acts. Distinguished from lag by title prefix 'Förordning'. URI uses fo/ subtype."
+    },
+    "grundlag": {
+      "label": "Grundlag",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "One of four constitutional acts (Regeringsformen, Successionsordningen, Tryckfrihetsförordningen, Yttrandefrihetsgrundlagen). Same hierarchy as lag; requires two Riksdag decisions separated by an election to amend."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "se",
+    "uri_patterns": {
+      "act": "/akn/se/act/{year}/{sfs-number}",
+      "fordning": "/akn/se/act/fo/{year}/{sfs-number}",
+      "bill": "/akn/se/bill/{session}/{prop-number}",
+      "grundlag": "/akn/se/act/constitution/{year}/{identifier}",
+      "officialGazette": "/akn/se/officialGazette/{year}/{sfs-number}"
+    },
+    "uri_note": "SFS number YYYY:NNN splits as year=YYYY, sfs-number=NNN (integer after colon). E.g. SFS 2003:460 → /akn/se/act/2003/460. Förordningar use fo/ subtype prefix. Bills use session in YYYY-YY format and the proposition number.",
+    "date_calendar": "gregorian",
+    "fixed_uris": {
+      "regeringsformen": "/akn/se/act/constitution/1974/regeringsformen",
+      "successionsordningen": "/akn/se/act/constitution/1810/successionsordningen",
+      "tryckfrihetsforordningen": "/akn/se/act/constitution/1949/tryckfrihetsforordningen",
+      "yttrandefrihetsgrundlagen": "/akn/se/act/constitution/1991/yttrandefrihetsgrundlagen"
+    }
+  },
+  "numbering": {
+    "act_citation": "({year}:{sfs-number})",
+    "act_citation_full": "[short-title] ({year}:{sfs-number})",
+    "sfs_format": "SFS {year}:{sfs-number}",
+    "insertion_style": "alphanumeric_spaced",
+    "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Matches Danish convention.",
+    "section_symbol": "§",
+    "section_symbol_position": "pre_or_post",
+    "section_symbol_note": "Both '§ 5' (pre-positioned) and '5 §' (post-positioned) are used. Post-positioned is standard in running text. Pipeline normalises to pre-positioned in AKN <num>."
+  },
+  "enacting_formulae": [
+    {
+      "text": null,
+      "position": "none",
+      "era": "current",
+      "from": "1974-01-01",
+      "note": "Swedish acts have no enacting formula within the document body. Legislative authority derives from constitutional order. The act text begins directly at § 1. The SFS publication header and government signature block appear in the gazette wrapper, not the act body."
+    },
+    {
+      "text": "På regeringens vägnar\n\n[Minister's name]\n[Ministry name]",
+      "position": "conclusions",
+      "era": "current",
+      "from": "1974-01-01",
+      "note": "Government promulgation signature at the end of the act. Maps to <conclusions> not <preamble>."
+    }
+  ],
+  "amendments": {
+    "style": "textual_replacement",
+    "phrasing": "I lagen ([year]:[number]) om [X] ska [N §] ha följande lydelse: ... / ska det införas en ny paragraf, [N §], av följande lydelse: ... / ska upphöra att gälla.",
+    "cross_reference_format": "short_title_and_sfs_number",
+    "amending_act_structure": "The amending act (ändringslag) is an ordinary SFS act. § 1 typically gives replacement text for each amended provision. Last § gives commencement date ('Denna lag träder i kraft den [date]'). Model as separate FRBR work with <activeModifications>.",
+    "note": "Consolidated HTML on riksdagen.se masks amendment chains."
+  },
+  "core_tlcs": [
+    {
+      "eId": "riksdag",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/se/riksdag",
+      "showAs": "Riksdag"
+    },
+    {
+      "eId": "regeringen",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/se/regeringen",
+      "showAs": "Regeringen"
+    },
+    {
+      "eId": "lagradet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/se/lagradet",
+      "showAs": "Lagrådet"
+    },
+    {
+      "eId": "statsminister",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/statsminister",
+      "showAs": "Statsminister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "talman",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/talman",
+      "showAs": "Talman"
+    },
+    {
+      "eId": "kung",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/kung",
+      "showAs": "Kungen"
+    },
+    {
+      "eId": "sfs",
+      "class": "TLCObject",
+      "href": "/ontology/obj/se/sfs",
+      "showAs": "Svensk författningssamling"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Swedish Paragraf (§) maps to ARTICLE keyword and AKN article element. Kapitel (kap.) maps to CHAPTER. Avdelning maps to PART. Stycke (unnamed prose paragraph within a §) maps to PARAGRAPH — the first stycke is the direct content of the ARTICLE, second and subsequent stycken become PARAGRAPH 2, PARAGRAPH 3 etc. Punkt (1., 2., 3.) maps to POINT. Strecksats (em-dash bullet) maps to INDENT. The § symbol should NOT appear in the ARTICLE number field in Bluebell input — write 'ARTICLE 5', not 'ARTICLE § 5'. Kapitel numbers remain Arabic in Bluebell ('CHAPTER 3'). Many Swedish acts have no CHAPTER — just a flat sequence of ARTICLEs. Swedish acts have no enacting formula body text; there is no PREAMBLE block. Short acts: typically 5-15 ARTICLEs, last ARTICLE is commencement provision ('Denna lag träder i kraft den ...'). Amending acts (ändringslagen): typically 2-5 ARTICLEs."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "direct_effect": "direct",
+      "member_since": "1995-01-01",
+      "superseded_subjects": [],
+      "note": "EU Regulations directly applicable without SFS publication. Directives require transposition via ordinary SFS lag or förordning. Sweden is not in the Eurozone (retains Swedish krona, SEK). EU accession act: Lag (1994:1500)."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "indirect_transposition",
+      "superseded_subjects": [],
+      "note": "ECHR incorporated via Lag (1994:1219) om den europeiska konventionen angående skydd för de mänskliga rättigheterna och de grundläggande friheterna."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "basic_unit_symbol": "§",
+    "basic_unit_plural_symbol": "§§",
+    "chapter_abbreviation": "kap."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

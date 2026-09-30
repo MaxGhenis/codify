@@ -1,0 +1,309 @@
+{
+  "code": "ng",
+  "name": "Nigeria",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "islamic",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of the National Assembly",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_alpha"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Dominant pattern: PART > SECTION. A minority of large statutes (e.g. Nigerian Communications Act 2003) use CHAPTER > PART > SECTION — detected at ingestion time and handled by adding CHAPTER above PART in Bluebell."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "1999 Constitution uses CHAPTER (8 chapters) > PART > SECTION. Schedules present (First through Fifth). Alteration Acts amend the Constitution directly."
+    },
+    "si": {
+      "label": "Subsidiary Legislation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Regulations, Rules, and Orders use 'regulation' as the basic unit term but map to AKN section. Bluebell REGULATION keyword does not exist — use SECTION."
+    },
+    "decree": {
+      "label": "Decree (military era, 1966–1999)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Military-era Decrees use the same structural hierarchy as Acts. No conventional enacting formula. Enacting authority (Supreme Military Council or Armed Forces Ruling Council) recorded in TLC lifecycle metadata. FRBR URI uses /akn/ng/act/{year}/decree-{number}."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "ng",
+    "uri_patterns": {
+      "act": "/akn/ng/act/{year}/{number}",
+      "act_consolidated": "/akn/ng/act/cap-{cap_code}/cap-{cap_code}",
+      "si": "/akn/ng/act/si/{year}/{number}",
+      "decree": "/akn/ng/act/{year}/decree-{number}",
+      "bill": "/akn/ng/bill/{year}/{slug}",
+      "constitution": "/akn/ng/act/constitution/1999/constitution"
+    },
+    "date_calendar": "gregorian",
+    "note": "Act year = gazette year (which may differ from signing year — e.g. Data Protection Act signed June 2023 but gazetted as 2022 No. 37, giving URI /akn/ng/act/2022/37). When gazette year and signing year differ, store signing year as FRBRalias."
+  },
+  "numbering": {
+    "act_citation": "{year} No. {number}",
+    "act_citation_alt": "Cap. {code} LFN 2004",
+    "act_citation_decree": "Decree No. {number} of {year}",
+    "insertion_style": "alphanumeric",
+    "note": "Dual system: gazette citation (post-1999) and Cap./LFN citation (LFN 2004 consolidation). Gazette citation is canonical for post-2004 acts."
+  },
+  "enacting_formulae": [
+    {
+      "text": "ENACTED by the National Assembly of the Federal Republic of Nigeria—",
+      "position": "preamble",
+      "era": "democratic",
+      "from": "1999-05-29"
+    },
+    {
+      "text": null,
+      "position": "preamble",
+      "era": "military",
+      "from": "1966-01-15",
+      "to": "1999-05-29",
+      "note": "Military Decrees have no conventional enacting formula. Enacting authority recorded in TLC lifecycle metadata only."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by substituting... / is hereby amended as set out...",
+    "cross_reference_format": "short_title_and_cap_or_gazette_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ng/national-assembly",
+      "showAs": "National Assembly of the Federal Republic of Nigeria"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ng/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ng/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ng/president",
+      "showAs": "President of the Federal Republic of Nigeria"
+    },
+    {
+      "eId": "attorneyGeneralFederation",
+      "class": "TLCRole",
+      "href": "/ontology/role/ng/attorney-general-federation",
+      "showAs": "Attorney General of the Federation"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ng/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ng/official-gazette",
+      "showAs": "Federal Republic of Nigeria Official Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Nigeria uses PART > SECTION as the default hierarchy. A minority of large statutes use CHAPTER > PART > SECTION (detectable if both CHAPTER and PART headings appear). The Constitution uses CHAPTER > PART > SECTION. All subdivisions follow Commonwealth Anglophone convention: subsections (1)(2), paragraphs (a)(b), subparagraphs (i)(ii). Enacting formula is: 'ENACTED by the National Assembly of the Federal Republic of Nigeria—'. Section 1 = short title (and commencement). Section 2 = Interpretation."
+  },
+  "supranational_memberships": [
+    {
+      "body": "ecowas",
+      "direct_effect": "none",
+      "note": "Section 12 of the 1999 Constitution requires National Assembly ratification for treaties to have domestic legal force. ECOWAS Community Acts have limited practical direct effect in Nigerian courts despite Treaty provisions. Model ECOWAS instruments under /akn/ecowas/... not /akn/ng/...",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "note": "UN Security Council Chapter VII resolutions are binding on Nigeria under international law. UN treaties require domestic ratification legislation to have domestic force.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

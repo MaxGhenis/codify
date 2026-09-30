@@ -1,0 +1,473 @@
+{
+  "code": "ci",
+  "name": "Côte d'Ivoire",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra"
+  ],
+  "authoritative_language": "fra",
+  "document_classes": {
+    "loi": {
+      "label": "Loi",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_continuous",
+          "note": "Used in major codes only (Code civil, etc.)"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_with_premier",
+          "note": "Most common top-level division; 'TITRE PREMIER' for first"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_with_premier",
+          "note": "'CHAPITRE PREMIER' for first"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_with_premiere",
+          "note": "Higher-division grouping ABOVE articles; NOT the basic unit"
+        },
+        {
+          "local_term": "Sous-section",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_continuous",
+          "note": "Rare; used in large codes only"
+        },
+        {
+          "local_term": "Paragraphe",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": "SUBPART",
+          "numbering": "arabic_continuous",
+          "note": "Structural grouper above articles within a Chapitre; 'paragraphe' in number field per Laws.Africa style guide; post-process to <hcontainer name='paragraphe'>"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_with_premier",
+          "note": "Basic unit; 'Article premier' for first, 'Article 2' onwards. eId normalises to art_1, art_2, etc."
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "implicit",
+          "note": "Unnumbered paragraph breaks within an article; implicit in Bluebell body text"
+        },
+        {
+          "local_term": "Point (1°, 2°)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_degree",
+          "note": "Enumerated items using 1°, 2°, 3° style"
+        },
+        {
+          "local_term": "Lettre (a), b))",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower",
+          "note": "Enumerated items using a), b), c) style; maps to same <point> element"
+        },
+        {
+          "local_term": "Tiret (—)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "implicit",
+          "note": "Dashed list items"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "paragraphe",
+          "description": "Structural Paragraphe grouping multiple articles within a Chapitre; bluebell workaround: SUBPART",
+          "local_term": "Paragraphe"
+        },
+        {
+          "name": "dispositionPreliminaire",
+          "description": "Preliminary provisions before TITRE PREMIER",
+          "local_term": "Dispositionpreliminaire"
+        }
+      ]
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_with_premiere"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_with_premier"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Organic laws use subtype 'ol' in FRBR URI: /akn/ci/act/ol/{year}/{number}"
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_with_premiere"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_with_premier"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive instruments with force of law. Subtype 'ord' in URI: /akn/ci/act/ord/{year}/{number}. Must be ratified by Assemblée nationale."
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_with_premier"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subordinate legislation. Subtype 'decree' in URI: /akn/ci/act/decree/{year}/{number}."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_with_premier",
+          "note": "Constitution 2016 has 16 Titres"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_with_premier"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_with_premier",
+          "note": "184 articles in the 2016 Constitution"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution 2016: Loi n° 2016-886 du 8 novembre 2016, as amended by Loi constitutionnelle n° 2020-348 du 19 mars 2020. URI: /akn/ci/act/constitution/2016/886"
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "ci",
+    "uri_patterns": {
+      "loi": "/akn/ci/act/{year}/{number}",
+      "loi_organique": "/akn/ci/act/ol/{year}/{number}",
+      "ordonnance": "/akn/ci/act/ord/{year}/{number}",
+      "decret": "/akn/ci/act/decree/{year}/{number}",
+      "bill": "/akn/ci/bill/{year}/{number}",
+      "constitution": "/akn/ci/act/constitution/2016/886"
+    },
+    "number_extraction": "From 'Loi n° YYYY-NNN du [date]': year = YYYY, number = NNN (drop leading zeros only if number < 100; preserve 3-digit numbers as-is e.g. 902, 886, 975)",
+    "date_calendar": "gregorian",
+    "language_expression": "fra",
+    "existing_corpus": "agp.africanlii.org — adopt URIs from this corpus directly; do not create parallel identifiers",
+    "note": "AfricanLII has established /akn/ci/ URI space."
+  },
+  "numbering": {
+    "loi_citation": "Loi n° {year}-{number} du {date}",
+    "ordonnance_citation": "Ordonnance n° {year}-{number} du {date}",
+    "decret_citation": "Décret n° {year}-{number} du {date}",
+    "article_first": "Article premier",
+    "article_subsequent": "Article {number}",
+    "insertion_style": "bis_ter",
+    "insertion_note": "French civil law tradition uses 'bis', 'ter', 'quater' suffixes for inserted articles. eIds: art_12bis, art_12ter."
+  },
+  "enacting_formulae": [
+    {
+      "text": "L'Assemblée nationale a adopté, le Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "unicameral_pre2016",
+      "to": "2016-11-08",
+      "verified": false,
+      "note": "Pre-2016 unicameral formula. Consistent with French West African drafting convention."
+    },
+    {
+      "text": "L'ASSEMBLÉE NATIONALE ET LE SÉNAT ONT ADOPTÉ ;\nLE PRÉSIDENT DE LA RÉPUBLIQUE PROMULGUE LA LOI DONT LA TENEUR SUIT :",
+      "position": "preamble",
+      "era": "bicameral_post2016",
+      "from": "2016-11-08",
+      "verified": true,
+      "note": "Verbatim formula confirmed from Côte d'Ivoire Journal Officiel 2024. Gazette uses full uppercase for both clauses with semicolon separator. Confirmed from LOI n°2024-948, LOI n°2024-362, LOI n°2024-349, LOI n°2024-236. Source: https://agp.africanlii.org/en/akn/ci/act/ord/2024/857/fra@2024-12-23/source.pdf and https://www.juriafrica.com/lex/loi-2024-362-11-juin-2024-56293.htm"
+    },
+    {
+      "text": "Le Conseil constitutionnel ayant statué, l'Assemblée nationale a adopté, le Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "with_conseil_constitutionnel",
+      "note": "Used when the Constitutional Council has examined the text prior to promulgation"
+    },
+    {
+      "text": "Le Président de la République a soumis au référendum, le Conseil constitutionnel a proclamé les résultats du référendum, le peuple de Côte d'Ivoire a adopté, le Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "referendum",
+      "note": "Used for laws adopted by popular referendum (e.g., Constitution 2016)"
+    }
+  ],
+  "promulgation_closing": "La présente loi sera publiée au Journal Officiel de la République de Côte d'Ivoire et exécutée comme loi de l'État.",
+  "amendments": {
+    "style": "textual_civil_law",
+    "verbs": {
+      "substitute": "modifié par",
+      "repeal": "abrogé par",
+      "insert": "ajouté par / inséré par",
+      "delete": "supprimé par"
+    },
+    "annotation_placement": "below_article_heading",
+    "annotation_parentheses": false,
+    "nouveau_marker": "(nouveau)",
+    "cross_reference_format": "loi_n_year_number_date_title",
+    "phrasing": "L'article X de la loi n° YYYY-NNN du [date] [long title] est modifié ainsi qu'il suit :"
+  },
+  "core_tlcs": [
+    {
+      "eId": "assemblee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ci/assemblee-nationale",
+      "showAs": "Assemblée nationale de Côte d'Ivoire"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ci/senat",
+      "showAs": "Sénat de Côte d'Ivoire"
+    },
+    {
+      "eId": "parlement",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ci/parlement",
+      "showAs": "Parlement de Côte d'Ivoire"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ci/conseil-constitutionnel",
+      "showAs": "Conseil constitutionnel de Côte d'Ivoire"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ci/president",
+      "showAs": "Président de la République de Côte d'Ivoire"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/ci/premier-ministre",
+      "showAs": "Premier ministre de Côte d'Ivoire"
+    },
+    {
+      "eId": "sgg",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ci/sgg",
+      "showAs": "Secrétariat Général du Gouvernement"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ci/journal-officiel",
+      "showAs": "Journal Officiel de la République de Côte d'Ivoire"
+    },
+    {
+      "eId": "republique",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ci/republique",
+      "showAs": "République de Côte d'Ivoire"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Côte d'Ivoire uses civil law French hierarchy: BOOK (rare) > TITLE > CHAPTER > SECTION (higher grouping) > ARTICLE (basic unit). ARTICLE is the fundamental citable provision, not SECTION. 'Article premier' for the first article. All headings in French. 'TITRE PREMIER', 'CHAPITRE PREMIER', 'ART premier' for first elements. Alinéas are implicit paragraph breaks within ARTICLE blocks. Internal enumeration uses 1°, 2°, 3° or a), b), c) styles."
+  },
+  "supranational_memberships": [
+    {
+      "body": "ohada",
+      "direct_effect": "override",
+      "superseded_subjects": [
+        "company_law",
+        "general_commercial_law",
+        "insolvency",
+        "securities_and_guarantees",
+        "arbitration",
+        "accounting",
+        "cooperative_companies",
+        "transport_goods_by_road",
+        "commercial_leases"
+      ],
+      "frbr_uri_prefix": "/akn/ohada/act/",
+      "note": "CCJA (OHADA supreme court) is headquartered in Abidjan. OHADA Uniform Acts are directly applicable and mandatory; they supersede conflicting domestic commercial law. Do not present domestic provisions in these subject areas as current law without referencing OHADA."
+    },
+    {
+      "body": "uemoa",
+      "direct_effect": "direct",
+      "direct_effect_note": "Regulations only (Art. 43 UEMOA Treaty). Directives require transposition into domestic law.",
+      "superseded_subjects": [
+        "banking_regulation",
+        "monetary_policy",
+        "customs_union",
+        "public_finance_management",
+        "public_procurement_standards"
+      ],
+      "frbr_uri_prefix": "/akn/uemoa/act/",
+      "note": "8-member Francophone West African monetary union. UEMOA Regulations have direct effect; Directives need domestic implementation."
+    },
+    {
+      "body": "ecowas",
+      "direct_effect": "none",
+      "direct_effect_note": "Most ECOWAS instruments (Protocols) require ratification and transposition.",
+      "superseded_subjects": [],
+      "frbr_uri_prefix": "/akn/ecowas/act/",
+      "note": "15-member West African regional body. Protocols require domestic implementation. Less direct legal impact than OHADA or UEMOA."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "sentence_case",
+    "heading_conversion": "Convert ALL CAPS headings to sentence case (preserve French accents)",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "language_tag": "fr"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

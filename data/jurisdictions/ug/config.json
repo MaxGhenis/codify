@@ -1,0 +1,378 @@
+{
+  "code": "ug",
+  "name": "Uganda",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "si": {
+      "label": "Statutory Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "SIs use 'regulation' as basic unit term but map to AKN section; REGULATION is not a Bluebell keyword"
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Chapters (19 total), not Parts"
+    },
+    "ordinance": {
+      "label": "Colonial-era Ordinance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "frbr_subtype": "ord",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Pre-independence ordinances enacted under British Protectorate; FRBR subtype 'ord'"
+    },
+    "statute": {
+      "label": "Statute (early post-independence)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "frbr_subtype": "statute",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "ULII uses 'statute' subtype for certain early post-independence and major statutes; follow ULII assignment"
+    },
+    "decree": {
+      "label": "Decree (military-era)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "frbr_subtype": "decree",
+      "hierarchy": [
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Military-era decrees (1971-1986); no parliamentary enacting formula; FRBR subtype 'decree'"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "ug",
+    "uri_patterns": {
+      "act": "/akn/ug/act/{year}/{number}",
+      "statute": "/akn/ug/act/statute/{year}/{number}",
+      "ord": "/akn/ug/act/ord/{year}/{number}",
+      "decree": "/akn/ug/act/decree/{year}/{number}",
+      "si": "/akn/ug/act/si/{year}/{number}",
+      "bill": "/akn/ug/bill/{year}/{number}",
+      "constitution": "/akn/ug/act/statute/1995/constitution"
+    },
+    "date_calendar": "gregorian",
+    "notes": "Post-independence numbered acts use plain 'act' type. ULII assigns 'statute' subtype to some early post-independence and major acts — follow ULII's existing subtype where the act is already in their corpus. Cap numbers (6th and 7th Edition) stored as FRBRalias, not in the URI."
+  },
+  "numbering": {
+    "act_citation": "Act {number} of {year}",
+    "act_citation_alt_6th": "Cap. {cap_number}",
+    "act_citation_alt_7th": "Cap. {cap_number_7th}",
+    "si_citation": "Statutory Instrument No. {number} of {year}",
+    "insertion_style": "alphanumeric",
+    "notes": "Dual cap numbering: 6th Revised Edition (2000) and 7th Revised Edition (2024) assign different chapter numbers. Store both as FRBRalias. URI uses enactment year/number."
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by Parliament as follows:",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1962-10-09",
+      "notes": "Confirmed verbatim in Prevention of Trafficking in Persons Act 2009. Unicameral Parliament; no reference to upper house or head of state."
+    },
+    {
+      "text": "In exercise of the powers conferred upon the Minister by section [N] of the [Parent Act], these Regulations are made this [day] day of [month], [year].",
+      "position": "preamble",
+      "era": "si"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by substituting / by deleting / by inserting",
+    "cross_reference_format": "short_title_and_act_number",
+    "cross_reference_format_consolidated": "short_title_and_cap"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ug/parliament",
+      "showAs": "Parliament of Uganda"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ug/president",
+      "showAs": "President of Uganda"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/ug/speaker",
+      "showAs": "Speaker of Parliament"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/ug/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ug/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "lawReformCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ug/law-reform-commission",
+      "showAs": "Uganda Law Reform Commission"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ug/official-gazette",
+      "showAs": "Uganda Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Uganda uses 'BE IT ENACTED by Parliament as follows:' as its enacting formula. Higher divisions are Parts (roman numeral). Basic unit is Section (arabic, continuous). Subdivisions: Subsection (1)(2), Paragraph (a)(b), Subparagraph (i)(ii). SIs use 'Regulation' as the basic unit term but map to SECTION keyword. Constitution uses Chapters, not Parts."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eac",
+      "direct_effect": "none",
+      "note": "EAC Partner State (founding member). EAC instruments available on ULII at /en/legislation/aa-eac/. Model under /akn/eac/ not /akn/ug/. Common Market Protocol provisions have direct applicability; other EAC Acts require domestic implementation.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

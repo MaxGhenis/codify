@@ -1,0 +1,478 @@
+{
+  "code": "pe",
+  "name": "Peru",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa",
+    "que",
+    "aym"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "note": "Codes only (Civil Code, Penal Code)"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Used in some codes above Título"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso/Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "subcapitulo",
+          "local_term": "Subcapítulo",
+          "numbering": "roman",
+          "note": "Sub-level below Capítulo, no AKN equivalent"
+        },
+        {
+          "name": "titulo-preliminar",
+          "local_term": "Título Preliminar",
+          "numbering": "none",
+          "note": "Unnumbered preliminary title at start of codes"
+        },
+        {
+          "name": "disposicion-complementaria-final",
+          "local_term": "Disposición Complementaria Final",
+          "numbering": "ordinal_word",
+          "note": "Numbered Primera, Segunda… — placed in <conclusions>"
+        },
+        {
+          "name": "disposicion-complementaria-transitoria",
+          "local_term": "Disposición Complementaria Transitoria",
+          "numbering": "ordinal_word",
+          "note": "Placed in <conclusions>"
+        },
+        {
+          "name": "disposicion-complementaria-derogatoria",
+          "local_term": "Disposición Complementaria Derogatoria",
+          "numbering": "ordinal_word",
+          "note": "Placed in <conclusions>"
+        },
+        {
+          "name": "disposicion-complementaria-modificatoria",
+          "local_term": "Disposición Complementaria Modificatoria",
+          "numbering": "ordinal_word",
+          "note": "Placed in <conclusions>"
+        }
+      ]
+    },
+    "ley_organica": {
+      "label": "Ley Orgánica",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso/Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Identical structure to ordinary Ley; distinction is subject matter and approval threshold (qualified majority)"
+    },
+    "decreto_legislativo": {
+      "label": "Decreto Legislativo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso/Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive decree with force of law under congressional delegation. Numbered in own sequential series (D.Leg. NNN). URI subtype: 'dl'"
+    },
+    "decreto_supremo": {
+      "label": "Decreto Supremo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso/Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive regulation. Numbered NNN-YYYY-MINISTRY. Subordinate legislation. URI subtype: 'ds'"
+    },
+    "constitucion": {
+      "label": "Constitución Política",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso/Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot"
+        }
+      ],
+      "hcontainers": [],
+      "note": "1993 Constitution: 6 Títulos, multiple Capítulos, 206 original articles (212 current). Continuous article numbering throughout."
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "pe",
+    "uri_patterns": {
+      "ley": "/akn/pe/act/{year}/{number}",
+      "ley_organica": "/akn/pe/act/{year}/{number}",
+      "decreto_legislativo": "/akn/pe/act/dl/{year}/{number}",
+      "decreto_urgencia": "/akn/pe/act/du/{year}/{number}",
+      "decreto_supremo": "/akn/pe/act/ds/{year}/{number}-{ministry}",
+      "decreto_ley": "/akn/pe/act/decreto-ley/{number}",
+      "resolucion_legislativa": "/akn/pe/act/rl/{number}",
+      "bill": "/akn/pe/bill/{year}/{number}",
+      "constitucion": "/akn/pe/act/constitution/1993/constitucion"
+    },
+    "date_calendar": "gregorian",
+    "notes": [
+      "Ley numbers are sequential integers since 1904 with no year prefix in the number itself (e.g., Ley N° 27444 enacted 2001 → /akn/pe/act/2001/27444).",
+      "Decreto Legislativo numbers are in a separate sequential series (not year-based). Year in URI = El Peruano publication year.",
+      "Decreto Supremo numbers are year-based per ministry (e.g., D.S. 003-1997-TR → /akn/pe/act/ds/1997/3-tr).",
+      "Decreto Ley numbers are sequential from military-government era (1968-1980); no year in URI.",
+      "TUOs (Textos Únicos Ordenados): model as a new FRBR expression of the original work URI, not a new work."
+    ]
+  },
+  "numbering": {
+    "ley_citation": "Ley N° {number}",
+    "dl_citation": "Decreto Legislativo N° {number}",
+    "ds_citation": "Decreto Supremo N° {number}-{year}-{ministry}",
+    "du_citation": "Decreto de Urgencia N° {number}-{year}",
+    "decreto_ley_citation": "Decreto Ley N° {number}",
+    "insertion_style": "alphanumeric_hyphen",
+    "insertion_example": "Artículo 5-A, Artículo 5-B",
+    "article_heading_separator": ".-"
+  },
+  "enacting_formulae": [
+    {
+      "text": "EL CONGRESO DE LA REPÚBLICA;\nHa dado la Ley siguiente:",
+      "position": "preamble",
+      "instrument_type": "ley",
+      "era": "unicameral",
+      "note": "Current formula (unicameral Congress, until July 2026). Formula appears at top of enacted law in El Peruano."
+    },
+    {
+      "text": "EL PRESIDENTE DE LA REPÚBLICA\nCONSIDERANDO:\n[recitals]\nCon el voto aprobatorio del Consejo de Ministros;\nHa dado el Decreto Legislativo siguiente:",
+      "position": "preamble",
+      "instrument_type": "decreto_legislativo",
+      "era": "current"
+    },
+    {
+      "text": "EL PRESIDENTE DE LA REPÚBLICA\nCONSIDERANDO:\n[recitals]\nDECRETA:",
+      "position": "preamble",
+      "instrument_type": "decreto_supremo",
+      "era": "current"
+    },
+    {
+      "text": "Mando se publique y cumpla.\nDado en la Casa de Gobierno, en Lima, a los {day} días del mes de {month} del año {year}.",
+      "position": "conclusions",
+      "instrument_type": "ley",
+      "era": "current",
+      "note": "Presidential promulgation block. Closes with President and minister signatures."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_modify": "Modifícase el artículo {N} de la {citation}...",
+    "phrasing_insert": "Incorpórase el artículo {N}-A a la {citation}...",
+    "phrasing_repeal": "Deróganse el artículo {N} de la {citation}.",
+    "phrasing_substitute": "Sustitúyese el literal {a}) del numeral {N} del artículo {M} de la {citation}...",
+    "cross_reference_format": "law_type_and_number_and_article",
+    "tuo_pattern": "Decreto Supremo approves Texto Único Ordenado (TUO) — model as new FRBR expression of original work"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/congreso",
+      "showAs": "Congreso de la República del Perú",
+      "note": "Current legislature (unicameral, until July 2026)"
+    },
+    {
+      "eId": "camara-diputados",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/camara-diputados",
+      "showAs": "Cámara de Diputados",
+      "note": "Lower house from July 2026 bicameral reform"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/senado",
+      "showAs": "Senado de la República",
+      "note": "Upper house from July 2026 bicameral reform"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/pe/presidente",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "premier",
+      "class": "TLCRole",
+      "href": "/ontology/role/pe/premier",
+      "showAs": "Presidente del Consejo de Ministros"
+    },
+    {
+      "eId": "consejo-ministros",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/consejo-ministros",
+      "showAs": "Consejo de Ministros"
+    },
+    {
+      "eId": "tribunal-constitucional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/tribunal-constitucional",
+      "showAs": "Tribunal Constitucional del Perú"
+    },
+    {
+      "eId": "minjus",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/minjus",
+      "showAs": "Ministerio de Justicia y Derechos Humanos"
+    },
+    {
+      "eId": "el-peruano",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pe/el-peruano",
+      "showAs": "Diario Oficial El Peruano"
+    },
+    {
+      "eId": "spij",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pe/spij",
+      "showAs": "Sistema Peruano de Información Jurídica"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Basic unit is ARTICLE (Artículo), not SECTION. Hierarchy: BOOK (codes only) > PART > TITLE > CHAPTER > ARTICLE > PARAGRAPH (incisos/numerales, numbered '1.', '2.') > POINT (literales, lettered 'a)', 'b)'). Disposiciones Complementarias (Final, Transitoria, Derogatoria, Modificatoria) appear after the body and are numbered with ordinal words (Primera, Segunda). These are not Artículos; they belong in conclusions. Article headings follow the number separated by '.-' (e.g., 'Artículo 5.- Definiciones'). Enacting formula: 'EL CONGRESO DE LA REPÚBLICA; Ha dado la Ley siguiente:'. All text is in Spanish."
+  },
+  "supranational_memberships": [
+    {
+      "body": "can",
+      "full_name": "Comunidad Andina",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "intellectual_property",
+        "industrial_property",
+        "customs",
+        "competition",
+        "services",
+        "investment",
+        "labour_migration"
+      ],
+      "primary_instruments": [
+        "Decision 351 (copyright)",
+        "Decision 486 (industrial property)",
+        "Decision 291 (investment)"
+      ],
+      "uri_base": "/akn/can/",
+      "note": "CAN Decisiones have direct applicability and supremacy over domestic law in covered subjects. Domestic IP and trade legislation must be cross-referenced against applicable Decisiones."
+    },
+    {
+      "body": "mercosur",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Peru is an associate member only. No direct effect."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [
+        "security_council_chapter_vii"
+      ],
+      "note": "Standard UN membership. SC Chapter VII resolutions are binding."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "heading_separator": ".-",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "locale": "es-PE"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

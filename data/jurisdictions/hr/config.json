@@ -1,0 +1,379 @@
+{
+  "code": "hr",
+  "name": "Croatia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "hrv"
+  ],
+  "authoritative_language": "hrv",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon (Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Dio",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_croatian",
+          "note": "DIO PRVI, DIO DRUGI — ordinal words normalised to arabic for eId (part_1, part_2)"
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "GLAVA I, GLAVA II — Roman numerals normalised to arabic (chap_1, chap_2)"
+        },
+        {
+          "local_term": "Odjeljak",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Higher division only — NOT the basic unit. Odjeljak 1., Odjeljak 2."
+        },
+        {
+          "local_term": "Odsjek",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic",
+          "note": "Rare — used only in very large codes within an Odjeljak"
+        },
+        {
+          "local_term": "Članak",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "BASIC UNIT. Continuous Arabic numbering throughout entire act regardless of higher divisions. Never resets."
+        },
+        {
+          "local_term": "Stavak",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "(1), (2), (3). Only numbered when two or more stavci exist in an article."
+        },
+        {
+          "local_term": "Točka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "note": "1., 2., 3. or a), b), c). At least two required per Uniform Rules."
+        },
+        {
+          "local_term": "Podtočka",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_or_roman_lower",
+          "note": "Sub-items within a točka. Rare."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Podstavak",
+          "name": "podstavak",
+          "note": "Unnumbered indented sub-paragraph within a stavak; maps to alinea in AKN. Used in older legislation."
+        },
+        {
+          "local_term": "Prijelazne i završne odredbe",
+          "name": "transitional-final",
+          "note": "Transitional and Final Provisions block, typically final Glava or Odjeljak"
+        }
+      ]
+    },
+    "uredba": {
+      "label": "Uredba (Government Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Odjeljak",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Članak",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stavak",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Točka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by the Government (Vlada). Same structural pattern as primary legislation."
+    },
+    "pravilnik": {
+      "label": "Pravilnik (Ministerial Rulebook/Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Odjeljak",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Članak",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stavak",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Točka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by ministries. Simpler structure, rarely has higher divisions above Odjeljak."
+    },
+    "constitution": {
+      "label": "Ustav (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava (dio Ustava)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_word",
+          "note": "Constitutional chapters use uppercase Roman or ordinal headings: I. POVIJESNE OSNOVE, II. TEMELJNE ODREDBE etc."
+        },
+        {
+          "local_term": "Članak",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stavak",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Glave as only higher division. Articles are numbered continuously (1–142 in current consolidated text)."
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "hr",
+    "uri_patterns": {
+      "zakon": "/akn/hr/act/{year}/{item-number}",
+      "zakon_slug": "/akn/hr/act/{year}/{slug}",
+      "uredba": "/akn/hr/act/uredba/{year}/{item-number}",
+      "pravilnik": "/akn/hr/act/pravilnik/{year}/{item-number}",
+      "odluka": "/akn/hr/act/odluka/{year}/{item-number}",
+      "bill": "/akn/hr/bill/{year}/{slug}",
+      "constitution": "/akn/hr/act/constitution/1990/ustav"
+    },
+    "date_calendar": "gregorian",
+    "notes": [
+      "item-number is the ELI gazette item ID from narodne-novine.nn.hr/eli/sluzbeni/{year}/{issue}/{item-number}",
+      "When item-number unknown, use slugified Croatian short title as fallback (slug variant)",
+      "Record NN issue/year citation (e.g., NN 35/05) as FRBRalias in metadata",
+      "Work URI always uses initial enactment year; amendments create new expressions, not new works"
+    ]
+  },
+  "numbering": {
+    "act_citation": "NN {issue}/{year-short}",
+    "act_citation_full": "Narodne novine, br. {issue}/{year}",
+    "act_citation_eli": "https://narodne-novine.nn.hr/eli/sluzbeni/{year}/{issue}/{item}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "Članak 5.a, Članak 5.b",
+    "article_numbering": "continuous_throughout_act",
+    "subdivision_stavak": "arabic_parenthesized",
+    "subdivision_tocka": "arabic_stop_or_alpha_lower_parenthesized"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Hrvatski sabor na sjednici {date}, donio je {naziv zakona}",
+      "position": "preamble",
+      "component": "parliamentary_enactment",
+      "era": "post-independence",
+      "from": "1991-06-25",
+      "note": "Parliamentary adoption formula. Appears as opening of law text in Narodne novine."
+    },
+    {
+      "text": "Na temelju članka 88. Ustava Republike Hrvatske, donosim ODLUKU O PROGLAŠENJU {naziv zakona}",
+      "position": "meta_lifecycle",
+      "component": "presidential_promulgation_decree",
+      "era": "post-independence",
+      "from": "1991-06-25",
+      "note": "Presidential promulgation decree. Precedes law text in gazette. Models as lifecycle event in AKN meta, NOT as preamble formula."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "mijenja se i glasi",
+    "phrasing_deletion": "briše se",
+    "phrasing_addition": "dodaje se ... koji glasi",
+    "amendment_act_naming": "Zakon o izmjenama i dopunama Zakona o [...]",
+    "cross_reference_format": "law_name_and_nn_citation",
+    "cross_reference_example": "Zakon o obveznim odnosima (Narodne novine, br. 35/05, 41/08, 125/11 i 78/15)",
+    "intra_act_reference": "u smislu članka X. stavka Y. ovoga Zakona"
+  },
+  "core_tlcs": [
+    {
+      "eId": "sabor",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/hr/sabor",
+      "showAs": "Hrvatski sabor"
+    },
+    {
+      "eId": "predsjednik",
+      "class": "TLCRole",
+      "href": "/ontology/role/hr/predsjednik",
+      "showAs": "Predsjednik Republike Hrvatske"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/hr/vlada",
+      "showAs": "Vlada Republike Hrvatske"
+    },
+    {
+      "eId": "ustavniSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/hr/ustavni-sud",
+      "showAs": "Ustavni sud Republike Hrvatske"
+    },
+    {
+      "eId": "narodnNovine",
+      "class": "TLCObject",
+      "href": "/ontology/obj/hr/narodne-novine",
+      "showAs": "Narodne novine"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Croatian legislation uses ARTICLE (članak) as the basic unit — NOT SECTION. SECTION is only a higher division (Odjeljak). Article numbering is continuous throughout the entire act and never resets per chapter or part. Stavak (paragraph) numbered (1), (2) only when two or more exist. Točka (point) numbered 1., 2. or a), b). The presidential promulgation decree at the head of each gazette item is NOT part of the enacted law — stop before it and begin digitisation from the law title (ZAKON O...)."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "since": "2013-07-01",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "customs_union",
+        "product_safety",
+        "data_protection",
+        "financial_services_passporting"
+      ],
+      "transposition_required": [
+        "eu_directives"
+      ],
+      "note": "EU Regulations apply directly and override conflicting Croatian law. Directives require transposition into Croatian law (zakoni or uredbe). Acts transposing Directives often cite the Directive in preamble or Annex — pipeline should extract these references."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ECHR binding via Croatian ratification. European Convention on Human Rights applied by courts."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "special_characters": [
+      "č",
+      "ć",
+      "đ",
+      "š",
+      "ž",
+      "Č",
+      "Ć",
+      "Đ",
+      "Š",
+      "Ž"
+    ],
+    "note": "Croatian uses five diacritic characters (ČĆĐŠŽ). OCR must be tuned for these. Headings in Croatian legislation are typically in ALL CAPS."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

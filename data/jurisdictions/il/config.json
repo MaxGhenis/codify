@@ -1,0 +1,385 @@
+{
+  "code": "il",
+  "name": "Israel",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "jewish",
+    "sui_generis"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "heb",
+    "ara",
+    "eng"
+  ],
+  "authoritative_language": "heb",
+  "note": "Mixed jurisdiction: common-law procedural base (British Mandate 1917-1948), Ottoman civil-law residual (Mejelle land law), Jewish religious law (halakha — personal status for Jews), Islamic Sharia (personal status for Muslims), Christian canon law (personal status for Christians), and Druze religious law. No single written constitution — 13 Basic Laws (Chukei Yesod) collectively form the constitutional order following the 1995 Mizrahi Bank 'constitutional revolution'. Arabic retains special status under the 2018 Basic Law: Israel as the Nation State of the Jewish People (downgraded from co-official but still used for legislation). English widely used in legal practice, some international instruments drafted in English.",
+  "document_classes": {
+    "basic_law": {
+      "label": "Chok Yesod (Basic Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Perek (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Siman (Sub-chapter)",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Se'if (Section)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Se'if Katan (Sub-section)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "hebrew_letter_parenthesized"
+        },
+        {
+          "local_term": "Piska (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitutional-level instrument. Israel has 13 Basic Laws (as of 2026) collectively forming the constitutional order. Enacted by the Knesset acting as a Constituent Assembly; some require absolute majority (61 votes) or special procedure. The 1995 United Mizrahi Bank case (CA 6821/93) established that Basic Laws are supreme over ordinary legislation. Basic Laws are typically short (10-40 sections) and may be amended by ordinary legislation unless they contain an entrenchment clause."
+    },
+    "act": {
+      "label": "Chok (Law/Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Perek (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Siman (Sub-chapter)",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Se'if (Section)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Se'if Katan (Sub-section)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "hebrew_letter_parenthesized"
+        },
+        {
+          "local_term": "Piska (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Hagdara (Definition clause)",
+          "name": "definition",
+          "description": "Interpretation/definition section. Common as Se'if 1 or in a dedicated Perek. Begins with 'In this Law' (Be'chok ze) or 'In this Chapter'.",
+          "bluebell_proxy": "SECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Ordinary legislation passed by the Knesset. Published in Sefer HaChukim (Book of Laws), part of Reshumot (Official Gazette). Numbered sequentially without year component in official citation (e.g., Sefer HaChukim 2500). Enacted with presidential signature (largely ceremonial — President of Israel has 2 weeks to sign or send back once)."
+    },
+    "regulation": {
+      "label": "Takana (Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Perek (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Takana (Regulation)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Se'if Katan (Sub-section)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "hebrew_letter_parenthesized"
+        },
+        {
+          "local_term": "Piska (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subordinate legislation issued by ministers under delegated authority. Published in Kovetz HaTakanot (Collection of Regulations), a separate part of Reshumot from Sefer HaChukim."
+    },
+    "order": {
+      "label": "Tsav (Order)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Se'if (Section)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Se'if Katan (Sub-section)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "hebrew_letter_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive orders issued by the Government or individual ministers. Short instruments. Published in Kovetz HaTakanot or Yalkut HaPirsumim depending on type."
+    },
+    "emergency_regulation": {
+      "label": "Takanot Sha'at Cherum (Emergency Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Takana (Regulation)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Se'if Katan (Sub-section)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "hebrew_letter_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Unique Israeli instrument issued by the Government under Basic Law: The Government s.39. May override ordinary legislation (but NOT Basic Laws). Valid for 3 months unless extended by Knesset. Israel has been in a formal state of emergency continuously since 1948 — this power has been used extensively. Emergency Regulations lapse automatically unless Knesset approves. Published in Reshumot as a special supplement (Tospet Meyuchedet). PIPELINE CAUTION: Emergency Regulations may contain classified annexes not available in Reshumot; ingest only the public version."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "il",
+    "uri_patterns": {
+      "basic_law": "/akn/il/act/basic/{year}/{slug}",
+      "act": "/akn/il/act/{year}/{number}",
+      "regulation": "/akn/il/act/si/{year}/{number}",
+      "order": "/akn/il/act/order/{year}/{number}",
+      "emergency_regulation": "/akn/il/act/emergency/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Israel uses Gregorian calendar for legislation numbering and dates in Reshumot. The Hebrew calendar (anno mundi) may appear in ceremonial contexts but is not used for official legal citations."
+  },
+  "numbering": {
+    "act_citation": "S.H. {number} (Sefer HaChukim {number})",
+    "act_citation_alt": "{Short Title}, {year}",
+    "insertion_style": "alphanumeric",
+    "insertion_examples": [
+      "5א",
+      "5ב",
+      "(א1)"
+    ]
+  },
+  "enacting_formulae": [
+    {
+      "text": "הכנסת חוקקה ובית משפט זה מצווה לפרש כדלקמן:",
+      "position": "preamble",
+      "era": "modern",
+      "from": "1948-05-14"
+    },
+    {
+      "text": "The Knesset has enacted and the Court is commanded to interpret as follows:",
+      "position": "preamble",
+      "era": "modern-english",
+      "from": "1948-05-14"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "In section [N] of the [Act], after [X] insert— / Section [N] of the [Act] shall be amended to read— / Section [N] of the [Act] is deleted.",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "knesset",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/il/knesset",
+      "showAs": "The Knesset"
+    },
+    {
+      "eId": "presidentOfIsrael",
+      "class": "TLCRole",
+      "href": "/ontology/role/il/president",
+      "showAs": "President of Israel"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/il/prime-minister",
+      "showAs": "Prime Minister of Israel"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/il/supreme-court",
+      "showAs": "Supreme Court of Israel (Beit HaMishpat HaElyon)"
+    },
+    {
+      "eId": "highCourtOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/il/high-court-of-justice",
+      "showAs": "High Court of Justice (Bagatz)"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/il/attorney-general",
+      "showAs": "Attorney General of Israel (Procuror HaMedina)"
+    },
+    {
+      "eId": "reshumot",
+      "class": "TLCObject",
+      "href": "/ontology/obj/il/reshumot",
+      "showAs": "Reshumot (Official Gazette)"
+    },
+    {
+      "eId": "seferHaChukim",
+      "class": "TLCObject",
+      "href": "/ontology/obj/il/sefer-ha-chukim",
+      "showAs": "Sefer HaChukim (Book of Laws)"
+    },
+    {
+      "eId": "kovetzHaTakanot",
+      "class": "TLCObject",
+      "href": "/ontology/obj/il/kovetz-ha-takanot",
+      "showAs": "Kovetz HaTakanot (Collection of Regulations)"
+    },
+    {
+      "eId": "nevo",
+      "class": "TLCObject",
+      "href": "/ontology/obj/il/nevo",
+      "showAs": "Nevo Legal Database (nevo.co.il)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "HEBREW RTL: Israeli legislation is written right-to-left in Hebrew (ISO 639-3: heb). The Bluebell output must represent the logical structure; the RTL rendering is a display concern. When transcribing Hebrew section headings or numbering, preserve the original Hebrew text in the `heading` or `num` fields. Do NOT reverse or reorder Hebrew text.\n\nHIERARCHY — Israeli legislation uses the following structural vocabulary:\n- Perek (פרק) = Chapter → CHAPTER\n- Siman (סימן) = Sub-chapter/Division → SUBCHAPTER  \n- Se'if (סעיף) = Section — the basic citable unit → SECTION (basic_unit)\n- Se'if Katan (סעיף קטן) = Sub-section → SUBSECTION\n- Piska (פסקה) = Paragraph — subdivision below Se'if Katan → PARAGRAPH\n\nHEBREW LETTER ENUMERATION: Se'if Katan (sub-sections) are numbered with Hebrew letters in parentheses: (א), (ב), (ג), (ד), (ה), (ו), (ז), (ח), (ט), (י), (יא), (יב)... This is NOT numeric. When outputting SUBSECTION numbering, reproduce the Hebrew letter exactly as it appears in the source, e.g., SUBSECTION (א). Do not substitute Arabic numerals. If a sub-section is inserted, the pattern is (א1) for an insertion after (א).\n\nBASIC LAWS: The 13 Basic Laws (Chukei Yesod / חוקי יסוד) are constitutional-level documents. Use document class `basic_law`. They are enacted by the Knesset sitting as a Constituent Assembly. Some contain entrenchment clauses requiring special majorities to amend. Identify a document as a Basic Law if its Hebrew title begins with 'חוק יסוד:' (Basic Law:). They tend to be structurally simple — typically SECTION-only with few higher divisions.\n\nEMERGENCY REGULATIONS: Takanot Sha'at Cherum (תקנות שעת חירום) are issued by the Government, not the Knesset. They may temporarily override ordinary legislation. Use document class `emergency_regulation`. They expire after 3 months unless extended. Do not confuse with ordinary Takanot (regulations).\n\nMILITARY ORDERS: Military orders issued by IDF commanders for territories under military administration (including those issued under the laws of belligerent occupation) are OUT OF SCOPE for this pipeline. They form a separate and contested legal corpus not suitable for civilian digitisation without specialist legal oversight. If a document appears to be a military order (identifies itself as 'Tsav Mefaked HaKochot' or similar), flag it and do not process.\n\nRELIGIOUS COURTS — PERSONAL STATUS: Israeli law grants exclusive jurisdiction over personal status matters (marriage, divorce, inheritance) to religious courts for each community: Rabbinical Courts (Batei Din Rabbaniyim) for Jews, Sharia Courts (Batei Din HaMuslimim) for Muslims, Ecclesiastical Courts for recognized Christian communities, and Druze religious courts. Legislation relating to religious courts (e.g., the Rabbinical Courts Jurisdiction Law 1953, Marriage and Divorce Law 1953) should be categorised as `act` class. Decisions of religious courts themselves are NOT within the scope of this pipeline — only the enabling secular legislation.\n\nARABIC VERSIONS: Arabic versions of legislation have 'special status' under the 2018 Basic Law: Israel as the Nation State of the Jewish People. Prior to 2018, Arabic was formally co-official. Arabic legislative texts may be available from the Knesset website (main.knesset.gov.il) and Nevo. Model Arabic versions as separate FRBR expressions of the same work (language code: ara).\n\nDATA SOURCES:\n- Nevo (nevo.co.il): The primary private legal database. Provides consolidated (amended) versions of all legislation in Hebrew. Also English translations of major laws. Preferred for current text.\n- Knesset website (knesset.gov.il/laws/): Official source for enacted text. Legislation search at main.knesset.gov.il.\n- Reshumot (reshumot.co.il): Official Gazette — authoritative for original enacted text, not consolidated versions.\n- WIPO Lex (wipolex.wipo.int/en/legislation/search?country=IL): IP legislation, some with English translations.\n- Israeli Ministry of Justice legislative database: justice.gov.il.",
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^חוק יסוד[:-]|^חוק-יסוד[:-]",
+        "target_document_class": "basic_law",
+        "priority": 100,
+        "note": "Hebrew: Chok Yesod (Basic Law) — constitutional-level instrument."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Basic Law[:-]",
+        "pattern_flags": "i",
+        "target_document_class": "basic_law",
+        "priority": 100
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "Takanot Sha'at Cherum|תקנות שעת חירום",
+        "target_document_class": "emergency_regulation",
+        "priority": 100
+      }
+    ]
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "oecd",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Israel is an observer state to the Council of Europe, not a full member. The European Convention on Human Rights does not apply directly in Israeli law. Israel has a separate observer relationship with the Parliamentary Assembly of the Council of Europe (PACE)."
+    },
+    {
+      "body": "eu",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Israel is NOT an EU member. The EU-Israel Association Agreement (in force 2000) covers trade and cooperation but creates no direct effect in Israeli domestic law. Israel participates in some EU research and innovation programmes (Horizon Europe)."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "hebrew",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

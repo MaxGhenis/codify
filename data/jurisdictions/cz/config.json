@@ -1,0 +1,404 @@
+{
+  "code": "cz",
+  "name": "Czech Republic",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ces"
+  ],
+  "authoritative_language": "ces",
+  "document_classes": {
+    "act": {
+      "label": "Zákon (Act of Parliament)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Část (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_czech",
+          "note": "ČÁST PRVNÍ, ČÁST DRUHÁ — ordinal words in Czech, normalised to Arabic integer for eId"
+        },
+        {
+          "local_term": "Hlava (Chapter/Head)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Díl (Division)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Oddíl (Section/grouping)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic",
+          "note": "Used as higher-division grouper above §, not as basic unit"
+        },
+        {
+          "local_term": "Pododdíl (Sub-section/grouping)",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic",
+          "note": "Very rare; used only in the most extensive acts"
+        },
+        {
+          "local_term": "§ (Paragraf)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Odstavec (Subsection)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren",
+          "note": "a), b), c)... — Czech alphabet; ch) follows h) in Czech but is typically skipped in legal numbering"
+        },
+        {
+          "local_term": "Bod (Point)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period",
+          "note": "1., 2., 3. — sub-lists within písmena"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Čl. I / Čl. II (amending article in novelizace)",
+          "name": "amendingArticle",
+          "description": "In amendment acts (novelizace), Čl. I, Čl. II label which target statute is being amended. These are structural groupers within an otherwise §-based act.",
+          "bluebell_proxy": "PART",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Czech § (paragraf) maps to AKN article, following civil law convention (same as German §). Higher divisions (Část > Hlava > Díl > Oddíl) are groupers above the § basic unit."
+    },
+    "ustavni_zakon": {
+      "label": "Ústavní zákon (Constitutional Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hlava (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Constitution has 8 Hlavy (Chapters). Roman numerals normalised to Arabic for eId."
+        },
+        {
+          "local_term": "Čl. / Článek (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Constitutional acts use Čl. (článek) as basic unit, not § (paragraf)"
+        },
+        {
+          "local_term": "Odstavec",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitutional acts use Čl. (článek) as basic unit, same Bluebell ARTICLE keyword. Constitution 1/1993 Sb. has 8 Hlavy and 113 Čl."
+    },
+    "narizeni": {
+      "label": "Nařízení vlády (Government Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Část (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_czech"
+        },
+        {
+          "local_term": "§ (Paragraf)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Odstavec",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Bod",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government regulations use identical § structure to ordinary zákony. Enabling formula references the empowering statute."
+    },
+    "vyhlaska": {
+      "label": "Vyhláška (Ministerial Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "§ (Paragraf)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Odstavec",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Bod",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial decrees (vyhlášky) use same § structure. May be simpler than nařízení; higher divisions are rarer."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "cz",
+    "uri_patterns": {
+      "act": "/akn/cz/act/{year}/{number}",
+      "ustavni_zakon": "/akn/cz/act/ustavn/{year}/{number}",
+      "narizeni": "/akn/cz/act/narizeni/{year}/{number}",
+      "vyhlaska": "/akn/cz/act/vyhlaska/{year}/{number}",
+      "bill": "/akn/cz/bill/{year}/{slug}",
+      "constitution": "/akn/cz/act/ustavn/1993/1",
+      "judgment_us": "/akn/cz/judgment/us/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "note": "Number = sequential Sb. number within calendar year (no leading zeros). Year = calendar year of Sbírka zákonů publication."
+  },
+  "numbering": {
+    "act_citation": "zákon č. {number}/{year} Sb.",
+    "act_citation_alt": "zákon č. {number}/{year} Sb., o [short descriptive title]",
+    "section_citation": "§ {number}",
+    "subsection_citation": "§ {section} odst. {odstavec}",
+    "full_citation": "§ {section} odst. {odstavec} písm. {pismeno}) bod {bod}.",
+    "insertion_style": "alphanumeric_suffix",
+    "insertion_example": "§ 2 → § 2a, § 2b, § 2c"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Parlament se usnesl na tomto zákoně České republiky:",
+      "translation": "Parliament has resolved on this Act of the Czech Republic:",
+      "position": "preamble",
+      "applies_to": "zakon",
+      "era": "post-independence",
+      "from": "1993-01-01"
+    },
+    {
+      "text": "Vláda nařizuje podle § {N} zákona č. {NN}/{YYYY} Sb., o {title}:",
+      "translation": "The Government hereby decrees pursuant to § {N} of Act No. {NN}/{YYYY} Sb., on {title}:",
+      "position": "preamble",
+      "applies_to": "narizeni",
+      "era": "post-independence",
+      "from": "1993-01-01"
+    },
+    {
+      "text": "{Ministry} stanoví podle § {N} zákona č. {NN}/{YYYY} Sb., o {title}:",
+      "translation": "{Ministry} provides pursuant to § {N} of Act No. {NN}/{YYYY} Sb., on {title}:",
+      "position": "preamble",
+      "applies_to": "vyhlaska",
+      "era": "post-independence",
+      "from": "1993-01-01"
+    }
+  ],
+  "amendments": {
+    "style": "textual_continental",
+    "phrasing": "V zákoně č. NN/YYYY Sb. ... se mění takto: ... § X zní: ... Za § X se vkládá nový § Xa ... § X se zrušuje.",
+    "cross_reference_format": "sb_number_and_year",
+    "cross_reference_example": "zákon č. 89/2012 Sb., občanský zákoník",
+    "amendment_act_structure": "novelizace uses own Sb. number; internal modifications grouped under Čl. I, Čl. II (one per target statute)"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cz/parliament",
+      "showAs": "Parlament České republiky"
+    },
+    {
+      "eId": "poslaneckaSnemovna",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cz/poslanecka-snemovna",
+      "showAs": "Poslanecká sněmovna"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cz/senat",
+      "showAs": "Senát Parlamentu České republiky"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cz/vlada",
+      "showAs": "Vláda České republiky"
+    },
+    {
+      "eId": "prezident",
+      "class": "TLCRole",
+      "href": "/ontology/role/cz/prezident",
+      "showAs": "Prezident republiky"
+    },
+    {
+      "eId": "predsedaVlady",
+      "class": "TLCRole",
+      "href": "/ontology/role/cz/predseda-vlady",
+      "showAs": "Předseda vlády"
+    },
+    {
+      "eId": "predsedaSnemovny",
+      "class": "TLCRole",
+      "href": "/ontology/role/cz/predseda-snemovny",
+      "showAs": "Předseda Poslanecké sněmovny"
+    },
+    {
+      "eId": "ustavniSoud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cz/ustavni-soud",
+      "showAs": "Ústavní soud České republiky"
+    },
+    {
+      "eId": "ministr",
+      "class": "TLCRole",
+      "href": "/ontology/role/cz/ministr",
+      "showAs": "Ministr"
+    },
+    {
+      "eId": "sbirkaZakonu",
+      "class": "TLCObject",
+      "href": "/ontology/obj/cz/sbirka-zakonu",
+      "showAs": "Sbírka zákonů České republiky"
+    },
+    {
+      "eId": "ceskaRepublika",
+      "class": "TLCLocation",
+      "href": "/ontology/place/cz",
+      "showAs": "Česká republika"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Czech § (paragraf) maps to AKN article — use ARTICLE keyword. Constitutional laws use Čl. (článek) as basic unit — also ARTICLE. Higher divisions: Část (PART), Hlava (CHAPTER), Díl (TITLE), Oddíl (DIVISION), Pododdíl (SUBDIVISION). Subdivisions: Odstavec (PARAGRAPH) with (1)(2) numbering, Písmeno (POINT) with a)b) lettering, Bod (INDENT) with 1.2. numbering. Enacting formula: 'Parlament se usnesl na tomto zákoně České republiky:'. Higher divisions use ordinal words in Czech (ČÁST PRVNÍ = Part 1, normalise to Arabic integer for eId)."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "direct_effect": "direct",
+      "member_since": "2004-05-01",
+      "superseded_subjects": [],
+      "note": "EU Regulations directly applicable; Directives transposed via zákon or delegated legislation. Large volume of post-2004 Czech law is EU-derived."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "member_since": "1993-06-30",
+      "note": "ECHR binding via Constitutional Court jurisprudence"
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note_or_inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Czech laws may have § headings in bold/italic within body, or as marginal notes, or no § headings at all (older acts). Pipeline must detect heading presence."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

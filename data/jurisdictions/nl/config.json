@@ -1,0 +1,446 @@
+{
+  "code": "nl",
+  "name": "Netherlands",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "nld"
+  ],
+  "authoritative_language": "nld",
+  "document_classes": {
+    "act": {
+      "label": "Wet (Act of Parliament)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Deel",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Highest division; used only in large codes (e.g., Burgerlijk Wetboek). Rare in ordinary acts."
+        },
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "note": "Most common top-level division in ordinary acts. Numbered Arabic: Hoofdstuk 1, 2, 3."
+        },
+        {
+          "local_term": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_continuous",
+          "note": "Used in codes between Hoofdstuk and Afdeling."
+        },
+        {
+          "local_term": "Afdeling",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "note": "Groups artikelen within a Hoofdstuk or Titel. NOTE: AKN section used here as a higher division container, not as the basic unit."
+        },
+        {
+          "local_term": "Paragraaf",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_with_symbol",
+          "note": "Structural Paragraaf (§ 1, § 2) is a higher division below Afdeling. NOT a subdivision of artikel. Post-processing may be needed to correctly represent in AKN."
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "The fundamental citable provision. Basic unit of Dutch legislation."
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic",
+          "note": "Subdivision of artikel. Cited as 'artikel 5, eerste lid'. Arabic numerals (1, 2, 3)."
+        },
+        {
+          "local_term": "Onderdeel",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower",
+          "note": "List item within a lid. Lowercase letters (a, b, c). Cited as 'onderdeel a' or 'onder a'."
+        },
+        {
+          "local_term": "Sub-onderdeel",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "numeric_degree",
+          "note": "Further subdivision of onderdeel (1°, 2°). Rare."
+        }
+      ],
+      "hcontainers": [],
+      "note": "Jurisdiction-specific Bluebell prompt required (structure_nl.txt). ARTICLE is the basic unit, not SECTION."
+    },
+    "amvb": {
+      "label": "Algemene Maatregel van Bestuur (AMvB)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Onderdeel",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [],
+      "note": "AMvBs (general administrative orders) are issued by royal decree and published in Staatsblad. Same article-based structure as acts."
+    },
+    "minreg": {
+      "label": "Ministeriële Regeling (Ministerial Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Onderdeel",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Published in Staatscourant (Stcrt.), not Staatsblad. FRBR URI uses Stcrt. year and number."
+    },
+    "rijkswet": {
+      "label": "Rijkswet (Kingdom Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Kingdom Acts apply across all four constituent countries. Published in Staatsblad. UNRESOLVED: URI convention under /akn/nl/act/rijkswet/ is provisional — see profile ambiguities."
+    },
+    "constitution": {
+      "label": "Grondwet (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Constitution uses Roman numeral chapters (Hoofdstuk I through IX)."
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Articles numbered continuously across all chapters (1 through 142)."
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The Grondwet has 9 chapters with articles numbered continuously 1–142. Constitutional amendments are enacted by a two-reading procedure (dissolution + re-election between readings)."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "nl",
+    "uri_patterns": {
+      "act": "/akn/nl/act/{year}/{number}",
+      "amvb": "/akn/nl/act/amvb/{year}/{number}",
+      "minreg": "/akn/nl/act/minreg/{year}/{number}",
+      "rijkswet": "/akn/nl/act/rijkswet/{year}/{number}",
+      "bill": "/akn/nl/bill/{year}/{kamerstuk-number}",
+      "constitution": "/akn/nl/act/constitution/1815/grondwet"
+    },
+    "number_source": "staatsblad_sequential",
+    "number_source_note": "Acts: Staatsblad sequential number within calendar year (e.g., Stb. 2024, 45 → year=2024, number=45). Ministerial regulations: Staatscourant sequential number.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Stb. {year}, {number}",
+    "act_citation_alt": "{citeertitel}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "artikel 5a, 5b inserted between artikel 5 and artikel 6",
+    "article_numbering": "arabic_continuous",
+    "code_article_prefix": "book-prefixed in Civil Code only (e.g., art. 3:84 BW)"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Wij Willem-Alexander, bij de gratie Gods, Koning der Nederlanden, Prins van Oranje-Nassau, enz. enz. enz. Allen, die deze zullen zien of horen lezen, saluut! doen te weten: Alzo Wij in overweging genomen hebben, dat [considerans]; Zo is het, dat Wij, de Afdeling advisering van de Raad van State gehoord, en met gemeen overleg der Staten-Generaal, hebben goedgevonden en verstaan, gelijk Wij goedvinden en verstaan bij deze:",
+      "position": "preamble",
+      "era": "Willem-Alexander",
+      "from": "2013-04-30"
+    },
+    {
+      "text": "Wij Beatrix, bij de gratie Gods, Koningin der Nederlanden, Prinses van Oranje-Nassau, enz. enz. enz. Allen, die deze zullen zien of horen lezen, saluut! doen te weten: Alzo Wij in overweging genomen hebben, dat [considerans]; Zo is het, dat Wij, de Afdeling advisering van de Raad van State gehoord, en met gemeen overleg der Staten-Generaal, hebben goedgevonden en verstaan, gelijk Wij goedvinden en verstaan bij deze:",
+      "position": "preamble",
+      "era": "Beatrix",
+      "from": "1980-04-30",
+      "to": "2013-04-30"
+    }
+  ],
+  "closing_formula": {
+    "text": "Gegeven te [place], [date]. [MONARCH]. De Minister van [portfolio], [Name].",
+    "position": "conclusions",
+    "note": "Signed by monarch and countersigned by responsible minister(s). Maps to AKN conclusions/formula[@name='closingFormula']."
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "wordt vervangen door",
+    "phrasing_deletion": "vervalt",
+    "phrasing_modification": "wordt als volgt gewijzigd",
+    "phrasing_insertion": "wordt ingevoegd, luidende",
+    "phrasing_addition": "wordt toegevoegd, luidende",
+    "cross_reference_format": "citeertitel",
+    "cross_reference_note": "Acts are referenced by citeertitel (short title) in amendment text. Stb. reference used when no citeertitel exists."
+  },
+  "core_tlcs": [
+    {
+      "eId": "statenGeneraal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/staten-generaal",
+      "showAs": "Staten-Generaal"
+    },
+    {
+      "eId": "tweedeKamer",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/tweede-kamer",
+      "showAs": "Tweede Kamer der Staten-Generaal"
+    },
+    {
+      "eId": "eersteKamer",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/eerste-kamer",
+      "showAs": "Eerste Kamer der Staten-Generaal"
+    },
+    {
+      "eId": "monarch",
+      "class": "TLCRole",
+      "href": "/ontology/role/nl/monarch",
+      "showAs": "Monarch der Nederlanden"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/nl/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "raadVanState",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/raad-van-state",
+      "showAs": "Raad van State"
+    },
+    {
+      "eId": "staatsblad",
+      "class": "TLCObject",
+      "href": "/ontology/obj/nl/staatsblad",
+      "showAs": "Staatsblad van het Koninkrijk der Nederlanden"
+    },
+    {
+      "eId": "staatscourant",
+      "class": "TLCObject",
+      "href": "/ontology/obj/nl/staatscourant",
+      "showAs": "Staatscourant"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Dutch legislation uses ARTICLE as the basic unit (not SECTION). Hierarchy: CHAPTER > SECTION (Afdeling) > ARTICLE > PARAGRAPH (lid) > POINT (onderdeel). SECTION here is a higher division container, not the basic unit. All acts open with a royal enacting formula (aanhef) in the PREAMBLE and close with a royal signature block in CONCLUSIONS."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "1957-01-01",
+      "founding_member": true,
+      "direct_effect": "direct",
+      "direct_effect_note": "EU Regulations directly applicable. Directives require transposition. Netherlands has monist constitutional approach — Article 94 Grondwet gives directly effective treaty provisions supremacy over conflicting domestic law.",
+      "superseded_subjects": [
+        "trade",
+        "competition",
+        "agriculture",
+        "environment",
+        "data_protection",
+        "financial_services",
+        "consumer_protection",
+        "free_movement"
+      ],
+      "akn_profile": "AKN4EU",
+      "eu_instruments_uri_space": "/akn/eu/"
+    },
+    {
+      "body": "council-of-europe",
+      "founding_member": true,
+      "direct_effect": "indirect_transposition",
+      "direct_effect_note": "ECHR has direct effect via Article 94 Grondwet. Dutch courts must set aside domestic law inconsistent with directly effective ECHR provisions.",
+      "superseded_subjects": [
+        "human_rights",
+        "criminal_procedure",
+        "privacy",
+        "fair_trial"
+      ]
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "direct_effect_note": "Security Council Chapter VII resolutions binding; GA resolutions non-binding.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "kingdom_structure": {
+    "note": "The Netherlands is one of four constituent countries of the Kingdom of the Netherlands. The others (Aruba, Curaçao, Sint Maarten) have separate legal systems and require separate jurisdiction profiles.",
+    "constituent_countries": [
+      {
+        "name": "Netherlands",
+        "iso": "nl",
+        "akn_code": "nl",
+        "profile": "this"
+      },
+      {
+        "name": "Aruba",
+        "iso": "aw",
+        "akn_code": "aw",
+        "profile": "pending"
+      },
+      {
+        "name": "Curaçao",
+        "iso": "cw",
+        "akn_code": "cw",
+        "profile": "pending"
+      },
+      {
+        "name": "Sint Maarten",
+        "iso": "sx",
+        "akn_code": "sx",
+        "profile": "pending"
+      }
+    ],
+    "kingdom_acts_uri_convention": "/akn/nl/act/rijkswet/{year}/{number}",
+    "kingdom_acts_convention_status": "UNRESOLVED — provisional, see profile ambiguities"
+  },
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "note": "Dutch legislative headings use sentence case. Section/article headings are inline in the act text, not marginal notes."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

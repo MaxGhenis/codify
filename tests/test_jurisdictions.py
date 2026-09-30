@@ -550,7 +550,7 @@ def test_public_reference_defaults_to_excluded() -> None:
     assert cfg.public_reference is False
 
 
-def test_the_flagged_set_is_small_and_deliberate() -> None:
+def test_the_flagged_set_is_deliberate() -> None:
     """A flag that spreads quietly is the failure this design guards against, so
     the count is asserted rather than left to drift."""
     import json
@@ -559,7 +559,14 @@ def test_the_flagged_set_is_small_and_deliberate() -> None:
 
     registry = json.loads((JURISDICTIONS_DIR / "registry.json").read_text())
     flagged = sorted(j["code"] for j in registry["jurisdictions"] if j.get("public_reference"))
-    assert flagged == ["ee", "fi", "gb", "ie", "it", "nz"]
+    on_disk = sorted(
+        p.parent.name
+        for p in JURISDICTIONS_DIR.glob("*/config.json")
+        if json.loads(p.read_text()).get("public_reference")
+    )
+    assert flagged == on_disk
+    assert len(flagged) == 106
+    assert {"ee", "fi", "gb", "ie", "it", "nz"} <= set(flagged)
 
 
 def test_the_export_carries_a_filtered_registry(tmp_path, monkeypatch) -> None:

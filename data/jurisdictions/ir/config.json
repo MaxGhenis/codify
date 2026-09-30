@@ -1,0 +1,259 @@
+{
+  "code": "ir",
+  "name": "Iran",
+  "type": "national",
+  "tradition": [
+    "islamic",
+    "civil_law"
+  ],
+  "calendar": "solar_hijri",
+  "languages": [
+    "fas"
+  ],
+  "authoritative_language": "fas",
+  "document_classes": {
+    "act": {
+      "label": "Qanun (Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Jeld (Volume)",
+          "akn_element": "tome",
+          "level": "higher",
+          "bluebell_keyword": "TOME",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Ketab (Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Bab (Part/Title)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Fasl (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Mabhas (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddeh (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Band (Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "persian_alpha"
+        },
+        {
+          "local_term": "Joz' (Sub-clause)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Tabsareh (Note/Proviso)",
+          "name": "tabsareh",
+          "description": "Legally binding annotation attached to articles; qualifies, extends, or restricts the parent article",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Tabsareh is unique to Iranian law -- not a note/comment but a legally binding provision"
+    },
+    "constitution": {
+      "label": "Qanun-e Asasi (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Fasl (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Asl (Principle)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Band (Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Tabsareh (Note/Proviso)",
+          "name": "tabsareh",
+          "description": "Legally binding annotation attached to principles",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Constitution uses Asl (Principle) instead of Maddeh (Article); 14 chapters, 177 principles"
+    },
+    "ayin_nameh": {
+      "label": "Ayin-nameh (Executive Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Fasl (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddeh (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Band (Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "persian_alpha"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Tabsareh (Note/Proviso)",
+          "name": "tabsareh",
+          "description": "Legally binding annotation",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Executive regulations approved by the Cabinet"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "ir",
+    "uri_patterns": {
+      "act": "/akn/ir/act/{year}/{slugified-title}",
+      "ayin_nameh": "/akn/ir/act/ayin-nameh/{year}/{slugified-title}",
+      "farman": "/akn/ir/act/farman/{year}/{slugified-title}",
+      "constitution": "/akn/ir/act/constitution/1358/qanun-e-asasi"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Gregorian year used in FRBR URIs. Solar Hijri date, which is the authoritative Iranian dating, stored as FRBRalias.",
+    "calendar_conversion": {
+      "kind": "hijri_solar",
+      "note": "Solar Hijri (Jalali) calendar. Iranian official. Year 1 = 622 CE Hegira. Month/day conversion is non-trivial (the calendar is astronomically observed, not algorithmic in the same way as Gregorian). Use a dedicated library when implementing. FRBR URIs use Gregorian."
+    }
+  },
+  "numbering": {
+    "insertion_style": "mokarer"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Qanun-e fawq mushtamel bar [N] maddeh va [M] tabsareh dar jalase-ye [date] Majles-e Shora-ye Eslami be tasvib resid.",
+      "position": "conclusions",
+      "era": "post-1979",
+      "from": "1358-01-01"
+    }
+  ],
+  "amendments": {
+    "style": "textual_modification",
+    "phrasing": "Maddeh-ye [N] be sharh-e zir eslah mishavad:",
+    "cross_reference_format": "full_title_sh_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "supremeLeader",
+      "class": "TLCRole",
+      "href": "/ontology/role/ir/supreme-leader",
+      "showAs": "Supreme Leader"
+    },
+    {
+      "eId": "majles",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ir/majles",
+      "showAs": "Islamic Consultative Assembly"
+    },
+    {
+      "eId": "guardianCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ir/guardian-council",
+      "showAs": "Guardian Council"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ir/official-gazette",
+      "showAs": "Official Gazette (Ruznaameh-ye Rasmi)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Iran uses ARTICLE as basic unit. Tabsareh (Note/Proviso) is a unique element with full legal force -- use SUBSECTION as proxy then post-process to hcontainer. Band uses Persian alphabet letters for enumeration. Enacting formula appears at END of law (conclusions), not beginning. RTL script."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

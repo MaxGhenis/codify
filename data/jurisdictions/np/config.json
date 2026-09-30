@@ -1,0 +1,404 @@
+{
+  "code": "np",
+  "name": "Nepal",
+  "type": "national",
+  "tradition": [
+    "hindu",
+    "common_law",
+    "customary"
+  ],
+  "calendar": "dual",
+  "languages": [
+    "nep"
+  ],
+  "authoritative_language": "nep",
+  "document_classes": {
+    "act": {
+      "label": "Ain (Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Parichched",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daphaa",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Upadaphaa",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Khanda",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Upakhanda",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Tara",
+          "name": "proviso",
+          "description": "Proviso-style clause ('Provided that…'), inherited from British-India drafting convention via Indian legal influence. Uses native Bluebell PROVISO keyword.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        },
+        {
+          "local_term": "Spashtikaran",
+          "name": "explanation",
+          "description": "Explanatory note within a Daphaa, analogous to Indian 'Explanation'. Clarificatory, does not create new rights.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        },
+        {
+          "local_term": "Anusuchi",
+          "name": "schedule",
+          "description": "Schedule or annexure appended to an Act.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Primary document class. Parichched (chapter) is the main grouping unit; Daphaa is the basic citable section. English translations use 'Section' for Daphaa."
+    },
+    "samhita": {
+      "label": "Samhita (Code)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Bhaag",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Parichched",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daphaa",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Upadaphaa",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Khanda",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Upakhanda",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Spashtikaran",
+          "name": "explanation",
+          "description": "Explanatory note within a Daphaa.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        },
+        {
+          "local_term": "Anusuchi",
+          "name": "schedule",
+          "description": "Schedule or annexure appended to a Code.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Used for comprehensive codes such as the Muluki Samhita (Country Code, 2017). May use Bhaag (Part) as top-level grouping above Parichched."
+    },
+    "constitution": {
+      "label": "Constitution of Nepal",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bhaag",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Dhaaraa",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Upadhaaraa",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Khanda",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of Nepal 2072 (2015 CE). Bhaag (Part) groups Dhaaraa (Articles). 35 Parts, 308 Articles. Uses article as basic unit, not section."
+    },
+    "niyamavali": {
+      "label": "Niyamavali (Rules/Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "rule",
+      "hierarchy": [
+        {
+          "local_term": "Parichched",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Niyam",
+          "akn_element": "rule",
+          "level": "basic",
+          "bluebell_keyword": "RULE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Upaniyam",
+          "akn_element": "subrule",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBRULE",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Khanda",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subsidiary legislation made under an Ain. Uses Rule as basic unit."
+    },
+    "adhyadesh": {
+      "label": "Adhyadesh (Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Parichched",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daphaa",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Upadaphaa",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Khanda",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential ordinance issued under Article 114 of the 2015 Constitution when Parliament is not in session. Same structure as Ain."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "np",
+    "uri_patterns": {
+      "act": "/akn/np/act/{year}/{number}",
+      "ordinance": "/akn/np/act/ordinance/{year}/{number}",
+      "rules": "/akn/np/act/rules/{year}/{number}",
+      "bill": "/akn/np/bill/{year}/{number}",
+      "constitution": "/akn/np/act/constitution/2015/constitution",
+      "samhita": "/akn/np/act/samhita/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Nepal uses Bikram Samvat (B.S.) as official calendar — B.S. 2072 = 2015 CE. FRBR URIs always use Gregorian year. B.S. date stored as FRBRalias. Conversion: B.S. year - 56 or 57 = CE year (month-dependent; Nepali New Year falls in mid-April CE). Pipeline must convert B.S. dates at ingestion time.",
+    "calendar_conversion": {
+      "kind": "bikram_samvat",
+      "offset": 57,
+      "new_year_month": 4,
+      "new_year_day": 14,
+      "note": "Bikram Samvat (BS). Nepali New Year falls ~14 April. BS year is 56-57 years ahead of Gregorian. Before mid-April, subtract 57; after, subtract 57 then add 1. FRBR URIs always use Gregorian; BS date stored as FRBRalias."
+    }
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year} B.S.",
+    "act_citation_alt": "{short_title}, {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Parliament has enacted this Act.",
+      "position": "preamble",
+      "era": "federal-republic",
+      "from": "2015-09-20"
+    },
+    {
+      "text": "His Majesty's Government has enacted this Act.",
+      "position": "preamble",
+      "era": "monarchy",
+      "from": "1959-01-01",
+      "to": "2008-05-28"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "In Section {N}, for the words '...' substitute '...' / After Section {N}, insert the following section",
+    "cross_reference_format": "short_title_and_year_bs"
+  },
+  "core_tlcs": [
+    {
+      "eId": "federalParliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/federal-parliament",
+      "showAs": "Federal Parliament of Nepal"
+    },
+    {
+      "eId": "pratinidhiSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/pratinidhi-sabha",
+      "showAs": "Pratinidhi Sabha (House of Representatives)"
+    },
+    {
+      "eId": "rastriyaSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/rastriya-sabha",
+      "showAs": "Rastriya Sabha (National Assembly)"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/np/president",
+      "showAs": "President of Nepal"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/np/prime-minister",
+      "showAs": "Prime Minister of Nepal"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/supreme-court",
+      "showAs": "Supreme Court of Nepal"
+    },
+    {
+      "eId": "nepalGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/np/nepal-gazette",
+      "showAs": "Nepal Gazette (Nepal Rajpatra)"
+    },
+    {
+      "eId": "lawCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/law-commission",
+      "showAs": "Law Commission of Nepal"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Nepal legislation is written in Devanagari script in the Nepali language. Key hierarchy terms: Parichched = Chapter, Daphaa = Section (basic citable unit), Upadaphaa = Sub-section, Khanda = Paragraph/Clause (lettered), Upakhanda = Sub-paragraph. For the Constitution: Bhaag = Part, Dhaaraa = Article, Upadhaaraa = sub-clause. For Codes (Samhita), Bhaag may appear above Parichched. Nepal Gazette citations use Bikram Samvat (B.S.) dates — convert to Gregorian for FRBR URIs (subtract 56 or 57 years depending on month; Nepali New Year is mid-April). Store the original B.S. date as FRBRalias. English translations of Nepali laws exist on lawcommission.gov.np but the Nepali text is authoritative. Watch for Proviso-style clauses ('Tara' = 'Provided that') and Spashtikaran (Explanation) blocks."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "saarc",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "devanagari",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

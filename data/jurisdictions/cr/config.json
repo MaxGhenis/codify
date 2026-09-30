@@ -1,0 +1,273 @@
+{
+  "code": "cr",
+  "name": "Costa Rica",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_es"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman",
+          "note": "Higher-division grouping only, NOT the basic unit — distinct from Anglophone 'section'"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_closing_paren_or_arabic_closing_paren",
+          "note": "Two styles: 'a)', 'b)' (alphabetic, common in ordinary laws) or '1)', '2)' (numeric, common in codes). Both map to paragraph."
+        },
+        {
+          "local_term": "Párrafo",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "unnumbered",
+          "note": "Unnumbered prose paragraph; SUBSECTION used as Bluebell proxy. Post-processing may rename to alinea."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "transitorio",
+          "local_term": "Transitorio",
+          "numbering": "roman",
+          "note": "Transitional provisions at end of law. No Bluebell keyword; use SECTION as proxy then rename in post-processing."
+        }
+      ]
+    },
+    "decreto_ejecutivo": {
+      "label": "Decreto Ejecutivo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive decrees issued by the President and relevant Minister(s). Often reglamentos to a parent law."
+    },
+    "constitucion": {
+      "label": "Constitución Política",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1949 Constitution uses TÍTULO > CAPÍTULO > ARTÍCULO. 18 Títulos, articles 1–197 continuous throughout."
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "cr",
+    "uri_patterns": {
+      "ley": "/akn/cr/act/{year}/{number}",
+      "decreto_ejecutivo": "/akn/cr/act/decreto/{year}/{number}",
+      "reglamento": "/akn/cr/act/reglamento/{year}/{number}",
+      "bill": "/akn/cr/bill/{year}/{expediente}",
+      "constitucion": "/akn/cr/act/constitution/1949/constitucion",
+      "tratado": "/akn/cr/act/tratado/{year}/{number}"
+    },
+    "number_note": "Ley numbers are a single continuous sequence since 1821 (no year prefix). Store bare Ley N.° as FRBRalias. URI uses enactment year from La Gaceta publication date.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Ley N.° {number}",
+    "act_citation_alt": "Ley N.° {number}, de {date}",
+    "decreto_citation": "Decreto Ejecutivo N.° {number}",
+    "insertion_style": "bis_ter",
+    "insertion_note": "Inserted articles use 'bis', 'ter', 'quater', 'quinquies' suffixes (e.g., Artículo 3 bis). eId: art_3bis."
+  },
+  "enacting_formulae": [
+    {
+      "text": "LA ASAMBLEA LEGISLATIVA DE LA REPÚBLICA DE COSTA RICA DECRETA:",
+      "position": "preamble",
+      "document_class": "ley",
+      "era": "all",
+      "note": "Consistent formula observed across six decades (1970–2025)."
+    },
+    {
+      "text": "El Presidente de la República y el Ministro de {ministry}, en uso de las atribuciones que les confieren los artículos 140, incisos 3) y 18) y 146 de la Constitución Política, decretan:",
+      "position": "preamble",
+      "document_class": "decreto_ejecutivo",
+      "era": "all",
+      "note": "Template — ministry name and legal basis vary by decree."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "Refórmase el artículo [N] de la Ley [N.° NNNN], para que se lea de la siguiente manera:",
+    "phrasing_addition": "Adiciónase un artículo [N bis] a la Ley [N.° NNNN], para que se lea así:",
+    "phrasing_repeal": "Deróguese el artículo [N] de la Ley [N.° NNNN].",
+    "phrasing_inciso_substitution": "Refórmase el inciso [a)] del artículo [N] de la Ley [N.° NNNN], para que se lea:",
+    "cross_reference_format": "ley_number_and_name"
+  },
+  "core_tlcs": [
+    {
+      "eId": "asambleaLegislativa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cr/asamblea-legislativa",
+      "showAs": "Asamblea Legislativa"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/cr/presidente",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "procuraduria",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cr/procuraduria-general",
+      "showAs": "Procuraduría General de la República"
+    },
+    {
+      "eId": "salaConstitucional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cr/sala-constitucional",
+      "showAs": "Sala Constitucional"
+    },
+    {
+      "eId": "laGaceta",
+      "class": "TLCObject",
+      "href": "/ontology/obj/cr/la-gaceta",
+      "showAs": "Diario Oficial La Gaceta"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Costa Rica uses ARTICLE (not SECTION) as the basic unit. CHAPTER, TITLE, and BOOK are higher divisions above ARTICLE. SECTION is also a higher division (never the basic unit). Inciso subdivisions within articles use PARAGRAPH keyword. Two inciso numbering styles exist: alphabetic (a), b), c)) and numeric (1), 2), 3)) — detect from document. Transitorios at the end of laws use SECTION as a proxy keyword with heading 'Transitorio N'. The enacting formula is 'LA ASAMBLEA LEGISLATIVA DE LA REPÚBLICA DE COSTA RICA DECRETA:' and goes in the PREAMBLE block."
+  },
+  "supranational_memberships": [
+    {
+      "body": "sica",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Sistema de la Integración Centroamericana. SICA instruments require domestic ratification and publication in La Gaceta."
+    },
+    {
+      "body": "oas",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "OAS conventions ratified by the Asamblea Legislativa. Inter-American Court of Human Rights (Corte IDH) is based in San José; binding judgments operate through constitutional deference."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "language_label": "Español",
+    "note": "Article headings in Costa Rican laws appear inline after the article number (e.g., 'Artículo 1.- Objeto y ámbito de aplicación.') using a dash separator, not as marginal notes."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

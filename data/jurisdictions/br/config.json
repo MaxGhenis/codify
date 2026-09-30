@@ -1,0 +1,349 @@
+{
+  "code": "br",
+  "name": "Brazil",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "por"
+  ],
+  "authoritative_language": "por",
+  "document_classes": {
+    "act": {
+      "label": "Lei Ordinaria",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "named"
+        },
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titulo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secao",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Subsecao",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Paragrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Alinea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Item",
+          "name": "item",
+          "description": "Subdivision of alinea, arabic numerals, rarely used",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ]
+    },
+    "lc": {
+      "label": "Lei Complementar",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secao",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Paragrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Alinea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Complementary laws require absolute majority in both chambers"
+    },
+    "mp": {
+      "label": "Medida Provisoria",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Paragrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Provisional measures with force of law, expire after 120 days if not converted"
+    },
+    "constitution": {
+      "label": "Constituicao Federal",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titulo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secao",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Subsecao",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Paragrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Alinea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "br",
+    "uri_patterns": {
+      "act": "/akn/br/act/{year}/{number}",
+      "lc": "/akn/br/act/lc/{year}/{number}",
+      "mp": "/akn/br/act/mp/{year}/{number}",
+      "ec": "/akn/br/act/ec/{year}/{number}",
+      "decreto": "/akn/br/act/decreto/{year}/{number}",
+      "constitution": "/akn/br/act/constituicao/1988/1"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lei n. {number}, de {year}",
+    "insertion_style": "alphanumeric_hyphenated"
+  },
+  "enacting_formulae": [
+    {
+      "text": "O PRESIDENTE DA REPUBLICA Faco saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei:",
+      "position": "preamble",
+      "era": "post-1988",
+      "from": "1988-10-05"
+    }
+  ],
+  "amendments": {
+    "style": "textual_substitution",
+    "phrasing": "passa a vigorar com a seguinte redacao... (NR)",
+    "cross_reference_format": "lei_number_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congressoNacional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/br/congresso-nacional",
+      "showAs": "Congresso Nacional"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/br/presidente",
+      "showAs": "Presidente da Republica"
+    },
+    {
+      "eId": "dou",
+      "class": "TLCObject",
+      "href": "/ontology/obj/br/dou",
+      "showAs": "Diario Oficial da Uniao"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Brazil uses ARTICLE as basic unit. Secao/Subsecao are HIGHER divisions above articles, NOT the basic unit. Inciso uses Roman numerals (I, II, III). Paragrafo unico is a special sole-paragraph designation."
+  },
+  "supranational_memberships": [
+    {
+      "body": "mercosur",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

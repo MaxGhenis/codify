@@ -1,0 +1,236 @@
+{
+  "code": "jm",
+  "name": "Jamaica",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "si": {
+      "label": "Legal Notice (Subsidiary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "SIs use 'regulation' as basic unit term but map to AKN section. Jamaica SIs are cited as Legal Notices (L.N.) since 1974."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1962 Constitution uses Chapters (I-XIV), not Parts. Constitutional amending acts that reproduce constitutional text should use this class."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "jm",
+    "uri_patterns": {
+      "act": "/akn/jm/act/{year}/{number}",
+      "si": "/akn/jm/act/si/{year}/{number}",
+      "bill": "/akn/jm/bill/{year}/{number}",
+      "constitution": "/akn/jm/act/constitution/1962/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "The {title}, {year}",
+    "si_citation": "L.N. {number}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_style_verified": false,
+    "note": "Act numbers are sequential within year. Older revised statutes have chapter references in the Revised Laws volumes; use short-title slug as URI fallback and record chapter as FRBRalias."
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by The King's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Jamaica, and by the authority of the same, as follows:",
+      "position": "preamble",
+      "era": "king-charles-iii",
+      "from": "2022-09-08"
+    },
+    {
+      "text": "BE IT ENACTED by The Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Jamaica, and by the authority of the same, as follows:",
+      "position": "preamble",
+      "era": "queen-elizabeth-ii",
+      "to": "2022-09-08"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and substituting therefor...",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jm/parliament",
+      "showAs": "Parliament of Jamaica"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jm/senate",
+      "showAs": "Senate of Jamaica"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jm/house-of-representatives",
+      "showAs": "House of Representatives of Jamaica"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/jm/governor-general",
+      "showAs": "Governor-General of Jamaica"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/jm/prime-minister",
+      "showAs": "Prime Minister of Jamaica"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/jm/attorney-general",
+      "showAs": "Attorney General of Jamaica"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/jm/official-gazette",
+      "showAs": "The Jamaica Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": null
+  },
+  "supranational_memberships": [
+    {
+      "body": "caricom",
+      "direct_effect": "none",
+      "note": "CARICOM instruments require domestic legislative transformation. Jamaica has enacted the Caribbean Community Act and the Caribbean Community (CSME) Act to give domestic effect to Revised Treaty obligations. No automatic override of domestic law.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

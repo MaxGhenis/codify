@@ -1,0 +1,301 @@
+{
+  "code": "hu",
+  "name": "Hungary",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "hun"
+  ],
+  "authoritative_language": "hun",
+  "document_classes": {
+    "act": {
+      "label": "Act of the National Assembly",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Könyv",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_hu",
+          "note": "Used in comprehensive codes only (e.g. Civil Code). Sections use Book:Section prefix notation (1:1. §)."
+        },
+        {
+          "local_term": "Rész",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_hu",
+          "note": "ELSŐ RÉSZ, MÁSODIK RÉSZ etc. Used in large codes and some complex acts."
+        },
+        {
+          "local_term": "Fejezet",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "I. fejezet, II. fejezet. Primary grouping in most acts."
+        },
+        {
+          "local_term": "Alcím",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "arabic",
+          "note": "Subtitle below fejezet. No Bluebell keyword — requires post-processing to wrap sections in <hcontainer name=\"alcim\">."
+        },
+        {
+          "local_term": "Szakasz",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "The § (section sign) unit. Continuous throughout act. Cited as '15. §'. Basic citable provision."
+        },
+        {
+          "local_term": "Bekezdés",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "note": "Omitted when section has single unnumbered paragraph. Cited as '(1)', '(2)'."
+        },
+        {
+          "local_term": "Pont",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_closeparen",
+          "note": "Lowercase letter + closing paren: a), b), c). Cited as 'a) pont'."
+        },
+        {
+          "local_term": "Alpont",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "double_alpha_lower_closeparen",
+          "note": "Double-letter + closing paren: aa), ab), ba). First letter echoes parent pont. Cited as 'aa) alpont'. Hungary-specific convention."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "alcim",
+          "local_term": "Alcím",
+          "note": "Subtitle grouping element. Numbered (1., 2.) with a short heading. Post-processing required to insert from Bluebell output."
+        }
+      ]
+    },
+    "rendelet": {
+      "label": "Government Decree",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Fejezet",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Szakasz",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Bekezdés",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Pont",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_closeparen"
+        },
+        {
+          "local_term": "Alpont",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "double_alpha_lower_closeparen"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government decrees (kormányrendelet) and ministerial decrees (miniszteri rendelet) share this structure. Enabling clause in preamble cites parent act authority."
+    },
+    "alaptorvenye": {
+      "label": "Fundamental Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Cikk",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "capital_letter_parenthesized",
+          "note": "Foundation section articles: (A), (B)...(U). Thematic sections use Arabic-numbered articles."
+        }
+      ],
+      "hcontainers": [],
+      "note": "Fundamental Law uses Cikk (Article) not Szakasz (Section) as basic unit. Requires separate structuring prompt variant: structure_hu_alaptorvenye.txt. Do not use SECTION keyword."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "hu",
+    "uri_patterns": {
+      "act": "/akn/hu/act/{year}/{number}",
+      "rendelet_korm": "/akn/hu/act/korm/{year}/{number}",
+      "rendelet_min": "/akn/hu/act/rendelet/{year}/{number}",
+      "bill": "/akn/hu/bill/{year}/{number}",
+      "alaptorvenye": "/akn/hu/act/alaptorvenye/2011/alaptorvenye",
+      "alaptorvenye_amendment": "/akn/hu/act/alaptorvenye/{year}/{ordinal}"
+    },
+    "date_calendar": "gregorian",
+    "number_notes": "Roman numeral act number (e.g. LXIX) converted to Arabic integer for URI (e.g. 69). Store Hungarian canonical citation '2024. évi LXIX. törvény' as FRBRalias."
+  },
+  "numbering": {
+    "act_citation_hu": "{year}. évi {roman}. törvény",
+    "act_citation_en": "Act {roman} of {year}",
+    "act_uri_number": "arabic_equivalent_of_roman",
+    "decree_citation": "{number}/{year}. ({month_roman}. {day}.) {issuer} rendelet",
+    "insertion_style": "slash_alpha",
+    "insertion_example": "5/A. §, 5/B. §"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Az Országgyűlés [purpose clause] a következő törvényt alkotja:",
+      "translation": "The National Assembly, [purpose clause], adopts the following act:",
+      "position": "preamble",
+      "note": "Present in acts with a purpose preamble. Simple amending acts omit this formula and begin directly with the body."
+    },
+    {
+      "text": "A Kormány [enabling clause] a következő rendeletet alkotja:",
+      "translation": "The Government, [enabling clause], adopts the following decree:",
+      "position": "preamble",
+      "applies_to": "rendelet_korm"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "insertion_phrasing": "[Act] X. §-a a következő (N) bekezdéssel egészül ki:",
+    "substitution_phrasing": "[Act] X. § (N) bekezdése helyébe a következő rendelkezés lép:",
+    "repeal_phrasing": "Hatályát veszti [Act] X. §-a.",
+    "new_section_phrasing": "[Act] X. §-át követően a következő X/A. §-sal egészül ki:",
+    "cross_reference_format": "a {year}. évi {roman}. törvény {section}. §",
+    "quotation_marks": "hungarian",
+    "quotation_open": "„",
+    "quotation_close": "”"
+  },
+  "core_tlcs": [
+    {
+      "eId": "orszaggyules",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/hu/orszaggyules",
+      "showAs": "National Assembly of Hungary"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/hu/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "kormany",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/hu/kormany",
+      "showAs": "Government of Hungary"
+    },
+    {
+      "eId": "magyarKozlony",
+      "class": "TLCObject",
+      "href": "/ontology/obj/hu/magyar-kozlony",
+      "showAs": "Magyar Közlöny"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_file": "structure_hu.txt",
+    "prompt_additions": "Hungarian acts use CHAPTER (fejezet, Roman numeral) > SECTION (szakasz, Arabic with § sign) > SUBSECTION (bekezdés, Arabic parenthesized) > PARAGRAPH (pont, lowercase letter+closeparen a), b)) > SUBPARAGRAPH (alpont, double-letter aa), ab)). Large codes additionally use BOOK (könyv) and PART (rész) above CHAPTER. The alcím (subtitle) grouping element has no Bluebell keyword and must be handled by post-processing. Section numbers appear as '1. §', '15. §' — strip '§' and '.' for Bluebell SECTION number. Subsections appear as '(1)', '(2)'. Points appear as 'a)', 'b)' without parentheses on the left. Subpoints appear as 'aa)', 'ab)'. For the Fundamental Law only, use ARTICLE keyword and letter identifiers.",
+    "special_variants": [
+      {
+        "name": "alaptorvenye",
+        "prompt_file": "structure_hu_alaptorvenye.txt",
+        "trigger": "document_class == 'alaptorvenye'",
+        "note": "Fundamental Law uses ARTICLE (Cikk) as basic unit with letter identifiers, not SECTION."
+      }
+    ]
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "2004-05-01",
+      "direct_effect": "direct",
+      "direct_effect_instruments": [
+        "regulations",
+        "decisions"
+      ],
+      "transposition_required": [
+        "directives"
+      ],
+      "superseded_subjects": [],
+      "note": "EU Regulations apply directly; Directives require domestic transposition by törvény or kormányrendelet. EU instruments use /akn/eu/... FRBR URIs under AKN4EU profile."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "section_symbol": "§",
+    "notes": "Hungarian acts display section headings inline after the § number. Alcím headings appear as titled subheadings between chapter and section. Quotation marks use Hungarian low-high style: „...”."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,417 @@
+{
+  "code": "uy",
+  "name": "Uruguay",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word",
+          "note": "Codes only (Código Civil, Código de Comercio, etc.). Format: 'LIBRO PRIMERO'. Not used in ordinary leyes."
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Sección is a high-level grouping in Uruguayan codes, sitting above Título. Maps to AKN part as an intermediate container. Format: 'SECCIÓN I'. Confirmed in Código de Proceso Civil."
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "note": "Present in codes and complex leyes. Format: 'TÍTULO I – DISPOSICIONES GENERALES'. Roman numerals standard."
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Most common higher division in ordinary leyes. Format: 'CAPÍTULO I'. Roman numerals."
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Fundamental citable unit. Numbered continuously throughout the ley. Format: 'Artículo 1°.' or 'Art. 1°.' Strip degree symbol for eId: art_1."
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word",
+          "note": "Unnumbered paragraph within artículo. Referenced by positional ordinal: 'inciso primero', 'inciso segundo'. No Bluebell keyword — pipeline must post-process bare paragraph blocks inside <article> into <alinea> elements sequentially."
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_degree",
+          "note": "Numbered list items within artículo or inciso. Format: '1°', '2°', '3°'. Cited as 'numeral 1°'. Strip degree symbol for eId."
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_closing_paren",
+          "note": "Lettered sub-items under numerales or directly under incisos. Format: 'A)', 'B)', 'C)'. Uppercase letters are standard in Uruguayan legislation. Cited as 'literal A)'."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Título Preliminar",
+          "name": "tituloPreliminar",
+          "description": "Preliminary title in codes preceding the main Libro/Título hierarchy. Present in Código Civil and Código General del Proceso.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        },
+        {
+          "local_term": "Disposición Transitoria",
+          "name": "disposicionTransitoria",
+          "description": "Transitory provisions, typically at the end of codes and complex leyes. May be numbered or lettered.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": false
+        },
+        {
+          "local_term": "Disposición Derogatoria",
+          "name": "disposicionDerogatoria",
+          "description": "Repeal provisions section, grouping articles that derogate prior legislation.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": false
+        }
+      ],
+      "note": "Standard Uruguayan ley. Citation: 'Ley N° 19.889'. Promulgated by the President and published in the Diario Oficial (IMPO). Numbered continuously since independence (no year component in the number)."
+    },
+    "decreto_ley": {
+      "label": "Decreto-Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by the de facto government (Consejo de Estado / Junta de Gobierno) during the civilian-military dictatorship 1973–1985. Many remain in force. Politically neutral FRBR URIs using decreto-ley subtype. Flag for human policy review. Structurally identical to ordinary leyes."
+    },
+    "decreto": {
+      "label": "Decreto del Poder Ejecutivo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_degree"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive regulations promulgated by the Poder Ejecutivo (President + relevant Minister). Cited as 'Decreto N° 326/996' (number/year, two-digit year historically). Since 2000 full four-digit year is used. Numbered per year."
+    },
+    "resolucion": {
+      "label": "Resolución",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Administrative resolutions from ministries, autonomous entities, or the executive. Short-form instruments, typically few articles. Published in Diario Oficial."
+    },
+    "constitucion": {
+      "label": "Constitución de la República Oriental del Uruguay",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Sección",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "The 1967 Constitution is divided into 17 Secciones (Sections). Format: 'SECCIÓN I – DE LA NACIÓN Y SU SOBERANÍA'. Maps to AKN part as the top-level structural container."
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Within each Sección. Format: 'CAPÍTULO I'."
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "330 articles numbered continuously across all Secciones and Capítulos."
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Disposición Transitoria y Especial",
+          "name": "disposicionTransitoriaEspecial",
+          "description": "Lettered transitional provisions appended to the Constitution after the permanent articles. Format: 'A)', 'B)', 'C)' through the alphabet and beyond.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "The 1967 Constitution is the current operative text, with reforms via plebiscite in 1989, 1994, 1996, and 2004. The Suprema Corte de Justicia (plenary) exercises exclusive constitutional review jurisdiction — Uruguay has no separate Constitutional Court. Work URI anchored to 1967 promulgation."
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "uy",
+    "uri_patterns": {
+      "ley": "/akn/uy/act/{year}/{number}",
+      "decreto_ley": "/akn/uy/act/decreto-ley/{year}/{number}",
+      "decreto": "/akn/uy/act/decreto/{year}/{number}",
+      "resolucion": "/akn/uy/act/resolucion/{year}/{number}",
+      "bill": "/akn/uy/bill/{year}/{slugified-title}",
+      "constitucion": "/akn/uy/act/constitucion/1967/constitucion"
+    },
+    "number_format": "bare_integer",
+    "number_note": "Strip thousands-separator periods from Uruguayan citation format. 'Ley N° 19.889' → 19889 in URI. 'Decreto N° 326/996' → year must be normalised to four digits (1996) in URI. Display layer re-adds separator.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Ley N° {number_with_separator}",
+    "act_citation_alt": "Ley Nro. {number_with_separator}",
+    "insertion_style": "bis_ter_quater",
+    "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter. Observed in amended codes."
+  },
+  "enacting_formulae": [
+    {
+      "text": "El Senado y la Cámara de Representantes de la República Oriental del Uruguay, reunidos en Asamblea General, DECRETAN:",
+      "position": "preamble",
+      "era": "post-1985",
+      "from": "1985-03-01",
+      "to": ""
+    },
+    {
+      "text": "El Consejo de Estado DECRETA:",
+      "position": "preamble",
+      "era": "1973-1985",
+      "from": "1973-06-27",
+      "to": "1985-02-28"
+    },
+    {
+      "text": "El PODER EJECUTIVO DECRETA:",
+      "position": "preamble",
+      "era": "post-1985",
+      "from": "1985-03-01",
+      "to": ""
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Sustitúyese el artículo [N°] de la Ley N° [XX.XXX] por el siguiente:",
+    "cross_reference_format": "el artículo [N°] de la Ley N° [XX.XXX]"
+  },
+  "core_tlcs": [
+    {
+      "eId": "asambleaGeneral",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/asamblea-general",
+      "showAs": "Asamblea General"
+    },
+    {
+      "eId": "camaraRepresentantes",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/camara-representantes",
+      "showAs": "Cámara de Representantes"
+    },
+    {
+      "eId": "camaraSenadores",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/camara-senadores",
+      "showAs": "Cámara de Senadores"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/uy/presidente",
+      "showAs": "Presidente de la República Oriental del Uruguay"
+    },
+    {
+      "eId": "supremaCorteJusticia",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/suprema-corte-justicia",
+      "showAs": "Suprema Corte de Justicia"
+    },
+    {
+      "eId": "impo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/impo",
+      "showAs": "Dirección Nacional de Impresiones y Publicaciones Oficiales (IMPO)"
+    },
+    {
+      "eId": "diarioOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/uy/diario-oficial",
+      "showAs": "Diario Oficial de la República Oriental del Uruguay"
+    },
+    {
+      "eId": "uruguay",
+      "class": "TLCLocation",
+      "href": "/ontology/place/uy",
+      "showAs": "República Oriental del Uruguay"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Uruguay uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions in codes: BOOK (libro), PART (sección as top grouping in Constitution and some codes), TITLE (título), CHAPTER (capítulo). In ordinary leyes the most common higher division is CHAPTER. Subdivisions within artículos: incisos are unnumbered paragraphs with no Bluebell keyword — leave as bare paragraph blocks and note for post-processing into <alinea> elements. PARAGRAPH for numerales (numbered items, e.g., '1°'). POINT for literales (uppercase lettered items, e.g., 'A)', 'B)'). Article numbers use degree symbols (Artículo 1°) — strip for eId: art_1. Law numbers use thousands-separator periods (Ley N° 19.889) — strip for URIs: 19889. Decreto numbers use two-digit year historically (Decreto N° 326/996 = 1996) — normalise to four digits in URIs. Uppercase letters for literales (A), B)) distinguish Uruguay from Argentina (lowercase) and Chile (lowercase). Constitutional structure: PART (sección) > CHAPTER (capítulo) > ARTICLE (artículo). Decreto-Ley instruments from 1973–1985 dictatorship are structurally identical to ordinary leyes but use decreto-ley subtype in FRBR URI."
+  },
+  "supranational_memberships": [
+    {
+      "body": "mercosur",
+      "direct_effect": "indirect_transposition",
+      "superseded_subjects": [
+        "customs_union",
+        "trade_in_goods",
+        "common_external_tariff",
+        "free_movement_persons_mercosur"
+      ]
+    },
+    {
+      "body": "unasur",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "oas",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

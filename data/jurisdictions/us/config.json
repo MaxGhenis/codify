@@ -1,0 +1,603 @@
+{
+  "code": "us",
+  "name": "United States",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "public_law": {
+      "label": "Public Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": "us",
+      "hierarchy": [
+        {
+          "local_term": "Division",
+          "akn_element": "hcontainer",
+          "akn_name": "division",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper",
+          "note": "Omnibus/appropriations laws only. No Bluebell keyword — requires post-processing to emit hcontainer."
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subtitle",
+          "akn_element": "hcontainer",
+          "akn_name": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subpart",
+          "akn_element": "hcontainer",
+          "akn_name": "subpart",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "alpha_lower_parenthesized",
+          "note": "US uses letters (a)(b)(c) at L1, NOT Arabic numerals. Inverted from Commonwealth tradition."
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "US uses Arabic numerals (1)(2)(3) at L2, NOT letters. Inverted from Commonwealth tradition."
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_upper_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_upper_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "division",
+          "description": "Top-level grouping in omnibus legislation (Division A, Division B). No AKN native equivalent.",
+          "local_term": "Division"
+        },
+        {
+          "name": "subtitle",
+          "description": "Grouping within a Title (Subtitle A, Subtitle B).",
+          "local_term": "Subtitle"
+        },
+        {
+          "name": "subpart",
+          "description": "Grouping within a Part (Subpart A, Subpart B).",
+          "local_term": "Subpart"
+        }
+      ]
+    },
+    "usc_title": {
+      "label": "United States Code Title",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": "us",
+      "hierarchy": [
+        {
+          "local_term": "Subtitle",
+          "akn_element": "hcontainer",
+          "akn_name": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subchapter",
+          "akn_element": "hcontainer",
+          "akn_name": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "roman_upper",
+          "note": "Very common in USC. Roman numerals: Subchapter I, II. No Bluebell keyword — requires post-processing."
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subpart",
+          "akn_element": "hcontainer",
+          "akn_name": "subpart",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous_with_alpha_suffix"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_upper_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_upper_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "subtitle",
+          "description": "Grouping within a USC Title (Subtitle A, B).",
+          "local_term": "Subtitle"
+        },
+        {
+          "name": "subchapter",
+          "description": "Grouping within a Chapter (Subchapter I, II). Very common in USC.",
+          "local_term": "Subchapter"
+        },
+        {
+          "name": "subpart",
+          "description": "Grouping within a Part.",
+          "local_term": "Subpart"
+        }
+      ],
+      "note": "USC Titles are compilations by the Office of Law Revision Counsel, not individually enacted laws. Positive-law titles (roughly half of 54 titles) are authoritative; others are prima facie evidence only."
+    },
+    "cfr_title": {
+      "label": "Code of Federal Regulations Title",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": "us",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Subchapter",
+          "akn_element": "hcontainer",
+          "akn_name": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subpart",
+          "akn_element": "hcontainer",
+          "akn_name": "subpart",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "part_dot_sequential",
+          "note": "CFR sections cited as {Part}.{seq}, e.g. § 300.1. The decimal is NOT a hierarchy separator. eId uses underscore: sec_300_1."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "subchapter",
+          "description": "Letter-labelled grouping within CFR Chapter (Subchapter A, B, C).",
+          "local_term": "Subchapter"
+        },
+        {
+          "name": "subpart",
+          "description": "Letter-labelled grouping within CFR Part (Subpart A, B).",
+          "local_term": "Subpart"
+        }
+      ]
+    },
+    "bill": {
+      "label": "Bill",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": "us",
+      "hierarchy": [
+        {
+          "local_term": "Division",
+          "akn_element": "hcontainer",
+          "akn_name": "division",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subtitle",
+          "akn_element": "hcontainer",
+          "akn_name": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_upper_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_upper_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "division",
+          "description": "Top-level grouping in omnibus bills.",
+          "local_term": "Division"
+        },
+        {
+          "name": "subtitle",
+          "description": "Grouping within a Title.",
+          "local_term": "Subtitle"
+        }
+      ],
+      "note": "Bills lapse if not enacted within one Congress. FRBR URI uses bill number and chamber prefix (hr/s)."
+    },
+    "constitution": {
+      "label": "Constitution of the United States",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "prompt_variant": "us",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "higher",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "roman_upper",
+          "note": "Seven Articles (I–VII) in the original Constitution. The Article is both higher division and container of basic units."
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Amendments modelled as separate FRBR works linked to the Constitution."
+    },
+    "executive_order": {
+      "label": "Executive Order",
+      "akn_element": "doc",
+      "bluebell_compatible": false,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive Orders are presidential directives, not acts of Congress. Use AKN <doc> element. Bluebell produces <act> only — post-processing required to change root element. Published in Federal Register and codified in Title 3 of CFR."
+    }
+  },
+  "default_document_class": "public_law",
+  "frbr": {
+    "country_code": "us",
+    "uri_patterns": {
+      "public_law": "/akn/us/act/{congress}/{number}",
+      "usc_title": "/akn/us/act/usc/{title}",
+      "cfr_title": "/akn/us/act/cfr/{title}",
+      "bill_house": "/akn/us/bill/{congress}/hr-{number}",
+      "bill_senate": "/akn/us/bill/{congress}/s-{number}",
+      "constitution": "/akn/us/act/constitution/1788/constitution",
+      "constitution_amendment": "/akn/us/act/constitution-amendment/{year}/{number}",
+      "executive_order": "/akn/us/doc/executive-order/{year}/{number}",
+      "joint_resolution": "/akn/us/act/{congress}/jr-{number}"
+    },
+    "date_calendar": "gregorian",
+    "notes": "Congress number (not calendar year) is used as first path segment for Public Laws and Bills. Pre-1958 laws without Congress-number format should use /akn/us/act/stat/{volume}/{page}."
+  },
+  "numbering": {
+    "act_citation": "Pub.L. {congress}-{number}",
+    "act_citation_alt": "{volume} Stat. {page}",
+    "usc_citation": "{title} U.S.C. § {section}",
+    "cfr_citation": "{title} C.F.R. § {section}",
+    "insertion_style": "alphanumeric",
+    "note": "USC insertion sections use lower-alpha suffix: § 1234a, § 1234b. eIds: sec_1234a, sec_1234b."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled,",
+      "position": "preamble",
+      "applies_to": [
+        "public_law"
+      ],
+      "statutory_basis": "1 U.S.C. § 101"
+    },
+    {
+      "text": "Resolved by the Senate and House of Representatives of the United States of America in Congress assembled,",
+      "position": "preamble",
+      "applies_to": [
+        "joint_resolution"
+      ],
+      "note": "Used for constitutional amendments, declarations of war, and some appropriations/continuing resolutions."
+    }
+  ],
+  "amendments": {
+    "style": "textual_us",
+    "phrasing": "is amended by striking... and inserting... / by adding at the end the following",
+    "cross_reference_format": "short_title_and_usc",
+    "note": "Cross-references include USC citation in parentheses: e.g. 'the Clean Air Act (42 U.S.C. 7401 et seq.)'. Redesignation (renumbering of subsections/paragraphs) is extremely common and requires wId tracking."
+  },
+  "core_tlcs": [
+    {
+      "eId": "congress",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/us/congress",
+      "showAs": "United States Congress"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/us/senate",
+      "showAs": "United States Senate"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/us/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/us/president",
+      "showAs": "President of the United States"
+    },
+    {
+      "eId": "speakerOfHouse",
+      "class": "TLCRole",
+      "href": "/ontology/role/us/speaker-of-the-house",
+      "showAs": "Speaker of the House"
+    },
+    {
+      "eId": "federalRegister",
+      "class": "TLCObject",
+      "href": "/ontology/obj/us/federal-register",
+      "showAs": "Federal Register"
+    },
+    {
+      "eId": "statutesAtLarge",
+      "class": "TLCObject",
+      "href": "/ontology/obj/us/statutes-at-large",
+      "showAs": "United States Statutes at Large"
+    },
+    {
+      "eId": "unitedStatesCode",
+      "class": "TLCObject",
+      "href": "/ontology/obj/us/united-states-code",
+      "showAs": "United States Code"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_file": "structure_us.txt",
+    "prompt_additions": "CRITICAL: US subdivision numbering is INVERTED from Commonwealth. L1 subdivision uses letters: SUBSECTION (a), (b), (c). L2 uses Arabic numerals: PARAGRAPH (1), (2), (3). L3 uses uppercase letters: SUBPARAGRAPH (A), (B), (C). L4 uses lowercase Roman: CLAUSE (i), (ii), (iii). L5 uses uppercase Roman: SUBCLAUSE (I), (II), (III). Do NOT apply Commonwealth subsection-as-numeral conventions. Division and Subchapter levels have no Bluebell keyword — flag these for post-processing."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "section_symbol": true,
+    "note": "US legislation typically uses inline section headings (bold, within the section body) rather than marginal notes. The § symbol is used widely in citations and within statutory text."
+  },
+  "uslm": {
+    "schema_relation": "derivative",
+    "transformation_path": "uslm_to_akn_xslt",
+    "element_mapping": {
+      "uslm:enum": "akn:num",
+      "uslm:chapeau": "akn:intro",
+      "uslm:content": "akn:content",
+      "uslm:continuation": "akn:wrapUp"
+    },
+    "note": "USLM (United States Legislative Markup) is the Office of Law Revision Counsel's AKN-derived schema, used at uscode.house.gov and congress.gov. Direct XSLT transformation to AKN is feasible and preferred over OCR/LLM for USC digitisation. See https://uscode.house.gov/about_uslm.xhtml"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

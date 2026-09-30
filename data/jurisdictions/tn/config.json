@@ -1,0 +1,400 @@
+{
+  "code": "tn",
+  "name": "Tunisia",
+  "name_local": "تونس",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "fra"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman",
+          "note": "Higher division above article, NOT the basic unit"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "First article is 'Article premier'; normalise to ARTICLE 1 for Bluebell"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "positional_unnumbered",
+          "note": "Unnumbered sub-paragraphs within article; Bluebell PARAGRAPH is proxy — may need post-processing to rename to alinea"
+        },
+        {
+          "local_term": "Point / item",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "livre",
+          "note": "Book-level division used in major codes (Code civil, Code des sociétés). Above Titre.",
+          "local_term": "Livre"
+        }
+      ]
+    },
+    "loi-organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "positional_unnumbered"
+        },
+        {
+          "local_term": "Point / item",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        }
+      ],
+      "hcontainers": []
+    },
+    "decret-loi": {
+      "label": "Décret-loi",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "positional_unnumbered"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by presidential decree during exceptional period 2021-2022; structurally identical to ordinary laws but different institutional metadata"
+    },
+    "decret-presidentiel": {
+      "label": "Décret présidentiel",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "positional_unnumbered"
+        }
+      ],
+      "hcontainers": []
+    },
+    "decret-gouvernemental": {
+      "label": "Décret gouvernemental",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "positional_unnumbered"
+        }
+      ],
+      "hcontainers": []
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "positional_unnumbered"
+        }
+      ],
+      "hcontainers": [],
+      "note": "2022 Constitution: 142 articles in 11 chapters. 2014 Constitution: 149 articles. 1959 Constitution: amended many times. Each version is a separate FRBR work."
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "tn",
+    "uri_patterns": {
+      "loi": "/akn/tn/act/{year}/{number}",
+      "loi-organique": "/akn/tn/act/loi-organique/{year}/{number}",
+      "decret-loi": "/akn/tn/act/decret-loi/{year}/{number}",
+      "decret-presidentiel": "/akn/tn/act/decret-presidentiel/{year}/{number}",
+      "decret-gouvernemental": "/akn/tn/act/decret-gouvernemental/{year}/{number}",
+      "arrete": "/akn/tn/act/arrete/{year}/{number-or-slug}",
+      "bill": "/akn/tn/bill/{year}/{slug}",
+      "constitution": "/akn/tn/act/constitution/{year}/constitution"
+    },
+    "date_calendar": "gregorian",
+    "number_extraction": "YYYY-NN format: use NN as {number} (e.g., Loi n° 2024-35 → number=35). Presidential/govt decrees may be YYYY-NNN; use NNN."
+  },
+  "numbering": {
+    "act_citation": "Loi n° {year}-{number} du {date}",
+    "act_citation_alt": null,
+    "insertion_style": "bis_ter",
+    "first_article_term": "Article premier",
+    "note": "First article normalised to ARTICLE 1 in Bluebell pre-processing"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Au nom du peuple,\nL'Assemblée des représentants du peuple ayant adopté,\nLe Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "instrument_type": "loi",
+      "era": "post-2022-constitution",
+      "from": "2022-08-16"
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution,\nVu le décret présidentiel n° 2021-117 du 22 septembre 2021 [...],\nPrend le décret-loi dont la teneur suit :",
+      "position": "preamble",
+      "instrument_type": "decret-loi",
+      "era": "exceptional-measures",
+      "from": "2021-07-25",
+      "to": "2022-08-16"
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution, notamment ses articles [...],\nPrend le décret présidentiel dont la teneur suit :",
+      "position": "preamble",
+      "instrument_type": "decret-presidentiel",
+      "era": "current"
+    },
+    {
+      "text": "Le Chef du Gouvernement,\nSur proposition du ministre [...],\nVu la Constitution, notamment ses articles [...],\nPrend le décret gouvernemental dont la teneur suit :",
+      "position": "preamble",
+      "instrument_type": "decret-gouvernemental",
+      "era": "current"
+    }
+  ],
+  "amendments": {
+    "style": "textual_francophone",
+    "phrasing": "est modifié comme suit / est ajouté / est abrogé",
+    "cross_reference_format": "loi_number_and_date",
+    "insertion_style": "bis_ter"
+  },
+  "core_tlcs": [
+    {
+      "eId": "arp",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tn/arp",
+      "showAs": "Assemblée des Représentants du Peuple"
+    },
+    {
+      "eId": "cnrd",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tn/cnrd",
+      "showAs": "Conseil National des Régions et des Districts"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/tn/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "chefDuGouvernement",
+      "class": "TLCRole",
+      "href": "/ontology/role/tn/chef-du-gouvernement",
+      "showAs": "Chef du Gouvernement"
+    },
+    {
+      "eId": "ministre",
+      "class": "TLCRole",
+      "href": "/ontology/role/tn/ministre",
+      "showAs": "Ministre"
+    },
+    {
+      "eId": "jort",
+      "class": "TLCObject",
+      "href": "/ontology/obj/tn/jort",
+      "showAs": "Journal Officiel de la République Tunisienne"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "In Tunisian legislation, ARTICLE is always the basic unit. SECTION, CHAPTER (CHAPITRE), and TITLE (TITRE) are higher divisions that contain articles, not the basic unit. Never treat SECTION as the basic unit. The first article is always 'Article premier' — normalise to ARTICLE 1. Alinéas (sub-paragraphs within articles) are unnumbered; use PARAGRAPH as the closest Bluebell keyword. French text is informative; Arabic text is authoritative."
+  },
+  "supranational_memberships": [
+    {
+      "body": "arab-maghreb-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "arab-league",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "upper_case",
+    "script": "arabic_primary_latin_secondary",
+    "rtl": true,
+    "font_preference": "sans_serif",
+    "note": "RTL for Arabic text; French text is LTR. Bilingual display requires bidi handling."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

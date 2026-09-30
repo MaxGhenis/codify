@@ -1,0 +1,419 @@
+{
+  "code": "co",
+  "name": "Colombia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "act": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman_ordinal",
+          "notes": "Highest division; used only in major codes (Código Penal, Código Civil). E.g., LIBRO PRIMERO / LIBRO SEGUNDO."
+        },
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_ordinal",
+          "notes": "PARTE GENERAL / PARTE ESPECIAL; used inside Libros in major codes. Not universal."
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "notes": "Main structural grouping in most leyes. E.g., TÍTULO I, TÍTULO II. In codes: groups of chapters within a Libro."
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "notes": "Most common higher division in ordinary leyes. E.g., CAPÍTULO I, CAPÍTULO II. Immediately above articles."
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman",
+          "notes": "Optional subdivision within a Capítulo; used when chapter is large. Maps to AKN section AS HIGHER DIVISION (not basic unit). Relatively uncommon."
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "notes": "The basic citable unit. Numbered continuously throughout the entire ley (not restarting per Título/Capítulo). E.g., Artículo 1°, Artículo 2°."
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_transitorio",
+          "notes": "Attached to an artículo; contains supplementary or exceptional rules. Cited as 'Parágrafo 1°' or 'Parágrafo Transitorio'. Not equivalent to a French alinéa — it is a substantive subdivision with legal force. Maps to AKN paragraph."
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "notes": "Unnumbered paragraph within an artículo or parágrafo. Equivalent to French alinéa. Incisos are not independently citable; referenced by position (e.g., 'inciso tercero del artículo 5'). Requires post-processing; Bluebell has no INCISO keyword."
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesized",
+          "notes": "Numbered list item within an artículo. E.g., 1., 2., 3. or 1°, 2°, 3°. Maps to AKN point."
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized",
+          "notes": "Lettered list item within a numeral or artículo. E.g., a), b), c). Maps to AKN point (same element as numeral, distinguished by number format)."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "paragrafoTransitorio",
+          "local_term": "Parágrafo Transitorio",
+          "notes": "Parágrafo with transitional provisions. Model as paragraph with name attribute or hcontainer."
+        }
+      ]
+    },
+    "decreto": {
+      "label": "Decreto",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_transitorio"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Decrees issued by the President. Subtypes: decreto reglamentario, decreto ley, decreto legislativo, decreto ordinario. All use artículo as basic unit."
+    },
+    "acto_legislativo": {
+      "label": "Acto Legislativo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_transitorio"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitutional amendment acts. Require absolute majority of both chambers in two consecutive legislatures. Few higher divisions; typically short."
+    },
+    "constitucion": {
+      "label": "Constitución Política",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_transitorio"
+        }
+      ],
+      "hcontainers": [],
+      "note": "1991 Constitution has 13 Títulos, 380 artículos + 67 Disposiciones Transitorias. Títulos contain Capítulos which contain Artículos."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "co",
+    "uri_patterns": {
+      "act": "/akn/co/act/{year}/{number}",
+      "decreto": "/akn/co/act/decreto/{year}/{number}",
+      "decreto_ley": "/akn/co/act/decreto-ley/{year}/{number}",
+      "acto_legislativo": "/akn/co/act/acto-legislativo/{year}/{number}",
+      "resolucion": "/akn/co/act/resolucion/{year}/{number}",
+      "bill": "/akn/co/bill/{year}/{number}",
+      "constitucion": "/akn/co/act/constitucion/1991/constitucion"
+    },
+    "date_calendar": "gregorian",
+    "notes": "Law number is sequential within each calendar year, resetting to 1 on 1 January. Format: Ley {N} de {YYYY}. FRBR number segment uses the sequential integer without leading zeros."
+  },
+  "numbering": {
+    "act_citation": "Ley {number} de {year}",
+    "decreto_citation": "Decreto {number} de {year}",
+    "acto_legislativo_citation": "Acto Legislativo {number} de {year}",
+    "insertion_style": "alphanumeric",
+    "notes": "All instrument categories reset their sequential counter on 1 January each year. Acts do not use a chapter/compilation number. Ordinal suffix '°' (degree sign) is typographic convention, not structural."
+  },
+  "enacting_formulae": [
+    {
+      "text": "EL CONGRESO DE COLOMBIA\n\nDECRETA:",
+      "position": "preamble",
+      "instrument": "ley",
+      "era": "current"
+    },
+    {
+      "text": "EL PRESIDENTE DE LA REPÚBLICA DE COLOMBIA\n\nEn ejercicio de sus facultades constitucionales y legales, en especial las conferidas por el artículo [N] de la Constitución Política, y\n\nCONSIDERANDO:\n\n[considerandos]\n\nDECRETA:",
+      "position": "preamble",
+      "instrument": "decreto_reglamentario",
+      "era": "current"
+    },
+    {
+      "text": "EL CONGRESO DE COLOMBIA\n\nACTUANDO COMO PODER CONSTITUYENTE\n\nDECRETA:",
+      "position": "preamble",
+      "instrument": "acto_legislativo",
+      "era": "current"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_examples": [
+      "Modifíquese el artículo [N] de la Ley [N] de [año]...",
+      "Adiciónese un parágrafo al artículo [N] de la Ley [N] de [año]...",
+      "Derógase el artículo [N] de la Ley [N] de [año].",
+      "El artículo [N] de la Ley [N] de [año], quedará así:",
+      "Adiciónese a la Ley [N] de [año] el siguiente artículo:"
+    ],
+    "cross_reference_format": "short_title_or_ley_number_year",
+    "notes": "Colombian amendments typically quote the replacement text inline after a colon. Derogation is explicit ('derógase'). No Commonwealth-style 'delete and substitute' formula."
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/co/congreso",
+      "showAs": "Congreso de Colombia"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/co/senado",
+      "showAs": "Senado de la República"
+    },
+    {
+      "eId": "camaraRepresentantes",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/co/camara-representantes",
+      "showAs": "Cámara de Representantes"
+    },
+    {
+      "eId": "presidenteRepublica",
+      "class": "TLCRole",
+      "href": "/ontology/role/co/presidente-republica",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "presidenteSenado",
+      "class": "TLCRole",
+      "href": "/ontology/role/co/presidente-senado",
+      "showAs": "Presidente del Senado"
+    },
+    {
+      "eId": "presidenteCamara",
+      "class": "TLCRole",
+      "href": "/ontology/role/co/presidente-camara",
+      "showAs": "Presidente de la Cámara de Representantes"
+    },
+    {
+      "eId": "secretarioSenado",
+      "class": "TLCRole",
+      "href": "/ontology/role/co/secretario-senado",
+      "showAs": "Secretario General del Senado"
+    },
+    {
+      "eId": "secretarioCamara",
+      "class": "TLCRole",
+      "href": "/ontology/role/co/secretario-camara",
+      "showAs": "Secretario General de la Cámara de Representantes"
+    },
+    {
+      "eId": "ministro",
+      "class": "TLCRole",
+      "href": "/ontology/role/co/ministro",
+      "showAs": "Ministro"
+    },
+    {
+      "eId": "corteConstitucional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/co/corte-constitucional",
+      "showAs": "Corte Constitucional"
+    },
+    {
+      "eId": "consejoDeEstado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/co/consejo-estado",
+      "showAs": "Consejo de Estado"
+    },
+    {
+      "eId": "diarioOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/co/diario-oficial",
+      "showAs": "Diario Oficial"
+    },
+    {
+      "eId": "colombia",
+      "class": "TLCLocation",
+      "href": "/ontology/place/co",
+      "showAs": "Colombia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Colombia uses ARTICLE (artículo) as the basic unit, not SECTION. Higher divisions are TITLE (título) and CHAPTER (capítulo). BOOK (libro) is used only in major codes. Below articles: PARAGRAPH (parágrafo) for numbered supplementary provisions; inciso (unnumbered paragraph) requires post-processing. POINT maps to both numeral (arabic) and literal (alpha). Article numbers are continuous throughout the entire document and do not restart per chapter."
+  },
+  "supranational_memberships": [
+    {
+      "body": "can",
+      "name": "Comunidad Andina (CAN)",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "customs",
+        "intellectual_property",
+        "trade_in_goods",
+        "agricultural_policy"
+      ],
+      "notes": "CAN Decisions (Decisiones) are directly applicable and take precedence over domestic law. Subject areas include customs union, IP (Decision 486 on industrial property), agricultural sanitary rules, and transport. Model CAN instruments under /akn/can/ not /akn/co/."
+    },
+    {
+      "body": "unasur",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "notes": "Colombian legislation headings (rúbricas) appear above chapters and titles in all caps. Artículo headings, when present, appear on the same line or immediately above the article number."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

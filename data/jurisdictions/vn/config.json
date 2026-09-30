@@ -1,0 +1,455 @@
+{
+  "code": "vn",
+  "name": "Việt Nam",
+  "name_en": "Vietnam",
+  "type": "national",
+  "tradition": [
+    "socialist",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "vie"
+  ],
+  "authoritative_language": "vie",
+  "document_classes": {
+    "luat": {
+      "label": "Luật (Law / Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Phần",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Used only in large codes; absent from most laws"
+        },
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic",
+          "note": "Primary higher division; present in almost all laws above ~10 articles"
+        },
+        {
+          "local_term": "Mục",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "note": "Optional mid-level division between Chương and Điều; verify per document"
+        },
+        {
+          "local_term": "Tiểu mục",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_continuous",
+          "note": "Rare; observed in Civil Code 2015 between Mục and Điều"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Fundamental citation unit. Continuous numbering throughout entire document, never restarting per chapter."
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic",
+          "note": "Primary subdivision of Điều. Cited as 'khoản 2 Điều 5'."
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha",
+          "note": "Secondary subdivision. Vietnamese letter sequence: a, b, c, d, đ, e, g, h, i, k. The letter đ is transliterated as 'dd' in eId values."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Phụ lục",
+          "note": "Annex/Schedule — use <attachments><attachment> not hcontainer",
+          "name": "phuluc"
+        }
+      ]
+    },
+    "boluat": {
+      "label": "Bộ luật (Code)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Phần",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Mục",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Tiểu mục",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Bộ luật (comprehensive codes) use the same hierarchy as Luật but commonly include Phần and Tiểu mục levels absent in shorter laws"
+    },
+    "phaplenhh": {
+      "label": "Pháp lệnh (Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by Standing Committee of National Assembly between sessions. Shorter than Luật; rarely uses Phần or Tiểu mục."
+    },
+    "nghi_dinh": {
+      "label": "Nghị định (Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Mục",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by the Government (Cabinet). Subsidiary legislation implementing Luật. Most voluminous instrument class."
+    },
+    "constitution": {
+      "label": "Hiến pháp (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution 2013 (current). Chapters numbered in Roman numerals. No Phần or Mục level. No Điểm level used in the Constitution."
+    }
+  },
+  "default_document_class": "luat",
+  "frbr": {
+    "country_code": "vn",
+    "uri_patterns": {
+      "luat": "/akn/vn/act/{year}/{number}",
+      "boluat": "/akn/vn/act/{year}/{number}",
+      "phaplenhh": "/akn/vn/act/ordinance/{year}/{number}",
+      "nghi_dinh": "/akn/vn/act/decree/{year}/{number}",
+      "thong_tu": "/akn/vn/act/circular/{year}/{number}",
+      "quyet_dinh_ttg": "/akn/vn/act/decision-pm/{year}/{number}",
+      "nghi_quyet_qh": "/akn/vn/act/resolution/{year}/{number}",
+      "bill": "/akn/vn/bill/{year}/{number}",
+      "constitution": "/akn/vn/act/constitution/2013/constitution"
+    },
+    "number_extraction": "Strip all text after the first '/' in the official designation. E.g., '59/2020/QH14' → number='59', year='2020'. Store the full designation as FRBRalias.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "{number}/{year}/QH{legislature_term}",
+    "act_citation_example": "31/2024/QH15",
+    "decree_citation": "{number}/{year}/NĐ-CP",
+    "ordinance_citation": "{number}/{year}/UBTVQH{legislature_term}",
+    "circular_citation": "{number}/{year}/TT-{ministry_code}",
+    "insertion_style": "alphabetic_lower",
+    "insertion_example": "Điều 5a, Điều 5b (not 5A, 5B)",
+    "point_sequence": "a, b, c, d, đ, e, g, h, i, k",
+    "point_eid_note": "The letter đ is transliterated as 'dd' in eId values. điểm đ → point_dd"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nQuốc hội ban hành Luật [tên văn bản].",
+      "text_en": "Pursuant to the Constitution of the Socialist Republic of Vietnam; The National Assembly hereby promulgates the Law on [subject].",
+      "position": "preamble",
+      "issuer": "national_assembly",
+      "era": "current",
+      "from": "2013-11-28"
+    },
+    {
+      "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nỦy ban Thường vụ Quốc hội ban hành Pháp lệnh [tên văn bản].",
+      "text_en": "Pursuant to the Constitution of the Socialist Republic of Vietnam; The Standing Committee of the National Assembly hereby promulgates the Ordinance on [subject].",
+      "position": "preamble",
+      "issuer": "standing_committee",
+      "era": "current",
+      "from": "2013-11-28"
+    },
+    {
+      "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam năm 1992;\nQuốc hội ban hành [Luật / Bộ luật] [tên văn bản].",
+      "text_en": "Pursuant to the 1992 Constitution of the Socialist Republic of Vietnam; The National Assembly hereby promulgates the [Law / Code] on [subject].",
+      "position": "preamble",
+      "issuer": "national_assembly",
+      "era": "pre-2013",
+      "to": "2013-11-28"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "được sửa đổi, bổ sung như sau (is amended and supplemented as follows)",
+    "insertion_phrasing": "Bổ sung Điều [N]a vào sau Điều [N] như sau",
+    "repeal_phrasing": "Bãi bỏ Điều [N]",
+    "cross_reference_format": "short_title_and_official_number",
+    "cross_reference_example": "Luật Đất đai số 31/2024/QH15",
+    "consolidated_texts": "Ministry of Justice issues văn bản hợp nhất (VBHN) as unofficial consolidations. These are FRBR expressions of the original work, not new works."
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/national-assembly",
+      "showAs": "Quốc hội"
+    },
+    {
+      "eId": "standingCommittee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/standing-committee",
+      "showAs": "Ủy ban Thường vụ Quốc hội"
+    },
+    {
+      "eId": "government",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/government",
+      "showAs": "Chính phủ"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/vn/president",
+      "showAs": "Chủ tịch nước"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vn/prime-minister",
+      "showAs": "Thủ tướng Chính phủ"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vn/minister",
+      "showAs": "Bộ trưởng"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/ministry-of-justice",
+      "showAs": "Bộ Tư pháp"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/supreme-peoples-court",
+      "showAs": "Tòa án nhân dân tối cao"
+    },
+    {
+      "eId": "supremeProcuracy",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/supreme-peoples-procuracy",
+      "showAs": "Viện kiểm sát nhân dân tối cao"
+    },
+    {
+      "eId": "communistParty",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/communist-party",
+      "showAs": "Đảng Cộng sản Việt Nam"
+    },
+    {
+      "eId": "congBao",
+      "class": "TLCObject",
+      "href": "/ontology/obj/vn/cong-bao",
+      "showAs": "Công Báo"
+    },
+    {
+      "eId": "vietnam",
+      "class": "TLCLocation",
+      "href": "/ontology/place/vn",
+      "showAs": "Việt Nam"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword for Điều. The hierarchy is: PART (Phần, optional) > CHAPTER (Chương) > SECTION (Mục, optional) > ARTICLE (Điều) > PARAGRAPH (Khoản) > POINT (Điểm). The letter sequence for POINT labels is a, b, c, d, đ, e, g, h, i, k — note that đ appears between d and e. When outputting eId-relevant labels, romanise đ as 'dd'. Chapter headings are in Vietnamese and should be preserved. Article headings follow the article number on the same or next line.",
+    "eid_special_rules": {
+      "diem_dd": "The Vietnamese letter đ (d-with-stroke) in Điểm labels is transliterated to 'dd' in eId values. điểm đ of khoản 2 Điều 5 → art_5__para_2__point_dd",
+      "inserted_articles": "Inserted articles use lowercase suffix: Điều 5a → art_5a (not art_5A)"
+    }
+  },
+  "supranational_memberships": [
+    {
+      "body": "asean",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ASEAN instruments require domestic transposition. No direct effect."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "WTO agreements transposed into domestic trade, IP, and customs legislation."
+    },
+    {
+      "body": "rcep",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Regional Comprehensive Economic Partnership. In force for Vietnam from January 2022."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "mixed",
+    "heading_note": "Chapter headings appear in ALL CAPS in official gazette printing. Article headings use sentence case or title case.",
+    "script": "latin_extended",
+    "script_note": "Vietnamese Latin alphabet with full diacritic system. Requires Unicode Latin Extended Additional block (U+1E00–U+1EFF) support.",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

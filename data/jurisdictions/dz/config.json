@@ -1,0 +1,561 @@
+{
+  "code": "dz",
+  "name": "Algeria",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "fra"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "note": "Used only in large codes (Code civil, Code pénal). Not present in ordinary laws."
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "note": "Section is a HIGHER division grouping articles — NOT the basic unit. Bluebell keyword DIVISION avoids collision with Anglophone section semantics."
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "First article header: 'Article 1er'; eId: art_1. Continuous numbering throughout entire law regardless of higher divisions."
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit",
+          "note": "Unnumbered paragraph within an article. Arabic: فقرة (fiqra). Cited by count."
+        },
+        {
+          "local_term": "Point numéroté (1, 2… or 1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": []
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Organic laws require mandatory Cour constitutionnelle review before promulgation (Constitution 2020, Art. 134). Same structure as ordinary laws. Subtype: loi-organique in FRBR URI."
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "note": "Used only in ordonnances founding major codes (Code civil, Code pénal, Code de procédure civile)."
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ordonnances are issued by the President of the Republic during parliamentary recess (Constitution 2020, Art. 142) or, historically, during the 1962–1989 single-party era. They have the same structural form as ordinary laws. Two subtypes exist: modern ordonnances (parliamentary recess, post-1989) and historical ordonnances (1962–1989, founding legislation). Both use subtype 'ordonnance' in the FRBR URI."
+    },
+    "decret_presidentiel": {
+      "label": "Décret présidentiel",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential decrees signed by the Président de la République. Enabling clause uses Vu formula citing constitutional basis and parent legislation. Numbered YY-NNN (three-digit sequential). Subtype: decret-presidentiel in FRBR URI."
+    },
+    "decret_executif": {
+      "label": "Décret exécutif",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive decrees signed by the Premier ministre / Chef du gouvernement. Numbered YY-NNN. Subtype: decret-executif in FRBR URI."
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sous-section",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman",
+          "note": "Rare; appears in Code de procédure civile. Arabic: فرع."
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit"
+        },
+        {
+          "local_term": "Point numéroté",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Codes are the primary vehicle for Algerian systematic legislation (Code civil 1975, Code pénal 1966, Code de la famille 1984, Code du travail 1990, etc.). Model the code as the FRBR work of the founding ordonnance or loi; amendments are expressions or modifications of that work. Article numbering is continuous throughout, not prefixed with L./R. as in France."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Current constitution adopted by referendum 1 November 2020 (Loi n° 20-14 du 30 décembre 2020). Prior constitution 1996. Constitutional amendments are modelled as new expressions of the constitution work, not separate works."
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "dz",
+    "uri_patterns": {
+      "loi": "/akn/dz/act/{year}/{number}",
+      "loi_organique": "/akn/dz/act/loi-organique/{year}/{number}",
+      "ordonnance": "/akn/dz/act/ordonnance/{year}/{number}",
+      "decret_presidentiel": "/akn/dz/act/decret-presidentiel/{year}/{number}",
+      "decret_executif": "/akn/dz/act/decret-executif/{year}/{number}",
+      "bill": "/akn/dz/bill/{year}/{number}",
+      "constitution": "/akn/dz/act/constitution/2020/constitution"
+    },
+    "date_calendar": "gregorian",
+    "language_code_authoritative": "ara",
+    "language_code_production": "fra",
+    "note": "Arabic is the constitutionally authoritative language; French is the production language for the Bluebell pipeline. Each law has two FRBR expressions: ara@{date} (authoritative) and fra@{date} (parallel). Hijri dates in citations are stored as FRBRalias, not in the URI."
+  },
+  "numbering": {
+    "loi_citation": "Loi n° {yy}-{number} du {day} {month} {year}",
+    "loi_organique_citation": "Loi organique n° {yy}-{number} du {day} {month} {year}",
+    "ordonnance_citation": "Ordonnance n° {yy}-{number} du {day} {month} {year}",
+    "decret_presidentiel_citation": "Décret présidentiel n° {yy}-{number} du {day} {month} {year}",
+    "decret_executif_citation": "Décret exécutif n° {yy}-{number} du {day} {month} {year}",
+    "article_first": "Article 1er",
+    "article_subsequent": "Art. {number}",
+    "article_first_arabic": "المادة 1",
+    "article_subsequent_arabic": "المادة {number}",
+    "insertion_style": "hyphen_suffix",
+    "insertion_examples": [
+      "Art. 5-1",
+      "Art. 5-2",
+      "Art. 5 bis",
+      "Art. 5 ter"
+    ],
+    "year_prefix_note": "Law numbers use two-digit year prefix (YY-NN for lois; YY-NNN for décrets). FRBR URI year is always the four-digit Gregorian year from the promulgation date, not derived from the two-digit prefix. Years 62–99 = 1962–1999; years 00–onwards = 2000+."
+  },
+  "enacting_formulae": [
+    {
+      "text": "L'Assemblée populaire nationale et le Conseil de la nation ont adopté ;\nLe Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "bicameral",
+      "from": "1997-01-01",
+      "note": "Standard formula for ordinary laws since establishment of the Conseil de la Nation under the 1996 constitution."
+    },
+    {
+      "text": "L'Assemblée populaire nationale a adopté ;\nLe Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "unicameral",
+      "from": "1989-02-23",
+      "to": "1997-01-01",
+      "note": "Formula for laws enacted under the 1989 constitution before the Conseil de la Nation was established."
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution, notamment ses articles {articles} ;\nVu {parent_instruments} ;\nOrdonne :",
+      "position": "preamble",
+      "era": "ordonnance",
+      "note": "Formula for ordonnances (presidential recess decrees and historical 1962–1989 instruments). Vu recitals cite constitutional basis and parent legislation."
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution, notamment ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
+      "position": "preamble",
+      "era": "decret_presidentiel",
+      "note": "Formula for décrets présidentiels. 'Sur rapport du Premier ministre' or 'Sur rapport du ministre' often precedes 'Décrète'."
+    },
+    {
+      "text": "Le Premier ministre,\nVu la Constitution, notamment ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
+      "position": "preamble",
+      "era": "decret_executif",
+      "note": "Formula for décrets exécutifs signed by the Premier ministre."
+    },
+    {
+      "text": "La présente loi sera publiée au Journal officiel de la République algérienne démocratique et populaire.",
+      "position": "conclusions",
+      "era": "entry_into_force",
+      "note": "Standard entry-into-force clause appearing at the end of laws, before the presidential signature block."
+    }
+  ],
+  "amendments": {
+    "style": "textual_french",
+    "phrasing": "est modifié et rédigé comme suit / Il est inséré... un article... ainsi rédigé / est abrogé / les dispositions de l'article... sont remplacées par",
+    "cross_reference_format": "type_number_and_date",
+    "entry_into_force": "La présente loi sera publiée au Journal officiel de la République algérienne démocratique et populaire."
+  },
+  "core_tlcs": [
+    {
+      "eId": "apn",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/assemblee-populaire-nationale",
+      "showAs": "Assemblée Populaire Nationale"
+    },
+    {
+      "eId": "conseilNation",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/conseil-de-la-nation",
+      "showAs": "Conseil de la Nation"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "courConstitutionnelle",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/cour-constitutionnelle",
+      "showAs": "Cour constitutionnelle"
+    },
+    {
+      "eId": "courSupreme",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/cour-supreme",
+      "showAs": "Cour suprême"
+    },
+    {
+      "eId": "conseilEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/conseil-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "presidentApn",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/president-apn",
+      "showAs": "Président de l'Assemblée Populaire Nationale"
+    },
+    {
+      "eId": "presidentConseilNation",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/president-conseil-nation",
+      "showAs": "Président du Conseil de la Nation"
+    },
+    {
+      "eId": "ministreJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/ministre-justice",
+      "showAs": "Ministre de la Justice, Garde des Sceaux"
+    },
+    {
+      "eId": "joradp",
+      "class": "TLCObject",
+      "href": "/ontology/obj/dz/journal-officiel",
+      "showAs": "Journal Officiel de la République Algérienne Démocratique et Populaire"
+    },
+    {
+      "eId": "algerie",
+      "class": "TLCLocation",
+      "href": "/ontology/place/dz",
+      "showAs": "République Algérienne Démocratique et Populaire"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Basic unit is ARTICLE (not SECTION). Arabic text is authoritative; process the French column for Bluebell structuring. Hierarchy above articles: TITLE > CHAPTER > DIVISION (for Section). Use BOOK only for large codes with Livre divisions. Article numbering is continuous throughout the entire document regardless of higher divisions. The first article header is 'Article 1er'; all subsequent articles are 'Art. N'. Subdivisions within articles are alinéas (ALINEA — unnumbered paragraphs), which may contain POINT (numbered items: 1, 2… or 1°, 2°) or INDENT (tiret –) lists. Transitional provisions block uses TRANSITIONAL. French-language processing; bilingual PDF — extract French column only (left column, LTR). Enacting clause appears before Article 1er as part of the preamble. Entry-into-force clause appears after the last article as part of conclusions."
+  },
+  "supranational_memberships": [
+    {
+      "body": "african-union",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "African Union founding member. Banjul Charter on Human and Peoples' Rights applies but requires domestic implementation. No direct-effect supranational legislation."
+    },
+    {
+      "body": "arab-league",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Arab League member. Protocols and conventions require ratification and domestic implementation. No direct-effect supranational legislation framework analogous to OHADA or UEMOA."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "UN Security Council Chapter VII resolutions are binding under international law but require domestic implementation for enforceable effect in Algerian courts. UN instruments use /akn/un/... FRBR URI space per AKN4UN profile."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "locale": "fr-DZ",
+    "note": "French (LTR) is the production display language. Arabic (RTL, script: arabic) is the authoritative parallel; RTL display requires separate rendering pass."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

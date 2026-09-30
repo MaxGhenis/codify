@@ -1,0 +1,425 @@
+{
+  "code": "tt",
+  "name": "Trinidad and Tobago",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-subparagraph",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_parenthesized",
+          "note": "Uppercase letters (A), (B) — observed in Schedule amendments in Finance Act 2019. Uncommon in act bodies."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Division",
+          "name": "division",
+          "level": "higher",
+          "position": "between_part_and_section",
+          "numbering": "arabic",
+          "bluebell_note": "No Bluebell keyword. Requires post-processing to inject hcontainer wrapper. Observed in Companies Act (Chap. 81:01) and Trade Marks Regulations 2020."
+        }
+      ]
+    },
+    "si": {
+      "label": "Subsidiary Legislation (Legal Notice)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Division",
+          "name": "division",
+          "level": "higher",
+          "position": "between_part_and_section",
+          "numbering": "arabic",
+          "bluebell_note": "Observed in Trade Marks Regulations 2020 (PART II contains DIVISION 1 through DIVISION 7). Requires post-processing injection."
+        }
+      ],
+      "note": "SIs (Legal Notices, cited as L.N. NN/YYYY) use 'regulation' as the local basic unit term but map to AKN section. REGULATION is not a valid Bluebell keyword. Divisions within Parts are common in complex SIs."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "note": "Constitution uses Arabic numerals: CHAPTER 1, CHAPTER 2 (not Roman). Numbered 1–9."
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Parts appear inside Chapters. Roman numeral: PART I, PART II."
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution (Chap. 1:01, Act 4 of 1976) uses a three-level hierarchy above section: CHAPTER (Arabic) > PART (Roman within Chapter) > SECTION. A PRELIMINARY section (ss. 1–3) precedes the first Chapter. This three-level nesting is unique to the Constitution — ordinary legislation uses only PART > SECTION."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "tt",
+    "uri_patterns": {
+      "act": "/akn/tt/act/{year}/{number}",
+      "si": "/akn/tt/act/si/{year}/{number}",
+      "bill": "/akn/tt/bill/{year}/{number}",
+      "constitution": "/akn/tt/act/constitution/1976/constitution",
+      "act_consolidated": "/akn/tt/act/chap{chapter}/chap{chapter}"
+    },
+    "date_calendar": "gregorian",
+    "notes": "When only a Chapter number (Chap. NN:NN) is known, use 'chap{NN}-{NN}' as both year and number segments (e.g., Chap. 16:01 → chap16-01). Record Chapter number as FRBRalias. Update URI when original act number and year are recovered from laws.gov.tt amendment history. Act numbers appear on gazette PDF title pages as 'Act No. N of YYYY' and are reliably machine-readable."
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "Chap. {chapter}",
+    "si_citation": "L.N. {number}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_style_verified": true,
+    "insertion_example": "Firearms Amendment Act 2021 inserts sections 6A, 6B, 6C (after s.6) and 9B (after s.9A)"
+  },
+  "enacting_formulae": [
+    {
+      "text": "ENACTED by the Parliament of Trinidad and Tobago as follows:",
+      "position": "preamble",
+      "era": "post-republic",
+      "from": "1976-08-01",
+      "verified": true,
+      "observed_in": [
+        "Act No. 2 of 2000",
+        "Act No. 3 of 2010",
+        "Act No. 23 of 2019",
+        "Act No. 7 of 2021"
+      ],
+      "note": "Gazette renders first word in small-caps. The em-dash variant ('as follows:—') also observed (Act No. 2 of 2000). Both forms are equivalent."
+    },
+    {
+      "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Trinidad and Tobago, and by the authority of the same, as follows:—",
+      "position": "preamble",
+      "era": "independence-pre-republic",
+      "from": "1962-08-31",
+      "to": "1976-08-01",
+      "verified": false,
+      "note": "Standard Commonwealth Independence form assumed."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and substituting... / is amended by inserting after section [N] the following section: / is deleted and the following is substituted:",
+    "cross_reference_format": "short_title_and_chapter_or_act_number",
+    "cross_reference_examples": [
+      "the Prisons Act, Chap. 13:01",
+      "the Firearms Act, Chap. 16:01",
+      "the Finance (No. 2) Act, 2021 (Act No. 16 of 2021)"
+    ]
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/parliament",
+      "showAs": "Parliament of the Republic of Trinidad and Tobago"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/president",
+      "showAs": "President of the Republic of Trinidad and Tobago"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/governor-general",
+      "showAs": "Governor-General"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "chiefParliamentaryCounsel",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/chief-parliamentary-counsel",
+      "showAs": "Chief Parliamentary Counsel"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/speaker",
+      "showAs": "Speaker of the House of Representatives"
+    },
+    {
+      "eId": "clerkOfHouse",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/clerk-of-house",
+      "showAs": "Clerk of the House of Representatives"
+    },
+    {
+      "eId": "presidentOfSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/president-of-senate",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "clerkOfSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/clerk-of-senate",
+      "showAs": "Clerk of the Senate"
+    },
+    {
+      "eId": "leaderOfOpposition",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/leader-of-opposition",
+      "showAs": "Leader of the Opposition"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "commissionerOfPolice",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/commissioner-of-police",
+      "showAs": "Commissioner of Police"
+    },
+    {
+      "eId": "controller",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/controller",
+      "showAs": "Controller"
+    },
+    {
+      "eId": "lawRevisionCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/law-revision-commission",
+      "showAs": "Law Revision Commission"
+    },
+    {
+      "eId": "centralBank",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/central-bank",
+      "showAs": "Central Bank of Trinidad and Tobago"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/supreme-court",
+      "showAs": "Supreme Court of Judicature"
+    },
+    {
+      "eId": "courtOfAppeal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/court-of-appeal",
+      "showAs": "Court of Appeal"
+    },
+    {
+      "eId": "privyCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gb/privy-council",
+      "showAs": "Judicial Committee of the Privy Council"
+    },
+    {
+      "eId": "ccj",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/caribbean/ccj",
+      "showAs": "Caribbean Court of Justice"
+    },
+    {
+      "eId": "governmentPrintery",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/government-printery",
+      "showAs": "Government Printery of the Republic of Trinidad and Tobago"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/tt/official-gazette",
+      "showAs": "Trinidad and Tobago Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Trinidad and Tobago uses PART (Roman) > SECTION (continuous Arabic) as the standard structure for Acts. The Constitution uses CHAPTER (Arabic) > PART (Roman) > SECTION — handle with the constitution document class. Some complex acts and SIs add DIVISION (Arabic) between PART and SECTION — flag division headings for post-processing injection of hcontainer wrappers. Basic unit is always SECTION. Subsection (1), Paragraph (a) in italics, Subparagraph (i). Inserted sections carry alphanumeric suffix: 6A, 6B, 6C. Constitutional special-majority acts begin with WHEREAS recitals before the enacting formula — model each as a recital element. Paragraph labels in amendment acts are italicised: (a), (b), (c)."
+  },
+  "supranational_memberships": [
+    {
+      "body": "caricom",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "notes": "CARICOM law requires domestic transposition (Article 240 Revised Treaty of Chaguaramas 2001). Trinidad and Tobago is a founding CARICOM member (Treaty of Chaguaramas, 1 August 1973). Implements CARICOM obligations via Acts of Parliament (e.g., Caribbean Community Act, Chap. 12:01)."
+    },
+    {
+      "body": "ccj",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "notes": "Trinidad and Tobago has NOT acceded to the CCJ's appellate jurisdiction. The Privy Council (London) remains the final appellate court. The CCJ has only original jurisdiction over CARICOM treaty disputes involving TT. This distinguishes TT from Barbados, which transitioned to the CCJ in 2005."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

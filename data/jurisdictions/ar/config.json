@@ -1,0 +1,327 @@
+{
+  "code": "ar",
+  "name": "Argentina",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley Nacional",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word",
+          "note": "Codes only (Código Civil y Comercial, etc.). Format: LIBRO PRIMERO."
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_ordinal_word",
+          "note": "Present in codes and complex laws. Format: TÍTULO I, TÍTULO PRELIMINAR."
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Most common higher division in ordinary laws. Format: CAPÍTULO I."
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "ordinal_word",
+          "note": "Grouping above artículos in codes only. Always a higher division, never the basic unit. Format: Sección 1ª."
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_degree",
+          "note": "Basic citable unit. Format: Art. 1°.– or Artículo 1°.– Numbered continuously throughout law."
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "note": "First-level subdivision within artículo. Format: a), b), c). Cited as 'inciso a)'."
+        },
+        {
+          "local_term": "Punto / Sub-inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period",
+          "note": "Second-level subdivision within inciso. Format: 1., 2., 3. Used in technical and commercial legislation."
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "tituloPreliminar",
+          "local_term": "Título Preliminar",
+          "note": "Preliminary Title in codes; precedes main Book/Title hierarchy. eId: hcontainer_1."
+        }
+      ]
+    },
+    "dnu": {
+      "label": "Decreto de Necesidad y Urgencia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "DNUs have the force of law but are issued by the Executive under Art. 99(3) CN. Use subtype 'dnu' in FRBR URI."
+    },
+    "decreto": {
+      "label": "Decreto Reglamentario",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Regulatory decrees implementing laws. Numbered annually: Decreto N° 984/2024."
+    },
+    "constitucion": {
+      "label": "Constitución de la Nación Argentina",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word",
+          "note": "Primera Parte, Segunda Parte."
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word",
+          "note": "The Constitution uses 'Sección' where other laws use 'Capítulo'. Maps to chapter for AKN purposes."
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "ordinal_word",
+          "note": "Within a constitutional Sección, Capítulos group articles."
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1853 Constitution reinstated 1983, amended 1994. Work URI uses 1853 date. Articles numbered continuously 1–129."
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "ar",
+    "uri_patterns": {
+      "ley": "/akn/ar/act/{year}/{number}",
+      "dnu": "/akn/ar/act/dnu/{year}/{number}",
+      "decreto": "/akn/ar/act/decreto/{year}/{number}",
+      "bill": "/akn/ar/bill/{year}/{slugified-title}",
+      "constitucion": "/akn/ar/act/constitucion/1853/constitucion"
+    },
+    "number_format": "bare_integer",
+    "number_note": "Strip thousands-separator periods from Argentine citation format (Ley 26.994 → 26994 in URI). Display layer re-adds separator.",
+    "date_calendar": "gregorian",
+    "locality_prefix": "ar-",
+    "locality_iso_suffix": "iso3166-2",
+    "locality_note": "Provinces use ISO 3166-2:AR codes lowercase: ar-b (Buenos Aires), ar-c (CABA), ar-x (Córdoba), ar-s (Santa Fe), ar-t (Tucumán), ar-e (Entre Ríos), ar-k (Catamarca), ar-h (Chaco), ar-u (Chubut), ar-w (Corrientes), ar-g (Santiago del Estero), ar-j (San Juan), ar-d (San Luis), ar-p (Formosa), ar-y (Jujuy), ar-l (La Pampa), ar-f (La Rioja), ar-m (Mendoza), ar-n (Misiones), ar-q (Neuquén), ar-r (Río Negro), ar-a (Salta), ar-z (Santa Cruz), ar-v (Tierra del Fuego)."
+  },
+  "numbering": {
+    "law_citation": "Ley N° {number_with_separator}",
+    "law_citation_example": "Ley N° 27.742",
+    "decree_citation": "Decreto N° {number}/{year}",
+    "dnu_citation": "DNU N° {number}/{year}",
+    "insertion_style": "bis_ter_quater",
+    "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter, Artículo 8 quater."
+  },
+  "enacting_formulae": [
+    {
+      "text": "El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc., sancionan con fuerza de Ley:",
+      "position": "preamble",
+      "document_class": "ley",
+      "note": "Standard abbreviated form per Art. 84 CN. Full constitutional formula: 'decretan o sancionan con fuerza de ley'. Both variants observed."
+    },
+    {
+      "text": "VISTO [...] El PRESIDENTE DE LA NACIÓN ARGENTINA DECRETA:",
+      "position": "preamble",
+      "document_class": "dnu",
+      "note": "DNU formula. VISTO block cites Art. 99(3) CN and Cabinet agreement. Full formula varies per decree."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "Sustitúyese el artículo [N] de la Ley N° [X], por el siguiente:",
+    "phrasing_insertion": "Incorpórase como artículo [N bis] de la Ley N° [X], el siguiente:",
+    "phrasing_repeal": "Deróganse los artículos [N] y [M] de la Ley N° [X].",
+    "phrasing_inciso_substitution": "Sustitúyese el inciso [a)] del artículo [N] de la Ley N° [X] por el siguiente:",
+    "cross_reference_format": "Ley N° [number_with_separator], artículo [N°]"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ar/congreso",
+      "showAs": "Congreso de la Nación Argentina"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ar/senado",
+      "showAs": "Senado de la Nación"
+    },
+    {
+      "eId": "camaraDeputados",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ar/camara-diputados",
+      "showAs": "Cámara de Diputados de la Nación"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/ar/presidente",
+      "showAs": "Presidente de la Nación"
+    },
+    {
+      "eId": "jefeGabinete",
+      "class": "TLCRole",
+      "href": "/ontology/role/ar/jefe-gabinete",
+      "showAs": "Jefe de Gabinete de Ministros"
+    },
+    {
+      "eId": "ministro",
+      "class": "TLCRole",
+      "href": "/ontology/role/ar/ministro",
+      "showAs": "Ministro"
+    },
+    {
+      "eId": "boletinOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ar/boletin-oficial",
+      "showAs": "Boletín Oficial de la República Argentina"
+    },
+    {
+      "eId": "argentina",
+      "class": "TLCLocation",
+      "href": "/ontology/place/ar",
+      "showAs": "República Argentina"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Argentina uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions: BOOK (libro, codes only), TITLE (título), CHAPTER (capítulo), SUBDIVISION (sección as grouping in codes). First-level subdivisions within articles are PARAGRAPH for incisos (a), b), c)). Second-level subdivisions are POINT for sub-incisos. No marginal notes — article headings are inline after the article number and dash. Insertion numbering uses bis/ter/quater (Artículo 5° bis). Law numbers are continuous integers without year component (Ley 27742). Strip degree symbols from article numbers in eIds (Artículo 1° → art_1)."
+  },
+  "supranational_memberships": [
+    {
+      "body": "mercosur",
+      "direct_effect": "none",
+      "note": "MERCOSUR is explicitly non-supranational. All instruments require domestic incorporation. Incorporated instruments are modelled as ordinary leyes.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "note": "UN SC Chapter VII resolutions are binding obligations but require domestic implementation. Human rights treaties listed in Art. 75(22) CN have constitutional rank above ordinary laws.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_note": "Article headings appear inline after the article number and dash: 'Artículo 1°.– Objeto.' Not marginal notes.",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "number_display": "degree_symbol",
+    "number_display_note": "Display article numbers with degree symbol: Artículo 1°. Strip for eId generation."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

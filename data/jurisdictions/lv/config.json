@@ -1,0 +1,384 @@
+{
+  "code": "lv",
+  "name": "Latvia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "lav"
+  ],
+  "authoritative_language": "lav",
+  "document_classes": {
+    "act": {
+      "label": "Likums (Act of the Saeima)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Daļa (top-level)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_latvian",
+          "note": "Top-level Part in large codes (Civillikums, Komerclikums): 'Pirmā daļa', 'Otrā daļa'. Absent in ordinary acts. Not to be confused with pants-level daļa (paragraph)."
+        },
+        {
+          "local_term": "Nodaļa",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic_period",
+          "note": "Primary grouping in most acts. Roman (I, II) in older acts, Arabic (1., 2.) in newer. Normalise to Arabic for eId: chap_1, chap_2. Always titled."
+        },
+        {
+          "local_term": "Iedaļa",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_period",
+          "note": "Sub-chapter grouping within nodaļa in large codes only. '1. iedaļa'. Maps to AKN section-as-higher-div, not basic unit."
+        },
+        {
+          "local_term": "Pants",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "The fundamental citable unit. Continuous Arabic throughout act, no restart per nodaļa. Cited '5. pants'. Maps to AKN article (Germanic tradition, same as Estonian paragrahv). Insertion: 5¹ → art_51, 5² → art_52."
+        },
+        {
+          "local_term": "Daļa (of pants)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "Subdivisions of pants. Numbered (1), (2). Cited formally 'pirmā daļa' (ordinal). CRITICAL: same word as top-level Part — distinguish by nesting depth and presence of titled heading."
+        },
+        {
+          "local_term": "Punkts",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_closing_paren",
+          "note": "Items within daļa. Numbered 1), 2), 3) (Arabic with closing paren). Cited '1. punkts'."
+        },
+        {
+          "local_term": "Apakšpunkts",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_closing_paren",
+          "note": "Sub-items within punkts. Lettered a), b), c)."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Pārejas noteikumi",
+          "name": "parejasNoteikumi",
+          "position": "terminal_body",
+          "contains": "article",
+          "note": "Transitional Provisions — always present, always at end of body before attachments. Contains numbered pants (continuing main body sequence). Detect by heading string 'Pārejas noteikumi'."
+        },
+        {
+          "local_term": "Informatīvā atsauce",
+          "name": "informativaAtsauce",
+          "position": "terminal_body",
+          "contains": "refs",
+          "note": "Informational Reference to EU Directives — mandatory in EU transposing acts, appears after Pārejas noteikumi. Contains list of Directives being transposed. Post-2004 only."
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Satversme (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Nodaļa",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Constitution uses Roman-numbered nodaļas (I–VIII). Map to chapter. chap_1 through chap_8."
+        },
+        {
+          "local_term": "Pants",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "§ 1 through § 116, continuous across chapters. The preamble (Preambula) precedes Chapter I and maps to <preamble>."
+        },
+        {
+          "local_term": "Daļa (of pants)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The Satversme (1922) has a preamble recognised as constitutionally binding by the Satversmes tiesa judgment of 2007. Model as <preamble>. No top-level daļa divisions — chapters go directly to pants."
+    },
+    "noteikumi": {
+      "label": "Ministru kabineta noteikumi (Cabinet Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Nodaļa",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic_period"
+        },
+        {
+          "local_term": "Pants",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daļa (of pants)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Punkts",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_closing_paren"
+        },
+        {
+          "local_term": "Apakšpunkts",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Pārejas noteikumi",
+          "name": "parejasNoteikumi",
+          "position": "terminal_body",
+          "contains": "article"
+        },
+        {
+          "local_term": "Informatīvā atsauce",
+          "name": "informativaAtsauce",
+          "position": "terminal_body",
+          "contains": "refs"
+        }
+      ],
+      "note": "Cabinet Regulations follow the same pants/daļa/punkts pattern as acts. Issued under enabling powers of parent act. Cited by sequential MK number per year: 'Ministru kabineta noteikumi Nr. {N}'."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "lv",
+    "uri_patterns": {
+      "act": "/akn/lv/act/{year}/{slug}",
+      "noteikumi": "/akn/lv/act/mk/{year}/{number}",
+      "bill": "/akn/lv/bill/{year}/{slug}",
+      "constitution": "/akn/lv/act/1922/satversme",
+      "civillikums": "/akn/lv/act/1937/civillikums",
+      "kriminallikums": "/akn/lv/act/1998/kriminallikums"
+    },
+    "slug_convention": "latvian_short_title_diacritics_stripped",
+    "romanisation": {
+      "ā": "a",
+      "č": "c",
+      "ē": "e",
+      "ģ": "g",
+      "ī": "i",
+      "ķ": "k",
+      "ļ": "l",
+      "ņ": "n",
+      "š": "s",
+      "ū": "u",
+      "ž": "z"
+    },
+    "date_calendar": "gregorian",
+    "gazette_citation_format": "LV, {year}, Nr. {number}",
+    "lv_citation_format": "Latvijas Vēstnesis, {Nr.}, {DD.MM.YYYY}"
+  },
+  "numbering": {
+    "act_citation": "LV, {year}, Nr. {number}",
+    "act_citation_alt": "{short_title}",
+    "insertion_style": "superscript_numeric",
+    "insertion_eid_style": "suffix_numeric",
+    "note": "No sequential act numbers — gazette reference is the formal identifier. Pants insertion uses superscript: 5¹ → art_51, 5² → art_52. Cabinet regulations are numbered sequentially per year: MK noteikumi Nr. {N}."
+  },
+  "enacting_formulae": [
+    {
+      "text": null,
+      "position": "none",
+      "era": "current",
+      "from": "1991-08-21",
+      "note": "Latvian acts have no body-text enacting formula. Adoption/promulgation metadata appears in the document header on Latvijas Vēstnesis / likumi.lv. The body begins directly with the first nodaļa or pants. Do not invent an enacting formula."
+    },
+    {
+      "text": "Izdoti saskaņā ar {enabling_act_reference}",
+      "position": "preamble",
+      "era": "current",
+      "from": "1991-08-21",
+      "document_class": "noteikumi",
+      "note": "Cabinet Regulations have an enabling authority formula citing the parent act and specific pants/daļa/punkts. Maps to <preamble><formula name='enablingAuthority'>."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "papildināt... izteikt... šādā redakcijā... izslēgt...",
+    "typical_phrases": [
+      "Papildināt {pants} ar {daļu/punktu}",
+      "Izteikt {pants} šādā redakcijā:",
+      "Izslēgt {pants}",
+      "{pants} {daļā} vārdus '...' aizstāt ar vārdiem '...'"
+    ],
+    "cross_reference_format": "short_title_and_pants",
+    "consolidation": "likumi_lv_realtime",
+    "consolidation_url": "https://likumi.lv/ta/id/{id}",
+    "note": "Likumi.lv provides continuously consolidated versions with amendment history. Each consolidation version maps to a FRBR Expression. Amendment phrasing follows Germanic model: precise textual substitution with full replacement text quoted."
+  },
+  "core_tlcs": [
+    {
+      "eId": "saeima",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/saeima",
+      "showAs": "Saeima"
+    },
+    {
+      "eId": "ministrkabinets",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/ministru-kabinets",
+      "showAs": "Ministru kabinets"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/lv/valsts-prezidents",
+      "showAs": "Valsts prezidents"
+    },
+    {
+      "eId": "ministruprezidents",
+      "class": "TLCRole",
+      "href": "/ontology/role/lv/ministru-prezidents",
+      "showAs": "Ministru prezidents"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/lv/minister",
+      "showAs": "Ministers"
+    },
+    {
+      "eId": "satversmesTiesa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/satversmes-tiesa",
+      "showAs": "Satversmes tiesa"
+    },
+    {
+      "eId": "augstakaTiesa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/augstaka-tiesa",
+      "showAs": "Augstākā tiesa"
+    },
+    {
+      "eId": "latvijasVestnesis",
+      "class": "TLCObject",
+      "href": "/ontology/obj/lv/latvijas-vestnesis",
+      "showAs": "Latvijas Vēstnesis"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Latvian 'pants' maps to AKN article (Germanic tradition, same as German § and Estonian paragrahv). 'Daļa' (of a pants) maps to AKN paragraph — numbered (1), (2). 'Punkts' maps to AKN point — numbered 1), 2). 'Apakšpunkts' maps to AKN indent — lettered a), b). 'Nodaļa' maps to AKN chapter. 'Iedaļa' maps to AKN section (as higher division). Top-level 'Daļa' (Part) in large codes maps to AKN part. CRITICAL: Latvian acts have NO body-text enacting formula — do not invent one. Begin BODY with first CHAPTER or ARTICLE. Terminal block 'Pārejas noteikumi' (Transitional Provisions) must be detected by heading string and wrapped in hcontainer, not treated as a nodaļa. Terminal block 'Informatīvā atsauce' similarly. Pants numbering is continuous throughout and does NOT restart per nodaļa. Insertion numbering: 5¹ → art_51, 5² → art_52."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "2004-05-01",
+      "direct_effect": "direct",
+      "superseded_subjects": [],
+      "note": "EU member since 1 May 2004. Regulations directly effective. Directives require Latvian transposing legislation. Transposing acts include mandatory 'Informatīvā atsauce uz Eiropas Savienības direktīvām' block. Use eu/ profile for EU instruments; link transposing lv/ acts to their Directive via <references>."
+    },
+    {
+      "body": "council-of-europe",
+      "member_since": "1995-02-10",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Council of Europe member since 10 February 1995. ECHR ratified 1997-06-27. ECtHR judgments binding. No direct AKN scope impact on domestic legislation."
+    },
+    {
+      "body": "nato",
+      "member_since": "2004-03-29",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "NATO member since 29 March 2004. No direct AKN scope impact."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "note": "Latvian headings use sentence case. Likumi.lv renders nodaļa headings in bold above the pants group. Pants number rendered as Arabic ordinal with period: '5. pants'. § symbol is informal; use 'pants' in all display."
+  },
+  "classification_rules": {
+    "dala_disambiguation": {
+      "description": "The word 'daļa' appears at two structural levels. Rule-based disambiguation:",
+      "rules": [
+        {
+          "condition": "Element has a titled heading (e.g., 'Pirmā daļa — Ģimenes tiesības') and contains nodaļa children",
+          "classification": "part",
+          "akn_element": "part",
+          "bluebell_keyword": "PART",
+          "note": "Top-level Part in large codes (Civillikums, Komerclikums). Ordinal Latvian label: 'Pirmā daļa', 'Otrā daļa'. Only present in codes with 200+ pants."
+        },
+        {
+          "condition": "Element is a numbered inline subdivision of a pants — preceded by '(1)', '(2)' pattern and contains prose text, not titled heading",
+          "classification": "paragraph",
+          "akn_element": "paragraph",
+          "bluebell_keyword": "PARAGRAPH",
+          "note": "Paragraph subdivision of pants. Numbered (1), (2). No heading. Most common usage — occurs in virtually every Latvian act."
+        }
+      ],
+      "fallback": "If ambiguous, inspect parent element: if parent is 'likums' body root, classify as part; if parent is 'pants', classify as paragraph."
+    }
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

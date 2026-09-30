@@ -1,0 +1,308 @@
+{
+  "code": "in",
+  "name": "India",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "hindu"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "hin"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso",
+          "name": "proviso",
+          "description": "Begins with 'Provided that'. Creates exceptions/qualifications with full legal force.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        },
+        {
+          "local_term": "Explanation",
+          "name": "explanation",
+          "description": "Begins with 'Explanation.--'. Clarificatory, does not create new rights or obligations.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        },
+        {
+          "local_term": "Illustration",
+          "name": "illustration",
+          "description": "Begins with 'Illustration'. Worked examples to aid interpretation. Not operative text.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ]
+    },
+    "si": {
+      "label": "Subordinate Legislation (Rules/Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso",
+          "name": "proviso",
+          "description": "Begins with 'Provided that'.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        },
+        {
+          "local_term": "Explanation",
+          "name": "explanation",
+          "description": "Begins with 'Explanation.--'.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Subordinate legislation uses the same structure as Acts"
+    },
+    "constitution": {
+      "label": "Constitution of India",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses article-based hierarchy, not section-based"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "in",
+    "uri_patterns": {
+      "act": "/akn/in/act/{year}/{number}",
+      "si": "/akn/in/act/si/{year}/{number}",
+      "ordinance": "/akn/in/act/ordinance/{year}/{number}",
+      "bill": "/akn/in/bill/{year}/{number}",
+      "constitution": "/akn/in/act/constitution/1950/constitution",
+      "state_act": "/akn/in-{state}/act/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE it enacted by Parliament in the [Ordinal] Year of the Republic of India as follows:--",
+      "position": "preamble",
+      "era": "post-republic",
+      "from": "1950-01-26"
+    },
+    {
+      "text": "BE it enacted by the Legislature of the State of [State Name] in the [Ordinal] Year of the Republic of India as follows:--",
+      "position": "preamble",
+      "era": "state_act",
+      "from": "1950-01-26"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "for the words '...' the word(s) '...' shall be substituted / after section [N] the following section shall be inserted",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/in/parliament",
+      "showAs": "Parliament of India"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/in/president",
+      "showAs": "President of India"
+    },
+    {
+      "eId": "lokSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/in/lok-sabha",
+      "showAs": "Lok Sabha"
+    },
+    {
+      "eId": "rajyaSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/in/rajya-sabha",
+      "showAs": "Rajya Sabha"
+    },
+    {
+      "eId": "gazetteOfIndia",
+      "class": "TLCObject",
+      "href": "/ontology/obj/in/gazette-of-india",
+      "showAs": "The Gazette of India"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Indian legislation uses Proviso ('Provided that'), Explanation ('Explanation.--'), and Illustration as hcontainers within sections. These have full legal force and must be preserved. Output as SUBSECTION for Bluebell; post-processing renames to hcontainer. Clause uses (a), (b), (c) not (1), (2), (3). Constitution uses Article as basic unit, not Section."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    },
+    {
+      "body": "saarc",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

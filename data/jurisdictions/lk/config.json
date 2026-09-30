@@ -1,0 +1,404 @@
+{
+  "code": "lk",
+  "name": "Sri Lanka",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "sui_generis",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "sin",
+    "tam",
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-paragraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso",
+          "name": "proviso",
+          "description": "Begins with 'Provided that'. Creates exceptions or qualifications to the preceding provision. Inherited from British drafting practice; extremely common in Sri Lankan statutes.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        },
+        {
+          "local_term": "Explanation",
+          "name": "explanation",
+          "description": "Begins with 'Explanation'. Clarificatory annotation on the preceding sub-section or paragraph. Appears frequently in colonial-era codes (Penal Code, Civil Procedure Code) inherited from British India.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Section numbering is typically continuous throughout the Act. In some modern Acts (post-2000) sections restart per Chapter — LLM must detect both patterns and flag uncertainty. Marginal notes (shoulder notes) appear in colonial-era acts; post-independence acts use centred section headings."
+    },
+    "bill": {
+      "label": "Bill",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso",
+          "name": "proviso",
+          "description": "Begins with 'Provided that'. Same convention as in enacted Acts.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        }
+      ],
+      "note": "Bills use 'clause' as the basic unit term; maps to AKN section. On enactment, clauses become sections."
+    },
+    "regulation": {
+      "label": "Regulations (Statutory Instrument)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-regulation",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso",
+          "name": "proviso",
+          "description": "Begins with 'Provided that'.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        }
+      ],
+      "note": "Made under enabling Acts; published in the Gazette. 'Regulation' as basic unit maps to AKN section. Extraordinary Gazette publications common for urgent SIs."
+    },
+    "order": {
+      "label": "Order (Gazette Notification)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential Orders and Ministerial Orders made under constitutional or statutory authority. Short documents; sometimes use numbered paragraphs rather than labelled sections."
+    },
+    "constitution": {
+      "label": "Constitution of Sri Lanka",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Proviso",
+          "name": "proviso",
+          "description": "Begins with 'Provided that'. Appears in some articles of the 1978 Constitution.",
+          "bluebell_proxy": "PROVISO",
+          "requires_postprocessing": false
+        }
+      ],
+      "note": "1978 Constitution (7th Republican Constitution), as amended (21st Amendment 2022 most recent significant). 22 chapters, articles numbered continuously 1-172+. Uses Article/Clause not Section/Sub-section."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "lk",
+    "uri_patterns": {
+      "act": "/akn/lk/act/{year}/{number}",
+      "bill": "/akn/lk/bill/{year}/{number}",
+      "regulation": "/akn/lk/act/regulation/{year}/{number}",
+      "order": "/akn/lk/act/order/{year}/{number}",
+      "proclamation": "/akn/lk/act/proclamation/{year}/{number}",
+      "constitution": "/akn/lk/act/constitution/1978/constitution",
+      "gazette": "/akn/lk/officialGazette/government-gazette/{date}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE it enacted by the Parliament of the Democratic Socialist Republic of Sri Lanka as follows:-",
+      "position": "preamble",
+      "era": "post-1978-constitution",
+      "from": "1978-09-07"
+    },
+    {
+      "text": "BE it enacted by the National State Assembly of Sri Lanka as follows:-",
+      "position": "preamble",
+      "era": "first-republic",
+      "from": "1972-05-22",
+      "to": "1978-09-06"
+    },
+    {
+      "text": "BE it enacted by the Senate and House of Representatives of Ceylon in Parliament assembled, as follows:-",
+      "position": "preamble",
+      "era": "dominion-ceylon",
+      "from": "1948-02-04",
+      "to": "1972-05-21"
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is hereby amended by the substitution for the words '...' of the words '...' / by the insertion immediately after section [N] of the following new section",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lk/parliament",
+      "showAs": "Parliament of Sri Lanka"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/lk/speaker",
+      "showAs": "Speaker of Parliament"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/lk/president",
+      "showAs": "President of Sri Lanka"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/lk/prime-minister",
+      "showAs": "Prime Minister of Sri Lanka"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lk/supreme-court",
+      "showAs": "Supreme Court of Sri Lanka"
+    },
+    {
+      "eId": "courtOfAppeal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lk/court-of-appeal",
+      "showAs": "Court of Appeal of Sri Lanka"
+    },
+    {
+      "eId": "lawNet",
+      "class": "TLCObject",
+      "href": "/ontology/obj/lk/lawnet",
+      "showAs": "LawNet"
+    },
+    {
+      "eId": "governmentGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/lk/government-gazette",
+      "showAs": "Government Gazette of Sri Lanka"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lk/ministry-of-justice",
+      "showAs": "Ministry of Justice"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Sri Lankan legislation is drafted in English (authoritative), with Sinhala and Tamil translations having equal constitutional status under the 13th Amendment (1987). The legal tradition is a complex mixture: Roman-Dutch law governs general private law (property, delict, unjust enrichment) inherited from Dutch colonial period (1658–1796); common law governs public and commercial law from British colonial period (1815–1948); Kandyan customary law applies to Sinhalese Kandyans in personal matters (marriage, inheritance); Thesawalamai applies to Tamils of the Northern Province; Muslim personal law applies to Muslims (governed by the Muslim Marriage and Divorce Act). When structuring legislation, be alert to which tradition it draws from — colonial-era codes (Penal Code, Civil Procedure Code, Evidence Ordinance) use British-India drafting conventions very similar to Indian statutes. Proviso ('Provided that') and Explanation are the standard hcontainers — treat identically to India. Section numbering is usually continuous throughout the Act; however, some modern Acts (post-2000) restart section numbering per chapter — detect and flag this pattern. Bills use 'clause' as the basic unit; these become 'sections' on enactment. The Constitution (1978, as amended) uses 'Article' and 'Clause' not 'Section' and 'Sub-section'. For AKN expressions: English is expression lang 'eng'; Sinhala is 'sin' (Sinhala script); Tamil is 'tam' (Tamil script). Each language version is a separate FRBR expression of the same work."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "saarc",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

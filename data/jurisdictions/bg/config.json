@@ -1,0 +1,468 @@
+{
+  "code": "bg",
+  "name": "Bulgaria",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "bul"
+  ],
+  "authoritative_language": "bul",
+  "document_classes": {
+    "act": {
+      "label": "Act of the National Assembly",
+      "local_label": "Закон",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Дял",
+          "romanisation": "Dyal",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Книга",
+          "romanisation": "Kniga",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Глава",
+          "romanisation": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Раздел",
+          "romanisation": "Razdel",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_restarting_per_chapter"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "romanisation": "Chlen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "romanisation": "Alinea",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "romanisation": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        },
+        {
+          "local_term": "Буква (б.)",
+          "romanisation": "Bukva",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "cyrillic_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "additionalProvisions",
+          "local_term": "Допълнителни разпоредби",
+          "romanisation": "Dopalnitelni razporedbi",
+          "note": "Additional Provisions block. Contains § items (mapped to section internally). Mandatory structural block per Decree 883."
+        },
+        {
+          "name": "transitionalProvisions",
+          "local_term": "Преходни и заключителни разпоредби",
+          "romanisation": "Prekhodni i zaklyuchitelni razporedbi",
+          "note": "Transitional and Final Provisions block. Contains § items (mapped to section internally). Mandatory structural block per Decree 883."
+        }
+      ],
+      "note": "Higher divisions (Дял, Книга, Глава, Раздел) are optional — simple short acts consist of articles only. All acts must include Transitional and Final Provisions block."
+    },
+    "code": {
+      "label": "Code",
+      "local_label": "Кодекс",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Дял",
+          "romanisation": "Dyal",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Книга",
+          "romanisation": "Kniga",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Глава",
+          "romanisation": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Раздел",
+          "romanisation": "Razdel",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_restarting_per_chapter"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "romanisation": "Chlen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "romanisation": "Alinea",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "romanisation": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        },
+        {
+          "local_term": "Буква (б.)",
+          "romanisation": "Bukva",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "cyrillic_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "additionalProvisions",
+          "local_term": "Допълнителни разпоредби",
+          "romanisation": "Dopalnitelni razporedbi",
+          "note": "Additional Provisions block with § items."
+        },
+        {
+          "name": "transitionalProvisions",
+          "local_term": "Преходни и заключителни разпоредби",
+          "romanisation": "Prekhodni i zaklyuchitelni razporedbi",
+          "note": "Transitional and Final Provisions block with § items."
+        }
+      ],
+      "note": "Codes have the same legal force as acts. Major codes: Criminal Code (1968), Code of Civil Procedure (2007), Criminal Procedure Code (2005), Commercial Act (1991). Use descriptive subtype slug in FRBR URI."
+    },
+    "si": {
+      "label": "Council of Ministers Decree / Ministerial Regulation",
+      "local_label": "Постановление / Наредба / Правилник",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Глава",
+          "romanisation": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Раздел",
+          "romanisation": "Razdel",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_restarting_per_chapter"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "romanisation": "Chlen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "romanisation": "Alinea",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "romanisation": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        },
+        {
+          "local_term": "Буква (б.)",
+          "romanisation": "Bukva",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "cyrillic_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subsidiary legislation enacted by the Council of Ministers (Постановления) or individual ministries (Наредби, Правилници). Same article-based structure as primary legislation."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "local_label": "Конституция",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Глава",
+          "romanisation": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "romanisation": "Chlen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "romanisation": "Alinea",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "romanisation": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1991 Constitution uses Глави (chapters) as the only higher division above articles. Nine chapters total. Articles numbered continuously 1–169."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "bg",
+    "uri_patterns": {
+      "act": "/akn/bg/act/{year}/{sg-issue-number}",
+      "code": "/akn/bg/act/{code-slug}/{year}/{sg-issue-number}",
+      "si": "/akn/bg/act/si/{year}/{decree-number}",
+      "regulation": "/akn/bg/act/regulation/{year}/{sg-issue-number}",
+      "bill": "/akn/bg/bill/{year}/{slug}",
+      "constitution": "/akn/bg/act/constitution/1991/constitution"
+    },
+    "number_source": "sg_issue_number",
+    "number_source_note": "Bulgaria has no sequential act numbering. The State Gazette (SG) issue number at first promulgation is the canonical identifier. For major codes, a descriptive slug is used as subtype.",
+    "date_calendar": "gregorian",
+    "sample_uris": [
+      {
+        "document": "Constitution of the Republic of Bulgaria",
+        "uri": "/akn/bg/act/constitution/1991/constitution"
+      },
+      {
+        "document": "Civil Registration Act (SG No. 67/1999)",
+        "uri": "/akn/bg/act/1999/67"
+      },
+      {
+        "document": "Bulgarian Citizenship Act (SG No. 136/1998)",
+        "uri": "/akn/bg/act/1998/136"
+      },
+      {
+        "document": "Criminal Code (SG No. 26/1968)",
+        "uri": "/akn/bg/act/penal-code/1968/26"
+      },
+      {
+        "document": "Criminal Procedure Code (SG No. 86/2005)",
+        "uri": "/akn/bg/act/criminal-procedure-code/2005/86"
+      },
+      {
+        "document": "Code of Civil Procedure (SG No. 59/2007)",
+        "uri": "/akn/bg/act/civil-procedure-code/2007/59"
+      },
+      {
+        "document": "Judiciary System Act (SG No. 64/2007)",
+        "uri": "/akn/bg/act/judiciary-system/2007/64"
+      }
+    ]
+  },
+  "numbering": {
+    "act_citation": "Promulgated SG No. {issue}/{year}",
+    "act_citation_bg": "Обн. ДВ бр. {брой}/{дата}",
+    "article_prefix": "Чл.",
+    "article_prefix_romanised": "Chl.",
+    "chapter_numbering": "ordinal_word_cyrillic",
+    "chapter_numbering_note": "Chapters are numbered with ordinal words in Cyrillic: първа (first), втора (second), трета (third). Pipeline must convert to Arabic for eIds.",
+    "alinea_citation": "ал. {number}",
+    "point_citation": "т. {number}",
+    "letter_citation": "б. {letter}",
+    "insertion_style": "alphanumeric_cyrillic",
+    "insertion_note": "Inserted articles receive a Cyrillic letter suffix: Чл. 5а, Чл. 5б. Maps to art_5a, art_5b in eIds."
+  },
+  "enacting_formulae": [
+    {
+      "text": "На основание чл. 98, т. 4 от Конституцията на Република България УКАЗВАМ: Да се обнародва в «Държавен вестник» Законът за...",
+      "translation": "On the basis of Art. 98, para. 4 of the Constitution of the Republic of Bulgaria I DECREE: To be promulgated in the State Gazette the Act on...",
+      "position": "presidential_decree",
+      "note": "This is the President's promulgation decree, published as a preamble to the act text in the State Gazette. It is not part of the substantive act text. Model as publication metadata, not as preamble formula."
+    }
+  ],
+  "amendments": {
+    "style": "textual_continental",
+    "phrasing_bg": "В [закон, SG citation] се правят следните изменения и допълнения:",
+    "phrasing_en": "In [act, SG citation], the following amendments and supplements are made:",
+    "article_amendment_phrasing": "В чл. {N}, ал. {M} думите '...' се заменят с '...'.",
+    "types": [
+      "изменение (amendment)",
+      "допълнение (supplement/addition)"
+    ],
+    "cross_reference_format": "short_title_and_sg_citation",
+    "cross_reference_example": "Законът за гражданската регистрация (обн. ДВ, бр. 67/1999)"
+  },
+  "core_tlcs": [
+    {
+      "eId": "narodno-sabranie",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bg/narodno-sabranie",
+      "showAs": "National Assembly of the Republic of Bulgaria"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/bg/president",
+      "showAs": "President of the Republic of Bulgaria"
+    },
+    {
+      "eId": "council-of-ministers",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bg/council-of-ministers",
+      "showAs": "Council of Ministers of the Republic of Bulgaria"
+    },
+    {
+      "eId": "darzhaven-vestnik",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bg/darzhaven-vestnik",
+      "showAs": "Държавен вестник (State Gazette)"
+    },
+    {
+      "eId": "constitutional-court",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bg/constitutional-court",
+      "showAs": "Constitutional Court of the Republic of Bulgaria"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "2007-01-01",
+      "direct_effect": "direct",
+      "direct_effect_note": "EU Regulations apply directly and override conflicting Bulgarian domestic law. EU Directives require transposition by the National Assembly.",
+      "superseded_subjects": [
+        "customs",
+        "competition",
+        "state_aid",
+        "financial_services",
+        "product_safety",
+        "data_protection",
+        "intellectual_property"
+      ]
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "direct_effect_note": "ECHR judgments are binding on Bulgaria. Convention requires domestic incorporation. Bulgaria has been a CoE member since 1992.",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_note": "Bulgarian acts display article numbers as 'Чл. N.' with a heading on the same or following line. No marginal note tradition.",
+    "heading_case": "sentence_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "article_prefix_display": "Чл.",
+    "chapter_prefix_display": "Глава"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

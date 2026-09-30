@@ -1,0 +1,349 @@
+{
+  "code": "tl",
+  "name": "Timor-Leste",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "por",
+    "tet"
+  ],
+  "authoritative_language": "por",
+  "document_classes": {
+    "act": {
+      "label": "Lei (Parliamentary Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titulo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seccao",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sub-Seccao",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Numero (n.o)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Alinea",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-alinea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT"
+        }
+      ],
+      "hcontainers": []
+    },
+    "decreto_lei": {
+      "label": "Decreto-Lei (Government Decree-Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titulo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seccao",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sub-Seccao",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Numero (n.o)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Alinea",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-alinea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government-originated legislation with same hierarchy as Lei"
+    },
+    "untaet_reg": {
+      "label": "UNTAET Regulation (historical, 1999-2002)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_decimal"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION"
+        }
+      ],
+      "hcontainers": [],
+      "note": "English-language, UN-style Section-based structure. Frozen historical corpus."
+    },
+    "constitution": {
+      "label": "Constitution of Timor-Leste",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titulo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seccao",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "170 articles in 7 Parts"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "tl",
+    "uri_patterns": {
+      "act": "/akn/tl/act/{year}/{number}",
+      "decreto_lei": "/akn/tl/act/decreto-lei/{year}/{number}",
+      "untaet_reg": "/akn/tl/act/untaet-reg/{year}/{number}",
+      "constitution": "/akn/tl/act/constitution/2002/constitution",
+      "bill": "/akn/tl/bill/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lei n.o {number}/{year}",
+    "insertion_style": "hyphenated_alpha"
+  },
+  "enacting_formulae": [
+    {
+      "text": "O Parlamento Nacional decreta, nos termos do n.o [X] do artigo [Y].o da Constituicao da Republica, para valer como lei, o seguinte:",
+      "position": "preamble",
+      "era": "independence",
+      "from": "2002-05-20"
+    },
+    {
+      "text": "O Governo decreta, nos termos do n.o 3 do artigo 115.o da Constituicao da Republica, para valer como lei, o seguinte:",
+      "position": "preamble",
+      "era": "decreto_lei",
+      "from": "2002-05-20"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil",
+    "phrasing": "O artigo X.o da Lei n.o Y/YYYY passa a ter a seguinte redaccao:",
+    "cross_reference_format": "type_number_year_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlamento",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tl/parlamento-nacional",
+      "showAs": "Parlamento Nacional"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/tl/presidente-da-republica",
+      "showAs": "Presidente da Republica"
+    },
+    {
+      "eId": "governo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tl/governo",
+      "showAs": "Governo"
+    },
+    {
+      "eId": "jornalDaRepublica",
+      "class": "TLCObject",
+      "href": "/ontology/obj/tl/jornal-da-republica",
+      "showAs": "Jornal da Republica"
+    },
+    {
+      "eId": "untaet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/un/untaet",
+      "showAs": "United Nations Transitional Administration in East Timor"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": "structure_civil.txt",
+    "prompt_additions": "Timor-Leste uses Lusophone civil law structure: ARTICLE as basic unit, PARAGRAPH for numbered items (1., 2.), POINT for lettered items (a), b)). SECTION and SUBSECTION are higher divisions above ARTICLE (civil law usage). UNTAET regulations (1999-2002) use Anglophone SECTION as basic unit -- detect and switch hierarchy."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "centered",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

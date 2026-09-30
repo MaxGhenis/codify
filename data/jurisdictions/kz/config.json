@@ -1,0 +1,561 @@
+{
+  "code": "kz",
+  "name": "Republic of Kazakhstan",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "socialist"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "kaz",
+    "rus"
+  ],
+  "authoritative_language": "kaz",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon Respubliki Kazakhstan (Law of the Republic of Kazakhstan)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Razdel",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бөлім",
+            "rus": "Раздел"
+          }
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тарау",
+            "rus": "Глава"
+          }
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Параграф",
+            "rus": "Параграф"
+          },
+          "note": "Paragraf is a sub-division of Glava, above the article. Use section element (as higher div). Present only in the Civil Code and a few other large codes; absent from simple laws."
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          },
+          "note": "Numbered with Arabic numeral followed by period: 1. 2. 3."
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          },
+          "note": "Numbered with Arabic numeral and closing parenthesis: 1) 2) 3). Some laws use letters: a) b) c)."
+        },
+        {
+          "local_term": "Abzac",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "unnumbered",
+          "local_terms": {
+            "kaz": "Абзац",
+            "rus": "Абзац"
+          },
+          "note": "Unnumbered indent/paragraph within a punkt. Cited by sequential position."
+        }
+      ],
+      "hcontainers": [],
+      "note": "Simple laws (Zakon) typically begin directly at Glava or Stat'ya level without Razdel. Razdel appears mainly in large codes. Article numbering is continuous throughout the act, not restarting per chapter. Inserted articles use decimal notation: 5-1, 5-2."
+    },
+    "konstitutsionny_zakon": {
+      "label": "Konstitutsionny zakon (Constitutional Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тарау",
+            "rus": "Глава"
+          }
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitutional laws have higher legal force than ordinary laws. Adopted by two-thirds majority of both chambers. Structure mirrors ordinary laws. Governs status of Parliament, President, Constitutional Court, elections, and referendum."
+    },
+    "kodeks": {
+      "label": "Kodeks (Code)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Obshchaya/Osobennaya Chast'",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "named",
+          "local_terms": {
+            "kaz": "Жалпы/Ерекше бөлім",
+            "rus": "Общая/Особенная часть"
+          },
+          "note": "Named macro-divisions: Obshchaya chast' (General Part) and Osobennaya chast' (Special Part). Present in Criminal Code, Civil Code, etc."
+        },
+        {
+          "local_term": "Razdel",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бөлім",
+            "rus": "Раздел"
+          }
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тарау",
+            "rus": "Глава"
+          }
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Параграф",
+            "rus": "Параграф"
+          },
+          "note": "Sub-chapter subdivision; present in the Civil Code only."
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        },
+        {
+          "local_term": "Abzac",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "unnumbered",
+          "local_terms": {
+            "kaz": "Абзац",
+            "rus": "Абзац"
+          }
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Primechaniye",
+          "name": "primechaniye",
+          "description": "Note appended to an article with full legal force (common in Criminal Code). Equivalent to Russian primechaniye.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Codes use continuous article numbering across the entire code (not restarting per chapter). Criminal Code General Part uses Razdel (I-VII); Special Part uses Glava. Inserted articles use hyphen-decimal notation: Stat'ya 5-1. Razdel in a kodeks maps to book (below the named Chast') rather than part."
+    },
+    "ukaz": {
+      "label": "Ukaz Prezidenta (Presidential Decree / Decree having force of law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Punkt / Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тармақ / Бап",
+            "rus": "Пункт / Статья"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential decrees with force of law (normative Ukazы) were widely used in 1993-1995 to fill legislative gaps before the Parliament was constituted. Ongoing normative decrees exist but are subordinate to laws. Structured as flat numbered punkty; map to article."
+    },
+    "postanovleniye": {
+      "label": "Postanovleniye Pravitel'stva (Government Resolution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Punkt",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government resolutions use numbered punkty as the basic unit. Normative resolutions have regulatory legal force below laws and decrees."
+    },
+    "constitution": {
+      "label": "Konstitutsiya (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Razdel",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бөлім",
+            "rus": "Раздел"
+          }
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution is divided into 9 Razdel (Sections). Articles are numbered continuously 1-99. Adopted by referendum 30 August 1995; amended 1998, 2007, 2011, 2017, 2019, 2022."
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "kz",
+    "uri_patterns": {
+      "zakon": "/akn/kz/act/{year}/{number}",
+      "konstitutsionny_zakon": "/akn/kz/act/constitutional/{year}/{number}",
+      "kodeks": "/akn/kz/act/{year}/{number}",
+      "ukaz": "/akn/kz/act/decree/{year}/{number}",
+      "postanovleniye": "/akn/kz/act/resolution/{year}/{number}",
+      "bill": "/akn/kz/bill/{year}/{slug}",
+      "constitution": "/akn/kz/act/constitution/1995/constitution"
+    },
+    "date_calendar": "gregorian",
+    "notes": "The number segment uses the official registration number. Laws cite as: Zakon RK ot {date} № {number}. Roman numeral suffix (e.g. -V, -VI) indicates the convocation of Parliament in which the law was adopted — include in the number segment for disambiguation: e.g. № 480-V → number = '480-v'. No sub-national URI variants needed (Kazakhstan is a unitary state)."
+  },
+  "numbering": {
+    "act_citation": "Zakon Respubliki Kazakhstan ot {date} № {number}",
+    "act_citation_alt": "ZRK № {number} ({year})",
+    "constitutional_law_citation": "Konstitutsionny zakon Respubliki Kazakhstan ot {date} № {number}",
+    "kodeks_citation": "Kodeks Respubliki Kazakhstan ot {date} № {number}",
+    "ukaz_citation": "Ukaz Prezidenta Respubliki Kazakhstan ot {date} № {number}",
+    "insertion_style": "hyphen_decimal",
+    "insertion_example": "Stat'ya 5-1 inserted between stat'ya 5 and stat'ya 6; existing article numbering unchanged",
+    "notes": "The convocation suffix (e.g. -V, -VI) appears in official citations and distinguishes acts enacted by different parliamentary convocations. Include in FRBR URI number segment in lowercase hyphenated form."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Қабылданды\nҚазақстан Республикасының Парламенті",
+      "transliteration": "Qabylданды\nQazaqstan Respublikasının Parlamenti",
+      "translation": "Adopted by the Parliament of the Republic of Kazakhstan",
+      "position": "preface",
+      "era": "post-1995",
+      "from": "1995-08-30",
+      "note": "The adoption notice appears in the preface block, attributed to Parliament (both chambers). The President's signature/promulgation date is recorded separately. No body-level enacting formula is used — the law begins directly with its articles."
+    },
+    {
+      "text": "Принят Парламентом Республики Казахстан",
+      "translation": "Adopted by the Parliament of the Republic of Kazakhstan",
+      "language": "rus",
+      "position": "preface",
+      "era": "post-1995",
+      "from": "1995-08-30",
+      "note": "Russian-language parallel to the Kazakh adoption notice. Both appear in bilingual official texts."
+    }
+  ],
+  "amendments": {
+    "style": "textual_statutory",
+    "phrasing": "vnosyatsya sleduyushchiye izmeneniya i dopolneniya... priznat' utrativshim silu...",
+    "phrasing_kaz": "өзгерістер мен толықтырулар енгізу туралы...",
+    "phrasing_rus": "вносятся следующие изменения и дополнения... признать утратившим силу...",
+    "cross_reference_format": "law_type_date_number",
+    "notes": "Amendment laws are titled 'О внесении изменений и дополнений в...' (On amending and supplementing...). Standard formulations: 'в статье X слова \"...\" заменить словами \"...\"' (replace words in article X), 'дополнить статьёй X-1 следующего содержания' (add new article X-1 with the following content), 'признать утратившим силу' (declare void). Amendments and supplements ('izmeneniya i dopolneniya') are distinguished: izmeneniya replaces existing text; dopolneniya adds new provisions."
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/parlament",
+      "showAs": "Parlament Respubliki Kazakhstan"
+    },
+    {
+      "eId": "mazhilis",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/mazhilis",
+      "showAs": "Mazhilis Parlamenta Respubliki Kazakhstan"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/senat",
+      "showAs": "Senat Parlamenta Respubliki Kazakhstan"
+    },
+    {
+      "eId": "prezident",
+      "class": "TLCRole",
+      "href": "/ontology/role/kz/prezident",
+      "showAs": "Prezident Respubliki Kazakhstan"
+    },
+    {
+      "eId": "pravitelstvo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/pravitelstvo",
+      "showAs": "Pravitel'stvo Respubliki Kazakhstan"
+    },
+    {
+      "eId": "konstitutsionnyySud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/konstitutsionny-sud",
+      "showAs": "Konstitutsionny Sud Respubliki Kazakhstan",
+      "note": "Restored as Constitutional Court in 2022 reform, replacing the former Constitutional Council (1995-2022)."
+    },
+    {
+      "eId": "egemenkKazakhstan",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kz/egemen-kazakhstan",
+      "showAs": "Egemen Kazakhstan",
+      "note": "Official publication organ for Kazakh-language laws."
+    },
+    {
+      "eId": "kazakhstanskayaPravda",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kz/kazakhstanskaya-pravda",
+      "showAs": "Kazakhstanskaya Pravda",
+      "note": "Official publication organ for Russian-language laws."
+    },
+    {
+      "eId": "adiletLIS",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kz/adilet-lis",
+      "showAs": "Adilet Legal Information System (adilet.zan.kz)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Kazakhstan laws use Stat'ya / Бап (Article) as the basic unit — map to ARTICLE keyword. Higher divisions: Razdel (Раздел/Бөлім, Section/Part) maps to PART; Glava (Глава/Тарау, Chapter) maps to CHAPTER; Paragraf (Параграф, sub-chapter group) maps to SECTION. Subdivisions within an article: Punkt (Пункт/Тармақ, numbered paragraph e.g. '1.', '2.') maps to PARAGRAPH; Podpunkt (Подпункт/Тармақша, numbered sub-item e.g. '1)', '2)' or 'a)', 'b)') maps to POINT. Abzac (unnumbered indent) maps to INDENT. Article headings appear on the same line as the article number in Cyrillic: 'Статья 1. Основные понятия'. Codes have a deeper structure: named General/Special Part (PART) > Razdel (BOOK) > Glava (CHAPTER) > optional Paragraf (SECTION) > Stat'ya (ARTICLE). Article numbering is always continuous across the whole document. Inserted articles use hyphen notation: Stat'ya 5-1."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eaeu",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "customs",
+        "technical_regulations",
+        "sanitary_phytosanitary",
+        "competition",
+        "financial_markets"
+      ],
+      "note": "Eurasian Economic Union (founded 2015). Kazakhstan is a founding member. EAEU regulations issued by the Eurasian Economic Commission (EEC) are directly applicable in member states without transposition — confirmed by the EAEU Court. Key areas: customs law (EAEU Customs Code 2017), technical regulations, sanitary/phytosanitary standards, competition policy. Use /akn/eaeu/ URI space for EAEU instruments. Kazakhstan's Constitutional Court has asserted constitutional primacy, so true supremacy remains contested for constitutional matters."
+    },
+    {
+      "body": "cis",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Commonwealth of Independent States. CIS model laws require domestic transposition; no direct effect."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "UN member state. UN SC Chapter VII resolutions binding in international law but require domestic implementation."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "WTO member since 30 November 2015. WTO agreements require domestic legislative conformity but do not have direct effect in domestic courts."
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "serif",
+    "romanisation": "ISO_9_1995",
+    "notes": "Article headings appear inline with the article number in both official languages: 'Статья 1. Основные понятия' (Russian) / 'Бап 1. Негізгі ұғымдар' (Kazakh). Both Cyrillic scripts are used — Kazakh uses a Cyrillic script with additional characters (Ә, Ғ, Қ, Ң, Ө, Ұ, Ү, Һ). Kazakhstan has been transitioning Kazakh to Latin script since 2017 but official legislation remains in Cyrillic as of 2026. Language authoritativeness: Art. 7 of the 1995 Constitution designates Kazakh as the state language (мемлекеттік тіл) and Russian as the official language of interethnic communication (ресми тіл). Both languages are legally authoritative on adilet.zan.kz — Kazakh as state language takes precedence in case of conflict. All hierarchy terms are verified against the bilingual Civil Code (Azamattyq kodeks / Гражданский кодекс) on adilet.zan.kz: Бөлім/Раздел (Razdel), Тарау/Глава (Glava), Бап/Статья (Stat'ya), Тармақ/Пункт (Punkt), Тармақша/Подпункт (Podpunkt). Параграф is borrowed identically into Kazakh and requires no separate Kazakh term."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

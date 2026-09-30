@@ -1,0 +1,236 @@
+{
+  "code": "sa",
+  "name": "Saudi Arabia",
+  "type": "national",
+  "tradition": [
+    "islamic"
+  ],
+  "calendar": "lunar_hijri",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Nizam (Regulation/Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Juz' (Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Fasl (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddah (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Faqrah (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Band (Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by Royal Decree (M/ prefix). Fasl is a higher division, not the basic unit."
+    },
+    "basic_law": {
+      "label": "Basic Law (Nizam Asasi)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddah (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Faqrah (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitutional instruments enacted by Royal Order (A/ prefix)"
+    },
+    "implementing_regulation": {
+      "label": "La'iha Tanfidhiyya (Implementing Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Fasl (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Maddah (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Faqrah (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by ministerial decision to implement a parent nizam"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "sa",
+    "uri_patterns": {
+      "act": "/akn/sa/act/{year}/m-{number}",
+      "basic_law": "/akn/sa/act/{year}/a-{number}",
+      "resolution": "/akn/sa/act/resolution/{year}/{number}",
+      "implementing_regulation": "/akn/sa/act/si/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Gregorian year used in FRBR URIs. Hijri date, which is the authoritative dating, stored as FRBRalias.",
+    "calendar_conversion": {
+      "kind": "hijri_lunar",
+      "note": "Lunar Hijri to Gregorian. 1443 AH ≈ 2021-2022 CE."
+    }
+  },
+  "numbering": {
+    "act_citation": "Royal Decree No. M/{number}"
+  },
+  "enacting_formulae": [
+    {
+      "text": "With the help of Allah the Almighty, We, [King's name], King of the Kingdom of Saudi Arabia, pursuant to the provisions of Articles Sixty-Seven, Seventy and Seventy-Eight of the Basic Law of Governance issued by Royal Decree No. A/90 dated 27/08/1412H, have decreed as follows:",
+      "position": "preamble",
+      "era": "post-basic-law",
+      "from": "1412-01-01"
+    }
+  ],
+  "amendments": {
+    "style": "wholesale_replacement",
+    "phrasing": "Article {N} shall be amended to read as follows...",
+    "cross_reference_format": "royal_decree_number_hijri_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "king",
+      "class": "TLCRole",
+      "href": "/ontology/role/sa/king",
+      "showAs": "King of the Kingdom of Saudi Arabia"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sa/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "shuraCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sa/shura-council",
+      "showAs": "Shura Council"
+    },
+    {
+      "eId": "ummAlQura",
+      "class": "TLCObject",
+      "href": "/ontology/obj/sa/umm-al-qura",
+      "showAs": "Umm al-Qura Official Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Saudi legislation uses ARTICLE as basic unit. Fasl (Section) is a higher division. Arabic original is authoritative; English translations from Bureau of Experts may use inconsistent terms for Bab/Fasl. RTL script."
+  },
+  "supranational_memberships": [
+    {
+      "body": "gcc",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

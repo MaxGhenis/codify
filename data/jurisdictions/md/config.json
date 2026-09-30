@@ -1,0 +1,421 @@
+{
+  "code": "md",
+  "name": "Republic of Moldova",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ron"
+  ],
+  "authoritative_language": "ron",
+  "document_classes": {
+    "lege": {
+      "label": "Lege (Parliamentary Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Cartea",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman_ordinal",
+          "note": "Used in major codes only (Civil Code, Fiscal Code). E.g., 'Cartea întâi', 'Cartea a doua'."
+        },
+        {
+          "local_term": "Partea",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_ordinal",
+          "note": "Used in codes alongside or instead of Books. E.g., 'Partea I', 'Partea a II-a'."
+        },
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "note": "Standard in codes and complex statutes. E.g., 'Titlul I – Dispoziţii generale'."
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "note": "Most common grouping in ordinary legislation. E.g., 'Capitolul I'."
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "note": "CRITICAL: Secțiunea is a higher grouping ABOVE articles, NOT the basic unit. Use DIVISION keyword to avoid confusion with Anglophone section-as-basic-unit. Verify with Bluebell parser. Ordinal style: Secțiunea 1, Secțiunea a 2-a."
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Basic unit. Numbered continuously throughout the entire act regardless of higher divisions above."
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "Subdivision (1), (2), (3). Cited as alin.(1)."
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren",
+          "note": "Subdivision a), b), c). Cited as lit.a)."
+        },
+        {
+          "local_term": "Punctul",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_fullstop",
+          "note": "Subdivision 1., 2., 3. Sub-division of litere."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Liniuța (dash item)",
+          "name": "liniuta",
+          "note": "Dash-introduced items, last resort when other structural elements are exhausted (per Law 100/2017). Cannot be reliably cross-referenced. Pipeline should flag for review."
+        }
+      ]
+    },
+    "hg": {
+      "label": "Hotărâre de Guvern (Government Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government decision implementing laws. Functional equivalent of statutory instruments. Typically shorter; chapters optional. May include Anexe (annexes)."
+    },
+    "og": {
+      "label": "Ordonanță de Guvern (Government Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Government ordinance enacted under parliamentary delegation (Art. 106² Constitution). Structure mirrors HG. Enacting body TLC must be Guvernul, not Parlamentul."
+    },
+    "constitution": {
+      "label": "Constituția Republicii Moldova",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Articles numbered continuously Art. 1–142 in current Constitution."
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Title/Chapter/Section above articles. Some chapters have Sections (Secțiunea); most go directly Title > Chapter > Article."
+    }
+  },
+  "default_document_class": "lege",
+  "frbr": {
+    "country_code": "md",
+    "uri_patterns": {
+      "lege": "/akn/md/act/{year}/{number}",
+      "hg": "/akn/md/act/hg/{year}/{number}",
+      "og": "/akn/md/act/og/{year}/{number}",
+      "hp": "/akn/md/act/hp/{year}/{number}",
+      "decret": "/akn/md/act/decret/{year}/{number}",
+      "bill": "/akn/md/bill/{year}/{slug}",
+      "constitution": "/akn/md/act/constitution/1994/constitution"
+    },
+    "date_calendar": "gregorian",
+    "uri_notes": "The legis.md internal prefix (LP, HG, CM, CP, etc.) is a database code and must NOT be included in FRBR URIs. Use the numeric act number only. E.g., LP100/2017 on legis.md → /akn/md/act/2017/100."
+  },
+  "numbering": {
+    "act_citation": "Legea nr. {number}/{year}",
+    "act_citation_hg": "Hotărârea Guvernului nr. {number}/{year}",
+    "act_citation_og": "Ordonanța Guvernului nr. {number}/{year}",
+    "act_citation_decret": "Decretul Președintelui nr. {number}/{year}",
+    "article_insertion_style": "superscript",
+    "article_insertion_example": "art. 7¹",
+    "article_eid_insertion": "art_7-1",
+    "section_ordinal_style": "romanian_ordinal",
+    "section_ordinal_note": "Secțiunea 1, Secțiunea a 2-a, Secțiunea a 3-a (ordinal suffix from 2nd onwards)"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Parlamentul adoptă prezenta lege organică.",
+      "position": "preamble",
+      "type": "lege_organica",
+      "era": "current",
+      "note": "Most common form — used for organic laws. Observed in LP321/2023, LP195/2024, LP131/2007, LP220/2007, LP299/2022, LP225/2023, LP2/2023."
+    },
+    {
+      "text": "Parlamentul adoptă prezenta lege.",
+      "position": "preamble",
+      "type": "lege_ordinara",
+      "era": "current",
+      "note": "Ordinary law (lege ordinară). Identical structure; classified by voting threshold not formula."
+    },
+    {
+      "text": "Parlamentul adoptă prezenta lege constituțională.",
+      "position": "preamble",
+      "type": "lege_constitutionala",
+      "era": "current"
+    },
+    {
+      "text": "Parlamentul Republicii Moldova adoptă prezenta lege.",
+      "position": "preamble",
+      "type": "lege_ordinara",
+      "era": "transitional",
+      "note": "Earlier formulation including full country name. Observed in LP39/1994. Largely superseded by shorter form."
+    },
+    {
+      "text": "Guvernul Republicii Moldova HOTĂRĂŞTE:",
+      "position": "preamble",
+      "type": "hg",
+      "era": "current",
+      "note": "Government Decision enacting formula."
+    },
+    {
+      "text": "În temeiul art. 93 din Constituţia Republicii Moldova, promulg prezenta lege.",
+      "position": "conclusions",
+      "type": "promulgation",
+      "era": "current",
+      "note": "Presidential promulgation formula. Appears AFTER body in Monitorul Oficial. Model as <conclusions><formula name='promulgationFormula'>. Omit when digitising law text alone."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_modification": "se modifică și va avea următorul cuprins:",
+    "phrasing_insertion": "se introduce un nou articol, articolul [N], cu următorul cuprins:",
+    "phrasing_repeal": "se abrogă.",
+    "phrasing_completion": "se completează cu alineatul [N], cu următorul cuprins:",
+    "phrasing_word_substitution": "cuvintele \"[old]\" se substituie cu cuvintele \"[new]\".",
+    "cross_reference_format": "type_number_year_title",
+    "cross_reference_example": "Legea nr. 100/2017 cu privire la actele normative",
+    "quoted_text_intro": "va avea următorul cuprins:",
+    "amendment_act_structure_note": "Amendment laws (legi de modificare) use Roman numerals (Art. I, Art. II) as top-level articles, each targeting a different principal act, with Arabic-numeral points within. Requires special handling — detect via title 'Lege pentru modificarea' or 'Lege privind modificarea și completarea' and route to amendment-specific prompt variant."
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/parlament",
+      "showAs": "Parlamentul Republicii Moldova"
+    },
+    {
+      "eId": "presedinte",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/presedinte",
+      "showAs": "Președintele Republicii Moldova"
+    },
+    {
+      "eId": "guvern",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/guvern",
+      "showAs": "Guvernul Republicii Moldova"
+    },
+    {
+      "eId": "primMinistru",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/prim-ministru",
+      "showAs": "Prim-ministrul"
+    },
+    {
+      "eId": "curteaConstitutionala",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/curtea-constitutionala",
+      "showAs": "Curtea Constituțională a Republicii Moldova"
+    },
+    {
+      "eId": "curteaSuprema",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/curtea-suprema",
+      "showAs": "Curtea Supremă de Justiție"
+    },
+    {
+      "eId": "ministrulJustitiei",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/ministrul-justitiei",
+      "showAs": "Ministrul Justiției"
+    },
+    {
+      "eId": "ministru",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/ministru",
+      "showAs": "Ministru"
+    },
+    {
+      "eId": "monitorulOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/md/monitorul-oficial",
+      "showAs": "Monitorul Oficial al Republicii Moldova"
+    },
+    {
+      "eId": "moldova",
+      "class": "TLCLocation",
+      "href": "/ontology/place/md",
+      "showAs": "Republica Moldova"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Use ARTICLE (not SECTION) as the basic legislative unit. DIVISION maps to Secțiunea (higher grouping above articles — NOT the basic unit). Article numbering is continuous throughout the entire act. Alineate (paragraphs) are numbered (1), (2) in parentheses: cite as alin.(1). Litere (letters) are a), b), c) with closing parenthesis only: cite as lit.a). Puncte are 1., 2., 3. with full stop. Base this prompt on structure_ro.txt — Moldova shares the same civil law drafting tradition as Romania. Key Moldova-specific differences: (1) unicameral Parliament; (2) enacting formula 'Parlamentul adoptă prezenta lege organică.' (organic) or 'Parlamentul adoptă prezenta lege.' (ordinary); (3) amendment acts use Roman-numeral top-level articles (Art. I, Art. II) each targeting a different principal act."
+  },
+  "supranational_memberships": [
+    {
+      "body": "council-of-europe",
+      "member_since": "1995-07-13",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "ECHR ratified. ECtHR judgments binding. Does not directly supersede Moldovan legislation but requires compliance."
+    },
+    {
+      "body": "eu",
+      "status": "candidate",
+      "candidate_since": "2022-06-23",
+      "negotiations_opened": "2024-06-25",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "EU candidate since June 2022; accession negotiations formally opened June 2024. EU Regulations do not yet have direct effect. Moldova is progressively transposing EU directives under the Association Agreement (in force 2016) and as an accession condition. Many recent laws explicitly reference the EU directive being transposed."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_bold",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "diacritics": [
+      "ă",
+      "â",
+      "î",
+      "ș",
+      "ț"
+    ],
+    "diacritics_note": "Romanian/Moldovan uses ș (s-comma, U+0219) and ț (t-comma, U+021B). NOT ş (s-cedilla, U+015F) and ţ (t-cedilla, U+0163). The cedilla variants are legacy encoding errors common in older digitised Moldovan documents. OCR and PDF extraction must correct these substitutions."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

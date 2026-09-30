@@ -1,0 +1,333 @@
+{
+  "code": "no",
+  "name": "Norway",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "nob",
+    "nno"
+  ],
+  "authoritative_language": "nob",
+  "document_classes": {
+    "act": {
+      "label": "Lov",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Del",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Kapittel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Bokstav",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Nummer",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Norwegian Paragraf (§) is the basic statutory unit and maps to AKN article. Ledd are unnumbered prose paragraphs within a §; pipeline assigns sequential integers (first ledd is direct article content). Del appears only in the largest codes. § numbers are continuous across all Kapittler."
+    },
+    "forskrift": {
+      "label": "Forskrift",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapittel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Bokstav",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Regulation issued by the King-in-Council or a Ministry under delegation from Stortinget. Same structural hierarchy as lov. Published in Norsk Lovtidend del II. FRBR URI uses fo/ subtype."
+    },
+    "grunnloven": {
+      "label": "Kongeriket Norges Grunnlov",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Avdeling",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of 1814 (with modern amendments). §§ 1-121. Divided into lettered Parts (A–G). The oldest written constitution in Europe still in force. All amendments preserve original § numbering; inserted §§ use letter suffix (e.g., § 57a). Ratification of amendments requires two-thirds Stortinget majority after intervening election."
+    },
+    "stortingsvedtak": {
+      "label": "Stortingsvedtak",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Parliamentary decision (not a lov): used for annual tax resolutions, appropriations, and Stortinget procedural decisions. Enacted by Stortinget without Royal Assent. Typically short with few §§."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "no",
+    "uri_patterns": {
+      "act": "/akn/no/act/{year}/{number}",
+      "forskrift": "/akn/no/act/fo/{year}/{number}",
+      "bill": "/akn/no/bill/{session}/{prop-number}",
+      "grunnloven": "/akn/no/act/constitution/1814/grunnloven",
+      "stortingsvedtak": "/akn/no/act/vedtak/{year}/{number}",
+      "officialGazette": "/akn/no/officialGazette/{year}/{issue}"
+    },
+    "uri_note": "Norwegian acts cited as 'Lov {date} nr {number}' — e.g., Lov 15. mai 2008 nr. 35. FRBR URI uses year of enactment and sequential number: /akn/no/act/2008/35. Forarbeider (Ot.prop./Prop.) cited by session and proposal number.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lov {date} nr. {number}",
+    "act_citation_alt": "Lov av {date} nr. {number}",
+    "insertion_style": "alphanumeric_no_space",
+    "insertion_note": "Inserted §§ use a letter suffix without space: § 5a, § 5b. eId: art_5a, art_5b. This differs from the Swedish/Danish convention of a space before the suffix.",
+    "section_symbol": "§",
+    "section_symbol_position": "pre",
+    "section_citation": "§ {number}"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Stortinget har vedtatt følgende lov:",
+      "position": "preamble",
+      "era": "current",
+      "from": "1814-05-17",
+      "note": "Standard enacting formula for lov enacted by Stortinget. Appears in the Lovtidend publication header, not always in the act body itself."
+    },
+    {
+      "text": "I medfør av § {N} i lov {date} nr. {number} om {X} fastsetter {Kongen/departementet}:",
+      "position": "preamble",
+      "era": "current",
+      "from": "1814-05-17",
+      "note": "Enabling formula for forskrift, citing the parent lov provision and delegating authority."
+    }
+  ],
+  "amendments": {
+    "style": "textual_replacement",
+    "phrasing": "I lov {date} nr. {number} om {X} gjøres følgende endringer: § {N} skal lyde: ... / ny § {N}a skal lyde: ... / § {N} oppheves.",
+    "cross_reference_format": "short_title_and_date_number",
+    "note": "Amending acts (endringslov) are ordinary acts. Each § of the amending act typically targets one provision of the principal act. Commencement provision (ikrafttredelses-§) is the last §. Model as separate FRBR work with activeModifications. Lovdata publishes consolidated texts but also preserves the individual amending acts."
+  },
+  "core_tlcs": [
+    {
+      "eId": "stortinget",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/stortinget",
+      "showAs": "Stortinget"
+    },
+    {
+      "eId": "kongen",
+      "class": "TLCRole",
+      "href": "/ontology/role/no/kongen",
+      "showAs": "Kongen"
+    },
+    {
+      "eId": "statsministeren",
+      "class": "TLCRole",
+      "href": "/ontology/role/no/statsministeren",
+      "showAs": "Statsministeren"
+    },
+    {
+      "eId": "regjeringen",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/regjeringen",
+      "showAs": "Regjeringen"
+    },
+    {
+      "eId": "hoyesterett",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/hoyesterett",
+      "showAs": "Høyesterett"
+    },
+    {
+      "eId": "lovdata",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/lovdata",
+      "showAs": "Lovdata"
+    },
+    {
+      "eId": "norskLovtidend",
+      "class": "TLCObject",
+      "href": "/ontology/obj/no/norskLovtidend",
+      "showAs": "Norsk Lovtidend"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Norwegian Paragraf (§) is the basic statutory unit and maps to ARTICLE in Bluebell and AKN article element. Do NOT use SECTION for §. Kapittel (Chapter) maps to CHAPTER. Del (Part) maps to PART — used only in the largest codes. Ledd (plural ledd) are unnumbered alinea-style prose paragraphs within a §: the first ledd is the direct content of the ARTICLE; subsequent ledd become PARAGRAPH 2, PARAGRAPH 3 etc. Bokstav (letters: a), b), c)) maps to POINT. Nummer (numbers: 1), 2), 3)) appearing below bokstav maps to INDENT. The § symbol should NOT appear in the ARTICLE number field in Bluebell input — write 'ARTICLE 5', not 'ARTICLE § 5'. Norway has two official written standards: Bokmål (nob) and Nynorsk (nno). Most legislation is in Bokmål; some acts are enacted in Nynorsk only (treat as authoritative, not a translation). Inserted §§ use a letter suffix without space: § 5a (not § 5 a as in Sweden/Denmark). Grunnloven (Constitution 1814): uses lettered Avdelinger (A–G) mapped to PART; §§ numbered 1–121. Forarbeider (preparatory works — Ot.prop./Prop.) are co-equal legal sources in Norwegian law alongside statute and case law; flag cross-references to forarbeider as significant metadata. Enacting formula: 'Stortinget har vedtatt følgende lov:' — model in <preamble>. Final § is always the ikrafttredelses-§ (commencement provision)."
+  },
+  "supranational_memberships": [
+    {
+      "body": "efta",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Norway is a founding member of EFTA (1960). EFTA Court handles EEA disputes. The EEA membership largely subsumes EFTA significance for domestic law purposes."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "indirect_transposition",
+      "superseded_subjects": [],
+      "note": "ECHR incorporated via Menneskerettsloven (Lov 21. mai 1999 nr. 30). ECHR and certain other Council of Europe conventions have priority over conflicting Norwegian statute (§ 3 of Menneskerettsloven)."
+    },
+    {
+      "body": "nordic-council",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Norway participates in Nordic legislative cooperation. Nordic conventions on passports, social security, and family law are incorporated into domestic law but do not have direct effect as such."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "UN Security Council Chapter VII resolutions are binding. Norway implements these via the UN sanctions act (Lov 7. juni 1968 nr. 4). Other UN treaties require domestic transposition."
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "basic_unit_symbol": "§",
+    "basic_unit_plural_symbol": "§§",
+    "chapter_abbreviation": "kap."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "binding_regimes": [
+    {
+      "code": "eea",
+      "kind": "treaty_framework",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "single_market_goods",
+        "free_movement_services",
+        "free_movement_capital",
+        "free_movement_persons",
+        "product_safety",
+        "competition",
+        "state_aid",
+        "financial_services",
+        "data_protection_gdpr"
+      ],
+      "note": "Norway is NOT an EU member but participates in the EU Single Market via the EEA Agreement (entered into force 1 January 1994). EEA-relevant EU regulations and directives are incorporated into Norwegian law via the EEA Act (Lov 27. november 1992 nr. 109). Approximately 30% of Norwegian statute derives from EEA obligations. EEA Regulations have direct effect; Directives require transposition into lov or forskrift. The EFTA Surveillance Authority (ESA) monitors EEA compliance. Norway has no vote in EU legislative proceedings."
+    }
+  ],
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

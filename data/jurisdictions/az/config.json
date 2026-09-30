@@ -1,0 +1,311 @@
+{
+  "code": "az",
+  "name": "Azerbaijan",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "aze"
+  ],
+  "authoritative_language": "aze",
+  "document_classes": {
+    "law": {
+      "label": "Law of the Republic of Azerbaijan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bölmə",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Top-level grouping in codes; absent in shorter laws"
+        },
+        {
+          "local_term": "Fəsil",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "N.1 (decimal L1)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "decimal_dot",
+          "note": "e.g. 5.1 — num element contains the full decimal string"
+        },
+        {
+          "local_term": "N.1.1 (decimal L2)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "decimal_dot",
+          "note": "e.g. 5.1.1"
+        },
+        {
+          "local_term": "N.1.1.1 (decimal L3, rare)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "decimal_dot",
+          "note": "e.g. 5.1.1.1 — used sparingly in codes"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "transitionalProvisions",
+          "local_term": "Keçid müddəaları",
+          "note": "Transitional provisions section, typically at end of law"
+        }
+      ],
+      "enacting_formula_position": "conclusions",
+      "note": "Enacting formula/attestation appears at end of document, not in preamble. Short laws may omit bölmə and/or fəsil levels."
+    },
+    "code": {
+      "label": "Code (Məcəllə)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bölmə",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Fəsil",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "N.1 (decimal L1)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "decimal_dot"
+        },
+        {
+          "local_term": "N.1.1 (decimal L2)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "decimal_dot"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "transitionalProvisions",
+          "local_term": "Keçid müddəaları",
+          "note": "Transitional provisions"
+        }
+      ],
+      "note": "Codes (Civil, Criminal, Labour, Tax, etc.) always use the full bölmə > fəsil > maddə hierarchy. Articles are numbered continuously across all parts and chapters."
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Azerbaijan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bölmə",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Fəsil",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "1995 Constitution: 5 bölmə, 12 fəsil, 158 articles (164 with amendments)"
+    },
+    "decree": {
+      "label": "Presidential Decree (Fərman)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential decrees typically short; may use article or paragraph only. Numbered in sequential {seq}-F series."
+    },
+    "resolution": {
+      "label": "Cabinet Resolution (Qərar)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Cabinet resolutions numbered sequentially per year. May be very short (2-5 articles)."
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "az",
+    "uri_patterns": {
+      "law": "/akn/az/act/{year}/{number}",
+      "code": "/akn/az/act/{year}/{slug}",
+      "bill": "/akn/az/bill/{year}/{number}",
+      "constitution": "/akn/az/act/constitution/1995/constitution",
+      "decree": "/akn/az/act/decree/{year}/{number}",
+      "resolution": "/akn/az/act/resolution/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "number_format": "sequential_digits_only",
+    "number_alias": "full_convocation_designation",
+    "note": "FRBR URI uses sequential digits only (e.g. 736). Full law designation (e.g. 736-IQ) stored as <FRBRalias name='lawNumber'>. Codes use slugified names."
+  },
+  "numbering": {
+    "law_citation": "Law No. {number}-{convocation}Q of {date}",
+    "law_citation_alt": "Law of the Republic of Azerbaijan on {subject}",
+    "article_citation": "Article {N}",
+    "subdivision_citation": "Article {N}.{sub}",
+    "insertion_style": "hyphenated_article",
+    "insertion_example": "49-1",
+    "note": "Convocation suffix: IQ (1st), IIQ (2nd), IIIQ (3rd), IVQ (4th), VQ (5th), VIQ (6th), VIIQ (7th). Constitutional laws add D suffix (e.g. IIIQD)."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Azərbaycan Respublikasının Milli Məclisi tərəfindən qəbul edilmişdir",
+      "translation": "Adopted by the Milli Majlis of the Republic of Azerbaijan",
+      "position": "conclusions",
+      "era": "post-independence",
+      "from": "1995-11-27",
+      "note": "Attestation block at end of document, not opening enacting formula. Followed by Presidential signature line."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Maddə X aşağıdakı redaksiyada verilsin (Article X shall be stated in the following wording)",
+    "deletion_phrasing": "Maddə X çıxarılsın (Article X shall be deleted)",
+    "addition_phrasing": "Maddə X.1-i aşağıdakı məzmunda əlavə edilsin (The following shall be added as Article X.1)",
+    "cross_reference_format": "full_title_and_law_number",
+    "unverified": true
+  },
+  "core_tlcs": [
+    {
+      "eId": "milliMajlis",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/az/milli-majlis",
+      "showAs": "Milli Majlis"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/az/president",
+      "showAs": "President of the Republic of Azerbaijan"
+    },
+    {
+      "eId": "cabinetOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/az/cabinet-of-ministers",
+      "showAs": "Cabinet of Ministers"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/az/azerbaycan-newspaper",
+      "showAs": "Azərbaycan (official gazette)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword. Hierarchy is PART > CHAPTER > ARTICLE. Subdivisions use decimal dot notation (5.1, 5.1.1) — output as PARAGRAPH and SUBPARAGRAPH with decimal num values. Not all laws use PART; detect the highest division present. The attestation block (adopted by/signed by) appears at the END of the document — model as CONCLUSIONS, not PREAMBLE."
+  },
+  "supranational_memberships": [
+    {
+      "body": "council-of-europe",
+      "direct_effect": "indirect_transposition",
+      "superseded_subjects": [],
+      "note": "Azerbaijan joined CoE 2001, ratified ECHR. ECtHR judgments are binding."
+    },
+    {
+      "body": "cis",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "CIS model laws influenced post-Soviet codification but are not directly effective."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Standard UN treaty obligations. SC Chapter VII resolutions binding."
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "note": "Azerbaijani uses Latin script since 2001. Pre-2001 documents use Cyrillic Azerbaijani."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

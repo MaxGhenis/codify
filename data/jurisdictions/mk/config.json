@@ -1,0 +1,449 @@
+{
+  "code": "mk",
+  "name": "North Macedonia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "mkd",
+    "sqi"
+  ],
+  "authoritative_language": "mkd",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon (Act/Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Del / Дел",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_arabic",
+          "note": "Highest structural division. DEL PRIV / ДЕЛ ПРВО or DEL I — ordinal or Roman normalised to Arabic for eId (part_1, part_2). Uncommon except in large codes."
+        },
+        {
+          "local_term": "Glava / Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic",
+          "note": "Main structural division. GLAVA I / ГЛАВА I — Roman numerals normalised to Arabic (chp_1, chp_2). Most common higher division in primary legislation."
+        },
+        {
+          "local_term": "Oddel / Оддел",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Mid-level division below Glava. Higher division only — NOT the basic unit. Оддел 1, Оддел 2."
+        },
+        {
+          "local_term": "Člen / Член",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "BASIC UNIT. Continuous Arabic numbering throughout entire act regardless of higher divisions. Written 'Член 1', 'Член 5' in Cyrillic; 'Člen 1' in Latin. Never resets per chapter or part. Cited as 'членот X од овој закон'."
+        },
+        {
+          "local_term": "Stav / Став",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "note": "(1), (2), (3). Numbered when two or more stavovi exist in an article. Single-stav articles typically have no (1) marker."
+        },
+        {
+          "local_term": "Tochka / Точка",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "note": "1), 2), 3) or a), b), c) — lettered or numbered items within a stav. At least two required in practice."
+        },
+        {
+          "local_term": "Alineja / Алинеа",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "unnumbered",
+          "note": "Unnumbered sub-point within a tochka. Marked by dash or indent. Maps to AKN alinea."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Preodni i zavrsni odredbi / Преодни и завршни одредби",
+          "name": "transitional-final",
+          "description": "Transitional and Final Provisions block at end of act. Typically a final Glava or unnumbered heading block.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Primary legislation enacted by Sobranie na Republika Severna Makedonija. Article numbering continuous throughout act. Published in Sluzhben vesnik na Republika Severna Makedonija."
+    },
+    "uredba": {
+      "label": "Uredba (Government Regulation/Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava / Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Člen / Член",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav / Став",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tochka / Точка",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Enacted by Vladata na Republika Severna Makedonija under delegating authority of primary legislation."
+    },
+    "pravilnik": {
+      "label": "Pravilnik (Ministerial Rulebook)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava / Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "note": "Less common in pravilnici; many are short and chapter-free."
+        },
+        {
+          "local_term": "Člen / Член",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav / Став",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tochka / Точка",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial rulebooks. Simpler structure, often chapter-free."
+    },
+    "odluka": {
+      "label": "Odluka / Одлука (Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Člen / Член",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav / Став",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Decisions issued by Sobranie, Vlada, or Pretsedatel. Typically short, no higher divisions."
+    },
+    "constitution": {
+      "label": "Ustav na Republika Severna Makedonija / Устав на Република Северна Македонија",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Del / Дел",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "1991 Constitution uses large divisions: I. OSNOVNI ODREDBI / I. ОСНОВНИ ОДРЕДБИ etc. Normalise to Arabic for eId."
+        },
+        {
+          "local_term": "Člen / Член",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "1991 Constitution has 134 articles numbered continuously. Post-Ohrid 2001 amendments added articles; 2019 Prespa amendments renumbered references to state name."
+        },
+        {
+          "local_term": "Stav / Став",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of Republic of North Macedonia adopted 17 November 1991. Amended 2001 (Ohrid Framework Agreement implementation — minority rights, decentralisation, Albanian language status). Amended 2019 (Prespa Agreement — name change from 'Republic of Macedonia' to 'Republic of North Macedonia'). FRBR URI uses 1991 enactment year; amendments are expressions."
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "mk",
+    "uri_patterns": {
+      "zakon": "/akn/mk/act/{year}/{item-number}",
+      "zakon_slug": "/akn/mk/act/{year}/{slug}",
+      "uredba": "/akn/mk/act/uredba/{year}/{item-number}",
+      "pravilnik": "/akn/mk/act/pravilnik/{year}/{item-number}",
+      "odluka": "/akn/mk/act/odluka/{year}/{item-number}",
+      "bill": "/akn/mk/bill/{year}/{slug}",
+      "constitution": "/akn/mk/act/constitution/1991/ustav"
+    },
+    "date_calendar": "gregorian",
+    "notes": [
+      "item-number is the Sluzhben vesnik item number within the gazette issue",
+      "Gazette citation format: Sl. vesnik na RSM, br. {issue}/{year}",
+      "Work URI always uses initial enactment year; amendments create new expressions",
+      "When item-number unknown, use slugified short title as fallback (slug variant)",
+      "Pre-2019 laws cite 'Republika Makedonija' — pipeline must normalise to current 'Republika Severna Makedonija' in metadata while preserving original text"
+    ]
+  },
+  "numbering": {
+    "act_citation": "Sl. vesnik na RSM, br. {issue}/{year-short}",
+    "act_citation_full": "Sluzhben vesnik na Republika Severna Makedonija, br. {issue}/{year}",
+    "act_citation_alt": "\"Sl. vesnik na RSM\", br. {issue}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "Член 5-а, Член 5-б",
+    "article_numbering": "continuous_throughout_act",
+    "subdivision_stav": "arabic_parenthesized",
+    "subdivision_tochka": "arabic_stop_or_alpha_lower_parenthesized"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Sobranieto na Republika Severna Makedonija, na sednicata odrzana na {date}, donese",
+      "position": "preamble",
+      "era": "post-2019",
+      "from": "2019-02-12"
+    },
+    {
+      "text": "Sobranieto na Republika Makedonija, na sednicata odrzana na {date}, donese",
+      "position": "preamble",
+      "era": "post-independence-pre-2019",
+      "from": "1991-11-17",
+      "to": "2019-02-12"
+    },
+    {
+      "text": "Vrz osnova na членот {delegating_article} od Zakonot za {subject}, Vladata na Republika Severna Makedonija, na sednicata odrzana na {date}, donese",
+      "position": "preamble",
+      "era": "post-2019",
+      "from": "2019-02-12"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "se menuva i glasi",
+    "phrasing_deletion": "se brishe",
+    "phrasing_addition": "se dodava nov ... koj glasi",
+    "amendment_act_naming": "Zakon za izmenuvanye i dopolnuvanye na Zakonot za {subject}",
+    "cross_reference_format": "law_name_and_gazette_citation",
+    "cross_reference_example": "Zakonot za rabotni odnosi (Sl. vesnik na RM, br. 62/05)",
+    "intra_act_reference": "vo smisla na členot X stav Y od ovoj zakon"
+  },
+  "core_tlcs": [
+    {
+      "eId": "sobranie",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/sobranie",
+      "showAs": "Собрание на Република Северна Македонија"
+    },
+    {
+      "eId": "pretsedatelSobranie",
+      "class": "TLCRole",
+      "href": "/ontology/role/mk/pretsedatel-sobranie",
+      "showAs": "Претседател на Собранието"
+    },
+    {
+      "eId": "pretsedatel",
+      "class": "TLCRole",
+      "href": "/ontology/role/mk/pretsedatel",
+      "showAs": "Претседател на Република Северна Македонија"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/vlada",
+      "showAs": "Влада на Република Северна Македонија"
+    },
+    {
+      "eId": "ustavenSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/ustaven-sud",
+      "showAs": "Уставен суд на Република Северна Македонија"
+    },
+    {
+      "eId": "vrhovenSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/vrhoven-sud",
+      "showAs": "Врховен суд на Република Северна Македонија"
+    },
+    {
+      "eId": "sluzbenVesnik",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mk/sluzhben-vesnik",
+      "showAs": "Службен весник на Република Северна Македонија"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "North Macedonian legislation uses ARTICLE (Член / Člen) as the basic unit — NOT SECTION. SECTION (Оддел / Oddel) is only a higher division above articles. Article numbering is continuous throughout the entire act and never resets per chapter or part. Articles are written 'Член 1', 'Член 5' in Cyrillic (primary script for Macedonian legislation). Став (Stav, paragraph) is numbered (1), (2), (3) only when two or more stavovi exist; single-stav articles have no (1) marker. Точка (Tochka, point) within stavovi are numbered 1), 2) or a), b) with CLOSING PARENTHESIS only — not period-stop. Алинеа (Alineja, unnumbered sub-point) maps to ALINEA keyword. Macedonian legislation is published in Cyrillic script; OCR must handle the full Macedonian Cyrillic alphabet including Ѓ (Gje), Ѕ (Dze), Ј (Je), Љ (Lje), Њ (Nje), Ќ (Kje), and Џ (Dzhe) which differ from Serbian Cyrillic. Albanian (sqi) versions are published in Latin script for legislation affecting areas with Albanian-majority populations (≥20% threshold under the Ohrid Framework Agreement). When processing Albanian-language versions treat them as parallel FRBR expressions of the same work — not translations. The gazette promulgation header is NOT part of the enacted law — begin digitisation from the act title (ЗАКОН ЗА... / ZAKON ZA...). Cross-references cite 'Sl. vesnik na RSM' (post-2019) or 'Sl. vesnik na RM' (pre-2019) with issue and year. Amendment acts are named 'Zakon za izmenuvanye i dopolnuvanye na Zakonot za ...'. Pre-2019 laws may use 'Republika Makedonija' — preserve original text but normalise metadata to current state name.",
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^Zakon\\s+za\\s+|^Закон\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "zakon",
+        "priority": 60,
+        "note": "Primary legislation (Zakon / Закон) identifiable from title — Macedonian uses 'Zakon ZA' (not 'Zakon O' as in Serbian)."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Uredba\\s+za\\s+|^Уредба\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "uredba",
+        "priority": 70,
+        "note": "Government regulations (Uredba) identifiable from title — also uses 'za' not 'o'."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Pravilnik\\s+za\\s+|^Правилник\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "pravilnik",
+        "priority": 70,
+        "note": "Ministerial rulebooks (Pravilnik) identifiable from title."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Odluka\\s+za\\s+|^Одлука\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "odluka",
+        "priority": 70,
+        "note": "Decisions (Odluka / Одлука) identifiable from title."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "Ustav\\s+na\\s+Republika|Устав\\s+на\\s+Република",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 100,
+        "note": "Macedonian Constitution uniquely identified by title."
+      }
+    ]
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "CoE member since 1995-11-09. ECHR ratified 1997. ECtHR judgments binding. Macedonian courts apply ECHR standards particularly in criminal procedure and property rights."
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "NATO member since 2020-03-27, following resolution of name dispute via Prespa Agreement (2018) and accession protocol ratification. 30th NATO member state. Defence and security legislation aligned with NATO standards post-accession."
+    },
+    {
+      "body": "osce",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "OSCE member. High Commissioner on National Minorities played key role in Ohrid Framework Agreement 2001 mediation. OSCE Mission to Skopje (established 1992) monitors minority rights implementation."
+    },
+    {
+      "body": "cefta",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "CEFTA 2006 member. Regional free trade framework with Western Balkans states. Some customs and trade regulations aligned with CEFTA commitments."
+    },
+    {
+      "body": "eu-candidate",
+      "status": "candidate",
+      "member_since": "2005-12-17",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "EU candidate since 2005-12-17 — one of the longest-standing Western Balkans candidates. Accession negotiations formally opened March 2020 after Prespa Agreement resolved name dispute with Greece. SAA (Stabilisation and Association Agreement) in force since 2004. Does NOT yet have direct-effect EU law. Substantial acquis harmonisation already completed, particularly in trade, competition, and justice."
+    },
+    {
+      "body": "francophonie",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Observer member of the Organisation internationale de la Francophonie (OIF). No legal obligations."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Macedonian legislation is published in Cyrillic script as primary. Albanian co-official legislation uses Latin script. OCR must handle Macedonian Cyrillic (31 letters, differs from Serbian Cyrillic in having Ѓ, Ѕ, Ј, Љ, Њ, Ќ, Џ). Headings typically in ALL CAPS Cyrillic. Transliteration for FRBR URI slugs follows ISO 9 or BGN/PCGN romanisation conventions — document which is used during ingestion."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

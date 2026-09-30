@@ -1,0 +1,336 @@
+{
+  "code": "is",
+  "name": "Iceland",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "isl"
+  ],
+  "authoritative_language": "isl",
+  "document_classes": {
+    "act": {
+      "label": "Lög",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hluti",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Kafli",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned",
+          "note": "Unnumbered prose paragraph within a grein. First málsgrein is direct article content; subsequent ones become PARAGRAPH 2, 3, etc."
+        },
+        {
+          "local_term": "Stafliður",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Icelandic § (grein) is the basic statutory unit, mapping to AKN article and consistent with DK/SE/NO/DE civil law convention. § numbers are continuous across all kaflar. Most acts have no hluti — short acts may have no kaflar either, just a flat sequence of greinar."
+    },
+    "reglugjord": {
+      "label": "Reglugerð",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kafli",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Stafliður",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive regulation issued by minister under statutory authority (heimild). Numbered in the Stjórnartíðindi series with its own sequential number per year. Separate FRBR work. URI uses rgj/ subtype."
+    },
+    "stjornarskra": {
+      "label": "Stjórnarskrá lýðveldisins Íslands",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1944 Constitution. §§ 1–80, no higher divisions. Amended by constitutional acts (stjórnarskrárlög) requiring two Althingi votes with an intervening general election. The 1944 constitution replaced the 1920 constitution (itself a revision of the 1874 Danish-era constitution). A new constitution was drafted 2011–2013 but not enacted."
+    },
+    "thingsalyktun": {
+      "label": "Þingsályktun",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Parliamentary resolution (Þingsályktun). Non-binding formal expression of will of Althingi — used for government authorisations, ratification of international agreements, and parliamentary directions. Numbered separately from lög."
+    },
+    "tilskipun": {
+      "label": "Tilskipun",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Historical royal ordinance from the Danish-crown era (pre-1944). Some tilskipanir remain in force in the Lagasafn. Enacted by the Danish crown, now treated as Icelandic law. URI uses tsk/ subtype. Enacting authority in metadata indicates Danish-era origin."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "is",
+    "uri_patterns": {
+      "act": "/akn/is/act/{year}/{number}",
+      "reglugjord": "/akn/is/act/rgj/{year}/{number}",
+      "bill": "/akn/is/bill/{session}/{number}",
+      "stjornarskra": "/akn/is/act/constitution/1944/stjornarskra",
+      "thingsalyktun": "/akn/is/act/tsa/{year}/{number}",
+      "tilskipun": "/akn/is/act/tsk/{year}/{number}",
+      "officialGazette": "/akn/is/officialGazette/{year}/{number}"
+    },
+    "uri_note": "Act numbers are sequential integers per year, cited as 'lög nr. {number}/{year}' — e.g. lög nr. 33/1944. URI uses the number before the slash and the year: /akn/is/act/1944/33. Regulations use a separate sequential numbering series in Stjórnartíðindi.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "lög nr. {number}/{year}",
+    "act_citation_alt": "{short-title}, nr. {number}/{year}",
+    "reglugjord_citation": "reglugerð nr. {number}/{year}",
+    "insertion_style": "alphanumeric_spaced",
+    "insertion_note": "Inserted §§ use a letter suffix with a space: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Consistent with DK/SE convention."
+  },
+  "enacting_formulae": [
+    {
+      "text": "Alþingi ályktar:",
+      "position": "preamble",
+      "era": "thingsalyktun",
+      "from": "1944-06-17",
+      "note": "Formula for parliamentary resolutions (þingsályktanir)."
+    },
+    {
+      "text": "Forseti Íslands gjörir kunnugt: Alþingi hefur falið mér að undirrita lög þessi og birta þau.",
+      "position": "preamble",
+      "era": "current",
+      "from": "1944-06-17",
+      "note": "Presidential promulgation formula. The President signs acts into law. Acts promulgated in Stjórnartíðindi. Modern lög begin with this formula or without one — varies by publication. The body of the act follows directly."
+    }
+  ],
+  "amendments": {
+    "style": "textual_replacement",
+    "phrasing": "Á eftir {N}. gr. laganna kemur ný grein, {N+1}. gr., svohljóðandi: ... / Orðin '...' í {N}. gr. falla brott. / {N}. gr. laganna orðast svo: ...",
+    "cross_reference_format": "short_title_and_law_number",
+    "note": "Amending acts (breytingarlög) modify specific greinar of the principal act. The amending act is itself a lög with its own number. Final grein gives commencement date (gildistaka). Model each breytingarlög as a separate FRBR work with activeModifications linking to principal act."
+  },
+  "core_tlcs": [
+    {
+      "eId": "althingi",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/is/althingi",
+      "showAs": "Alþingi"
+    },
+    {
+      "eId": "forseti",
+      "class": "TLCRole",
+      "href": "/ontology/role/is/forseti",
+      "showAs": "Forseti Íslands"
+    },
+    {
+      "eId": "forsaetisradherra",
+      "class": "TLCRole",
+      "href": "/ontology/role/is/forsaetisradherra",
+      "showAs": "Forsætisráðherra"
+    },
+    {
+      "eId": "radherra",
+      "class": "TLCRole",
+      "href": "/ontology/role/is/radherra",
+      "showAs": "Ráðherra"
+    },
+    {
+      "eId": "haestrettur",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/is/haestrettur",
+      "showAs": "Hæstiréttur Íslands"
+    },
+    {
+      "eId": "landsrettur",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/is/landsrettur",
+      "showAs": "Landsréttur"
+    },
+    {
+      "eId": "stjornartidindi",
+      "class": "TLCObject",
+      "href": "/ontology/obj/is/stjornartidindi",
+      "showAs": "Stjórnartíðindi"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Icelandic § (grein) is the basic statutory unit — map to ARTICLE keyword and AKN article element, consistent with the DK/SE/NO civil law convention. Kafli (chapter) maps to CHAPTER. Hluti (part) maps to PART — rare, used only in the largest codes. Málsgrein is an unnumbered prose paragraph within a grein: the first málsgrein is the direct ARTICLE content; subsequent málsgreinar become PARAGRAPH 2, PARAGRAPH 3, etc. Stafliður is a lettered list item (a), b), c)) — map to POINT. The § symbol precedes the number: '§ 5' or '5. gr.' — do NOT include '§' or 'gr.' in the ARTICLE number field; write 'ARTICLE 5'. § numbers are continuous across all kaflar. Icelandic contains accented characters that must be preserved exactly: á é í ó ú ý Á É Í Ó Ú Ý þ Þ æ Æ ö Ö. The thorn (þ/Þ) and eth are not present in most European scripts — do not substitute 'th' or 'd'. Most acts have no hluti — medium acts have kaflar, short acts are a flat sequence of greinar. The final grein of every lög is the commencement provision (gildistaka). Amending acts (breytingarlög) typically modify named greinar of the principal act."
+  },
+  "supranational_memberships": [
+    {
+      "body": "efta",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Iceland is an EFTA member state. EFTA as an organisation does not produce directly effective legislation; the EEA mechanism is the operative channel for Single Market law."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "indirect_transposition",
+      "superseded_subjects": [],
+      "note": "Iceland is a founding member of the Council of Europe (1949). The European Convention on Human Rights applies. Iceland accepts the compulsory jurisdiction of the European Court of Human Rights."
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Iceland is a founding NATO member (1949) but has no standing army. Defence responsibilities shared with NATO allies, primarily the United States under the Keflavik Agreement (terminated 2006 as US base, but NATO commitment remains)."
+    },
+    {
+      "body": "nordic-council",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Member of the Nordic Council and Nordic Council of Ministers. Nordic conventions (labour market, social security, passport-free travel) have domestic legal effect via implementing legislation."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "UN Security Council binding resolutions implemented via lög or reglugerðir as needed. Iceland implements UN sanctions regimes."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "basic_unit_symbol": "§",
+    "basic_unit_plural_symbol": "§§",
+    "chapter_abbreviation": "kafli"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "binding_regimes": [
+    {
+      "code": "eea",
+      "kind": "treaty_framework",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "single_market_goods",
+        "single_market_services",
+        "single_market_capital",
+        "single_market_persons",
+        "competition_law",
+        "state_aid",
+        "product_safety",
+        "financial_services"
+      ],
+      "note": "Iceland is a founding EEA member (1994) but NOT an EU member. EEA Agreement incorporates the EU Single Market acquis with direct effect via the EEA Joint Committee decision mechanism. Decisions require transposition into Icelandic law within agreed deadlines. Agriculture, fisheries, customs union, and monetary union are excluded from the EEA Agreement. EFTA Surveillance Authority (ESA) monitors compliance instead of the European Commission. EFTA Court acts as the EEA-parallel to the CJEU for Iceland."
+    }
+  ],
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

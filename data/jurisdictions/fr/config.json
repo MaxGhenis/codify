@@ -1,0 +1,482 @@
+{
+  "code": "fr",
+  "name": "France",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra"
+  ],
+  "authoritative_language": "fra",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Sous-section",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Standard statute. Section and Sous-section act as higher divisions, not basic units. Article is the basic citable unit throughout. Alinéa (unnumbered paragraph) is the primary subdivision within articles."
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Organic laws fill in constitutional details. Same structure as loi ordinaire but with constitutional status. Must be validated by Conseil constitutionnel before promulgation. Simpler hierarchy (no Livre/Section typically)."
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Executive ordinances issued under Article 38 delegation from Parliament, or Article 92/74 in overseas territories. Must be ratified by Parliament within stipulated period. Numbered in same sequence as decrets."
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Decrets en Conseil d'Etat (signed after mandatory Conseil d'Etat opinion) and decrets simples. Presidential decrets (Article 13) signed by President and countersigned by PM. Simpler hierarchy than primary legislation — often just articles."
+    },
+    "arrete": {
+      "label": "Arrêté",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Ministerial or prefectoral orders implementing decrets. Typically short — mostly just articles. Arretes interministeriels signed by multiple ministers. Rarely codified."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of 4 October 1958. 16 Titres, 89 Articles. Articles numbered continuously through all Titres. No Chapitres at constitutional level. Preamble references the 1946 Constitution preamble and 1789 Declaration."
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Sous-section",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "code_hyphen"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Sous-paragraphe",
+          "name": "sous-paragraphe",
+          "description": "Rare fourth-level division in some codes, below Sous-section",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "French codes (Code civil, Code penal, Code du travail, etc.) use a distinctive article numbering scheme: L.xxx-x (legislative part), R.xxx-x (regulatory/decret en CE), D.xxx-x (decret simple). Article numbers encode their position in the hierarchy (e.g., L.1234-5 = Livre 1, Titre 2, Chapitre 3, Art. 4 no. 5). Codification performed by DILA. Codes are maintained at legifrance.gouv.fr as consolidated versions."
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "fr",
+    "uri_patterns": {
+      "loi": "/akn/fr/act/{year}/{number}",
+      "loi_organique": "/akn/fr/act/lo/{year}/{number}",
+      "ordonnance": "/akn/fr/act/ord/{year}/{number}",
+      "decret": "/akn/fr/act/decret/{year}/{number}",
+      "arrete": "/akn/fr/act/arrete/{year}/{slug}",
+      "constitution": "/akn/fr/act/constitution/1958/constitution",
+      "code": "/akn/fr/act/code/{slug}",
+      "bill": "/akn/fr/bill/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "note": "French law numbers follow the pattern YYYY-NNN (e.g., loi n° 2023-270). The JORF number is the canonical publication reference. Codes are identified by their conventional short name slug (code-civil, code-penal, code-du-travail)."
+  },
+  "numbering": {
+    "act_citation": "Loi n° {year}-{number} du {day} {month} {year}",
+    "act_citation_alt": "JORF n° {jorf_number} du {day} {month} {year}",
+    "insertion_style": "hyphen_suffix",
+    "note": "Laws are cited by their number and publication date: 'Loi n° 2023-270 du 14 avril 2023'. In codes, inserted articles use hyphen notation: after art. L.123-4 comes L.123-4-1, L.123-4-2. Article numbering in codes encodes hierarchical position."
+  },
+  "enacting_formulae": [
+    {
+      "text": "L'Assemblée nationale et le Sénat ont adopté,\nLe Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "cinquieme_republique",
+      "from": "1958-10-04",
+      "note": "Standard promulgation formula for ordinary laws under the Fifth Republic. Signed by President, countersigned by Premier ministre and relevant ministers."
+    },
+    {
+      "text": "Le Parlement a adopté,\nVu la décision du Conseil constitutionnel n° [number] du [date] déclarant la présente loi organique conforme à la Constitution ;\nLe Président de la République promulgue la loi organique dont la teneur suit :",
+      "position": "preamble",
+      "era": "loi_organique",
+      "from": "1958-10-04",
+      "note": "Organic law formula; includes mandatory Conseil constitutionnel conformity declaration."
+    },
+    {
+      "text": "Le Président de la République,\nSur le rapport du Premier ministre et des ministres [portfolios],\nVu l'article 38 de la Constitution,\n[...]\nOrdonne :",
+      "position": "preamble",
+      "era": "ordonnance_art38",
+      "from": "1958-10-04",
+      "note": "Ordonnance issued under Article 38 delegation. VISA block lists authorizing law, Conseil d'Etat opinion, Conseil des ministres deliberation."
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "est ainsi rédigé... est complété par... est abrogé... est remplacé par...",
+    "cross_reference_format": "number_and_date",
+    "note": "French amendments quote the new text in full ('est ainsi rédigé'). Repeal uses 'est abrogé'. Cross-references cite by number and date: 'la loi n° 2023-270 du 14 avril 2023'. Within codes, articles are cited by their L./R./D. number."
+  },
+  "core_tlcs": [
+    {
+      "eId": "assembleeNationale",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/assemblee-nationale",
+      "showAs": "Assemblée nationale"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/senat",
+      "showAs": "Sénat"
+    },
+    {
+      "eId": "parlement",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/parlement",
+      "showAs": "Parlement"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/fr/president-de-la-republique",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/fr/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/conseil-constitutionnel",
+      "showAs": "Conseil constitutionnel"
+    },
+    {
+      "eId": "conseilDEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/conseil-d-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "conseilDesMinistres",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/conseil-des-ministres",
+      "showAs": "Conseil des ministres"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/fr/journal-officiel",
+      "showAs": "Journal officiel de la République française"
+    },
+    {
+      "eId": "dila",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/dila",
+      "showAs": "Direction de l'information légale et administrative"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "French law uses Article as the basic unit (ARTICLE keyword). Higher divisions are Livre (BOOK), Titre (TITLE), Chapitre (CHAPTER), Section (SECTION), Sous-section (SUBSECTION) — all higher divisions, not basic units. Alinéa is an unnumbered paragraph subdivision within an article; use PARAGRAPH keyword. In codes, article numbers encode hierarchy position (L.xxx-x, R.xxx-x, D.xxx-x) — preserve these exactly as the article number. Do not confuse Section (a higher division) with section in the Anglophone sense."
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "direct_effect": "direct",
+      "superseded_subjects": [
+        "customs_union",
+        "competition_law",
+        "product_standards",
+        "financial_services"
+      ],
+      "note": "France is a founding EU member (Treaty of Rome 1957). EU Regulations apply directly; Directives require transposition into French law, typically by loi or ordonnance."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "France ratified the ECHR in 1974. ECHR applies in French courts; Cour de cassation and Conseil d'Etat apply it directly. Conseil constitutionnel does not incorporate ECHR into its review (contrôle de conventionnalité is separate from contrôle de constitutionnalité)."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "French legislation uses inline headings (not marginal notes). Article headings appear on the same line or immediately above the article text, not in a side margin. Section/Chapitre headings are centred and in small capitals in the JORF typesetting."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

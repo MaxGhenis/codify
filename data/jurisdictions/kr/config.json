@@ -1,0 +1,365 @@
+{
+  "code": "kr",
+  "name": "Republic of Korea",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "kor"
+  ],
+  "authoritative_language": "kor",
+  "document_classes": {
+    "act": {
+      "label": "Beobryul (Act / Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Pyeon (편, Part)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jang (장, Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jeol (절, Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Gwan (관, Subsection)",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jo (조, Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Hang (항, Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "circled_numeral"
+        },
+        {
+          "local_term": "Ho (호, Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Mok (목, Sub-item)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "hangul_alpha"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Buchik (부칙, Supplementary Provisions)",
+          "name": "supplementaryprovisions",
+          "description": "Transitional and supplementary provisions block at the end of every Korean act. Contains enforcement date (sihaengil), transitional clauses, and repeal provisions.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": true
+        }
+      ],
+      "note": "Jo (Article) is the basic unit, numbered continuously throughout the act. First Hang of each Jo is marked with ① (circled numeral one); single-paragraph articles have no Hang marker. Buchik (Supplementary Provisions) appears at end of act. Gwan (Subsection) is rare in modern legislation."
+    },
+    "daetongryeong-ryeong": {
+      "label": "Daetongryeong-ryeong (대통령령, Presidential Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Jang (장, Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jeol (절, Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jo (조, Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Hang (항, Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "circled_numeral"
+        },
+        {
+          "local_term": "Ho (호, Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Mok (목, Sub-item)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "hangul_alpha"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Presidential Decrees issued under authority delegated by Acts. Same article-based structure as Acts; Pyeon (Part) rarely used."
+    },
+    "constitution": {
+      "label": "Heonbeop (헌법, Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Jang (장, Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jo (조, Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Hang (항, Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "circled_numeral"
+        },
+        {
+          "local_term": "Ho (호, Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1987 Constitution (9th revision) has 10 chapters and 130 articles. The Preamble (Jeonmun) precedes Chapter 1. Circled numerals ①②③ mark Hang within articles."
+    },
+    "jorye": {
+      "label": "Jorye (조례, Municipal Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Jang (장, Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jo (조, Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Hang (항, Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "circled_numeral"
+        },
+        {
+          "local_term": "Ho (호, Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by local autonomous bodies (Si, Do, Gun, Gu). Simpler structure than national Acts; Pyeon and Jeol rarely used."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "kr",
+    "uri_patterns": {
+      "act": "/akn/kr/act/{year}/{number}",
+      "daetongryeong-ryeong": "/akn/kr/act/presidentialdecree/{year}/{number}",
+      "chongri-ryeong": "/akn/kr/act/primeministerialordinance/{year}/{number}",
+      "bu-ryeong": "/akn/kr/act/ministerialordinance/{year}/{number}",
+      "gyuchik": "/akn/kr/act/rule/{year}/{number}",
+      "jorye": "/akn/kr/act/municipalordinance/{year}/{number}",
+      "constitution": "/akn/kr/act/constitution/1948/constitution",
+      "bill": "/akn/kr/bill/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Korea uses the Gregorian calendar for all official legal dating since 1948. FRBR URIs use Gregorian year and act number (법률 제N호 / Act No. N)."
+  },
+  "numbering": {
+    "act_citation": "법률 제{number}호",
+    "act_citation_alt": "Act No. {number} of {year}",
+    "insertion_style": "alphanumeric_suffix"
+  },
+  "enacting_formulae": [
+    {
+      "text": "국회에서 의결된 다음 법률을 이에 공포한다.",
+      "position": "preamble",
+      "era": "republic",
+      "from": "1948-07-17"
+    }
+  ],
+  "amendments": {
+    "style": "textual_amendment_act",
+    "phrasing": "제N조를 다음과 같이 개정한다 (Article N is amended as follows); 제N조제N항 중 '...'을 '...'으로 한다 (In Article N, Paragraph N, '...' is changed to '...')",
+    "cross_reference_format": "act_title_and_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "gukhoe",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kr/national-assembly",
+      "showAs": "Gukhoe (National Assembly)"
+    },
+    {
+      "eId": "daetongryeong",
+      "class": "TLCRole",
+      "href": "/ontology/role/kr/president",
+      "showAs": "Daetongryeong (President)"
+    },
+    {
+      "eId": "gungmuchongri",
+      "class": "TLCRole",
+      "href": "/ontology/role/kr/prime-minister",
+      "showAs": "Gungmu-chongri (Prime Minister)"
+    },
+    {
+      "eId": "daebeop-won",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kr/supreme-court",
+      "showAs": "Daebeop-won (Supreme Court of Korea)"
+    },
+    {
+      "eId": "heonjaeso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kr/constitutional-court",
+      "showAs": "Heonjaeso (Constitutional Court of Korea)"
+    },
+    {
+      "eId": "beopjecheo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kr/moleg",
+      "showAs": "Beopjecheo (Ministry of Government Legislation / MOLEG)"
+    },
+    {
+      "eId": "lawGoKr",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kr/national-law-information-center",
+      "showAs": "National Law Information Center (law.go.kr)"
+    },
+    {
+      "eId": "gwanbo",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kr/official-gazette",
+      "showAs": "Gwanbo (Official Gazette)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Korean legislation uses ARTICLE (Jo 조) as the basic unit, numbered continuously throughout the entire act (e.g., 제1조, 제2조 ... 제N조). Do NOT restart article numbering within chapters.\n\nHierarchy above articles: PART (Pyeon 편) > CHAPTER (Jang 장) > SECTION (Jeol 절) > SUBSECTION (Gwan 관, rare). Higher divisions are numbered with Chinese/Sino-Korean numerals (제일장, 제이장 — though modern acts may use Arabic: 제1장).\n\nParagraph (Hang 항) subdivision: Use PARAGRAPH. Hang is marked with circled numerals ①②③④⑤ — these are Unicode characters U+2460 through U+2468 and beyond. The first Hang of a multi-paragraph article is ①; single-paragraph articles have no Hang marker at all. Reproduce circled numerals exactly as they appear.\n\nItem (Ho 호) subdivision: Use POINT. Ho is numbered with Arabic numerals followed by a period (1. 2. 3.) or Korean period (1. 2. 3.).\n\nSub-item (Mok 목) subdivision: Use INDENT. Mok is lettered with Korean consonants (ㄱ ㄴ ㄷ ㄹ ...) or occasionally Roman lowercase letters (a b c). Reproduce the letter marker exactly.\n\nSupplementary Provisions (Buchik 부칙): Every Korean act ends with a Buchik block. It contains the enforcement date (시행일 Sihaengil), transitional provisions, and repeal provisions. Treat as a named hcontainer 'supplementaryprovisions'. The enforcement article is typically 제1조 (시행일) with text '이 법은 공포한 날부터 시행한다' (This Act shall enter into force on the date of its promulgation) or a specific date.\n\nHanja (Chinese characters): Korean legal texts occasionally use Hanja in parentheses after a Hangul term for disambiguation of homophones (e.g., 사기(詐欺) fraud vs 사기(士氣) morale). Preserve Hanja in parentheses alongside Hangul.\n\nCitation format: Acts are cited as '법률 제N호' (Act No. N) or by full title. Cross-references within acts use '제N조제N항제N호' (Article N, Paragraph N, Item N) with no spaces between elements.\n\nAmendment phrasing: Textual amendments follow the pattern '제N조를 다음과 같이 개정한다' (Article N is amended as follows) or granular substitution '제N조제N항 중 \"A\"를 \"B\"로 한다'. Omnibus amendment acts (일부개정법률) are the standard vehicle.\n\nEnforcement: Acts are promulgated in the Gwanbo (관보, Official Gazette) and assigned an Act Number. The authoritative digital source is the National Law Information Center (법제처 국가법령정보센터, law.go.kr), operated by MOLEG (법제처). law.go.kr provides Korean XML, point-in-time versions, amendment history, and bilingual Korean-English texts for major acts — treat as Tier 1 source.\n\nScript: Korean text is written in Hangul (한글), a featural alphabet of 24 basic letters forming syllabic blocks. Use UTF-8. Do not convert Hangul to romanisation (McCune-Reischauer or Revised Romanisation) in the output XML — preserve native Hangul throughout."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "oecd",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "apec",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "g20",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "asean-plus-three",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "iaea",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "hangul",
+    "rtl": false,
+    "font_preference": "sans-serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

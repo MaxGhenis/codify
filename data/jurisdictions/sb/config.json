@@ -1,0 +1,272 @@
+{
+  "code": "sb",
+  "name": "Solomon Islands",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Standard British colonial-derived hierarchy. Division appears in larger acts between Part and Section; both Part and Division are native Bluebell keywords. Part numbering is typically roman (Part I, Part II) in older Cap-era legislation and arabic in more recent acts — verify per document."
+    },
+    "ln": {
+      "label": "Legal Notice (Subsidiary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Legal Notices are the primary form of subsidiary legislation. 'Regulation' or 'rule' is used as the basic unit term but maps to AKN section. REGULATION is not a Bluebell keyword — use SECTION."
+    },
+    "constitution": {
+      "label": "Constitution of Solomon Islands",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The 1978 Constitution uses Chapters (not Parts) as the higher division. 10 Chapters with sections numbered continuously throughout. Schedule provisions appended separately."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "sb",
+    "uri_patterns": {
+      "act": "/akn/sb/act/{year}/{number}",
+      "act_cap": "/akn/sb/act/cap{NNN}/cap{NNN}",
+      "ln": "/akn/sb/act/ln/{year}/{number}",
+      "bill": "/akn/sb/bill/{year}/{number}",
+      "constitution": "/akn/sb/act/constitution/1978/constitution"
+    },
+    "date_calendar": "gregorian",
+    "note": "Cap-numbered consolidated legislation uses cap{NNN} as both year and number segments. Acts since independence typically cited as 'No. N of YYYY'. Legal Notices cited as 'L.N. No. N of YYYY'."
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "Cap. {number}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "ENACTED BY THE NATIONAL PARLIAMENT OF SOLOMON ISLANDS.",
+      "position": "preamble",
+      "era": "current",
+      "from": "1978-07-07",
+      "note": "Confirmed verbatim from Constitution (Amendment) (Constituent Assembly) Act 2023 (No. 18 of 2023) — paclii.org. All-caps throughout. The Legislation Act 2023 prescribes this as the statutory form of enacting words."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and substituting...",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalParliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sb/national-parliament",
+      "showAs": "National Parliament of Solomon Islands"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/sb/governor-general",
+      "showAs": "Governor-General"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/sb/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/sb/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/sb/attorney-general",
+      "showAs": "Attorney-General"
+    },
+    {
+      "eId": "courtOfAppeal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sb/court-of-appeal",
+      "showAs": "Court of Appeal"
+    },
+    {
+      "eId": "highCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sb/high-court",
+      "showAs": "High Court"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/sb/official-gazette",
+      "showAs": "Solomon Islands Official Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Solomon Islands uses a British-derived common law structure. Acts are enacted by the National Parliament and assented to by the Governor-General. Parts are the primary higher division (Part I, Part II in older Cap-era legislation; Part 1, Part 2 in more recent acts). Larger acts may contain a Division level between Part and Section — use DIVISION keyword. Sections are numbered continuously throughout the act. Subsidiary legislation (Legal Notices) uses 'regulation' or 'rule' as the basic unit but map to SECTION. The Constitution uses Chapters not Parts. Customary law is recognised by the Constitution (s. 75) and applied by Local Courts and the Customary Land Appeal Court — flag any provisions referring to kastom for TLC annotation."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "pacific-islands-forum",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "msg",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

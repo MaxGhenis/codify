@@ -1,0 +1,468 @@
+{
+  "code": "mx",
+  "name": "Mexico",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley Federal / Ley General",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman_upper",
+          "note": "Higher division above artículo; use SUBDIVISION as Bluebell proxy. See ambiguity #2 in profile."
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Constitutional articles 1–9 use ordinal suffix (1o.) in source; eId always uses Arabic art_1 through art_9."
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        },
+        {
+          "local_term": "Párrafo",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "ordinal_position",
+          "note": "Unnumbered prose paragraphs. Cited ordinally. Bluebell treats as body content; post-processing needed for alinea wrapping."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Artículo Transitorio",
+          "name": "transitorios",
+          "note": "Transitional provisions. Numbered artículos within a wrapper hcontainer. Appear at end of every instrument. Post-processing required after Bluebell parse."
+        },
+        {
+          "local_term": "Apartado",
+          "name": "apartado",
+          "note": "Sub-article compartment (Apartado A, Apartado B). Used in Constitution Arts 2 and 123 and some codes. May contain fracciones."
+        }
+      ]
+    },
+    "codigo": {
+      "label": "Código Federal",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_spanish",
+          "note": "Optional level. Present in Código Civil Federal Libro Cuarto (Primera Parte / Segunda Parte). Not all codes use this."
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        },
+        {
+          "local_term": "Párrafo",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "ordinal_position"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Artículo Transitorio",
+          "name": "transitorios",
+          "note": "As per ley class."
+        },
+        {
+          "local_term": "Apartado",
+          "name": "apartado",
+          "note": "As per ley class."
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitución Política de los Estados Unidos Mexicanos",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Arts 1-9 use ordinal suffix in source (1o.). eId always arabic: art_1 through art_9."
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Apartado",
+          "name": "apartado",
+          "note": "Apartado A, Apartado B. Used in Arts 2 and 123. Uppercase letter suffix: hcontainer_a, hcontainer_b."
+        }
+      ]
+    },
+    "reglamento": {
+      "label": "Reglamento",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Artículo Transitorio",
+          "name": "transitorios",
+          "note": "As per ley class."
+        }
+      ],
+      "note": "Presidential decree under Art. 89 CPEUM. Identified by parent law: 'Reglamento de la Ley X'."
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "mx",
+    "uri_patterns": {
+      "ley": "/akn/mx/act/{year}/{slug}",
+      "codigo": "/akn/mx/act/{year}/{slug}",
+      "reglamento": "/akn/mx/act/reglamento/{year}/{slug}",
+      "reforma_constitucional": "/akn/mx/act/const-reforma/{year}/{slug}",
+      "bill": "/akn/mx/bill/{year}/{slug}",
+      "constitution": "/akn/mx/act/constitution/1917/cpeum",
+      "dof": "/akn/mx/officialGazette/{year}/{dof-date-slug}"
+    },
+    "date_calendar": "gregorian",
+    "slug_construction": "short_title_no_accents_hyphenated",
+    "year_convention": "original_enactment_year",
+    "note": "No sequential act numbering. Year = original DOF enactment year. Slug = slugified short title (no accents, lowercase, spaces to hyphens). Amendment decrees use year of their own DOF publication under subtype 'reforma' or 'const-reforma'."
+  },
+  "numbering": {
+    "act_citation": "[Short title] (D.O. {date})",
+    "amendment_citation": "Decreto por el que se reforman... [ley], D.O. {date}",
+    "insertion_style": "bis_ter",
+    "insertion_suffixes": [
+      "Bis",
+      "Ter",
+      "Quáter",
+      "Quinquies"
+    ],
+    "note": "No sequential act number assigned. Laws cited by short title + DOF date. Insertion uses Bis/Ter/Quáter suffixes, not alphanumeric. eIds: art_5bis, art_5ter."
+  },
+  "enacting_formulae": [
+    {
+      "text": "El Congreso General de los Estados Unidos Mexicanos, decreta:",
+      "position": "preamble",
+      "era": "current",
+      "actor": "Congreso de la Unión",
+      "instrument_types": [
+        "ley",
+        "codigo",
+        "reforma_constitucional"
+      ]
+    },
+    {
+      "text": "[Nombre del Presidente], Presidente de los Estados Unidos Mexicanos, en ejercicio de la facultad que me confiere el Artículo 89, fracción I de la Constitución Política de los Estados Unidos Mexicanos, y con fundamento en [artículos habilitantes], he tenido a bien expedir el siguiente: REGLAMENTO DE LA LEY [NOMBRE]:",
+      "position": "preamble",
+      "era": "current",
+      "actor": "Presidente de la República",
+      "instrument_types": [
+        "reglamento"
+      ]
+    },
+    {
+      "text": "El Congreso General de los Estados Unidos Mexicanos, en uso de la facultad que le confiere el artículo 135 de la Constitución General de la República y previa aprobación de la mayoría de las Legislaturas de los estados, declara reformados los artículos [N] de la Constitución Política de los Estados Unidos Mexicanos, en los siguientes términos:",
+      "position": "preamble",
+      "era": "current",
+      "actor": "Congreso de la Unión + Legislaturas de los estados",
+      "instrument_types": [
+        "reforma_constitucional"
+      ]
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "decree_title_pattern": "DECRETO por el que se reforman, adicionan y derogan diversas disposiciones de la {ley}",
+    "operative_phrases": {
+      "reform": "Se reforma el artículo {N}... para quedar como sigue:",
+      "addition": "Se adiciona {artículo N Bis / fracción X al artículo N}...",
+      "repeal": "Se deroga el artículo {N}.",
+      "combined": "Se reforman los artículos {N, N}; se adicionan los artículos {N Bis}; y se deroga el artículo {N}, todos de la {Ley X}, para quedar como sigue:"
+    },
+    "transitorios": "Every instrument ends with numbered Artículos Transitorios specifying effective date, repeals, and transitional arrangements.",
+    "cross_reference_format": "short_title_only"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/congreso-union",
+      "showAs": "Congreso de la Unión"
+    },
+    {
+      "eId": "camaraDeputados",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/camara-diputados",
+      "showAs": "Cámara de Diputados"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/senado-republica",
+      "showAs": "Senado de la República"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/mx/presidente",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "segob",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/segob",
+      "showAs": "Secretaría de Gobernación"
+    },
+    {
+      "eId": "secretarioGobernacion",
+      "class": "TLCRole",
+      "href": "/ontology/role/mx/secretario-gobernacion",
+      "showAs": "Secretario de Gobernación"
+    },
+    {
+      "eId": "secretarioEstado",
+      "class": "TLCRole",
+      "href": "/ontology/role/mx/secretario-estado",
+      "showAs": "Secretario de Estado"
+    },
+    {
+      "eId": "scjn",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/scjn",
+      "showAs": "Suprema Corte de Justicia de la Nación"
+    },
+    {
+      "eId": "dof",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mx/dof",
+      "showAs": "Diario Oficial de la Federación"
+    },
+    {
+      "eId": "mexico",
+      "class": "TLCLocation",
+      "href": "/ontology/place/mx",
+      "showAs": "Estados Unidos Mexicanos"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Basic unit is ARTICLE not SECTION. Hierarchy: BOOK (codes only) > PART (codes, optional) > TITLE > CHAPTER > SUBDIVISION (Sección, optional) > ARTICLE. Fracciones use Roman numerals (I, II, III) mapped to PARAGRAPH. Incisos use lowercase letters a), b), c) mapped to POINT. Artículos Transitorios appear at end of every instrument — parse as ARTICLE elements; post-processing wraps in hcontainer[transitorios]. Apartados (Apartado A, Apartado B) within articles require post-processing to wrap in hcontainer[apartado]."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "oas",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Inter-American Court of Human Rights judgments binding on Mexico but require domestic implementation."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "section_title",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Mexican laws use titled headings embedded within the hierarchy (e.g., 'Título Primero - Disposiciones Generales') rather than marginal notes. Article headings appear inline before the article text in some laws, as separate lines in others."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "binding_regimes": [
+    {
+      "code": "usmca",
+      "kind": "treaty_framework",
+      "direct_effect": "none",
+      "note": "USMCA (T-MEC) treaty obligations require domestic transposition. No direct effect."
+    }
+  ],
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

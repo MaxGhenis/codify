@@ -1,0 +1,423 @@
+{
+  "code": "pl",
+  "name": "Poland",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "pol"
+  ],
+  "authoritative_language": "pol",
+  "document_classes": {
+    "act": {
+      "label": "Ustawa",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Księga",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_pl",
+          "note": "Used only in major codes (Civil Code, Criminal Code, etc.)"
+        },
+        {
+          "local_term": "Tytuł",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Dział",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "No dedicated AKN element for dział; mapped to part"
+        },
+        {
+          "local_term": "Rozdział",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artykuł",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Continuous across entire act, never restarts within higher divisions"
+        },
+        {
+          "local_term": "Ustęp",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_period",
+          "note": "Numbered with period: 1. 2. 3. — mapped to paragraph in AKN"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_rparen"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_rparen",
+          "note": "Excludes Polish-specific letters; see ambiguity 3 in profile"
+        },
+        {
+          "local_term": "Tiret",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "none",
+          "note": "Unnumbered dash (–) enumeration"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Oddział",
+          "name": "oddział",
+          "level": "higher",
+          "note": "Sub-chapter grouping below Rozdział, above Artykuł; see ambiguity 2 in profile"
+        }
+      ]
+    },
+    "rozp": {
+      "label": "Rozporządzenie",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Rozdział",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artykuł",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ustęp",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_rparen"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_rparen"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Rozporządzenia (regulations) issued by President, Council of Ministers, Prime Minister, and ministers. Same internal structure as ustawy. Published in Dz.U."
+    },
+    "constitution": {
+      "label": "Konstytucja Rzeczypospolitej Polskiej",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Rozdział",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artykuł",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ustęp",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_rparen"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Rozdział (Roman-numbered) as sole higher division. 13 Rozdziały, 243 Artykuły. No Księga/Tytuł/Dział."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "pl",
+    "uri_patterns": {
+      "act": "/akn/pl/act/{year}/{poz}",
+      "rozp": "/akn/pl/act/rozp/{year}/{poz}",
+      "bill": "/akn/pl/bill/{year}/{druk}",
+      "constitution": "/akn/pl/act/constitution/1997/constitution",
+      "mp": "/akn/pl/act/mp/{year}/{poz}"
+    },
+    "date_calendar": "gregorian",
+    "number_field": "Dz.U. pozycja (sequential annual item number)",
+    "notes": [
+      "Post-2012: year + sequential poz only (e.g., Dz.U. 2023 poz. 641 → /akn/pl/act/2023/641).",
+      "Pre-2012: year + Nr + poz format (e.g., Dz.U. 1964 Nr 16 poz. 93). URI uses sequential poz if available from ISAP, else Nr-poz as fallback.",
+      "Consolidated texts (tekst jednolity): canonical URI is the original enactment year/poz. Consolidation position stored as FRBRalias.",
+      "Bills: use Sejm druk sejmowy (printed matter number) before enactment. Update URI when poz assigned.",
+      "Monitor Polski instruments published under /akn/pl/act/mp/{year}/{poz}."
+    ]
+  },
+  "numbering": {
+    "act_citation": "ustawa z dnia {date} r. {title} (Dz.U. {year} poz. {poz})",
+    "act_citation_pre2012": "ustawa z dnia {date} r. {title} (Dz.U. {year} Nr {Nr} poz. {poz})",
+    "act_citation_consolidated": "t.j. Dz.U. {year} poz. {poz}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "art. 5a, art. 5b",
+    "article_numbering": "continuous_arabic",
+    "article_numbering_note": "Continuous from Art. 1 throughout entire act regardless of higher divisions"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Sejm Rzeczypospolitej Polskiej uchwala, co następuje:",
+      "english": "The Sejm of the Republic of Poland enacts as follows:",
+      "position": "preamble",
+      "type": "act",
+      "era": "current",
+      "from": "1997-10-17"
+    },
+    {
+      "text": "[Issuing body], działając na podstawie art. {N} [enabling act], zarządza, co następuje:",
+      "english": "[Issuing body], acting pursuant to Art. {N} of [enabling act], orders as follows:",
+      "position": "preamble",
+      "type": "rozp",
+      "era": "current"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing_substitution": "Art. {N} otrzymuje brzmienie:",
+    "phrasing_deletion": "W art. {N} skreśla się ust. {M}.",
+    "phrasing_insertion": "Po art. {N} dodaje się art. {Na} w brzmieniu:",
+    "phrasing_repeal": "Art. {N} uchyla się.",
+    "cross_reference_format": "short_title_and_dzu_position",
+    "cross_reference_example": "ustawa z dnia 23 kwietnia 1964 r. — Kodeks cywilny (Dz.U. 2023 poz. 1610, z późn. zm.)"
+  },
+  "core_tlcs": [
+    {
+      "eId": "sejm",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/sejm",
+      "showAs": "Sejm Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/senat",
+      "showAs": "Senat Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/president",
+      "showAs": "Prezydent Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "marshalSejm",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/marshal-sejm",
+      "showAs": "Marszałek Sejmu"
+    },
+    {
+      "eId": "marshalSenat",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/marshal-senat",
+      "showAs": "Marszałek Senatu"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/council-of-ministers",
+      "showAs": "Rada Ministrów"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/prime-minister",
+      "showAs": "Prezes Rady Ministrów"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "constitutionalTribunal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/constitutional-tribunal",
+      "showAs": "Trybunał Konstytucyjny"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/supreme-court",
+      "showAs": "Sąd Najwyższy"
+    },
+    {
+      "eId": "supremeAdminCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/supreme-admin-court",
+      "showAs": "Naczelny Sąd Administracyjny"
+    },
+    {
+      "eId": "rcl",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/rzadowe-centrum-legislacji",
+      "showAs": "Rządowe Centrum Legislacji"
+    },
+    {
+      "eId": "dzienniKUstaw",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pl/dziennik-ustaw",
+      "showAs": "Dziennik Ustaw Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "monitorPolski",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pl/monitor-polski",
+      "showAs": "Monitor Polski"
+    },
+    {
+      "eId": "poland",
+      "class": "TLCLocation",
+      "href": "/ontology/place/pl",
+      "showAs": "Rzeczpospolita Polska"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Poland uses civil law structure. Basic unit is ARTICLE (artykuł), not SECTION. Higher divisions: BOOK (księga), TITLE (tytuł), PART (dział), CHAPTER (rozdział). Subdivisions: SUBSECTION (ustęp, numbered with period: 1. 2.), POINT (punkt, numbered with right parenthesis: 1) 2)), INDENT (litera, lettered: a) b)), INDENT (tiret, unnumbered dash). Article numbering is ALWAYS continuous throughout the entire act — do not restart at each chapter. Enacting formula: 'Sejm Rzeczypospolitej Polskiej uchwala, co następuje:'"
+  },
+  "supranational_memberships": [
+    {
+      "body": "eu",
+      "member_since": "2004-05-01",
+      "direct_effect": "direct",
+      "direct_effect_instruments": [
+        "regulations",
+        "decisions"
+      ],
+      "transposition_required": [
+        "directives"
+      ],
+      "superseded_subjects": [],
+      "notes": "EU Regulations apply directly. EU Directives require transposition by ustawa or rozporządzenie. EU instruments modelled under /akn/eu/ URIs per AKN4EU profile.",
+      "status": "member",
+      "excluded_subjects": [
+        "charter_of_fundamental_rights"
+      ],
+      "protocol_references": [
+        "Protocol 30 TFEU (UK/Poland on Charter of Fundamental Rights)"
+      ],
+      "note": "Poland has, since the Treaty of Lisbon, a Protocol 30 opt-out limiting the justiciability of the EU Charter of Fundamental Rights in its courts. The protocol was shared with the UK until Brexit. Polish courts treat Charter rights as interpretive aids rather than directly enforceable rights in the scope covered by the Protocol."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "notes": "ECHR binding via ratified treaty. Judgments of European Court of Human Rights binding on Poland."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "nato",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "special_chars": [
+      "ą",
+      "ć",
+      "ę",
+      "ł",
+      "ń",
+      "ó",
+      "ś",
+      "ż",
+      "ź"
+    ]
+  },
+  "official_gazette": {
+    "name": "Dziennik Ustaw Rzeczypospolitej Polskiej",
+    "abbreviation": "Dz.U.",
+    "url": "https://dziennikustaw.gov.pl/DU",
+    "isap_url": "https://isap.sejm.gov.pl/",
+    "eli_url": "https://eli.gov.pl/",
+    "electronic_only_since": "2012-01-01",
+    "second_gazette": {
+      "name": "Monitor Polski",
+      "abbreviation": "M.P.",
+      "url": "https://monitorpolski.gov.pl/MP"
+    }
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

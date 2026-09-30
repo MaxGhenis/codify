@@ -1,0 +1,252 @@
+{
+  "code": "cn",
+  "name": "China",
+  "type": "national",
+  "tradition": [
+    "socialist",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "zho"
+  ],
+  "authoritative_language": "zho",
+  "document_classes": {
+    "act": {
+      "label": "Law (Falu)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bian (Part/Book)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Zhang (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jie (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Tiao (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Kuan (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "unnumbered_positional"
+        },
+        {
+          "local_term": "Xiang (Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "chinese_parenthesized"
+        },
+        {
+          "local_term": "Mu (Sub-item)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "administrative_regulation": {
+      "label": "Administrative Regulation (Xingzheng Fagui)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Zhang (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jie (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Tiao (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Kuan (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "unnumbered_positional"
+        },
+        {
+          "local_term": "Xiang (Item)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "chinese_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Issued by the State Council"
+    },
+    "constitution": {
+      "label": "Constitution (Xianfa)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Zhang (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Jie (Section)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "chinese_numeral"
+        },
+        {
+          "local_term": "Tiao (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Kuan (Paragraph)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "unnumbered_positional"
+        }
+      ],
+      "hcontainers": []
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "cn",
+    "uri_patterns": {
+      "act": "/akn/cn/act/{year}/{slug}",
+      "administrative_regulation": "/akn/cn/act/administrative-regulation/{year}/{slug}",
+      "bill": "/akn/cn/bill/{year}/{slug}",
+      "constitution": "/akn/cn/act/constitution/1982/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "zhiyi_numeric"
+  },
+  "enacting_formulae": [
+    {
+      "text": "(Adopted at the [Ordinal] Session of the [Ordinal] National People's Congress on [Date])",
+      "position": "preface",
+      "era": "npc",
+      "from": "1954-09-20"
+    },
+    {
+      "text": "(Adopted at the [Ordinal] Session of the Standing Committee of the [Ordinal] National People's Congress on [Date])",
+      "position": "preface",
+      "era": "npcsc",
+      "from": "1954-09-20"
+    }
+  ],
+  "amendments": {
+    "style": "textual_decision",
+    "phrasing": "Article [N] is amended to read...",
+    "cross_reference_format": "full_title_guillemets"
+  },
+  "core_tlcs": [
+    {
+      "eId": "npc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cn/npc",
+      "showAs": "National People's Congress"
+    },
+    {
+      "eId": "npcsc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cn/npcsc",
+      "showAs": "Standing Committee of the National People's Congress"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/cn/president",
+      "showAs": "President of the People's Republic of China"
+    },
+    {
+      "eId": "npcGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/cn/npc-gazette",
+      "showAs": "Gazette of the Standing Committee of the NPC"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Chinese law uses ARTICLE as basic unit. Kuan (paragraphs) are UNNUMBERED in source text -- pipeline must assign sequential numbers. Chinese structural markers must be converted to Latin Bluebell keywords. Jie (Section) is a HIGHER division, not the basic unit."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "han_simplified",
+    "rtl": false,
+    "font_preference": "sans-serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

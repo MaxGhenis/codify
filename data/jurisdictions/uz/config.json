@@ -1,0 +1,319 @@
+{
+  "code": "uz",
+  "name": "Uzbekistan",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "socialist"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "uzb",
+    "rus"
+  ],
+  "authoritative_language": "uzb",
+  "document_classes": {
+    "qonun": {
+      "label": "Law of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bo'lim",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_arabic",
+          "note": "Highest grouping in codes; maps to AKN title. See ambiguity note on bo'lim mapping."
+        },
+        {
+          "local_term": "Bob",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Qism",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_inline"
+        },
+        {
+          "local_term": "Band",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "bolim",
+          "use_when": "bo'lim cannot be cleanly mapped to title due to structural conflict",
+          "local_term": "Bolim"
+        },
+        {
+          "name": "proviso",
+          "use_when": "shartlar (conditions/provisos) attached to an article",
+          "local_term": "Proviso"
+        }
+      ]
+    },
+    "kodeks": {
+      "label": "Code of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bo'lim",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_arabic",
+          "note": "Highest structural grouping in all major codes (Criminal, Civil, Civil Procedure)"
+        },
+        {
+          "local_term": "Bob",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous_throughout_all_parts"
+        },
+        {
+          "local_term": "Qism",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_inline"
+        },
+        {
+          "local_term": "Band",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Codes use article numbering continuous throughout all bo'lims and bobs. Civil Code split across two enacted instruments (Part One 1995, Part Two 1996) with continuous article numbering — model as single work."
+    },
+    "farmon": {
+      "label": "Decree of the President of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Modda / Band",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Shorter decrees may use numbered paragraphs (band) rather than articles; use ARTICLE keyword in Bluebell and note the local term"
+        }
+      ],
+      "hcontainers": [
+        {
+          "name": "paragraph",
+          "use_when": "decree uses numbered paragraph (band) structure without article headings",
+          "local_term": "Paragraph"
+        }
+      ],
+      "note": "Presidential decrees (farmon) are normative acts with the same article hierarchy as laws. Simple decrees may lack chapter grouping and use only numbered articles or bands."
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bo'lim",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "note": "Constitution has 6 bo'lims (Parts)"
+        },
+        {
+          "local_term": "Bob",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "note": "Constitution has 27 bobs (Chapters)"
+        },
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Constitution has 155 moddas (Articles)"
+        }
+      ],
+      "hcontainers": []
+    }
+  },
+  "default_document_class": "qonun",
+  "frbr": {
+    "country_code": "uz",
+    "uri_patterns": {
+      "qonun": "/akn/uz/act/{year}/{number}",
+      "kodeks": "/akn/uz/act/{year}/{slug}",
+      "farmon": "/akn/uz/act/decree/{year}/{number}",
+      "qaror_prezident": "/akn/uz/act/resolution/{year}/{number}",
+      "qaror_vazirlar": "/akn/uz/act/cabinet-resolution/{year}/{number}",
+      "bill": "/akn/uz/bill/{year}/{number}",
+      "constitution": "/akn/uz/act/constitution/{year}/constitution"
+    },
+    "number_format": "LRU-sequential",
+    "number_note": "Use the LRU sequential number (e.g., 682 from LRU-682) as the {number} segment. Record the O'RQ citation (e.g., O'RQ-682-son) as <FRBRalias>. For pre-LRU laws, use session number without suffix (e.g., 163 from No. 163-I).",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "O'RQ-{number}-son, {dd}.{mm}.{yyyy}",
+    "act_citation_russian": "ZRU-{number}",
+    "insertion_style": "dash_suffix",
+    "insertion_example": "48-1, 48-2 (Article 48-1 inserted after Article 48)"
+  },
+  "enacting_formulae": [
+    {
+      "text": "O'zbekiston Respublikasi Qonuni",
+      "position": "preface",
+      "language": "uzb",
+      "note": "Appears as document type label in the identification block, not as a body enacting formula. The legislative process is recorded in metadata (adopted by Legislative Chamber on [date], approved by Senate on [date], signed by President on [date])."
+    },
+    {
+      "text": "Закон Республики Узбекистан",
+      "position": "preface",
+      "language": "rus",
+      "note": "Russian-language equivalent of the identification block label"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "[Act citation]ning [N]-moddasiga quyidagi o'zgartishlar kiritilsin: [N]-moddaning [N]-qismi quyidagi tahrirda bayon etilsin: [new text]",
+    "phrasing_english": "The following amendments shall be made to Article [N] of [Act citation]: Part [N] of Article [N] shall be stated in the following wording: [new text]",
+    "cross_reference_format": "short_title_plus_ORQ_number_and_date",
+    "omnibus_style": true,
+    "omnibus_note": "Uzbekistan frequently uses omnibus amendment laws modifying 10-30 acts simultaneously. Each amended act section uses <mod>/<quotedStructure> within a single parent <act> document."
+  },
+  "core_tlcs": [
+    {
+      "eId": "oliyMajlis",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/oliy-majlis",
+      "showAs": "Oliy Majlis of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "legislativeChamber",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/legislative-chamber",
+      "showAs": "Legislative Chamber of the Oliy Majlis"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/senate",
+      "showAs": "Senate of the Oliy Majlis"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/uz/president",
+      "showAs": "President of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/ministry-of-justice",
+      "showAs": "Ministry of Justice of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/constitutional-court",
+      "showAs": "Constitutional Court of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "khalqSozi",
+      "class": "TLCObject",
+      "href": "/ontology/obj/uz/khalq-sozi",
+      "showAs": "Khalq so'zi"
+    },
+    {
+      "eId": "lexUz",
+      "class": "TLCObject",
+      "href": "/ontology/obj/uz/lex-uz",
+      "showAs": "National Legislation Database of Uzbekistan (lex.uz)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Higher divisions are TITLE (bo'lim) and CHAPTER (bob). Article subdivisions use PARAGRAPH (qism, numbered 1 2 3) and POINT (band, lettered a b v). Articles are numbered continuously throughout the entire act regardless of chapter. Do not use SECTION or PART keywords."
+  },
+  "supranational_memberships": [
+    {
+      "body": "cis",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "CIS instruments require domestic ratification before taking effect"
+    },
+    {
+      "body": "sco",
+      "direct_effect": "none",
+      "superseded_subjects": []
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif",
+    "script_note": "Primary display in Latin-script Uzbek. Russian translation shown as secondary. Cyrillic Uzbek treated as alternate manifestation during transition period."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

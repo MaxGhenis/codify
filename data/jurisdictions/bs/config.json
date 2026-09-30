@@ -1,0 +1,464 @@
+{
+  "code": "bs",
+  "name": "Bahamas",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "marker_form": "arabic_period"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "si": {
+      "label": "Statutory Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Regulation (Order/Rule/Section/Paragraph)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "marker_form": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "SIs use 'regulation' as basic unit term but map to AKN section. REGULATION is not a valid Bluebell keyword."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution uses Articles (not Sections) as the basic unit, grouped under Chapters. Use ARTICLE keyword in Bluebell."
+    },
+    "penal_code": {
+      "label": "Penal Code (colonial-era code structure)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Book",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_lower"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Used only for the Penal Code (CH.84, enacted 1873). BOOK > TITLE > SECTION hierarchy. Not applicable to any modern Bahamian legislation."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "bs",
+    "uri_patterns": {
+      "act": "/akn/bs/act/{year}/{number}",
+      "act_chapter_only": "/akn/bs/act/ch{chapter}/{identifier}",
+      "si": "/akn/bs/act/si/{year}/{number}",
+      "bill": "/akn/bs/bill/{year}/{number}",
+      "constitution": "/akn/bs/act/constitution/1973/constitution"
+    },
+    "date_calendar": "gregorian",
+    "notes": "When only a CH.NNN chapter number is known (no original enactment year), use act_chapter_only pattern and store CH.NNN as FRBRalias. Update to act pattern when enactment year is determined."
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "CH.{chapter}",
+    "si_citation": "No. {number}/{year}",
+    "insertion_style": "alphanumeric",
+    "notes": "Dual numbering system: annual No. N of YYYY for post-2000 Revised Edition acts; CH.NNN for consolidated statutes. Alphanumeric insertion numbering confirmed (5A, 38K, 47C, 56A)."
+  },
+  "enacting_formula_markers": [
+    "WHEREAS",
+    "NOW THEREFORE",
+    "BE IT ENACTED",
+    "Enacted by the Parliament",
+    "in exercise of the powers conferred",
+    "makes the following Order",
+    "makes the following Regulations",
+    "makes the following Rules"
+  ],
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED by the Senate and House of Assembly of the Commonwealth of The Bahamas and by the authority of the same as follows:",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1973-07-10",
+      "verified": false,
+      "note": "Reconstructed from constitutional structure and Commonwealth Caribbean pattern. Requires verbatim confirmation from a gazetted principal act PDF.",
+      "document_class": [
+        "act"
+      ]
+    },
+    {
+      "text": "Enacted by the Parliament of The Bahamas",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1973-07-10",
+      "verified": true,
+      "note": "Standard short-form enacting formula confirmed from gazetted primary legislation.",
+      "document_class": [
+        "act"
+      ]
+    },
+    {
+      "text": "NOW THEREFORE, in exercise of the powers conferred by subsection (1) of section 3 of the Protection of Revenue Act, the Governor-General makes the following Order —",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1973-07-10",
+      "verified": true,
+      "note": "Enacting formula confirmed from gazetted statutory orders under the Protection of Revenue Act.",
+      "document_class": [
+        "si",
+        "act"
+      ]
+    },
+    {
+      "text": "The Minister, in exercise of the powers conferred on him by section [N] of the [Parent Act], makes the following Regulations:",
+      "position": "preamble",
+      "type": "si",
+      "era": "post-independence",
+      "from": "1973-07-10",
+      "verified": false,
+      "note": "Inferred from Commonwealth Caribbean SI practice. Requires verbatim confirmation from a gazetted Bahamian SI PDF.",
+      "document_class": [
+        "si"
+      ]
+    }
+  ],
+  "attachments": [
+    {
+      "caption": "SCHEDULE",
+      "normative": true
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by the deletion of... and the substitution of...",
+    "cross_reference_format": "short_title_with_no_and_year_or_chapter",
+    "notes": "Standard textual amendment style confirmed from multiple acts 2022-2025. Cross-references use 'the [Short Title] (No. N of YYYY)' for post-edition acts and 'the [Short Title] (CH.NNN)' for consolidated acts."
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/parliament",
+      "showAs": "Parliament of The Bahamas"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "houseOfAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/house-of-assembly",
+      "showAs": "House of Assembly"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/governor-general",
+      "showAs": "Governor-General"
+    },
+    {
+      "eId": "monarch",
+      "class": "TLCRole",
+      "href": "/ontology/role/gb/monarch",
+      "showAs": "His Majesty the King"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/speaker",
+      "showAs": "Speaker"
+    },
+    {
+      "eId": "presidentOfSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/president-of-senate",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "leaderOfOpposition",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/leader-of-opposition",
+      "showAs": "Leader of the Opposition"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/supreme-court",
+      "showAs": "Supreme Court"
+    },
+    {
+      "eId": "courtOfAppeal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/court-of-appeal",
+      "showAs": "Court of Appeal"
+    },
+    {
+      "eId": "privyCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gb/privy-council",
+      "showAs": "Judicial Committee of the Privy Council"
+    },
+    {
+      "eId": "cabinetOffice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/cabinet-office",
+      "showAs": "Cabinet Office"
+    },
+    {
+      "eId": "lawRevisionOfficer",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/law-revision-officer",
+      "showAs": "Law Revision Officer"
+    },
+    {
+      "eId": "lawReformCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/law-reform-commission",
+      "showAs": "Law Reform Commission"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bs/official-gazette",
+      "showAs": "Official Gazette of The Bahamas"
+    },
+    {
+      "eId": "bahamas",
+      "class": "TLCLocation",
+      "href": "/ontology/place/bs",
+      "showAs": "The Bahamas"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "The Bahamas uses PART > SECTION (not CHAPTER > SECTION) in ordinary legislation. The Constitution uses CHAPTER > ARTICLE. The Penal Code (CH.84 only) uses BOOK > TITLE > SECTION. Sections are numbered continuously (not restarting per Part). Section 1 = short title; Section 2 = interpretation. The enacting formula begins 'BE IT ENACTED by the Senate and House of Assembly of the Commonwealth of The Bahamas...' or 'Enacted by the Parliament of The Bahamas'.",
+    "marker_boundary": "line_anchored",
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^(?!.*\\bAct\\b).*\\b(?:Order|Regulations?|Rules?)\\b",
+        "pattern_flags": "i",
+        "target_document_class": "si",
+        "priority": 50
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "\\bConstitution\\b",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 100
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Penal Code\\b",
+        "pattern_flags": "i",
+        "target_document_class": "penal_code",
+        "priority": 100
+      }
+    ]
+  },
+  "supranational_memberships": [
+    {
+      "body": "caricom",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "notes": "The Bahamas joined CARICOM in 1983 but is NOT a member of the CARICOM Single Market and Economy (CSME). CARICOM instruments have no direct effect and must be transposed by domestic legislation.",
+      "excluded_subjects": [
+        "csme"
+      ],
+      "protocol_references": [
+        "Revised Treaty of Chaguaramas 2001 Chapter Two (CSME)"
+      ],
+      "note": "The Bahamas is a member of CARICOM since 4 July 1983 but is NOT part of the CARICOM Single Market and Economy (CSME). Bahamian law does not implement CSME obligations."
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "notes": "Commonwealth model laws are persuasive only."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

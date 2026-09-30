@@ -1,0 +1,336 @@
+{
+  "code": "bz",
+  "name": "Belize",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Division",
+          "name": "division",
+          "note": "Rare; seen in constitutional provisions (PART VI, Division 1). Use hcontainer name='division'."
+        }
+      ]
+    },
+    "si": {
+      "label": "Statutory Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "SIs use 'regulation' as basic unit term but map to AKN section. SI arrangement heading is 'ARRANGEMENT OF REGULATIONS'."
+    },
+    "criminal_code": {
+      "label": "Criminal Code (CAP. 101)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "note": "Mid-level between Part and Section; unique to Criminal Code"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Criminal Code (CAP. 101) uses PART > TITLE > SECTION — a three-level higher hierarchy unique among Belize statutes. TITLE element supported in Bluebell. Requires prompt addition to handle TITLE keyword."
+    },
+    "constitution": {
+      "label": "Constitution of Belize",
+      "akn_element": "act",
+      "bluebell_compatible": false,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "hcontainer",
+          "level": "higher",
+          "bluebell_keyword": null,
+          "numbering": "arabic",
+          "note": "hcontainer name='division'; no direct Bluebell keyword — requires post-processing"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Division",
+          "name": "division",
+          "note": "Used in PART VI (Legislature) and other parts of the Constitution. No Bluebell keyword — manual AKN authoring recommended."
+        }
+      ],
+      "note": "Constitution uses PART > DIVISION > SECTION. Division is not a Bluebell keyword. Manual AKN authoring or post-processing required. bluebell_compatible set to false."
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "bz",
+    "uri_patterns": {
+      "act": "/akn/bz/act/{year}/{number}",
+      "act_cap_only": "/akn/bz/act/cap{NNN}/cap{NNN}",
+      "si": "/akn/bz/act/si/{year}/{number}",
+      "bill": "/akn/bz/bill/{year}/{slug}",
+      "constitution": "/akn/bz/act/constitution/1981/constitution",
+      "gazette": "/akn/bz/officialGazette/{year}/{number}"
+    },
+    "act_number_format": "Act No. {number} of {year}",
+    "cap_number_format": "CAP. {NNN}",
+    "date_calendar": "gregorian",
+    "notes": "When Act No. NN of YYYY is known, use year+number. When only CAP number is known, use cap{NNN}/cap{NNN} pattern and record CAP as FRBRalias. Decimal CAP numbers (e.g., CAP. 17.05) use the decimal string directly in the URI."
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "CAP. {NNN}",
+    "si_citation": "S.I. No. {number} of {year}",
+    "insertion_style": "alphanumeric",
+    "insertion_note": "Letter suffix on preceding section number (25A, 60A, 68A, 68B, 68C). No renumbering on consolidation."
+  },
+  "enacting_formulae": [
+    {
+      "text": "BE IT ENACTED, by and with the advice and consent of the House of Representatives and Senate of Belize and by the authority of the same, as follows:",
+      "position": "preamble",
+      "era": "post-independence",
+      "from": "1981-09-21",
+      "note": "Confirmed in Acts No. 17/2015, 27/2024, 24/2025. Comma after 'ENACTED' present in recent Acts; absent in some older post-independence Acts — both are valid."
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by inserting immediately after section X the following... / is amended by deleting... and substituting...",
+    "insertion_numbering": "alphanumeric_suffix",
+    "multiple_amendment_acts": "distinguished by (No. 2), (No. 3) etc. in short title; each has its own Act number",
+    "cross_reference_format": "short_title_and_cap_or_act_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bz/national-assembly",
+      "showAs": "National Assembly of Belize"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bz/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bz/senate",
+      "showAs": "Senate of Belize"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/governor-general",
+      "showAs": "Governor-General of Belize"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/prime-minister",
+      "showAs": "Prime Minister of Belize"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/attorney-general",
+      "showAs": "Attorney General of Belize"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/speaker",
+      "showAs": "Speaker of the House of Representatives"
+    },
+    {
+      "eId": "senatePresident",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/senate-president",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "belizeGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bz/belize-gazette",
+      "showAs": "The Belize Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "For Criminal Code (CAP. 101) only: add TITLE as a hierarchy level between PART and SECTION. For Constitution: disable Bluebell pipeline and use manual AKN authoring or post-processing for Division elements."
+  },
+  "supranational_memberships": [
+    {
+      "body": "caricom",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "CARICOM founding member (1973). Decisions require domestic transposition; no direct-effect instruments."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "commonwealth-of-nations",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,457 @@
+{
+  "code": "sn",
+  "name": "Senegal",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra"
+  ],
+  "authoritative_language": "fra",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "note": "Used only in large codes (Code pénal etc.); not present in most ordinary laws"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "note": "Section is a HIGHER division grouping articles — NOT the basic unit. Bluebell keyword DIVISION avoids collision with Anglophone section semantics; post-processing may be needed."
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "First article header: 'Article premier'; eId: art_1. Continuous numbering throughout entire law regardless of higher divisions."
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "sequential_implicit",
+          "note": "Unnumbered paragraph within an article. No Bluebell keyword; requires post-processing from paragraph content."
+        },
+        {
+          "local_term": "Point (1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ],
+      "hcontainers": []
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Organic laws follow identical structure to ordinary laws. Require Conseil constitutionnel review before promulgation. Subtype: loi-organique in FRBR URI."
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Décrets are promulgated by the President of the Republic. Enabling clause: 'Le Président de la République... Décrète :'. Numbered YYYY-NNNN (four-digit sequential)."
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Some codes use L. / R. article prefix (e.g., Art. L.37). eId includes prefix: art_L37. See dual-part code ambiguity."
+        }
+      ],
+      "hcontainers": [],
+      "note": "Codes may use L./R. prefix on article numbers (partie législative / partie réglementaire). Partie réglementaire is technically a separate décret — model as separate FRBR work linked by cross-reference. See profile ambiguity 4."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Constitution of 22 January 2001, as amended. Amendments modelled as expressions of the same work, not separate works."
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "sn",
+    "uri_patterns": {
+      "loi": "/akn/sn/act/{year}/{number}",
+      "loi_organique": "/akn/sn/act/loi-organique/{year}/{number}",
+      "decret": "/akn/sn/act/decret/{year}/{number}",
+      "ordonnance": "/akn/sn/act/ordonnance/{year}/{number}",
+      "bill": "/akn/sn/bill/{year}/{number}",
+      "constitution": "/akn/sn/act/constitution/2001/constitution"
+    },
+    "date_calendar": "gregorian",
+    "language_code": "fra"
+  },
+  "numbering": {
+    "loi_citation": "Loi n° {year}-{number} du {day} {month} {year}",
+    "loi_organique_citation": "Loi organique n° {year}-{number} du {day} {month} {year}",
+    "decret_citation": "Décret n° {year}-{number}",
+    "article_first": "Article premier",
+    "article_subsequent": "Art. {number}",
+    "insertion_style": "hyphen_suffix",
+    "insertion_examples": [
+      "Art. 5-1",
+      "Art. 5-2",
+      "Art. 5 bis",
+      "Art. 5 ter"
+    ]
+  },
+  "enacting_formulae": [
+    {
+      "text": "L'Assemblée nationale a adopté, en sa séance du {date} ;\nLe Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "unicameral",
+      "from": "2012-09-19",
+      "verified": true,
+      "note": "Formula confirmed from Journal Officiel de la République du Sénégal (jo.gouv.sn). Amnesty Law (March 2024) and other laws confirmed unicameral formula with 'en sa séance du'. Source: https://jo.gouv.sn/ and search results confirming Assemblée nationale single-chamber adoption post-2012."
+    },
+    {
+      "text": "L'Assemblée nationale a adopté, en sa séance du {date} ;\nLe Sénat a adopté, en sa séance du {date} ;\nLe Président de la République promulgue la loi dont la teneur suit :",
+      "position": "preamble",
+      "era": "bicameral",
+      "from": "2007-01-01",
+      "to": "2012-09-19",
+      "verified": false,
+      "note": "Bicameral era formula (2007 Senate restoration to 2012 abolition). Consistent with constitutional procedure."
+    },
+    {
+      "text": "L'Assemblée nationale a adopté, en sa séance du {date}, conformément à l'article {N} de la Constitution ;\nLe Président de la République promulgue la loi organique dont la teneur suit :",
+      "position": "preamble",
+      "era": "loi_organique",
+      "note": "Formula for organic laws; Conseil constitutionnel review mandatory before promulgation"
+    },
+    {
+      "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
+      "position": "preamble",
+      "era": "decret",
+      "note": "Decree enabling clause; 'Vu' recitals cite constitutional basis and parent legislation"
+    }
+  ],
+  "amendments": {
+    "style": "textual_french",
+    "phrasing": "est modifié et remplacé ainsi qu'il suit / Il est inséré... un article... ainsi rédigé / est abrogé",
+    "cross_reference_format": "loi_number_and_date",
+    "entry_into_force": "La présente loi sera exécutée comme loi de l'État"
+  },
+  "core_tlcs": [
+    {
+      "eId": "assemblee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/assemblee-nationale",
+      "showAs": "Assemblée nationale"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/conseil-constitutionnel",
+      "showAs": "Conseil constitutionnel"
+    },
+    {
+      "eId": "conseilEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/conseil-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "courCassation",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/cour-de-cassation",
+      "showAs": "Cour de Cassation"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/senat",
+      "showAs": "Sénat",
+      "note": "2007–2012 only; abolished by 2012 constitutional revision"
+    },
+    {
+      "eId": "presidentAssemblee",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/president-assemblee",
+      "showAs": "Président de l'Assemblée nationale"
+    },
+    {
+      "eId": "ministre",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/ministre",
+      "showAs": "Ministre"
+    },
+    {
+      "eId": "ministreFinances",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/ministre-finances",
+      "showAs": "Ministre chargé des Finances"
+    },
+    {
+      "eId": "ministreJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/ministre-justice",
+      "showAs": "Ministre de la Justice, Garde des Sceaux"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/sn/journal-officiel",
+      "showAs": "Journal Officiel de la République du Sénégal"
+    },
+    {
+      "eId": "senegal",
+      "class": "TLCLocation",
+      "href": "/ontology/place/sn",
+      "showAs": "Sénégal"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "supranational_memberships": [
+    {
+      "body": "ohada",
+      "direct_effect": "override",
+      "member_since": "1993-10-17",
+      "superseded_subjects": [
+        "company_law",
+        "commercial_law",
+        "insolvency",
+        "arbitration",
+        "security_interests",
+        "transport_law",
+        "accounting",
+        "collective_procedures",
+        "electronic_commerce"
+      ],
+      "note": "OHADA Uniform Acts supersede conflicting domestic law without transposition. 11 Uniform Acts in force. The domestic Code des obligations civiles et commerciales (COCC, 1976) is largely superseded in commercial matters. FRBR URI space: /akn/ohada/act/..."
+    },
+    {
+      "body": "uemoa",
+      "direct_effect": "direct",
+      "member_since": "1994-01-10",
+      "superseded_subjects": [
+        "banking_regulation",
+        "monetary_policy",
+        "customs_union",
+        "public_finance",
+        "financial_markets",
+        "investment_law"
+      ],
+      "note": "UEMOA Regulations apply directly; Directives require transposition via loi or décret. Particularly significant for banking, insurance, and fiscal law."
+    },
+    {
+      "body": "ecowas",
+      "direct_effect": "none",
+      "member_since": "1975-05-28",
+      "superseded_subjects": [],
+      "note": "ECOWAS Supplementary Acts have direct effect; Protocols require ratification. Less pervasive than OHADA/UEMOA in day-to-day Senegalese legislation."
+    },
+    {
+      "body": "un",
+      "direct_effect": "none"
+    },
+    {
+      "body": "african-union",
+      "direct_effect": "none"
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Basic unit is ARTICLE (not SECTION). Hierarchy above articles: TITLE > CHAPTER > DIVISION (for Section). Use BOOK only for the largest codes with Livre divisions. Article numbering is continuous throughout the entire document regardless of higher divisions. The first article header is 'Article premier'; all subsequent articles are 'Art. N'. Subdivisions within articles are alinéas (unnumbered paragraphs), which may contain POINT (1°, 2°…) or INDENT (tiret –) lists. French-language legislation only."
+  },
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "locale": "fr-SN"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,441 @@
+{
+  "code": "ch",
+  "name": "Switzerland",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "deu",
+    "fra",
+    "ita",
+    "roh"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "bundesgesetz": {
+      "label": "Bundesgesetz / Loi fédérale / Legge federale (Federal Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Teil / Partie / Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "note": "Highest division in large federal codes (e.g. ZGB). 'Erster Teil', 'Premiere partie', etc. Not all acts use Parts."
+        },
+        {
+          "local_term": "Titel / Titre / Titolo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic",
+          "note": "Second-level division. Arabic numerals in the SR text. Common in the ZGB and OR."
+        },
+        {
+          "local_term": "Kapitel / Chapitre / Capitolo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "note": "Third-level division. May be omitted in shorter acts."
+        },
+        {
+          "local_term": "Abschnitt / Section / Sezione",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Grouping below chapter. Distinct from 'Article' — never the basic unit in Swiss federal law."
+        },
+        {
+          "local_term": "Artikel / Article / Articolo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "The fundamental citable unit. Written as 'Art. 1', 'Art. 2' — continuous throughout the act regardless of Part/Title. This is NOT the German § convention — Swiss acts use Artikel/Article/Articolo with explicit 'Art.' prefix."
+        },
+        {
+          "local_term": "Absatz / Alinéa / Capoverso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript",
+          "note": "Numbered subdivision of an article. Displayed as superscript in printed SR (¹ ² ³) but cited as 'Abs. 1' (DE), 'al. 1' (FR), 'cpv. 1' (IT). Structuring prompt should output as PARAGRAPH 1, PARAGRAPH 2."
+        },
+        {
+          "local_term": "Buchstabe / Lettre / Lettera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period",
+          "note": "Lettered sub-items: a., b., c. (with period in Swiss convention, not parenthesis). Cited as 'Bst. a' (DE), 'let. a' (FR), 'lett. a' (IT)."
+        },
+        {
+          "local_term": "Ziffer / Chiffre / Cifra",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period",
+          "note": "Numbered sub-items under a Buchstabe: 1., 2., 3. Structuring prompt should output as nested POINT under the lettered POINT. Rare — appears primarily in the ZGB and OR for complex enumeration."
+        }
+      ],
+      "hcontainers": [
+        {
+          "local_term": "Übergangsbestimmungen / Dispositions transitoires / Disposizioni transitorie",
+          "name": "transitional-provisions",
+          "description": "Final/transitional provisions block at the end of many federal acts. May be structured as a section or as standalone articles.",
+          "bluebell_proxy": "SUBSECTION",
+          "requires_postprocessing": false
+        }
+      ],
+      "note": "Article numbering is continuous throughout the act regardless of Part/Title/Chapter divisions. 'Art. N' prefix always appears. The German Paragraph (§) convention is NOT used in Swiss federal legislation — Artikel/Article/Articolo is used instead."
+    },
+    "bundesverfassung": {
+      "label": "Bundesverfassung / Constitution fédérale / Costituzione federale (SR 101)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titel / Titre / Titolo",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic",
+          "note": "Top-level division. BV 1999 has 6 Titles."
+        },
+        {
+          "local_term": "Kapitel / Chapitre / Capitolo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "note": "Chapters within Titles."
+        },
+        {
+          "local_term": "Abschnitt / Section / Sezione",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "note": "Sections within Chapters. Present in some but not all chapters."
+        },
+        {
+          "local_term": "Artikel / Article / Articolo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "note": "Continuous from Art. 1 to Art. 196 (main body) + transitional provisions. Cited as 'Art. N BV' (DE), 'art. N Cst.' (FR), 'art. N Cost.' (IT)."
+        },
+        {
+          "local_term": "Absatz / Alinéa / Capoverso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript"
+        },
+        {
+          "local_term": "Buchstabe / Lettre / Lettera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Federal Constitution of 18 April 1999 (SR 101), in force since 1 January 2000. Replaced the 1874 Constitution. Three equally authoritative versions: DE (Bundesverfassung, BV), FR (Constitution fédérale, Cst.), IT (Costituzione federale, Cost.)."
+    },
+    "verordnung": {
+      "label": "Verordnung / Ordonnance / Ordinanza (Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel / Chapitre / Capitolo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Abschnitt / Section / Sezione",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Artikel / Article / Articolo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz / Alinéa / Capoverso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript"
+        },
+        {
+          "local_term": "Buchstabe / Lettre / Lettera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Subordinate legislation issued by the Federal Council (Bundesrat). Same article-based structure as primary legislation. Identified by SR number."
+    },
+    "bundesbeschluss": {
+      "label": "Bundesbeschluss / Arrêté fédéral / Decreto federale (Federal Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artikel / Article / Articolo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz / Alinéa / Capoverso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Federal decrees enacted by the Federal Assembly (Bundesversammlung). Two types: Bundesbeschluss (subject to referendum) and einfacher Bundesbeschluss (not subject to referendum). Typically short — articles without higher divisions."
+    },
+    "staatsvertrag": {
+      "label": "Staatsvertrag / Traité international / Trattato internazionale (International Treaty)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Teil / Partie / Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Kapitel / Chapitre / Capitolo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Artikel / Article / Articolo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz / Alinéa / Capoverso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript"
+        }
+      ],
+      "hcontainers": [],
+      "note": "International treaties ratified by Switzerland and published in the SR. Structure varies by treaty. The Bilateral Agreements with the EU (Bilaterale I, 1999; Bilaterale II, 2004) are key examples — some have direct-effect provisions analogous to EU law."
+    }
+  },
+  "default_document_class": "bundesgesetz",
+  "frbr": {
+    "country_code": "ch",
+    "uri_patterns": {
+      "bundesgesetz": "/akn/ch/act/{sr_number}",
+      "bundesgesetz_dated": "/akn/ch/act/{year}/{sr_number_or_slug}",
+      "bundesverfassung": "/akn/ch/act/101",
+      "verordnung": "/akn/ch/act/{sr_number}",
+      "bundesbeschluss": "/akn/ch/act/{year}/{slug}",
+      "staatsvertrag": "/akn/ch/act/{sr_number}",
+      "expression": "/akn/ch/act/{sr_number}/{lang}@{date}",
+      "bill": "/akn/ch/bill/{year}/{botschaft-number}"
+    },
+    "date_calendar": "gregorian",
+    "date_calendar_note": "Switzerland uses Gregorian calendar exclusively. SR numbers are the primary identifier — include as the URI number segment where available (e.g. /akn/ch/act/210 for ZGB, /akn/ch/act/101 for BV). FRBR expressions for each language version use ISO 639-3 codes: deu, fra, ita, roh.",
+    "note": "The SR (Systematische Rechtssammlung) number is the stable identifier for federal acts. It takes the form of a decimal number (e.g. 101, 210, 220, 311.0). For acts without an SR number (e.g. temporary legislation), use year/slug pattern. Each language version is a separate FRBR Expression of the same Work — use /deu@date, /fra@date, /ita@date, /roh@date suffixes."
+  },
+  "numbering": {
+    "act_citation": "SR {sr_number}",
+    "act_citation_alt_de": "{abbreviation} vom {DD}. {Monat} {YYYY}",
+    "act_citation_alt_fr": "{abbreviation} du {DD} {mois} {YYYY}",
+    "act_citation_alt_it": "{abbreviation} del {DD} {mese} {YYYY}",
+    "article_abbreviation_de": "Art.",
+    "article_abbreviation_fr": "art.",
+    "article_abbreviation_it": "art.",
+    "paragraph_abbreviation_de": "Abs.",
+    "paragraph_abbreviation_fr": "al.",
+    "paragraph_abbreviation_it": "cpv.",
+    "point_abbreviation_de": "Bst.",
+    "point_abbreviation_fr": "let.",
+    "point_abbreviation_it": "lett.",
+    "insertion_style": "arabic_suffix",
+    "insertion_example": "Art. 10a (inserted by amendment act)"
+  },
+  "enacting_formulae": [
+    {
+      "text": "Die Bundesversammlung der Schweizerischen Eidgenossenschaft, gestützt auf die Artikel ... der Bundesverfassung, nach Einsicht in die Botschaft des Bundesrates vom ..., beschliesst:",
+      "position": "preamble",
+      "era": "federal_act",
+      "from": "1999-01-01"
+    },
+    {
+      "text": "L'Assemblée fédérale de la Confédération suisse, vu les art. ... de la Constitution fédérale, vu le message du Conseil fédéral du ..., arrête:",
+      "position": "preamble",
+      "era": "federal_act_fr",
+      "from": "1999-01-01"
+    },
+    {
+      "text": "Der Bundesrat der Schweizerischen Eidgenossenschaft verordnet:",
+      "position": "preamble",
+      "era": "verordnung",
+      "from": "1999-01-01"
+    }
+  ],
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "... wird wie folgt geaendert / ... est modifié(e) comme suit / ... è modificato come segue",
+    "cross_reference_format": "sr_number_and_abbreviation",
+    "cross_reference_example_de": "das Obligationenrecht (SR 220)",
+    "cross_reference_example_fr": "le Code des obligations (RS 220)"
+  },
+  "core_tlcs": [
+    {
+      "eId": "bundesversammlung",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesversammlung",
+      "showAs": "Bundesversammlung / Assemblée fédérale / Assemblea federale"
+    },
+    {
+      "eId": "nationalrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/nationalrat",
+      "showAs": "Nationalrat / Conseil national / Consiglio nazionale"
+    },
+    {
+      "eId": "staenderat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/staenderat",
+      "showAs": "Ständerat / Conseil des États / Consiglio degli Stati"
+    },
+    {
+      "eId": "bundesrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesrat",
+      "showAs": "Bundesrat / Conseil fédéral / Consiglio federale"
+    },
+    {
+      "eId": "bundesgericht",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesgericht",
+      "showAs": "Bundesgericht / Tribunal fédéral / Tribunale federale"
+    },
+    {
+      "eId": "bundesverwaltungsgericht",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesverwaltungsgericht",
+      "showAs": "Bundesverwaltungsgericht / Tribunal administratif fédéral / Tribunale amministrativo federale"
+    },
+    {
+      "eId": "fedlex",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ch/fedlex",
+      "showAs": "Fedlex — fedlex.admin.ch"
+    },
+    {
+      "eId": "schweizerischeEidgenossenschaft",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/eidgenossenschaft",
+      "showAs": "Schweizerische Eidgenossenschaft / Confédération suisse / Confederazione Svizzera"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "prompt_variant": null,
+    "prompt_additions": "Switzerland uses ARTICLE (Artikel/Article/Articolo) as the basic unit — NOT the German § (Paragraph) convention. Articles are cited as 'Art. N' in all languages. Article numbering is continuous throughout the act regardless of Part/Title/Chapter divisions.\n\nQuadrilingual publication: Federal legislation is published simultaneously in German, French, and Italian as three equally authoritative versions — there is NO hierarchy between them, they are co-equal originals (not translations). Romansh (roh) is used for selected legislation primarily affecting Romansh-speaking Graubünden. Process each language version separately as a distinct FRBR Expression of the same Work.\n\nSR/RS numbering: Every act in the Systematische Rechtssammlung (SR) / Recueil systématique (RS) has a decimal SR number (e.g. SR 101 = Bundesverfassung, SR 210 = ZGB, SR 220 = OR). Include the SR number in the document metadata as the primary identifier.\n\nHierarchy: PART > TITLE > CHAPTER > SECTION > ARTICLE > PARAGRAPH > POINT. Not all levels are present in every act — skip levels freely. Paragraphs (Absatz/Alinéa/Capoverso) appear as superscript numbers in SR print format (¹ ² ³) — normalise to PARAGRAPH 1, PARAGRAPH 2 in Bluebell.\n\nLettered points: Use 'a.' notation (with period) in German; Bluebell output as POINT a, POINT b, etc. Sub-numbered items (Ziffer/Chiffre) appear nested under letters — output as nested POINT.\n\nFederal-cantonal distinction: This profile covers federal legislation only. The 26 cantons each have their own constitutions and legislative hierarchies — flag cantonal documents for separate processing.\n\nDirect democracy: Popular initiatives (Volksinitiative) and mandatory/optional referenda produce constitutional amendments. An initiative approved by voters amends the Bundesverfassung directly — model the resulting text as a new constitutional expression."
+  },
+  "supranational_memberships": [
+    {
+      "body": "un",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Switzerland joined the UN on 10 September 2002 via popular referendum (approved by 54.6% of voters). Prior to 2002, Switzerland participated as an observer. UN Security Council Chapter VII resolutions are binding; General Assembly resolutions are non-binding. Switzerland is a permanent neutral state."
+    },
+    {
+      "body": "council-of-europe",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Switzerland is a member of the Council of Europe (joined 1963). ECHR ratified. Swiss courts take ECHR case law into account but the Convention does not have the automatic supremacy it enjoys in some member states."
+    },
+    {
+      "body": "efta",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Switzerland is a founding member of EFTA (1960) and remains a member. Switzerland is NOT a member of the European Economic Area (EEA) — it rejected EEA membership in a referendum on 6 December 1992 by a margin of 50.3% No. Instead, Switzerland has concluded approximately 120 bilateral agreements with the EU (Bilaterale Abkommen). Key agreements: (1) Seven Bilateral Agreements I (1999/2002): free movement of persons, land and air transport, technical barriers to trade, public procurement, agriculture, research, satellite navigation — some provisions have quasi-direct effect. (2) Nine Bilateral Agreements II (2004): Schengen/Dublin association, savings taxation, processed agricultural products, statistics, MEDIA, environment, pensions fraud, combating fraud. The Schengen/Dublin association (in force 2008) has direct-effect characteristics: Switzerland implements and applies the Schengen acquis including relevant EU border/asylum rules as they evolve. This Swiss Sonderweg (special path) means EU law must be monitored for Schengen-adjacent legislation even though Switzerland is not an EU or EEA member."
+    },
+    {
+      "body": "wto",
+      "direct_effect": "none",
+      "superseded_subjects": [],
+      "note": "Switzerland is an original WTO member (1995). WTO agreements are applied in Swiss domestic law. Switzerland is an independent WTO member — unlike EU member states, it represents itself in WTO negotiations."
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif",
+    "note": "Fedlex uses marginal notes (Sachüberschriften) for article headings in the SR. Display the article number prominently ('Art. N') followed by the heading. Superscript paragraph numbers (¹ ² ³) should be displayed as raised numerals or converted to (1), (2), (3) for accessibility."
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "binding_regimes": [
+    {
+      "code": "schengen",
+      "kind": "treaty_framework",
+      "direct_effect": "procedural",
+      "superseded_subjects": [
+        "border_controls",
+        "visa_policy",
+        "police_cooperation"
+      ],
+      "note": "Switzerland is associated to the Schengen Area and Dublin Regulation via bilateral agreement (in force March 2008). Schengen acquis developments are adopted by Switzerland through a dynamic reference mechanism — relevant EU regulations and directives in the Schengen/Dublin domain apply or must be implemented within a set period. Model Schengen-related Swiss legislation as having a supranational overlay."
+    }
+  ],
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}
