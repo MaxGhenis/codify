@@ -34,6 +34,12 @@ def data_dir(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Iterator[Path]:
         cached.cache_clear()
 
 
+_AKN = (
+    '<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"><act><meta/>'
+    '<body><section eId="sec_1"><num>1</num><content><p>t</p></content></section>'
+    "</body></act></akomaNtoso>"
+)
+
 _READERS: list[tuple[str, Callable[[str], Any]]] = [
     ("marginal_note_kind", lambda c: anchors._marginal_note_kind(c, "act")),
     ("declared_marker_entries", lambda c: anchors._declared_marker_entries(c, "act")),
@@ -70,21 +76,30 @@ def test_a_blank_code_is_still_no_jurisdiction(data_dir: Path) -> None:
     assert [read("") for _, read in _READERS[:9]] == [None, (), (), [], None, (), (), None, {}]
 
 
-def test_the_region_vocabulary_fault_fails_the_enrich_sequence(data_dir: Path) -> None:
+def test_the_region_vocabulary_fault_fails_the_enrich_sequence(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Only the vocabulary faults: every pass after it has a config to read."""
     import asyncio
 
+    from codify.pipeline import stages
     from codify.pipeline.stages import Descriptors, run_enrich_passes
 
+    def _broken(*_a: object, **_k: object) -> Any:
+        raise JurisdictionConfigError("no config")
+
+    monkeypatch.setattr(stages, "vocabulary_for_jurisdiction", _broken)
     desc = Descriptors(
-        title="t", raw_date="2001", number="1", year="2001", language="eng", doctype="act"
+        title="t", raw_date="2015", number="9", year="2015", language="eng", doctype="act"
     )
-    with pytest.raises(JurisdictionConfigError):
+    with pytest.raises(JurisdictionConfigError, match="no config"):
         asyncio.run(
             run_enrich_passes(
-                "<akomaNtoso/>",
-                llm=object(),
-                jurisdiction_code="qq",
-                desc=desc,  # type: ignore[arg-type]
+                _AKN,
+                llm=object(),  # type: ignore[arg-type]
+                jurisdiction_code="xa",
+                desc=desc,
+                skip_external_refs=True,
             )
         )
 
@@ -120,15 +135,10 @@ def test_a_config_fault_inside_an_enrich_pass_propagates(
     desc = Descriptors(
         title="t", raw_date="2015", number="9", year="2015", language="eng", doctype="act"
     )
-    akn = (
-        '<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"><act><meta/>'
-        '<body><section eId="sec_1"><num>1</num><content><p>t</p></content></section>'
-        "</body></act></akomaNtoso>"
-    )
     with pytest.raises(JurisdictionConfigError):
         asyncio.run(
             run_enrich_passes(
-                akn,
+                _AKN,
                 llm=object(),  # type: ignore[arg-type]
                 jurisdiction_code="xa",
                 desc=desc,
