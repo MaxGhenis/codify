@@ -44,6 +44,11 @@ updates:
       semver-patch-days: 7
       semver-minor-days: 14
       semver-major-days: 30
+    ignore:
+      # typescript-eslint cannot load TS 7 yet; every TS major fails the lint step.
+      - dependency-name: 'typescript'
+        update-types:
+          - version-update:semver-major
     groups:
       patch-and-minor:
         update-types:
