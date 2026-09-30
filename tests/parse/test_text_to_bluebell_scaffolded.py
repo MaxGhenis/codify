@@ -720,3 +720,24 @@ async def test_act_pipeline_table_fallback_keeps_source_citations():
     assert "".join(article.itertext()).count("P.7/2021") == 2
     assert "Blue lens" in "".join(article.itertext())
     assert len(article.xpath('.//*[local-name()="table"]')) == 1
+
+
+@pytest.mark.asyncio
+async def test_a_body_nothing_could_fill_is_recorded_empty(monkeypatch):
+    """When the source copy fails too, the provision is empty and says so."""
+    from codify.pipeline.enrich import structure
+
+    def _broken(*_a, **_k):
+        raise RuntimeError("no source copy")
+
+    monkeypatch.setattr(structure, "fill_bodies_verbatim", _broken)
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT,
+        client=_EchoUnless(refuse="Keeper of Lights for a term"),
+        country="xa",
+        doctype="act",
+        on_scan=traces.append,
+    )
+    fill = traces[0].body_fill
+    assert (fill.verbatim, fill.empty, fill.model_filled) == ((), ("part_II__sec_3",), 3)

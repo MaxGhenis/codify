@@ -98,3 +98,40 @@ def test_the_dossier_regions_fault_is_raised(data_dir: Path) -> None:
 
     with pytest.raises(JurisdictionConfigError):
         dossier._flagged_regions([_Read()], country="qq", year="2001")  # type: ignore[list-item]
+
+
+@pytest.mark.parametrize("seam", ["emit_references", "emit_inline_markup"])
+def test_a_config_fault_inside_an_enrich_pass_propagates(
+    monkeypatch: pytest.MonkeyPatch, seam: str
+) -> None:
+    """Every other pass failure is logged and skipped; a config fault is not."""
+    import asyncio
+
+    from codify.pipeline import stages
+    from codify.pipeline.stages import Descriptors, run_enrich_passes
+
+    def _sync(*_a: object, **_k: object) -> str:
+        raise JurisdictionConfigError("no config")
+
+    async def _async(*_a: object, **_k: object) -> str:
+        raise JurisdictionConfigError("no config")
+
+    monkeypatch.setattr(stages, seam, _async if seam == "emit_inline_markup" else _sync)
+    desc = Descriptors(
+        title="t", raw_date="2015", number="9", year="2015", language="eng", doctype="act"
+    )
+    akn = (
+        '<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"><act><meta/>'
+        '<body><section eId="sec_1"><num>1</num><content><p>t</p></content></section>'
+        "</body></act></akomaNtoso>"
+    )
+    with pytest.raises(JurisdictionConfigError):
+        asyncio.run(
+            run_enrich_passes(
+                akn,
+                llm=object(),  # type: ignore[arg-type]
+                jurisdiction_code="xa",
+                desc=desc,
+                skip_external_refs=True,
+            )
+        )
