@@ -832,3 +832,30 @@ async def test_anchor_offsets_still_index_the_source_after_a_lost_page():
     sec_3 = next(a for a in traces[0].anchors if a.akn_eid == "part_II__sec_3")
     at = text[sec_3.char_offset :]
     assert at.lstrip("\n").startswith("Section 3"), at[:30]
+
+
+@pytest.mark.asyncio
+async def test_a_containers_only_document_keeps_its_remark():
+    """No provision to hold it, so the remark is content of the container the
+    lost page continued."""
+    from codify.pipeline.enrich.bluebell import parse_to_akn
+
+    text = "PART I\nPRELIMINARY\n\n⟦page 2 unreadable⟧\n\nPART II\nTHE KEEPER\n"
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    akn = parse_to_akn(result, "xa", doctype="act", date="2015", number="9")
+    part_1 = akn.split('eId="part_I"', 1)[1].split('eId="part_II"', 1)[0]
+    assert "[Page 2 of the source could not be read]" in part_1, akn
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_just_before_a_provision_stays_with_the_one_before():
+    """The next provision's offset can start in the blank run the marker sat in;
+    the remark still belongs to the provision the page continued."""
+    text = _XA_TEXT.replace("\nSection 2\n", "\n⟦page 2 unreadable⟧\n\nSection 2\n")
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    sec_1 = result.split("SECTION 1", 1)[1].split("SECTION 2", 1)[0]
+    assert "Page 2 of the source" in sec_1, result

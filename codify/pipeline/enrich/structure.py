@@ -292,6 +292,7 @@ def _place_unreadable_remarks(
     anchors: list[StructuralAnchor],
     by_eid: dict[str, BodyBlock],
     basic: str | None,
+    text: str,
 ) -> None:
     """Append each marker's remark to the provision whose body the lost page
     continued, or the first provision when the page precedes them all."""
@@ -302,12 +303,54 @@ def _place_unreadable_remarks(
     if not hosts:
         return
     for offset, page in markers:
-        before = [a for a in hosts if a.char_offset <= offset]
+        before = [a for a in hosts if _header_start(text, a) <= offset]
         host = before[-1] if before else hosts[0]
         block = by_eid.get(host.akn_eid) or BodyBlock(eid=host.akn_eid)
         remark = _unreadable_remark(page)
         lines = [*block.lines, remark] if before else [remark, *block.lines]
         by_eid[host.akn_eid] = block.model_copy(update={"lines": lines})
+
+
+def _header_start(text: str, anchor: StructuralAnchor) -> int:
+    """Where the anchor's own line starts: its offset may begin at the blank run
+    before it, which a blanked marker line extends."""
+    rest = text[anchor.char_offset :]
+    return anchor.char_offset + len(rest) - len(rest.lstrip())
+
+
+def _remarks_under_containers(
+    scaffold: str,
+    eid_to_anchor: dict[str, StructuralAnchor],
+    markers: list[tuple[int, int]],
+    text: str,
+) -> str:
+    """A containers-only scaffold with each marker's remark as content of the
+    container the lost page continued, or of the first when it precedes them all."""
+    if not markers:
+        return scaffold
+    lines = scaffold.split("\n")
+    order = [a for a in eid_to_anchor.values() if not a.quoted_amendment]
+    header_at: dict[str, int] = {}
+    pending = iter(order)
+    anchor = next(pending, None)
+    for i, line in enumerate(lines):
+        kw = kind_to_kw(anchor.kind) if anchor else ""
+        if anchor and (line.strip() == kw or line.strip().startswith(f"{kw} ")):
+            header_at[anchor.akn_eid] = i
+            anchor = next(pending, None)
+    placed = [a for a in order if a.akn_eid in header_at]
+    if not placed:
+        return scaffold + "\n".join(f"  {_unreadable_remark(p)}\n" for _, p in markers)
+    inserts: dict[int, list[str]] = {}
+    for offset, page in markers:
+        before = [a for a in placed if _header_start(text, a) <= offset]
+        host = before[-1] if before else placed[0]
+        at = header_at[host.akn_eid]
+        indent = lines[at][: len(lines[at]) - len(lines[at].lstrip())] + "  "
+        inserts.setdefault(at, []).extend(["", indent + _unreadable_remark(page)])
+    for at in sorted(inserts, reverse=True):
+        lines[at + 1 : at + 1] = inserts[at]
+    return "\n".join(lines)
 
 
 def _verbatim_single_section(text: str) -> str:
@@ -746,7 +789,7 @@ async def text_to_bluebell_scaffolded(
         # Containers only: nothing to fill, and the skeleton ships as the document.
         logger.warning("body_fill_skipped", reason="no_basic_unit_anchors", anchors=len(anchors))
         _trace(scaffold=scaffold)
-        return scaffold
+        return _remarks_under_containers(scaffold, eid_to_anchor, unreadable, text)
 
     # One trace per run, after body-fill, carrying what it achieved; emitted on
     # the way out of a failure too, so the scaffold is never lost with it.
@@ -935,7 +978,7 @@ async def text_to_bluebell_scaffolded(
             )
 
         literal_eids = preserve_source_tables(text, anchors, by_eid)
-        _place_unreadable_remarks(unreadable, anchors, by_eid, basic)
+        _place_unreadable_remarks(unreadable, anchors, by_eid, basic, text)
         return assemble_filled_scaffold(
             scaffold,
             eid_to_anchor,
