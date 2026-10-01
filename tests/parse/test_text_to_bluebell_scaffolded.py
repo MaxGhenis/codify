@@ -771,22 +771,17 @@ class _AnswersEmpty:
 
 
 @pytest.mark.asyncio
-async def test_empty_answers_are_no_model_output_too():
-    """No call raised, but the model wrote nothing: still not a structuring result."""
+async def test_empty_answers_are_recorded_as_unfilled_bodies():
+    """No call raised and the model wrote nothing: not a halt, but every body is
+    recorded as copied in, which the validator grades."""
     traces: list = []
     await text_to_bluebell_scaffolded(
-        _XA_TEXT,
-        client=_AnswersEmpty(),
-        country="xa",
-        doctype="act",
-        on_scan=traces.append,
-        halt_policy="land",
+        _XA_TEXT, client=_AnswersEmpty(), country="xa", doctype="act", on_scan=traces.append
     )
     fill = traces[0].body_fill
-    assert (fill.calls_failed, fill.model_filled, [h.gate for h in traces[0].halts]) == (
+    assert (fill.calls_failed, fill.model_filled, list(fill.verbatim), traces[0].halts) == (
         0,
         0,
-        ["body_fill_failed"],
+        _XA_EIDS,
+        (),
     )
-    with pytest.raises(BodyFillError, match="wrote no body"):
-        await text_to_bluebell_scaffolded(_XA_TEXT, client=_AnswersEmpty(), country="xa")

@@ -22,10 +22,10 @@ Breaks, in that the structurer's output changes for documents it already read:
      itself; `combine_text_for_structure` no longer strips it.
    - Body-fill records what it achieved (`ScanTrace.body_fill`). Bodies copied
      from the source after the model failed them are a `body_fill_verbatim`
-     warning; bodies left empty a `body_fill_incomplete` error. When the model
-     wrote no body, whether its calls raised or came back empty, the structurer
-     raises `BodyFillError`, or under `halt_policy="land"` records a
-     `body_fill_failed` halt. The scan trace is emitted once, after body-fill.
+     warning; bodies left empty a `body_fill_incomplete` error. When calls
+     failed and the model wrote no body, the structurer raises `BodyFillError`,
+     or under `halt_policy="land"` records a `body_fill_failed` halt. The scan
+     trace is emitted once, after body-fill.
    - `coverage.json` `ratio` is the lowest of the anchor, body-fill and page
      ratios; the anchor figure moves to `anchor_ratio`. The manifest carries the
      structural grade.
