@@ -143,7 +143,7 @@ def validate_akn(
     return issues
 
 
-_NUMBERED_KINDS = ("article", "section", "paragraph", "point", "subsection")
+_NUMBERED_KINDS = ("article", "section", "rule", "paragraph", "point", "subsection")
 
 
 def _check_number_set_continuity(
@@ -375,7 +375,7 @@ def _check_leading_gap(root: etree._Element) -> list[dict[str, Any]]:
     if body is None:
         return []
     out: list[dict[str, Any]] = []
-    for kind in ("article", "section"):
+    for kind in ("article", "section", "rule"):
         first: tuple[etree._Element, str] | None = None
         for el in body.iter(f"{{{AKN_NS}}}{kind}"):
             num_el = el.find(f"{{{AKN_NS}}}num")

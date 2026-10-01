@@ -160,3 +160,12 @@ def test_an_era_year_without_an_era_table_is_no_year() -> None:
     from codify.calendar import year_from_calendar
 
     assert year_from_calendar("Reiwa 5", "japanese_era", "xa") is None
+
+
+def test_a_config_that_cannot_be_read_is_a_config_fault(data_dir: Path) -> None:
+    """Bytes that do not decode fail as the config's fault, so the handlers that
+    re-raise config faults see it rather than defaulting past it."""
+    (data_dir / "yy").mkdir()
+    (data_dir / "yy" / "config.json").write_bytes(b"\xff\xfe{")
+    with pytest.raises(JurisdictionConfigError, match="could not be read"):
+        jurisdictions.load_config("yy")

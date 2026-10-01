@@ -1408,3 +1408,17 @@ class TestUnreadablePagesAndBodyFill:
             for i in validate_akn(_numbered(1, 2), body_fill=trace)
             if i["check"].startswith("body_fill")
         ]
+
+
+class TestRuleNumbering:
+    """Rules are a basic unit too, so their numbering is checked like the others."""
+
+    def test_a_leading_rule_gap_warns(self):
+        assert _gaps(_numbered(4, 5, kind="rule"), provenance="extracted") == [
+            ("warning", "leading", [1, 3])
+        ]
+
+    def test_a_rule_hole_in_extracted_text_warns(self):
+        assert _gaps(_numbered(1, 3, kind="rule"), provenance="extracted") == [
+            ("warning", "defect", [2, 2])
+        ]

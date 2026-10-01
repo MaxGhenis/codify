@@ -1420,7 +1420,14 @@ def try_load_config(country_code: str) -> JurisdictionConfig | None:
     path = JURISDICTIONS_DIR / country_code / "config.json"
     if not path.exists():
         return None
-    return JurisdictionConfig.model_validate_json(path.read_text())
+    try:
+        raw = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        # A config there and unreadable is a fault of the config, not of the caller.
+        raise JurisdictionConfigError(
+            f"jurisdiction config {path} could not be read: {exc}"
+        ) from exc
+    return JurisdictionConfig.model_validate_json(raw)
 
 
 class FrbrCountry(NamedTuple):
