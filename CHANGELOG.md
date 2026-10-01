@@ -12,9 +12,49 @@ Breaks, in that the structurer's output changes for documents it already read:
    attestation after it leaves the body. Conclusion lifting, signatory grouping
    and the page-region signal read phrases the same way. A blank phrase no
    longer matches.
+2. Losses are reported instead of reading as success, so a run that finished
+   clean before can now grade `warning` or `blocking`, or fail:
+   - A page the model refused on a content filter (partial text included), or
+     an inked page read empty, is recorded: `PageResult.finish_reason`,
+     `PageExtracted.finish_reason` and `PageExtracted.unreadable`, an
+     `unreadable_page` error finding, `pages_unreadable` in the bundle
+     manifest, and an editorial remark in the AKN where the page stood. The
+     structurer now receives the unreadable-page marker and places the remark
+     itself; `combine_text_for_structure` no longer strips it.
+   - Body-fill records what it achieved (`ScanTrace.body_fill`). Bodies copied
+     from the source after the model failed them, or restored because the model
+     changed a table, are a `body_fill_verbatim` warning; bodies left empty a
+     `body_fill_incomplete` error. When every call failed and the model wrote
+     no body, the structurer raises `BodyFillError`, or under
+     `halt_policy="land"` records a `body_fill_failed` halt. The scan trace is emitted once, after body-fill.
+   - `coverage.json` `ratio` is the lowest of the anchor, body-fill and page
+     ratios; the anchor figure moves to `anchor_ratio`. The manifest carries the
+     structural grade.
+   - A jurisdiction config that is absent or does not validate raises where it
+     is read. Anchor-scan helpers, title helpers, the region vocabulary, the
+     enrich passes and the repair dossier used to catch it and return defaults.
+     A config file that cannot be read or decoded raises
+     `JurisdictionConfigError`. The PDF and text lanes read the config first and
+     emit `Failed(stage="config")` before any extraction or model call.
+   - `validate_akn(provenance="extracted")`, which the PDF and text lanes pass,
+     grades every numbering gap `warning` and adds a leading-gap `number_gap`
+     when the first article or section is numbered above 1. A gap after a
+     provision carrying an unreadable-page remark is no longer called a repeal.
+     Numbering checks now cover `rule` units as well as articles and sections.
+3. `validate_akn(provenance="native")`, which the lanes reading publisher XML
+   (native AKN, FORMEX and the other publisher formats) pass, skips
+   `identity_year_implausible` and `identity_year_unconverted_hijri`: a
+   publisher's own date is not a misparse.
+   Callers that do not pass `provenance` see the previous checks.
 
 New, additive:
 
+- `ingest-one --fallback-model`, defaulting to
+  `LITELLM_CONTENT_FILTER_FALLBACK_MODEL`: the model retried on any
+  content-filter refusal, so page reads, metadata and body-fill can all run on
+  it.
+- `validate_akn` takes `provenance`, `unreadable_pages` and `body_fill`;
+  `codify.jurisdictions.CONFIG_FAULTS`; `codify.core.llm.content_filtered`.
 - `document_classes.<class>.number_source` in the jurisdiction config:
   `"stated"` (the default, unchanged behaviour) or `"title_identity"`, which
   numbers the class's work URI from its title digest (`t-...`) and ignores any

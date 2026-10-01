@@ -829,7 +829,7 @@ async def ingest(
 
         # Pipeline validator findings
         def _run_validator_huge(xml: str) -> list[dict[str, Any]]:
-            return run_validator(xml, huge_tree=True)
+            return run_validator(xml, huge_tree=True, provenance="native")
 
         try:
             for issue in await _on_the_cpu_pool(_run_validator_huge, akn_xml):

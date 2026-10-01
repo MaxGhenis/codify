@@ -11,7 +11,7 @@ import re
 import unicodedata
 from collections import Counter
 from datetime import UTC, datetime
-from typing import Any
+from typing import Any, Literal
 
 import structlog
 from lxml import etree
@@ -34,6 +34,7 @@ from codify.pipeline.enrich.arabic_normalise import (
     heading_restates_number,
 )
 from codify.pipeline.enrich.kinds import CONTAINER_KINDS
+from codify.pipeline.enrich.ocr import UNREADABLE_REMARK_RE
 from codify.pipeline.enrich.scripts.arabic import ARABIC
 from codify.quality.invariants import classify_gap, missing_between
 from codify.quality.lexicons import ARABIC_WORDS
@@ -53,6 +54,9 @@ def validate_akn(
     recoverable_pages: set[int] | None = None,
     orphaned_drops: list[dict[str, Any]] | None = None,
     container_coverage: dict[str, Any] | None = None,
+    provenance: Literal["native", "extracted"] | None = None,
+    unreadable_pages: dict[int, str] | None = None,
+    body_fill: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Run all checks, returning issue dicts. The optional arguments are evidence only the
     scan or extractor can see, so each enables a check that cannot be derived from the
@@ -71,6 +75,12 @@ def validate_akn(
     absent from the subset stays blocking. ``orphaned_drops`` text an anchor drop left
     with no provision to hold it. ``container_coverage`` the guarded heading-vs-container
     probe ({present, found}); below-floor means the structurer flattened a grouping level.
+    ``provenance`` is where the structure came from: ``native`` AKN a publisher
+    structured, whose dates and numbering are the publisher's own, or text the pipeline
+    ``extracted`` (OCR, vision, a text layer), where a numbering gap is likely lost
+    content. None keeps the checks provenance-neutral. ``unreadable_pages`` page number
+    to reason for pages that came back without text. ``body_fill`` the structurer's
+    `BodyFillTrace` as a dict, naming bodies the model never wrote.
     """
     root = parse_xml(akn_xml, huge_tree=huge_tree)
     issues: list[dict[str, Any]] = []
@@ -88,7 +98,15 @@ def validate_akn(
         issues.extend(_check_cover_body_reconciliation(root, expected_cover_article_numbers))
     bis_scopes = collapsed_bis_scopes(root)
     issues.extend(_check_collapsed_bis_article(bis_scopes))
-    issues.extend(_check_number_set_continuity(root, suppress=bis_scopes))
+    issues.extend(
+        _check_number_set_continuity(
+            root,
+            suppress=bis_scopes,
+            extracted=provenance == "extracted",
+        )
+    )
+    if provenance == "extracted":
+        issues.extend(_check_leading_gap(root))
     issues.extend(_check_seam_duplication(root))
     issues.extend(_check_body_artefacts(root))
     issues.extend(_check_markup_as_text(root))
@@ -102,7 +120,7 @@ def validate_akn(
     issues.extend(check_missing_container_titles(root))
     issues.extend(_check_formula_integrity(root))
     issues.extend(_check_money_words_mismatch(root))
-    issues.extend(_check_identity_consistency(root))
+    issues.extend(_check_identity_consistency(root, native=provenance == "native"))
     if source_text is not None:
         issues.extend(_check_fabricated_formula(root, source_text))
         issues.extend(_check_header_coverage(root, source_text))
@@ -114,6 +132,10 @@ def validate_akn(
         issues.extend(_check_orphaned_drops(orphaned_drops))
     if container_coverage:
         issues.extend(_check_container_coverage(container_coverage))
+    if unreadable_pages:
+        issues.extend(_check_unreadable_pages(unreadable_pages))
+    if body_fill:
+        issues.extend(_check_body_fill(body_fill))
 
     if issues:
         logger.info("validation_issues_found", count=len(issues))
@@ -121,11 +143,14 @@ def validate_akn(
     return issues
 
 
-_NUMBERED_KINDS = ("article", "section", "paragraph", "point", "subsection")
+_NUMBERED_KINDS = ("article", "section", "rule", "paragraph", "point", "subsection")
 
 
 def _check_number_set_continuity(
-    root: etree._Element, *, suppress: dict[str, set[str]] | None = None
+    root: etree._Element,
+    *,
+    suppress: dict[str, set[str]] | None = None,
+    extracted: bool = False,
 ) -> list[dict[str, Any]]:
     """Catch structural drops the count-only validator misses. For each continuously
     numbered kind, flag duplicates (two eIds sharing a num, the same unit emitted twice
@@ -135,6 +160,10 @@ def _check_number_set_continuity(
     ``suppress`` maps a parent eId to folded letters whose duplication a more specific
     finding already explains, so the agent is not routed to a cosmetic renumber. An
     unrelated duplicate under the same parent stays intact.
+
+    ``extracted`` warns on every gap, since text read off a page loses provisions
+    with the page. A gap whose host carries an unreadable-page remark is not
+    called a repeal.
     """
     suppress = suppress or {}
     out: list[dict[str, Any]] = []
@@ -227,7 +256,14 @@ def _check_number_set_continuity(
                 if total:
                     likely = classify_gap(total, max_run, lo, hi)
                     out.extend(
-                        _gap_run_findings(root, kind, sorted(seen), num_to_eid, likely=likely)
+                        _gap_run_findings(
+                            root,
+                            kind,
+                            sorted(seen),
+                            num_to_eid,
+                            likely=likely,
+                            extracted=extracted,
+                        )
                     )
     return out
 
@@ -262,6 +298,28 @@ def _gap_acknowledged(root: etree._Element, eid: str) -> bool:
     return False
 
 
+def _remarked_pages(root: etree._Element, eid: str) -> list[int]:
+    """Pages whose unreadable-page remark ends the content of the element with this
+    eId, nested or not. A remark with provision text after it lost a page inside
+    this provision, which cannot hold the numbers that follow it."""
+    hits = root.xpath(".//*[@eId=$e]", e=eid)
+    if not hits:
+        return []
+    remark_tag = f"{{{AKN_NS}}}remark"
+    paras = list(hits[0].iter(f"{{{AKN_NS}}}p"))
+
+    def own_text(p: etree._Element) -> str:
+        quoted = " ".join(" ".join(r.itertext()) for r in p.iter(remark_tag))
+        return " ".join(p.itertext()).replace(quoted, "").strip() if quoted else "x"
+
+    pages: set[int] = set()
+    for i, p in enumerate(paras):
+        found = UNREADABLE_REMARK_RE.findall(" ".join(p.itertext()))
+        if found and not any(own_text(later) for later in paras[i + 1 :]):
+            pages.update(int(n) for n in found)
+    return sorted(pages)
+
+
 def _gap_run_findings(
     root: etree._Element,
     kind: str,
@@ -269,6 +327,7 @@ def _gap_run_findings(
     num_to_eid: dict[int, str],
     *,
     likely: str,
+    extracted: bool = False,
 ) -> list[dict[str, Any]]:
     """Per-run gap findings, hosted on the provision numbered before the run so
     a repair (an editorial annotation) has a target and can clear the finding."""
@@ -276,13 +335,6 @@ def _gap_run_findings(
     for a, b in zip(numbers, numbers[1:], strict=False):
         if b - a > 1:
             runs.append((a + 1, b - 1, num_to_eid.get(a)))
-    label = (
-        "a structuring drop"
-        if likely == "defect"
-        else "legitimate repeals"
-        if likely == "repeal"
-        else "a drop or repeals"
-    )
     out: list[dict[str, Any]] = []
     unacknowledged = [
         (first, last, host)
@@ -291,13 +343,28 @@ def _gap_run_findings(
     ]
     for first, last, host in unacknowledged[:_MAX_GAP_RUNS]:
         missing = list(range(first, min(last, first + 49) + 1))
+        # The structurer left a remark in the provision a lost page continued, so
+        # a gap after it may be that page rather than a repeal.
+        lost = _remarked_pages(root, host) if host else []
+        run_likely = "unreadable_page" if lost else likely
+        label = (
+            "a structuring drop"
+            if run_likely == "defect"
+            else "legitimate repeals"
+            if run_likely == "repeal"
+            else f"content on unreadable page(s) {', '.join(map(str, lost))}"
+            if run_likely == "unreadable_page"
+            else "a drop or repeals"
+        )
         finding: dict[str, Any] = {
             "check": "number_gap",
             # A contiguous run of holes is almost always a structuring drop;
             # scattered singletons in a dense sequence are almost always
-            # repeals. Warn on the former, keep the latter info.
-            "severity": "warning" if likely == "defect" else "info",
-            "likely": likely,
+            # repeals, except in extracted text or beside an unreadable page.
+            "severity": (
+                "warning" if extracted or run_likely in {"defect", "unreadable_page"} else "info"
+            ),
+            "likely": run_likely,
             "kind": kind,
             "missing": missing,
             "range": [first, last],
@@ -308,6 +375,50 @@ def _gap_run_findings(
         }
         if host:
             finding["eid"] = host
+        out.append(finding)
+    return out
+
+
+def _check_leading_gap(root: etree._Element) -> list[dict[str, Any]]:
+    """Body numbering that starts above 1, for the basic-unit kinds numbered through
+    the document: in extracted text the opening provisions went with a lost page or
+    a misread heading. Quoted amendments carry the amended act's numbers, so skipped.
+    """
+    body = _document_body(root)
+    if body is None:
+        return []
+    out: list[dict[str, Any]] = []
+    for kind in ("article", "section", "rule"):
+        first: tuple[etree._Element, str] | None = None
+        for el in body.iter(f"{{{AKN_NS}}}{kind}"):
+            num_el = el.find(f"{{{AKN_NS}}}num")
+            if num_el is None or _under_quoted_amendment(el):
+                continue
+            num = normalise_digits("".join(num_el.itertext()).strip().rstrip(".,;:"))
+            if num:
+                first = (el, num)
+                break
+        if first is None or not first[1].isdigit() or int(first[1]) <= 1:
+            continue
+        el, num = first
+        eid = el.get("eId") or ""
+        if eid and _gap_acknowledged(root, eid):
+            continue
+        last = int(num) - 1
+        finding: dict[str, Any] = {
+            "check": "number_gap",
+            "severity": "warning",
+            "likely": "leading",
+            "kind": kind,
+            "missing": list(range(1, min(last, 50) + 1)),
+            "range": [1, last],
+            "message": (
+                f"{kind} numbering starts at {num}, so {kind}s 1 to {last} are absent "
+                "from the start of the body (likely lost with an opening page)."
+            ),
+        }
+        if eid:
+            finding["eid"] = eid
         out.append(finding)
     return out
 
@@ -1671,6 +1782,65 @@ def _check_orphaned_drops(orphaned_drops: list[dict[str, Any]]) -> list[dict[str
     ]
 
 
+def _check_unreadable_pages(pages: dict[int, str]) -> list[dict[str, Any]]:
+    """Source pages that came back with no text: a content-filter refusal or an inked
+    page read empty. Whatever they held is missing from the AKN, so this blocks."""
+    ordered = sorted(pages)
+    shown = ", ".join(f"{p} ({pages[p]})" for p in ordered[:8])
+    more = ", …" if len(ordered) > 8 else ""
+    return [
+        {
+            "check": "unreadable_page",
+            "severity": "error",
+            "pages": ordered,
+            "reasons": {str(p): pages[p] for p in ordered},
+            "message": (
+                f"{len(ordered)} source page(s) came back with no text or only part of "
+                f"it: {shown}{more}; their content is missing from the document."
+            ),
+        }
+    ]
+
+
+def _check_body_fill(trace: dict[str, Any]) -> list[dict[str, Any]]:
+    """Provisions without a model-written body. Empty ones lost their text, so
+    error; source text in place of model output keeps every word, so warning."""
+    empty = list(trace.get("empty") or [])
+    verbatim = list(trace.get("verbatim") or [])
+    expected = int(trace.get("expected") or 0)
+    failed = int(trace.get("calls_failed") or 0)
+    calls = int(trace.get("calls") or 0)
+    issues: list[dict[str, Any]] = []
+    if empty:
+        issues.append(
+            {
+                "check": "body_fill_incomplete",
+                "severity": "error",
+                "eids": empty,
+                "count": len(empty),
+                "message": (
+                    f"{len(empty)} of {expected} provisions with source text have no body "
+                    f"({failed} of {calls} body-fill calls failed); first {empty[0]!r}."
+                ),
+            }
+        )
+    if verbatim:
+        issues.append(
+            {
+                "check": "body_fill_verbatim",
+                "severity": "warning",
+                "eids": verbatim,
+                "count": len(verbatim),
+                "message": (
+                    f"{len(verbatim)} of {expected} provision bodies are source text in place "
+                    f"of model output, which was missing or changed a table ({failed} of "
+                    f"{calls} body-fill calls failed); first {verbatim[0]!r}."
+                ),
+            }
+        )
+    return issues
+
+
 def _check_container_coverage(probe: dict[str, Any]) -> list[dict[str, Any]]:
     """Source grouping headings (Bab/Fasl) that mostly produced no container, meaning the
     structurer flattened a grouping level, as the PS cabinet-decision config gap did
@@ -1809,11 +1979,16 @@ _EARLIEST_PLAUSIBLE_YEAR = 1800
 _URI_YEAR = re.compile(r"/(\d{4})/[^/]+(?:/![^/]+)?$")
 
 
-def _check_identity_consistency(root: etree._Element) -> list[dict[str, Any]]:
+def _check_identity_consistency(
+    root: etree._Element, *, native: bool = False
+) -> list[dict[str, Any]]:
     """Does the document agree with itself about when it was made? Every field compared is
     one already stored, so a disagreement is arithmetic rather than extraction: a year in
     the future, an unconverted Hijri year, or a date contradicting the year segment of
     the document's own FRBR URI. Each names a law nobody can cite correctly.
+
+    ``native`` skips the two plausibility checks: a publisher's own date is not a
+    mis-parse, and an old statute book holds instruments from before 1800.
     """
     work = root.find(f".//{{{AKN_NS}}}identification/{{{AKN_NS}}}FRBRWork")
     if work is None:
@@ -1848,7 +2023,7 @@ def _check_identity_consistency(root: etree._Element) -> list[dict[str, Any]]:
                     "message": f"FRBRdate year {year} is later than the current year {this_year}",
                 }
             )
-        elif year in _HIJRI_YEAR_RANGE:
+        elif not native and year in _HIJRI_YEAR_RANGE:
             issues.append(
                 {
                     "check": "identity_year_unconverted_hijri",
@@ -1859,7 +2034,7 @@ def _check_identity_consistency(root: etree._Element) -> list[dict[str, Any]]:
                     ),
                 }
             )
-        elif year < _EARLIEST_PLAUSIBLE_YEAR:
+        elif not native and year < _EARLIEST_PLAUSIBLE_YEAR:
             issues.append(
                 {
                     "check": "identity_year_implausible",

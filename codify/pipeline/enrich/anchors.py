@@ -1898,10 +1898,7 @@ def _marginal_note_kind(country: str, doctype: str) -> str | None:
     """The basic unit to scan for when the config says headings are marginal notes."""
     if not country:
         return None
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing/invalid config: keyword scan only
-        return None
+    config = load_config(country)
     display = config.display
     if display is None or display.heading_type != "marginal_note":
         return None
@@ -2203,10 +2200,7 @@ def _declared_marker_entries(country: str, doctype: str) -> tuple[HierarchyEntry
     """Hierarchy levels this document class marks without a keyword."""
     if not country:
         return ()
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing/invalid config → keyword scan only
-        return ()
+    config = load_config(country)
     doc_class = config.get_document_class(doctype)
     if not doc_class:
         return ()
@@ -2485,10 +2479,7 @@ def _attachment_hierarchies(country: str) -> tuple[tuple[str, tuple[HierarchyEnt
     """(caption, levels) for every attachment kind declaring its own levels."""
     if not country:
         return ()
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing/invalid config → body levels only
-        return ()
+    config = load_config(country)
     return tuple(
         (a.caption.strip().upper(), tuple(a.hierarchy)) for a in config.attachments if a.hierarchy
     )
@@ -2599,10 +2590,7 @@ def _scan_attachment_outlines(
     declared = _attachment_hierarchies(country)
     if not declared:
         return []
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing/invalid config → marker forms only
-        config = None
+    config = load_config(country)
     starts = sorted(a.char_offset for a in anchors if a.kind == "schedule")
     if not starts:
         return []
@@ -2876,10 +2864,7 @@ def _basic_unit_line_re(country: str) -> re.Pattern[str] | None:
     """
     if not country:
         return None
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing config -> no boundary to enforce
-        return None
+    config = load_config(country)
     entries = [
         entry
         for doc_class in (config.document_classes or {}).values()
@@ -3328,10 +3313,7 @@ def _example_markers_for(country: str) -> tuple[str, ...]:
     """Declared lead-ins that introduce specimen legislation, e.g. `Contoh`."""
     if not country:
         return ()
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001
-        return ()
+    config = load_config(country)
     structuring = config.structuring
     return tuple(w for w in (structuring.example_markers if structuring else []) if w)
 
@@ -3918,19 +3900,11 @@ def _normalise_number(num: str | None) -> str:
 @lru_cache(maxsize=64)
 def _trigger_phrases_for(country: str) -> tuple[str, ...]:
     """Amendment trigger phrases declared on the jurisdiction config.
-    Empty tuple when the country or amendments block is absent, or the trigger
-    list is empty; the caller short-circuits on empty."""
+    Empty tuple when no country is named, the amendments block is absent, or the
+    trigger list is empty; the caller short-circuits on empty."""
     if not country:
         return ()
-    try:
-        config = load_config(country)
-    except Exception as exc:  # noqa: BLE001
-        logger.warning(
-            "amendment_triggers_load_failed",
-            country=country,
-            error=f"{type(exc).__name__}: {str(exc)[:160]}",
-        )
-        return ()
+    config = load_config(country)
     if config.amendments is None:
         return ()
     return tuple(config.amendments.trigger_phrases or ())
@@ -3945,10 +3919,7 @@ def _rank_map_for(country: str, doctype: str) -> dict[str, float] | None:
     """
     if not country:
         return None
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing/invalid config → global ranks
-        return None
+    config = load_config(country)
     doc_class = config.get_document_class(doctype)
     if not doc_class or not doc_class.hierarchy:
         return None
@@ -3991,10 +3962,7 @@ def _abbrev_map_for(country: str, doctype: str) -> dict[str, str]:
     """
     if not country:
         return {}
-    try:
-        config = load_config(country)
-    except Exception:  # noqa: BLE001, missing/invalid config → canonical only
-        return {}
+    config = load_config(country)
     doc_class = config.get_document_class(doctype)
     if not doc_class or not doc_class.hierarchy:
         return {}

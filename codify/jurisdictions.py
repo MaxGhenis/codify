@@ -14,7 +14,15 @@ from functools import lru_cache
 from typing import Any, Literal, NamedTuple, cast
 
 import structlog
-from pydantic import BaseModel, ConfigDict, Field, computed_field, field_validator, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    ValidationError,
+    computed_field,
+    field_validator,
+    model_validator,
+)
 
 from codify.data_paths import data_dir
 
@@ -1372,6 +1380,11 @@ class JurisdictionDataMissing(JurisdictionConfigError):
     contradicts itself is a defect wherever it is read."""
 
 
+# A config that is absent or does not validate. A caller tolerating its own
+# failures re-raises these first: a thinner result is not a fallback.
+CONFIG_FAULTS: tuple[type[Exception], ...] = (JurisdictionConfigError, ValidationError)
+
+
 def load_config(country_code: str) -> JurisdictionConfig:
     """The jurisdiction's config, or a fault.
 
@@ -1404,10 +1417,20 @@ def try_load_config(country_code: str) -> JurisdictionConfig | None:
     """
     if "/" in country_code or ".." in country_code:
         return None
-    path = JURISDICTIONS_DIR / country_code / "config.json"
-    if not path.exists():
+    # Normalised and held under the data root before any read.
+    base = os.path.normpath(str(JURISDICTIONS_DIR))
+    path = os.path.normpath(os.path.join(base, country_code, "config.json"))
+    if not path.startswith(base + os.sep) or not os.path.exists(path):
         return None
-    return JurisdictionConfig.model_validate_json(path.read_text())
+    try:
+        with open(path, encoding="utf-8") as handle:
+            raw = handle.read()
+    except (OSError, UnicodeError) as exc:
+        # A config there and unreadable is a fault of the config, not of the caller.
+        raise JurisdictionConfigError(
+            f"jurisdiction config {path} could not be read: {exc}"
+        ) from exc
+    return JurisdictionConfig.model_validate_json(raw)
 
 
 class FrbrCountry(NamedTuple):

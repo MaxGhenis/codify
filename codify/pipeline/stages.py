@@ -18,6 +18,7 @@ from codify.frbr import (
     series_number,
 )
 from codify.jurisdictions import (
+    CONFIG_FAULTS,
     JurisdictionConfig,
     load_config,
     placeholder_statuses_for_code,
@@ -364,6 +365,8 @@ async def run_enrich_passes(
     """
     try:
         vocab = vocabulary_for_jurisdiction(jurisdiction_code, desc.year)
+    except CONFIG_FAULTS:
+        raise
     except Exception as exc:  # noqa: BLE001
         # A bad config pattern costs the two region passes, not the sequence.
         logger.warning("region_vocabulary_failed", jurisdiction=jurisdiction_code, error=str(exc))
@@ -416,6 +419,9 @@ async def run_enrich_passes(
             # Every other pass is decoration this document can ship without.
             # An identity nobody can cite is the document, so it propagates.
             raise
+        except CONFIG_FAULTS:
+            # So does a config nobody can read: every pass after it runs thinner.
+            raise
         except Exception as exc:  # noqa: BLE001
             logger.warning("enrich_pass_failed", pass_name=name, error=str(exc))
             continue
@@ -430,6 +436,8 @@ async def run_enrich_passes(
             llm,
             skip_external_refs=skip_external_refs,
         )
+    except CONFIG_FAULTS:
+        raise
     except Exception as exc:  # noqa: BLE001
         logger.warning("enrich_pass_failed", pass_name="inline_markup", error=str(exc))  # noqa: S106
     else:

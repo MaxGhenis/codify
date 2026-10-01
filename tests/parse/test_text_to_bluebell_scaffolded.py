@@ -279,16 +279,155 @@ class _AlwaysFailingLLMClient:
         raise AssertionError("unused")
 
 
+_XA_TEXT = """\
+Coastal Lights Act, 2015
+
+PART I
+PRELIMINARY
+
+Section 1
+This Act may be cited as the Coastal Lights Act.
+
+Section 2
+In this Act "light" means a lighthouse, beacon or buoy.
+
+PART II
+THE KEEPER OF LIGHTS
+
+Section 3
+The Minister shall appoint a Keeper of Lights for a term of five years.
+
+Section 4
+A person who obscures a light without consent commits an offence.
+"""
+
+_XA_EIDS = ["part_I__sec_1", "part_I__sec_2", "part_II__sec_3", "part_II__sec_4"]
+
+
+class _EchoUnless:
+    """Writes one line per eId it is asked for, and fails any window whose source
+    carries ``refuse``, so a chosen provision can never be filled."""
+
+    _EID_RE = re.compile(r"eid=(\S+)")
+
+    def __init__(self, refuse: str | None = None) -> None:
+        self.refuse = refuse
+        self.prompts: list[str] = []
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        self.prompts.append(prompt)
+        if self.refuse and self.refuse in prompt:
+            raise RuntimeError("gateway said no")
+        eids = self._EID_RE.findall(prompt)
+        return schema(bodies=[BodyBlock(eid=e, lines=[f"Body of {e}."]) for e in eids])
+
+
 @pytest.mark.asyncio
-async def test_scaffolded_verbatim_fallback_when_llm_always_fails():
-    """When every LLM call fails (repetition loop unfixable by splitting), the
-    article bodies are spliced verbatim from source so nothing is left empty."""
+async def test_no_model_output_lands_blocking_with_the_source_text():
+    """Every call failed: the bodies are the source copied in, and the run says so
+    with a halt rather than reading as a structuring result."""
+    traces: list = []
     result = await text_to_bluebell_scaffolded(
-        _AL_TEXT, client=_AlwaysFailingLLMClient(), country="al", doctype="ligj"
+        _XA_TEXT,
+        client=_AlwaysFailingLLMClient(),
+        country="xa",
+        doctype="act",
+        on_scan=traces.append,
+        halt_policy="land",
     )
-    # Source body text is present despite the LLM never returning anything.
-    assert "Ky ligj rregullon veprimtarinë e organizatave." in result
-    assert "Ministria përgjegjëse është Ministria e Drejtësisë." in result
+    assert "The Minister shall appoint a Keeper of Lights" in result
+    assert len(traces) == 1, traces
+    fill = traces[0].body_fill
+    assert (fill.calls_failed == fill.calls, fill.model_filled, list(fill.verbatim)) == (
+        True,
+        0,
+        _XA_EIDS,
+    )
+    assert [h.gate for h in traces[0].halts] == ["body_fill_failed"]
+
+
+@pytest.mark.asyncio
+async def test_no_model_output_fails_the_run_under_the_fail_policy():
+    traces: list = []
+    with pytest.raises(BodyFillError, match="wrote no body"):
+        await text_to_bluebell_scaffolded(
+            _XA_TEXT,
+            client=_AlwaysFailingLLMClient(),
+            country="xa",
+            doctype="act",
+            on_scan=traces.append,
+        )
+    # The trace still reaches the caller on the way out of the failure.
+    assert [t.body_fill.model_filled for t in traces] == [0]
+
+
+@pytest.mark.asyncio
+async def test_one_unfillable_provision_is_recorded_not_hidden():
+    traces: list = []
+    client = _EchoUnless(refuse="Keeper of Lights for a term")
+    result = await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=client, country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.expected, fill.model_filled, fill.verbatim, fill.empty) == (
+        4,
+        3,
+        ("part_II__sec_3",),
+        (),
+    )
+    assert fill.calls_failed > 0 and not traces[0].halts
+    assert "The Minister shall appoint a Keeper of Lights" in result
+
+
+@pytest.mark.asyncio
+async def test_a_complete_fill_records_every_body_as_the_model_s():
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_EchoUnless(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.expected, fill.model_filled, fill.calls_failed, fill.ratio) == (4, 4, 0, 1.0)
+
+
+@pytest.mark.asyncio
+async def test_an_unreadable_page_becomes_a_remark_where_it_stood():
+    """The marker never reaches the model, and the AKN keeps a visible remark in
+    the provision the lost page continued."""
+    from codify.pipeline.enrich.bluebell import parse_to_akn
+
+    text = _XA_TEXT.replace("\nPART II\n", "\n⟦page 2 unreadable⟧\n\nPART II\n")
+    client = _EchoUnless()
+    result = await text_to_bluebell_scaffolded(text, client=client, country="xa", doctype="act")
+
+    assert not [p for p in client.prompts if "unreadable" in p]
+    sec_2 = result.split("SECTION 2", 1)[1].split("PART II", 1)[0]
+    assert "{{*[Page 2 of the source could not be read]}}" in sec_2, result
+    akn = parse_to_akn(result, "xa", doctype="act", date="2015", number="9")
+    assert re.search(r"<remark[^>]*>\[Page 2 of the source could not be read\]</remark>", akn)
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_before_the_first_provision_opens_it():
+    text = _XA_TEXT.replace("PART I\n", "⟦page 1 unreadable⟧\n\nPART I\n", 1)
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    sec_1 = result.split("SECTION 1", 1)[1].split("SECTION 2", 1)[0]
+    assert sec_1.index("Page 1 of the source") < sec_1.index("Body of part_I__sec_1."), sec_1
+
+
+@pytest.mark.asyncio
+async def test_an_anchorless_document_keeps_the_remark_in_place():
+    text = "First paragraph of prose.\n\n⟦page 2 unreadable⟧\n\nLast paragraph of prose.\n"
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    first, remark, last = (
+        result.index("First paragraph"),
+        result.index("Page 2 of the source"),
+        result.index("Last paragraph"),
+    )
+    assert first < remark < last, result
 
 
 _PS_TATWEEL_BODY = """\
@@ -581,3 +720,255 @@ async def test_act_pipeline_table_fallback_keeps_source_citations():
     assert "".join(article.itertext()).count("P.7/2021") == 2
     assert "Blue lens" in "".join(article.itertext())
     assert len(article.xpath('.//*[local-name()="table"]')) == 1
+
+
+@pytest.mark.asyncio
+async def test_a_body_nothing_could_fill_is_recorded_empty(monkeypatch):
+    """When the source copy fails too, the provision is empty and says so."""
+    from codify.pipeline.enrich import structure
+
+    def _broken(*_a, **_k):
+        raise RuntimeError("no source copy")
+
+    monkeypatch.setattr(structure, "fill_bodies_verbatim", _broken)
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT,
+        client=_EchoUnless(refuse="Keeper of Lights for a term"),
+        country="xa",
+        doctype="act",
+        on_scan=traces.append,
+    )
+    fill = traces[0].body_fill
+    assert (fill.verbatim, fill.empty, fill.model_filled) == ((), ("part_II__sec_3",), 3)
+
+
+@pytest.mark.asyncio
+async def test_no_law_at_all_is_refused_even_when_landing(monkeypatch):
+    """Every call failed, recovery windows included, and the source copy failed
+    too: there is nothing to land, whatever the policy."""
+    from codify.pipeline.enrich import structure
+
+    def _broken(*_a, **_k):
+        raise RuntimeError("no source copy")
+
+    monkeypatch.setattr(structure, "fill_bodies_verbatim", _broken)
+    with pytest.raises(BodyFillError, match="has no body"):
+        await text_to_bluebell_scaffolded(
+            _XA_TEXT,
+            client=_AlwaysFailingLLMClient(),
+            country="xa",
+            doctype="act",
+            halt_policy="land",
+        )
+
+
+class _AnswersEmpty:
+    """Every call succeeds and writes nothing."""
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        return schema(bodies=[])
+
+
+@pytest.mark.asyncio
+async def test_empty_answers_are_recorded_as_unfilled_bodies():
+    """No call raised and the model wrote nothing: not a halt, but every body is
+    recorded as copied in, which the validator grades."""
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_AnswersEmpty(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.calls_failed, fill.model_filled, list(fill.verbatim), traces[0].halts) == (
+        0,
+        0,
+        _XA_EIDS,
+        (),
+    )
+
+
+@pytest.mark.asyncio
+async def test_a_source_of_only_unreadable_pages_keeps_its_remarks():
+    text = "⟦page 1 unreadable⟧\n\n⟦page 2 unreadable⟧\n"
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    assert re.findall(r"Page (\d) of the source", result) == ["1", "2"], result
+
+
+class _BlankLines(_EchoUnless):
+    """Answers blank lines for one provision, and real ones for the rest."""
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        response = await super().chat_schema(prompt, schema, system, model)
+        return schema(
+            bodies=[
+                BodyBlock(eid=b.eid, lines=["  ", ""]) if b.eid == "part_II__sec_3" else b
+                for b in response.bodies
+            ]
+        )
+
+
+@pytest.mark.asyncio
+async def test_blank_lines_are_not_a_body():
+    """Whitespace-only lines are recorded as an unfilled body, not a model one."""
+    traces: list = []
+    result = await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_BlankLines(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.model_filled, fill.verbatim) == (3, ("part_II__sec_3",))
+    assert "The Minister shall appoint a Keeper of Lights" in result
+
+
+@pytest.mark.asyncio
+async def test_anchor_offsets_still_index_the_source_after_a_lost_page():
+    """The trace's offsets locate the source as written, marker included."""
+    text = _XA_TEXT.replace("\nPART II\n", "\n⟦page 2 unreadable⟧\n\nPART II\n")
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act", on_scan=traces.append
+    )
+    sec_3 = next(a for a in traces[0].anchors if a.akn_eid == "part_II__sec_3")
+    at = text[sec_3.char_offset :]
+    assert at.lstrip("\n").startswith("Section 3"), at[:30]
+
+
+@pytest.mark.asyncio
+async def test_a_containers_only_document_keeps_its_remark():
+    """No provision to hold it, so the remark is content of the container the
+    lost page continued."""
+    from codify.pipeline.enrich.bluebell import parse_to_akn
+
+    text = "PART I\nPRELIMINARY\n\n⟦page 2 unreadable⟧\n\nPART II\nTHE KEEPER\n"
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    akn = parse_to_akn(result, "xa", doctype="act", date="2015", number="9")
+    part_1 = akn.split('eId="part_I"', 1)[1].split('eId="part_II"', 1)[0]
+    assert "[Page 2 of the source could not be read]" in part_1, akn
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_just_before_a_provision_stays_with_the_one_before():
+    """The next provision's offset can start in the blank run the marker sat in;
+    the remark still belongs to the provision the page continued."""
+    text = _XA_TEXT.replace("\nSection 2\n", "\n⟦page 2 unreadable⟧\n\nSection 2\n")
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    sec_1 = result.split("SECTION 1", 1)[1].split("SECTION 2", 1)[0]
+    assert "Page 2 of the source" in sec_1, result
+
+
+@pytest.mark.asyncio
+async def test_pages_lost_before_the_first_provision_keep_their_order():
+    text = _XA_TEXT.replace("PART I\n", "⟦page 1 unreadable⟧\n\n⟦page 2 unreadable⟧\n\nPART I\n", 1)
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    assert re.findall(r"Page (\d) of the source", result) == ["1", "2"], result
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_after_a_container_heading_opens_its_first_provision():
+    text = _XA_TEXT.replace(
+        "THE KEEPER OF LIGHTS\n", "THE KEEPER OF LIGHTS\n\n⟦page 2 unreadable⟧\n", 1
+    )
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    sec_3 = result.split("SECTION 3", 1)[1].split("SECTION 4", 1)[0]
+    assert sec_3.index("Page 2 of the source") < sec_3.index("Body of part_II__sec_3."), result
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_in_the_closing_material_stays_in_the_conclusions(monkeypatch):
+    from codify.pipeline.enrich import closing
+
+    monkeypatch.setattr(closing, "closing_phrases_for", lambda _c: ["Passed by the Assembly"])
+    text = (
+        _XA_TEXT
+        + "\nPassed by the Assembly on 1 May 2015.\n\n"
+        + "⟦page 3 unreadable⟧\n\nClerk of the Assembly\n"
+    )
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    conclusions = result.split("CONCLUSIONS", 1)[1]
+    assert conclusions.index("Passed by") < conclusions.index("Page 3 of the source"), result
+    assert conclusions.index("Page 3 of the source") < conclusions.index("Clerk"), result
+    assert "Page 3" not in result.split("CONCLUSIONS", 1)[0], result
+
+
+@pytest.mark.asyncio
+async def test_a_preface_line_shaped_like_a_heading_is_not_a_container():
+    text = (
+        "Part Time Lights Act\nPART TIME LIGHTS\n\nPART I\nPRELIMINARY\n\n"
+        "⟦page 2 unreadable⟧\n\nPART II\nTHE KEEPER\n"
+    )
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    body = result.split("BODY", 1)[1]
+    part_1 = body.split("PART II", 1)[0]
+    assert "Page 2 of the source" in part_1, result
+
+
+def test_markers_past_the_closing_cut_move_with_the_text_after_it():
+    """Offsets after the cut close up by its width; those inside go to the conclusions."""
+    from codify.pipeline.enrich.closing import BodyBound
+    from codify.pipeline.enrich.structure import _rebase_markers
+
+    source = "0123456789CLOSE\nXYZ"
+    bound = BodyBound(
+        text=source[:10] + source[15:],
+        anchors=[],
+        conclusions="CLOSE",
+        cut_at=10,
+        excluded_chars=5,
+    )
+    body, conclusions = _rebase_markers([(3, 1), (12, 2), (17, 3)], bound, source)
+    assert body == [(3, 1), (12, 3)]
+    assert conclusions is not None and "Page 2 of the source" in conclusions
+
+
+class _EmptyThenDown:
+    """Answers the first call empty, then fails every call after it."""
+
+    def __init__(self) -> None:
+        self.calls = 0
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        self.calls += 1
+        if self.calls == 1:
+            return schema(bodies=[])
+        raise RuntimeError("gateway said no")
+
+
+@pytest.mark.asyncio
+async def test_a_model_that_answered_once_is_not_unreachable():
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_EmptyThenDown(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.calls_failed < fill.calls, fill.model_filled, traces[0].halts) == (True, 0, ())
+    assert list(fill.verbatim) == _XA_EIDS
+
+
+@pytest.mark.asyncio
+async def test_a_table_restored_from_the_source_counts_as_copied_in():
+    """The model's body lost the table, so the body shipped is the source's."""
+    from pathlib import Path
+
+    table = (Path(__file__).parents[1] / "pipeline/fixtures/ministerial_table.txt").read_text()
+    client = _RecordingLLMClient(
+        {"sec_1": BodyBlock(eid="sec_1", lines=["A summary that loses every cell."])}
+    )
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        "SECTION 1\n" + table, client=client, country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.verbatim, fill.model_filled) == (("sec_1",), 0)

@@ -12,6 +12,7 @@ import structlog
 from pydantic import BaseModel, Field
 
 from codify.akn.structure_diff import StructureNode, structure_of
+from codify.jurisdictions import CONFIG_FAULTS
 from codify.pipeline.enrich.ocr import PageLayout, PageResult, PageSpan, furniture_inline_patterns
 from codify.pipeline.enrich.regions import classify_layouts, vocabulary_for_jurisdiction
 from codify.pipeline.enrich.validator import validate_akn
@@ -156,7 +157,7 @@ def _flagged_regions(
     reads: list[PageReadInput], *, country: str, year: str
 ) -> list[dict[str, Any]]:
     """Region flags recomputed from persisted layouts; empty when nothing is
-    classifiable. Never raises, regions are advisory evidence."""
+    classifiable. Regions are advisory evidence, so only a config fault raises."""
     layouts: dict[int, PageLayout] = {}
     for read in reads:
         if not read.layout:
@@ -170,6 +171,8 @@ def _flagged_regions(
     try:
         vocab = vocabulary_for_jurisdiction(country, year)
         regions = classify_layouts(layouts, vocab=vocab)
+    except CONFIG_FAULTS:
+        raise
     except Exception as exc:  # noqa: BLE001, silence here would read as "all pages clean"
         logger.warning("dossier_regions_failed", country=country, year=year, error=str(exc))
         return []
@@ -238,6 +241,8 @@ def _closing_phrases(country: str, year: str) -> list[str]:
         return []
     try:
         return list(vocabulary_for_jurisdiction(country, year).closing_phrases)
+    except CONFIG_FAULTS:
+        raise
     except Exception as exc:  # noqa: BLE001, disables the check, but never silently
         logger.warning("closing_phrases_unavailable", country=country, error=str(exc))
         return []

@@ -883,7 +883,7 @@ def test_the_cpu_bound_passes_run_on_the_pipeline_pool(
     # reads the file, sniffs the format and derives the URI, since each of those
     # touches the whole document and would otherwise run on the loop first.
     assert "formex_conversion" in dispatched, dispatched
-    assert "validate_akn" in dispatched, dispatched
+    assert "_validate_native" in dispatched, dispatched
     # Dispatch alone cannot see where the work lands: only the thread name
     # distinguishes this pool from the shared default executor, and only the
     # thread distinguishes reading and sniffing inside the callable from before it.
@@ -1549,3 +1549,16 @@ def test_a_real_act_with_a_welded_title_is_repaired() -> None:
     headings = re.findall(r"<heading>([^<]*)</heading>", out)
     assert "B. Entities" in headings
     assert "B.Entities" not in headings
+
+
+def test_the_lane_validates_as_publisher_structured() -> None:
+    """The act's own date is the publisher's, so plausibility is not graded."""
+    from codify.akn import AKN_NS
+
+    xml = (
+        f'<akomaNtoso xmlns="{AKN_NS}"><act><meta><identification source="#src"><FRBRWork>'
+        '<FRBRuri value="/akn/eu/act/1766/4"/><FRBRdate date="1766-03-18" name="enacted"/>'
+        '</FRBRWork></identification></meta><body><article eId="art_1"><num>1</num>'
+        "<content><p>t</p></content></article></body></act></akomaNtoso>"
+    )
+    assert not [i for i in eu_directive._validate_native(xml) if i["check"].startswith("identity_")]

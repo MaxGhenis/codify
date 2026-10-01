@@ -18,7 +18,7 @@ import structlog
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from pypdf import PdfReader, PdfWriter
 
-from codify.core.llm import LLMClient
+from codify.core.llm import LLMClient, VisionText, content_filtered
 from codify.core.tracing import error_fields
 from codify.pipeline.enrich.scripts import ScriptPack
 from codify.quality.legibility import lexicon_rate
@@ -302,6 +302,9 @@ class PageResult(BaseModel):
     # the render exists (the vision route). None on the Mistral and text lanes,
     # which rasterise nothing; the verdict abstains on ink there by design.
     ink: float | None = None
+    # The vision route's finish reason. A content-filter refusal returns empty
+    # text, which without this reads the same as a blank leaf.
+    finish_reason: str = ""
 
 
 # The classifier reads `blocks` and `dimensions`; the rest is bulk (`words`
@@ -1042,7 +1045,10 @@ async def extract_text_from_pdf(
                     page_text_layer=anchor,
                 )
                 await _call(on_progress, f"Page {page_num}/{total_pages}: OCR complete")
-                logger.info("page_vision_ocr_done", page=page_num, chars=len(text))
+                finish_reason = getattr(text, "finish_reason", "")
+                logger.info(
+                    "page_vision_ocr_done", page=page_num, chars=len(text), finish=finish_reason
+                )
                 return PageResult(
                     furniture=furniture_inline,
                     page_number=page_num,
@@ -1054,6 +1060,7 @@ async def extract_text_from_pdf(
                     rival_text=rivals.get(page_num, ""),
                     divergence=divergence(text, rivals.get(page_num, "")),
                     ink=ink_ratio(image_bytes) if image_bytes is not None else None,
+                    finish_reason=finish_reason,
                 )
 
         for window in _render_windows(ocr_page_nums):
@@ -1145,7 +1152,7 @@ This is page {page_number} of {total_pages}. Extract all text from this page.{an
         system=OCR_SYSTEM_PROMPT,
         model=ocr_model,
     )
-    return _clean_ocr_output(text)
+    return VisionText(_clean_ocr_output(text), getattr(text, "finish_reason", ""))
 
 
 def _extract_first_image(pdf_bytes: bytes, page_number: int) -> bytes | None:
@@ -1230,13 +1237,18 @@ def page_verdict(page: PageResult, *, pack: ScriptPack | None = None) -> PageVer
     )
 
 
-DEGRADED_MARKER_RE = re.compile(r"^⟦page \d+ unreadable⟧$", re.MULTILINE)
+DEGRADED_MARKER_RE = re.compile(r"^⟦page (\d+) unreadable⟧$", re.MULTILINE)
+
+
+# The editorial remark the structurer leaves where an unreadable page stood.
+UNREADABLE_REMARK = "[Page {page} of the source could not be read]"
+UNREADABLE_REMARK_RE = re.compile(r"\[Page (\d+) of the source could not be read\]")
 
 
 def degraded_page_marker(page_number: int) -> str:
-    """The line that stands in for a diverted page that read to nothing. Visible
-    in the combined text where a silent drop hid the loss, and stripped before
-    the structurer by `combine_text_for_structure`."""
+    """The line that stands in for a page that read to nothing. Visible in the
+    combined text where a silent drop hid the loss; the structurer turns it into
+    an editorial remark in the AKN."""
     return f"⟦page {page_number} unreadable⟧"
 
 
@@ -1254,16 +1266,35 @@ def diverted_to_nothing(page: PageResult) -> bool:
     return page.ink is None or page.ink >= BLANK_INK
 
 
+def unreadable_reason(page: PageResult) -> str:
+    """Why a page's content is missing from its read, or "" if it is not: the
+    refusing finish reason, else `empty_read` for an inked divert read empty. A
+    refusal can still return partial text, so it counts unless the rival replaced it."""
+    has_text = bool(clean_page_text(page.text, page.furniture).strip())
+    if content_filtered(page.finish_reason) and (not has_text or page.method == "vision_ocr"):
+        return page.finish_reason
+    if has_text:
+        return ""
+    return "empty_read" if diverted_to_nothing(page) else ""
+
+
+def unreadable_pages(pages: Sequence[PageResult]) -> dict[int, str]:
+    """Page number to `unreadable_reason`, for every page that has one."""
+    return {p.page_number: r for p in pages if (r := unreadable_reason(p))}
+
+
 def _page_body_for_combine(page: PageResult) -> str | None:
     """One page's contribution to the combined text, or None to omit it.
 
-    A diverted page that read to nothing leaves a marker, so the loss the coverage
-    gate could not see is at least on the page. A genuinely blank page is omitted.
+    An unreadable page leaves a marker, so the loss the coverage gate could not
+    see is at least on the page. A genuinely blank page is omitted.
     """
     cleaned = clean_page_text(page.text, page.furniture)
+    lost = bool(unreadable_reason(page))
     if cleaned.strip():
-        return cleaned
-    if diverted_to_nothing(page):
+        # A partial read keeps its text, and the marker says the rest is missing.
+        return f"{cleaned}\n\n{degraded_page_marker(page.page_number)}" if lost else cleaned
+    if lost:
         return degraded_page_marker(page.page_number)
     return None
 

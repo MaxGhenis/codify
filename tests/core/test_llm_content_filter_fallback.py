@@ -206,3 +206,28 @@ async def test_vision_returns_empty_when_fallback_also_filtered() -> None:
     assert await c.vision("x", images=[_PNG]) == ""
     # Tried primary then fallback exactly once each; no infinite recursion.
     assert seen == ["gemini-3.6-flash", "gpt-5.6-sol"]
+
+
+async def test_an_unrecovered_refusal_carries_its_finish_reason() -> None:
+    # The page is empty either way; the reason is what tells a refusal from a blank leaf.
+    c = _client(None)
+
+    async def create(**_: object) -> MagicMock:
+        return _vision_resp("content_filter: RECITATION", None)
+
+    c.client.chat.completions.create = create
+    out = await c.vision("x", images=[_PNG])
+    assert (out, getattr(out, "finish_reason", None)) == ("", "content_filter: RECITATION")
+
+
+async def test_a_recovered_read_carries_the_fallback_finish_reason() -> None:
+    c = _client("gpt-5.6-sol")
+
+    async def create(*, model: str, **_: object) -> MagicMock:
+        if model != "gpt-5.6-sol":
+            return _vision_resp("content_filter: RECITATION", None)
+        return _vision_resp("stop", "recovered text")
+
+    c.client.chat.completions.create = create
+    out = await c.vision("x", images=[_PNG])
+    assert (out, getattr(out, "finish_reason", None)) == ("recovered text", "stop")

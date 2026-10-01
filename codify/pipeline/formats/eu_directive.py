@@ -100,6 +100,14 @@ def configure_cpu_pool(max_workers: int) -> None:
     old.shutdown(wait=False)
 
 
+def _validate_native(xml: str) -> list[dict[str, Any]]:
+    """The validator for publisher-structured AKN, whose dates and numbering are the
+    publisher's own."""
+    from codify.pipeline.enrich.validator import validate_akn
+
+    return validate_akn(xml, provenance="native")
+
+
 async def _on_the_cpu_pool(fn: Callable[..., Any], *args: Any) -> Any:
     """Run a synchronous pipeline pass on the CPU pool, carrying the caller's context.
 
@@ -1812,7 +1820,6 @@ async def ingest(
     from codify.pipeline.enrich.inline_markup import emit_inline_markup
     from codify.pipeline.enrich.placeholder_status import mark_placeholder_status
     from codify.pipeline.enrich.references import emit_references
-    from codify.pipeline.enrich.validator import validate_akn
     from codify.pipeline.events import Enriched, ValidationIssued
 
     logger = structlog.get_logger()
@@ -1920,7 +1927,7 @@ async def ingest(
             try:
                 # Off the loop for the same reason, and it is the heavier of the
                 # two: about four times the conversion on the same document.
-                for issue in await _on_the_cpu_pool(validate_akn, xml):
+                for issue in await _on_the_cpu_pool(_validate_native, xml):
                     yield ValidationIssued(issue=issue)
                 yield Enriched(pass_name="validator")  # noqa: S106
             except Exception as exc:  # noqa: BLE001

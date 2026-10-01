@@ -164,8 +164,8 @@ class TestDeclaredShortTitle:
     ) -> None:
         """Anchored or not at all: a fallback would leave the defect reachable
         by omitting one config key."""
-        config = titles.try_load_config("xa")
-        assert config is not None and config.structuring is not None
+        config = titles.load_config("xa")
+        assert config.structuring is not None
         monkeypatch.setattr(config.structuring, "citation_subjects", [])
         assert declared_short_title('This Act shall be known as the "Police Act".', "xa") is None
 

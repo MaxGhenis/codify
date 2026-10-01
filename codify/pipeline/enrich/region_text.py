@@ -23,10 +23,7 @@ from __future__ import annotations
 from bisect import bisect_right
 from collections.abc import Sequence
 
-from codify.pipeline.enrich.ocr import (
-    DEGRADED_MARKER_RE,
-    PageSpan,
-)
+from codify.pipeline.enrich.ocr import PageSpan
 from codify.pipeline.enrich.regions import OVERLAP_FLOOR, Region, overlap, words
 
 # A one-token region ("٣" in a footer) would spuriously match a short body line,
@@ -87,13 +84,10 @@ def combine_text_for_structure(
     ``page_spans`` place each line on its page so a region acts only there.
     Without them every region acts on the whole document."""
     drop, tail = _acted(regions)
-    # Provenance, not law: the combined text the validator and repair loop see
-    # keeps the marker, what the structurer weaves into provisions does not.
-    degraded = bool(DEGRADED_MARKER_RE.search(text))
+    # Unreadable-page markers pass through: the structurer lifts them out of the
+    # provisions and places each as an editorial remark.
     if not drop and not tail:
-        if not degraded:
-            return text
-        return "\n".join(line for line in text.split("\n") if not DEGRADED_MARKER_RE.match(line))
+        return text
 
     ordered = sorted(page_spans or (), key=lambda span: span.start)
     starts = [span.start for span in ordered]
@@ -105,8 +99,6 @@ def combine_text_for_structure(
     offset = 0
     for line in text.split("\n"):
         start, offset = offset, offset + len(line) + 1
-        if degraded and DEGRADED_MARKER_RE.match(line):
-            continue
         if len(words(line)) < _MIN_REGION_WORDS:
             kept.append(line)  # too short to attribute; never dropped
             continue

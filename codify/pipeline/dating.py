@@ -53,7 +53,7 @@ def _local_year_to_gregorian(
     try:
         # A metadata date is in the calendar its label names: its own grid.
         return to_gregorian_year(local_year, country, month=month, day=day, month_grid="local")
-    except (CalendarConversionError, LookupError):
+    except CalendarConversionError:
         logger.warning("local_year_unconverted", country=country, raw=local_year)
         return None
 

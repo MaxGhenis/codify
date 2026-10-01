@@ -1258,3 +1258,205 @@ class TestEidUnusable:
         )["message"]
         assert "too deep" in deep_msg
         assert "chain of children" in deep_msg
+
+
+class TestProvenanceCalibration:
+    """Where the structure came from decides what a date or a numbering hole means."""
+
+    def _checks(self, date: str, uri: str, provenance: str | None) -> set[str]:
+        return {
+            i["check"]
+            for i in validate_akn(_identified(date, uri), provenance=provenance)  # type: ignore[arg-type]
+            if i["check"].startswith("identity_")
+        }
+
+    def test_a_native_pre_1800_act_is_not_implausible(self):
+        # An old statute book holds instruments from before 1800 in its own markup.
+        assert self._checks("1766-01-01", "/akn/xz/act/1766/7", "native") == set()
+
+    def test_a_native_year_in_the_hijri_band_is_not_unconverted(self):
+        assert self._checks("1431-01-01", "/akn/xz/act/1431/7", "native") == set()
+
+    def test_native_keeps_the_arithmetic_checks(self):
+        assert self._checks("2037-05-12", "/akn/xz/act/2037/11", "native") == {
+            "identity_year_in_future"
+        }
+        assert self._checks("2007-05-12", "/akn/xz/act/2009/11", "native") == {
+            "identity_year_uri_mismatch"
+        }
+
+    def test_extracted_and_unstated_still_flag_both(self):
+        for provenance in ("extracted", None):
+            assert self._checks("1766-01-01", "/akn/xz/act/1766/7", provenance) == {
+                "identity_year_implausible"
+            }
+            assert self._checks("1431-01-01", "/akn/xz/act/1431/7", provenance) == {
+                "identity_year_unconverted_hijri"
+            }
+
+
+def _numbered(*nums: int, kind: str = "section") -> str:
+    return _act(
+        "".join(
+            f'<{kind} eId="{kind[:3]}_{n}"><num>{n}</num><content><p>t</p></content></{kind}>'
+            for n in nums
+        )
+    )
+
+
+def _gaps(xml: str, **kwargs: object) -> list[tuple[str, str, list[int]]]:
+    return [
+        (i["severity"], i["likely"], i["range"])
+        for i in validate_akn(xml, **kwargs)  # type: ignore[arg-type]
+        if i["check"] == "number_gap"
+    ]
+
+
+class TestNumberGapCalibration:
+    def test_a_leading_gap_in_extracted_text_warns(self):
+        assert _gaps(_numbered(4, 5, 6), provenance="extracted") == [("warning", "leading", [1, 3])]
+
+    def test_a_leading_gap_in_articles_warns(self):
+        assert _gaps(_numbered(2, 3, kind="article"), provenance="extracted") == [
+            ("warning", "leading", [1, 1])
+        ]
+
+    def test_numbering_from_one_has_no_leading_gap(self):
+        assert _gaps(_numbered(1, 2, 3), provenance="extracted") == []
+
+    def test_a_leading_gap_is_not_read_from_native_or_unstated_structure(self):
+        assert _gaps(_numbered(4, 5, 6), provenance="native") == []
+        assert _gaps(_numbered(4, 5, 6)) == []
+
+    def test_a_single_hole_in_extracted_text_warns(self):
+        # One missing number reads as a repeal, which is info elsewhere.
+        assert _gaps(_numbered(1, 2, 4, 5, 6, 7, 8, 9, 10), provenance="extracted") == [
+            ("warning", "repeal", [3, 3])
+        ]
+
+    def test_a_single_hole_stays_info_when_provenance_is_native_or_unstated(self):
+        xml = _numbered(1, 2, 4, 5, 6, 7, 8, 9, 10)
+        assert _gaps(xml, provenance="native") == [("info", "repeal", [3, 3])]
+        assert _gaps(xml) == [("info", "repeal", [3, 3])]
+
+    def test_a_remarked_lost_page_keeps_the_gap_after_it_from_reading_as_a_repeal(self):
+        xml = _numbered(1, 2, 4, 5, 6, 7, 8, 9, 10).replace(
+            '<section eId="sec_2"><num>2</num><content><p>t</p>',
+            '<section eId="sec_2"><num>2</num><content><p>t</p>'
+            '<p><remark status="editorial">[Page 5 of the source could not be read]</remark></p>',
+        )
+        found = [i for i in validate_akn(xml) if i["check"] == "number_gap"]
+        assert [(i["severity"], i["likely"]) for i in found] == [("warning", "unreadable_page")]
+        assert "unreadable page(s) 5" in found[0]["message"], found[0]["message"]
+
+    def test_a_lost_page_elsewhere_does_not_relabel_an_unrelated_gap(self):
+        xml = _numbered(1, 2, 4, 5, 6, 7, 8, 9, 10).replace(
+            '<section eId="sec_9"><num>9</num><content><p>t</p>',
+            '<section eId="sec_9"><num>9</num><content><p>t</p>'
+            '<p><remark status="editorial">[Page 5 of the source could not be read]</remark></p>',
+        )
+        found = [
+            i
+            for i in validate_akn(xml, unreadable_pages={5: "empty_read"})
+            if i["check"] == "number_gap"
+        ]
+        assert [(i["severity"], i["likely"]) for i in found] == [("info", "repeal")]
+
+
+class TestUnreadablePagesAndBodyFill:
+    def test_unreadable_pages_block(self):
+        found = [
+            i
+            for i in validate_akn(
+                _numbered(1, 2), unreadable_pages={5: "content_filter: RECITATION", 9: "empty_read"}
+            )
+            if i["check"] == "unreadable_page"
+        ]
+        assert [(i["severity"], i["pages"]) for i in found] == [("error", [5, 9])]
+        assert found[0]["reasons"] == {"5": "content_filter: RECITATION", "9": "empty_read"}
+
+    def test_no_unreadable_pages_no_finding(self):
+        assert not [
+            i
+            for i in validate_akn(_numbered(1, 2), unreadable_pages={})
+            if "unreadable" in i["check"]
+        ]
+
+    def test_bodies_the_model_never_wrote_are_graded(self):
+        trace = {
+            "windows": 2,
+            "calls": 4,
+            "calls_failed": 2,
+            "expected": 5,
+            "verbatim": ["sec_2", "sec_3"],
+            "empty": ["sec_4"],
+        }
+        found = {
+            i["check"]: (i["severity"], i["eids"])
+            for i in validate_akn(_numbered(1, 2, 3, 4, 5), body_fill=trace)
+            if i["check"].startswith("body_fill")
+        }
+        assert found == {
+            "body_fill_incomplete": ("error", ["sec_4"]),
+            "body_fill_verbatim": ("warning", ["sec_2", "sec_3"]),
+        }
+
+    def test_a_complete_body_fill_is_silent(self):
+        trace = {"windows": 1, "calls": 1, "calls_failed": 0, "expected": 2}
+        assert not [
+            i
+            for i in validate_akn(_numbered(1, 2), body_fill=trace)
+            if i["check"].startswith("body_fill")
+        ]
+
+
+class TestRuleNumbering:
+    """Rules are a basic unit too, so their numbering is checked like the others."""
+
+    def test_a_leading_rule_gap_warns(self):
+        assert _gaps(_numbered(4, 5, kind="rule"), provenance="extracted") == [
+            ("warning", "leading", [1, 3])
+        ]
+
+    def test_a_rule_hole_in_extracted_text_warns(self):
+        assert _gaps(_numbered(1, 3, kind="rule"), provenance="extracted") == [
+            ("warning", "defect", [2, 2])
+        ]
+
+
+def _sections_with_subsections(remark_in: str, remark_last: bool) -> str:
+    remark = '<p><remark status="editorial">[Page 5 of the source could not be read]</remark></p>'
+    subs = []
+    for n in (1, 2):
+        own = "<p>t</p>" + (remark if f"sec_2__subsec_{n}" == remark_in else "")
+        subs.append(
+            f'<subsection eId="sec_2__subsec_{n}"><num>({n})</num><content>{own}</content></subsection>'
+        )
+    if not remark_last:
+        subs.reverse()
+    body = (
+        '<section eId="sec_1"><num>1</num><content><p>t</p></content></section>'
+        f'<section eId="sec_2"><num>2</num>{"".join(subs)}</section>'
+        '<section eId="sec_4"><num>4</num><content><p>t</p></content></section>'
+        '<section eId="sec_5"><num>5</num><content><p>t</p></content></section>'
+        '<section eId="sec_6"><num>6</num><content><p>t</p></content></section>'
+        '<section eId="sec_7"><num>7</num><content><p>t</p></content></section>'
+    )
+    return _act(body)
+
+
+class TestRemarkPosition:
+    def _likely(self, xml: str) -> list[str]:
+        return [
+            i["likely"]
+            for i in validate_akn(xml)
+            if i["check"] == "number_gap" and i.get("kind") == "section"
+        ]
+
+    def test_a_remark_ending_the_last_subsection_labels_the_gap_after_it(self):
+        assert self._likely(_sections_with_subsections("sec_2__subsec_2", True)) == [
+            "unreadable_page"
+        ]
+
+    def test_a_remark_with_provision_text_after_it_does_not(self):
+        assert self._likely(_sections_with_subsections("sec_2__subsec_2", False)) == ["repeal"]

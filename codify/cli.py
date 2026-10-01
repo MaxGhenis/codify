@@ -36,10 +36,17 @@ import structlog
 
 from codify.core.llm import create_llm_client
 from codify.jurisdictions import JURISDICTIONS_DIR, resolve_config
-from codify.pipeline.enrich.ocr import PageResult, combine_page_texts
+from codify.pipeline.enrich.ocr import PageResult, combine_page_texts, unreadable_pages
 from codify.pipeline.enrich.structure import ScanTrace
-from codify.pipeline.events import Complete, Failed, MetadataExtracted, ValidationIssued
+from codify.pipeline.events import (
+    Complete,
+    Enriched,
+    Failed,
+    MetadataExtracted,
+    ValidationIssued,
+)
 from codify.pipeline.formats.pdf import ingest, ingest_text
+from codify.quality.structural_quality_grade import structural_quality_grade
 
 logger = structlog.get_logger()
 
@@ -83,16 +90,27 @@ def _anchor_row(anchor: Any) -> dict[str, Any]:
     return row
 
 
-def _coverage_json(trace: ScanTrace) -> dict[str, Any] | None:
-    cov = trace.coverage
-    if cov is None and trace.container is None:
+def _coverage_json(
+    trace: ScanTrace | None, *, pages: int | None = None, unreadable: dict[int, str] | None = None
+) -> dict[str, Any] | None:
+    """Coverage as the bundle reports it. `ratio` is the lowest of the anchor,
+    body-fill and page ratios measured, so no one of them reads clean alone."""
+    cov = trace.coverage if trace else None
+    fill = trace.body_fill if trace else None
+    container = trace.container if trace else None
+    if cov is None and container is None and fill is None and not pages:
         return None
     out: dict[str, Any] = {}
+    ratios: list[float] = []
     if cov is not None:
+        anchor_ratio = None if cov.ratio is None else round(cov.ratio, 4)
+        if anchor_ratio is not None:
+            ratios.append(anchor_ratio)
         out.update(
             {
                 "kind": cov.kind,
-                "ratio": None if cov.ratio is None else round(cov.ratio, 4),
+                "ratio": anchor_ratio,
+                "anchor_ratio": anchor_ratio,
                 "captured": sorted(cov.captured),
                 "expected": sorted(cov.expected),
                 "missing": sorted(cov.missing),
@@ -102,10 +120,21 @@ def _coverage_json(trace: ScanTrace) -> dict[str, Any] | None:
                 "unclosed": cov.unclosed,
             }
         )
-    if trace.container is not None:
+    if container is not None:
         # Heading-vs-container probe: how many grouping headings survived as
         # containers. `7 headings -> 0 containers` is the flattening signal.
-        out["container"] = trace.container
+        out["container"] = container
+    if fill is not None:
+        fill_ratio = None if fill.ratio is None else round(fill.ratio, 4)
+        if fill_ratio is not None:
+            ratios.append(fill_ratio)
+        out["body_fill"] = {**asdict(fill), "model_filled": fill.model_filled, "ratio": fill_ratio}
+    if pages:
+        lost = sorted(unreadable or {})
+        page_ratio = round((pages - len(lost)) / pages, 4)
+        ratios.append(page_ratio)
+        out["pages"] = {"total": pages, "unreadable": lost, "ratio": page_ratio}
+    out["ratio"] = min(ratios) if ratios else None
     return out
 
 
@@ -174,6 +203,9 @@ async def _run(args: argparse.Namespace) -> int:
         azure_foundry_ocr_url=_foundry_ocr_url(),
         azure_foundry_ocr_key=os.environ.get("AZURE_OPENAI_API_KEY") or None,
         azure_foundry_ocr_rpm=int(os.environ.get("AZURE_FOUNDRY_OCR_RPM") or 40),
+        # Retried on any content-filter refusal (pages, metadata, body-fill); unset,
+        # a refused page stays unread.
+        fallback_model=args.fallback_model or None,
         # No run context here, so proxy attribution would carry nothing; direct
         # mode also lets the URL name any OpenAI-compatible provider.
         telemetry_mode="direct",
@@ -186,6 +218,8 @@ async def _run(args: argparse.Namespace) -> int:
     akn_xml = ""
     metadata: dict[str, Any] = {}
     failure: dict[str, str] | None = None
+    # Unset until the validator reports finishing; no findings is not clean otherwise.
+    validated = False
     started = time.monotonic()
 
     stream = (
@@ -215,6 +249,8 @@ async def _run(args: argparse.Namespace) -> int:
                 findings.append(event.issue)
             elif isinstance(event, MetadataExtracted):
                 metadata = event.metadata
+            elif isinstance(event, Enriched) and event.pass_name == "validator":  # noqa: S105
+                validated = True
             elif isinstance(event, Complete):
                 akn_xml = event.akn_xml
             elif isinstance(event, Failed):
@@ -240,7 +276,8 @@ async def _run(args: argparse.Namespace) -> int:
         "".join(f"{json.dumps(_anchor_row(a), ensure_ascii=False)}\n" for a in anchors),
         encoding="utf-8",
     )
-    coverage = _coverage_json(trace) if trace else None
+    unreadable = {} if is_text else unreadable_pages(pages)
+    coverage = _coverage_json(trace, pages=None if is_text else len(pages), unreadable=unreadable)
     (out / "coverage.json").write_text(json.dumps(coverage, indent=2, ensure_ascii=False))
     ambiguity = trace.ambiguity if trace else ()
     (out / "ambiguity.jsonl").write_text(
@@ -259,6 +296,8 @@ async def _run(args: argparse.Namespace) -> int:
         except Exception as exc:  # noqa: BLE001, poppler missing must not void the bundle
             logger.warning("page_render_failed", error=str(exc)[:200])
 
+    # A refusal is known, not unmeasured, so it outranks a validator that did not finish.
+    halted = any(f.get("check") == "structure_halted" for f in findings)
     manifest = {
         "source": str(source),
         "source_bytes": len(raw_bytes),
@@ -276,6 +315,7 @@ async def _run(args: argparse.Namespace) -> int:
         "jurisdiction_config": config.model_dump(),
         "model": args.model,
         "ocr_model": None if is_text else (args.ocr_model or None),
+        "fallback_model": args.fallback_model or None,
         "elapsed_seconds": round(elapsed, 1),
         "pages": None if is_text else len(page_files),
         # Which pages did not have their text layer trusted, and why. The reason
@@ -287,6 +327,9 @@ async def _run(args: argparse.Namespace) -> int:
         # Pages nothing read twice. The whole divert mechanism is inert for these,
         # so a bundle with too little text cannot be blamed on the structurer.
         "pages_read_once": None if is_text else sum(1 for p in pages if not p.rival_available),
+        # Pages that came back with no text, and why. Their content is not in the
+        # AKN; the validator grades the document blocking on them.
+        "pages_unreadable": None if is_text else unreadable,
         "anchors": len(anchors),
         "anchors_by_pass": _by_pass(anchors),
         "scaffold_built": bool(trace and trace.scaffold is not None),
@@ -296,6 +339,9 @@ async def _run(args: argparse.Namespace) -> int:
         "ambiguity_by_kind": _by_kind(ambiguity),
         "ambiguity_blocking": sum(1 for s in ambiguity if s.blocking),
         "validator_findings": len(findings),
+        # The grade a store would record for this bundle, so a run that finished
+        # with blocking findings cannot read as a clean one.
+        "grade": asdict(structural_quality_grade(findings, degraded=not (validated or halted))),
         "akn_bytes": len(akn_xml),
         "failed": failure,
     }
@@ -611,6 +657,12 @@ def main(argv: list[str] | None = None) -> int:
         "--ocr-model",
         default=os.environ.get("LITELLM_OCR_MODEL", ""),
         help="transcription engine; empty is the vision route on the body-fill model",
+    )
+    one.add_argument(
+        "--fallback-model",
+        default=os.environ.get("LITELLM_CONTENT_FILTER_FALLBACK_MODEL", ""),
+        help="model retried on any content-filter refusal (pages, metadata, body-fill); "
+        "empty disables",
     )
     one.add_argument("--quiet", action="store_true", help="suppress per-event progress")
     one.set_defaults(func=lambda a: asyncio.run(_run(a)))
