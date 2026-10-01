@@ -37,8 +37,9 @@ Breaks, in that the structurer's output changes for documents it already read:
      when the first article or section is numbered above 1. A gap beside an
      unreadable page is no longer called a repeal.
 3. `validate_akn(provenance="native")`, which the lanes reading publisher XML
-   (native AKN, FORMEX and the other publisher formats) pass, skips `identity_year_implausible` and
-   `identity_year_unconverted_hijri`: a publisher's own date is not a misparse.
+   (native AKN, FORMEX and the other publisher formats) pass, skips
+   `identity_year_implausible` and `identity_year_unconverted_hijri`: a
+   publisher's own date is not a misparse.
    Callers that do not pass `provenance` see the previous checks.
 
 New, additive:
@@ -48,7 +49,6 @@ New, additive:
   refuses a page on a content filter.
 - `validate_akn` takes `provenance`, `unreadable_pages` and `body_fill`;
   `codify.jurisdictions.CONFIG_FAULTS`; `codify.core.llm.content_filtered`.
-
 - `document_classes.<class>.number_source` in the jurisdiction config:
   `"stated"` (the default, unchanged behaviour) or `"title_identity"`, which
   numbers the class's work URI from its title digest (`t-...`) and ignores any
