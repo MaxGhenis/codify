@@ -868,3 +868,48 @@ async def test_pages_lost_before_the_first_provision_keep_their_order():
         text, client=_EchoUnless(), country="xa", doctype="act"
     )
     assert re.findall(r"Page (\d) of the source", result) == ["1", "2"], result
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_after_a_container_heading_opens_its_first_provision():
+    text = _XA_TEXT.replace(
+        "THE KEEPER OF LIGHTS\n", "THE KEEPER OF LIGHTS\n\n⟦page 2 unreadable⟧\n", 1
+    )
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    sec_3 = result.split("SECTION 3", 1)[1].split("SECTION 4", 1)[0]
+    assert sec_3.index("Page 2 of the source") < sec_3.index("Body of part_II__sec_3."), result
+
+
+@pytest.mark.asyncio
+async def test_a_page_lost_in_the_closing_material_stays_in_the_conclusions(monkeypatch):
+    from codify.pipeline.enrich import closing
+
+    monkeypatch.setattr(closing, "closing_phrases_for", lambda _c: ["Passed by the Assembly"])
+    text = (
+        _XA_TEXT
+        + "\nPassed by the Assembly on 1 May 2015.\n\n"
+        + "⟦page 3 unreadable⟧\n\nClerk of the Assembly\n"
+    )
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    conclusions = result.split("CONCLUSIONS", 1)[1]
+    assert conclusions.index("Passed by") < conclusions.index("Page 3 of the source"), result
+    assert conclusions.index("Page 3 of the source") < conclusions.index("Clerk"), result
+    assert "Page 3" not in result.split("CONCLUSIONS", 1)[0], result
+
+
+@pytest.mark.asyncio
+async def test_a_preface_line_shaped_like_a_heading_is_not_a_container():
+    text = (
+        "Part Time Lights Act\nPART TIME LIGHTS\n\nPART I\nPRELIMINARY\n\n"
+        "⟦page 2 unreadable⟧\n\nPART II\nTHE KEEPER\n"
+    )
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    body = result.split("BODY", 1)[1]
+    part_1 = body.split("PART II", 1)[0]
+    assert "Page 2 of the source" in part_1, result

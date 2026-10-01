@@ -9,7 +9,7 @@ from collections import Counter
 from collections.abc import Callable
 from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 import structlog
 
@@ -41,6 +41,9 @@ from codify.pipeline.enrich.table_fidelity import preserve_source_tables
 from codify.pipeline.enrich.tables import has_table, nest_pipe_tables
 from codify.pipeline.enrich.verbatim import fill_bodies_verbatim
 from codify.quality.invariants import AmbiguitySpan
+
+if TYPE_CHECKING:
+    from codify.pipeline.enrich.closing import BodyBound
 
 logger = structlog.get_logger()
 
@@ -294,27 +297,50 @@ def _place_unreadable_remarks(
     basic: str | None,
     text: str,
 ) -> None:
-    """Append each marker's remark to the provision whose body the lost page
-    continued, or the first provision when the page precedes them all."""
-    hosts = sorted(
-        (a for a in anchors if not a.quoted_amendment and _expects_body(a.kind, basic)),
-        key=lambda a: a.char_offset,
-    )
+    """Each marker's remark ends the provision whose body the lost page continued.
+    After a container heading, or before every provision, it opens the next one."""
+    own = sorted((a for a in anchors if not a.quoted_amendment), key=lambda a: a.char_offset)
+    hosts = [a for a in own if _expects_body(a.kind, basic)]
     if not hosts:
         return
-    leading: list[str] = []
+    host_ids = {a.akn_eid for a in hosts}
+    front: dict[str, list[str]] = {}
+    back: dict[str, list[str]] = {}
     for offset, page in markers:
-        before = [a for a in hosts if _header_start(text, a) <= offset]
-        if not before:
-            leading.append(_unreadable_remark(page))
+        remark = _unreadable_remark(page)
+        before = [a for a in own if _header_start(text, a) <= offset]
+        if before and before[-1].akn_eid in host_ids:
+            back.setdefault(before[-1].akn_eid, []).append(remark)
             continue
-        block = by_eid.get(before[-1].akn_eid) or BodyBlock(eid=before[-1].akn_eid)
-        lines = [*block.lines, _unreadable_remark(page)]
-        by_eid[block.eid] = block.model_copy(update={"lines": lines})
-    if leading:
-        # Prepended together, so pages before the first provision keep their order.
-        first = by_eid.get(hosts[0].akn_eid) or BodyBlock(eid=hosts[0].akn_eid)
-        by_eid[first.eid] = first.model_copy(update={"lines": [*leading, *first.lines]})
+        after = next((h for h in hosts if _header_start(text, h) > offset), None)
+        if after is None:
+            back.setdefault(hosts[-1].akn_eid, []).append(remark)
+        else:
+            front.setdefault(after.akn_eid, []).append(remark)
+    # Gathered first, so several pages at one place keep their source order.
+    for eid in [h.akn_eid for h in hosts if h.akn_eid in front or h.akn_eid in back]:
+        block = by_eid.get(eid) or BodyBlock(eid=eid)
+        lines = [*front.get(eid, []), *block.lines, *back.get(eid, [])]
+        by_eid[eid] = block.model_copy(update={"lines": lines})
+
+
+def _rebase_markers(
+    markers: list[tuple[int, int]], bound: BodyBound, source: str
+) -> tuple[list[tuple[int, int]], str | None]:
+    """Markers on the body text the closing cut left, and the conclusions with the
+    remarks of pages lost inside them, at the line where each stood."""
+    if bound.cut_at is None or not markers:
+        return markers, bound.conclusions
+    start, end = bound.cut_at, bound.cut_at + bound.excluded_chars
+    body = [(o, p) for o, p in markers if o < start]
+    body += [(o - (end - start), p) for o, p in markers if o >= end]
+    inside = [(o - start, p) for o, p in markers if start <= o < end]
+    if not inside:
+        return body, bound.conclusions
+    raw = source[start:end]
+    for at, page in sorted(inside, reverse=True):
+        raw = f"{raw[:at]}\n{_unreadable_remark(page)}\n{raw[at:]}"
+    return body, raw.strip("\n") or None
 
 
 def _header_start(text: str, anchor: StructuralAnchor) -> int:
@@ -339,9 +365,14 @@ def _remarks_under_containers(
     header_at: dict[str, int] = {}
     pending = iter(order)
     anchor = next(pending, None)
-    for i, line in enumerate(lines):
-        kw = kind_to_kw(anchor.kind) if anchor else ""
-        if anchor and (line.strip() == kw or line.strip().startswith(f"{kw} ")):
+    # Headers only in the body, keyword and number whole: a preface line such as
+    # "PART TIME" must not be read as the first container's header.
+    body_from = next((i for i, line in enumerate(lines) if line.strip() == "BODY"), len(lines))
+    for i, line in enumerate(lines[body_from + 1 :], start=body_from + 1):
+        if anchor is None:
+            break
+        head = rf"{re.escape(kind_to_kw(anchor.kind))}(?:\s+{re.escape(anchor.number or '')})?"
+        if re.match(rf"\s*{head}(?:\s|$)", line):
             header_at[anchor.akn_eid] = i
             anchor = next(pending, None)
     placed = [a for a in order if a.akn_eid in header_at]
@@ -525,6 +556,7 @@ async def text_to_bluebell_scaffolded(
     from codify.pipeline.enrich.closing import bound_body_at_closing, closing_phrases_for
 
     bound = bound_body_at_closing(text, anchors, closing_phrases_for(country), country=country)
+    unreadable, conclusions = _rebase_markers(unreadable, bound, text)
     text, anchors = bound.text, bound.anchors
 
     if on_anchors:
@@ -788,7 +820,7 @@ async def text_to_bluebell_scaffolded(
 
     preface, preamble = split_opening_material(text[: min(a.char_offset for a in anchors)], country)
     scaffold, eid_to_anchor = scaffold_from_anchors(
-        anchors, preface=preface, preamble=preamble, country=country, conclusions=bound.conclusions
+        anchors, preface=preface, preamble=preamble, country=country, conclusions=conclusions
     )
     windows = windows_from_anchors(text, anchors)
     if not windows:
