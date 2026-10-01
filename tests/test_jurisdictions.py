@@ -927,3 +927,13 @@ def test_extends_refuses_a_chain() -> None:
                 "leaf": {"extends": "mid", "label": "Leaf"},
             }
         )
+
+
+@pytest.mark.parametrize("name", ["", "   "])
+def test_an_empty_series_citation_name_is_refused(name: str) -> None:
+    from pydantic import ValidationError
+
+    from codify.jurisdictions import SeriesCitation
+
+    with pytest.raises(ValidationError, match="must not be empty"):
+        SeriesCitation(name=name, doctype="act")

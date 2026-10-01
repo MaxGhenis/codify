@@ -7,6 +7,8 @@ const GENERIC: Record<string, string> = {
   decree: 'Decree',
   regulation: 'Regulation',
   treaty: 'Treaty',
+  decree_law: 'Decree-Law',
+  cabinet_decision: 'Cabinet Decision',
 };
 
 const BY_JURISDICTION: Record<string, Record<string, string>> = {

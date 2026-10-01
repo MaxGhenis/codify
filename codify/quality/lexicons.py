@@ -1,7 +1,7 @@
 """Word lists for legibility scoring, keyed by language. Legibility asks whether the
 letter forms survived, which closed-class words answer, and those are a property of
 the language rather than the script: 206 shipped configs are Latin, spanning English,
-French, Spanish and Bahasa, and one list cannot serve them.
+French, Spanish and Indonesian, and one list cannot serve them.
 """
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ from dataclasses import dataclass, field, replace
 __all__ = [
     "ARABIC_WORDS",
     "ENGLISH_WORDS",
-    "BAHASA_WORDS",
+    "INDONESIAN_WORDS",
     "WordList",
     "languages_with_lists",
     "register",
@@ -133,9 +133,9 @@ ARABIC_WORDS = register(
     )
 )
 
-# Bahasa (ind). Particles and auxiliaries that survive only if the letters did,
+# Indonesian. Particles and auxiliaries that survive only if the letters did,
 # plus the nouns any instrument names about itself.
-BAHASA_WORDS = register(
+INDONESIAN_WORDS = register(
     WordList(
         language="ind",
         letter_re=_LATIN_RE,

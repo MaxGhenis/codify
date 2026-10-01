@@ -467,6 +467,9 @@ class SeriesCitation(BaseModel):
     @field_validator("name")
     @classmethod
     def _name_compiles(cls, value: str) -> str:
+        # An empty pattern compiles but would match any bare number.
+        if not value.strip():
+            raise ValueError("series citation name must not be empty")
         re.compile(value)
         return value
 
