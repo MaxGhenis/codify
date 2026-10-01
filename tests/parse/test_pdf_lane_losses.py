@@ -153,3 +153,27 @@ async def test_an_inked_page_read_empty_says_so_on_its_event(
     page_events = [e for e in events if isinstance(e, PageExtracted)]
     assert [(e.page, e.unreadable) for e in page_events] == [(1, ""), (2, "empty_read"), (3, "")]
     assert '"unreadable":"empty_read"' in page_events[1].model_dump_json()
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("lane", ["pdf", "text"])
+async def test_an_absent_config_fails_before_any_extraction_or_model_call(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, lane: str
+) -> None:
+    async def _never(*_a: object, **_k: object) -> list[PageResult]:
+        raise AssertionError("extraction ran")
+
+    class _NoCalls:
+        def __getattr__(self, name: str) -> Any:
+            raise AssertionError(f"model call {name}")
+
+    monkeypatch.setattr(pdf_mod, "extract_text_from_pdf", _never)
+    source = tmp_path / "act.pdf"
+    source.write_bytes(b"%PDF-fake")
+    stream = (
+        pdf_mod.ingest(source, "qq", llm=_NoCalls())  # type: ignore[arg-type]
+        if lane == "pdf"
+        else pdf_mod.ingest_text("Section 1\nText.", "qq", llm=_NoCalls())  # type: ignore[arg-type]
+    )
+    events = [e async for e in stream]
+    assert [(type(e).__name__, getattr(e, "stage", "")) for e in events] == [("Failed", "config")]

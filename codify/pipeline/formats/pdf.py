@@ -19,7 +19,7 @@ from codify.core.tracing import (
     get_current_session,
     langfuse_trace_context,
 )
-from codify.jurisdictions import CONFIG_FAULTS, try_load_config
+from codify.jurisdictions import CONFIG_FAULTS, load_config, try_load_config
 from codify.pipeline.enrich.bluebell import parse_to_akn
 from codify.pipeline.enrich.cover_reconciliation import extract_cover_article_numbers
 from codify.pipeline.enrich.metadata import calendar_hint, extract_metadata
@@ -88,6 +88,16 @@ class _ScanCollector:
             self._forward(trace)
 
 
+def _config_fault(jurisdiction_code: str) -> Failed | None:
+    """The config read before any model call, so an absent or broken one fails
+    the run before it spends anything."""
+    try:
+        load_config(jurisdiction_code)
+    except CONFIG_FAULTS as exc:
+        return Failed(stage="config", error=f"{type(exc).__name__}: {exc}")
+    return None
+
+
 async def ingest(
     source: Path | str,
     jurisdiction_code: str,
@@ -125,6 +135,9 @@ async def ingest(
             release=get_current_release(),
             tags=[f"jurisdiction:{jurisdiction_code}", "pipeline:ingest"],
         )
+        if (fault := _config_fault(jurisdiction_code)) is not None:
+            yield fault
+            return
         # Stage 1, Extract
         with langfuse.start_as_current_observation(as_type="span", name="extract") as span:
             try:
@@ -188,6 +201,9 @@ async def ingest_text(
         input={"jurisdiction": jurisdiction_code, "source": name},
         metadata={"jurisdiction": jurisdiction_code, "pipeline": "ingest"},
     ) as root:
+        if (fault := _config_fault(jurisdiction_code)) is not None:
+            yield fault
+            return
         page = PageResult(
             page_number=1,
             text=text,

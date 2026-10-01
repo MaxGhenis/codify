@@ -34,7 +34,8 @@ Breaks, in that the structurer's output changes for documents it already read:
      is read. Anchor-scan helpers, title helpers, the region vocabulary, the
      enrich passes and the repair dossier used to catch it and return defaults.
      A config file that cannot be read or decoded raises
-     `JurisdictionConfigError`.
+     `JurisdictionConfigError`. The PDF and text lanes read the config first and
+     emit `Failed(stage="config")` before any extraction or model call.
    - `validate_akn(provenance="extracted")`, which the PDF and text lanes pass,
      grades every numbering gap `warning` and adds a leading-gap `number_gap`
      when the first article or section is numbered above 1. A gap after a
