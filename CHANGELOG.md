@@ -32,10 +32,13 @@ Breaks, in that the structurer's output changes for documents it already read:
    - A jurisdiction config that is absent or does not validate raises where it
      is read. Anchor-scan helpers, title helpers, the region vocabulary, the
      enrich passes and the repair dossier used to catch it and return defaults.
+     A config file that cannot be read or decoded raises
+     `JurisdictionConfigError`.
    - `validate_akn(provenance="extracted")`, which the PDF and text lanes pass,
      grades every numbering gap `warning` and adds a leading-gap `number_gap`
      when the first article or section is numbered above 1. A gap after a
      provision carrying an unreadable-page remark is no longer called a repeal.
+     Numbering checks now cover `rule` units as well as articles and sections.
 3. `validate_akn(provenance="native")`, which the lanes reading publisher XML
    (native AKN, FORMEX and the other publisher formats) pass, skips
    `identity_year_implausible` and `identity_year_unconverted_hijri`: a
