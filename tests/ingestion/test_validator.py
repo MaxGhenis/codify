@@ -1422,3 +1422,41 @@ class TestRuleNumbering:
         assert _gaps(_numbered(1, 3, kind="rule"), provenance="extracted") == [
             ("warning", "defect", [2, 2])
         ]
+
+
+def _sections_with_subsections(remark_in: str, remark_last: bool) -> str:
+    remark = '<p><remark status="editorial">[Page 5 of the source could not be read]</remark></p>'
+    subs = []
+    for n in (1, 2):
+        own = "<p>t</p>" + (remark if f"sec_2__subsec_{n}" == remark_in else "")
+        subs.append(
+            f'<subsection eId="sec_2__subsec_{n}"><num>({n})</num><content>{own}</content></subsection>'
+        )
+    if not remark_last:
+        subs.reverse()
+    body = (
+        '<section eId="sec_1"><num>1</num><content><p>t</p></content></section>'
+        f'<section eId="sec_2"><num>2</num>{"".join(subs)}</section>'
+        '<section eId="sec_4"><num>4</num><content><p>t</p></content></section>'
+        '<section eId="sec_5"><num>5</num><content><p>t</p></content></section>'
+        '<section eId="sec_6"><num>6</num><content><p>t</p></content></section>'
+        '<section eId="sec_7"><num>7</num><content><p>t</p></content></section>'
+    )
+    return _act(body)
+
+
+class TestRemarkPosition:
+    def _likely(self, xml: str) -> list[str]:
+        return [
+            i["likely"]
+            for i in validate_akn(xml)
+            if i["check"] == "number_gap" and i.get("kind") == "section"
+        ]
+
+    def test_a_remark_ending_the_last_subsection_labels_the_gap_after_it(self):
+        assert self._likely(_sections_with_subsections("sec_2__subsec_2", True)) == [
+            "unreadable_page"
+        ]
+
+    def test_a_remark_with_provision_text_after_it_does_not(self):
+        assert self._likely(_sections_with_subsections("sec_2__subsec_2", False)) == ["repeal"]

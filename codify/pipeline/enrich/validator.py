@@ -299,12 +299,25 @@ def _gap_acknowledged(root: etree._Element, eid: str) -> bool:
 
 
 def _remarked_pages(root: etree._Element, eid: str) -> list[int]:
-    """Pages whose unreadable-page remark sits in the element with this eId."""
+    """Pages whose unreadable-page remark ends the content of the element with this
+    eId, nested or not. A remark with provision text after it lost a page inside
+    this provision, which cannot hold the numbers that follow it."""
     hits = root.xpath(".//*[@eId=$e]", e=eid)
     if not hits:
         return []
-    text = " ".join(" ".join(r.itertext()) for r in hits[0].iter(f"{{{AKN_NS}}}remark"))
-    return sorted({int(p) for p in UNREADABLE_REMARK_RE.findall(text)})
+    remark_tag = f"{{{AKN_NS}}}remark"
+    paras = list(hits[0].iter(f"{{{AKN_NS}}}p"))
+
+    def own_text(p: etree._Element) -> str:
+        quoted = " ".join(" ".join(r.itertext()) for r in p.iter(remark_tag))
+        return " ".join(p.itertext()).replace(quoted, "").strip() if quoted else "x"
+
+    pages: set[int] = set()
+    for i, p in enumerate(paras):
+        found = UNREADABLE_REMARK_RE.findall(" ".join(p.itertext()))
+        if found and not any(own_text(later) for later in paras[i + 1 :]):
+            pages.update(int(n) for n in found)
+    return sorted(pages)
 
 
 def _gap_run_findings(
@@ -1782,8 +1795,8 @@ def _check_unreadable_pages(pages: dict[int, str]) -> list[dict[str, Any]]:
             "pages": ordered,
             "reasons": {str(p): pages[p] for p in ordered},
             "message": (
-                f"{len(ordered)} source page(s) came back with no text: {shown}{more}; "
-                "their content is missing from the document."
+                f"{len(ordered)} source page(s) came back with no text or only part of "
+                f"it: {shown}{more}; their content is missing from the document."
             ),
         }
     ]
