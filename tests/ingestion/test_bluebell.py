@@ -748,7 +748,7 @@ def test_unfoldable_eid_logs_residual_warning():
 
 
 def test_latin_ordinal_container_eids_fold_to_integers():
-    """An Indonesian Bagian is numbered with an ordinal word. `part_Kesatu` is
+    """A Bahasa Bagian is numbered with an ordinal word. `part_Kesatu` is
     URL-safe, so the ASCII shortcut used to return it untouched and the anchor
     layer's `part_1` never reached the document."""
     text = (
@@ -796,7 +796,7 @@ def test_ordinal_fold_leaves_unrelated_ascii_eids_alone():
 
 
 def test_a_mixed_script_eid_folds_both_halves():
-    """An Arabic chapter over an Indonesian part: the script-specific pass leaves the
+    """An Arabic chapter over a Bahasa part: the script-specific pass leaves the
     ASCII ordinal alone, so a half-folded eId would be selected for repair forever."""
     from codify.pipeline.enrich.bluebell import _ascii_fold_eid
 

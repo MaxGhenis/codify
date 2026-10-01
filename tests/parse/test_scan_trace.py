@@ -52,7 +52,7 @@ class _EmptyBodies:
 
 
 def _anchors(text: str) -> list[object]:
-    return scan_anchors(text, cached_regex("ps", "qanun"), country="ps", doctype="qanun")
+    return scan_anchors(text, cached_regex("xz", "act"), country="xz", doctype="act")
 
 
 def test_an_anchor_names_the_pass_that_produced_it() -> None:
@@ -62,7 +62,7 @@ def test_an_anchor_names_the_pass_that_produced_it() -> None:
 
 def test_coverage_reports_both_number_sets() -> None:
     anchors = _anchors(_KEYWORDED)
-    cov = anchor_coverage(_KEYWORDED, anchors, load_config("ps"), "qanun", "article")
+    cov = anchor_coverage(_KEYWORDED, anchors, load_config("xz"), "act", "article")
     assert cov.captured == frozenset({"1", "2"})
     assert cov.expected == frozenset({"1", "2"})
     assert cov.missing == frozenset()
@@ -74,7 +74,7 @@ def test_a_document_with_no_markers_reports_no_measurement() -> None:
     is no denominator, so the gate cannot fire on the worst case. The ratio is
     None rather than 1.0 so the bundle does not read as perfect coverage."""
     anchors = _anchors(_HEADING_FUSED_NUMBER)
-    cov = anchor_coverage(_HEADING_FUSED_NUMBER, anchors, load_config("ps"), "qanun", "article")
+    cov = anchor_coverage(_HEADING_FUSED_NUMBER, anchors, load_config("xz"), "act", "article")
     assert cov.captured == frozenset()
     assert cov.expected == frozenset()
     assert cov.ratio is None
@@ -88,8 +88,8 @@ async def test_the_no_anchor_path_still_emits_a_trace() -> None:
     out = await text_to_bluebell_scaffolded(
         _HEADING_FUSED_NUMBER,
         client=_NeverCalled(),  # type: ignore[arg-type]
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
         on_scan=seen.append,
     )
     assert len(seen) == 1
@@ -127,7 +127,7 @@ def test_promoting_an_orphan_child_keeps_its_provenance() -> None:
         )
         for n in range(1, 6)
     ]
-    out = _drop_orphan_children(children, _rank_map_for("ps", "qanun"))
+    out = _drop_orphan_children(children, _rank_map_for("xz", "act"))
     promoted = [a for a in out if a.kind == "article"]
     assert promoted
     assert all(a.source_pass == "regex" and a.quoted_amendment for a in promoted)
@@ -156,8 +156,8 @@ async def test_the_gate_traces_the_missing_numbers_before_it_raises(monkeypatch)
         await text_to_bluebell_scaffolded(
             _KEYWORDED,
             client=_NeverCalled(),  # type: ignore[arg-type]
-            country="ps",
-            doctype="qanun",
+            country="xz",
+            doctype="act",
             on_scan=seen.append,
         )
     assert len(seen) == 1
@@ -195,8 +195,8 @@ async def test_a_surviving_number_collision_stops_the_run(monkeypatch) -> None: 
         await text_to_bluebell_scaffolded(
             _COLLIDING,
             client=_NeverCalled(),  # type: ignore[arg-type]
-            country="ps",
-            doctype="qanun",
+            country="xz",
+            doctype="act",
             on_scan=seen.append,
         )
     assert exc.value.by_kind == {"duplicate_number": 1}
@@ -218,8 +218,8 @@ async def test_a_resolved_toc_twin_does_not_stop_the_run(monkeypatch) -> None:  
     out = await text_to_bluebell_scaffolded(
         _COLLIDING,
         client=_EmptyBodies(),  # type: ignore[arg-type]
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
         on_scan=seen.append,
     )
     assert out
@@ -236,8 +236,8 @@ async def test_an_empty_source_traces_the_empty_fallback() -> None:
     await text_to_bluebell_scaffolded(
         "   \n  ",
         client=_NeverCalled(),  # type: ignore[arg-type]
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
         on_scan=seen.append,
     )
     assert len(seen) == 1
@@ -259,8 +259,8 @@ async def test_the_scaffold_path_traces_the_scaffold_with_eids_assigned() -> Non
     await text_to_bluebell_scaffolded(
         _KEYWORDED,
         client=_Filling(),  # type: ignore[arg-type]
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
         on_scan=seen.append,
     )
     assert len(seen) == 1
@@ -290,7 +290,7 @@ def test_a_marker_the_regex_never_matched_is_declared() -> None:
     from codify.pipeline.enrich.anchors import scan_anchors_with_ambiguity
 
     r = scan_anchors_with_ambiguity(
-        _MANGLED, cached_regex("ps", "qanun"), country="ps", doctype="qanun"
+        _MANGLED, cached_regex("xz", "act"), country="xz", doctype="act"
     )
     unclaimed = [s for s in r.ambiguity if s.detail.get("reason") == "marker_shaped_line_unclaimed"]
     assert [s.detail["number"] for s in unclaimed] == ["20"]
@@ -302,9 +302,7 @@ def test_a_recovered_marker_is_not_reported_as_unclaimed() -> None:
     from codify.pipeline.enrich.anchors import scan_anchors_with_ambiguity
 
     text = "مادة (1)\nنص.\n\nالمادم (2)\nنص.\n\nمادة (3)\nنص.\n"
-    r = scan_anchors_with_ambiguity(
-        text, cached_regex("ps", "qanun"), country="ps", doctype="qanun"
-    )
+    r = scan_anchors_with_ambiguity(text, cached_regex("xz", "act"), country="xz", doctype="act")
     assert [a.akn_eid for a in r.anchors] == ["art_1", "art_2", "art_3"]
     assert not [s for s in r.ambiguity if s.detail.get("reason") == "marker_shaped_line_unclaimed"]
 
@@ -316,9 +314,9 @@ def test_a_dropped_compilation_wrapper_is_declared() -> None:
 
     result = scan_anchors_with_ambiguity(
         "مقدمة\n\nالفصل الثاني\n\nمادة (1)\nنص.\n",
-        cached_regex("ps", "qanun"),
-        country="ps",
-        doctype="qanun",
+        cached_regex("xz", "act"),
+        country="xz",
+        doctype="act",
     )
     assert [a.kind for a in result.anchors] == ["article"]
     dropped = [s for s in result.ambiguity if s.emitted_by == "drop_lone_compilation_container"]
@@ -365,8 +363,8 @@ async def test_a_blocking_span_lands_the_document_under_the_landing_policy(
     out = await text_to_bluebell_scaffolded(
         _KEYWORDED,
         client=_EmptyBodies(),
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
         on_scan=traces.append,
         halt_policy="land",
     )
@@ -386,7 +384,7 @@ async def test_the_default_policy_still_refuses_a_blocking_span(
     _with_blocking_span(monkeypatch)
     with pytest.raises(AnchorInvariantError):
         await text_to_bluebell_scaffolded(
-            _KEYWORDED, client=_EmptyBodies(), country="ps", doctype="qanun"
+            _KEYWORDED, client=_EmptyBodies(), country="xz", doctype="act"
         )
 
 
@@ -418,8 +416,8 @@ async def test_a_thin_document_lands_with_the_coverage_shortfall_recorded(
     out = await text_to_bluebell_scaffolded(
         _KEYWORDED,
         client=_EmptyBodies(),
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
         on_scan=traces.append,
         halt_policy="land",
     )
@@ -441,8 +439,8 @@ async def test_nothing_measured_still_fails_under_the_landing_policy(
         await text_to_bluebell_scaffolded(
             _KEYWORDED,
             client=_EmptyBodies(),
-            country="ps",
-            doctype="qanun",
+            country="xz",
+            doctype="act",
             halt_policy="land",
         )
 
@@ -461,8 +459,8 @@ async def test_markers_outside_the_boundary_still_fail_under_the_landing_policy(
         await text_to_bluebell_scaffolded(
             _KEYWORDED,
             client=_EmptyBodies(),
-            country="ps",
-            doctype="qanun",
+            country="xz",
+            doctype="act",
             halt_policy="land",
         )
 

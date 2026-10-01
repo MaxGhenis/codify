@@ -99,13 +99,13 @@ class TestSplitWiring:
             "    POINT (ب)\n      Second point وبعدها (ج) swallowed third text here.\n"
             "    POINT (د)\n      Fourth point text.\n"
         )
-        xml = parse_to_akn(bb, country="ps", doctype="act", number="9", date="2020-01-01")
+        xml = parse_to_akn(bb, country="xz", doctype="act", number="9", date="2020-01-01")
         finding = next(f for f in validate_akn(xml) if f["check"] == "swallowed_enumerator")
         assert "matched" in finding
         res = apply_op(
             xml,
             Split(eid=str(finding["eid"]), marker=str(finding["matched"])),
-            country="ps",
+            country="xz",
             target_finding=finding,
         )
         assert res.ok, res.error
@@ -119,12 +119,12 @@ class TestSplitWiring:
             "    POINT (ب)\n      Second point وبعدها (ج) swallowed third text here.\n"
             "    POINT (د)\n      Fourth point text.\n"
         )
-        xml = parse_to_akn(bb, country="ps", doctype="act", number="9", date="2020-01-01")
+        xml = parse_to_akn(bb, country="xz", doctype="act", number="9", date="2020-01-01")
         finding = next(f for f in validate_akn(xml) if f["check"] == "swallowed_enumerator")
         res = apply_op(
             xml,
             Split(eid=str(finding["eid"]), marker=str(finding["matched"])),
-            country="ps",
+            country="xz",
             target_finding=finding,
         )
         assert res.ok, res.error
@@ -151,10 +151,10 @@ class TestSplitWiring:
             "    POINT (أ)\n      First point (2) not an abjad sibling.\n"
             "    POINT (ب)\n      Second.\n"
         )
-        xml = parse_to_akn(bb, country="ps", doctype="act", number="9", date="2020-01-01")
+        xml = parse_to_akn(bb, country="xz", doctype="act", number="9", date="2020-01-01")
         root = etree.fromstring(xml.encode("utf-8"))
         eid = next(str(el.get("eId")) for el in root.iter(f"{{{NS}}}point") if el.get("eId"))
-        res = apply_op(xml, Split(eid=eid, marker="(2)"), country="ps")
+        res = apply_op(xml, Split(eid=eid, marker="(2)"), country="xz")
         assert not res.ok
         assert "family" in res.error
 
@@ -234,10 +234,10 @@ class TestMoveToConclusions:
             "BODY\n  ARTICLE 1\n    Substantive obligation text that keeps going.\n"
             "  ARTICLE 2\n"
             "    Final substantive text.\n"
-            "    Issued in the city of Ramallah on 1 March 2020.\n"
+            "    Issued in the city of Zerzura on 1 March 2020.\n"
             "    The President\n"
         )
-        return parse_to_akn(bb, country="ps", doctype="act", number="3", date="2020-01-01")
+        return parse_to_akn(bb, country="xz", doctype="act", number="3", date="2020-01-01")
 
     def test_detector_finds_it_and_the_op_moves_it(self) -> None:
         xml = self._fixture()
@@ -246,7 +246,7 @@ class TestMoveToConclusions:
         res = apply_plan(
             xml,
             [MoveToConclusions(eid=str(finding["eid"]))],
-            country="ps",
+            country="xz",
             target_finding=finding,
             evidence=SourceEvidence(closing_phrases=self.PHRASES),
         )
@@ -265,7 +265,7 @@ class TestMoveToConclusions:
         res = apply_plan(
             xml,
             [MoveToConclusions(eid="art_2")],
-            country="ps",
+            country="xz",
             evidence=SourceEvidence(closing_phrases=[]),
         )
         assert not res.ok

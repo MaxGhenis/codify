@@ -14,11 +14,11 @@ from codify.pipeline.enrich.anchors import (
 )
 from codify.pipeline.enrich.structure import basic_unit_kind
 
-# Shape taken from Putusan MK 167/PUU-XXIV/2026: captions carry a numeral that
+# A constitutional-court judgment's shape: captions carry a numeral that
 # matches the leading digit of the paragraphs beneath them, and the body quotes
 # statute freely, which latches the quote mask over most of the document.
 JUDGMENT = """PUTUSAN
-NOMOR 167/PUU-XXIV/2026
+NOMOR 12/PUL-III/2029
 
 [1.1] Yang mengadili permohonan pengujian undang-undang.
 
@@ -50,7 +50,7 @@ def _scan(text: str, country: str, doctype: str):
 
 
 def test_captions_take_their_printed_numeral() -> None:
-    sections = [a for a in _scan(JUDGMENT, "id", "putusan_mk").anchors if a.kind == "section"]
+    sections = [a for a in _scan(JUDGMENT, "xl", "putusan").anchors if a.kind == "section"]
     assert [(a.number, a.heading) for a in sections] == [
         ("2", "DUDUK PERKARA"),
         ("3", "PERTIMBANGAN HUKUM"),
@@ -60,7 +60,7 @@ def test_captions_take_their_printed_numeral() -> None:
 
 
 def test_paragraphs_nest_under_the_section_sharing_their_prefix() -> None:
-    paragraphs = [a for a in _scan(JUDGMENT, "id", "putusan_mk").anchors if a.kind == "paragraph"]
+    paragraphs = [a for a in _scan(JUDGMENT, "xl", "putusan").anchors if a.kind == "paragraph"]
     assert [a.akn_eid for a in paragraphs] == [
         "sec_2__para_2.1",
         "sec_2__para_2.2",
@@ -74,19 +74,17 @@ def test_paragraphs_nest_under_the_section_sharing_their_prefix() -> None:
 def test_quoted_text_does_not_suppress_judgment_paragraphs() -> None:
     # The mask latches on the curly quotes in 2.2, which would otherwise eat
     # every paragraph after it.
-    numbers = [
-        a.number for a in _scan(JUDGMENT, "id", "putusan_mk").anchors if a.kind == "paragraph"
-    ]
+    numbers = [a.number for a in _scan(JUDGMENT, "xl", "putusan").anchors if a.kind == "paragraph"]
     assert {"3.1", "3.2", "4.1", "5.1"} <= set(numbers)
 
 
 def test_mid_sentence_bracketed_decimal_does_not_anchor() -> None:
-    numbers = [a.number for a in _scan(JUDGMENT, "id", "putusan_mk").anchors]
+    numbers = [a.number for a in _scan(JUDGMENT, "xl", "putusan").anchors]
     assert numbers.count("2.1") == 1
 
 
 def test_declared_markers_are_stamped() -> None:
-    scan = _scan(JUDGMENT, "id", "putusan_mk")
+    scan = _scan(JUDGMENT, "xl", "putusan")
     assert scan.fires["scan_declared_markers"] == 11
     assert {a.source_pass for a in scan.anchors} == {"declared_markers"}
 
@@ -133,7 +131,7 @@ WRAPPED_CITATION = """PUTUSAN
 
 
 def test_wrapped_citation_does_not_displace_the_real_paragraph() -> None:
-    scan = _scan(WRAPPED_CITATION, "id", "putusan_mk")
+    scan = _scan(WRAPPED_CITATION, "xl", "putusan")
     at = {a.number: a.char_offset for a in scan.anchors if a.kind == "paragraph"}
     assert at["2.1"] == WRAPPED_CITATION.index("[2.1] Menimbang")
     assert [a.number for a in scan.anchors if a.kind == "paragraph"] == ["2.1", "2.2", "2.3"]
@@ -142,16 +140,16 @@ def test_wrapped_citation_does_not_displace_the_real_paragraph() -> None:
 def test_sub_numbered_paragraphs_still_advance() -> None:
     # (3, 11) < (3, 11, 1) < (3, 11, 2) < (3, 12), so the monotonic rule keeps them.
     text = "3. KONKLUSI\n\n[3.11] Satu.\n[3.11.1] Dua.\n[3.11.2] Tiga.\n[3.12] Empat.\n"
-    numbers = [a.number for a in _scan(text, "id", "putusan_mk").anchors if a.kind == "paragraph"]
+    numbers = [a.number for a in _scan(text, "xl", "putusan").anchors if a.kind == "paragraph"]
     assert numbers == ["3.11", "3.11.1", "3.11.2", "3.12"]
 
 
 def test_coverage_gate_measures_the_citable_paragraph_unit() -> None:
     # The gate was inert for judgments: `basic_unit_kind` picked the caption
     # sections and the denominator was empty, so nothing was checked.
-    config = load_config("id")
-    assert basic_unit_kind(config, "putusan_mk") == "paragraph"
-    assert _marker_numbers(JUDGMENT, config, "putusan_mk", "paragraph") == {
+    config = load_config("xl")
+    assert basic_unit_kind(config, "putusan") == "paragraph"
+    assert _marker_numbers(JUDGMENT, config, "putusan", "paragraph") == {
         "1.1",
         "2.1",
         "2.2",
@@ -163,9 +161,9 @@ def test_coverage_gate_measures_the_citable_paragraph_unit() -> None:
 
 
 def test_coverage_ratio_reports_the_orphaned_opening_paragraph() -> None:
-    config = load_config("id")
-    scan = _scan(JUDGMENT, "id", "putusan_mk")
-    coverage = anchor_coverage(JUDGMENT, scan.anchors, config, "putusan_mk", "paragraph")
+    config = load_config("xl")
+    scan = _scan(JUDGMENT, "xl", "putusan")
+    coverage = anchor_coverage(JUDGMENT, scan.anchors, config, "putusan", "paragraph")
     # [1.1] sits above the first caption and drops as an orphan; the gate now
     # says so rather than skipping on an empty denominator.
     assert coverage.expected - coverage.captured == {"1.1"}
@@ -173,7 +171,7 @@ def test_coverage_ratio_reports_the_orphaned_opening_paragraph() -> None:
 
 
 def test_keyword_driven_classes_keep_their_basic_unit() -> None:
-    config = load_config("id")
+    config = load_config("xl")
     assert basic_unit_kind(config, "act") == "article"
     assert basic_unit_kind(config, "pp") == "article"
 
@@ -679,7 +677,7 @@ _ANNEX_SHAPES = [
 def test_the_annex_boundary_decides_what_counts(name: str, text: str, expected: int) -> None:
     from codify.pipeline.enrich.anchors import _masked_marker_count
 
-    assert _masked_marker_count(text, load_config("id"), "act") == expected, name
+    assert _masked_marker_count(text, load_config("xl"), "act") == expected, name
 
 
 def test_an_unclosed_quote_in_an_annex_is_counted_too() -> None:
@@ -691,7 +689,7 @@ def test_an_unclosed_quote_in_an_annex_is_counted_too() -> None:
     """
     from codify.pipeline.enrich.anchors import _masked_marker_count
 
-    config = load_config("id")
+    config = load_config("xl")
     text = (
         "Pasal 1\n(1) Ketentuan.\n"
         "LAMPIRAN\nA. Bagian pertama dengan “kutip yang hilang.\n"
@@ -778,16 +776,16 @@ def test_the_reported_unclosed_count_is_taken_under_the_same_country() -> None:
         scan_anchors,
     )
 
-    config = load_config("id")
+    config = load_config("xl")
     # A reversed opener the boundary refuses, so the span it would have closed
     # stays stray under the jurisdiction's rules and does not under none.
     text = "“(3) teks ”\n”(4) teks ”\nPasal 7\n„(7) teks “"
-    assert _unclosed_quote_spans(text, "") != _unclosed_quote_spans(text, "id")
+    assert _unclosed_quote_spans(text, "") != _unclosed_quote_spans(text, "xl")
 
-    anchors = scan_anchors(text, build_anchor_regex(config, "act"), country="id", doctype="act")
+    anchors = scan_anchors(text, build_anchor_regex(config, "act"), country="xl", doctype="act")
     coverage = anchor_coverage(text, anchors, config, "act", "article", with_masked=True)
 
-    assert coverage.unclosed == _unclosed_quote_spans(text, "id")
+    assert coverage.unclosed == _unclosed_quote_spans(text, "xl")
 
 
 def test_outline_markers_tolerate_markdown_bold() -> None:

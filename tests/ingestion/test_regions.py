@@ -14,7 +14,7 @@ from codify.pipeline.enrich.regions import (
 )
 
 # Modern-era closing phrase; the older eras use their own.
-PS_VOCAB = RegionVocabulary(closing_phrases=("صدر بمدينة",))
+ARABIC_VOCAB = RegionVocabulary(closing_phrases=("صدر بمدينة",))
 A4 = PageDimensions(dpi=87, width=720, height=1018)
 
 
@@ -38,18 +38,18 @@ class TestAttestation:
 
     def _page(self) -> list[OcrBlock]:
         return [
-            _b("header", 170, 187, "الوقائع الفلسطينية"),
+            _b("header", 170, 187, "الوقائع الزرزورية"),
             _b("title", 551, 572, "# **مادة (٧٩)**"),
             _b("text", 579, 634, "على جميع الجهات المختصة، كل فيما يخصه، تنفيذ أحكام هذه اللائحة"),
-            _b("text", 653, 678, "صدر بمدينة رام الله بتاريخ : ١٢ / ٤ / ٢٠٠٤ ميلادية"),
+            _b("text", 653, 678, "صدر بمدينة زرزورة بتاريخ : ١٢ / ٤ / ٢٠٠٤ ميلادية"),
             _b("text", 683, 706, "الموافق : ٢٢ / صفر / ١٤٢٥ هجرية"),
-            _b("text", 722, 747, "**أحمد قريع (أبو علاء)**"),
+            _b("text", 722, 747, "**سالم بن رشيد (أبو فارس)**"),
             _b("text", 752, 774, "**رئيس مجلس الوزراء**"),
             _b("footer", 825, 842, "-١٩٨-"),
         ]
 
     def test_the_final_article_keeps_its_own_body(self) -> None:
-        regions = classify_page(self._page(), A4, page_number=32, vocab=PS_VOCAB)
+        regions = classify_page(self._page(), A4, page_number=32, vocab=ARABIC_VOCAB)
         assert _kinds(regions) == [
             "furniture",
             "body",
@@ -63,14 +63,14 @@ class TestAttestation:
 
     def test_the_closing_phrase_is_what_starts_it(self) -> None:
         """Phrase plus position carry it, because the type never fires."""
-        first = [r for r in classify_page(self._page(), A4, page_number=32, vocab=PS_VOCAB)][3]
+        first = [r for r in classify_page(self._page(), A4, page_number=32, vocab=ARABIC_VOCAB)][3]
         assert "phrase_closing" in first.signals
         assert "after_last_heading" in first.signals
         assert "type_signature" not in first.signals
 
     def test_the_signatory_lines_continue_it_without_a_phrase(self) -> None:
         """Name and role carry no phrase; reading order binds them."""
-        regions = classify_page(self._page(), A4, page_number=32, vocab=PS_VOCAB)
+        regions = classify_page(self._page(), A4, page_number=32, vocab=ARABIC_VOCAB)
         assert regions[5].detail == "continues the attestation"
         assert regions[6].detail == "continues the attestation"
 
@@ -126,7 +126,7 @@ class TestTheInverseError:
         assert region.flagged
 
     def test_an_ordinary_running_head_is_furniture_and_says_nothing(self) -> None:
-        block = _b("header", 170, 187, "الوقائع الفلسطينية")
+        block = _b("header", 170, 187, "الوقائع الزرزورية")
         [region] = classify_page([block], A4, page_number=5)
         assert (region.kind, region.flagged) == ("furniture", False)
 
@@ -234,13 +234,13 @@ class TestEraVocabulary:
     def _config(self):
         from codify.jurisdictions import load_config
 
-        return load_config("ps")
+        return load_config("xz")
 
     def test_a_modern_era_gets_the_declared_closing_phrase(self) -> None:
-        assert "صدر بمدينة" in vocabulary_for(self._config(), "plc").closing_phrases
+        assert "صدر بمدينة" in vocabulary_for(self._config(), "assembly").closing_phrases
 
     def test_an_older_era_gets_none_until_one_is_measured(self) -> None:
-        assert vocabulary_for(self._config(), "ottoman").closing_phrases == ()
+        assert vocabulary_for(self._config(), "sultanate").closing_phrases == ()
 
     def test_an_unresolved_era_gets_none_rather_than_the_modern_set(self) -> None:
         for sentinel in ("unknown", "no_eras_declared", "outside_declared_eras"):
@@ -264,7 +264,7 @@ class TestEraVocabulary:
         assert any(p.search("** note") for p in markers)
 
     def test_no_config_is_no_phrases_rather_than_a_crash(self) -> None:
-        assert vocabulary_for(None, "plc") == RegionVocabulary()
+        assert vocabulary_for(None, "assembly") == RegionVocabulary()
 
 
 def test_the_band_and_a_marker_decide_without_the_type() -> None:

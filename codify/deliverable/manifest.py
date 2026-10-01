@@ -101,18 +101,18 @@ class DeliverableManifest(BaseModel):
 if __name__ == "__main__":
     # ponytail: smallest check that fails if validation logic breaks.
     good = DeliverableManifest.from_yaml(
-        "jurisdiction_code: ps\nsource_language: ara\ntarget_languages: [en]\n"
-        "laws:\n  - {filename: a.pdf, frbr_work_uri: /akn/ps/act/2005/1/}\n"
+        "jurisdiction_code: xz\nsource_language: ara\ntarget_languages: [en]\n"
+        "laws:\n  - {filename: a.pdf, frbr_work_uri: /akn/xz/act/2005/1/}\n"
     )
-    assert good.laws[0].frbr_work_uri == "/akn/ps/act/2005/1"  # trailing slash stripped
-    _law = "laws:\n  - {filename: a.pdf, frbr_work_uri: /akn/ps/1}\n"
-    _hdr = "jurisdiction_code: ps\nsource_language: ara\n"
+    assert good.laws[0].frbr_work_uri == "/akn/xz/act/2005/1"  # trailing slash stripped
+    _law = "laws:\n  - {filename: a.pdf, frbr_work_uri: /akn/xz/1}\n"
+    _hdr = "jurisdiction_code: xz\nsource_language: ara\n"
     for bad in (
         f"{_hdr}laws: []\n",  # empty
-        "jurisdiction_code: ps\nsource_language: ara\nlaws:\n"
-        "  - {filename: a.pdf, frbr_work_uri: /akn/ps/1}\n"
-        "  - {filename: a.pdf, frbr_work_uri: /akn/ps/2}\n",  # dup filename
-        f"{_hdr}laws:\n  - {{filename: a.pdf, frbr_work_uri: ps/act/1}}\n",  # missing /akn/
+        "jurisdiction_code: xz\nsource_language: ara\nlaws:\n"
+        "  - {filename: a.pdf, frbr_work_uri: /akn/xz/1}\n"
+        "  - {filename: a.pdf, frbr_work_uri: /akn/xz/2}\n",  # dup filename
+        f"{_hdr}laws:\n  - {{filename: a.pdf, frbr_work_uri: xz/act/1}}\n",  # missing /akn/
         f"{_hdr}target_languages: [ara]\n{_law}",  # target == source
         f"{_hdr}target_languages: [en, en]\n{_law}",  # dup target
         f"{_hdr}bogus: 1\n{_law}",  # removed/unknown field

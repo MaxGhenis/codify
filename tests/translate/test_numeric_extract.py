@@ -52,7 +52,7 @@ class TestExtractTokens:
         assert "41" in stat.expected_target_surface
 
     def test_money_with_currency_english(self):
-        m = extract_tokens("shall be punished with 1000 Jordanian Dinars.")
+        m = extract_tokens("shall be punished with 1000 Zerzuran Dinars.")
         money = next(t for t in m.tokens if t.kind == "money")
         assert money.expected_target_surface == "1000"
 
@@ -115,7 +115,7 @@ class TestSentinelEncodeDecode:
             assert m.sentinel_for(tok) in encoded
 
     def test_decode_restores_target_surfaces(self):
-        source = "Article 62 shall punish with 1000 Jordanian Dinars."
+        source = "Article 62 shall punish with 1000 Zerzuran Dinars."
         m = extract_tokens(source)
         encoded = encode_sentinels(source, m)
         # Simulate LLM that preserves sentinels verbatim

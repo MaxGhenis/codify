@@ -173,7 +173,7 @@ def test_a_quoted_amendment_is_not_this_document_structure() -> None:
 
 
 def test_nested_points_are_compared_at_their_own_level() -> None:
-    """PS acts carry more points than articles, so article-to-point loss is the
+    """Arabic acts carry more points than articles, so article-to-point loss is the
     realistic regression, not article-to-section."""
     nested = _doc(
         '<article eId="art_1"><num>1</num><content>'

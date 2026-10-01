@@ -2,7 +2,7 @@
 
 `_canonicalise_num_text(root, target_language="he")` folds Arabic ordinal
 words to Hebrew letter numerals (`الأول → א`), Arabic abjad enumerators
-to Hebrew alphabet (`أ. → א.`), and Arabic-Indic digits to Latin (Israeli
+to Hebrew alphabet (`أ. → א.`), and Arabic-Indic digits to Latin (Hebrew
 legal typography reads Latin digits natively). Unknown targets fall back
 to the Latin default.
 """

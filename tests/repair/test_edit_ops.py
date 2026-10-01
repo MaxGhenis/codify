@@ -251,10 +251,10 @@ def test_split_cuts_swallowed_marker_into_sibling() -> None:
 
 
 def _money_fixture() -> str:
-    """An act whose article 8 carries the ArbReg 39/2004 defect: a numeral
+    """An act whose article 8 carries a recorded defect: a numeral
     reading 500,000 beside words reading fifty thousand."""
-    bb = "BODY\n  ARTICLE 8\n    Second category: not less than (٥٠٠,٠٠٠) خمسين ألف دينار أردني.\n"
-    return parse_to_akn(bb, country="ps", doctype="act", number="39", date="2004-01-01")
+    bb = "BODY\n  ARTICLE 8\n    Second category: not less than (٥٠٠,٠٠٠) خمسين ألف دينار زرزوري.\n"
+    return parse_to_akn(bb, country="xz", doctype="act", number="12", date="1994-01-01")
 
 
 def _money_finding() -> dict[str, Any]:
@@ -269,11 +269,11 @@ def test_set_money_numeral_rewrites_only_the_numeral() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetMoneyNumeral(eid=_money_finding()["eid"], old="٥٠٠,٠٠٠", new="٥٠,٠٠٠")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert res.ok, res.error
-    assert "(٥٠,٠٠٠) خمسين ألف دينار أردني" in res.xml
+    assert "(٥٠,٠٠٠) خمسين ألف دينار زرزوري" in res.xml
     assert "٥٠٠,٠٠٠" not in res.xml
 
 
@@ -282,7 +282,7 @@ def test_set_money_numeral_refuses_a_prose_surface() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetMoneyNumeral(eid=_money_finding()["eid"], old="خمسين", new="50000")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert not res.ok
@@ -293,7 +293,7 @@ def test_set_money_numeral_refuses_an_absent_or_ambiguous_numeral() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetMoneyNumeral(eid=_money_finding()["eid"], old="٩٩٩", new="١")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert not res.ok
@@ -304,7 +304,7 @@ def test_money_finding_may_not_rewrite_the_body() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetBody(eid=_money_finding()["eid"], bluebell="not less than 50,000 Dinars.")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert not res.ok
@@ -316,7 +316,7 @@ def test_set_money_numeral_refuses_a_no_op_rewrite() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetMoneyNumeral(eid=_money_finding()["eid"], old="٥٠٠,٠٠٠", new="٥٠٠,٠٠٠")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert not res.ok
@@ -328,7 +328,7 @@ def test_set_money_numeral_refuses_a_digit_script_switch() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetMoneyNumeral(eid=_money_finding()["eid"], old="٥٠٠,٠٠٠", new="50,000")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert not res.ok
@@ -339,15 +339,15 @@ def test_set_money_numeral_will_not_rewrite_a_digit_run_inside_a_longer_one() ->
     """Correcting 50 must not find the 50 inside 500."""
     xml = parse_to_akn(
         "BODY\n  ARTICLE 8\n    a fine of 500 dinars.\n",
-        country="ps",
+        country="xz",
         doctype="act",
-        number="39",
-        date="2004-01-01",
+        number="12",
+        date="1994-01-01",
     )
     res = apply_plan(
         xml,
         [SetMoneyNumeral(eid="art_8", old="50", new="5,000")],
-        country="ps",
+        country="xz",
         target_finding={"check": "money_words_mismatch", "eid": "art_8"},
     )
     assert not res.ok
@@ -359,7 +359,7 @@ def test_set_money_numeral_refuses_a_mixed_script_surface() -> None:
     res = apply_plan(
         _money_fixture(),
         [SetMoneyNumeral(eid=_money_finding()["eid"], old="٥0٠,٠٠٠", new="0٥,٠٠٠")],
-        country="ps",
+        country="xz",
         target_finding=_money_finding(),
     )
     assert not res.ok
@@ -371,17 +371,17 @@ def test_set_money_numeral_will_not_match_across_a_grouping_separator() -> None:
     match inside `50,000` and `000` match its tail."""
     xml = parse_to_akn(
         "BODY\n  ARTICLE 8\n    a fine of 50,000 dinars.\n",
-        country="ps",
+        country="xz",
         doctype="act",
-        number="39",
-        date="2004-01-01",
+        number="12",
+        date="1994-01-01",
     )
     finding = {"check": "money_words_mismatch", "eid": "art_8"}
     for old in ("50", "000"):
         res = apply_plan(
             xml,
             [SetMoneyNumeral(eid="art_8", old=old, new="7")],
-            country="ps",
+            country="xz",
             target_finding=finding,
         )
         assert not res.ok, old

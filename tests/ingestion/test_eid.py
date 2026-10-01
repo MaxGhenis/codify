@@ -125,22 +125,22 @@ class TestCyrillicReferences:
 class TestArabicReferences:
     def test_arabic_article_bare(self):
         # Indefinite "مادة 5"
-        assert resolve_informal_reference("مادة 5", "ps", "act") == "art_5"
+        assert resolve_informal_reference("مادة 5", "xz", "act") == "art_5"
 
     def test_arabic_article_definite(self):
         # Definite "المادة 5", the form that almost always appears in citations
-        assert resolve_informal_reference("المادة 5", "ps", "act") == "art_5"
+        assert resolve_informal_reference("المادة 5", "xz", "act") == "art_5"
 
     def test_arabic_article_arabic_indic_digit(self):
         # Arabic-Indic numeral
-        assert resolve_informal_reference("المادة ٥", "ps", "act") == "art_5"
+        assert resolve_informal_reference("المادة ٥", "xz", "act") == "art_5"
 
     def test_arabic_article_multi_digit(self):
-        assert resolve_informal_reference("المادة ١٢", "ps", "act") == "art_12"
+        assert resolve_informal_reference("المادة ١٢", "xz", "act") == "art_12"
 
     def test_arabic_chapter_resolves(self):
-        # PS uses باب → part in this doctype
-        assert resolve_informal_reference("الباب 1", "ps", "act") == "part_1"
+        # باب maps to part in this doctype
+        assert resolve_informal_reference("الباب 1", "xz", "act") == "part_1"
 
 
 class TestRegressionEnglish:

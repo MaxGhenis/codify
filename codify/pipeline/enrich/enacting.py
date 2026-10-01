@@ -167,7 +167,7 @@ def emit_enacting_formula(
 
 
 # Generic Arabic preamble openers: citation clauses (having reviewed /
-# pursuant to / based upon) that begin recital chains across PS eras.
+# pursuant to / based upon) that begin recital chains across legal eras.
 # Config enacting_formula_markers extend this per jurisdiction.
 _PREAMBLE_OPENERS = (
     "بعد الاطلاع",
@@ -242,7 +242,7 @@ def _truncate_after_enacting_formula(
     tail = lines[first + 1 :]
     # Content after the formula means the cut point is wrong, not the tail.
     # The jurisdiction's own anchor regex, not Bluebell keywords: this runs on
-    # source OCR, where a PS article opens `مادة (١)`, not `ARTICLE 1`.
+    # source OCR, where an Arabic article opens `مادة (١)`, not `ARTICLE 1`.
     anchors = cached_regex(country, "act")
     kept = [
         line

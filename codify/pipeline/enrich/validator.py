@@ -572,7 +572,7 @@ def _check_seam_duplication(root: etree._Element) -> list[dict[str, Any]]:
     return out
 
 
-# `/akn/ps/act/2005/1/!main`, the component an FRBRthis carries and an
+# `/akn/xz/act/2005/1/!main`, the component an FRBRthis carries and an
 # FRBRuri does not.
 _COMPONENT_TAIL = re.compile(r"/![^/]*$")
 
@@ -1243,7 +1243,7 @@ def _check_structureless_body(root: etree._Element) -> list[dict[str, Any]]:
 # --- Check 8: OCR garble in Arabic body text --------------------------------
 
 # Extraction artefacts body-fill passes through unchanged. Repeated ``ة``
-# (ta-marbuta, U+0629) is the signature on modern PS Arabic (``الآتيةة``): the letter
+# (ta-marbuta, U+0629) is the signature on modern OCR'd Arabic (``الآتيةة``): the letter
 # never doubles legitimately, gemination using shadda rather than repetition.
 # Detect-only, since fixing Arabic morphology without an Arabic-aware layer risks
 # worse damage than the noise.
@@ -1293,10 +1293,10 @@ def _check_ocr_garble(root: etree._Element) -> list[dict[str, Any]]:
 
 def _check_empty_articles(root: etree._Element) -> list[dict[str, Any]]:
     """Articles carrying only a `<num>` and perhaps a `<heading>`, with no `<content>`,
-    `<intro>` or descendant `<p>` text. PS Criminal Code 1936 had three appended after
-    art_391 that the structurer recovered as fragments but could not place. A genuinely
-    repealed article usually carries a short repeal notice, so empty and headless is
-    almost always a pipeline drop rather than source intent.
+    `<intro>` or descendant `<p>` text: typically fragments the structurer recovered but
+    could not place. A genuinely repealed article usually carries a short repeal
+    notice, so empty and headless is almost always a pipeline drop rather than
+    source intent.
     """
     issues: list[dict[str, Any]] = []
     for art in root.iter(f"{{{AKN_NS}}}article"):
@@ -1653,8 +1653,8 @@ def _check_header_coverage(root: etree._Element, source_text: str) -> list[dict[
 # rare (~2.4%) and real.
 _PAGE_YIELD_FLOOR = 500.0
 # Fraction of the rival's content tokens that must appear in the AKN body for an
-# empty-read page to count as recoverable. Calibrated on ps/act/1863 pages 69 and 71,
-# which measured 0.66 and 0.72, so 0.5 clears them with margin while excluding a page
+# empty-read page to count as recoverable. Calibrated on two held pages
+# that measured 0.66 and 0.72, so 0.5 clears them with margin while excluding a page
 # whose overlap is only shared boilerplate.
 _PAGE_YIELD_CONTAINMENT_MIN = 0.5
 _AR_DIACRITICS = re.compile(r"[ً-ْـ]")
@@ -1843,8 +1843,8 @@ def _check_body_fill(trace: dict[str, Any]) -> list[dict[str, Any]]:
 
 def _check_container_coverage(probe: dict[str, Any]) -> list[dict[str, Any]]:
     """Source grouping headings (Bab/Fasl) that mostly produced no container, meaning the
-    structurer flattened a grouping level, as the PS cabinet-decision config gap did
-    before its marker was added.
+    structurer flattened a grouping level, as a config missing a grouping marker
+    does.
 
     Only the scan can see this, so it arrives as evidence. Warning, not error: the
     detector is deliberately config-independent and retains false positives, and blocking

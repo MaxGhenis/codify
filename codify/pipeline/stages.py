@@ -238,7 +238,7 @@ def match_document_class(
     doc_date = _unambiguous_date(raw_date, year)
     if doc_date is None and year.isdigit():
         # A year alone still settles a bound that lies outside it entirely,
-        # which is how the pre-2007 and post-2007 PS rules are written.
+        # which is how era-bounded rules are written.
         doc_date = _year_only_date(cfg, int(year))
     return cfg.classify_document_class(
         title=title, preamble=text[:_PREAMBLE_PREFIX_CHARS], doc_date=doc_date

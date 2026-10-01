@@ -158,7 +158,7 @@ class TestQuotedAmendmentPipeline:
     lands as a top-level article for the amending instrument plus a
     `<mod>` + `<quotedStructure>` for the embedded content."""
 
-    def test_ps_taadel_shape_marks_and_skips_from_scaffold(self) -> None:
+    def test_taadel_shape_marks_and_skips_from_scaffold(self) -> None:
         """Anchors are marked and the scaffold skips them; `<mod><quotedStructure>`
         emission (Bluebell integration) is deferred."""
         from codify.jurisdictions import load_config
@@ -172,10 +172,10 @@ class TestQuotedAmendmentPipeline:
             "المادة ٩\nالنص الجديد المستبدل.\n\n"
             "المادة ٤\nأحكام ختامية.\n"
         )
-        config = load_config("ps")
+        config = load_config("xz")
         assert config is not None
-        regex = build_anchor_regex(config, "qanun")
-        anchors = scan_anchors(text, regex, country="ps", doctype="qanun")
+        regex = build_anchor_regex(config, "act")
+        anchors = scan_anchors(text, regex, country="xz", doctype="act")
 
         articles = [a for a in anchors if a.kind == "article"]
         assert any(a.number == "٩" and a.quoted_amendment for a in articles)

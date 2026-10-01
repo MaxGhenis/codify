@@ -69,7 +69,7 @@ async def session() -> AsyncIterator[AsyncSession]:
 def _akn(number: str, *, lang: str = "ara", body: str = "Body text.") -> str:
     bb = f"BODY\n  ARTICLE 1\n    {body}\n"
     return parse_to_akn(
-        bb, country="ps", doctype="act", number=number, date="2020-01-01", language=lang
+        bb, country="xz", doctype="act", number=number, date="2020-01-01", language=lang
     )
 
 
@@ -94,7 +94,7 @@ async def test_stale_lifecycle_and_hash_equivalence(session: AsyncSession) -> No
     source_id = await save_document(
         session,
         parse_akn(source_xml),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Stale {suffix}",
         akn_xml=source_xml,
     )
@@ -107,7 +107,7 @@ async def test_stale_lifecycle_and_hash_equivalence(session: AsyncSession) -> No
         target_id = await save_document(
             session,
             parse_akn(translated_xml).model_copy(update={"language": "eng"}),
-            jurisdiction_code="ps",
+            jurisdiction_code="xz",
             law_title=f"Stale {suffix}",
             akn_xml=translated_xml,
             parent_version_id=source_id,
@@ -147,7 +147,7 @@ async def test_stale_lifecycle_and_hash_equivalence(session: AsyncSession) -> No
         legacy_id = await save_document(
             session,
             parse_akn(legacy_xml).model_copy(update={"language": "heb"}),
-            jurisdiction_code="ps",
+            jurisdiction_code="xz",
             law_title=f"Stale {suffix}",
             akn_xml=legacy_xml,
             parent_version_id=source_id,
@@ -166,7 +166,7 @@ async def test_update_repaired_akn_leaves_hash_alone_when_not_passed(
     vid = await save_document(
         session,
         parse_akn(xml),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"StaleKeep {suffix}",
         akn_xml=xml,
         source_akn_sha256="deadbeef",

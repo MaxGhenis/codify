@@ -19,15 +19,15 @@ NS = "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
 # the signatory pair grouped into a `<blockContainer>`.
 _AKN = f"""<akomaNtoso xmlns="{NS}"><act name="act">
   <meta><identification source="#src"><FRBRWork>
-    <FRBRthis value="/akn/ps/act/2004/39"/><FRBRuri value="/akn/ps/act/2004/39"/>
+    <FRBRthis value="/akn/xz/act/2004/41"/><FRBRuri value="/akn/xz/act/2004/41"/>
     <FRBRdate date="2004-04-12" name="enacted"/></FRBRWork>
-    <FRBRExpression><FRBRthis value="/akn/ps/act/2004/39/ara@2004-04-12"/>
-    <FRBRuri value="/akn/ps/act/2004/39/ara@2004-04-12"/>
+    <FRBRExpression><FRBRthis value="/akn/xz/act/2004/41/ara@2004-04-12"/>
+    <FRBRuri value="/akn/xz/act/2004/41/ara@2004-04-12"/>
     <FRBRdate date="2004-04-12" name="validFrom"/><FRBRlanguage language="ara"/>
     </FRBRExpression></identification></meta>
   <body><article eId="art_1"><num>1</num><content><p>نص المادة</p></content></article></body>
   <conclusions>
-    <p>صدر بمدينة رام الله بتاريخ : ١٢ / ٤ / ٢٠٠٤ ميلادية</p>
+    <p>صدر بمدينة زرزورة بتاريخ : ١٢ / ٤ / ٢٠٠٤ ميلادية</p>
     <p>الموافق : ٢٢ / صفر / ١٤٢٥ هجرية</p>
     <blockContainer eId="sig_1">
       <p>نادر بن سالم</p>
@@ -78,7 +78,7 @@ class TestTheAuditMeasuresIt:
 
 class TestPatch:
     _LINES = [
-        "Done at Ramallah on 12 April 2004",
+        "Done at Zerzura on 12 April 2004",
         "corresponding to 22 Safar 1425",
         "Nadir bin Salem",
         "Prime Minister",

@@ -528,7 +528,7 @@ def test_a_title_of_only_digits_is_not_a_name(digits: str) -> None:
 
 def test_a_short_name_in_a_dense_script_is_still_a_name() -> None:
     """The control on the same rule: the test is digits, not length."""
-    assert _text_names_law("بموجب الدستور الفلسطيني", "/akn/xz/act/9999/1", "الدستور")
+    assert _text_names_law("بموجب الدستور الزرزوري", "/akn/xz/act/9999/1", "الدستور")
 
 
 @pytest.mark.parametrize(

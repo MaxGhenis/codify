@@ -21,7 +21,7 @@ from codify.pipeline.enrich.anchors import _marker_numbers
         ("us", "act", "section", "SECTION 1. Foo.\nSECTION 2. Bar.\n", {"1", "2"}),
         ("fr", "loi", "article", "Article 1\ncorps\nArticle 4\n", {"1", "4"}),
         # A mid-prose reference (المادة (٢) أعلاه) must NOT count toward the denominator.
-        ("ps", "act", "article", "المادة 1\nنص\nفي المادة (٢) أعلاه\n", {"1"}),
+        ("xz", "act", "article", "المادة 1\nنص\nفي المادة (٢) أعلاه\n", {"1"}),
     ],
 )
 def test_marker_numbers_regex_path_is_stable(

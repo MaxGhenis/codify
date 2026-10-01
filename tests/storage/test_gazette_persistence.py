@@ -70,7 +70,7 @@ async def session() -> AsyncIterator[AsyncSession]:
 def _akn(number: str, *, lang: str = "ara", body: str = "Body text.") -> str:
     bb = f"BODY\n  ARTICLE 1\n    {body}\n"
     return parse_to_akn(
-        bb, country="ps", doctype="act", number=number, date="2005-01-01", language=lang
+        bb, country="xz", doctype="act", number=number, date="2005-01-01", language=lang
     )
 
 
@@ -102,7 +102,7 @@ async def _save(
     return await save_document_reporting(
         session,
         doc,
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Gaz {num}",
         akn_xml=xml,
         parent_version_id=parent,

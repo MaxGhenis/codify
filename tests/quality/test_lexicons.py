@@ -8,7 +8,7 @@ from codify.jurisdictions import load_config
 from codify.quality.legibility import function_word_rate, lexicon_rate, text_verdict
 from codify.quality.lexicons import words_for
 
-INDONESIAN = (
+BAHASA = (
     "Dalam Undang-Undang ini yang dimaksud dengan hutan adalah suatu kesatuan "
     "ekosistem berupa hamparan lahan berisi sumber daya alam hayati yang "
     "didominasi pepohonan dalam persekutuan alam lingkungannya yang satu "
@@ -54,10 +54,10 @@ def test_a_latin_language_tokenises_on_letters() -> None:
     assert ind.is_letter("a") and not ind.is_letter("5")
 
 
-def test_indonesian_prose_scores_as_prose() -> None:
+def test_bahasa_prose_scores_as_prose() -> None:
     words = words_for("ind")
-    assert function_word_rate(INDONESIAN, words) is not None
-    assert text_verdict(INDONESIAN, words) == "prose"
+    assert function_word_rate(BAHASA, words) is not None
+    assert text_verdict(BAHASA, words) == "prose"
 
 
 def test_english_prose_scores_as_prose() -> None:
@@ -65,7 +65,7 @@ def test_english_prose_scores_as_prose() -> None:
     assert text_verdict(ENGLISH, words) == "prose"
 
 
-def test_letter_spaced_indonesian_reads_as_damaged() -> None:
+def test_letter_spaced_bahasa_reads_as_damaged() -> None:
     # No function word survives tokenisation, and no legal noun either.
     words = words_for("ind")
     assert function_word_rate(LETTER_SPACED, words) == 0.0
@@ -76,12 +76,12 @@ def test_letter_spaced_indonesian_reads_as_damaged() -> None:
 def test_a_language_with_no_list_is_unscored_rather_than_zero() -> None:
     # Absence of a list is not evidence of illegibility.
     assert words_for("ukr") is None
-    assert function_word_rate(INDONESIAN, words_for("ukr")) is None
-    assert text_verdict(INDONESIAN, words_for("ukr")) is None
+    assert function_word_rate(BAHASA, words_for("ukr")) is None
+    assert text_verdict(BAHASA, words_for("ukr")) is None
 
 
 def test_the_corpora_that_were_unscored_now_resolve_a_list() -> None:
-    for code, language in (("id", "ind"), ("ph", "eng"), ("ps", "ara"), ("gb", "eng")):
+    for code, language in (("xl", "ind"), ("xa", "eng"), ("xz", "ara"), ("gb", "eng")):
         config = load_config(code)
         assert config is not None
         assert config.authoritative_language == language, code
@@ -123,8 +123,8 @@ def test_a_foreign_script_run_does_not_deflate_a_latin_reading() -> None:
 
 
 def test_each_language_carries_its_own_measured_floors() -> None:
-    # Arabic clean prose runs 91 to 176 per 1,000; Philippine English runs 213
-    # to 433. One global floor cannot describe both.
+    # Arabic clean prose runs 91 to 176 per 1,000; English runs 213 to 433.
+    # One global floor cannot describe both.
     for language in ("ara", "ind", "eng"):
         entry = words_for(language)
         assert entry is not None and entry.prose_floor is not None, language

@@ -129,7 +129,7 @@ def test_the_same_garble_is_caught_however_the_extract_is_spaced() -> None:
 
 # The divergence backstop: a text layer that clears the single-read garble check
 # but disagrees sharply with an independent engine's read is untrusted and sent
-# to vision OCR. This is what caught the PS corpus at scale, where injected
+# to vision OCR. This catches corpora where injected
 # same-script glyphs slipped the garble test but a clean vision rival exposed them.
 
 

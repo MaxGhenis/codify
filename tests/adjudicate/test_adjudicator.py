@@ -29,8 +29,8 @@ from codify.quality.invariants import AmbiguitySpan
 
 # Called per test, not at import: a tree without the config must skip, and a
 # module-level call raises during collection where no hook can convert it.
-def ps_config() -> JurisdictionConfig:
-    return load_config("ps")
+def xz_config() -> JurisdictionConfig:
+    return load_config("xz")
 
 
 def _request(**over: object) -> AdjudicationRequest:
@@ -69,8 +69,8 @@ class TestTheClosedSet:
     def test_a_class_with_no_declared_hierarchy_can_only_be_refused(self) -> None:
         """Offering nothing is how an unknown document class stays unanswerable
         rather than becoming answerable with a guess."""
-        assert candidate_kinds(None, "qanun") == ()
-        assert candidate_kinds(ps_config(), "not-a-real-class") == ()
+        assert candidate_kinds(None, "act") == ()
+        assert candidate_kinds(xz_config(), "not-a-real-class") == ()
 
 
 class TestWhatGetsAsked:
@@ -97,7 +97,7 @@ class TestWhatGetsAsked:
             end=text.index("مادة (3)") + 8,
             detail={"reason": "marker_shaped_line_unclaimed"},
         )
-        req = build_request(span, text, config=ps_config(), country="ps", doctype="qanun")
+        req = build_request(span, text, config=xz_config(), country="xz", doctype="act")
         assert req.line == "مادة (3)"
         assert req.before[-1] == "ثانياً"
         assert req.after[0] == "نص الحكم."

@@ -135,7 +135,7 @@ async def emit_inline_markup(
         # so the model sees fewer redundant candidates.
         ext_count_det = _mark_external_refs_deterministic(root, body, country, doctype)
         ext_count_det += _mark_external_refs_cyrillic(body, country, doctype)
-        ext_count_det += _mark_external_refs_philippine(body, country)
+        ext_count_det += _mark_external_refs_numbered(body, country)
         logger.debug("inline_pass_4a_ext_refs_det", country=country, count=ext_count_det)
 
         # Pass 4a2: named-act references via the jurisdiction's short-title index
@@ -553,21 +553,11 @@ def _cyr_make_ref(country: str, doctype: str) -> Callable[[re.Match[str]], etree
     return builder
 
 
-# --- Pass 4a3: Philippine numbered-instrument citations ----------------------
+# --- Pass 4a3: numbered-instrument citations --------------------------------
 
-# Philippine drafting cites statutes by number, not by a year-suffixed title:
-# "Republic Act No. 386", "Presidential Decree No. 442", "Batas Pambansa Blg.
-# 68", "Commonwealth Act No. 141", plus their abbreviations ("RA 386", "P.D.
-# No. 442"). The number connector is optional ("No.", "Nos.", "Numbered",
-# "Blg.", or a bare number); the number is a plain integer.
-# The trailing lookahead refuses a list. One `num` group captures one number, so
-# "Republic Acts Nos. 386 and 387" would otherwise wrap 386 and drop 387 in
-# silence. Emitting a ref per listed number is the wrong repair: the lists here
-# carry OCR damage ("Republic Act 580,1577 and5"), where the trailing fragments
-# are mangled digits and not instruments, and the numbers they decay to name
-# real laws a resolver would then point at with confidence. Refusing loses the
-# few real targets a list carries and invents none.
-_PH_NUM_TAIL = (
+# Citations by a yearless series number. The lookahead refuses a list: splitting
+# OCR-damaged lists ("580,1577 and5") would invent confident targets.
+_NUMBERED_TAIL = (
     r"\s+(?:No\.?|Nos\.?|Numbered|Blg\.?)?\s*(?P<num>\d+)\b"
     r"(?!\s*(?:,|and|&)\s*(?:Nos?\.?\s*)?\d)"
 )
@@ -577,27 +567,24 @@ _PH_NUM_TAIL = (
 # Orders are excluded: their FRBR pattern needs a president slug that a citation
 # never carries. Plain "Act No. N" is excluded too: it has no distinct doctype
 # and would collide with Republic Act URIs.
-_PH_CITATIONS: tuple[tuple[re.Pattern[str], str], ...] = (
-    (re.compile(rf"\bRepublic\s+Acts?{_PH_NUM_TAIL}", re.I), "act"),
-    (re.compile(rf"\bPresidential\s+Decrees?{_PH_NUM_TAIL}", re.I), "pd"),
-    (re.compile(rf"\bBatas\s+Pambansa{_PH_NUM_TAIL}", re.I), "bp"),
-    (re.compile(rf"\bCommonwealth\s+Acts?{_PH_NUM_TAIL}", re.I), "ca"),
-    (re.compile(rf"\bR\.?\s?A\.?{_PH_NUM_TAIL}", re.I), "act"),
-    (re.compile(rf"\bP\.?\s?D\.?{_PH_NUM_TAIL}", re.I), "pd"),
-    (re.compile(rf"\bB\.?\s?P\.?{_PH_NUM_TAIL}", re.I), "bp"),
-    (re.compile(rf"\bC\.?\s?A\.?{_PH_NUM_TAIL}", re.I), "ca"),
+_NUMBERED_CITATIONS: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(rf"\bRepublic\s+Acts?{_NUMBERED_TAIL}", re.I), "act"),
+    (re.compile(rf"\bPresidential\s+Decrees?{_NUMBERED_TAIL}", re.I), "pd"),
+    (re.compile(rf"\bBatas\s+Pambansa{_NUMBERED_TAIL}", re.I), "bp"),
+    (re.compile(rf"\bCommonwealth\s+Acts?{_NUMBERED_TAIL}", re.I), "ca"),
+    (re.compile(rf"\bR\.?\s?A\.?{_NUMBERED_TAIL}", re.I), "act"),
+    (re.compile(rf"\bP\.?\s?D\.?{_NUMBERED_TAIL}", re.I), "pd"),
+    (re.compile(rf"\bB\.?\s?P\.?{_NUMBERED_TAIL}", re.I), "bp"),
+    (re.compile(rf"\bC\.?\s?A\.?{_NUMBERED_TAIL}", re.I), "ca"),
 )
 
 
-def _mark_external_refs_philippine(body: etree._Element, country: str) -> int:
-    """Detect Philippine numbered-instrument citations and build FRBR work URIs
-    straight from the instrument number.
+def _mark_external_refs_numbered(body: etree._Element, country: str) -> int:
+    """Detect numbered-instrument citations and build FRBR work URIs straight
+    from the instrument number.
 
-    The number alone identifies the work (Republic Act numbers are globally
-    unique integers), so no short-title index is needed; the citation carries no
-    year, so the year segment takes the unknown-year placeholder. Gated on the
-    `ph` jurisdiction because the grammar is Philippine-specific and the Latin
-    script gives no content trigger the way the Arabic and Cyrillic passes do.
+    The series never reuses a number, so the year slot takes the unknown-year
+    placeholder. Gated on jurisdiction: Latin script gives no content trigger.
 
     Logs per-doctype hit counts so ingest can report hit rates.
     """
@@ -619,11 +606,11 @@ def _mark_external_refs_philippine(body: etree._Element, country: str) -> int:
 
     count = 0
     for p in body.iter(f"{{{AKN_NS}}}p"):
-        for pattern, doctype in _PH_CITATIONS:
+        for pattern, doctype in _NUMBERED_CITATIONS:
             count += _wrap_text_matches(p, pattern, builder(doctype))
 
     if count:
-        logger.info("ph_citation_pass", hits=hits, total=count)
+        logger.info("numbered_citation_pass", hits=hits, total=count)
     return count
 
 

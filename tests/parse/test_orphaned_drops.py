@@ -2,8 +2,8 @@
 
 Every anchor pass that removes a marker leaves the text that marker governed
 behind, and that text falls to whatever precedes the drop. For the first anchor
-in a document that is the preamble, which is how `act 2014/23` lost 48
-provisions while keeping 98.5% of its characters.
+in a document that is the preamble, which is how an act can lose most of its
+provisions while keeping nearly all of its characters.
 """
 
 from __future__ import annotations
@@ -17,13 +17,13 @@ from codify.pipeline.enrich.validator import _check_orphaned_drops
 LOAD_BEARING_CITATION = (
     "Menimbang: bahwa penyelenggaraan pemerintahan daerah diarahkan;\n"
     "Mengingat:\n"
-    "Pasal 5 ayat (1), Pasal 20, Pasal 22D Undang-Undang Dasar 1945;\n"
+    "Pasal 5 ayat (1), Pasal 20, Pasal 22D Undang-Undang Dasar 1957;\n"
     "MEMUTUSKAN:\n"
     "Menetapkan: UNDANG-UNDANG TENTANG PEMERINTAHAN DAERAH.\n"
     # No `Pasal 1` line: these definitions hang off the citation anchor above.
-    + "Pemerintah Pusat adalah Presiden Republik Indonesia yang memegang kekuasaan "
-    "pemerintahan negara Republik Indonesia yang dibantu oleh Wakil Presiden dan menteri "
-    "sebagaimana dimaksud dalam Undang-Undang Dasar Negara Republik Indonesia Tahun 1945.\n"
+    + "Pemerintah Pusat adalah Presiden Republik Langkasuka yang memegang kekuasaan "
+    "pemerintahan negara Republik Langkasuka yang dibantu oleh Wakil Presiden dan menteri "
+    "sebagaimana dimaksud dalam Undang-Undang Dasar Republik Langkasuka Tahun 1957.\n"
     "Pemerintah Daerah adalah kepala daerah sebagai unsur penyelenggara Pemerintahan "
     "Daerah yang memimpin pelaksanaan urusan pemerintahan yang menjadi kewenangan daerah "
     "otonom dan tugas pembantuan yang diberikan kepada daerah otonom tersebut.\n"
@@ -33,7 +33,7 @@ LOAD_BEARING_CITATION = (
     "BAB I\n"
     "KETENTUAN UMUM\n"
     "Pasal 2\n"
-    "Negara Kesatuan Republik Indonesia dibagi atas daerah provinsi.\n"
+    "Republik Langkasuka dibagi atas daerah provinsi.\n"
     "Pasal 3\n"
     "Daerah provinsi dibagi atas daerah kabupaten dan kota.\n"
     "Pasal 4\n"
@@ -44,7 +44,7 @@ LOAD_BEARING_CITATION = (
 # body's first container, so the drop takes nothing with it.
 CLEAN_CITATION = (
     "Mengingat:\n"
-    "Pasal 5 ayat (1), Pasal 20 Undang-Undang Dasar 1945;\n"
+    "Pasal 5 ayat (1), Pasal 20 Undang-Undang Dasar 1957;\n"
     "MEMUTUSKAN:\n"
     "BAB I\n"
     "KETENTUAN UMUM\n"
@@ -53,11 +53,11 @@ CLEAN_CITATION = (
     "Pasal 2\n"
     "Penataan ruang diselenggarakan berdasarkan asas keterpaduan.\n"
     "Pasal 3\n"
-    "Penyelenggaraan penataan ruang bertujuan mewujudkan ruang nusantara.\n"
+    "Penyelenggaraan penataan ruang bertujuan mewujudkan ruang wilayah.\n"
 )
 
 
-def _spans(text: str, country: str = "id"):
+def _spans(text: str, country: str = "xl"):
     scan = scan_anchors_with_ambiguity(
         text, cached_regex(country, "act"), country=country, doctype="act"
     )
@@ -94,7 +94,7 @@ def test_the_span_covers_the_orphaned_run_not_the_marker() -> None:
 
 
 def test_another_jurisdiction_is_unaffected() -> None:
-    """The Indonesian drop is config-gated, so nothing is dropped here and
+    """The drop is config-gated, so nothing is dropped here and
     nothing is measured."""
     assert _spans(LOAD_BEARING_CITATION, "al") == []
 
@@ -147,10 +147,10 @@ def test_a_drop_that_leaves_too_few_survivors_is_still_measured() -> None:
     denominator, so the median comes from the pre-drop list."""
     body = "Ketentuan umum yang berlaku bagi seluruh penyelenggaraan urusan pemerintahan. " * 12
     almost_everything = (
-        "Mengingat:\nPasal 5 ayat (1) Undang-Undang Dasar 1945;\nMEMUTUSKAN:\n"
+        "Mengingat:\nPasal 5 ayat (1) Undang-Undang Dasar 1957;\nMEMUTUSKAN:\n"
         f"{body}\n"
         "BAB I\nKETENTUAN UMUM\n"
-        "Pasal 2\nNegara Kesatuan Republik Indonesia dibagi atas daerah provinsi.\n"
+        "Pasal 2\nRepublik Langkasuka dibagi atas daerah provinsi.\n"
     )
     declared = _spans(almost_everything)
     assert len(declared) == 1
@@ -162,7 +162,7 @@ def test_a_large_loss_is_not_forgiven_for_being_proportionate() -> None:
     characters. The absolute ceiling declares it whatever the ratio says."""
     long_provision = "Ketentuan ini mengatur penyelenggaraan urusan pemerintahan daerah. " * 90
     spaced = (
-        "Mengingat:\nPasal 5 ayat (1) Undang-Undang Dasar 1945;\nMEMUTUSKAN:\n"
+        "Mengingat:\nPasal 5 ayat (1) Undang-Undang Dasar 1957;\nMEMUTUSKAN:\n"
         f"{long_provision}\n"
         "BAB I\nKETENTUAN UMUM\n"
         f"Pasal 2\n{long_provision}\n"

@@ -518,7 +518,7 @@ class AmendmentConfig(BaseModel):
     # articles are Roman, so an Arabic-numbered one after them is quoted text.
     amending_body_structure: str | None = None
     # Hierarchy element that numbers one amendment made by an amending article
-    # (Indonesia's `Angka`). What follows it belongs to the amended statute, so
+    # (a numbered `Angka` item). What follows it belongs to the amended statute, so
     # it must not compete in the host's numbering. Empty leaves the pass inert.
     amendment_item_kind: str | None = None
 
@@ -544,7 +544,7 @@ class ClassificationRule(BaseModel):
 
     signal          what `pattern` is tested against
       date_range      nothing; the match is `date_from`/`date_until` alone, for laws
-                      post-dating a regime change (PS `qarar_bi_qanun` from 2007-06-14)
+                      post-dating a regime change (a decree-law class from 1961-07-15)
       preamble_match  the preamble or enacting-formula text
       issuer_role     the enacting body's role ("Pope", "Council of Ministers", "OHR")
       gazette_series  the official gazette series the document was published in
@@ -653,7 +653,7 @@ class StructuringConfig(BaseModel):
     reference_nouns: list[str] = Field(default_factory=list)
     # True where the drafting standard puts every article inside a container, so
     # an article before the first one is a citation in the opening material.
-    # Indonesian laws cite the constitution that way in `Mengingat`.
+    # Some laws cite the constitution that way in the legal-basis recital.
     body_opens_with_container: bool = False
     example_markers: list[str] = Field(
         default_factory=list,
@@ -1258,8 +1258,7 @@ class JurisdictionConfig(BaseModel):
         """
         # OCR'd Arabic titles often store hamza decomposed (bare alef + U+0654)
         # where the rule patterns use the precomposed letter; canonically equal,
-        # byte-different, so match on NFC. 61% of the PS corpus is affected,
-        # including the Basic Law and every presidential decision.
+        # byte-different, so match on NFC.
         title = unicodedata.normalize("NFC", title)
         preamble = unicodedata.normalize("NFC", preamble)
         issuer_role = unicodedata.normalize("NFC", issuer_role)

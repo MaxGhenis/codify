@@ -90,16 +90,16 @@ class TestTheDeltaBetweenTwoScans:
         from codify.storage.structural_findings import FindingRate, RateDelta
 
         before = FindingRate(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             failed=3,
             passed=7,
             not_run=0,
         )
         gone = RateDelta(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             before=before,
             after=None,
@@ -113,24 +113,24 @@ class TestTheDeltaBetweenTwoScans:
         from codify.storage.structural_findings import FindingRate, RateDelta
 
         unmeasurable = FindingRate(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             failed=0,
             passed=0,
             not_run=9,
         )
         measured = FindingRate(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             failed=2,
             passed=8,
             not_run=0,
         )
         both = RateDelta(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             before=unmeasurable,
             after=measured,
@@ -145,16 +145,16 @@ class TestTheDeltaBetweenTwoScans:
         from codify.storage.structural_findings import FindingRate, RateDelta
 
         after = FindingRate(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             failed=1,
             passed=9,
             not_run=0,
         )
         added = RateDelta(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             before=None,
             after=after,
@@ -166,16 +166,16 @@ class TestTheDeltaBetweenTwoScans:
         from codify.storage.structural_findings import FindingRate, RateDelta
 
         rate = FindingRate(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             failed=2,
             passed=8,
             not_run=1,
         )
         same = RateDelta(
-            jurisdiction_code="ps",
-            era="plc",
+            jurisdiction_code="xz",
+            era="assembly",
             check_name="anchor_coverage",
             before=rate,
             after=rate,

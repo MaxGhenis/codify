@@ -1,7 +1,7 @@
 """Word lists for legibility scoring, keyed by language. Legibility asks whether the
 letter forms survived, which closed-class words answer, and those are a property of
 the language rather than the script: 206 shipped configs are Latin, spanning English,
-French, Spanish and Indonesian, and one list cannot serve them.
+French, Spanish and Bahasa, and one list cannot serve them.
 """
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ from dataclasses import dataclass, field, replace
 __all__ = [
     "ARABIC_WORDS",
     "ENGLISH_WORDS",
-    "INDONESIAN_WORDS",
+    "BAHASA_WORDS",
     "WordList",
     "languages_with_lists",
     "register",
@@ -36,8 +36,8 @@ class WordList:
     # accepts any letter, right for a Latin-script language on a Latin-script page.
     letter_re: re.Pattern[str] | None = None
     # Floors for `verdict_from_rates`, measured per language and not transferable:
-    # clean Arabic prose runs 91 to 176 per 1,000 where Philippine English runs 213 to
-    # 433. A None lexicon floor means the content-noun tie-break is unusable here, so a
+    # clean Arabic prose runs 91 to 176 per 1,000 where English runs 213 to 433. A
+    # None lexicon floor means the content-noun tie-break is unusable here, so a
     # low-prose document reports no verdict rather than a wrong one.
     prose_floor: float | None = None
     lexicon_floor: float | None = None
@@ -133,9 +133,9 @@ ARABIC_WORDS = register(
     )
 )
 
-# Indonesian. Particles and auxiliaries that survive only if the letters did,
+# Bahasa (ind). Particles and auxiliaries that survive only if the letters did,
 # plus the nouns any instrument names about itself.
-INDONESIAN_WORDS = register(
+BAHASA_WORDS = register(
     WordList(
         language="ind",
         letter_re=_LATIN_RE,
@@ -200,16 +200,13 @@ INDONESIAN_WORDS = register(
     )
 )
 
-# English. Carries the Philippine corpus, the largest in the system, and the
-# UK and Irish acts.
+# English.
 ENGLISH_WORDS = register(
     WordList(
         language="eng",
         letter_re=_LATIN_RE,
-        # Measured over 70 Philippine documents: function words p5 309.7, lexicon p5
-        # 15.4, 2 of 127 under the floor. The list is built from document frequency
-        # over that corpus rather than guessed, which a first attempt got wrong: these
-        # statutes write "provisions", not "provision".
+        # Built from document frequency over held statutes rather than guessed: they
+        # write "provisions", not "provision".
         prose_floor=80.0,
         lexicon_floor=12.0,
         function_words=frozenset(

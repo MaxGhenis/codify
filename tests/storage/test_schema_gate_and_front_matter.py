@@ -17,15 +17,15 @@ NS = "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
 # Strict AKN requires FRBRauthor and FRBRcountry; a meta without them is exactly
 # what the gate exists to refuse, so the valid fixture has to carry them.
 _META = """<meta><identification source="#codify">
-  <FRBRWork><FRBRthis value="/akn/ps/act/2004/39"/><FRBRuri value="/akn/ps/act/2004/39"/>
+  <FRBRWork><FRBRthis value="/akn/xz/act/2004/41"/><FRBRuri value="/akn/xz/act/2004/41"/>
     <FRBRdate date="2004-04-12" name="Generation"/><FRBRauthor href="#codify"/>
-    <FRBRcountry value="ps"/></FRBRWork>
-  <FRBRExpression><FRBRthis value="/akn/ps/act/2004/39/eng@2004-04-12"/>
-    <FRBRuri value="/akn/ps/act/2004/39/eng@2004-04-12"/>
+    <FRBRcountry value="xz"/></FRBRWork>
+  <FRBRExpression><FRBRthis value="/akn/xz/act/2004/41/eng@2004-04-12"/>
+    <FRBRuri value="/akn/xz/act/2004/41/eng@2004-04-12"/>
     <FRBRdate date="2004-04-12" name="Generation"/><FRBRauthor href="#codify"/>
     <FRBRlanguage language="eng"/></FRBRExpression>
-  <FRBRManifestation><FRBRthis value="/akn/ps/act/2004/39/eng@2004-04-12.xml"/>
-    <FRBRuri value="/akn/ps/act/2004/39/eng@2004-04-12.xml"/>
+  <FRBRManifestation><FRBRthis value="/akn/xz/act/2004/41/eng@2004-04-12.xml"/>
+    <FRBRuri value="/akn/xz/act/2004/41/eng@2004-04-12.xml"/>
     <FRBRdate date="2004-04-12" name="Generation"/><FRBRauthor href="#codify"/>
   </FRBRManifestation></identification></meta>"""
 _BODY = '<body><article eId="art_1"><num>1</num><content><p>Body.</p></content></article></body>'
@@ -96,7 +96,7 @@ class TestFrontMatterSurvivesTheRoundTrip:
         """`amend_provision` rewrites the FRBR expression URI before emitting,
         so carrying the source `<meta>` over would undo the version step."""
         emitted = to_akn(parse_akn(self._FULL)).replace(
-            "/akn/ps/act/2004/39/eng@2004-04-12", "/akn/ps/act/2004/39/eng@2004-04-12.1"
+            "/akn/xz/act/2004/41/eng@2004-04-12", "/akn/xz/act/2004/41/eng@2004-04-12.1"
         )
         out = _restore_non_body(self._FULL, emitted)
         assert "eng@2004-04-12.1" in out

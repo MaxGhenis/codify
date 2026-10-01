@@ -71,11 +71,11 @@ async def _provision_texts(session: AsyncSession, vid: uuid.UUID) -> dict[str, s
 async def test_rederive_rebuilds_provisions_after_repair(session: AsyncSession) -> None:
     bb = "BODY\n  SECTION 1\n    ARTICLE 1\n      Body of article one.\n    ARTICLE 2\n"
     suffix = uuid.uuid4().hex[:8]
-    akn = parse_to_akn(bb, country="ps", doctype="act", number=suffix, date="2020-01-01")
+    akn = parse_to_akn(bb, country="xz", doctype="act", number=suffix, date="2020-01-01")
     empty = next(i for i in validate_akn(akn) if i["check"] == "empty_article")
 
     vid = await save_document(
-        session, parse_akn(akn), jurisdiction_code="ps", law_title=f"Rederive {suffix}", akn_xml=akn
+        session, parse_akn(akn), jurisdiction_code="xz", law_title=f"Rederive {suffix}", akn_xml=akn
     )
     await session.commit()
     before = await _provision_texts(session, vid)
@@ -84,7 +84,7 @@ async def test_rederive_rebuilds_provisions_after_repair(session: AsyncSession) 
     res = apply_op(
         akn,
         SetBody(eid=empty["eid"], bluebell="The restored body of the second article."),
-        country="ps",
+        country="xz",
         target_finding=empty,
     )
     assert res.ok, res.error

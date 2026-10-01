@@ -143,7 +143,7 @@ class TestSentinelRoundTrip:
             _unit(
                 "art_62",
                 "Any person who violates the provisions of Article (12) shall be "
-                "punished with a fine of not less than 1000 Jordanian Dinars.",
+                "punished with a fine of not less than 1000 Zerzuran Dinars.",
             )
         ]
         outcome = await translate_bodies(

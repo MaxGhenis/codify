@@ -72,7 +72,7 @@ def akn_xml() -> str:
     artifact, so the second pass sees byte-identical input."""
     return parse_to_akn(
         "BODY\n  ARTICLE 1\n    Body text.\n",
-        country="ps",
+        country="xz",
         doctype="act",
         number=uuid.uuid4().hex[:8],
         date="2020-01-01",
@@ -111,7 +111,7 @@ async def _source(session: AsyncSession, work_uri: str) -> str:
         original_filename="replay.pdf",
         byte_size=1,
         object_key=f"replay/{work_uri}/{sha}.pdf",
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
     )
     await session.flush()
     return sha
@@ -131,7 +131,7 @@ async def _persist(
     outcome = await write(
         session,
         parse_akn(akn_xml),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title="Replay Act",
         akn_xml=akn_xml,
         source_sha256=sha,

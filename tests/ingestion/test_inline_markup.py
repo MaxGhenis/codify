@@ -354,13 +354,13 @@ class TestArabicExternalRefs:
             "<p>المرجع: قانون الشركات لسنة 1929 ينطبق هنا.</p>"
             "</content></article>"
         )
-        out = await emit_inline_markup(xml, "ps", "act", client=None)
+        out = await emit_inline_markup(xml, "xz", "act", client=None)
         root = etree.fromstring(out.encode())
         refs = root.findall(".//akn:ref", NS)
         ext = [r for r in refs if r.get("href", "").startswith("/akn/")]
         assert len(ext) == 1
         assert "1929" in ext[0].get("href", "")
-        assert "ps/act" in ext[0].get("href", "")
+        assert "xz/act" in ext[0].get("href", "")
 
     async def test_arabic_citation_with_number_and_year(self):
         xml = _act(
@@ -368,7 +368,7 @@ class TestArabicExternalRefs:
             "<p>راجع قانون رقم 5 لسنة 1995 للتفاصيل.</p>"
             "</content></article>"
         )
-        out = await emit_inline_markup(xml, "ps", "act", client=None)
+        out = await emit_inline_markup(xml, "xz", "act", client=None)
         root = etree.fromstring(out.encode())
         ext = [r for r in root.findall(".//akn:ref", NS) if r.get("href", "").startswith("/akn/")]
         assert len(ext) == 1
@@ -379,23 +379,23 @@ class TestArabicExternalRefs:
     async def test_arabic_indic_year_normalised(self):
         xml = _act(
             '<article eId="art_1"><num>1</num><content>'
-            "<p>قانون اوراق النقد لسنة ١٩٢٧ كان ساريا.</p>"
+            "<p>قانون المكاييل لسنة ١٩٢٧ كان ساريا.</p>"
             "</content></article>"
         )
-        out = await emit_inline_markup(xml, "ps", "act", client=None)
+        out = await emit_inline_markup(xml, "xz", "act", client=None)
         root = etree.fromstring(out.encode())
         ext = [r for r in root.findall(".//akn:ref", NS) if r.get("href", "").startswith("/akn/")]
         assert len(ext) == 1
         # Year should be ASCII in the FRBR URI even though the source used ١٩٢٧
         assert "1927" in ext[0].get("href", "")
 
-    async def test_mandate_era_marsoum(self):
+    async def test_protectorate_era_marsoum(self):
         xml = _act(
             '<article eId="art_1"><num>1</num><content>'
-            "<p>صدر مرسوم الاسرار الرسمية لسنة 1932.</p>"
+            "<p>صدر مرسوم الموانئ لسنة 1932.</p>"
             "</content></article>"
         )
-        out = await emit_inline_markup(xml, "ps", "act", client=None)
+        out = await emit_inline_markup(xml, "xz", "act", client=None)
         root = etree.fromstring(out.encode())
         ext = [r for r in root.findall(".//akn:ref", NS) if r.get("href", "").startswith("/akn/")]
         assert len(ext) == 1
@@ -409,7 +409,7 @@ class TestArabicExternalRefs:
             "<p>كما هو موضح في المادة 5.</p>"
             "</content></article>"
         )
-        out = await emit_inline_markup(xml, "ps", "act", client=None)
+        out = await emit_inline_markup(xml, "xz", "act", client=None)
         root = etree.fromstring(out.encode())
         ext = [r for r in root.findall(".//akn:ref", NS) if r.get("href", "").startswith("/akn/")]
         assert len(ext) == 0
@@ -436,7 +436,7 @@ class TestArabicExternalRefs:
             "<p>راجع قانون الشركات لسنة 1929 وأيضا قانون السجون لسنة 1921.</p>"
             "</content></article>"
         )
-        out = await emit_inline_markup(xml, "ps", "act", client=None)
+        out = await emit_inline_markup(xml, "xz", "act", client=None)
         root = etree.fromstring(out.encode())
         ext = [r for r in root.findall(".//akn:ref", NS) if r.get("href", "").startswith("/akn/")]
         assert len(ext) == 2
@@ -489,11 +489,9 @@ class TestCyrillicExternalRefs:
         assert len(ext) == 0
 
 
-class TestPhilippineExternalRefs:
-    """Philippine drafting cites statutes by number, not by a year-suffixed
-    title: "Republic Act No. 386", "Presidential Decree No. 442", "Batas
-    Pambansa Blg. 68", "Commonwealth Act No. 141". The pass builds the FRBR work
-    URI from the number alone (no year in the citation → unknown-year slot)."""
+class TestNumberedInstrumentRefs:
+    """Citations by a yearless series number. The pass builds the FRBR work URI
+    from the number alone (no year in the citation → unknown-year slot)."""
 
     async def test_a_list_of_instruments_is_refused_not_half_captured(self) -> None:
         """One number group captures one number, so a list would wrap the first
@@ -571,7 +569,7 @@ class TestPhilippineExternalRefs:
         )
         assert hrefs == ["/akn/ph/act/0001/9165"]
 
-    async def test_non_ph_document_skips_pass(self):
+    async def test_another_jurisdiction_skips_pass(self):
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
             "<p>Republic Act No. 9165 applies.</p></content></section>",
@@ -625,7 +623,7 @@ def test_number_token_keeps_compound_law_numbers() -> None:
     assert law_number_token("19-06") == "19-06"
     assert law_number_token("٤٦") == "46"
     assert law_number_token(None) == ""
-    # A dash-joined sequence is a real citation: PS writes a decision number plus
+    # A dash-joined sequence is a real citation: a decision number can carry
     # its office series as `رقم (3 279 11 م.و إ.ه)`, and migration 0108 stores it.
     assert law_number_token("3-279-11") == "3-279-11"
     # Mixing the separators is a date and a filing reference run together, not a

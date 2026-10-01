@@ -8,15 +8,15 @@ from codify.pipeline.enrich.regions import Region
 
 _META = (
     '<meta><identification source="#codify"><FRBRWork>'
-    '<FRBRthis value="/akn/ps/act/1985/24/main"/><FRBRuri value="/akn/ps/act/1985/24"/>'
+    '<FRBRthis value="/akn/xz/act/1985/24/main"/><FRBRuri value="/akn/xz/act/1985/24"/>'
     '<FRBRdate date="1985-01-01" name="Generation"/><FRBRauthor href="#codify"/>'
-    '<FRBRcountry value="ps"/></FRBRWork><FRBRExpression>'
-    '<FRBRthis value="/akn/ps/act/1985/24/ara@1985-01-01/main"/>'
-    '<FRBRuri value="/akn/ps/act/1985/24/ara@1985-01-01"/>'
+    '<FRBRcountry value="xz"/></FRBRWork><FRBRExpression>'
+    '<FRBRthis value="/akn/xz/act/1985/24/ara@1985-01-01/main"/>'
+    '<FRBRuri value="/akn/xz/act/1985/24/ara@1985-01-01"/>'
     '<FRBRdate date="1985-01-01" name="Generation"/><FRBRauthor href="#codify"/>'
     '<FRBRlanguage language="ara"/></FRBRExpression><FRBRManifestation>'
-    '<FRBRthis value="/akn/ps/act/1985/24/ara@1985-01-01/main.xml"/>'
-    '<FRBRuri value="/akn/ps/act/1985/24/ara@1985-01-01.xml"/>'
+    '<FRBRthis value="/akn/xz/act/1985/24/ara@1985-01-01/main.xml"/>'
+    '<FRBRuri value="/akn/xz/act/1985/24/ara@1985-01-01.xml"/>'
     '<FRBRdate date="1985-01-01" name="Generation"/><FRBRauthor href="#codify"/>'
     "</FRBRManifestation></identification></meta>"
 )

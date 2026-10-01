@@ -54,10 +54,10 @@ _URI_YEAR_SEGMENT = re.compile(r"[0-9]{4}")
 def is_citable_work_uri(uri: str) -> bool:
     """Whether a stored work URI names a real year and number.
 
-    `build_frbr_work_uri` mints `/akn/ps/act/0001/draft-<sha>` when neither resolved;
+    `build_frbr_work_uri` mints `/akn/xz/act/0001/draft-<sha>` when neither resolved;
     writing that back replaces a real enactment date with year 1 and a real number
     with a content hash. Year and number are shape-checked rather than compared,
-    without which `/akn/ps/act/2008/` and `//` both pass. `0000` is refused because
+    without which `/akn/xz/act/2008/` and `//` both pass. `0000` is refused because
     XSD 1.0 has no year zero.
     """
     tail = uri.rsplit("/", 2)[-2:]
@@ -77,9 +77,8 @@ class UncitableFrbrUri(ValueError):
     stored identity nobody can write down is worse than a failed ingest."""
 
 
-# `45/PUU-IX/2011`: an Indonesian court case number, and the same shape as a
-# Malaysian or Philippine docket. The leading run is the number; the rest is the
-# series and the year, which the URI already carries in its own segment.
+# `45/PUU-IX/2011`: a court case or docket number. The leading run is the number;
+# the rest is the series and the year, which the URI carries in its own segment.
 _SERIES_CITATION = re.compile(r"([0-9]+)/[A-Za-z][A-Za-z0-9.\u2010-\u2015-]*/([0-9]{4})")
 
 
@@ -444,7 +443,7 @@ def build_frbr_work_uri(country: str, doctype: str, year: int | str, number: str
     )
     # AKN requires a date segment, so a year we could not resolve gets the
     # unknown-date placeholder rather than a gap or an omission. Cobalt refuses
-    # both `/akn/ps/act//draft-x` and `/akn/ps/act/draft-x`.
+    # both `/akn/xz/act//draft-x` and `/akn/xz/act/draft-x`.
     built = f"{base}/{year_for_uri}/{number}"
     return _assert_citable(built, country=country, doctype=doctype, number=number)
 

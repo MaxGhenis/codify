@@ -30,7 +30,7 @@
           "numbering": "arabic"
         },
         {
-          "local_term": "Section",
+          "local_term": "Section (Sec.)",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
@@ -67,6 +67,163 @@
         }
       ],
       "hcontainers": []
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Book",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (Sec.)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Article (Art.)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "sequential_unnumbered"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Article-based codes, where Section is a higher division above Article."
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Article (Art.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (Sec.)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Article is the higher division; Section the basic unit."
+    },
+    "mint_circular": {
+      "label": "Mint Circular",
+      "short_label": "Mint Circular",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "search_rank": 1,
+      "hierarchy": [
+        {
+          "local_term": "Rule",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (Sec.)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_dot"
+        },
+        {
+          "local_term": "Sub-paragraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_dot"
+        },
+        {
+          "local_term": "Item",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_dot"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Regulator circular: Rule headings group continuously numbered sections."
+    },
+    "harbour_treasury_jmc": {
+      "number_has_year_prefix": true,
+      "label": "Harbour-Treasury Joint Memorandum Circular",
+      "short_label": "Harbour-Treasury Joint Memorandum Circular",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "search_rank": 1,
+      "hierarchy": [
+        {
+          "local_term": "Rule",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section (Sec.)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_per_rule"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Joint-issuer circular: section numbering restarts within every Rule."
     }
   },
   "default_document_class": "act",
@@ -74,7 +231,9 @@
     "country_code": "xa",
     "uri_patterns": {
       "act": "/akn/xa/act/{year}/{number}",
-      "bill": "/akn/xa/bill/{year}/{number}"
+      "bill": "/akn/xa/bill/{year}/{number}",
+      "mint_circular": "/akn/xa/act/mint-circular/{year}/{number}",
+      "harbour_treasury_jmc": "/akn/xa/act/harbour-treasury-jmc/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "note": "Acts identified by calendar year and Act number, e.g. Act No. 7 of 1992."
@@ -122,8 +281,61 @@
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy.",
     "long_title_lead_ins": ["An Act"],
     "citation_lead_ins": ["shall be known as", "may be cited as", "shall be cited as"],
-    "citation_subjects": ["This Act", "This Code"],
-    "citation_articles": ["the"]
+    "citation_subjects": ["This Act", "This Code", "This Circular", "These Rules"],
+    "citation_articles": ["the"],
+    "prose_precursors": ["provided in", "defined under"],
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^(?:An Act to Ordain and Institute the )?Civil Code of Atlantis$",
+        "pattern_flags": "i",
+        "target_document_class": "code",
+        "priority": 100
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^(?:The )?Consolidated Penal Code(?: of Atlantis)?$",
+        "pattern_flags": "i",
+        "target_document_class": "code",
+        "priority": 100
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^(?:The )?\\d{4} Constitution|Constitution of the Commonwealth of Atlantis",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 110
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^(?:Atlantis\\s+)?Mint\\s+Circular\\s+(?:No\\.?\\s*)?\\d+\\b",
+        "pattern_flags": "i",
+        "target_document_class": "mint_circular",
+        "priority": 120
+      },
+      {
+        "signal": "preamble_match",
+        "pattern": "\\A(?=[\\s\\S]{0,1600}Atlantis\\s+Mint)[\\s\\S]{0,160}?OFFICE OF THE MINT WARDEN[\\s\\S]{0,120}?CIRCULAR\\s+(?:NO\\.?|NUMBER)[\\s\\S]{0,1400}?The\\s+Mint\\s+Council,?\\s+in\\s+its\\s+Resolution\\s+No\\.?\\s+\\d+(?:[-/]\\d+)?\\s+dated\\s+\\d{1,2}\\s+[A-Za-z]+\\s+\\d{4},?\\s+approved\\s+the\\s+following\\b",
+        "pattern_flags": "i",
+        "target_document_class": "mint_circular",
+        "priority": 115
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^HB\\s*[-/–]\\s*TR\\s+(?:Joint\\s+Memorandum\\s+Circular|JMC)\\s+(?:No\\.?\\s*)?\\d{4}\\s*[-–]\\s*\\d+\\b",
+        "pattern_flags": "i",
+        "target_document_class": "harbour_treasury_jmc",
+        "priority": 125
+      },
+      {
+        "signal": "preamble_match",
+        "pattern": "\\A\\s*JOINT\\s+MEMORANDUM\\s+CIRCULAR\\s+NO\\.?\\s*\\d{4}\\s*[-–]\\s*\\d+\\s*(?:Series\\s+of\\s+\\d{4}\\s*)?(?:The\\s+)?Implementing\\s+Rules\\s+of\\s+the\\s+Harbours\\s+Act\\s+No\\.?\\s*1103\\b",
+        "pattern_flags": "i",
+        "target_document_class": "harbour_treasury_jmc",
+        "priority": 124,
+        "note": "Needs the instrument heading and the implemented statute together; a body citation does not identify the issuer."
+      }
+    ]
   },
   "supranational_memberships": [],
   "display": {

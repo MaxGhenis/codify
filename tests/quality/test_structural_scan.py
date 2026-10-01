@@ -42,7 +42,7 @@ def _find(findings: list, check: str):  # type: ignore[no-untyped-def]
 
 
 def _scan(xml: str, **kw):  # type: ignore[no-untyped-def]
-    return scan_version(xml, config=load_config("ps"), doctype="act", **kw)
+    return scan_version(xml, config=load_config("xz"), doctype="act", **kw)
 
 
 def test_every_check_reports_on_every_version() -> None:
@@ -65,7 +65,7 @@ class TestParseability:
 
 class TestBodyUnits:
     def test_a_verbatim_prose_blob_fails(self) -> None:
-        """The no-anchor fallback emits a `<section>`, which PS declares, so
+        """The no-anchor fallback emits a `<section>`, which a jurisdiction may declare, so
         testing any declared element passed the defect."""
         finding = _find(_scan(_doc(_BLOB)), "body_units_present")
         assert finding.failed is True
@@ -231,8 +231,8 @@ class TestTranslations:
         assert finding.failed is False
 
     def test_a_lost_named_hcontainer_is_a_loss(self) -> None:
-        """`<hcontainer>` carries law as well as scaffolding: PS declares
-        `mukrrar`, the bis article. Generic-by-tag hid a dropped one."""
+        """`<hcontainer>` carries law as well as scaffolding: a config may
+        declare `mukrrar`, the bis article. Generic-by-tag hid a dropped one."""
         mukrrar = (
             '<hcontainer name="mukrrar" eId="art_1bis"><num>1 مكرر</num>'
             "<content><p>inserted</p></content></hcontainer>"
@@ -343,23 +343,23 @@ class TestCoverageCanFail:
 
 class TestEras:
     def test_a_year_lands_in_its_declared_era(self) -> None:
-        config = load_config("ps")
-        assert era_of(config, 1936) == "british_mandate"
-        assert era_of(config, 1979) == "military_orders"
+        config = load_config("xz")
+        assert era_of(config, 1936) == "protectorate"
+        assert era_of(config, 1979) == "assembly"
         assert era_of(config, 2020) == "decree_law"
 
     def test_a_transition_year_belongs_to_the_earlier_era(self) -> None:
         """Eras carry exact dates; most works carry only a year."""
-        config = load_config("ps")
-        assert era_of(config, 1967) == "egyptian_jordanian"
-        assert era_of(config, 1968) == "military_orders"
+        config = load_config("xz")
+        assert era_of(config, 1961) == "protectorate"
+        assert era_of(config, 1962) == "assembly"
 
     def test_the_three_no_era_reasons_stay_apart(self) -> None:
         """No config loaded, declares no eras, and year missing were one bucket,
         so its abstention count meant something different from row to row."""
         assert era_of(None, 1998) == "no_config"
         assert era_of(load_config("gb"), 1998) == "no_eras_declared"
-        assert era_of(load_config("ps"), None) == "unknown"
+        assert era_of(load_config("xz"), None) == "unknown"
 
     def test_a_year_outside_every_era_names_the_config_gap(self) -> None:
         config = JurisdictionConfig(

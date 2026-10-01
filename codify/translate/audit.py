@@ -573,7 +573,7 @@ def audit_translation(
         letter_spaced_hits, letter_spaced_by_eid = letter_spaced_result
 
     # Money-token recall: missing is a dropped penalty, duplicated is the
-    # `(500,000) 50,000 Jordanian Dinar` shape. Multiset per eid, so source
+    # `(500,000) 50,000 Dinar` shape. Multiset per eid, so source
     # `1,000 / 3,000` vs target `1,000 / 1,000` reports the dropped `3,000`.
     money_missing_by_eid: dict[str, list[str]] = {}
     money_duplicated_by_eid: dict[str, list[str]] = {}

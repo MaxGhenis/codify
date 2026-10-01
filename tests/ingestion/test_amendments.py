@@ -41,7 +41,7 @@ class TestHeadingIndependence:
             # UK/OPC
             "Amendment of section 5 of the principal Act",
             "Substitution of section 5",
-            # Commonwealth Caribbean (Barbados, Trinidad, OECS)
+            # Commonwealth revised-edition style (Cap. numbers)
             "Repeal and replacement of section 14 of Cap. 167",
             "Insertion of new section 79A",
             # Targets other than sections
@@ -87,7 +87,7 @@ class TestEmbeddedStructureGate:
             # Bare prose, the Police (Amendment) Act 2025 case, where the LLM
             # transcribed quoted text as loose paragraphs rather than nested AKN.
             '<p xmlns="{ns}">Replacement sentence one.</p><p xmlns="{ns}">Replacement sentence two.</p>',
-            '<p xmlns="{ns}">&#8220;An Act to provide for the Barbados Police Service.&#8221;</p>',
+            '<p xmlns="{ns}">&#8220;An Act to provide for the Atlantis Police Service.&#8221;</p>',
         ],
     )
     def test_quote_block_with_embedded_structure_is_lifted(self, child: str) -> None:

@@ -269,7 +269,7 @@ class TestLetterSpacedRuns:
 
     def test_ignores_three_letters(self) -> None:
         """Initials and short abbreviations run to three; the floor sits above."""
-        assert letter_spaced_runs("ditandatangani M A S di Jakarta") == 0
+        assert letter_spaced_runs("ditandatangani M A S di Kota Langkasuka") == 0
 
     def test_ignores_arabic(self) -> None:
         assert letter_spaced_runs(_CLEAN_AR) == 0

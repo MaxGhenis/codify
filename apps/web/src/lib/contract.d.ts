@@ -527,7 +527,7 @@ export interface components {
          *
          *     signal          what `pattern` is tested against
          *       date_range      nothing; the match is `date_from`/`date_until` alone, for laws
-         *                       post-dating a regime change (PS `qarar_bi_qanun` from 2007-06-14)
+         *                       post-dating a regime change (a decree-law class from 1961-07-15)
          *       preamble_match  the preamble or enacting-formula text
          *       issuer_role     the enacting body's role ("Pope", "Council of Ministers", "OHR")
          *       gazette_series  the official gazette series the document was published in

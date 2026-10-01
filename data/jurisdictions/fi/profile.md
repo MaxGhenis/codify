@@ -33,7 +33,7 @@ The Finlex API returns _only_ AKN XML per its documentation: no PDF or HTML alte
   - **Alakohta** (sub-point): Lettered a), b), c) or with dashes. Less common.
 - **Chapter numbering** (luvut): Chapters (_luvut_, singular _luku_) are numbered with Arabic numerals: **1 luku**, **2 luku**, **3 luku**. Chapters carry descriptive headings. Numbering is continuous throughout the act.
 - **SI/Decree numbering**: Government Decrees (_valtioneuvoston asetukset_, VNA) and Presidential Decrees (_tasavallan presidentin asetukset_, TPA) use the same `NNN/YYYY` numbering scheme as acts, in the same sequential register. Presidential orders and ministry decisions use the same system. All share the single Suomen säädöskokoelma number sequence.
-- **Dual numbering?**: No. Unlike Barbados with Act/Cap numbers, Finland uses a single `NNN/YYYY` system throughout. Old acts from before 1980 may have older chapter-based identifiers in some legal databases but `NNN/YYYY` is the canonical reference.
+- **Dual numbering?**: No. Finland uses a single `NNN/YYYY` system throughout. Old acts from before 1980 may have older chapter-based identifiers in some legal databases but `NNN/YYYY` is the canonical reference.
 - **Insertion numbering**: Uses alphanumeric insertion: e.g., § 5 a, § 5 b (written with space: "5 a §", "5 b §"). Chapters use similar convention: "1 a luku". Sections are not renumbered on amendment.
 
 ## FRBR URI Patterns

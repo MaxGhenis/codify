@@ -7,7 +7,7 @@
   "calendar": "gregorian",
   "languages": ["ind"],
   "authoritative_language": "ind",
-  "note": "Fictional Malay-archipelago republic. Exists only as synthetic test material: a civil-law legislature (the Dewan Langkasuka) legislating in Bahasa Indonesia, used to exercise the Indonesian Bab/Bagian/Pasal/Ayat hierarchy, enacting formulae and amendment tracking without shipping any real jurisdiction's law in the open test tree. Not a real place; carries no real legislation.",
+  "note": "Fictional Malay-archipelago republic. Exists only as synthetic test material: a civil-law legislature (the Dewan Langkasuka) legislating in Bahasa, used to exercise the Bab/Bagian/Pasal/Ayat hierarchy, subordinate instrument classes, court rulings, enacting formulae and amendment tracking without shipping any real jurisdiction's law in the open test tree. Not a real place; carries no real legislation.",
   "document_classes": {
     "act": {
       "label": "Undang-Undang",
@@ -20,7 +20,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_indonesian"
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Bab (Chapter)",
@@ -34,7 +34,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_indonesian"
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Paragraf",
@@ -74,7 +74,511 @@
         }
       ],
       "hcontainers": [],
-      "note": "Bab (Chapter) > Bagian (Part) inverts the European civil-law convention, following Indonesian drafting practice."
+      "note": "Bab (Chapter) > Bagian (Part) inverts the European civil-law convention."
+    },
+    "pp": {
+      "label": "Peraturan Pemerintah (Government Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "PP",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "perppu": {
+      "label": "Peraturan Pemerintah Pengganti Undang-Undang (Emergency Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Perppu",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        },
+        {
+          "local_term": "Angka (Number)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Same hierarchy as an act, less the Buku level."
+    },
+    "perpres": {
+      "label": "Peraturan Presiden (Presidential Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Perpres",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "permen": {
+      "label": "Peraturan Menteri (Ministerial Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Permen",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "perda_provinsi": {
+      "label": "Peraturan Daerah Provinsi (Provincial Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Perda Prov",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "perda_kabkota": {
+      "label": "Peraturan Daerah Kabupaten/Kota (Regency/City Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Perda Kab/Kota",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "perkada": {
+      "label": "Peraturan Kepala Daerah (Regional Head Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Perkada",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "peraturan_lembaga": {
+      "label": "Peraturan Lembaga (Agency Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "Per. Lembaga",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bagian (Part/Section)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words"
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        },
+        {
+          "local_term": "Huruf (Letter)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period"
+        }
+      ],
+      "hcontainers": []
+    },
+    "constitution": {
+      "label": "Undang-Undang Dasar (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "short_label": "UUD",
+      "hierarchy": [
+        {
+          "local_term": "Bab (Chapter)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Pasal (Article)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ayat (Verse/Clause)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "marker_form": "parenthesized_arabic"
+        }
+      ],
+      "hcontainers": []
+    },
+    "putusan": {
+      "label": "Putusan Mahkamah Konstitusi (Constitutional Court Ruling)",
+      "akn_element": "judgment",
+      "bluebell_compatible": false,
+      "basic_unit": "paragraph",
+      "short_label": "Putusan",
+      "hierarchy": [
+        {
+          "local_term": "Bagian",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "none",
+          "marker_form": "caption",
+          "captions": ["DUDUK PERKARA", "PERTIMBANGAN HUKUM", "KONKLUSI", "AMAR PUTUSAN"]
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "paragraph",
+          "level": "basic",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "marker_form": "bracketed_decimal"
+        }
+      ],
+      "hcontainers": [],
+      "note": "Cited as {number}/PUL-{roman}/{year}. Captioned sections over bracketed-decimal paragraphs."
+    },
+    "ikhtisar": {
+      "label": "Ikhtisar Putusan (Ruling Summary)",
+      "akn_element": "doc",
+      "bluebell_compatible": false,
+      "basic_unit": "paragraph",
+      "short_label": "Ikhtisar",
+      "hierarchy": [
+        {
+          "local_term": "Paragraf",
+          "akn_element": "paragraph",
+          "level": "basic",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "marker_form": "bracketed_decimal"
+        }
+      ],
+      "hcontainers": [],
+      "note": "The court's summary of a ruling, carrying the same case number but modelled as a separate work."
     }
   },
   "default_document_class": "act",
@@ -82,7 +586,12 @@
     "country_code": "xl",
     "uri_patterns": {
       "act": "/akn/xl/act/{year}/{number}",
-      "bill": "/akn/xl/bill/{year}/{number}"
+      "bill": "/akn/xl/bill/{year}/{number}",
+      "pp": "/akn/xl/act/pp/{year}/{number}",
+      "perpres": "/akn/xl/act/perpres/{year}/{number}",
+      "perppu": "/akn/xl/act/perppu/{year}/{number}",
+      "putusan": "/akn/xl/judgment/{year}/{number}",
+      "ikhtisar": "/akn/xl/doc/ikhtisar/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "note": "Acts identified by calendar year and instrument number, e.g. Undang-Undang Nomor 14 Tahun 2018."
@@ -98,7 +607,20 @@
       "text": "Dengan Persetujuan Bersama DEWAN LANGKASUKA dan PRESIDEN REPUBLIK LANGKASUKA MEMUTUSKAN: Menetapkan: UNDANG-UNDANG TENTANG [SUBJECT].",
       "position": "preamble",
       "document_class": "act"
+    },
+    {
+      "text": "DENGAN RAHMAT TUHAN YANG MAHA KUASA PRESIDEN REPUBLIK LANGKASUKA, MEMUTUSKAN: Menetapkan: PERATURAN PEMERINTAH TENTANG [SUBJECT].",
+      "position": "preamble",
+      "document_class": ["pp", "perppu", "perpres"]
     }
+  ],
+  "enacting_formula_markers": ["DENGAN RAHMAT TUHAN YANG MAHA KUASA", "Dengan Persetujuan Bersama", "MEMUTUSKAN:"],
+  "opening_material_terminators": ["Menetapkan"],
+  "ocr_header_patterns": ["^\\s*[-\\u2013\\u2014]\\s*\\d+\\s*[-\\u2013\\u2014]\\s*$", "^\\s*SALINAN\\s*$"],
+  "furniture_line_patterns": [
+    "^\\s*[-\\u2013\\u2014]\\s*\\d+\\s*[-\\u2013\\u2014]\\s*$",
+    "^\\s*SALINAN\\s*$",
+    "^\\s*ttd\\.?\\s*$"
   ],
   "amendments": {
     "style": "structural_civil",
@@ -135,7 +657,7 @@
   ],
   "structuring": {
     "prompt_variant": "structure_civil.txt",
-    "prompt_additions": "Indonesian hierarchy inverts the European convention: Bab (Chapter) > Bagian (Part/Section) > Paragraf > Pasal (Article). Use CHAPTER > PART > DIVISION > ARTICLE. Pasal carry no heading of their own. Bagian are numbered with Indonesian ordinal words (Bagian Kesatu, Bagian Ketujuh); Bab use Roman numerals; Paragraf and Pasal use Arabic. Batang tubuh order is Ketentuan Umum, then the substantive chapters, then Ketentuan Peralihan and Ketentuan Penutup last.",
+    "prompt_additions": "The hierarchy inverts the European convention: Bab (Chapter) > Bagian (Part/Section) > Paragraf > Pasal (Article). Use CHAPTER > PART > DIVISION > ARTICLE. Pasal carry no heading of their own. Bagian are numbered with Bahasa ordinal words (Bagian Kesatu, Bagian Ketujuh); Bab use Roman numerals; Paragraf and Pasal use Arabic. Batang tubuh order is Ketentuan Umum, then the substantive chapters, then Ketentuan Peralihan and Ketentuan Penutup last.",
     "reference_nouns": ["Pasal", "ayat", "huruf", "angka"],
     "ordinal_words": {
       "Kesatu": 1,
@@ -161,7 +683,97 @@
     },
     "marker_boundary": "line_anchored",
     "body_opens_with_container": true,
-    "prose_precursors": ["pada", "dalam", "ayat"]
+    "prose_precursors": ["dan", "atau", "dalam", "pada", "ketentuan", "juga", "ayat", "huruf", "angka"],
+    "sameline_precursors": ["Mengingat", "Menimbang", "sebagaimana dimaksud dalam"],
+    "marker_tolerances": ["missing_separator", "keyword_glyph", "digit_glyph", "split_number"],
+    "example_markers": ["Contoh"],
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^\\s*IKHTISAR\\s+PUTUSAN\\b",
+        "pattern_flags": "i",
+        "target_document_class": "ikhtisar",
+        "priority": 110
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^\\s*PUTUSAN\\b",
+        "pattern_flags": "i",
+        "target_document_class": "putusan",
+        "priority": 105
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+DAERAH\\s+PROVINSI",
+        "pattern_flags": "i",
+        "target_document_class": "perda_provinsi",
+        "priority": 95
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+DAERAH\\s+(KABUPATEN|KOTA)",
+        "pattern_flags": "i",
+        "target_document_class": "perda_kabkota",
+        "priority": 94
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+(GUBERNUR|BUPATI|WALI\\s*KOTA|WALIKOTA)",
+        "pattern_flags": "i",
+        "target_document_class": "perkada",
+        "priority": 90
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+PEMERINTAH\\s+PENGGANTI\\s+UNDANG[- ]UNDANG",
+        "pattern_flags": "i",
+        "target_document_class": "perppu",
+        "priority": 85,
+        "note": "Must outrank the bare Peraturan Pemerintah rule."
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+PEMERINTAH\\b",
+        "pattern_flags": "i",
+        "target_document_class": "pp",
+        "priority": 80
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+PRESIDEN\\b",
+        "pattern_flags": "i",
+        "target_document_class": "perpres",
+        "priority": 78
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+MENTERI\\b",
+        "pattern_flags": "i",
+        "target_document_class": "permen",
+        "priority": 76
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "PERATURAN\\s+(BADAN|LEMBAGA|KOMISI)",
+        "pattern_flags": "i",
+        "target_document_class": "peraturan_lembaga",
+        "priority": 74
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "UNDANG[- ]UNDANG\\s+DASAR",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^\\s*UNDANG[- ]UNDANG\\b",
+        "pattern_flags": "i",
+        "target_document_class": "act",
+        "priority": 50
+      }
+    ]
   },
   "supranational_memberships": [],
   "display": {
@@ -171,6 +783,52 @@
     "rtl": false,
     "font_preference": "serif"
   },
+  "attachments": [
+    {
+      "caption": "PENJELASAN",
+      "normative": false
+    },
+    {
+      "caption": "LAMPIRAN",
+      "normative": true,
+      "hierarchy": [
+        {
+          "local_term": "Bab",
+          "akn_element": "chapter",
+          "level": "grouping",
+          "numbering": "roman",
+          "marker_form": "upper_roman_period"
+        },
+        {
+          "local_term": "Huruf Besar",
+          "akn_element": "section",
+          "level": "higher",
+          "numbering": "alpha_upper",
+          "marker_form": "upper_letter_period"
+        },
+        {
+          "local_term": "Angka",
+          "akn_element": "paragraph",
+          "level": "basic",
+          "numbering": "arabic_period",
+          "marker_form": "arabic_period"
+        },
+        {
+          "local_term": "Angka Kurung",
+          "akn_element": "point",
+          "level": "subdivision",
+          "numbering": "arabic_closing_paren",
+          "marker_form": "arabic_closing_paren"
+        }
+      ]
+    }
+  ],
+  "placeholders": [
+    {
+      "pattern": "^\\s*Cukup jelas\\.?\\s*$",
+      "status": "editorial"
+    }
+  ],
   "validation": {
     "status": "stub",
     "documents_examined": 3,

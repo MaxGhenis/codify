@@ -28,8 +28,8 @@ _AKN = f'''<?xml version="1.0"?>
   <act>
     <meta><identification source="#codify"/></meta>
     <preface>
-      <longTitle><p>قانون البيئة رقم 7 لسنة 1999</p></longTitle>
-      <p>دولة فلسطين</p>
+      <longTitle><p>قانون المراعي رقم 7 لسنة 1999</p></longTitle>
+      <p>جمهورية زرزورة</p>
       <p></p>
     </preface>
     <preamble>
@@ -49,7 +49,7 @@ _AKN = f'''<?xml version="1.0"?>
 class TestSlotExtraction:
     def test_preface_slots_include_long_title_and_skip_empty(self):
         lines = _extract_preface_lines(_AKN)
-        assert lines == ["قانون البيئة رقم 7 لسنة 1999", "دولة فلسطين"]
+        assert lines == ["قانون المراعي رقم 7 لسنة 1999", "جمهورية زرزورة"]
 
     def test_preamble_slots_cover_formula_recitals_and_direct_p(self):
         lines = _extract_preamble_lines(_AKN)
@@ -189,8 +189,8 @@ class _AlwaysEchoLLM:
 
 @pytest.mark.asyncio
 async def test_retry_refuses_source_echo_then_accepts_translation():
-    src = ["قانون البيئة رقم 7 لسنة 1999"]
-    llm = _EchoThenTranslateLLM("Environment Law No. 7 of 1999")
+    src = ["قانون المراعي رقم 7 لسنة 1999"]
+    llm = _EchoThenTranslateLLM("Pastures Law No. 7 of 1999")
     out, fallback = await _retry_backfilled_lines(
         [_UNTRANSLATED_MARKER],
         src,
@@ -200,13 +200,13 @@ async def test_retry_refuses_source_echo_then_accepts_translation():
         llm=llm,
     )
     assert fallback == 0
-    assert out[0] == "Environment Law No. 7 of 1999"
+    assert out[0] == "Pastures Law No. 7 of 1999"
     assert llm.calls >= 2  # the Arabic echo was refused and it re-asked
 
 
 @pytest.mark.asyncio
 async def test_retry_falls_back_to_source_only_after_every_attempt_echoes():
-    src = ["قانون البيئة رقم 7 لسنة 1999"]
+    src = ["قانون المراعي رقم 7 لسنة 1999"]
     out, fallback = await _retry_backfilled_lines(
         [_UNTRANSLATED_MARKER],
         src,
@@ -231,7 +231,7 @@ class _FixedReplyLLM:
 async def test_retry_keeps_translation_that_retains_one_source_token():
     # A mostly-English translation that keeps a single Arabic proper noun is a
     # good result; it must not be reverted to the fully-untranslated source.
-    src = ["قرار رئيس سلطة جودة البيئة رقم 5 لسنة 2014"]
+    src = ["قرار رئيس سلطة المراعي رقم 5 لسنة 2014"]
     reply = "Decision of the Head of the السلطة for Environment Quality No. 5 of 2014"
     out, fallback = await _retry_backfilled_lines(
         [_UNTRANSLATED_MARKER],
@@ -249,7 +249,7 @@ async def test_retry_keeps_translation_that_retains_one_source_token():
 async def test_retry_rejects_exact_echo_even_with_no_alien_table():
     # A target with no alien-script table (patterns fold to empty) must still
     # refuse an exact echo rather than accept it on length alone.
-    src = ["قانون البيئة رقم 7 لسنة 1999"]
+    src = ["قانون المراعي رقم 7 لسنة 1999"]
     out, fallback = await _retry_backfilled_lines(
         [_UNTRANSLATED_MARKER],
         src,
@@ -385,7 +385,7 @@ class TestFurniturePassthrough:
         for line in ("30062000", "-٥-", "00033/000", "12/4/2004", "٢٠٠٤"):
             assert _is_furniture_line(line), line
         for line in (
-            "الوقائع الفلسطينية",
+            "الوقائع الزرزورية",
             "The Council of Ministers",
             "قرار رقم (39) لسنة 2004",
         ):
@@ -488,11 +488,11 @@ class TestFrontMatterSlotDefects:
     def _doc(self, preface_ps: list[str]) -> str:
         from codify.akn import AKN_NS
 
-        ps = "".join(f'<p eId="preface__p_{i + 1}">{t}</p>' for i, t in enumerate(preface_ps))
+        paras = "".join(f'<p eId="preface__p_{i + 1}">{t}</p>' for i, t in enumerate(preface_ps))
         return (
             f'<akomaNtoso xmlns="{AKN_NS}"><act>'
             f'<meta><identification source="#codify"/></meta>'
-            f"<preface>{ps}</preface>"
+            f"<preface>{paras}</preface>"
             f'<body><section eId="sec_1"><content><p>x</p></content></section></body>'
             f"</act></akomaNtoso>"
         )
@@ -528,9 +528,9 @@ class TestReviewHardening:
         from codify.translate.translate import _is_furniture_line
 
         for line in (
-            "מדינת ישראל",
-            "Верховна Рада України постановляє:",
-            "Ελληνική Δημοκρατία",
+            "חוק המים",
+            "Закон про водні ресурси:",
+            "Νόμος για τα ύδατα",
         ):
             assert not _is_furniture_line(line), line
         for line in ("٣٠٠٦٢٠٠٠", "123-456", "١٢/٤/٢٠٠٤"):
@@ -852,8 +852,8 @@ class TestSourceRetentionIsScriptAware:
     """Equality with the source is not proof of a fallback: a slot blocks
     delivery, so a legitimately unchanged paragraph must not count."""
 
-    def _doc(self, ps: list[str]) -> str:
-        inner = "".join(f'<p eId="preface__p_{i + 1}">{t}</p>' for i, t in enumerate(ps))
+    def _doc(self, paras: list[str]) -> str:
+        inner = "".join(f'<p eId="preface__p_{i + 1}">{t}</p>' for i, t in enumerate(paras))
         return (
             f'<akomaNtoso xmlns="{AKN_NS}"><act>'
             f'<meta><identification source="#codify"/></meta>'
@@ -909,15 +909,15 @@ class TestRepeatedFurniture:
 
     @staticmethod
     def _doc(lines: list[str]) -> str:
-        ps = "".join(f'<p eId="preface__p_{i}">{t}</p>' for i, t in enumerate(lines))
+        paras = "".join(f'<p eId="preface__p_{i}">{t}</p>' for i, t in enumerate(lines))
         return (
             '<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"><act>'
-            f"<preface>{ps}</preface>"
+            f"<preface>{paras}</preface>"
             '<body><section eId="sec_1"><content><p>x</p></content></section></body>'
             "</act></akomaNtoso>"
         )
 
-    _MASTHEAD = "قانون رقم (7) لسنة 1999 بشأن البيئة"
+    _MASTHEAD = "قانون رقم (7) لسنة 1999 بشأن المراعي"
 
     def test_a_repeat_of_a_translated_line_is_not_a_drop(self) -> None:
         from codify.translate.audit import front_matter_slot_defects
@@ -991,9 +991,9 @@ class TestRepeatEcho:
 
     def test_orthographic_variants_count_as_the_same_line(self) -> None:
         filled, out = self._echo(
-            ["قانون البيئة", "نص", "قــانون البيئة"], ["Environment Law", "Body", ""]
+            ["قانون المراعي", "نص", "قــانون المراعي"], ["Pastures Law", "Body", ""]
         )
-        assert (filled, out) == (1, ["Environment Law", "Body", "Environment Law"])
+        assert (filled, out) == (1, ["Pastures Law", "Body", "Pastures Law"])
 
     def test_a_repeat_before_any_translation_stays_blank(self) -> None:
         """Nothing to copy from yet, and guessing forward would put text in a

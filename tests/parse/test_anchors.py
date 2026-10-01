@@ -427,7 +427,7 @@ def test_split_term_with_parens_drops_english_gloss() -> None:
     assert _split_term_with_parens("باب (Bab/Part)") == ["باب"]
 
 
-PH_ACT_SAMPLE = """\
+ABBREVIATED_ACT_SAMPLE = """\
 CHAPTER I
 GENERAL PROVISIONS
 
@@ -441,7 +441,7 @@ SEC. 4. Coverage. - This Act shall apply to all agencies.
 """
 
 
-PH_CODE_SAMPLE = """\
+ABBREVIATED_CODE_SAMPLE = """\
 BOOK I
 PERSONS
 
@@ -456,22 +456,22 @@ ART. 39. The following circumstances modify capacity to act.
 """
 
 
-def test_philippine_abbreviated_section_matches() -> None:
-    """The Supreme Court E-Library writes the first marker in full and every
-    marker after it as ``SEC.``, so a config carrying only ``Section`` scans
-    one section out of twenty. Both forms are the same hierarchy entry."""
-    config = load_config("ph")
+def test_abbreviated_section_matches() -> None:
+    """Some publishers write the first marker in full and every marker after it
+    as ``SEC.``, so a config carrying only ``Section`` scans one section out of
+    twenty. Both forms are the same hierarchy entry."""
+    config = load_config("xa")
     assert config is not None
     regex = build_anchor_regex(config, "act")
-    summary = anchor_summary(scan_anchors(PH_ACT_SAMPLE, regex))
+    summary = anchor_summary(scan_anchors(ABBREVIATED_ACT_SAMPLE, regex))
     # One full "SECTION" + three "SEC." + one "CHAPTER".
     assert summary.get("section") == 4, summary
     assert summary.get("chapter") == 1, summary
 
 
-# Trimmed from the Supreme Court E-Library text of RA 9165, keeping the shape
-# that reorders: a heading, and a later section whose body cites it by number.
-PH_CITATION_SAMPLE = (
+# The shape that reorders: a heading, and a later section whose body cites it
+# by number.
+CITED_HEADING_SAMPLE = (
     "SEC. 12. Possession of Equipment. — The penalty of imprisonment shall be "
     "imposed upon any person who shall possess any equipment.\n\n"
     "SEC. 14. Possession During Parties. — The maximum penalty provided for in "
@@ -488,25 +488,35 @@ def test_a_citation_does_not_displace_the_heading_it_names() -> None:
     `section` is not a container, so the sequence survivor never runs and
     selection falls to keep-last, and a citation is always later than the
     heading it duplicates. The heading is dropped and the survivor carries an
-    offset inside section 14, which is how RA 9165 stored all 102 of its
-    sections and still read `14, 12 … 32, 17 … 44, 5`.
+    offset inside section 14, so a long act stored every section and still
+    read `14, 12 … 32, 17 … 44, 5`.
 
-    Reverting the PH config's `marker_boundary` returns ``['14', '12', '15']``
-    here."""
-    config = load_config("ph")
-    assert config is not None
-    anchors = scan_anchors(PH_CITATION_SAMPLE, build_anchor_regex(config, "act"))
-    numbers = [a.number for a in anchors if a.kind == "section"]
-    assert numbers == ["12", "14", "15"], numbers
+    The relaxed boundary is the control: it returns ``['14', '12', '15']``."""
+    relaxed = load_config("xa")
+    assert relaxed is not None and relaxed.structuring is not None
+    anchored = relaxed.model_copy(
+        update={
+            "structuring": relaxed.structuring.model_copy(
+                update={"marker_boundary": "line_anchored"}
+            )
+        }
+    )
+
+    def numbers(config: JurisdictionConfig) -> list[str]:
+        anchors = scan_anchors(CITED_HEADING_SAMPLE, build_anchor_regex(config, "act"))
+        return [a.number for a in anchors if a.kind == "section"]
+
+    assert numbers(relaxed) == ["14", "12", "15"]
+    assert numbers(anchored) == ["12", "14", "15"]
 
 
-def test_philippine_abbreviated_article_matches() -> None:
+def test_abbreviated_article_matches() -> None:
     """The same split in the civil-law codes, where the basic unit is the
     article and ``ART.`` carries the run."""
-    config = load_config("ph")
+    config = load_config("xa")
     assert config is not None
     regex = build_anchor_regex(config, "code")
-    summary = anchor_summary(scan_anchors(PH_CODE_SAMPLE, regex))
+    summary = anchor_summary(scan_anchors(ABBREVIATED_CODE_SAMPLE, regex))
     # One full "ARTICLE" + two "ART.".
     assert summary.get("article") == 3, summary
 
@@ -542,9 +552,8 @@ def test_arabic_indic_numerals_matched() -> None:
 
 
 # مـادة with U+0640 TATWEEL between م and ا. Visually identical to مادة
-# but the anchor regex sees a different byte sequence. Real PS gazettes
-# (Public Procurement Decree-Law No. 8 of 2014) use this variant on ~80%
-# of article headers; without normalisation those articles never enter
+# but the anchor regex sees a different byte sequence. Some Arabic gazettes
+# use this variant on most article headers; without normalisation those articles never enter
 # the AKN. The pre-structurer path calls ``normalise_rtl_extract`` which
 # strips joiners, so the two variants become equivalent before scanning.
 ARABIC_TATWEEL_SAMPLE = """\
@@ -940,12 +949,11 @@ def test_embedded_article_with_words_between_pointer_and_colon() -> None:
     assert quoted == {"١٥٢"}, quoted
 
 
-def test_ac_37_2018_taadel_almaadda_marked() -> None:
-    """Reviewer's v38-I-01: `تعدل المادة` is one of the new trigger phrases
-    seeded on ps/config.json. Before the config surface existed, AC 37/2018
-    emitted `1, 2, 4, 5, 3, 6, ...` because article 3 (the amended article)
-    was promoted. With the phrase in the catalogue the embedded article is
-    marked and the host sequence stays monotonic."""
+def test_taadel_almaadda_marked() -> None:
+    """`تعدل المادة` is a declared amendment trigger phrase. Before the config
+    surface existed, an amending act of this shape emitted `1, 2, 4, 5, 3, 6, ...`
+    because article 3 (the amended article) was promoted. With the phrase in the
+    catalogue the embedded article is marked and the host sequence stays monotonic."""
     text = (
         "المادة ١\nنص أول.\n\n"
         "المادة ٢\nنص ثان.\n\n"
@@ -962,7 +970,7 @@ def test_ac_37_2018_taadel_almaadda_marked() -> None:
 
 
 def test_backward_jump_amendment_marked() -> None:
-    """AC 37/2018's real shape: host sequence 1, 2, 4, 5 then article 5
+    """An amending act's shape: host sequence 1, 2, 4, 5 then article 5
     quotes an amendment to a *lower-numbered* article. `تعدل المادة ٣`
     puts number 3 back into the stream. The old forward-only guard
     couldn't catch this; the new != host_max + 1 rule does."""
@@ -999,7 +1007,7 @@ def test_nested_child_anchors_marked_with_embedded_article() -> None:
     # The embedded article and its two nested paragraphs are all marked.
     assert ("article", "١٥١") in quoted_kinds
     # Any paragraph-rank anchors that scan produces from the nested content
-    # are marked too; the exact kind depends on ps config, but they must
+    # are marked too; the exact kind depends on the config, but they must
     # not leak as unmarked peers.
     non_article_quoted = [k for (k, _) in quoted_kinds if k != "article"]
     unquoted_non_article = [
@@ -1254,7 +1262,7 @@ class TestContainerHeadingCapture:
     def test_prose_sentence_not_captured_as_title(self) -> None:
         """A sentence-shaped next line (terminal punctuation) is body
         content, not a title."""
-        text = "الفصل الأول\nيهدف هذا القانون الى تنظيم قطاع الانشاءات في فلسطين.\nالمادة ١\nنص.\n"
+        text = "الفصل الأول\nيهدف هذا القانون الى تنظيم قطاع الانشاءات في زرزورة.\nالمادة ١\nنص.\n"
         anchors = scan_anchors(text, _qanun_regex(), country="xx", doctype="qanun")
         chapter = next(a for a in anchors if a.kind == "chapter")
         assert chapter.heading is None
@@ -1487,13 +1495,13 @@ def test_two_column_line_marker_not_captured_as_title() -> None:
 
 
 def test_amendment_verb_leadin_citation_not_promoted_to_anchor() -> None:
-    """AC 37/2018's real shape: host articles in order, lead-ins citing the
+    """An amending act's shape: host articles in order, lead-ins citing the
     amended article with the VERB form (`تعدل المادة (3) من القانون
     الأصلي`). The citation must not become a phantom anchor, or TOC-dedup
     deletes the genuine host of that number and scrambles the sequence."""
     text = (
         "مادة (1)\nيسمى هذا القرار بقانون قرار مكافحة الفساد المعدل.\n\n"
-        "مادة (2)\nيستبدل مصطلح السلطة الوطنية بمصطلح الدولة.\n\n"
+        "مادة (2)\nيستبدل مصطلح المجلس بمصطلح الجمعية.\n\n"
         "مادة (3)\nيعدل نص المادة (1) من القانون الأصلي، ليصبح على النحو التالي:\n"
         "يكون للكلمات والعبارات الواردة المعاني المخصصة لها أدناه.\n\n"
         "مادة (4)\nيعدل نص المادة (2) من القانون الأصلي، ليصبح على النحو التالي:\n"
@@ -1509,8 +1517,8 @@ def test_amendment_verb_leadin_citation_not_promoted_to_anchor() -> None:
 
 def test_curly_quote_desync_does_not_eat_following_marker() -> None:
     """OCR mixes ASCII and curly quotes; an odd curly count used to leave
-    the quote mask stuck open across the next marker (AC 37/2018 article
-    13 vanished). Toggle depth resets at a blank line."""
+    the quote mask stuck open across the next marker (an article
+    vanished). Toggle depth resets at a blank line."""
     text = (
         "مادة (12)\nنص يحتوي على اقتباس ”مشوه بدون إغلاق\n\n"
         "مادة (13)\nنص المادة الثالثة عشرة.\n\n"
@@ -1838,24 +1846,24 @@ class TestWrappedCitationPhantoms:
 
 
 class TestMarkerBoundaryPolicy:
-    """Indonesian writes `Pasal 78` identically as citation and as header,
+    """Bahasa writes `Pasal 78` identically as citation and as header,
     so position on the line is the only thing telling them apart."""
 
     def _scan(self, text: str, country: str, **kw: str) -> list[StructuralAnchor]:
         rx = build_anchor_regex(load_config(country), "act", **kw)
         return scan_anchors(text, rx, country=country)
 
-    # Perbup Sarolangun 21/2023's recital, which nested the document under a
+    # A regency regulation's recital, which nested the document under a
     # phantom art_343: "based on the provision of Article 343 of the Minister's
     # Regulation…".
     RECITAL = (
         "Menimbang : a. bahwa berdasarkan ketentuan Pasal 343 Peraturan "
-        "Menteri Dalam Negeri Nomor 86 Tahun 2017 tentang Tata Cara "
+        "Menteri Dalam Negeri Nomor 12 Tahun 2031 tentang Tata Cara "
         "Perencanaan;\n\nPasal I\nKetentuan diubah.\n"
     )
 
     def test_mid_line_citation_is_not_an_anchor(self) -> None:
-        assert [a.akn_eid for a in self._scan(self.RECITAL, "id")] == ["art_I"]
+        assert [a.akn_eid for a in self._scan(self.RECITAL, "xl")] == ["art_I"]
 
     def test_relaxed_still_admits_a_mid_line_marker(self) -> None:
         # Pinned so the two policies cannot silently converge.
@@ -1865,11 +1873,11 @@ class TestMarkerBoundaryPolicy:
     def test_centred_marker_indented_past_the_line_start_window_anchors(self) -> None:
         # More leading space than `^\s{0,8}` allows, so the newline branch claims it.
         text = "Bab I\nKetentuan Umum\n" + " " * 40 + "Pasal 1\nIsi pasal.\n"
-        assert "chp_I__art_1" in [a.akn_eid for a in self._scan(text, "id")]
+        assert "chp_I__art_1" in [a.akn_eid for a in self._scan(text, "xl")]
 
     def test_column_gap_still_anchors(self) -> None:
         text = "Ketentuan Umum   Pasal 1\nIsi pasal.\n"
-        assert [a.akn_eid for a in self._scan(text, "id")] == ["art_1"]
+        assert [a.akn_eid for a in self._scan(text, "xl")] == ["art_1"]
 
     def test_wrapped_citation_stays_suppressed_under_line_anchored(self) -> None:
         # Pins the newline inside the match, which `_is_prose_reference` needs.
@@ -1890,33 +1898,33 @@ class TestMarkerBoundaryPolicy:
         # The denominator is line-anchored too, so a flattened source measures
         # zero expected markers and would skip the coverage gate entirely.
         flat = re.sub(r"\n+", " ", self.RECITAL)
-        assert not self._scan(flat, "id")
-        assert markers_outside_boundary(flat, load_config("id"), "act", "article") > 0
+        assert not self._scan(flat, "xl")
+        assert markers_outside_boundary(flat, load_config("xl"), "act", "article") > 0
 
     def test_wrapped_citation_tail_is_not_a_heading(self) -> None:
         """A citation list wrapping onto its own line starts that line, so
         the boundary policy admits it. The previous line's last word is the only
         thing that says it is a citation, which is what precursors read.
 
-        Left unfiltered on UU 41/1999 this outranked the real `Pasal 18`
+        Left unfiltered on a base statute this outranked the real `Pasal 18`
         heading in the TOC-twin drop, orphaning its `Ayat (1)`."""
         text = (
             "Pasal 17\n Ayat (1)\n Sebagai acuan pokok, harus diperhatikan juga\n"
             "Pasal 11, Pasal 14, Pasal 16, Pasal 17, dan\n"
             "Pasal 18.\n Ayat (2)\n Cukup jelas.\n"
         )
-        nums = [a.number for a in self._scan(text, "id") if a.kind == "article"]
+        nums = [a.number for a in self._scan(text, "xl") if a.kind == "article"]
         assert nums == ["17"], nums
 
 
 class TestRomanHostAmendments:
-    """An Indonesian amending instrument's own body is `Pasal I` and
+    """A Bahasa amending instrument's own body is `Pasal I` and
     `Pasal II`, so an Arabic-numbered article between them is the text being
     inserted into another law, not a provision of this one."""
 
     def _scan(self, text: str) -> list[StructuralAnchor]:
-        rx = build_anchor_regex(load_config("id"), "act")
-        return scan_anchors(text, rx, country="id")
+        rx = build_anchor_regex(load_config("xl"), "act")
+        return scan_anchors(text, rx, country="xl")
 
     PERBUP = (
         "Pasal I\nDi antara Pasal 2 dan Pasal 3 disisipkan 1 pasal, yakni:\n"
@@ -1939,19 +1947,19 @@ class TestRomanHostAmendments:
 
     def test_a_single_roman_article_is_not_a_host(self) -> None:
         """A base statute whose `Pasal 1` was OCR'd as `Pasal I` would
-        otherwise quote every article after it. UU 41/1999 does exactly this."""
+        otherwise quote every article after it. Real scans do exactly this."""
         text = "Pasal I\nKetentuan umum.\nPasal 2\nIsi.\nPasal 3\nIsi.\n"
         assert not [a for a in self._scan(text) if a.quoted_amendment]
 
 
 class TestDeclaredAttachmentCaption:
-    """An Indonesian statute can restate every article number in its
+    """A Bahasa statute can restate every article number in its
     Penjelasan. Scanned as body it lands in the closing chapter, so a law shows
     a second copy of every article, each reading `Cukup jelas`."""
 
     def _scan(self, text: str) -> list[StructuralAnchor]:
-        rx = build_anchor_regex(load_config("id"), "act")
-        return scan_anchors(text, rx, country="id")
+        rx = build_anchor_regex(load_config("xl"), "act")
+        return scan_anchors(text, rx, country="xl")
 
     # Two chapters, as a real statute has: the elucidation trails the last of
     # them, which is what keeps its numbering out of the body's chain.
@@ -1975,7 +1983,7 @@ class TestDeclaredAttachmentCaption:
         assert elucidation == ["schedule_1__art_1", "schedule_1__art_2", "schedule_1__art_3"]
 
     def test_a_centred_caption_is_still_found(self) -> None:
-        """UU 13/2003 indents it 36 spaces; the inferred Arabic form keeps a
+        """A statute may indent it 36 spaces; the inferred Arabic form keeps a
         tight margin, so only the declared branch is permissive."""
         sched = [a for a in self._scan(self.STATUTE) if a.kind == "schedule"]
         assert sched and sched[0].heading == "PENJELASAN", sched
@@ -1984,21 +1992,21 @@ class TestDeclaredAttachmentCaption:
         """Declaring the caption is what promotes it."""
         from codify.pipeline.enrich.anchors import _annex_caption_re
 
-        assert "PENJELASAN" in _annex_caption_re("id").pattern
+        assert "PENJELASAN" in _annex_caption_re("xl").pattern
         assert "PENJELASAN" not in _annex_caption_re("xx").pattern
 
     def test_lampiran_promotes_too(self) -> None:
         """Ministerial regulations carry a Lampiran and no Penjelasan."""
         from codify.pipeline.enrich.anchors import _annex_caption_re
 
-        assert _annex_caption_re("id").search("\nLAMPIRAN\n")
+        assert _annex_caption_re("xl").search("\nLAMPIRAN\n")
 
     def test_a_declared_caption_may_carry_its_own_number(self) -> None:
-        """Indonesian attachments are numbered, so requiring the caption to end
+        """Bahasa attachments are numbered, so requiring the caption to end
         its line matched PENJELASAN and missed every LAMPIRAN I."""
         from codify.pipeline.enrich.anchors import _annex_caption_re
 
-        rx = _annex_caption_re("id")
+        rx = _annex_caption_re("xl")
         m = rx.search("\n       LAMPIRAN I\n")
         assert m and (m.group("declared") + m.group("decnum")).strip() == "LAMPIRAN I"
         assert rx.search("\nLAMPIRAN II\n")
@@ -2309,7 +2317,7 @@ class TestMisreadArticleKeywordRecovery:
 
 
 class TestPlainContainerNesting:
-    """Baseline `ps` nesting, with no recovery pass involved.
+    """Baseline Arabic nesting, with no recovery pass involved.
 
     Kept when `recover_container_twin` went: it never exercised that pass and
     still passes without it. What it pins is that ordinary parts and articles
@@ -2680,8 +2688,8 @@ class TestRecoveryRespectsTheScansRefusals:
         """Nothing in the close set can close a low-9 quote: it pairs with a
         curly quote, not a guillemet. One stray „ from source noise therefore
         masked every marker to the end of the file, and each was dropped as
-        quoted text with no gate tripping. On the Philippine Corporation Code
-        that was 127,145 characters, 61% of the document."""
+        quoted text with no gate tripping. On one long code that was 61% of the
+        document."""
         text = "مادة (1)\nنص.\n\nسطر فيه ضجيج „ هنا\n\nمادة (2)\nنص.\n\nمادة (3)\nنص.\n"
         assert self._scan(text) == [
             ("article", "1", "regex"),
@@ -2752,12 +2760,12 @@ def test_anchor_regex_reproducible_across_hashseeds():
 
 
 class TestDeclaredOrdinalWords:
-    """Indonesian Bagian are numbered with ordinal words, which the number
-    pattern did not match: 536 Bagian lines yielded 7 `part` anchors, so the
-    29 separate `Paragraf 1`s had no distinct parent to scope them."""
+    """Bahasa Bagian are numbered with ordinal words, which the number
+    pattern did not match: hundreds of Bagian lines yielded a handful of `part`
+    anchors, so repeated `Paragraf 1`s had no distinct parent to scope them."""
 
     def _regex(self) -> re.Pattern[str]:
-        cfg = load_config("id")
+        cfg = load_config("xl")
         assert cfg is not None
         return build_anchor_regex(cfg, "permen", boundary=cfg.structuring.marker_boundary)
 
@@ -2770,7 +2778,7 @@ class TestDeclaredOrdinalWords:
         )
         parts = [
             a
-            for a in scan_anchors(text, self._regex(), country="id", doctype="permen")
+            for a in scan_anchors(text, self._regex(), country="xl", doctype="permen")
             if a.kind == "part"
         ]
         assert [a.akn_eid for a in parts] == ["chp_I__part_1", "chp_I__part_11"]
@@ -2785,7 +2793,7 @@ class TestDeclaredOrdinalWords:
         )
         from codify.pipeline.enrich.anchors import scan_anchors_with_ambiguity
 
-        scan = scan_anchors_with_ambiguity(text, self._regex(), country="id", doctype="permen")
+        scan = scan_anchors_with_ambiguity(text, self._regex(), country="xl", doctype="permen")
         divisions = [a.akn_eid for a in scan.anchors if a.kind == "division"]
         assert divisions == ["chp_I__part_1__dvs_1", "chp_I__part_2__dvs_1"]
         assert not [s for s in scan.ambiguity if s.blocking]
@@ -2794,7 +2802,7 @@ class TestDeclaredOrdinalWords:
         """`Bagian ketiga terendah dari lereng` is prose. Case is what parts it
         from the heading `Bagian Ketiga`, and the scanner is case-sensitive."""
         text = "BAB I\nUMUM\n\nPasal 1\nBagian ketiga terendah dari lereng.\n"
-        anchors = scan_anchors(text, self._regex(), country="id", doctype="permen")
+        anchors = scan_anchors(text, self._regex(), country="xl", doctype="permen")
         assert not [a for a in anchors if a.kind == "part"]
 
     @pytest.mark.parametrize("country", [None, "ua", "al", "it"])
@@ -2814,12 +2822,12 @@ class TestDeclaredOrdinalWords:
     def test_the_fold_does_not_depend_on_what_was_compiled_first(self) -> None:
         """The fold was populated as a side effect of compiling a regex, so the
         same `<num>` derived two different eIds depending on process history.
-        A repair worker that had not compiled the Indonesian pattern renamed
+        A repair worker that had not compiled the Bahasa pattern renamed
         every Bagian off its ingest-time eId and rewrote the references."""
         from codify.pipeline.enrich.anchors import _normalise_number
 
         cold = _normalise_number("Kesatu")
-        cfg = load_config("id")
+        cfg = load_config("xl")
         assert cfg is not None
         build_anchor_regex(cfg, "permen", boundary=cfg.structuring.marker_boundary)
         assert cold == _normalise_number("Kesatu") == "1"
@@ -2827,7 +2835,7 @@ class TestDeclaredOrdinalWords:
     def test_no_two_words_fold_to_the_same_number(self) -> None:
         """Two words on one integer collide, and the TOC dedup then silently
         drops one heading and everything scoped under it."""
-        cfg = load_config("id")
+        cfg = load_config("xl")
         assert cfg is not None
         values = list(cfg.structuring.ordinal_words.values())
         assert len(values) == len(set(values))
@@ -2839,7 +2847,7 @@ class TestDeclaredOrdinalWords:
         text = "BAB I\nU\n\nBagian Kedua\nBelas\nRuang\n\nPasal 1\nIsi.\n"
         parts = [
             a
-            for a in scan_anchors(text, self._regex(), country="id", doctype="permen")
+            for a in scan_anchors(text, self._regex(), country="xl", doctype="permen")
             if a.kind == "part"
         ]
         assert [a.akn_eid for a in parts] == ["chp_I__part_12"]
@@ -2858,7 +2866,7 @@ class TestAmendmentItemScope:
         "Pasal 32\nAngka 1\nPasal 6\nAyat (1)\nKetentuan ketiga.\n"
     )
 
-    def _scan(self, text: str, country: str = "id", doctype: str = "act") -> list[StructuralAnchor]:
+    def _scan(self, text: str, country: str = "xl", doctype: str = "act") -> list[StructuralAnchor]:
         rx = build_anchor_regex(load_config(country), doctype)
         return scan_anchors(text, rx, country=country, doctype=doctype)
 
@@ -2909,10 +2917,10 @@ class TestAmendmentItemScope:
         assert not cfg.amendments.amendment_item_kind
 
     def test_perppu_declares_the_same_hierarchy_as_an_act(self) -> None:
-        """UU 12/2011 Lampiran II applies one hierarchy to every instrument
+        """The drafting manual applies one hierarchy to every instrument
         type. `perppu` omitted Paragraf and Angka, so the scoping had nothing
-        to work with on Perppu 2/2022, which is itself an omnibus."""
-        cfg = load_config("id")
+        to work with on a Perppu that is itself an omnibus."""
+        cfg = load_config("xl")
         assert cfg is not None
         act = [h.akn_element for h in cfg.get_document_class("act").hierarchy]
         perppu = [h.akn_element for h in cfg.get_document_class("perppu").hierarchy]
@@ -2920,12 +2928,11 @@ class TestAmendmentItemScope:
 
 
 class TestMarkerTolerances:
-    """Scanned Indonesian sources lose the space between a marker keyword and
-    its number: 319 `Pasal24` and 148 `Angka22` across the corpus, over half of
-    all unmatched markers. Declared per jurisdiction, so every other compiled
-    pattern is untouched."""
+    """Scanned Bahasa sources lose the space between a marker keyword and
+    its number (`Pasal24`, `Angka22`), over half of all unmatched markers.
+    Declared per jurisdiction, so every other compiled pattern is untouched."""
 
-    def _scan(self, text: str, country: str = "id") -> list[StructuralAnchor]:
+    def _scan(self, text: str, country: str = "xl") -> list[StructuralAnchor]:
         rx = build_anchor_regex(load_config(country), "act")
         return scan_anchors(text, rx, country=country, doctype="act")
 
@@ -3031,7 +3038,7 @@ class TestMarkerToleranceScoping:
     def test_a_split_number_stays_digit_only_without_the_glyph_tolerance(self) -> None:
         """Declaring `split_number` alone must not admit glyph damage: two
         tolerances with one blast radius cannot be reasoned about."""
-        cfg = load_config("id")
+        cfg = load_config("xl")
         assert cfg is not None
         original = cfg.structuring.marker_tolerances
         try:
@@ -3053,7 +3060,7 @@ class TestMarkerToleranceScoping:
         inflates coverage past the gate and hides genuinely missing ones."""
         from codify.pipeline.enrich.anchors import _marker_numbers
 
-        cfg = load_config("id")
+        cfg = load_config("xl")
         assert cfg is not None
         assert "24" in _marker_numbers("Pasal24\nIsi.\n", cfg, "act", "article")
 
@@ -3061,8 +3068,8 @@ class TestMarkerToleranceScoping:
 # ── Omnibus restatement: which duplicate survives ────────────────────────────
 
 
-def _id_regex():
-    config = load_config("id")
+def _xl_regex():
+    config = load_config("xl")
     assert config is not None
     return build_anchor_regex(config, "uu")
 
@@ -3076,7 +3083,7 @@ def _babs(*numbers: str) -> str:
 
 
 def _kept_chapter(text: str, number: str) -> int:
-    anchors = scan_anchors(text, _id_regex(), country="id", doctype="uu")
+    anchors = scan_anchors(text, _xl_regex(), country="xl", doctype="uu")
     chapters = [a for a in anchors if a.kind == "chapter"]
     kept = [a for a in chapters if a.number == number]
     assert len(kept) == 1, [a.number for a in chapters]
@@ -3118,7 +3125,7 @@ def test_sequence_selected_drop_is_not_reported_as_a_contents_twin() -> None:
     """`corpus_scan` aggregates the span reason, so a restatement counted as a
     contents twin would be evidence for the premise this pass disproves."""
     scan = scan_anchors_with_ambiguity(
-        _babs("IV", "V", "VI", "VII", "V"), _id_regex(), country="id", doctype="uu"
+        _babs("IV", "V", "VI", "VII", "V"), _xl_regex(), country="xl", doctype="uu"
     )
     spans = [s for s in scan.ambiguity if s.emitted_by == "drop_toc_duplicates"]
     assert [s.detail["reads_as"] for s in spans] == ["sequence_superseded"], [
@@ -3161,7 +3168,7 @@ def test_penjelasan_boundary_holds_through_the_scan() -> None:
         body + "PENJELASAN\n\nATAS\n\n" + "".join(f"Pasal {n}\nCukup jelas.\n\n" for n in restated)
     )
     split = text.index("PENJELASAN")
-    anchors = scan_anchors(text, _id_regex(), country="id", doctype="uu")
+    anchors = scan_anchors(text, _xl_regex(), country="xl", doctype="uu")
     assert any(a.kind == "schedule" for a in anchors), [a.kind for a in anchors]
     fives = [a.char_offset for a in anchors if a.kind == "article" and a.number == "5"]
     assert len(fives) == 2, [(a.kind, a.number) for a in anchors]
@@ -3174,17 +3181,17 @@ def test_penjelasan_boundary_holds_through_the_scan() -> None:
 
 
 def test_specimen_legislation_in_a_drafting_manual_is_not_the_document_s_own() -> None:
-    """UU 12/2011 prescribes how laws are drafted and illustrates the rules by
-    displaying specimen instruments; their markers are shown, not enacted."""
+    """A drafting-manual statute illustrates its rules by displaying specimen
+    instruments; their markers are shown, not enacted."""
     text = (
         "Pasal 1\nKetentuan umum.\n\n"
         "2. Judul memuat keterangan mengenai jenis dan nomor.\n"
-        "Contoh 1:\nUNDANG-UNDANG REPUBLIK INDONESIA\nNOMOR 5 TAHUN 2014\n"
+        "Contoh 1:\nUNDANG-UNDANG REPUBLIK LANGKASUKA\nNOMOR 5 TAHUN 2014\n"
         "Pasal 3\nDihapus.\n"
         "3. Penomoran ditulis dengan angka Arab.\n\n"
         "Pasal 2\nKetentuan penutup.\n"
     )
-    anchors = scan_anchors(text, _id_regex(), country="id", doctype="uu")
+    anchors = scan_anchors(text, _xl_regex(), country="xl", doctype="uu")
     arts = [a for a in anchors if a.kind == "article"]
     # The specimen's Pasal 3 is marked quoted, so it takes no eId of its own.
     assert [a.number for a in arts if not a.quoted_amendment] == ["1", "2"]
@@ -3200,7 +3207,7 @@ def test_a_worked_example_is_not_a_specimen() -> None:
         "Barang Kena Pajak pada tanggal 1 Juli.\n"
         "Pasal 2\nKetentuan penutup.\n"
     )
-    anchors = scan_anchors(text, _id_regex(), country="id", doctype="uu")
+    anchors = scan_anchors(text, _xl_regex(), country="xl", doctype="uu")
     arts = [a for a in anchors if a.kind == "article"]
     assert [a.number for a in arts if not a.quoted_amendment] == ["1", "2"]
 
@@ -3238,18 +3245,18 @@ def test_a_damaged_subtree_blocks_selection_inside_an_elucidation() -> None:
 
 
 class TestAmendingActSummary:
-    """An Indonesian amending act declares `two_pasal_roman`: its own articles
+    """A Bahasa amending act declares `two_pasal_roman`: its own articles
     are Roman, and the Arabic ones between them replace another law's text. The
     scanner has always marked them; the summary used to count them anyway, and
     the validator then read the AKN as 3 articles short of a document that was
     never supposed to exist."""
 
     TEXT = (
-        "UNDANG-UNDANG REPUBLIK INDONESIA\n"
+        "UNDANG-UNDANG REPUBLIK LANGKASUKA\n"
         "NOMOR 32 TAHUN 2024\n"
-        "TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 5 TAHUN 1990\n\n"
+        "TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 8 TAHUN 1991\n\n"
         "Pasal I\n\n"
-        "Beberapa ketentuan dalam Undang-Undang Nomor 5 Tahun 1990 diubah "
+        "Beberapa ketentuan dalam Undang-Undang Nomor 8 Tahun 1991 diubah "
         "sebagai berikut:\n\n"
         "Pasal 1\n"
         "Dalam Undang-Undang ini yang dimaksud dengan konservasi adalah pengelolaan.\n\n"
@@ -3266,7 +3273,7 @@ class TestAmendingActSummary:
         from codify.pipeline.enrich.anchors import build_anchor_regex, scan_anchors
 
         return scan_anchors(
-            self.TEXT, build_anchor_regex(load_config("id"), "act"), country="id", doctype="act"
+            self.TEXT, build_anchor_regex(load_config("xl"), "act"), country="xl", doctype="act"
         )
 
     def test_the_quoted_articles_are_marked(self) -> None:

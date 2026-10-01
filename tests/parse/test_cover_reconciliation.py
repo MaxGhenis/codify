@@ -51,7 +51,7 @@ def test_body_with_five_articles_at_top_is_not_a_toc() -> None:
 
 
 def test_arabic_toc_page_returns_numbers() -> None:
-    """PS gazette-style cover uses `المادة` markers; the pattern must
+    """Arabic gazette-style cover uses `المادة` markers; the pattern must
     match those the same as `Article`."""
     lines = ["المحتويات"]
     lines.extend(f"المادة {n} - عنوان" for n in range(1, 15))

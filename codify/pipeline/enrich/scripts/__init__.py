@@ -102,8 +102,8 @@ def pack_for_config(cfg: JurisdictionConfig | None) -> ScriptPack | None:
 
 def detect_pack(text: str, *, minimum_share: float = 0.2) -> ScriptPack | None:
     """The pack whose letters dominate ``text``, or ``None``. The fallback where a document
-    disagrees with the script its jurisdiction declares: a wholly English PS gazette page,
-    or an Arabic annex in a Latin-script corpus. Config comes first, a corpus author
+    disagrees with the script its jurisdiction declares: a wholly English page in an
+    Arabic corpus, or an Arabic annex in a Latin-script corpus. Config comes first, a corpus author
     knowing the jurisdiction where a codepoint count knows only the page.
     """
     letters = [c for c in text if c.isalpha()]

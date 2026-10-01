@@ -29,7 +29,7 @@ SOURCE_URL = (
 COORD_PRECISION = 3
 
 # Adaptive simplification budget: features at or below SMALL_VERT_THRESHOLD pass
-# through untouched (small countries keep full 10m fidelity, Barbados, Malta,
+# through untouched (small countries keep full 10m fidelity, so
 # island states render properly). Larger features simplify with Douglas-Peucker
 # (via shapely) toward LARGE_VERT_TARGET_RATIO × original vertex count, found by
 # tolerance bisection. Empirically: Russia 32k → ~5k, US 14k → ~2k, payload

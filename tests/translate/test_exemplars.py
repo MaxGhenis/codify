@@ -54,7 +54,7 @@ class TestExemplarPool:
 
     def test_skips_long_clauses(self) -> None:
         pool = ExemplarPool(target_language="English", source_language="eng")
-        body = "A person shall pay a fine of one hundred Jordanian dinars " * 20
+        body = "A person shall pay a fine of one hundred Zerzuran dinars " * 20
         source = [{"eid": "art_1", "body": body}]
         translated = [{"eid": "art_1", "lines": [body]}]
         assert pool.pick_from(source, translated) is None

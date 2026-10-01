@@ -16,7 +16,7 @@ from codify.pipeline.enrich.bluebell import rejoin_citation_lines
 _JURISDICTION = "xl"
 
 # Bluebell's own shape: the keyword and number on one line, body beneath. The
-# split falls inside an Indonesian cross-reference, whose grammar puts the
+# split falls inside a Bahasa cross-reference, whose grammar puts the
 # article number and the paragraph number in separate numbered slots.
 SPLIT_CITATION = (
     "        ARTICLE 64\n"
@@ -90,9 +90,9 @@ def test_a_subdivision_after_ordinary_prose_is_untouched() -> None:
 
 
 def test_a_jurisdiction_declaring_no_nouns_is_unchanged() -> None:
-    cfg = load_config("ps")
+    cfg = load_config("xz")
     assert cfg is not None and not cfg.structuring.reference_nouns
-    out, joined, _ = rejoin_citation_lines(SPLIT_CITATION, "ps")
+    out, joined, _ = rejoin_citation_lines(SPLIT_CITATION, "xz")
     assert joined == 0 and out == SPLIT_CITATION
 
 

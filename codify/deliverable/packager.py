@@ -38,7 +38,7 @@ class LawArtifacts:
 
 
 def _slug(frbr_work_uri: str) -> str:
-    """/akn/ps/act/decree-law/2018/37 -> ps-act-decree-law-2018-37 (filename-safe)."""
+    """/akn/xz/act/1994/4 -> xz-act-1994-4 (filename-safe)."""
     body = re.sub(r"^/akn/", "", frbr_work_uri)
     return re.sub(r"[^a-z0-9]+", "-", body.lower()).strip("-")
 
@@ -188,23 +188,23 @@ if __name__ == "__main__":
     # ponytail: smallest check that the zip assembles and the gate holds.
     laws = [
         LawArtifacts(
-            "/akn/ps/act/decree-law/2018/37",
+            "/akn/xz/act/1994/4",
             "clean",
             akn_by_lang={"ara": "<akn><p>نص</p></akn>"},
             pdf_by_lang={"ara": b"%PDF-1.4 fake"},
         ),
-        LawArtifacts("/akn/ps/act/decree-law/2012/4", "blocking", akn_by_lang={"ara": "<akn/>"}),
+        LawArtifacts("/akn/xz/act/2002/9", "blocking", akn_by_lang={"ara": "<akn/>"}),
     ]
     z, report = build_deliverable(
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         source_language="ara",
         target_languages=["en"],
         laws=laws,
         codify_version="test",
     )
     names = set(zipfile.ZipFile(io.BytesIO(z)).namelist())
-    assert "akn/ps-act-decree-law-2018-37.ara.xml" in names, names
-    assert "pdf/ps-act-decree-law-2018-37.ara.pdf" in names, names
-    assert not any("2012-4" in n for n in names), "blocking law must be excluded from body"
+    assert "akn/xz-act-1994-4.ara.xml" in names, names
+    assert "pdf/xz-act-1994-4.ara.pdf" in names, names
+    assert not any("2002-9" in n for n in names), "blocking law must be excluded from body"
     assert "blocking: 1" in report and "clean: 1" in report
     print("packager self-check ok:", len(names), "entries")

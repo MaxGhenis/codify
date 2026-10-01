@@ -31,8 +31,8 @@ def _doc() -> Document:
     )
     return Document(
         id=uuid.uuid4(),
-        frbr_work_uri="/akn/ps/act/2012/7",
-        frbr_expression_uri="/akn/ps/act/2012/7/ara@2012",
+        frbr_work_uri="/akn/xz/act/2012/7",
+        frbr_expression_uri="/akn/xz/act/2012/7/ara@2012",
         language="ara",
         expression_date="2012-01-01",
         body=[chapter],

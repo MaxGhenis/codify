@@ -81,11 +81,11 @@ def test_repair_document_rejects_bad_plan_no_improvement() -> None:
 def test_money_finding_reaches_the_agent_and_is_repaired() -> None:
     """The loop skips any check absent from _OP_POLICY."""
     xml = parse_to_akn(
-        "BODY\n  ARTICLE 8\n    not less than (٥٠٠,٠٠٠) خمسين ألف دينار أردني.\n",
-        country="ps",
+        "BODY\n  ARTICLE 8\n    not less than (٥٠٠,٠٠٠) خمسين ألف دينار زرزوري.\n",
+        country="xz",
         doctype="act",
-        number="39",
-        date="2004-01-01",
+        number="12",
+        date="1994-01-01",
     )
     findings = [f for f in validate_akn(xml) if f["check"] == "money_words_mismatch"]
     assert findings, "fixture no longer reproduces the money defect"
@@ -96,7 +96,7 @@ def test_money_finding_reaches_the_agent_and_is_repaired() -> None:
         return EditPlan(ops=[SetMoneyNumeral(eid=deps.eid, old="٥٠٠,٠٠٠", new="٥٠,٠٠٠")])
 
     outcome = asyncio.run(
-        repair_document(xml, findings, agent_run=_agent, country="ps", object_key="k")
+        repair_document(xml, findings, agent_run=_agent, country="xz", object_key="k")
     )
     assert seen == ["money_words_mismatch"], "the loop skipped the finding"
     assert outcome.findings[0]["disposition"] == "cleared", outcome.findings

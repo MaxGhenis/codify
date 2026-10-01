@@ -315,7 +315,7 @@ class TestOrphanArticles:
 
 class TestOcrGarble:
     """Detect Arabic OCR mojibake the body-fill LLM passes through unchanged.
-    The PS Monetary Authority 1997 re-ingest carried 106 instances of doubled
+    One re-ingested statute carried 106 instances of doubled
     ta-marbuta (e.g. ``الآتيةة``) straight from the PDF text-extraction layer."""
 
     def test_clean_arabic_passes(self):
@@ -325,7 +325,7 @@ class TestOcrGarble:
         assert not any(i["check"] == "ocr_garble" for i in validate_akn(xml))
 
     def test_doubled_ta_marbuta_flagged(self):
-        # The signature mojibake pattern from PS Monetary 1997 art 1
+        # The signature mojibake pattern: a doubled ta-marbuta
         xml = _act(
             '<article eId="art_1"><num>1</num><content><p>والعبارات الآتيةة المعاني</p></content></article>'
         )
@@ -356,7 +356,7 @@ class TestOcrGarble:
 
 
 class TestEmptyArticles:
-    """An article with only `<num>` and no body content. PS Criminal Code 1936
+    """An article with only `<num>` and no body content. One criminal code
     had three such zombies (`art_٧`, `art_٩٨`, `art_١`) appended after
     art_391, the structurer recovered them as fragments but never landed any
     source text under them."""
@@ -389,7 +389,7 @@ class TestEmptyArticles:
 
 class TestSwallowedEnumerators:
     """The body-fill LLM occasionally misses a sibling enumerator and bakes it
-    into the previous sibling's text. PS Criminal Code 1936 has 12 of these on
+    into the previous sibling's text. One criminal code had 12 of these on
     the `(د) → (ه)` boundary. Detection signature: parent's point sequence has
     a gap AND the missing letter appears inline in the preceding sibling's body."""
 
@@ -560,12 +560,12 @@ class TestFormulaIntegrity:
         assert any("truncated" in i["message"] for i in issues)
 
     def test_script_mismatch_flagged_on_english_expression(self):
-        xml = self._act("قرر المجلس التشريعي الفلسطيني القانون الآتي:", lang="eng")
+        xml = self._act("قرر مجلس الأمة الزرزوري القانون الآتي:", lang="eng")
         issues = [i for i in validate_akn(xml) if i["check"] == "formula_script_mismatch"]
         assert any("script" in i["message"] for i in issues)
 
     def test_matching_script_and_complete_formula_silent(self):
-        xml = self._act("قرر المجلس التشريعي الفلسطيني القانون الآتي:", lang="ara")
+        xml = self._act("قرر مجلس الأمة الزرزوري القانون الآتي:", lang="ara")
         checks = {i["check"] for i in validate_akn(xml)}
         assert "formula_truncated" not in checks and "formula_script_mismatch" not in checks
 

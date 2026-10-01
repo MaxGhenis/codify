@@ -53,6 +53,49 @@
       ],
       "hcontainers": [],
       "note": "Ordinary law (Qanun) enacted by the Assembly of Zerzura. Bab groups Fusul, Fasl groups Mawadd, and the Madda is the basic assessable unit. Fiqra and Band are subdivisions within a Madda."
+    },
+    "decree_law": {
+      "label": "قرار بقانون (Decree-Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {"local_term": "باب (Bab/Part)", "akn_element": "part", "level": "higher", "bluebell_keyword": "PART", "numbering": "arabic_ordinal"},
+        {"local_term": "فصل (Fasl/Chapter)", "akn_element": "chapter", "level": "higher", "bluebell_keyword": "CHAPTER", "numbering": "arabic_ordinal"},
+        {"local_term": "مادة (Madda/Article)", "akn_element": "article", "level": "basic", "bluebell_keyword": "ARTICLE", "numbering": "arabic_continuous"},
+        {"local_term": "فقرة (Fiqra/Paragraph)", "akn_element": "paragraph", "level": "subdivision", "bluebell_keyword": "PARAGRAPH", "numbering": "positional_implicit"},
+        {"local_term": "بند (Band/Point)", "akn_element": "point", "level": "subdivision", "bluebell_keyword": "POINT", "numbering": "arabic_or_alpha"}
+      ],
+      "hcontainers": [],
+      "note": "Decree carrying the force of law, issued by the head of state."
+    },
+    "cabinet_decision": {
+      "label": "قرار مجلس الوزراء (Cabinet Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {"local_term": "باب (Bab/Part)", "akn_element": "part", "level": "higher", "bluebell_keyword": "PART", "numbering": "arabic_ordinal"},
+        {"local_term": "فصل (Fasl/Chapter)", "akn_element": "chapter", "level": "higher", "bluebell_keyword": "CHAPTER", "numbering": "arabic_ordinal"},
+        {"local_term": "مادة (Madda/Article)", "akn_element": "article", "level": "basic", "bluebell_keyword": "ARTICLE", "numbering": "arabic_continuous"},
+        {"local_term": "فقرة (Fiqra/Paragraph)", "akn_element": "paragraph", "level": "subdivision", "bluebell_keyword": "PARAGRAPH", "numbering": "positional_implicit"},
+        {"local_term": "بند (Band/Point)", "akn_element": "point", "level": "subdivision", "bluebell_keyword": "POINT", "numbering": "arabic_or_alpha"}
+      ],
+      "hcontainers": [],
+      "note": "Subordinate instrument of the Council of Ministers; groups articles into Abwab and Fusul."
+    },
+    "decree": {
+      "label": "مرسوم (Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {"local_term": "مادة (Madda/Article)", "akn_element": "article", "level": "basic", "bluebell_keyword": "ARTICLE", "numbering": "arabic_continuous"},
+        {"local_term": "فقرة (Fiqra/Paragraph)", "akn_element": "paragraph", "level": "subdivision", "bluebell_keyword": "PARAGRAPH", "numbering": "positional_implicit"},
+        {"local_term": "بند (Band/Point)", "akn_element": "point", "level": "subdivision", "bluebell_keyword": "POINT", "numbering": "arabic_or_alpha"}
+      ],
+      "hcontainers": [],
+      "note": "Short executive decree. Declares no grouping level, so it is the flat-class fixture."
     }
   },
   "default_document_class": "act",
@@ -60,6 +103,9 @@
     "country_code": "xz",
     "uri_patterns": {
       "act": "/akn/xz/act/{year}/{number}",
+      "decree_law": "/akn/xz/act/decree-law/{year}/{number}",
+      "cabinet_decision": "/akn/xz/act/cabinet-decision/{year}/{number}",
+      "decree": "/akn/xz/act/decree/{year}/{number}",
       "bill": "/akn/xz/bill/{year}/{number}"
     },
     "date_calendar": "gregorian",
@@ -82,15 +128,33 @@
     {
       "text": "أصدر مجلس الأمة الزرزوري القانون الآتي نصه:",
       "position": "preamble",
+      "era": "assembly",
+      "from": "1961-07-15",
+      "to": "2011-01-01",
       "document_class": "act"
     }
+  ],
+  "enacting_formula_markers": [
+    "أصدر القرار الآتي بقانون",
+    "أصدرنا القانون الآتي",
+    "أصدرنا القانون التالي",
+    "أصدر التعديل التالي"
+  ],
+  "opening_material_terminators": [
+    "أصدرنا القانون الآتي",
+    "أصدرنا القانون التالي"
+  ],
+  "furniture_line_patterns": [
+    "الوقائع\\s+الزرزورية",
+    "(?m)^\\s*صفحة\\s*\\d+\\s*$"
   ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "يستبدل بنص المادة ({X}) من القانون رقم ({N}) لسنة ({YYYY}) النص الآتي:",
     "deletion_phrasing": "تلغى المادة ({X}) من القانون رقم ({N}) لسنة ({YYYY}).",
     "insertion_phrasing": "تضاف مادة جديدة برقم ({X} مكرراً) إلى القانون رقم ({N}) لسنة ({YYYY}) نصها الآتي:",
-    "cross_reference_format": "law_number_and_year"
+    "cross_reference_format": "law_number_and_year",
+    "trigger_phrases": ["تعدل المادة", "يستبدل بنص المادة", "على النحو التالي", "على النحو الآتي", "النص الآتي"]
   },
   "core_tlcs": [
     {
@@ -114,7 +178,14 @@
   ],
   "structuring": {
     "prompt_variant": null,
-    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords; the scaffold owns hierarchy. Render body text in the legal register of the source Arabic; do not translate or paraphrase. Inline body references may use Arabic-Indic numerals or Western Arabic; preserve whichever the source uses."
+    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords; the scaffold owns hierarchy. Render body text in the legal register of the source Arabic; do not translate or paraphrase. Inline body references may use Arabic-Indic numerals or Western Arabic; preserve whichever the source uses.",
+    "classification_rules": [
+      {"signal": "title_regex", "pattern": "^(?:ال)?قرار بقانون", "target_document_class": "decree_law", "priority": 90},
+      {"signal": "title_regex", "pattern": "^(?:ال)?قرار\\s+مجلس\\s+الوزراء", "target_document_class": "cabinet_decision", "priority": 88},
+      {"signal": "title_regex", "pattern": "^(?:ال)?مرسوم", "target_document_class": "decree", "priority": 85},
+      {"signal": "preamble_match", "pattern": "المادة الحادية والستون", "target_document_class": "decree_law", "priority": 80},
+      {"signal": "title_regex", "pattern": "^(?:ال)?قانون", "target_document_class": "act", "priority": 65}
+    ]
   },
   "supranational_memberships": [],
   "display": {
@@ -157,8 +228,18 @@
       "id": "assembly",
       "label": "National Assembly",
       "from": "1961-07-15",
+      "to": "2010-12-31",
       "enacting_authority": "National Assembly of Zerzura",
-      "document_class": "act"
+      "document_class": "act",
+      "closing_phrases": ["صدر بمدينة", "صدر في مدينة"]
+    },
+    {
+      "id": "decree_law",
+      "label": "Presidential decree-law",
+      "from": "2011-01-01",
+      "enacting_authority": "President of Zerzura",
+      "document_class": "act",
+      "closing_phrases": ["صدر بمدينة", "صدر في مدينة"]
     }
   ]
 }
