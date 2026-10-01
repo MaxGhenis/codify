@@ -38,7 +38,13 @@ from codify.core.llm import create_llm_client
 from codify.jurisdictions import JURISDICTIONS_DIR, resolve_config
 from codify.pipeline.enrich.ocr import PageResult, combine_page_texts, unreadable_pages
 from codify.pipeline.enrich.structure import ScanTrace
-from codify.pipeline.events import Complete, Failed, MetadataExtracted, ValidationIssued
+from codify.pipeline.events import (
+    Complete,
+    Enriched,
+    Failed,
+    MetadataExtracted,
+    ValidationIssued,
+)
 from codify.pipeline.formats.pdf import ingest, ingest_text
 from codify.quality.structural_quality_grade import structural_quality_grade
 
@@ -85,13 +91,14 @@ def _anchor_row(anchor: Any) -> dict[str, Any]:
 
 
 def _coverage_json(
-    trace: ScanTrace, *, pages: int | None = None, unreadable: dict[int, str] | None = None
+    trace: ScanTrace | None, *, pages: int | None = None, unreadable: dict[int, str] | None = None
 ) -> dict[str, Any] | None:
     """Coverage as the bundle reports it. `ratio` is the lowest of the anchor,
     body-fill and page ratios measured, so no one of them reads clean alone."""
-    cov = trace.coverage
-    fill = trace.body_fill
-    if cov is None and trace.container is None and fill is None:
+    cov = trace.coverage if trace else None
+    fill = trace.body_fill if trace else None
+    container = trace.container if trace else None
+    if cov is None and container is None and fill is None and not pages:
         return None
     out: dict[str, Any] = {}
     ratios: list[float] = []
@@ -113,10 +120,10 @@ def _coverage_json(
                 "unclosed": cov.unclosed,
             }
         )
-    if trace.container is not None:
+    if container is not None:
         # Heading-vs-container probe: how many grouping headings survived as
         # containers. `7 headings -> 0 containers` is the flattening signal.
-        out["container"] = trace.container
+        out["container"] = container
     if fill is not None:
         fill_ratio = None if fill.ratio is None else round(fill.ratio, 4)
         if fill_ratio is not None:
@@ -211,6 +218,8 @@ async def _run(args: argparse.Namespace) -> int:
     akn_xml = ""
     metadata: dict[str, Any] = {}
     failure: dict[str, str] | None = None
+    # Unset until the validator reports finishing; no findings is not clean otherwise.
+    validated = False
     started = time.monotonic()
 
     stream = (
@@ -240,6 +249,8 @@ async def _run(args: argparse.Namespace) -> int:
                 findings.append(event.issue)
             elif isinstance(event, MetadataExtracted):
                 metadata = event.metadata
+            elif isinstance(event, Enriched) and event.pass_name == "validator":  # noqa: S105
+                validated = True
             elif isinstance(event, Complete):
                 akn_xml = event.akn_xml
             elif isinstance(event, Failed):
@@ -266,11 +277,7 @@ async def _run(args: argparse.Namespace) -> int:
         encoding="utf-8",
     )
     unreadable = {} if is_text else unreadable_pages(pages)
-    coverage = (
-        _coverage_json(trace, pages=None if is_text else len(pages), unreadable=unreadable)
-        if trace
-        else None
-    )
+    coverage = _coverage_json(trace, pages=None if is_text else len(pages), unreadable=unreadable)
     (out / "coverage.json").write_text(json.dumps(coverage, indent=2, ensure_ascii=False))
     ambiguity = trace.ambiguity if trace else ()
     (out / "ambiguity.jsonl").write_text(
@@ -289,6 +296,8 @@ async def _run(args: argparse.Namespace) -> int:
         except Exception as exc:  # noqa: BLE001, poppler missing must not void the bundle
             logger.warning("page_render_failed", error=str(exc)[:200])
 
+    # A refusal is known, not unmeasured, so it outranks a validator that did not finish.
+    halted = any(f.get("check") == "structure_halted" for f in findings)
     manifest = {
         "source": str(source),
         "source_bytes": len(raw_bytes),
@@ -332,7 +341,7 @@ async def _run(args: argparse.Namespace) -> int:
         "validator_findings": len(findings),
         # The grade a store would record for this bundle, so a run that finished
         # with blocking findings cannot read as a clean one.
-        "grade": asdict(structural_quality_grade(findings)),
+        "grade": asdict(structural_quality_grade(findings, degraded=not (validated or halted))),
         "akn_bytes": len(akn_xml),
         "failed": failure,
     }

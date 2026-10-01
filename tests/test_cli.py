@@ -382,3 +382,53 @@ async def test_an_unanswered_ingest_reads_blocking(monkeypatch, tmp_path: Path) 
         manifest["coverage"]["ratio"],
     ) == ("blocking", 1.0, 0.0)
     assert "body_fill_failed" in manifest["grade"]["reason"], manifest["grade"]
+
+
+def test_measured_pages_alone_make_a_coverage_block() -> None:
+    """An anchorless scan measures nothing else, and its lost page must still show."""
+    out = _coverage_json(None, pages=2, unreadable={2: "empty_read"})
+    assert out == {"pages": {"total": 2, "unreadable": [2], "ratio": 0.5}, "ratio": 0.5}
+
+
+async def test_a_validator_that_did_not_finish_is_ungraded(monkeypatch, tmp_path: Path) -> None:  # type: ignore[no-untyped-def]
+    """No findings because nothing was checked must not read as clean."""
+    import json
+
+    from codify import cli
+    from codify.pipeline.formats import pdf as pdf_mod
+
+    def _crash(*_a: object, **_k: object) -> list[dict[str, object]]:
+        raise RuntimeError("validator crashed")
+
+    class _Echo:
+        async def chat_schema(self, prompt, schema, system=None, model=None):  # type: ignore[no-untyped-def]
+            from codify.pipeline.enrich.scaffold import BodyBlock, BodyFillResponse
+
+            if schema is not BodyFillResponse:
+                raise RuntimeError("offline")
+            eids = __import__("re").findall(r"eid=(\S+)", prompt)
+            return BodyFillResponse(bodies=[BodyBlock(eid=e, lines=["Body."]) for e in eids])
+
+        def __getattr__(self, name: str) -> object:
+            async def _fail(*_a: object, **_k: object) -> object:
+                raise RuntimeError("offline")
+
+            return _fail
+
+    monkeypatch.setattr(pdf_mod, "validate_akn", _crash)
+    monkeypatch.setattr(cli, "create_llm_client", lambda **_k: _Echo())
+    source = tmp_path / "act.txt"
+    source.write_text("PART I\nPRELIMINARY\n\nSection 1\nThis Act may be cited.\n")
+    out = tmp_path / "bundle"
+    args = argparse.Namespace(
+        source=str(source),
+        jurisdiction="xa",
+        out=str(out),
+        model="m",
+        ocr_model="",
+        fallback_model="",
+        quiet=True,
+    )
+    await cli._run(args)
+    grade = json.loads((out / "manifest.json").read_text())["grade"]["grade"]
+    assert grade == "ungraded"
