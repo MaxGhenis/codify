@@ -1267,12 +1267,14 @@ def diverted_to_nothing(page: PageResult) -> bool:
 
 
 def unreadable_reason(page: PageResult) -> str:
-    """Why a page with content on it came back with no text, or "" if it did not:
-    the refusing finish reason, else `empty_read` for an inked divert read empty."""
-    if clean_page_text(page.text, page.furniture).strip():
-        return ""
-    if content_filtered(page.finish_reason):
+    """Why a page's content is missing from its read, or "" if it is not: the
+    refusing finish reason, else `empty_read` for an inked divert read empty. A
+    refusal can still return partial text, so it counts unless the rival replaced it."""
+    has_text = bool(clean_page_text(page.text, page.furniture).strip())
+    if content_filtered(page.finish_reason) and (not has_text or page.method == "vision_ocr"):
         return page.finish_reason
+    if has_text:
+        return ""
     return "empty_read" if diverted_to_nothing(page) else ""
 
 
@@ -1288,9 +1290,11 @@ def _page_body_for_combine(page: PageResult) -> str | None:
     see is at least on the page. A genuinely blank page is omitted.
     """
     cleaned = clean_page_text(page.text, page.furniture)
+    lost = bool(unreadable_reason(page))
     if cleaned.strip():
-        return cleaned
-    if unreadable_reason(page):
+        # A partial read keeps its text, and the marker says the rest is missing.
+        return f"{cleaned}\n\n{degraded_page_marker(page.page_number)}" if lost else cleaned
+    if lost:
         return degraded_page_marker(page.page_number)
     return None
 

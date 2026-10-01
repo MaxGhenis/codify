@@ -14,8 +14,8 @@ Breaks, in that the structurer's output changes for documents it already read:
    longer matches.
 2. Losses are reported instead of reading as success, so a run that finished
    clean before can now grade `warning` or `blocking`, or fail:
-   - A page the model refused on a content filter, or an inked page read empty,
-     is recorded: `PageResult.finish_reason` and `PageExtracted.finish_reason`,
+   - A page the model refused on a content filter (partial text included), or
+     an inked page read empty, is recorded: `PageResult.finish_reason` and `PageExtracted.finish_reason`,
      an `unreadable_page` error finding, `pages_unreadable` in the bundle
      manifest, and an editorial remark in the AKN where the page stood. The
      structurer now receives the unreadable-page marker and places the remark

@@ -1424,3 +1424,18 @@ async def test_the_page_reader_passes_the_finish_reason_through_cleaning() -> No
         render_if_missing=False,  # type: ignore[arg-type]
     )
     assert (getattr(out, "finish_reason", None), "Body" in out) == ("stop", True)
+
+
+def test_a_refusal_that_returned_partial_text_is_still_unreadable():
+    """The filter can cut a read short; the text kept is not the page."""
+    from codify.pipeline.enrich.ocr import unreadable_pages
+
+    page = PageResult(
+        page_number=3,
+        text="The first half of the page.",
+        method="vision_ocr",
+        divert_reason="too_short",
+        finish_reason="content_filter: RECITATION",
+    )
+    assert unreadable_pages([page]) == {3: "content_filter: RECITATION"}
+    assert combine_page_texts([page]) == "The first half of the page.\n\n⟦page 3 unreadable⟧"
