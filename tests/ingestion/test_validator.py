@@ -1339,15 +1339,28 @@ class TestNumberGapCalibration:
         assert _gaps(xml, provenance="native") == [("info", "repeal", [3, 3])]
         assert _gaps(xml) == [("info", "repeal", [3, 3])]
 
-    def test_an_unreadable_page_keeps_a_hole_from_reading_as_a_repeal(self):
-        xml = _numbered(1, 2, 4, 5, 6, 7, 8, 9, 10)
-        found = [
-            i
-            for i in validate_akn(xml, unreadable_pages={5: "content_filter: RECITATION"})
-            if i["check"] == "number_gap"
-        ]
+    def test_a_remarked_lost_page_keeps_the_gap_after_it_from_reading_as_a_repeal(self):
+        xml = _numbered(1, 2, 4, 5, 6, 7, 8, 9, 10).replace(
+            '<section eId="sec_2"><num>2</num><content><p>t</p>',
+            '<section eId="sec_2"><num>2</num><content><p>t</p>'
+            '<p><remark status="editorial">[Page 5 of the source could not be read]</remark></p>',
+        )
+        found = [i for i in validate_akn(xml) if i["check"] == "number_gap"]
         assert [(i["severity"], i["likely"]) for i in found] == [("warning", "unreadable_page")]
         assert "unreadable page(s) 5" in found[0]["message"], found[0]["message"]
+
+    def test_a_lost_page_elsewhere_does_not_relabel_an_unrelated_gap(self):
+        xml = _numbered(1, 2, 4, 5, 6, 7, 8, 9, 10).replace(
+            '<section eId="sec_9"><num>9</num><content><p>t</p>',
+            '<section eId="sec_9"><num>9</num><content><p>t</p>'
+            '<p><remark status="editorial">[Page 5 of the source could not be read]</remark></p>',
+        )
+        found = [
+            i
+            for i in validate_akn(xml, unreadable_pages={5: "empty_read"})
+            if i["check"] == "number_gap"
+        ]
+        assert [(i["severity"], i["likely"]) for i in found] == [("info", "repeal")]
 
 
 class TestUnreadablePagesAndBodyFill:

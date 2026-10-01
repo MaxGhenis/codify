@@ -29,7 +29,7 @@ from codify.pipeline.enrich.anchors import (
 from codify.pipeline.enrich.arabic_normalise import JOINER_STRIP_TABLE
 from codify.pipeline.enrich.container_coverage import container_coverage_probe
 from codify.pipeline.enrich.kinds import CONTAINER_KINDS, kind_to_kw
-from codify.pipeline.enrich.ocr import DEGRADED_MARKER_RE
+from codify.pipeline.enrich.ocr import DEGRADED_MARKER_RE, UNREADABLE_REMARK
 from codify.pipeline.enrich.scaffold import (
     BodyBlock,
     BodyFillResponse,
@@ -260,7 +260,7 @@ TABLE_ROWS_RULE = (
 
 
 def _unreadable_remark(page: int) -> str:
-    return f"{{{{*[Page {page} of the source could not be read]}}}}"
+    return "{{*" + UNREADABLE_REMARK.format(page=page) + "}}"
 
 
 def _lift_unreadable_markers(text: str) -> tuple[str, list[tuple[int, int]]]:
@@ -694,7 +694,8 @@ async def text_to_bluebell_scaffolded(
         )
 
     if not anchors:
-        if text.strip():
+        # A source of nothing but unreadable pages still keeps its remarks.
+        if text.strip() or unreadable:
             logger.warning(
                 "scaffold_no_anchors", country=country, doctype=doctype, fallback="verbatim_section"
             )
@@ -822,6 +823,9 @@ async def text_to_bluebell_scaffolded(
         def absorb(responses: list[BodyFillResponse]) -> None:
             for r in responses:
                 for block in r.bodies:
+                    if not any(line.strip() for line in block.lines):
+                        # Blank lines are no body: recovery and grading must see the gap.
+                        block = block.model_copy(update={"lines": []})
                     if block.lines or block.eid not in by_eid:
                         by_eid[block.eid] = block
 

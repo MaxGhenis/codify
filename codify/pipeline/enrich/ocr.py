@@ -1240,6 +1240,11 @@ def page_verdict(page: PageResult, *, pack: ScriptPack | None = None) -> PageVer
 DEGRADED_MARKER_RE = re.compile(r"^⟦page (\d+) unreadable⟧$", re.MULTILINE)
 
 
+# The editorial remark the structurer leaves where an unreadable page stood.
+UNREADABLE_REMARK = "[Page {page} of the source could not be read]"
+UNREADABLE_REMARK_RE = re.compile(r"\[Page (\d+) of the source could not be read\]")
+
+
 def degraded_page_marker(page_number: int) -> str:
     """The line that stands in for a page that read to nothing. Visible in the
     combined text where a silent drop hid the loss; the structurer turns it into

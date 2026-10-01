@@ -785,3 +785,37 @@ async def test_empty_answers_are_recorded_as_unfilled_bodies():
         _XA_EIDS,
         (),
     )
+
+
+@pytest.mark.asyncio
+async def test_a_source_of_only_unreadable_pages_keeps_its_remarks():
+    text = "⟦page 1 unreadable⟧\n\n⟦page 2 unreadable⟧\n"
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    assert re.findall(r"Page (\d) of the source", result) == ["1", "2"], result
+
+
+class _BlankLines(_EchoUnless):
+    """Answers blank lines for one provision, and real ones for the rest."""
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        response = await super().chat_schema(prompt, schema, system, model)
+        return schema(
+            bodies=[
+                BodyBlock(eid=b.eid, lines=["  ", ""]) if b.eid == "part_II__sec_3" else b
+                for b in response.bodies
+            ]
+        )
+
+
+@pytest.mark.asyncio
+async def test_blank_lines_are_not_a_body():
+    """Whitespace-only lines are recorded as an unfilled body, not a model one."""
+    traces: list = []
+    result = await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_BlankLines(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.model_filled, fill.verbatim) == (3, ("part_II__sec_3",))
+    assert "The Minister shall appoint a Keeper of Lights" in result

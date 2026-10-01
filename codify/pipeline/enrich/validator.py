@@ -34,6 +34,7 @@ from codify.pipeline.enrich.arabic_normalise import (
     heading_restates_number,
 )
 from codify.pipeline.enrich.kinds import CONTAINER_KINDS
+from codify.pipeline.enrich.ocr import UNREADABLE_REMARK_RE
 from codify.pipeline.enrich.scripts.arabic import ARABIC
 from codify.quality.invariants import classify_gap, missing_between
 from codify.quality.lexicons import ARABIC_WORDS
@@ -102,7 +103,6 @@ def validate_akn(
             root,
             suppress=bis_scopes,
             extracted=provenance == "extracted",
-            unreadable=sorted(unreadable_pages or {}),
         )
     )
     if provenance == "extracted":
@@ -151,7 +151,6 @@ def _check_number_set_continuity(
     *,
     suppress: dict[str, set[str]] | None = None,
     extracted: bool = False,
-    unreadable: list[int] | None = None,
 ) -> list[dict[str, Any]]:
     """Catch structural drops the count-only validator misses. For each continuously
     numbered kind, flag duplicates (two eIds sharing a num, the same unit emitted twice
@@ -163,7 +162,8 @@ def _check_number_set_continuity(
     unrelated duplicate under the same parent stays intact.
 
     ``extracted`` warns on every gap, since text read off a page loses provisions
-    with the page. ``unreadable`` pages keep a gap from being called a repeal.
+    with the page. A gap whose host carries an unreadable-page remark is not
+    called a repeal.
     """
     suppress = suppress or {}
     out: list[dict[str, Any]] = []
@@ -263,7 +263,6 @@ def _check_number_set_continuity(
                             num_to_eid,
                             likely=likely,
                             extracted=extracted,
-                            unreadable=unreadable or [],
                         )
                     )
     return out
@@ -299,6 +298,15 @@ def _gap_acknowledged(root: etree._Element, eid: str) -> bool:
     return False
 
 
+def _remarked_pages(root: etree._Element, eid: str) -> list[int]:
+    """Pages whose unreadable-page remark sits in the element with this eId."""
+    hits = root.xpath(".//*[@eId=$e]", e=eid)
+    if not hits:
+        return []
+    text = " ".join(" ".join(r.itertext()) for r in hits[0].iter(f"{{{AKN_NS}}}remark"))
+    return sorted({int(p) for p in UNREADABLE_REMARK_RE.findall(text)})
+
+
 def _gap_run_findings(
     root: etree._Element,
     kind: str,
@@ -307,26 +315,13 @@ def _gap_run_findings(
     *,
     likely: str,
     extracted: bool = False,
-    unreadable: list[int] | None = None,
 ) -> list[dict[str, Any]]:
     """Per-run gap findings, hosted on the provision numbered before the run so
     a repair (an editorial annotation) has a target and can clear the finding."""
-    if unreadable:
-        # A page nobody read can hold the missing numbers, so no repeal is inferred.
-        likely = "unreadable_page"
     runs: list[tuple[int, int, str | None]] = []  # (first_missing, last_missing, host_eid)
     for a, b in zip(numbers, numbers[1:], strict=False):
         if b - a > 1:
             runs.append((a + 1, b - 1, num_to_eid.get(a)))
-    label = (
-        "a structuring drop"
-        if likely == "defect"
-        else "legitimate repeals"
-        if likely == "repeal"
-        else f"content on unreadable page(s) {', '.join(map(str, unreadable or []))}"
-        if likely == "unreadable_page"
-        else "a drop or repeals"
-    )
     out: list[dict[str, Any]] = []
     unacknowledged = [
         (first, last, host)
@@ -335,15 +330,28 @@ def _gap_run_findings(
     ]
     for first, last, host in unacknowledged[:_MAX_GAP_RUNS]:
         missing = list(range(first, min(last, first + 49) + 1))
+        # The structurer left a remark in the provision a lost page continued, so
+        # a gap after it may be that page rather than a repeal.
+        lost = _remarked_pages(root, host) if host else []
+        run_likely = "unreadable_page" if lost else likely
+        label = (
+            "a structuring drop"
+            if run_likely == "defect"
+            else "legitimate repeals"
+            if run_likely == "repeal"
+            else f"content on unreadable page(s) {', '.join(map(str, lost))}"
+            if run_likely == "unreadable_page"
+            else "a drop or repeals"
+        )
         finding: dict[str, Any] = {
             "check": "number_gap",
             # A contiguous run of holes is almost always a structuring drop;
             # scattered singletons in a dense sequence are almost always
             # repeals, except in extracted text or beside an unreadable page.
             "severity": (
-                "warning" if extracted or likely in {"defect", "unreadable_page"} else "info"
+                "warning" if extracted or run_likely in {"defect", "unreadable_page"} else "info"
             ),
-            "likely": likely,
+            "likely": run_likely,
             "kind": kind,
             "missing": missing,
             "range": [first, last],
