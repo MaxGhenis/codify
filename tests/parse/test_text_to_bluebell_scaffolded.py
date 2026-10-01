@@ -819,3 +819,16 @@ async def test_blank_lines_are_not_a_body():
     fill = traces[0].body_fill
     assert (fill.model_filled, fill.verbatim) == (3, ("part_II__sec_3",))
     assert "The Minister shall appoint a Keeper of Lights" in result
+
+
+@pytest.mark.asyncio
+async def test_anchor_offsets_still_index_the_source_after_a_lost_page():
+    """The trace's offsets locate the source as written, marker included."""
+    text = _XA_TEXT.replace("\nPART II\n", "\n⟦page 2 unreadable⟧\n\nPART II\n")
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act", on_scan=traces.append
+    )
+    sec_3 = next(a for a in traces[0].anchors if a.akn_eid == "part_II__sec_3")
+    at = text[sec_3.char_offset :]
+    assert at.lstrip("\n").startswith("Section 3"), at[:30]

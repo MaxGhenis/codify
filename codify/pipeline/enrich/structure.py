@@ -264,8 +264,8 @@ def _unreadable_remark(page: int) -> str:
 
 
 def _lift_unreadable_markers(text: str) -> tuple[str, list[tuple[int, int]]]:
-    """The text without unreadable-page marker lines, and (offset, page) for each,
-    the offset indexing the returned text. Kept out of what the model fills."""
+    """The text with each unreadable-page marker blanked to spaces of its width, so
+    offsets still index the source, and (offset, page) for each marker."""
     kept: list[str] = []
     found: list[tuple[int, int]] = []
     pos = 0
@@ -273,7 +273,7 @@ def _lift_unreadable_markers(text: str) -> tuple[str, list[tuple[int, int]]]:
         m = DEGRADED_MARKER_RE.match(line)
         if m:
             found.append((pos, int(m.group(1))))
-            continue
+            line = " " * len(line)
         kept.append(line)
         pos += len(line) + 1
     return "\n".join(kept), found
