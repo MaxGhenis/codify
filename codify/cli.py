@@ -196,7 +196,8 @@ async def _run(args: argparse.Namespace) -> int:
         azure_foundry_ocr_url=_foundry_ocr_url(),
         azure_foundry_ocr_key=os.environ.get("AZURE_OPENAI_API_KEY") or None,
         azure_foundry_ocr_rpm=int(os.environ.get("AZURE_FOUNDRY_OCR_RPM") or 40),
-        # Retried on a content-filter refusal; unset, a refused page stays unread.
+        # Retried on any content-filter refusal (pages, metadata, body-fill); unset,
+        # a refused page stays unread.
         fallback_model=args.fallback_model or None,
         # No run context here, so proxy attribution would carry nothing; direct
         # mode also lets the URL name any OpenAI-compatible provider.
@@ -651,7 +652,8 @@ def main(argv: list[str] | None = None) -> int:
     one.add_argument(
         "--fallback-model",
         default=os.environ.get("LITELLM_CONTENT_FILTER_FALLBACK_MODEL", ""),
-        help="model retried when the first refuses a page on a content filter; empty disables",
+        help="model retried on any content-filter refusal (pages, metadata, body-fill); "
+        "empty disables",
     )
     one.add_argument("--quiet", action="store_true", help="suppress per-event progress")
     one.set_defaults(func=lambda a: asyncio.run(_run(a)))

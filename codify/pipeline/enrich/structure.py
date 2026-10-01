@@ -905,14 +905,14 @@ async def text_to_bluebell_scaffolded(
             # Every call failed, recovery included, and nothing recovered it: a
             # correct skeleton with no law in it, refused under either policy.
             raise BodyFillError(windows=total)
-        if failed and stats.expected and not stats.model_filled:
-            # The model wrote no body: what remains is source text copied in
-            # unstructured, which must not read as a structuring result.
+        if stats.expected and not stats.model_filled:
+            # The model wrote no body, whether its calls raised or came back empty:
+            # source text copied in unstructured must not read as a structuring result.
             logger.warning(
                 "body_fill_no_model_output", calls=calls, failed=failed, expected=stats.expected
             )
             detail = (
-                f"{failed} of {calls} body-fill calls failed, so the model wrote no body; "
+                f"the model wrote no body ({failed} of {calls} body-fill calls failed); "
                 f"{len(stats.verbatim)} of {stats.expected} bodies are source text "
                 f"copied in unstructured and {len(stats.empty)} are empty"
             )

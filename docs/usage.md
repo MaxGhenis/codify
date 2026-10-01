@@ -100,17 +100,17 @@ directories; explicitly exported shell variables take precedence. Note that `pyt
 `alembic` do not read `.env` files automatically and require variables to be exported in
 your environment. See [`.env.example`](../.env.example) for the default setup.
 
-| Variable                                | Purpose                                                                                 |
-| --------------------------------------- | --------------------------------------------------------------------------------------- |
-| `LITELLM_BASE_URL`                      | Base URL for the OpenAI-compatible chat endpoint                                        |
-| `LITELLM_API_KEY`                       | API key for the chat endpoint                                                           |
-| `LITELLM_MODEL`                         | Default model used for body fill (overridden by `--model`)                              |
-| `LITELLM_CONTENT_FILTER_FALLBACK_MODEL` | Model retried when the first refuses a page on a content filter (`--fallback-model`)    |
-| `POSTGRES_URL`                          | Postgres connection string for migrations and tests (defaults to local Compose service) |
-| `AZURE_OPENAI_ENDPOINT`                 | Endpoint for the optional secondary Azure AI Foundry OCR engine                         |
-| `AZURE_OPENAI_API_KEY`                  | API key for the optional Azure OCR engine                                               |
-| `LANGFUSE_PUBLIC_KEY`                   | Public key for optional Langfuse tracing                                                |
-| `LANGFUSE_SECRET_KEY`                   | Secret key for optional Langfuse tracing                                                |
+| Variable                                | Purpose                                                                                      |
+| --------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `LITELLM_BASE_URL`                      | Base URL for the OpenAI-compatible chat endpoint                                             |
+| `LITELLM_API_KEY`                       | API key for the chat endpoint                                                                |
+| `LITELLM_MODEL`                         | Default model used for body fill (overridden by `--model`)                                   |
+| `LITELLM_CONTENT_FILTER_FALLBACK_MODEL` | Model retried on any content-filter refusal: pages, metadata, body-fill (`--fallback-model`) |
+| `POSTGRES_URL`                          | Postgres connection string for migrations and tests (defaults to local Compose service)      |
+| `AZURE_OPENAI_ENDPOINT`                 | Endpoint for the optional secondary Azure AI Foundry OCR engine                              |
+| `AZURE_OPENAI_API_KEY`                  | API key for the optional Azure OCR engine                                                    |
+| `LANGFUSE_PUBLIC_KEY`                   | Public key for optional Langfuse tracing                                                     |
+| `LANGFUSE_SECRET_KEY`                   | Secret key for optional Langfuse tracing                                                     |
 
 ## Jurisdictions
 

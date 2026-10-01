@@ -22,10 +22,10 @@ Breaks, in that the structurer's output changes for documents it already read:
      itself; `combine_text_for_structure` no longer strips it.
    - Body-fill records what it achieved (`ScanTrace.body_fill`). Bodies copied
      from the source after the model failed them are a `body_fill_verbatim`
-     warning; bodies left empty a `body_fill_incomplete` error. When no call
-     wrote any body, the structurer raises `BodyFillError`, or under
-     `halt_policy="land"` records a `body_fill_failed` halt. The scan trace is
-     emitted once, after body-fill.
+     warning; bodies left empty a `body_fill_incomplete` error. When the model
+     wrote no body, whether its calls raised or came back empty, the structurer
+     raises `BodyFillError`, or under `halt_policy="land"` records a
+     `body_fill_failed` halt. The scan trace is emitted once, after body-fill.
    - `coverage.json` `ratio` is the lowest of the anchor, body-fill and page
      ratios; the anchor figure moves to `anchor_ratio`. The manifest carries the
      structural grade.
@@ -45,8 +45,9 @@ Breaks, in that the structurer's output changes for documents it already read:
 New, additive:
 
 - `ingest-one --fallback-model`, defaulting to
-  `LITELLM_CONTENT_FILTER_FALLBACK_MODEL`: the model retried when the first
-  refuses a page on a content filter.
+  `LITELLM_CONTENT_FILTER_FALLBACK_MODEL`: the model retried on any
+  content-filter refusal, so page reads, metadata and body-fill can all run on
+  it.
 - `validate_akn` takes `provenance`, `unreadable_pages` and `body_fill`;
   `codify.jurisdictions.CONFIG_FAULTS`; `codify.core.llm.content_filtered`.
 - `document_classes.<class>.number_source` in the jurisdiction config:

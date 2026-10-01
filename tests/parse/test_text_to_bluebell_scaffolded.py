@@ -761,3 +761,32 @@ async def test_no_law_at_all_is_refused_even_when_landing(monkeypatch):
             doctype="act",
             halt_policy="land",
         )
+
+
+class _AnswersEmpty:
+    """Every call succeeds and writes nothing."""
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        return schema(bodies=[])
+
+
+@pytest.mark.asyncio
+async def test_empty_answers_are_no_model_output_too():
+    """No call raised, but the model wrote nothing: still not a structuring result."""
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT,
+        client=_AnswersEmpty(),
+        country="xa",
+        doctype="act",
+        on_scan=traces.append,
+        halt_policy="land",
+    )
+    fill = traces[0].body_fill
+    assert (fill.calls_failed, fill.model_filled, [h.gate for h in traces[0].halts]) == (
+        0,
+        0,
+        ["body_fill_failed"],
+    )
+    with pytest.raises(BodyFillError, match="wrote no body"):
+        await text_to_bluebell_scaffolded(_XA_TEXT, client=_AnswersEmpty(), country="xa")
