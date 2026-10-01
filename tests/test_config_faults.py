@@ -145,3 +145,18 @@ def test_a_config_fault_inside_an_enrich_pass_propagates(
                 skip_external_refs=True,
             )
         )
+
+
+def test_an_era_year_for_an_absent_jurisdiction_raises(data_dir: Path) -> None:
+    """An era table is the jurisdiction's, so no config is a fault, not "no year"."""
+    from codify.calendar import year_from_calendar
+
+    with pytest.raises(JurisdictionConfigError):
+        year_from_calendar("Reiwa 5", "japanese_era", "qq")
+    assert year_from_calendar("Reiwa 5", "japanese_era", "") is None
+
+
+def test_an_era_year_without_an_era_table_is_no_year() -> None:
+    from codify.calendar import year_from_calendar
+
+    assert year_from_calendar("Reiwa 5", "japanese_era", "xa") is None
