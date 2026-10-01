@@ -990,9 +990,9 @@ async def text_to_bluebell_scaffolded(
             # Every call failed, recovery included, and nothing recovered it: a
             # correct skeleton with no law in it, refused under either policy.
             raise BodyFillError(windows=total)
-        if failed and stats.expected and not stats.model_filled:
-            # The model could not be reached for any body. Empty answers stay
-            # findings (verbatim or empty bodies), not a halt.
+        if failed and failed == calls and stats.expected and not stats.model_filled:
+            # Every call failed: the model could not be reached. A call that
+            # answered, even empty, leaves findings (verbatim or empty), not a halt.
             logger.warning(
                 "body_fill_no_model_output", calls=calls, failed=failed, expected=stats.expected
             )

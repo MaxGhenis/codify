@@ -931,3 +931,27 @@ def test_markers_past_the_closing_cut_move_with_the_text_after_it():
     body, conclusions = _rebase_markers([(3, 1), (12, 2), (17, 3)], bound, source)
     assert body == [(3, 1), (12, 3)]
     assert conclusions is not None and "Page 2 of the source" in conclusions
+
+
+class _EmptyThenDown:
+    """Answers the first call empty, then fails every call after it."""
+
+    def __init__(self) -> None:
+        self.calls = 0
+
+    async def chat_schema(self, prompt, schema, system=None, model=None):
+        self.calls += 1
+        if self.calls == 1:
+            return schema(bodies=[])
+        raise RuntimeError("gateway said no")
+
+
+@pytest.mark.asyncio
+async def test_a_model_that_answered_once_is_not_unreachable():
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        _XA_TEXT, client=_EmptyThenDown(), country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.calls_failed < fill.calls, fill.model_filled, traces[0].halts) == (True, 0, ())
+    assert list(fill.verbatim) == _XA_EIDS

@@ -1417,11 +1417,14 @@ def try_load_config(country_code: str) -> JurisdictionConfig | None:
     """
     if "/" in country_code or ".." in country_code:
         return None
-    path = JURISDICTIONS_DIR / country_code / "config.json"
-    if not path.exists():
+    # Normalised and held under the data root before any read.
+    base = os.path.normpath(str(JURISDICTIONS_DIR))
+    path = os.path.normpath(os.path.join(base, country_code, "config.json"))
+    if not path.startswith(base + os.sep) or not os.path.exists(path):
         return None
     try:
-        raw = path.read_text(encoding="utf-8")
+        with open(path, encoding="utf-8") as handle:
+            raw = handle.read()
     except (OSError, UnicodeError) as exc:
         # A config there and unreadable is a fault of the config, not of the caller.
         raise JurisdictionConfigError(
