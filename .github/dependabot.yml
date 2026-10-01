@@ -49,6 +49,10 @@ updates:
       - dependency-name: 'typescript'
         update-types:
           - version-update:semver-major
+      # Majors wait for a deliberate upgrade, as with typescript.
+      - dependency-name: '@types/node'
+        update-types:
+          - version-update:semver-major
     groups:
       patch-and-minor:
         update-types:
