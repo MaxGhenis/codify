@@ -427,3 +427,23 @@ async def test_abstention_preview_records_for_salvage() -> None:
     result = await agent.run("Repair the flagged finding.", deps=deps)
     assert deps.preview_state["accepted_plan_json"] == _ABSTAIN
     assert result.output.ops == []
+
+
+@pytest.mark.asyncio
+async def test_tool_call_beside_submit_plan_is_skipped() -> None:
+    deps, eid = _workspace_deps()
+    plan = _plan_json(eid, "The restored body of the second article.")
+
+    def drive(messages: list[ModelMessage], info: AgentInfo) -> ModelResponse:
+        return ModelResponse(
+            parts=[
+                ToolCallPart(tool_name="submit_plan", args={"plan_json": plan}, tool_call_id="s"),
+                ToolCallPart(tool_name="preview_plan", args={"plan_json": plan}, tool_call_id="p"),
+            ]
+        )
+
+    agent = build_agent(FunctionModel(drive), _Store())
+    result = await agent.run("Repair the flagged finding.", deps=deps)
+
+    assert dict(deps.preview_state) == {}, "preview_plan ran beside submit_plan"
+    assert [op.eid for op in result.output.ops] == [eid]
