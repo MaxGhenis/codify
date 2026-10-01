@@ -72,8 +72,8 @@ class StructureHalt:
 @dataclass(frozen=True)
 class BodyFillTrace:
     """What body-fill achieved against what the scaffold asked of it. `expected`
-    counts units with body text in the source; `verbatim` were copied from it
-    unstructured after the model failed them, and `empty` got nothing."""
+    counts units with body text in the source; `verbatim` carry source text in
+    place of model output (none usable, or a table it changed), `empty` nothing."""
 
     windows: int
     calls: int

@@ -1803,8 +1803,8 @@ def _check_unreadable_pages(pages: dict[int, str]) -> list[dict[str, Any]]:
 
 
 def _check_body_fill(trace: dict[str, Any]) -> list[dict[str, Any]]:
-    """Provisions whose body the model never wrote. Empty ones lost their text, so
-    error; source text copied in unstructured keeps every word, so warning."""
+    """Provisions without a model-written body. Empty ones lost their text, so
+    error; source text in place of model output keeps every word, so warning."""
     empty = list(trace.get("empty") or [])
     verbatim = list(trace.get("verbatim") or [])
     expected = int(trace.get("expected") or 0)
@@ -1832,9 +1832,9 @@ def _check_body_fill(trace: dict[str, Any]) -> list[dict[str, Any]]:
                 "eids": verbatim,
                 "count": len(verbatim),
                 "message": (
-                    f"{len(verbatim)} of {expected} provision bodies are source text copied "
-                    f"in unstructured after the model did not fill them ({failed} of {calls} "
-                    f"body-fill calls failed); first {verbatim[0]!r}."
+                    f"{len(verbatim)} of {expected} provision bodies are source text in place "
+                    f"of model output, which was missing or changed a table ({failed} of "
+                    f"{calls} body-fill calls failed); first {verbatim[0]!r}."
                 ),
             }
         )
