@@ -302,13 +302,19 @@ def _place_unreadable_remarks(
     )
     if not hosts:
         return
+    leading: list[str] = []
     for offset, page in markers:
         before = [a for a in hosts if _header_start(text, a) <= offset]
-        host = before[-1] if before else hosts[0]
-        block = by_eid.get(host.akn_eid) or BodyBlock(eid=host.akn_eid)
-        remark = _unreadable_remark(page)
-        lines = [*block.lines, remark] if before else [remark, *block.lines]
-        by_eid[host.akn_eid] = block.model_copy(update={"lines": lines})
+        if not before:
+            leading.append(_unreadable_remark(page))
+            continue
+        block = by_eid.get(before[-1].akn_eid) or BodyBlock(eid=before[-1].akn_eid)
+        lines = [*block.lines, _unreadable_remark(page)]
+        by_eid[block.eid] = block.model_copy(update={"lines": lines})
+    if leading:
+        # Prepended together, so pages before the first provision keep their order.
+        first = by_eid.get(hosts[0].akn_eid) or BodyBlock(eid=hosts[0].akn_eid)
+        by_eid[first.eid] = first.model_copy(update={"lines": [*leading, *first.lines]})
 
 
 def _header_start(text: str, anchor: StructuralAnchor) -> int:

@@ -859,3 +859,12 @@ async def test_a_page_lost_just_before_a_provision_stays_with_the_one_before():
     )
     sec_1 = result.split("SECTION 1", 1)[1].split("SECTION 2", 1)[0]
     assert "Page 2 of the source" in sec_1, result
+
+
+@pytest.mark.asyncio
+async def test_pages_lost_before_the_first_provision_keep_their_order():
+    text = _XA_TEXT.replace("PART I\n", "⟦page 1 unreadable⟧\n\n⟦page 2 unreadable⟧\n\nPART I\n", 1)
+    result = await text_to_bluebell_scaffolded(
+        text, client=_EchoUnless(), country="xa", doctype="act"
+    )
+    assert re.findall(r"Page (\d) of the source", result) == ["1", "2"], result
