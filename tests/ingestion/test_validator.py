@@ -573,7 +573,7 @@ class TestFormulaIntegrity:
 def test_money_words_mismatch_fires_with_both_readings() -> None:
     xml = _act(
         '<article eId="art_8"><num>8</num><content>'
-        "<p>يعاقب بغرامة لا تقل عن (500,000) خمسون ألف دينار أردني.</p>"
+        "<p>يعاقب بغرامة لا تقل عن (500,000) خمسون ألف دينار زرزوري.</p>"
         "</content></article>"
     )
     found = [i for i in validate_akn(xml) if i["check"] == "money_words_mismatch"]
@@ -587,7 +587,7 @@ def test_money_words_mismatch_fires_with_both_readings() -> None:
 def test_money_words_consistent_is_silent() -> None:
     xml = _act(
         '<article eId="art_8"><num>8</num><content>'
-        "<p>يعاقب بغرامة لا تقل عن (50,000) خمسون ألف دينار أردني.</p>"
+        "<p>يعاقب بغرامة لا تقل عن (50,000) خمسون ألف دينار زرزوري.</p>"
         "</content></article>"
     )
     assert [i for i in validate_akn(xml) if i["check"] == "money_words_mismatch"] == []

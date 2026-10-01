@@ -1401,6 +1401,10 @@ export interface components {
              * @default false
              */
             numbers_unique_across_years: boolean;
+            /** Series Citation Connectors */
+            series_citation_connectors?: string[];
+            /** Series Citations */
+            series_citations?: components["schemas"]["SeriesCitation"][];
         } & {
             [key: string]: unknown;
         };
@@ -1535,6 +1539,16 @@ export interface components {
             matches: components["schemas"]["SearchMatch"][];
             /** Query */
             query: string;
+        };
+        /**
+         * SeriesCitation
+         * @description A citation naming an instrument by series number alone ("Act No. 386").
+         */
+        SeriesCitation: {
+            /** Doctype */
+            doctype: string;
+            /** Name */
+            name: string;
         };
         /**
          * SourceAdapter

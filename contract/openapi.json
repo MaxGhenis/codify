@@ -3095,6 +3095,20 @@
             "default": false,
             "title": "Numbers Unique Across Years",
             "type": "boolean"
+          },
+          "series_citation_connectors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Series Citation Connectors",
+            "type": "array"
+          },
+          "series_citations": {
+            "items": {
+              "$ref": "#/components/schemas/SeriesCitation"
+            },
+            "title": "Series Citations",
+            "type": "array"
           }
         },
         "title": "NumberingConfig",
@@ -3396,6 +3410,26 @@
           "matches"
         ],
         "title": "SearchResult",
+        "type": "object"
+      },
+      "SeriesCitation": {
+        "additionalProperties": false,
+        "description": "A citation naming an instrument by series number alone (\"Act No. 386\").",
+        "properties": {
+          "doctype": {
+            "title": "Doctype",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "doctype"
+        ],
+        "title": "SeriesCitation",
         "type": "object"
       },
       "SourceAdapter": {

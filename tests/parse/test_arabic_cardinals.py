@@ -86,3 +86,33 @@ def test_bare_scale_multiplier_notation_not_flagged() -> None:
     # "(50) ألف دينار" means 50,000 (numeral × scale), not a second reading.
     assert find_money_word_mismatches("غرامة قدرها (50) ألف دينار زرزوري") == []
     assert find_money_word_mismatches("مبلغ (2) مليون دينار") == []
+
+
+@pytest.mark.parametrize(
+    "currency",
+    [
+        "دينار",
+        "دنانير",
+        "درهم",
+        "دراهم",
+        "ريال",
+        "ريالات",
+        "دولار",
+        "جنيه",
+        "ليرة",
+        "ليرات",
+        "يورو",
+        "فرنك",
+        "شيقل",
+    ],
+)
+def test_every_listed_currency_anchors_the_words(currency: str) -> None:
+    # Words after the numeral, then words before it: both orders need the anchor.
+    after = find_money_word_mismatches(f"بغرامة لا تقل عن (500,000) خمسون ألف {currency}")
+    before = find_money_word_mismatches(f"غرامة قدرها خمسون ألف {currency} (500,000) تدفع")
+    assert [m.words_value for m in after] == [50_000], currency
+    assert [m.words_value for m in before] == [50_000], currency
+
+
+def test_a_non_currency_noun_does_not_anchor() -> None:
+    assert find_money_word_mismatches("بغرامة لا تقل عن (500,000) خمسون ألف كتاب") == []

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import pytest
+
 from codify.translate.numeric_extract import (
     decode_sentinels,
     encode_sentinels,
@@ -103,6 +105,49 @@ class TestExtractTokens:
     def test_no_digits_returns_empty(self):
         m = extract_tokens("The environmental committee shall convene.")
         assert m.tokens == []
+
+
+@pytest.mark.parametrize(
+    "phrase",
+    [
+        "1000 Dinars",
+        "1000 Zerzuran Dinars",
+        "1000 Dirhams",
+        "1000 Riyals",
+        "1000 Dollars",
+        "1000 Shekels",
+        "1000 Euros",
+        "1000 Pounds",
+        "1000 Liras",
+        "1000 Lire",
+        "1000 Francs",
+        "1000 دينار",
+        "1000 دنانير",
+        "1000 درهم",
+        "1000 ريال",
+        "1000 دولار",
+        "1000 شيقل",
+        "1000 جنيه",
+        "1000 ليرة",
+        "1000 يورو",
+        "1000 فرنك",
+        "1000 שקל",
+        "1000 דינר",
+        "1000 דולר",
+        "1000 יורו",
+        "1000 לירה",
+    ],
+)
+def test_every_listed_currency_marks_money(phrase: str) -> None:
+    kinds = {
+        t.kind: t.expected_target_surface for t in extract_tokens(f"a fine of {phrase}.").tokens
+    }
+    assert kinds.get("money") == "1000", phrase
+
+
+def test_a_non_currency_noun_is_not_money() -> None:
+    kinds = [t.kind for t in extract_tokens("a fine of 1000 Books.").tokens]
+    assert "money" not in kinds
 
 
 class TestSentinelEncodeDecode:

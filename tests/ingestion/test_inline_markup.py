@@ -490,33 +490,33 @@ class TestCyrillicExternalRefs:
 
 
 class TestNumberedInstrumentRefs:
-    """Citations by a yearless series number. The pass builds the FRBR work URI
-    from the number alone (no year in the citation → unknown-year slot)."""
+    """Citations by a yearless series number, declared in the jurisdiction's
+    `numbering.series_citations`. The pass builds the FRBR work URI from the
+    number alone (no year in the citation → unknown-year slot)."""
 
     async def test_a_list_of_instruments_is_refused_not_half_captured(self) -> None:
         """One number group captures one number, so a list would wrap the first
         and drop the rest without saying so.
 
-        Refused rather than split. The lists in real text carry OCR damage
-        ("Republic Act 580,1577 and5"), where the trailing fragments decay to
-        numbers that name real laws, so splitting invents targets a resolver
-        would then point at confidently. Losing a list is visible; a wrong
-        edge is not.
+        Refused rather than split. OCR-damaged lists ("Assembly Act 580,1577
+        and5") decay to numbers that name other laws, so splitting invents
+        targets a resolver would then point at confidently. Losing a list is
+        visible; a wrong edge is not.
         """
         for text in (
-            "Repealing Republic Acts Nos. 386 and 387 hereby.",
-            "Repealing Presidential Decrees Nos. 1486, 1606 and 1861 hereby.",
-            "Repealing Republic Act 580,1577 and5 hereby.",
+            "Repealing Assembly Acts Nos. 312 and 313 hereby.",
+            "Repealing Regency Decrees Nos. 1204, 1377 and 1590 hereby.",
+            "Repealing Assembly Act 580,1577 and5 hereby.",
         ):
             assert await self._refs(f"<p>{text}</p>") == []
 
     async def test_a_plural_noun_with_one_number_still_resolves(self) -> None:
         """The refusal is of lists, not of the plural spelling: drafters write
         "Acts Nos." for a single instrument and that citation is unambiguous."""
-        refs = await self._refs("<p>Amending Republic Acts Nos. 386 hereby.</p>")
-        assert refs == ["/akn/ph/act/0001/386"]
+        refs = await self._refs("<p>Amending Assembly Acts Nos. 312 hereby.</p>")
+        assert refs == ["/akn/xa/act/0001/312"]
 
-    async def _refs(self, body_inner: str, country: str = "ph") -> list[str]:
+    async def _refs(self, body_inner: str, country: str = "xa") -> list[str]:
         out = await emit_inline_markup(_act(body_inner), country, "act", client=None)
         root = etree.fromstring(out.encode())
         return [
@@ -525,54 +525,55 @@ class TestNumberedInstrumentRefs:
             if r.get("href", "").startswith("/akn/")
         ]
 
-    async def test_republic_act_full_name(self):
+    async def test_full_series_name(self):
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>This Act amends Republic Act No. 9165.</p></content></section>"
+            "<p>This Act amends Assembly Act No. 7741.</p></content></section>"
         )
-        assert hrefs == ["/akn/ph/act/0001/9165"]
+        assert hrefs == ["/akn/xa/act/0001/7741"]
 
-    async def test_republic_act_abbreviation(self):
+    async def test_series_abbreviation(self):
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>See RA 386 for the general rule.</p></content></section>"
+            "<p>See AA 312 for the general rule.</p></content></section>"
         )
-        assert hrefs == ["/akn/ph/act/0001/386"]
+        assert hrefs == ["/akn/xa/act/0001/312"]
 
-    async def test_presidential_decree(self):
+    async def test_second_series_takes_its_own_doctype(self):
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>Presidential Decree No. 442 is hereby repealed.</p></content></section>"
+            "<p>Regency Decree No. 518 is hereby repealed.</p></content></section>"
         )
-        assert hrefs == ["/akn/ph/act/pd/0001/442"]
+        assert hrefs == ["/akn/xa/act/rd/0001/518"]
 
-    async def test_batas_pambansa_blg(self):
+    async def test_declared_connector(self):
+        """A connector beyond the defaults ("Ser.") is read from the config."""
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>Batas Pambansa Blg. 68 remains in force.</p></content></section>"
+            "<p>Harbour Ordinance Ser. 57 remains in force.</p></content></section>"
         )
-        assert hrefs == ["/akn/ph/act/bp/0001/68"]
+        assert hrefs == ["/akn/xa/act/ho/0001/57"]
 
-    async def test_commonwealth_act(self):
+    async def test_another_full_name_series(self):
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>Commonwealth Act No. 141 governs public land.</p></content></section>"
+            "<p>Mint Statute No. 233 governs the coinage.</p></content></section>"
         )
-        assert hrefs == ["/akn/ph/act/ca/0001/141"]
+        assert hrefs == ["/akn/xa/act/ms/0001/233"]
 
     async def test_full_name_not_double_wrapped_by_abbreviation(self):
         """The full-name citation wraps first; the abbreviation pass must not
         mint a second ref from the same span."""
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>Republic Act No. 9165 applies.</p></content></section>"
+            "<p>Assembly Act No. 7741 applies.</p></content></section>"
         )
-        assert hrefs == ["/akn/ph/act/0001/9165"]
+        assert hrefs == ["/akn/xa/act/0001/7741"]
 
-    async def test_another_jurisdiction_skips_pass(self):
+    async def test_a_jurisdiction_without_series_skips_pass(self):
         hrefs = await self._refs(
             '<section eId="sec_1"><num>1</num><content>'
-            "<p>Republic Act No. 9165 applies.</p></content></section>",
+            "<p>Assembly Act No. 7741 applies.</p></content></section>",
             country="gb",
         )
         assert hrefs == []
@@ -583,16 +584,16 @@ class TestNumberedInstrumentRefs:
         out = await emit_inline_markup(
             _act(
                 '<section eId="sec_1"><num>1</num><content>'
-                "<p>Republic Act No. 6425 is hereby repealed.</p></content></section>"
+                "<p>Assembly Act No. 6093 is hereby repealed.</p></content></section>"
             ),
-            "ph",
+            "xa",
             "act",
             client=None,
         )
         root = etree.fromstring(out.encode())
         ref = root.find(".//akn:ref", NS)
         assert ref is not None
-        assert ref.get("href") == "/akn/ph/act/0001/6425"
+        assert ref.get("href") == "/akn/xa/act/0001/6093"
         # Composed: this pass minted the ref, so it carries the provenance
         # marker as well as the operation. Replacing the class erased the
         # first and the reference read as publisher-authored.

@@ -1,7 +1,7 @@
 """Arabic cardinal-number words: parser + amount-in-words consistency check.
 
 Statutory money amounts are usually written twice, numeral and words:
-``(50,000) خمسون ألف دينار أردني``. OCR corrupts the numeral far more often
+``(50,000) خمسون ألف دينار زرزوري``. OCR corrupts the numeral far more often
 than the words (a misread digit is silent; a misread word is gibberish), so
 when the two readings disagree the words are the stronger signal and the
 disagreement is worth a warning. ``parse_cardinal_words`` reads the words;
@@ -154,9 +154,11 @@ def parse_cardinal_words(words: str) -> int | None:
     return result
 
 
+# Folded spellings (see fold_arabic_for_match): ليرة is stored as ليره.
 _CURRENCY = frozenset(
-    {"دينار", "دينارا", "دنانير", "شيكل", "شيقل", "شواقل"}
-    | {"دولار", "دولارا", "جنيه", "يورو", "ليره"}
+    {"دينار", "دينارا", "دنانير", "درهم", "درهما", "دراهم", "ريال", "ريالا", "ريالات"}
+    | {"دولار", "دولارا", "دولارات", "جنيه", "جنيها", "جنيهات", "ليره", "ليرات"}
+    | {"يورو", "فرنك", "فرنكا", "فرنكات", "شيكل", "شيقل", "شواقل"}
 )
 
 _PAREN_NUMERAL_RE = re.compile(r"\(\s*(?P<numeral>[0-9٠-٩۰-۹][0-9٠-٩۰-۹,.،٬\s]*)\s*\)")
@@ -197,8 +199,8 @@ def _words_after(text: str, start: int) -> tuple[str, int | None]:
 
 def _words_before(text: str, end: int) -> tuple[str, int | None]:
     """Amount-in-words directly before a numeral, currency word adjacent
-    to the paren: ("خمسون ألف دينار أردني (50,000)"). Walks back over the
-    currency (plus at most one adjective like أردني), then collects the
+    to the paren: ("خمسون ألف دينار زرزوري (50,000)"). Walks back over the
+    currency (plus at most one adjective like وطني), then collects the
     trailing run of number-vocabulary tokens."""
     head_tokens = text[:end].split()[-(_WINDOW_TOKENS + 2) :]
     k = len(head_tokens)

@@ -135,7 +135,7 @@ async def emit_inline_markup(
         # so the model sees fewer redundant candidates.
         ext_count_det = _mark_external_refs_deterministic(root, body, country, doctype)
         ext_count_det += _mark_external_refs_cyrillic(body, country, doctype)
-        ext_count_det += _mark_external_refs_numbered(body, country)
+        ext_count_det += _mark_external_refs_numbered(body, country, cfg)
         logger.debug("inline_pass_4a_ext_refs_det", country=country, count=ext_count_det)
 
         # Pass 4a2: named-act references via the jurisdiction's short-title index
@@ -553,42 +553,36 @@ def _cyr_make_ref(country: str, doctype: str) -> Callable[[re.Match[str]], etree
     return builder
 
 
-# --- Pass 4a3: numbered-instrument citations --------------------------------
+# --- Pass 4a3: series-number citations -------------------------------------
 
-# Citations by a yearless series number. The lookahead refuses a list: splitting
-# OCR-damaged lists ("580,1577 and5") would invent confident targets.
-_NUMBERED_TAIL = (
-    r"\s+(?:No\.?|Nos\.?|Numbered|Blg\.?)?\s*(?P<num>\d+)\b"
-    r"(?!\s*(?:,|and|&)\s*(?:Nos?\.?\s*)?\d)"
-)
-
-# Kind → FRBR doctype. Full names precede abbreviations so the specific citation
-# wraps first and the abbreviation pass leaves the wrapped span alone. Executive
-# Orders are excluded: their FRBR pattern needs a president slug that a citation
-# never carries. Plain "Act No. N" is excluded too: it has no distinct doctype
-# and would collide with Republic Act URIs.
-_NUMBERED_CITATIONS: tuple[tuple[re.Pattern[str], str], ...] = (
-    (re.compile(rf"\bRepublic\s+Acts?{_NUMBERED_TAIL}", re.I), "act"),
-    (re.compile(rf"\bPresidential\s+Decrees?{_NUMBERED_TAIL}", re.I), "pd"),
-    (re.compile(rf"\bBatas\s+Pambansa{_NUMBERED_TAIL}", re.I), "bp"),
-    (re.compile(rf"\bCommonwealth\s+Acts?{_NUMBERED_TAIL}", re.I), "ca"),
-    (re.compile(rf"\bR\.?\s?A\.?{_NUMBERED_TAIL}", re.I), "act"),
-    (re.compile(rf"\bP\.?\s?D\.?{_NUMBERED_TAIL}", re.I), "pd"),
-    (re.compile(rf"\bB\.?\s?P\.?{_NUMBERED_TAIL}", re.I), "bp"),
-    (re.compile(rf"\bC\.?\s?A\.?{_NUMBERED_TAIL}", re.I), "ca"),
-)
+# The lookahead refuses a list: splitting OCR-damaged lists ("580,1577 and5")
+# would invent confident targets.
+_LIST_GUARD = r"(?!\s*(?:,|and|&)\s*(?:Nos?\.?\s*)?\d)"
 
 
-def _mark_external_refs_numbered(body: etree._Element, country: str) -> int:
-    """Detect numbered-instrument citations and build FRBR work URIs straight
-    from the instrument number.
+def _series_citation_patterns(cfg: JurisdictionConfig) -> list[tuple[re.Pattern[str], str]]:
+    """The jurisdiction's declared series citations, compiled in declared order."""
+    numbering = cfg.numbering
+    if numbering is None or not numbering.series_citations:
+        return []
+    connectors = "|".join(numbering.series_citation_connectors)
+    tail = rf"\s+(?:{connectors})?\s*(?P<num>\d+)\b{_LIST_GUARD}"
+    return [
+        (re.compile(rf"\b(?:{series.name}){tail}", re.I), series.doctype)
+        for series in numbering.series_citations
+    ]
+
+
+def _mark_external_refs_numbered(
+    body: etree._Element, country: str, cfg: JurisdictionConfig
+) -> int:
+    """Wrap series-number citations with FRBR work URIs built from the number.
 
     The series never reuses a number, so the year slot takes the unknown-year
-    placeholder. Gated on jurisdiction: Latin script gives no content trigger.
-
-    Logs per-doctype hit counts so ingest can report hit rates.
+    placeholder. Logs per-doctype hit counts so ingest can report hit rates.
     """
-    if country != "ph":
+    patterns = _series_citation_patterns(cfg)
+    if not patterns:
         return 0
 
     hits: dict[str, int] = {}
@@ -606,7 +600,7 @@ def _mark_external_refs_numbered(body: etree._Element, country: str) -> int:
 
     count = 0
     for p in body.iter(f"{{{AKN_NS}}}p"):
-        for pattern, doctype in _NUMBERED_CITATIONS:
+        for pattern, doctype in patterns:
             count += _wrap_text_matches(p, pattern, builder(doctype))
 
     if count:

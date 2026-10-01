@@ -455,6 +455,22 @@ class FrbrConfig(BaseModel):
         return self
 
 
+class SeriesCitation(BaseModel):
+    """A citation naming an instrument by series number alone ("Act No. 386")."""
+
+    model_config = _STRICT
+
+    # Regex for the instrument's name or abbreviation, matched case-insensitively.
+    name: str
+    doctype: str
+
+    @field_validator("name")
+    @classmethod
+    def _name_compiles(cls, value: str) -> str:
+        re.compile(value)
+        return value
+
+
 class NumberingConfig(BaseModel):
     model_config = _LOOSE
 
@@ -476,6 +492,20 @@ class NumberingConfig(BaseModel):
     # rather than about the corpus held, which may hold only one of the
     # collisions and so cannot disprove it.
     numbers_unique_across_years: bool = False
+    # Instruments cited by a never-reused series number and no year. Order
+    # matters: full names before abbreviations, so the full form wraps first.
+    series_citations: list[SeriesCitation] = Field(default_factory=list)
+    # Regex fragments that may sit between a series name and its number.
+    series_citation_connectors: list[str] = Field(
+        default_factory=lambda: [r"No\.?", r"Nos\.?", "Numbered"]
+    )
+
+    @field_validator("series_citation_connectors")
+    @classmethod
+    def _connectors_compile(cls, value: list[str]) -> list[str]:
+        for fragment in value:
+            re.compile(fragment)
+        return value
 
 
 class EnactingFormula(BaseModel):

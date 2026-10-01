@@ -242,7 +242,16 @@
     "act_citation": "{Short Title}",
     "act_citation_alt": "Act No. {number} of {year}",
     "insertion_style": "alphanumeric",
-    "note": "Acts cited by short title (e.g. 'Legislation Act, 1992') or by number and year."
+    "note": "Acts cited by short title (e.g. 'Legislation Act, 1992') or by number and year. Assembly Acts, Regency Decrees, Harbour Ordinances and Mint Statutes run in never-reused series and are cited by number alone.",
+    "series_citations": [
+      { "name": "Assembly\\s+Acts?", "doctype": "act" },
+      { "name": "Regency\\s+Decrees?", "doctype": "rd" },
+      { "name": "Harbour\\s+Ordinances?", "doctype": "ho" },
+      { "name": "Mint\\s+Statutes?", "doctype": "ms" },
+      { "name": "A\\.?\\s?A\\.?", "doctype": "act" },
+      { "name": "R\\.?\\s?D\\.?", "doctype": "rd" }
+    ],
+    "series_citation_connectors": ["No\\.?", "Nos\\.?", "Numbered", "Ser\\.?"]
   },
   "enacting_formulae": [
     {
