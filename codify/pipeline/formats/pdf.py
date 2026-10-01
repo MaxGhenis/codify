@@ -29,6 +29,7 @@ from codify.pipeline.enrich.ocr import (
     extract_text_from_pdf,
     furniture_inline_patterns,
     unreadable_pages,
+    unreadable_reason,
 )
 from codify.pipeline.enrich.region_text import combine_text_for_structure
 from codify.pipeline.enrich.regions import (
@@ -145,6 +146,7 @@ async def ingest(
                 text_len=len(page.text),
                 divert_reason=page.divert_reason,
                 finish_reason=page.finish_reason,
+                unreadable=unreadable_reason(page),
             )
         if on_pages:
             on_pages(pages)

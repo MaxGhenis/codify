@@ -24,6 +24,9 @@ class PageExtracted(_EventBase):
     # The vision route's finish reason, so a content-filter refusal is not read
     # as a blank page. Empty where no vision call was made.
     finish_reason: str = ""
+    # Why the page's content is missing from the read (`unreadable_reason`);
+    # empty for a page read whole or a blank leaf.
+    unreadable: str = ""
 
 
 class MetadataExtracted(_EventBase):

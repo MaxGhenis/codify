@@ -74,8 +74,13 @@ async def test_a_refused_page_reaches_the_events_the_findings_and_the_akn(
 ) -> None:
     events = await _events(monkeypatch, tmp_path)
 
-    extracted = [(e.page, e.finish_reason) for e in events if isinstance(e, PageExtracted)]
-    assert extracted == [(1, ""), (2, "content_filter: RECITATION")]
+    extracted = [
+        (e.page, e.finish_reason, e.unreadable) for e in events if isinstance(e, PageExtracted)
+    ]
+    assert extracted == [
+        (1, "", ""),
+        (2, "content_filter: RECITATION", "content_filter: RECITATION"),
+    ]
 
     unreadable = [
         (e.issue["severity"], e.issue["pages"])
@@ -122,3 +127,29 @@ async def test_a_config_fault_in_the_region_pass_fails_the_run(
         ("regions", "JurisdictionConfigError: no config")
     ]
     assert not [e for e in events if isinstance(e, Complete)]
+
+
+@pytest.mark.asyncio
+async def test_an_inked_page_read_empty_says_so_on_its_event(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    """No finish reason to go on: the event still tells it from a blank leaf."""
+
+    async def _extract(*_a: object, **_k: object) -> list[PageResult]:
+        return [
+            PageResult(page_number=1, text=_PAGE_ONE, method="text_extraction"),
+            PageResult(
+                page_number=2, text="", method="vision_ocr", divert_reason="too_short", ink=0.3
+            ),
+            PageResult(
+                page_number=3, text="", method="vision_ocr", divert_reason="too_short", ink=0.001
+            ),
+        ]
+
+    monkeypatch.setattr(pdf_mod, "extract_text_from_pdf", _extract)
+    source = tmp_path / "act.pdf"
+    source.write_bytes(b"%PDF-fake")
+    events = [e async for e in pdf_mod.ingest(source, "xa", llm=_BodyFillOnly())]  # type: ignore[arg-type]
+    page_events = [e for e in events if isinstance(e, PageExtracted)]
+    assert [(e.page, e.unreadable) for e in page_events] == [(1, ""), (2, "empty_read"), (3, "")]
+    assert '"unreadable":"empty_read"' in page_events[1].model_dump_json()
