@@ -937,3 +937,15 @@ def test_an_empty_series_citation_name_is_refused(name: str) -> None:
 
     with pytest.raises(ValidationError, match="must not be empty"):
         SeriesCitation(name=name, doctype="act")
+
+
+def test_a_connector_that_clashes_with_the_number_group_is_refused() -> None:
+    from pydantic import ValidationError
+
+    from codify.jurisdictions import NumberingConfig
+
+    with pytest.raises(ValidationError, match="redefinition of group name"):
+        NumberingConfig(
+            series_citations=[{"name": "Act", "doctype": "act"}],
+            series_citation_connectors=[r"(?P<num>No)\.?"],
+        )

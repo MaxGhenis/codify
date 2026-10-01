@@ -222,7 +222,7 @@ class TestUnmeasurableDocuments:
         assert summary["documents_without_basic_unit"] == 0
 
     def test_a_class_with_no_grouping_level_cannot_lose_a_container(self) -> None:
-        """`sy/decree` declares article and paragraph only, so counting it as a
+        """`xz/decree` declares article and paragraph only, so counting it as a
         document that lost its chapters is counting an impossibility."""
         scan = scan_text(_TWO_ARTICLES, config=load_config("xz"), country="xz", doctype="decree")
         assert scan.grouping_declared is False

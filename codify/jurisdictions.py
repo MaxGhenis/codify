@@ -510,6 +510,18 @@ class NumberingConfig(BaseModel):
             re.compile(fragment)
         return value
 
+    @model_validator(mode="after")
+    def _series_patterns_compose(self) -> "NumberingConfig":
+        # Compile each name with the connectors as the inline-markup pass does,
+        # so a clashing group name fails at load rather than on every run.
+        connectors = "|".join(self.series_citation_connectors)
+        for series in self.series_citations:
+            try:
+                re.compile(rf"(?:{series.name})\s+(?:{connectors})?\s*(?P<num>\d+)")
+            except re.error as exc:
+                raise ValueError(f"series citation {series.name!r}: {exc}") from exc
+        return self
+
 
 class EnactingFormula(BaseModel):
     model_config = _LOOSE
