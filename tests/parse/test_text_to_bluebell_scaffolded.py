@@ -913,3 +913,21 @@ async def test_a_preface_line_shaped_like_a_heading_is_not_a_container():
     body = result.split("BODY", 1)[1]
     part_1 = body.split("PART II", 1)[0]
     assert "Page 2 of the source" in part_1, result
+
+
+def test_markers_past_the_closing_cut_move_with_the_text_after_it():
+    """Offsets after the cut close up by its width; those inside go to the conclusions."""
+    from codify.pipeline.enrich.closing import BodyBound
+    from codify.pipeline.enrich.structure import _rebase_markers
+
+    source = "0123456789CLOSE\nXYZ"
+    bound = BodyBound(
+        text=source[:10] + source[15:],
+        anchors=[],
+        conclusions="CLOSE",
+        cut_at=10,
+        excluded_chars=5,
+    )
+    body, conclusions = _rebase_markers([(3, 1), (12, 2), (17, 3)], bound, source)
+    assert body == [(3, 1), (12, 3)]
+    assert conclusions is not None and "Page 2 of the source" in conclusions
