@@ -955,3 +955,20 @@ async def test_a_model_that_answered_once_is_not_unreachable():
     fill = traces[0].body_fill
     assert (fill.calls_failed < fill.calls, fill.model_filled, traces[0].halts) == (True, 0, ())
     assert list(fill.verbatim) == _XA_EIDS
+
+
+@pytest.mark.asyncio
+async def test_a_table_restored_from_the_source_counts_as_copied_in():
+    """The model's body lost the table, so the body shipped is the source's."""
+    from pathlib import Path
+
+    table = (Path(__file__).parents[1] / "pipeline/fixtures/ministerial_table.txt").read_text()
+    client = _RecordingLLMClient(
+        {"sec_1": BodyBlock(eid="sec_1", lines=["A summary that loses every cell."])}
+    )
+    traces: list = []
+    await text_to_bluebell_scaffolded(
+        "SECTION 1\n" + table, client=client, country="xa", doctype="act", on_scan=traces.append
+    )
+    fill = traces[0].body_fill
+    assert (fill.verbatim, fill.model_filled) == (("sec_1",), 0)

@@ -975,7 +975,10 @@ async def text_to_bluebell_scaffolded(
             if fallback:
                 logger.info("body_fill_verbatim_fallback", count=len(fallback))
                 absorb([BodyFillResponse(bodies=fallback)])
-        verbatim = {b.eid for b in fallback}
+        # Before the trace: a body whose table the model changed is restored
+        # from the source, so it counts as copied in, not as the model's.
+        literal_eids = preserve_source_tables(text, anchors, by_eid)
+        verbatim = {b.eid for b in fallback} | literal_eids
         stats = BodyFillTrace(
             windows=total,
             calls=calls,
@@ -1015,7 +1018,6 @@ async def text_to_bluebell_scaffolded(
                 )
             )
 
-        literal_eids = preserve_source_tables(text, anchors, by_eid)
         _place_unreadable_remarks(unreadable, anchors, by_eid, basic, text)
         return assemble_filled_scaffold(
             scaffold,

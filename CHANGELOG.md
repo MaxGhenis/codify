@@ -22,8 +22,8 @@ Breaks, in that the structurer's output changes for documents it already read:
      structurer now receives the unreadable-page marker and places the remark
      itself; `combine_text_for_structure` no longer strips it.
    - Body-fill records what it achieved (`ScanTrace.body_fill`). Bodies copied
-     from the source after the model failed them are a `body_fill_verbatim`
-     warning; bodies left empty a `body_fill_incomplete` error. When every
+     from the source after the model failed them, or restored because the model
+     changed a table, are a `body_fill_verbatim` warning; bodies left empty a `body_fill_incomplete` error. When every
      call failed and the model wrote no body, the structurer raises
      `BodyFillError`, or under `halt_policy="land"` records a `body_fill_failed`
      halt. The scan trace is emitted once, after body-fill.
