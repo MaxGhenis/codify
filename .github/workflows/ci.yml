@@ -67,6 +67,29 @@ jobs:
           EMBEDDING_BASE_URL: http://127.0.0.1:1
         run: uv run --frozen pytest tests -m "not integration and not live_llm" -q
 
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      POSTGRES_URL: postgresql://codify:codify@localhost:5432/codify
+      # An unreachable database fails the run instead of skipping it.
+      REQUIRE_DB: '1'
+      LITELLM_BASE_URL: http://127.0.0.1:1
+      EMBEDDING_BASE_URL: http://127.0.0.1:1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          python-version: '3.12'
+          enable-cache: true
+          cache-dependency-glob: 'uv.lock'
+      - run: uv sync --frozen --group dev --extra migrations --extra serve --extra mcp
+      - run: docker compose up --build -d --wait postgres
+      - run: uv run --frozen alembic -c alembic.ini upgrade head
+      - run: uv run --frozen pytest tests -m "integration and not live_llm" -q
+      - if: always()
+        run: docker compose down --volumes
+
   build:
     runs-on: ubuntu-latest
     steps:

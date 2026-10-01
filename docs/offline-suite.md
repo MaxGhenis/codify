@@ -13,7 +13,7 @@ explicitly; a pass does not validate those configurations.
 
 Database tests need a disposable PostgreSQL instance with pgvector and
 pg_textsearch. Some tests commit or recreate data, so never point them at a
-shared or production database. The default CI job does not run them.
+shared or production database. The `integration` CI job runs them.
 
 1. `docker compose up -d --wait postgres` builds and starts one. `POSTGRES_URL`
    defaults to that container, `postgresql://codify:codify@localhost:5432/codify`.
