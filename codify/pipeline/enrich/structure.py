@@ -901,10 +901,9 @@ async def text_to_bluebell_scaffolded(
         )
         fill_trace.append(stats)
 
-        if failed == total and not any(b.lines for b in by_eid.values()):
-            # Every window failed and nothing recovered it, so the document has a
-            # correct skeleton and no law in it. Left to succeed, it reaches the
-            # write gate as a near-empty AKN and reads as a structuring result.
+        if failed and failed == calls and not any(b.lines for b in by_eid.values()):
+            # Every call failed, recovery included, and nothing recovered it: a
+            # correct skeleton with no law in it, refused under either policy.
             raise BodyFillError(windows=total)
         if failed and stats.expected and not stats.model_filled:
             # The model wrote no body: what remains is source text copied in
@@ -913,7 +912,7 @@ async def text_to_bluebell_scaffolded(
                 "body_fill_no_model_output", calls=calls, failed=failed, expected=stats.expected
             )
             detail = (
-                f"{failed} of {calls} body-fill calls failed and none wrote a body; "
+                f"{failed} of {calls} body-fill calls failed, so the model wrote no body; "
                 f"{len(stats.verbatim)} of {stats.expected} bodies are source text "
                 f"copied in unstructured and {len(stats.empty)} are empty"
             )

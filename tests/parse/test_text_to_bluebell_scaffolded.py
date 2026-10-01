@@ -349,7 +349,7 @@ async def test_no_model_output_lands_blocking_with_the_source_text():
 @pytest.mark.asyncio
 async def test_no_model_output_fails_the_run_under_the_fail_policy():
     traces: list = []
-    with pytest.raises(BodyFillError, match="none wrote a body"):
+    with pytest.raises(BodyFillError, match="wrote no body"):
         await text_to_bluebell_scaffolded(
             _XA_TEXT,
             client=_AlwaysFailingLLMClient(),
@@ -741,3 +741,23 @@ async def test_a_body_nothing_could_fill_is_recorded_empty(monkeypatch):
     )
     fill = traces[0].body_fill
     assert (fill.verbatim, fill.empty, fill.model_filled) == ((), ("part_II__sec_3",), 3)
+
+
+@pytest.mark.asyncio
+async def test_no_law_at_all_is_refused_even_when_landing(monkeypatch):
+    """Every call failed, recovery windows included, and the source copy failed
+    too: there is nothing to land, whatever the policy."""
+    from codify.pipeline.enrich import structure
+
+    def _broken(*_a, **_k):
+        raise RuntimeError("no source copy")
+
+    monkeypatch.setattr(structure, "fill_bodies_verbatim", _broken)
+    with pytest.raises(BodyFillError, match="has no body"):
+        await text_to_bluebell_scaffolded(
+            _XA_TEXT,
+            client=_AlwaysFailingLLMClient(),
+            country="xa",
+            doctype="act",
+            halt_policy="land",
+        )
