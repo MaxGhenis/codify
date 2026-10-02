@@ -625,3 +625,14 @@ def test_an_image_is_named_in_place_and_graded_a_warning() -> None:
     assert "[image not transcribed: form.gif]" in texts
     assert any("Applicants [image not transcribed: tick.gif] sign." == t for t in texts)
     assert signal_finding("html_images", 2)["severity"] == "warning"
+
+
+def test_an_act_nested_inside_an_unclosed_paragraph_still_segments() -> None:
+    # Older Cellar pages wrap the act in `<p><TXT_TE>` and never close the `<p>`.
+    wrapped = _HTML.replace('<div id="TexteOnly">', '<div id="TexteOnly">\n<p>\n<TXT_TE>', 1)
+    assert wrapped != _HTML
+    _, _, flat = _convert()
+    _, _, nested = _convert(wrapped)
+    numbers = [n.text for n in nested.iterfind(".//a:article/a:num", NS)]
+    assert numbers == [n.text for n in flat.iterfind(".//a:article/a:num", NS)]
+    assert len(numbers) == 4

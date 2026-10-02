@@ -85,6 +85,10 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
         container = root.find("body")
         if container is None:
             raise EurlexHtmlError("no body in the HTML")
+    # Cellar's older pages open `<p><TXT_TE>` and never close the `<p>`, so the parser
+    # nests the whole act inside it; a paragraph holding paragraphs is unwrapped.
+    for outer in [p for p in container.iter("p") if next(p.iterdescendants("p"), None) is not None]:
+        outer.drop_tag()
     # A line break is a space, so `Effective<br>immediately` keeps its two words.
     for br in container.iter("br"):
         br.tail = " " + (br.tail or "")
