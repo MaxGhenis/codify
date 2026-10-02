@@ -645,6 +645,11 @@ class AttachmentCaption(BaseModel):
     prefix: bool = False
 
 
+def heading_line_pattern(pattern: str) -> re.Pattern[str]:
+    """A heading pattern as it runs: from a line start, past indentation."""
+    return re.compile(rf"(?m)^[ \t]*(?:{pattern})")
+
+
 def _refuse_empty_match(pattern: str, what: str) -> re.Pattern[str]:
     """The compiled pattern; one that can match nothing would fire on every line."""
     try:
@@ -676,6 +681,13 @@ class SegmentationConfig(BaseModel):
     def _headings_compile(cls, value: list[str]) -> list[str]:
         for pattern in value:
             _refuse_empty_match(pattern, "a heading pattern")
+            # Global flags mid-pattern fail only once wrapped, so check the wrapped form.
+            try:
+                heading_line_pattern(pattern)
+            except re.error as exc:
+                raise ValueError(
+                    f"a heading pattern does not compile at a line start: {pattern!r}: {exc}"
+                ) from exc
         return value
 
     @field_validator("contents_keywords")

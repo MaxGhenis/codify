@@ -631,3 +631,133 @@ def test_the_page_an_entry_names_ends_the_listing(config: JurisdictionConfig) ->
     result = segment(text, spans, config=config)
     assert [s.key for s in result.segments] == ["act 3", "act 4", "act 5"]
     assert [r.status for r in result.reconciliation if r.key == "act 3"] == ["matched", "matched"]
+
+
+def test_a_caption_only_opening_a_longer_line_does_not_veto(config: JurisdictionConfig) -> None:
+    """`ANNEX` is declared a whole-line caption, so `ANNEX TO ...` in prose is not one."""
+    first = _act(3, "THE HARBOUR DUES ACT", 4)
+    first += ["ANNEX TO THE OLD HARBOUR RULES is repealed.", "", *_signed()]
+    text, spans = _join([first, _act(4, "THE LIGHTHOUSE ACT", 3) + _signed()])
+    result = segment(text, spans, config=config)
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_a_prefix_caption_vetoes_from_the_start_of_its_line(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    fields = _config(attachments=[{"caption": "ANNEX", "prefix": True}])
+    act = _act(2, "THE HARBOUR CODE (ISSUING) ACT", 3) + _signed()
+    code = ["ANNEX TO THE ISSUING ACT", "", *_act(1, "THE HARBOUR CODE", 6, doctype="CODE")]
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        text, spans = _join([act, code])
+        result = segment(text, spans, config=load_config(COUNTRY))
+    vetoed = [(r.key, r.veto) for r in result.reconciliation if r.status == "vetoed"]
+    assert vetoed == [("code 1", "follows an attachment caption")]
+
+
+def test_contents_with_no_heading_found_in_the_body_is_held(config: JurisdictionConfig) -> None:
+    """Every listed heading lost to extraction: the listing and body disagree."""
+    pages = _three_act_issue()
+    for lines in pages[1:]:
+        lines[:] = [line.replace("ACT No.", "ACT N0.") for line in lines]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "abstained"
+    assert [(r.key, r.status) for r in result.reconciliation] == [
+        ("act 3", "contents_only"),
+        ("act 4", "contents_only"),
+        ("act 5", "contents_only"),
+    ]
+    assert result.segments == ()
+    _conserved(result, text)
+
+
+def test_an_unlisted_citation_cannot_open_the_source(config: JurisdictionConfig) -> None:
+    """The first heading is a citation the contents does not list; the first listed
+    heading opens the source, and the citation stays in front matter."""
+    pages = _three_act_issue()
+    pages[1][2:2] = ["NOTICE", "ACT No. 9 OF 2019 governs what follows.", ""]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4", "act 5"]
+    assert result.front_matter == (0, text.index("ACT No. 3 OF 2020\nTHE HARBOUR"))
+    row = next(r for r in result.reconciliation if r.key == "act 9")
+    assert (row.status, row.signals) == ("heading_only", ())
+    _conserved(result, text)
+
+
+def test_a_doubt_before_the_opening_is_held_not_front_matter(
+    config: JurisdictionConfig,
+) -> None:
+    """A listed act whose heading was lost sits ahead of the first heading found."""
+    contents = _contents_page([("ACT No. 2 OF 2020", 2), ("ACT No. 3 OF 2020", 3)])
+    lost = ["- 2 -", "", "ACT N0. 2 OF 2020", "THE TOLLS NOTICE", "", "Tolls are abolished."]
+    pages = [contents, lost + _signed(), ["- 3 -", "", *_act(3, "A", 3), *_signed()]]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "abstained"
+    assert result.front_matter is None
+    opening = text.index("ACT No. 3 OF 2020\nA")
+    assert [(h.start, h.end) for h in result.held] == [(0, opening)]
+    assert "listed in the contents but no heading found" in result.held[0].reason
+    assert [s.key for s in result.segments] == ["act 3"]
+    _conserved(result, text)
+
+
+def test_a_new_issue_below_a_running_head_on_the_same_page_splits(
+    config: JurisdictionConfig,
+) -> None:
+    pages = _issue(11, [(1, "THE FERRIES ACT")])
+    pages.append(["ISSUE No. 11", "", "ISSUE No. 12", "THE ATLANTIS GAZETTE", ""])
+    pages.append(["- 2 -", "", *_act(2, "THE TOLLS ACT", 3), *_signed()])
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 2), ("12", 3, 4)]
+    assert found[1].signals == ("closing",)
+
+
+@pytest.mark.parametrize(
+    "opener",
+    [
+        pytest.param(["\u201c"], id="on-the-page"),
+        pytest.param([], id="carried-from-the-page-before"),
+    ],
+)
+def test_a_quoted_issue_heading_is_not_a_boundary(
+    config: JurisdictionConfig, opener: list[str]
+) -> None:
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    if not opener:
+        issue[-1] = [*issue[-1], "The notice reads: \u201c"]
+    issue.append([*opener, "ISSUE No. 12", "is withdrawn.\u201d"])
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 3)]
+    assert found[0].segmentation.outcome != "abstained"
+
+
+@pytest.mark.parametrize(
+    "before",
+    [
+        pytest.param([_signed(), ["Schedule of tolls.", ""]], id="two-pages-back"),
+        pytest.param([[f"It cites \u201c{CLOSING}\u201d.", ""]], id="quoted"),
+        pytest.param(
+            [[f"Section 4. Done as if {CLOSING}.", "Section 5. Duty 5", ""]], id="inside-the-act"
+        ),
+    ],
+)
+def test_an_issue_closing_must_close_the_page_before(
+    config: JurisdictionConfig, before: list[list[str]]
+) -> None:
+    """Only an unquoted closing after the last provision of the page before agrees."""
+    pages = [["ISSUE No. 11", ""], _act(1, "THE FERRIES ACT", 3) + before[0], *before[1:]]
+    pages.append(["Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"])
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [(i.key, i.status) for i in found] == [("11", "uncorroborated")]
+    assert "ISSUE No. 12" in found[0].segmentation.held[0].reason
+
+
+def test_an_issue_closing_on_the_page_before_agrees(config: JurisdictionConfig) -> None:
+    pages = [["ISSUE No. 11", ""], _act(1, "THE FERRIES ACT", 3) + _signed()]
+    pages.append(["Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"])
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [(i.key, i.signals) for i in found] == [("11", ()), ("12", ("closing",))]

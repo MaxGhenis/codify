@@ -19,7 +19,7 @@ from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from typing import Literal
 
-from codify.jurisdictions import JurisdictionConfig, SegmentationConfig
+from codify.jurisdictions import JurisdictionConfig, SegmentationConfig, heading_line_pattern
 from codify.lang import normalise_digits
 from codify.pipeline.enrich.adoption import _pattern as _adoption_pattern
 from codify.pipeline.enrich.anchors import (
@@ -215,7 +215,7 @@ def _key(match: re.Match[str]) -> str:
 
 def _heading_patterns(patterns: Sequence[str]) -> list[re.Pattern[str]]:
     # One pattern each: two may both name a `number` group.
-    return [re.compile(rf"(?m)^[ \t]*(?:{p})") for p in patterns]
+    return [heading_line_pattern(p) for p in patterns]
 
 
 def _headings(text: str, patterns: Sequence[re.Pattern[str]], pages: _Pages) -> list[_Heading]:
@@ -340,10 +340,20 @@ def _phrases_regex(phrases: Iterable[str]) -> re.Pattern[str] | None:
 
 
 def _caption_regex(config: JurisdictionConfig) -> re.Pattern[str] | None:
-    captions = [a.caption for a in config.attachments if a.caption.strip()]
-    if not captions:
-        return None
-    return re.compile(r"(?m)^[ \t]*(?:" + "|".join(map(re.escape, captions)) + r")(?!\w)")
+    """Caption lines as the attachment scan reads them: a prefix caption opens its
+    line, any other is the whole line, numbered or followed by a colon at most."""
+    declared = [a for a in config.attachments if a.caption.strip()]
+    exact = "|".join(re.escape(a.caption) for a in declared if not a.prefix)
+    opener = "|".join(re.escape(a.caption) for a in declared if a.prefix)
+    alts = [
+        *(
+            [rf"(?:{exact})(?:[ \t]+(?:[IVXLCDM]+|\d+))?[ \t]*(?:[:：][ \t]*(?=\S)|\r?$)"]
+            if exact
+            else []
+        ),
+        *([rf"(?:{opener})(?!\w)"] if opener else []),
+    ]
+    return re.compile(r"(?m)^[ \t]*(?:" + "|".join(alts) + ")") if alts else None
 
 
 class _Rules:
@@ -414,7 +424,7 @@ def segment(
     markers = _markers(text, config, doctype or config.default_document_class)
     blocks, entries = _contents(text, rules, headings, markers, pages)
     candidates = [h for h in headings if not _within(h.start, blocks)]
-    if not candidates:
+    if not candidates and not entries:
         return _single(text, spans)
     return _decide(text, pages, candidates, entries, markers, _Rules(config))
 
@@ -427,7 +437,10 @@ def _decide(
     markers: list[_Marker],
     rules: _Rules,
 ) -> Segmentation:
-    opening = candidates[0] if not any(m.offset < candidates[0].start for m in markers) else None
+    # Where a contents listing exists, only a heading it lists can open the source.
+    listed = {e.key for e in entries}
+    first = next((c for c in candidates if not entries or c.key in listed), None)
+    opening = first if first and not any(m.offset < first.start for m in markers) else None
     rows: list[ReconciliationRow] = []
     decided: list[tuple[_Heading, tuple[str, ...]]] = []
     # Where the evidence disagreed, and why; None places a doubt nowhere, so everywhere.
@@ -435,8 +448,8 @@ def _decide(
     unmatched = list(entries)
     # An entry another heading names is that heading's, never a mismatch for this one.
     named = {c.key for c in candidates}
-    open_heading = opening
-    previous = opening.start if opening else 0
+    open_heading: _Heading | None = None
+    previous = 0
     for index, heading in enumerate(candidates):
         following = candidates[index + 1].start if index + 1 < len(candidates) else len(text)
         is_opening = heading is opening
@@ -467,6 +480,8 @@ def _decide(
             open_heading, previous = heading, heading.start
         elif status != "heading_only" or signals:
             doubts.append((heading.start, row.describe()))
+        if is_opening:
+            open_heading, previous = heading, heading.start
     for entry in unmatched:
         row = _entry_row(entry, "contents_only")
         rows.append(row)
@@ -596,6 +611,11 @@ def _assemble(
     cuts += [(_cut(pages, h, signals), h, signals) for h, signals in decided]
     segments: list[Segment] = []
     held: list[HeldSpan] = []
+    # A doubt ahead of the opening is not front matter: hold that region instead.
+    early = [why for at, why in doubts if at is not None and at < first]
+    if early:
+        first_page, last_page = _page_range(pages, 0, first)
+        held.append(HeldSpan(0, first, first_page, last_page, "; ".join(early), text[:first]))
     for index, (start, heading, signals) in enumerate(cuts):
         end = cuts[index + 1][0] if index + 1 < len(cuts) else len(text)
         first_page, last_page = _page_range(pages, start, end)
@@ -618,7 +638,8 @@ def _assemble(
             )
         )
     outcome: Outcome = "abstained" if held else "decided"
-    return Segmentation(outcome, tuple(segments), tuple(held), rows, (0, first) if first else None)
+    front = (0, first) if first and not early else None
+    return Segmentation(outcome, tuple(segments), tuple(held), rows, front)
 
 
 def _cut(pages: _Pages, heading: _Heading, signals: tuple[str, ...]) -> int:
@@ -708,11 +729,13 @@ def segment_volume(
     closing = _closing_regex(config)
     issue = _OpenIssue()
     waiting: tuple[SourcePage, re.Match[str]] | None = None
+    before = ""
     for page in pages:
         if waiting is not None:
             issue = yield from _settle(issue, *waiting, page, printed, closing, config, doctype)
             waiting = None
-        match = _first_match(page.text, patterns)
+        match = _issue_heading(page.text, patterns, issue.key if issue.pages else None, before)
+        before = page.text
         if match is not None and issue.pages:
             # Decided once the next page is read: a restart may first show there.
             waiting = (page, match)
@@ -739,14 +762,10 @@ def _settle(
     """Close the open issue at `page` if its heading is agreed, else absorb it."""
     heading, key = _line(page.text, match), _key(match)
     issue_pages = issue.pages
-    if key == issue.key:
-        # A running head repeating the open issue: no boundary, nothing in doubt.
-        issue.pages.append(page)
-        return issue
     signals: list[str] = []
     if _bare(page.text[: page.text.rfind("\n", 0, match.start()) + 1], printed):
         signals.append("page_start")
-    if closing is not None and any(closing.search(p.text) for p in issue_pages[-2:]):
+    if _closes(issue_pages[-1].text, closing, config, doctype):
         signals.append("closing")
     seen = [
         n for p in issue_pages if (n := _printed_number(p.text, p.furniture, printed)) is not None
@@ -798,9 +817,29 @@ def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -
     )
 
 
-def _first_match(text: str, patterns: Sequence[re.Pattern[str]]) -> re.Match[str] | None:
-    found = [m for p in patterns if (m := p.search(text)) is not None]
-    return min(found, key=lambda m: m.start()) if found else None
+def _issue_heading(
+    text: str, patterns: Sequence[re.Pattern[str]], open_key: str | None, before: str
+) -> re.Match[str] | None:
+    """The page's first issue heading that is neither the open issue's running head
+    nor quoted, a quotation opened on the page before included."""
+    carried = before[-VETO_WINDOW:] + PAGE_SEPARATOR
+    joined = carried + text
+    found = sorted((m for p in patterns for m in p.finditer(text)), key=lambda m: m.start())
+    return next(
+        (m for m in found if _key(m) != open_key and not _quoted(joined, len(carried) + m.start())),
+        None,
+    )
+
+
+def _closes(
+    text: str, closing: re.Pattern[str] | None, config: JurisdictionConfig, doctype: str | None
+) -> bool:
+    """An unquoted closing after the page's last numbered provision, as for acts."""
+    if closing is None:
+        return False
+    markers = _markers(text, config, doctype or config.default_document_class)
+    lo = markers[-1].offset if markers else 0
+    return any(not _quoted(text, m.start()) for m in closing.finditer(text, lo))
 
 
 def _line(text: str, match: re.Match[str]) -> str:
