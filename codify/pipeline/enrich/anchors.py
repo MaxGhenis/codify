@@ -2774,6 +2774,11 @@ def _opens_reversed(text: str, at: int, boundary: re.Pattern[str] | None) -> boo
 _MOJIBAKE_QUOTES = str.maketrans({0x93: "“", 0x94: "”"})
 
 
+def _fold_mojibake_quotes(text: str) -> str:
+    """cp1252 curly quotes decoded as Latin-1 (0x93, 0x94), read as the curlies."""
+    return text.translate(_MOJIBAKE_QUOTES)
+
+
 @lru_cache(maxsize=1)
 def _walk_quotes(raw: str, country: str = "") -> tuple[tuple[bool, ...], tuple[bool, ...]]:
     """The quoted mask, and the part of it inside spans nothing closes.
@@ -2786,7 +2791,7 @@ def _walk_quotes(raw: str, country: str = "") -> tuple[tuple[bool, ...], tuple[b
     Limit: a dropped opener immediately before an amendment's own quote reads
     as that quote opening, so the text between them is not reported.
     """
-    text = raw.translate(_MOJIBAKE_QUOTES)
+    text = _fold_mojibake_quotes(raw)
     # A document that has closed a left curly with a right one has shown its
     # orientation, and a later right curly there is a dropped opener's closer
     # rather than an opener of its own. One amendment inside it may still be
@@ -3885,9 +3890,12 @@ def _declare_orphaned_drops(
         )
 
 
-def _past_indent(match: re.Match[str]) -> int:
-    """Offset of a match's first non-whitespace character; its end if it has none."""
-    return match.start() + len(match.group(0)) - len(match.group(0).lstrip())
+def _text_start(match: re.Match[str]) -> int | None:
+    """Offset of a match's first non-whitespace character; None for whitespace alone,
+    a blank line included, which names no heading."""
+    text = match.group(0)
+    at = match.start() + len(text) - len(text.lstrip())
+    return at if at < match.end() else None
 
 
 def _drop_boundaries(anchors: list[StructuralAnchor], dropped: list[AmbiguitySpan]) -> list[int]:
@@ -3932,8 +3940,7 @@ def _declare_act_boundary_suspected(
         )
         # Judged at the heading's first character: a whole-line match may end in a quote.
         opened = min(
-            # A match of whitespace alone, a blank line included, names no heading.
-            (m for m in candidates if _past_indent(m) < m.end() and not mask[_past_indent(m)]),
+            (m for m in candidates if (at := _text_start(m)) is not None and not mask[at]),
             key=lambda m: m.start(),
             default=None,
         )
