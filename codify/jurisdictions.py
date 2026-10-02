@@ -645,6 +645,73 @@ class AttachmentCaption(BaseModel):
     prefix: bool = False
 
 
+def heading_line_pattern(pattern: str) -> re.Pattern[str]:
+    """A heading pattern as it runs: from a line start, past indentation."""
+    return re.compile(rf"(?m)^[ \t]*(?:{pattern})")
+
+
+def _min_width(pattern: str) -> int:
+    """Fewest characters a match can take; zero means it can match nothing anywhere."""
+    return int(re._parser.parse(pattern).getwidth()[0])  # type: ignore[attr-defined]
+
+
+def _refuse_empty_match(pattern: str, what: str) -> re.Pattern[str]:
+    """The compiled pattern; one that can match nothing would fire on every line."""
+    try:
+        compiled = re.compile(pattern)
+    except re.error as exc:
+        raise ValueError(f"{what} does not compile: {pattern!r}: {exc}") from exc
+    if not pattern.strip() or _min_width(pattern) == 0:
+        raise ValueError(f"{what} must not be empty or match empty text: {pattern!r}")
+    return compiled
+
+
+class SegmentationConfig(BaseModel):
+    """Lines that open an issue or an act, for telling apart the instruments one
+    source holds. Absent means the jurisdiction declares none, and nothing splits."""
+
+    model_config = _STRICT
+
+    # Regexes matched at a line start; a `number` group, where present, is the label.
+    act_heading_patterns: list[str] = Field(default_factory=list)
+    # The level above acts: a gazette issue within a bound volume.
+    issue_heading_patterns: list[str] = Field(default_factory=list)
+    # Headings of a contents listing, matched case-insensitively at a line start.
+    contents_keywords: list[str] = Field(default_factory=list)
+    # A printed page number in a page's furniture; its first group is the number.
+    printed_page_pattern: str | None = None
+
+    @field_validator("act_heading_patterns", "issue_heading_patterns")
+    @classmethod
+    def _headings_compile(cls, value: list[str]) -> list[str]:
+        for pattern in value:
+            _refuse_empty_match(pattern, "a heading pattern")
+            # Global flags mid-pattern fail only once wrapped, so check the wrapped form.
+            try:
+                heading_line_pattern(pattern)
+            except re.error as exc:
+                raise ValueError(
+                    f"a heading pattern does not compile at a line start: {pattern!r}: {exc}"
+                ) from exc
+        return value
+
+    @field_validator("contents_keywords")
+    @classmethod
+    def _keywords_present(cls, value: list[str]) -> list[str]:
+        if any(not keyword.strip() for keyword in value):
+            raise ValueError("a contents keyword must not be blank")
+        return value
+
+    @field_validator("printed_page_pattern")
+    @classmethod
+    def _page_pattern_compiles(cls, value: str | None) -> str | None:
+        if value is None:
+            return value
+        if _refuse_empty_match(value, "the printed page pattern").groups < 1:
+            raise ValueError("the printed page pattern needs a group for the number")
+        return value
+
+
 class StructuringConfig(BaseModel):
     model_config = _LOOSE
 
@@ -1034,6 +1101,8 @@ class JurisdictionConfig(BaseModel):
     attachments: list[AttachmentCaption] = Field(default_factory=list)
     # Whole-string markers for missing or struck content, beyond the platform default.
     placeholders: list[PlaceholderMarker] = Field(default_factory=list)
+    # Where one source holds several instruments, how their openings are read.
+    segmentation: SegmentationConfig | None = None
     amendments: AmendmentConfig | None = None
     core_tlcs: list[TLCEntry] = Field(default_factory=list)
     structuring: StructuringConfig | None = None

@@ -83,6 +83,11 @@
       2,
       5
     ],
+    "declare_act_boundary_suspected": [
+      0,
+      0,
+      5
+    ],
     "declare_numbering_gaps": [
       1,
       1,
@@ -211,6 +216,11 @@
         1,
         1
       ],
+      "declare_act_boundary_suspected": [
+        0,
+        0,
+        1
+      ],
       "declare_numbering_gaps": [
         0,
         0,
@@ -326,6 +336,11 @@
       "capture_container_headings": [
         3,
         1,
+        4
+      ],
+      "declare_act_boundary_suspected": [
+        0,
+        0,
         4
       ],
       "declare_numbering_gaps": [

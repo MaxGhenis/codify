@@ -2544,6 +2544,16 @@
             "title": "Residual Legal Systems",
             "type": "array"
           },
+          "segmentation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SegmentationConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "source_adapters": {
             "items": {
               "$ref": "#/components/schemas/SourceAdapter"
@@ -3410,6 +3420,46 @@
           "matches"
         ],
         "title": "SearchResult",
+        "type": "object"
+      },
+      "SegmentationConfig": {
+        "additionalProperties": false,
+        "description": "Lines that open an issue or an act, for telling apart the instruments one\nsource holds. Absent means the jurisdiction declares none, and nothing splits.",
+        "properties": {
+          "act_heading_patterns": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Act Heading Patterns",
+            "type": "array"
+          },
+          "contents_keywords": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Contents Keywords",
+            "type": "array"
+          },
+          "issue_heading_patterns": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Issue Heading Patterns",
+            "type": "array"
+          },
+          "printed_page_pattern": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Printed Page Pattern"
+          }
+        },
+        "title": "SegmentationConfig",
         "type": "object"
       },
       "SeriesCitation": {

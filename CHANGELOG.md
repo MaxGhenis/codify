@@ -54,6 +54,14 @@ Breaks, in that the structurer's output changes for documents it already read:
 
 New, additive:
 
+- `segmentation.act_heading_patterns` in the jurisdiction config: line-start
+  regexes for a line opening an act. Where a jurisdiction declares them and
+  its closing phrases, a duplicate-number fold whose dropped run holds a
+  closing phrase and then an act heading raises an `act_boundary_suspected`
+  span, which is blocking: the structurer refuses, or under
+  `halt_policy="land"` records an `act_boundary_suspected` halt. The source
+  reads as two acts numbered from 1, and keep-last kept only the later one.
+  The fold itself is unchanged.
 - `ingest-one --fallback-model`, defaulting to
   `LITELLM_CONTENT_FILTER_FALLBACK_MODEL`: the model retried on any
   content-filter refusal, so page reads, metadata and body-fill can all run on
