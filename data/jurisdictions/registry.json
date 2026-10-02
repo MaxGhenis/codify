@@ -1804,25 +1804,6 @@
       "public_reference": true
     },
     {
-      "code": "ug",
-      "name": "Uganda",
-      "type": "national",
-      "tradition": [
-        "common_law",
-        "customary"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "calendar": "gregorian",
-      "tier": 1,
-      "status": "draft",
-      "effective_tier": 1,
-      "coverage_status": "in_scope",
-      "subsumed_by": null,
-      "public_reference": true
-    },
-    {
       "code": "us",
       "name": "United States",
       "type": "national",

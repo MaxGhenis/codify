@@ -68,11 +68,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "n.º N (Número)",
+          "local_term": "n.º",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_full_stop"
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
         },
         {
           "local_term": "Alínea a)",
@@ -132,11 +135,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "n.º N (Número)",
+          "local_term": "n.º",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_full_stop"
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
         },
         {
           "local_term": "Alínea a)",
@@ -175,11 +181,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "n.º N (Número)",
+          "local_term": "n.º",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_full_stop"
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
         },
         {
           "local_term": "Alínea a)",
@@ -204,11 +213,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "n.º N (Número)",
+          "local_term": "n.º",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_full_stop"
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
         },
         {
           "local_term": "Alínea a)",
@@ -254,11 +266,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "n.º N (Número)",
+          "local_term": "n.º",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_full_stop"
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
         },
         {
           "local_term": "Alínea a)",

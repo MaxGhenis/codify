@@ -565,7 +565,7 @@ def test_the_flagged_set_is_deliberate() -> None:
         if json.loads(p.read_text()).get("public_reference")
     )
     assert flagged == on_disk
-    assert len(flagged) == 103
+    assert len(flagged) == 102
     assert {"ee", "fi", "gb", "ie", "it", "nz"} <= set(flagged)
 
 
@@ -1679,3 +1679,26 @@ def _fold(text: str) -> str:
 
     decomposed = unicodedata.normalize("NFD", text)
     return "".join(c for c in decomposed if unicodedata.category(c) != "Mn").casefold()
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_hierarchy_term_is_a_placeholder(code: str) -> None:
+    """A term such as `N.1` compiles to that literal text, so a printed `1.1`
+    never anchors. A term must be a printed word or a printed symbol (§)."""
+    import re
+
+    from codify.pipeline.enrich.anchors import _alias_terms_for, _heading_forms
+
+    placeholders = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        for entry in doc_class.hierarchy:
+            forms = [*_heading_forms(entry.local_term), *_alias_terms_for(entry)]
+            for form in forms:
+                if form.strip() == "§":
+                    continue
+                letters = [c for c in form if c.isalpha()]
+                lone = len(letters) == 1 and letters[0] in "NXM"
+                token = re.search(r"(^|\s)[NXM](\.\d+)*\.?(\s|$)|\d", form)
+                if not letters or lone or token:
+                    placeholders.append((doctype, entry.local_term, form))
+    assert not placeholders, (code, placeholders)

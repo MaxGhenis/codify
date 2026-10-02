@@ -37,27 +37,6 @@
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
-        },
-        {
-          "local_term": "N.1 (decimal L1)",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "decimal_dot"
-        },
-        {
-          "local_term": "N.1.1 (decimal L2)",
-          "akn_element": "subparagraph",
-          "level": "subdivision",
-          "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "decimal_dot"
-        },
-        {
-          "local_term": "N.1.1.1 (decimal L3, rare)",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "decimal_dot"
         }
       ]
     },
@@ -87,20 +66,6 @@
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
-        },
-        {
-          "local_term": "N.1 (decimal L1)",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "decimal_dot"
-        },
-        {
-          "local_term": "N.1.1 (decimal L2)",
-          "akn_element": "subparagraph",
-          "level": "subdivision",
-          "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "decimal_dot"
         }
       ]
     },
