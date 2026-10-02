@@ -3,7 +3,10 @@
 Dates are cut dates. A version is released when its tag exists; the first tag is
 the launch tag.
 
-## Unreleased
+## 0.6.0 (2026-10-02)
+
+Eight breaks, so the minor moves, as `VERSIONING.md` prescribes while the major
+is zero; the rest is additive.
 
 Breaks, in that the structurer's output changes for documents it already read:
 
@@ -51,8 +54,29 @@ Breaks, in that the structurer's output changes for documents it already read:
    dropped closer on a quoted name in a preamble no longer masks the first
    chapter and article below it. A quotation opening on a heading still masks
    to the blank line, since an amendment may quote several provisions.
+5. A content-filter finish reason that carries a suffix
+   (`content_filter: RECITATION`) counts as a block on page reads and schema
+   calls, so the fallback model is tried. Such a page used to read as empty and
+   such a call to fail validation.
+6. Series-number citations ("Act No. 5") are wrapped only where the
+   jurisdiction config declares them in `numbering.series_citations`; nothing
+   is keyed on a country code. A config that relied on the built-in list must
+   declare its series, and `Blg.` is no longer a default connector.
+7. The amount checks recognise dirhams, riyals, liras and francs, with their
+   Arabic and Hebrew forms, beside the currencies they read before, so the
+   amount-in-words warning and the numeric extractor report amounts they
+   skipped.
+8. The six real jurisdiction configs 0.5.0 shipped are revised: compound
+   heading terms split into a term and its aliases, enacting formulae scoped by
+   document class, diacritics restored, URI patterns kept only for declared
+   classes, and keys no model declares removed. A heading written in an alias
+   now anchors, so output for those jurisdictions can change.
 
 New, additive:
+
+- Configs for 96 more jurisdictions across every region and legal tradition,
+  taking the real jurisdictions shipped from 6 to 102. The registry is
+  regenerated, and a test checks it against the configs on disk.
 
 - `segmentation.act_heading_patterns` in the jurisdiction config: line-start
   regexes for a line opening an act. Where a jurisdiction declares them and
@@ -73,6 +97,25 @@ New, additive:
   numbers the class's work URI from its title digest (`t-...`) and ignores any
   extracted number, for classes whose serials repeat across issuers and so
   collide. Declaring it requires `frbr.title_identity`.
+- `numbering.series_citations` and `numbering.series_citation_connectors` in
+  the jurisdiction config (break 6).
+- A same-document anchor with no stored row of its own resolves to the nearest
+  stored row: the element's own text row, its first stored part, or the row
+  enclosing it, never a part of quoted text or a placeholder. `ResolveStats`
+  counts `resolved_container` and `resolved_enclosing`; `nearest_stored_row`
+  and `element_index` are public. Unresolved rows carry no resolver version, so
+  the next pass re-examines them.
+- The EUR-Lex HTML lane reads older acts whose markup leaves the opening
+  paragraph unclosed; they used to fail with no article blocks.
+- Migration 0021 adds `static_site_export` to the run kinds; the downgrade
+  refuses while rows of that kind exist.
+
+Repository: tests and examples that used jurisdictions the repository does not
+ship run on the fictional ones; CI runs the integration suite against Postgres;
+a shorter README with usage and interface guides; simplified notebooks; a
+corpus ownership design; Dependabot skips TypeScript and `@types/node` major
+bumps. Dependencies: pydantic-ai 2, with the repair agent keeping its early
+end; openai 3; google-genai 2.
 
 ## 0.5.0 (2026-09-20)
 
