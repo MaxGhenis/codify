@@ -845,3 +845,33 @@ def test_an_issue_restart_on_the_page_after_the_heading_counts(
         ("11", 1, ()),
         ("12", 3, ("restart",)),
     ]
+
+
+@pytest.mark.parametrize(
+    ("opener", "closer"),
+    [
+        pytest.param("„", "“", id="low-nine-then-left-curly"),
+        pytest.param("”", "“", id="reversed-curly"),
+    ],
+)
+def test_a_heading_inside_any_quotation_style_is_vetoed(
+    config: JurisdictionConfig, opener: str, closer: str
+) -> None:
+    lines = _act(3, "THE HARBOUR DUES ACT", 3) + _signed()
+    lines += [f"The schedule reads: {opener}", "ACT No. 9 OF 2020", f"THE OLD ACT{closer}", ""]
+    text, spans = _join([lines])
+    result = segment(text, spans, config=config)
+    assert result.outcome == "single"
+    assert [(r.key, r.veto) for r in result.reconciliation if r.status == "vetoed"] == [
+        ("act 9", "inside a quotation")
+    ]
+
+
+def test_a_heading_after_a_closed_low_nine_quotation_is_not_vetoed(
+    config: JurisdictionConfig,
+) -> None:
+    """The left curly closing `„` is a closer, not an opener claiming what follows."""
+    first = _act(3, "THE HARBOUR DUES ACT", 4) + ["It cites „the old rule“."]
+    text, spans = _join([first + _signed(), _act(4, "THE LIGHTHOUSE ACT", 3) + _signed()])
+    result = segment(text, spans, config=config)
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]

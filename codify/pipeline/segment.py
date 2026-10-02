@@ -18,6 +18,7 @@ import re
 from bisect import bisect_right
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field, replace
+from functools import lru_cache
 from itertools import pairwise
 from typing import Literal
 
@@ -25,6 +26,7 @@ from codify.jurisdictions import JurisdictionConfig, SegmentationConfig, heading
 from codify.lang import normalise_digits
 from codify.pipeline.enrich.adoption import _pattern as _adoption_pattern
 from codify.pipeline.enrich.anchors import (
+    _closed_quote_mask,
     _is_prose_reference,
     _kind_from_match,
     _normalise_number,
@@ -62,8 +64,6 @@ _LINE_END_NUMBER_RE = re.compile(r"(?m)(\d+)[ \t]*$")
 # Longer than this between an entry's heading and its page, and it is body text.
 _ENTRY_MAX_CHARS = 1000
 _NOT_WORD_RE = re.compile(r"[\W_]+")
-_QUOTE_OPENERS = frozenset("\u201c\u00ab\u2039\u300c\u300e")
-_QUOTE_CLOSERS = frozenset("\u201d\u00bb\u203a\u300d\u300f")
 
 
 @dataclass(frozen=True)
@@ -323,7 +323,11 @@ def _markers(text: str, config: JurisdictionConfig, doctype: str) -> list[_Marke
     markers: list[_Marker] = []
     for match in regex.finditer(text):
         at = match.start() + len(match.group(0)) - len(match.group(0).lstrip())
-        if _kind_from_match(match) != kind or _quoted(text, at) or _cited(text, match, config):
+        if (
+            _kind_from_match(match) != kind
+            or _quoted(text, at, config.code)
+            or _cited(text, match, config)
+        ):
             continue
         num = _repair_damaged_num(match) if "num" in match.groupdict() else None
         markers.append(_Marker(at, _normalise_number(num)))
@@ -379,6 +383,7 @@ class _Rules:
     """The jurisdiction's vocabularies, compiled once per call."""
 
     def __init__(self, config: JurisdictionConfig) -> None:
+        self.country = config.code
         self.closing = _closing_regex(config)
         self.adoption = _adoption_pattern(tuple(config.adoption_markers))
         self.caption = _caption_regex(config)
@@ -402,15 +407,15 @@ def _bare(above: str, printed: re.Pattern[str] | None) -> bool:
     return True
 
 
-def _quoted(text: str, at: int) -> bool:
-    """A quotation opened shortly before `at` and not yet closed. Local, so one stray
-    mark cannot claim pages; straight quotes are punctuation, as elsewhere."""
-    for ch in reversed(text[max(0, at - VETO_WINDOW) : at]):
-        if ch in _QUOTE_CLOSERS:
-            return False
-        if ch in _QUOTE_OPENERS:
-            return True
-    return False
+def _quoted(text: str, at: int, country: str) -> bool:
+    """Inside a quotation that closes, read as the anchor scan reads quotes: a stray
+    mark claims nothing, and straight quotes are punctuation."""
+    return at < len(text) and _quote_mask(text, country)[at]
+
+
+@lru_cache(maxsize=4)
+def _quote_mask(text: str, country: str) -> tuple[bool, ...]:
+    return _closed_quote_mask(text, country)
 
 
 def _within(offset: int, blocks: Sequence[tuple[int, int]]) -> bool:
@@ -527,7 +532,7 @@ def _veto(
     markers: list[_Marker],
     rules: _Rules,
 ) -> str:
-    if _quoted(text, heading.start):
+    if _quoted(text, heading.start, rules.country):
         return "inside a quotation"
     if open_heading is not None and heading.key == open_heading.key:
         return "repeats the open act's own heading"
@@ -565,7 +570,7 @@ def _signals(
     if rules.closing is not None:
         lo = before[-1].offset if before else previous
         for match in rules.closing.finditer(text, lo, heading.start):
-            if not _quoted(text, match.start()):
+            if not _quoted(text, match.start(), rules.country):
                 signals.append("closing")
                 break
     after = next((m for m in markers if heading.start <= m.offset < following), None)
@@ -764,7 +769,8 @@ def segment_volume(
         if waiting is not None:
             issue = yield from _settle(issue, *waiting, page, printed, closing, config, doctype)
             waiting = None
-        match = _issue_heading(page.text, patterns, issue.key if issue.pages else None, before)
+        open_key = issue.key if issue.pages else None
+        match = _issue_heading(page.text, patterns, open_key, before, config.code)
         before = page.text
         if match is not None and issue.pages:
             # Decided once the next page is read: a restart may first show there.
@@ -848,7 +854,11 @@ def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -
 
 
 def _issue_heading(
-    text: str, patterns: Sequence[re.Pattern[str]], open_key: str | None, before: str
+    text: str,
+    patterns: Sequence[re.Pattern[str]],
+    open_key: str | None,
+    before: str,
+    country: str,
 ) -> re.Match[str] | None:
     """The page's first issue heading that is neither the open issue's running head
     nor quoted, a quotation opened on the page before included."""
@@ -856,7 +866,11 @@ def _issue_heading(
     joined = carried + text
     found = sorted((m for p in patterns for m in p.finditer(text)), key=lambda m: m.start())
     return next(
-        (m for m in found if _key(m) != open_key and not _quoted(joined, len(carried) + m.start())),
+        (
+            m
+            for m in found
+            if _key(m) != open_key and not _quoted(joined, len(carried) + m.start(), country)
+        ),
         None,
     )
 
@@ -869,7 +883,7 @@ def _closes(
         return False
     markers = _markers(text, config, doctype or config.default_document_class)
     lo = markers[-1].offset if markers else 0
-    return any(not _quoted(text, m.start()) for m in closing.finditer(text, lo))
+    return any(not _quoted(text, m.start(), config.code) for m in closing.finditer(text, lo))
 
 
 def _line(text: str, match: re.Match[str]) -> str:
