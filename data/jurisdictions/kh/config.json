@@ -80,8 +80,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "anukret": {
       "label": "Anukret (Sub-Decree)",
@@ -110,8 +109,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "prakas": {
       "label": "Prakas (Ministerial Proclamation)",
@@ -133,8 +131,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of the Kingdom of Cambodia",
@@ -156,8 +153,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

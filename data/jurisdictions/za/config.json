@@ -71,8 +71,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -115,8 +114,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "regulation": {
       "label": "Regulation (Government Notice)",
@@ -159,8 +157,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

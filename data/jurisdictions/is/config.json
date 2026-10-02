@@ -52,8 +52,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "reglugjord": {
       "label": "Reglugerð",
@@ -89,8 +88,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "stjornarskra": {
       "label": "Stjórnarskrá lýðveldisins Íslands",
@@ -112,8 +110,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_sequential_assigned"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "thingsalyktun": {
       "label": "Þingsályktun",
@@ -128,8 +125,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "tilskipun": {
       "label": "Tilskipun",
@@ -151,8 +147,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_sequential_assigned"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

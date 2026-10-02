@@ -104,8 +104,7 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "roman_upper_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "usc_title": {
       "label": "United States Code Title",
@@ -193,8 +192,7 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "roman_upper_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "cfr_title": {
       "label": "Code of Federal Regulations Title",
@@ -239,8 +237,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "part_dot_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "bill": {
       "label": "Bill",
@@ -327,8 +324,7 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "roman_upper_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of the United States",
@@ -357,8 +353,7 @@
           "bluebell_keyword": "CLAUSE",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "executive_order": {
       "label": "Executive Order",
@@ -373,8 +368,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "public_law",

@@ -74,8 +74,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "loi_organique": {
       "label": "Loi organique",
@@ -111,8 +110,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret": {
       "label": "Décret",
@@ -141,8 +139,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Code",
@@ -185,8 +182,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -215,8 +211,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

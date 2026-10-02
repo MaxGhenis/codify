@@ -80,12 +80,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_fullstop"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Liniuța (dash item)",
-          "name": "liniuta"
-        }
       ]
     },
     "hg": {
@@ -122,8 +116,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "og": {
       "label": "Ordonanță de Guvern (Government Ordinance)",
@@ -159,8 +152,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constituția Republicii Moldova",
@@ -196,8 +188,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "lege",

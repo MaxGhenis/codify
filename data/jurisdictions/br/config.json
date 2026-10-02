@@ -87,15 +87,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Item",
-          "name": "item",
-          "description": "Subdivision of alinea, arabic numerals, rarely used",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "lc": {
@@ -146,8 +137,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "mp": {
       "label": "Medida Provisoria",
@@ -183,8 +173,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "roman_upper"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constituicao Federal",
@@ -248,8 +237,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

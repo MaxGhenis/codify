@@ -66,13 +66,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "subliteral",
-          "description": "Sub-Litera subdivision (rare)",
-          "local_term": "Subliteral"
-        }
       ]
     },
     "bvg": {
@@ -116,8 +109,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "vo": {
       "label": "Verordnung",
@@ -153,8 +145,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "sv": {
       "label": "Staatsvertrag",
@@ -169,8 +160,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Bundes-Verfassungsgesetz (B-VG)",
@@ -213,8 +203,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

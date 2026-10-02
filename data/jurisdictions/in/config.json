@@ -61,29 +61,6 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'. Creates exceptions/qualifications with full legal force.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--'. Clarificatory, does not create new rights or obligations.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        },
-        {
-          "local_term": "Illustration",
-          "name": "illustration",
-          "description": "Begins with 'Illustration'. Worked examples to aid interpretation. Not operative text.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "si": {
@@ -126,22 +103,6 @@
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
           "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--'.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     },
@@ -186,8 +147,7 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

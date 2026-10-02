@@ -66,15 +66,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "katakana"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Moku",
-          "name": "division",
-          "description": "Lowest grouping level above articles, very rare",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "cabinetorder": {
@@ -111,8 +102,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "implicit_first"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution (Nihonkoku Kenpo)",
@@ -141,8 +131,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "implicit_first"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

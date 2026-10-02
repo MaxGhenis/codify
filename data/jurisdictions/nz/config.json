@@ -189,7 +189,8 @@
   "frbr": {
     "country_code": "nz",
     "uri_patterns": {
-      "legislative_instrument": "/akn/nz/act/li/{year}/{number}"
+      "legislative_instrument": "/akn/nz/act/li/{year}/{number}",
+      "bill": "/akn/nz/bill/{year}/{number}"
     },
     "sample_uris": {
       "Companies Act 1993": "/akn/nz/act/1993/105",

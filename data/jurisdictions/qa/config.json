@@ -74,8 +74,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "emiri_decree": {
       "label": "Emiri Decree (Marsoom Amiri)",
@@ -104,8 +103,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ministerial_decision": {
       "label": "Ministerial Decision (Qarar Wizari)",
@@ -127,8 +125,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Permanent Constitution of Qatar",
@@ -157,8 +154,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "qfc_regulation": {
       "label": "QFC Regulation",
@@ -194,8 +190,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

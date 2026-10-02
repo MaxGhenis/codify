@@ -73,29 +73,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_upper_closing_paren"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Título Preliminar",
-          "name": "tituloPreliminar",
-          "description": "Preliminary title in codes preceding the main Libro/Título hierarchy. Present in Código Civil and Código General del Proceso.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        },
-        {
-          "local_term": "Disposición Transitoria",
-          "name": "disposicionTransitoria",
-          "description": "Transitory provisions, typically at the end of codes and complex leyes. May be numbered or lettered.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Disposición Derogatoria",
-          "name": "disposicionDerogatoria",
-          "description": "Repeal provisions section, grouping articles that derogate prior legislation.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": false
-        }
       ]
     },
     "decreto_ley": {
@@ -139,8 +116,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_upper_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decreto": {
       "label": "Decreto del Poder Ejecutivo",
@@ -176,8 +152,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_degree"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "resolucion": {
       "label": "Resolución",
@@ -192,8 +167,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitucion": {
       "label": "Constitución de la República Oriental del Uruguay",
@@ -228,15 +202,6 @@
           "level": "subdivision",
           "bluebell_keyword": null,
           "numbering": "positional_ordinal_word"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Disposición Transitoria y Especial",
-          "name": "disposicionTransitoriaEspecial",
-          "description": "Lettered transitional provisions appended to the Constitution after the permanent articles. Format: 'A)', 'B)', 'C)' through the alphabet and beyond.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     }

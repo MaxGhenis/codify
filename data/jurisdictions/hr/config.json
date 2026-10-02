@@ -73,16 +73,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_or_roman_lower"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Podstavak",
-          "name": "podstavak"
-        },
-        {
-          "local_term": "Prijelazne i završne odredbe",
-          "name": "transitional-final"
-        }
       ]
     },
     "uredba": {
@@ -126,8 +116,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "pravilnik": {
       "label": "Pravilnik (Ministerial Rulebook/Regulation)",
@@ -163,8 +152,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Ustav (Constitution)",
@@ -193,8 +181,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "zakon",

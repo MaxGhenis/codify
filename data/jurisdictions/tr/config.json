@@ -66,22 +66,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "numeric_paren"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Ek Madde",
-          "name": "ekMadde",
-          "description": "Additional articles appended after the main body, numbered Ek Madde 1, Ek Madde 2. Common in amended laws where new articles are inserted at end rather than renumbering. Model as hcontainer with name='ekMadde'.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        },
-        {
-          "local_term": "Geçici Madde",
-          "name": "geciciMadde",
-          "description": "Transitional articles (Geçici Madde 1, Geçici Madde 2). Found at end of laws; create time-limited obligations or exceptions during transition to new legal regime. Numbered independently from main Madde sequence.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "anayasa": {
@@ -118,8 +102,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_numbered"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "cumhurbaskanligi-kararnamesi": {
       "label": "Cumhurbaşkanlığı Kararnamesi (Presidential Decree)",
@@ -155,8 +138,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "khk": {
       "label": "Kanun Hükmünde Kararname (Decree with Force of Law)",
@@ -185,8 +167,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "yonetmelik": {
       "label": "Yönetmelik (Regulation)",
@@ -229,8 +210,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "teblig": {
       "label": "Tebliğ (Communiqué)",
@@ -252,8 +232,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_numbered"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "kanun",

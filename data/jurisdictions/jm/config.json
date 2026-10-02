@@ -52,8 +52,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "si": {
       "label": "Legal Notice (Subsidiary Legislation)",
@@ -75,8 +74,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -98,8 +96,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

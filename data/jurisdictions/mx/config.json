@@ -67,16 +67,6 @@
           "bluebell_keyword": null,
           "numbering": "ordinal_position"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Artículo Transitorio",
-          "name": "transitorios"
-        },
-        {
-          "local_term": "Apartado",
-          "name": "apartado"
-        }
       ]
     },
     "codigo": {
@@ -148,16 +138,6 @@
           "bluebell_keyword": null,
           "numbering": "ordinal_position"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Artículo Transitorio",
-          "name": "transitorios"
-        },
-        {
-          "local_term": "Apartado",
-          "name": "apartado"
-        }
       ]
     },
     "constitution": {
@@ -208,12 +188,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Apartado",
-          "name": "apartado"
-        }
       ]
     },
     "reglamento": {
@@ -256,12 +230,6 @@
           "level": "subdivision",
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Artículo Transitorio",
-          "name": "transitorios"
         }
       ]
     }

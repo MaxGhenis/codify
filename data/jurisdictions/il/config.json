@@ -56,8 +56,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "act": {
       "label": "Chok (Law/Act)",
@@ -100,15 +99,6 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Hagdara (Definition clause)",
-          "name": "definition",
-          "description": "Interpretation/definition section. Common as Se'if 1 or in a dedicated Perek. Begins with 'In this Law' (Be'chok ze) or 'In this Chapter'.",
-          "bluebell_proxy": "SECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "regulation": {
@@ -145,8 +135,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "order": {
       "label": "Tsav (Order)",
@@ -168,8 +157,7 @@
           "bluebell_keyword": "SUBSECTION",
           "numbering": "hebrew_letter_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "emergency_regulation": {
       "label": "Takanot Sha'at Cherum (Emergency Regulations)",
@@ -191,8 +179,7 @@
           "bluebell_keyword": "SUBSECTION",
           "numbering": "hebrew_letter_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

@@ -60,22 +60,6 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'. Inherited from British India drafting tradition. Creates exceptions or qualifications to the main enactment with full legal force.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--' or 'Explanation-' (Bangla: ব্যাখ্যা). Clarificatory, does not create new rights or obligations.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "ordinance": {
@@ -119,15 +103,6 @@
           "bluebell_keyword": "CLAUSE",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'. Same drafting convention as Acts.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        }
       ]
     },
     "si": {
@@ -163,15 +138,6 @@
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
           "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
         }
       ]
     },
@@ -209,8 +175,7 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

@@ -54,8 +54,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "regulation": {
       "label": "Council of Ministers Regulation",
@@ -98,8 +97,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of the FDRE",
@@ -135,8 +133,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

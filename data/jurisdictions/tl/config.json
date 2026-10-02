@@ -87,8 +87,7 @@
           "level": "subdivision",
           "bluebell_keyword": "INDENT"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decreto_lei": {
       "label": "Decreto-Lei (Government Decree-Law)",
@@ -164,8 +163,7 @@
           "level": "subdivision",
           "bluebell_keyword": "INDENT"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "untaet_reg": {
       "label": "UNTAET Regulation (historical, 1999-2002)",
@@ -192,8 +190,7 @@
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of Timor-Leste",
@@ -235,8 +232,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

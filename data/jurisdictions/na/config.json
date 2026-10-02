@@ -61,12 +61,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "proviso",
-          "local_term": "Proviso"
-        }
       ]
     },
     "constitution": {
@@ -110,8 +104,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "regulation": {
       "label": "Government Notice Regulation",
@@ -154,8 +147,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "proclamation": {
       "label": "Presidential Proclamation",
@@ -170,8 +162,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

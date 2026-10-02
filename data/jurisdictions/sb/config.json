@@ -60,8 +60,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ln": {
       "label": "Legal Notice (Subsidiary Legislation)",
@@ -90,8 +89,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of Solomon Islands",
@@ -127,8 +125,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

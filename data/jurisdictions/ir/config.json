@@ -74,15 +74,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Tabsareh (Note/Proviso)",
-          "name": "tabsareh",
-          "description": "Legally binding annotation attached to articles; qualifies, extends, or restricts the parent article",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "constitution": {
@@ -112,15 +103,6 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Tabsareh (Note/Proviso)",
-          "name": "tabsareh",
-          "description": "Legally binding annotation attached to principles",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "ayin_nameh": {
@@ -149,15 +131,6 @@
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "persian_alpha"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Tabsareh (Note/Proviso)",
-          "name": "tabsareh",
-          "description": "Legally binding annotation",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     }

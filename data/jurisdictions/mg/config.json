@@ -64,8 +64,7 @@
             "alt1": "tiret"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "loi_organique": {
       "label": "Loi organique",
@@ -101,8 +100,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -131,8 +129,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret": {
       "label": "Décret",
@@ -154,8 +151,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -191,8 +187,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

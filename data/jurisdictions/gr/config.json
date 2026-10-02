@@ -76,13 +76,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "roman_or_double_greek"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Παράρτημα (Annex/Schedule)",
-          "akn_element": "attachment",
-          "name": "παράρτημα_(annex/schedule)"
-        }
       ]
     },
     "presidential_decree": {
@@ -122,8 +115,7 @@
             "alt1": "Περίπτωση"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ministerial_decision": {
       "label": "Υπουργική Απόφαση / Κοινή Υπουργική Απόφαση (Ministerial / Joint Ministerial Decision)",
@@ -145,8 +137,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Σύνταγμα (Constitution)",
@@ -175,8 +166,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Κώδικας (Code — Civil, Penal, Civil Procedure, etc.)",
@@ -219,8 +209,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "bill": {
       "label": "Σχέδιο Νόμου (Bill)",
@@ -256,8 +245,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "greek_lower_letter"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "nomos",

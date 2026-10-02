@@ -70,12 +70,6 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "proviso",
-          "local_term": "Proviso"
-        }
       ]
     },
     "loi_organique": {
@@ -127,8 +121,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "dahir": {
       "label": "Dahir",
@@ -143,8 +136,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret": {
       "label": "Décret",
@@ -173,8 +165,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -196,8 +187,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

@@ -69,13 +69,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Annex",
-          "akn_element": "attachment",
-          "name": "annex"
-        }
       ]
     },
     "legislative_decree": {
@@ -126,13 +119,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Annex",
-          "akn_element": "attachment",
-          "name": "annex"
-        }
       ]
     },
     "constitution": {
@@ -162,8 +148,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "royal_decree": {
       "label": "Royal Decree",
@@ -178,8 +163,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "law",

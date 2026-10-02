@@ -52,12 +52,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Division",
-          "name": "division"
-        }
       ]
     },
     "si": {
@@ -94,8 +88,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "criminal_code": {
       "label": "Criminal Code (CAP. 101)",
@@ -145,8 +138,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of Belize",
@@ -175,8 +167,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

@@ -67,8 +67,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decreto": {
       "label": "Decreto",
@@ -97,8 +96,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitucion Nacional",
@@ -141,8 +139,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

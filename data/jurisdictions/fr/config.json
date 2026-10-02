@@ -66,8 +66,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "loi_organique": {
       "label": "Loi organique",
@@ -103,8 +102,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -140,8 +138,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret": {
       "label": "Décret",
@@ -177,8 +174,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "arrete": {
       "label": "Arrêté",
@@ -200,8 +196,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -230,8 +225,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Code",
@@ -287,15 +281,6 @@
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
           "numbering": "implicit_sequential"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Sous-paragraphe",
-          "name": "sous-paragraphe",
-          "description": "Rare fourth-level division in some codes, below Sous-section",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     }

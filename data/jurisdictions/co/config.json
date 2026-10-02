@@ -82,12 +82,6 @@
             "alt1": "Literal"
           }
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "paragrafoTransitorio",
-          "local_term": "Parágrafo Transitorio"
-        }
       ]
     },
     "decreto": {
@@ -141,8 +135,7 @@
             "alt1": "Literal"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "acto_legislativo": {
       "label": "Acto Legislativo",
@@ -164,8 +157,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_or_transitorio"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitucion": {
       "label": "Constitución Política",
@@ -201,8 +193,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_or_transitorio"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

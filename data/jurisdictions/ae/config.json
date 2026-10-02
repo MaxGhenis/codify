@@ -69,13 +69,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "arabic_closing_paren"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Annex",
-          "akn_element": "attachment",
-          "name": "annex"
-        }
       ]
     },
     "federal_decree_law": {
@@ -126,8 +119,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "arabic_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "cabinet_resolution": {
       "label": "Cabinet Resolution",
@@ -163,8 +155,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -193,8 +184,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "difc_law": {
       "label": "DIFC Law",
@@ -230,8 +220,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "adgm_act": {
       "label": "ADGM Act / Regulation",
@@ -267,8 +256,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "federal_decree_law",

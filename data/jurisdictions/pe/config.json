@@ -71,38 +71,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "subcapitulo",
-          "local_term": "Subcapítulo",
-          "numbering": "roman"
-        },
-        {
-          "name": "titulo-preliminar",
-          "local_term": "Título Preliminar",
-          "numbering": "none"
-        },
-        {
-          "name": "disposicion-complementaria-final",
-          "local_term": "Disposición Complementaria Final",
-          "numbering": "ordinal_word"
-        },
-        {
-          "name": "disposicion-complementaria-transitoria",
-          "local_term": "Disposición Complementaria Transitoria",
-          "numbering": "ordinal_word"
-        },
-        {
-          "name": "disposicion-complementaria-derogatoria",
-          "local_term": "Disposición Complementaria Derogatoria",
-          "numbering": "ordinal_word"
-        },
-        {
-          "name": "disposicion-complementaria-modificatoria",
-          "local_term": "Disposición Complementaria Modificatoria",
-          "numbering": "ordinal_word"
-        }
       ]
     },
     "ley_organica": {
@@ -149,8 +117,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decreto_legislativo": {
       "label": "Decreto Legislativo",
@@ -196,8 +163,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decreto_supremo": {
       "label": "Decreto Supremo",
@@ -229,8 +195,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitucion": {
       "label": "Constitución Política",
@@ -269,8 +234,7 @@
             "alt1": "Numeral"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "ley",

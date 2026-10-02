@@ -80,8 +80,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "numeric_degree"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "amvb": {
       "label": "Algemene Maatregel van Bestuur (AMvB)",
@@ -117,8 +116,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "minreg": {
       "label": "Ministeriële Regeling (Ministerial Regulation)",
@@ -154,8 +152,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "rijkswet": {
       "label": "Rijkswet (Kingdom Act)",
@@ -184,8 +181,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Grondwet (Constitution)",
@@ -214,8 +210,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

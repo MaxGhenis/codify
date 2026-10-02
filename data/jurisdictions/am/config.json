@@ -66,12 +66,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "transitionalProvisions",
-          "local_term": "Transitional and Final Provisions (Անցումային դրույթ)"
-        }
       ]
     },
     "constitutional_law": {
@@ -108,8 +102,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decision": {
       "label": "Government Decision",
@@ -138,8 +131,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of the Republic of Armenia",
@@ -161,8 +153,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

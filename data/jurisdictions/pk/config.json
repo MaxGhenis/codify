@@ -61,29 +61,6 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'. Creates exceptions or qualifications to the main provision. Full legal force. May be stacked ('Provided further that').",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--' or 'Explanation:'. Clarificatory; does not create new rights or obligations. May be numbered (Explanation I, Explanation II).",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        },
-        {
-          "local_term": "Exception",
-          "name": "exception",
-          "description": "Begins with 'Exception'. Narrows the scope of an offence or rule. Used mainly in the Pakistan Penal Code tradition.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "ordinance": {
@@ -126,22 +103,6 @@
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
           "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'. Same convention as Acts.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--'. Clarificatory.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     },
@@ -186,22 +147,6 @@
           "bluebell_keyword": "SUBCLAUSE",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'. Appears within constitutional articles to qualify provisions.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.'. Clarificatory within constitutional articles.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "si": {
@@ -245,22 +190,6 @@
           "bluebell_keyword": "CLAUSE",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--'.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "provincial_act": {
@@ -303,22 +232,6 @@
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
           "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso",
-          "name": "proviso",
-          "description": "Begins with 'Provided that'.",
-          "bluebell_proxy": "PROVISO",
-          "requires_postprocessing": false
-        },
-        {
-          "local_term": "Explanation",
-          "name": "explanation",
-          "description": "Begins with 'Explanation.--'.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     }

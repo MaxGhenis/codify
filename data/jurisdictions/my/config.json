@@ -62,12 +62,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Proviso (Syarat)",
-          "name": "proviso"
-        }
       ]
     },
     "subsidiary": {
@@ -104,8 +98,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Federal Constitution",
@@ -148,8 +141,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "state_enactment": {
       "label": "State Enactment (Enakmen Negeri)",
@@ -192,8 +184,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "syariah_enactment": {
       "label": "Syariah Enactment / Islamic Law Legislation",
@@ -236,8 +227,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

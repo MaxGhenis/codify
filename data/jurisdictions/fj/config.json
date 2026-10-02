@@ -55,14 +55,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Division",
-          "name": "division",
-          "level": "between_part_and_section",
-          "bluebell_keyword": null
-        }
       ]
     },
     "ln": {
@@ -85,8 +77,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decree": {
       "label": "Decree (Military Era 2006–2013)",
@@ -129,8 +120,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -166,8 +156,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

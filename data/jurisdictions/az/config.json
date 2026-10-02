@@ -59,12 +59,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "decimal_dot"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "transitionalProvisions",
-          "local_term": "Keçid müddəaları"
-        }
       ]
     },
     "code": {
@@ -108,12 +102,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "decimal_dot"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "transitionalProvisions",
-          "local_term": "Keçid müddəaları"
-        }
       ]
     },
     "constitution": {
@@ -143,8 +131,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decree": {
       "label": "Presidential Decree (Fərman)",
@@ -159,8 +146,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "resolution": {
       "label": "Cabinet Resolution (Qərar)",
@@ -175,8 +161,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "law",

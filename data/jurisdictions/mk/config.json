@@ -88,15 +88,6 @@
             "alt1": "Алинеа"
           }
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Preodni i zavrsni odredbi",
-          "name": "transitional-final",
-          "description": "Transitional and Final Provisions block at end of act. Typically a final Glava or unnumbered heading block.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "uredba": {
@@ -145,8 +136,7 @@
             "alt1": "Точка"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "pravilnik": {
       "label": "Pravilnik (Ministerial Rulebook)",
@@ -194,8 +184,7 @@
             "alt1": "Точка"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "odluka": {
       "label": "Odluka / Одлука (Decision)",
@@ -223,8 +212,7 @@
             "alt1": "Став"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Ustav na Republika Severna Makedonija / Устав на Република Северна Македонија",
@@ -262,8 +250,7 @@
             "alt1": "Став"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "zakon",

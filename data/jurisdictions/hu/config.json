@@ -73,8 +73,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "double_alpha_lower_closeparen"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "rendelet": {
       "label": "Government Decree",
@@ -117,8 +116,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "double_alpha_lower_closeparen"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "alaptorvenye": {
       "label": "Fundamental Law",
@@ -133,8 +131,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "capital_letter_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

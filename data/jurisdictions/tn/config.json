@@ -62,12 +62,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "livre",
-          "local_term": "Livre"
-        }
       ]
     },
     "loi-organique": {
@@ -118,8 +112,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret-loi": {
       "label": "Décret-loi",
@@ -155,8 +148,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "positional_unnumbered"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret-presidentiel": {
       "label": "Décret présidentiel",
@@ -178,8 +170,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "positional_unnumbered"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret-gouvernemental": {
       "label": "Décret gouvernemental",
@@ -208,8 +199,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "positional_unnumbered"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -238,8 +228,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "positional_unnumbered"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

@@ -87,15 +87,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Satz",
-          "name": "satz",
-          "description": "Individual sentences within an Absatz, independently citable",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "grundgesetz": {
@@ -138,15 +129,6 @@
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Satz",
-          "name": "satz",
-          "description": "Individual sentences within an Absatz, independently citable",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
         }
       ]
     },
@@ -191,8 +173,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

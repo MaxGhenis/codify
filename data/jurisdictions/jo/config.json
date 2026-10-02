@@ -60,13 +60,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "mukrrar",
-          "label": "Bis article (mada mukrrar)",
-          "local_term": "Bis article (mada mukrrar)"
-        }
       ]
     },
     "temp_law": {
@@ -103,8 +96,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "regulation": {
       "label": "Regulation (Nizam)",
@@ -126,8 +118,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -156,8 +147,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "law",

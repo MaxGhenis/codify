@@ -69,12 +69,6 @@
             "alt1": "Sub-inciso"
           }
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "tituloPreliminar",
-          "local_term": "Título Preliminar"
-        }
       ]
     },
     "dnu": {
@@ -97,8 +91,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decreto": {
       "label": "Decreto Reglamentario",
@@ -120,8 +113,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitucion": {
       "label": "Constitución de la Nación Argentina",
@@ -164,8 +156,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "ley",

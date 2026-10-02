@@ -66,13 +66,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "unnumbered"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "transitorio",
-          "local_term": "Transitorio",
-          "numbering": "roman"
-        }
       ]
     },
     "decreto_ejecutivo": {
@@ -102,8 +95,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitucion": {
       "label": "Constitución Política",
@@ -132,8 +124,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "ley",

@@ -66,18 +66,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Pārejas noteikumi",
-          "name": "parejasNoteikumi",
-          "position": "terminal_body"
-        },
-        {
-          "local_term": "Informatīvā atsauce",
-          "name": "informativaAtsauce",
-          "position": "terminal_body"
-        }
       ]
     },
     "constitution": {
@@ -107,8 +95,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "noteikumi": {
       "label": "Ministru kabineta noteikumi (Cabinet Regulation)",
@@ -150,18 +137,6 @@
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_closing_paren"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Pārejas noteikumi",
-          "name": "parejasNoteikumi",
-          "position": "terminal_body"
-        },
-        {
-          "local_term": "Informatīvā atsauce",
-          "name": "informativaAtsauce",
-          "position": "terminal_body"
         }
       ]
     }

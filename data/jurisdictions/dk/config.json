@@ -59,8 +59,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "lovbekendtgorelse": {
       "label": "Lovbekendtgørelse",
@@ -110,8 +109,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "bekendtgorelse": {
       "label": "Bekendtgørelse",
@@ -154,8 +152,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "grundloven": {
       "label": "Danmarks Riges Grundlov",
@@ -177,8 +174,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_inline"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

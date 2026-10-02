@@ -1499,3 +1499,32 @@ def test_portuguese_and_spanish_terms_carry_their_accents(code: str) -> None:
             for term in _terms_of(entry):
                 found += [(doctype, w) for w in re.findall(r"[^\W\d_]+", term) if w in _ACCENTLESS]
     assert not found, (code, found)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_hcontainer_term_is_reachable(code: str) -> None:
+    """The anchor scanner reads only the hierarchy and the postprocessor only
+    renames a proxy that already exists, so a term declared as an hcontainer
+    alone never anchors. Reachable means a hierarchy term of the same class, or
+    a native Bluebell keyword the parser takes as written."""
+    from codify.pipeline.enrich.kinds import BLUEBELL_HIER_KEYWORDS
+
+    unreachable = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        terms = {t.casefold() for e in doc_class.hierarchy for t in _terms_of(e)}
+        for h in doc_class.hcontainers:
+            native = (
+                not h.requires_postprocessing
+                and h.bluebell_proxy in BLUEBELL_HIER_KEYWORDS
+                and h.bluebell_proxy.casefold() == h.local_term.casefold()
+            )
+            if h.local_term.casefold() not in terms and not native:
+                unreachable.append((doctype, h.local_term))
+    assert not unreachable, (code, unreachable)
+
+
+def test_a_new_zealand_bill_is_homed_under_bill() -> None:
+    from codify.frbr import build_frbr_work_uri
+
+    assert build_frbr_work_uri("nz", "bill", 2023, "12") == "/akn/nz/bill/2023/12"
+    assert build_frbr_work_uri("nz", "act", 2023, "12") == "/akn/nz/act/2023/12"

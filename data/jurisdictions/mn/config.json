@@ -55,8 +55,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of Mongolia (Монгол Улсын Үндсэн хууль)",
@@ -86,8 +85,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "decimal_dotted"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

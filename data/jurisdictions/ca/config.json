@@ -61,18 +61,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_upper_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Division",
-          "name": "division",
-          "level": "higher"
-        },
-        {
-          "local_term": "Subdivision",
-          "name": "subdivision",
-          "level": "higher"
-        }
       ]
     },
     "regulation": {
@@ -116,8 +104,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution Act",
@@ -153,8 +140,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_italic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

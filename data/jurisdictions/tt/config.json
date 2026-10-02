@@ -59,15 +59,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_upper_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Division",
-          "name": "division",
-          "level": "higher",
-          "position": "between_part_and_section",
-          "numbering": "arabic"
-        }
       ]
     },
     "si": {
@@ -103,15 +94,6 @@
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Division",
-          "name": "division",
-          "level": "higher",
-          "position": "between_part_and_section",
-          "numbering": "arabic"
         }
       ]
     },
@@ -156,8 +138,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

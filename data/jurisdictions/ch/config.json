@@ -100,15 +100,6 @@
             "alt5": "Cifra"
           }
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Übergangsbestimmungen",
-          "name": "transitional-provisions",
-          "description": "Final/transitional provisions block at the end of many federal acts. May be structured as a section or as standalone articles.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": false
-        }
       ]
     },
     "bundesverfassung": {
@@ -183,8 +174,7 @@
             "alt2": "Lettera"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "verordnung": {
       "label": "Verordnung / Ordonnance / Ordinanza (Ordinance)",
@@ -247,8 +237,7 @@
             "alt2": "Lettera"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "bundesbeschluss": {
       "label": "Bundesbeschluss / Arrêté fédéral / Decreto federale (Federal Decree)",
@@ -278,8 +267,7 @@
             "alt2": "Capoverso"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "staatsvertrag": {
       "label": "Staatsvertrag / Traité international / Trattato internazionale (International Treaty)",
@@ -331,8 +319,7 @@
             "alt2": "Capoverso"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "bundesgesetz",

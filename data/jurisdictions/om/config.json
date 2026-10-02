@@ -67,8 +67,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "basic_law": {
       "label": "Al-Nizam al-Asasi (Basic Law of the State)",
@@ -90,8 +89,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "implementing_regulation": {
       "label": "La'iha Tanfidhiyya (Implementing Regulation / Ministerial Decision)",
@@ -127,8 +125,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

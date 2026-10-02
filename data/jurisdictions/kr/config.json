@@ -73,15 +73,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "hangul_alpha"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Buchik (부칙, Supplementary Provisions)",
-          "name": "supplementaryprovisions",
-          "description": "Transitional and supplementary provisions block at the end of every Korean act. Contains enforcement date (sihaengil), transitional clauses, and repeal provisions.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "daetongryeong-ryeong": {
@@ -132,8 +123,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "hangul_alpha"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Heonbeop (헌법, Constitution)",
@@ -169,8 +159,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "jorye": {
       "label": "Jorye (조례, Municipal Ordinance)",
@@ -206,8 +195,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

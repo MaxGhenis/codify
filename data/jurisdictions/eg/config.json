@@ -60,12 +60,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "proviso",
-          "local_term": "proviso"
-        }
       ]
     },
     "decree_law": {
@@ -95,8 +89,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "regulation": {
       "label": "Executive Regulation (لائحة تنفيذية)",
@@ -125,8 +118,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution (الدستور)",
@@ -155,8 +147,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

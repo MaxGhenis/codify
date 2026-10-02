@@ -80,15 +80,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Čl. I",
-          "name": "amendingArticle",
-          "description": "In amendment acts (novelizace), Čl. I, Čl. II label which target statute is being amended. These are structural groupers within an otherwise §-based act.",
-          "bluebell_proxy": "PART",
-          "requires_postprocessing": true
-        }
       ]
     },
     "ustavni_zakon": {
@@ -128,8 +119,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "narizeni": {
       "label": "Nařízení vlády (Government Regulation)",
@@ -172,8 +162,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "vyhlaska": {
       "label": "Vyhláška (Ministerial Decree)",
@@ -209,8 +198,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

@@ -82,8 +82,7 @@
           "numbering": "alpha_lower_closing_paren",
           "local_term": "Lettre"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "special_act": {
       "label": "Loi spéciale / Bijzondere wet (Special Majority Act)",
@@ -119,8 +118,7 @@
           "numbering": "section_symbol_ordinal",
           "local_term": "Paragraphe (§)"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "royal_decree": {
       "label": "Arrêté royal / Koninklijk Besluit",
@@ -149,8 +147,7 @@
           "numbering": "section_symbol_ordinal",
           "local_term": "Paragraphe (§)"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution de Belgique / Belgische Grondwet",
@@ -186,8 +183,7 @@
           "numbering": "arabic_continuous",
           "local_term": "Article"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

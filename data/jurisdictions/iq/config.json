@@ -68,8 +68,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha_abjad"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decree_law": {
       "label": "Presidential Decree (مرسوم جمهوري)",
@@ -98,8 +97,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "regulation": {
       "label": "Executive Regulation (نظام / تعليمات)",
@@ -128,8 +126,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "cpa_order": {
       "label": "CPA Order (أمر السلطة المؤقتة)",
@@ -158,8 +155,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution (الدستور)",
@@ -188,8 +184,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

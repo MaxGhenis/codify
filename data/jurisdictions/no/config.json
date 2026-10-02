@@ -60,8 +60,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "forskrift": {
       "label": "Forskrift",
@@ -97,8 +96,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "grunnloven": {
       "label": "Kongeriket Norges Grunnlov",
@@ -127,8 +125,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_sequential_assigned"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "stortingsvedtak": {
       "label": "Stortingsvedtak",
@@ -150,8 +147,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_sequential_assigned"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

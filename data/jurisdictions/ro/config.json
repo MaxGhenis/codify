@@ -80,12 +80,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_fullstop"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Paragraful (§)",
-          "name": "paragraf"
-        }
       ]
     },
     "oug": {
@@ -150,8 +144,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_fullstop"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "og": {
       "label": "Ordonanță (Government Ordinance)",
@@ -187,8 +180,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "hg": {
       "label": "Hotărâre de Guvern (Government Decision)",
@@ -224,8 +216,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constituția României",
@@ -275,8 +266,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "lege",

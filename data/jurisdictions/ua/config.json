@@ -73,8 +73,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "alpha_or_numeric"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Code of Ukraine",
@@ -145,16 +144,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "alpha_or_numeric"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "generalPart",
-          "local_term": "Загальна частина"
-        },
-        {
-          "name": "specialPart",
-          "local_term": "Особлива частина"
-        }
       ]
     },
     "constitution": {
@@ -177,8 +166,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "resolution": {
       "label": "Resolution of the Cabinet of Ministers",
@@ -203,8 +191,7 @@
             "alt1": "пункт (статті, пункту)"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "law",

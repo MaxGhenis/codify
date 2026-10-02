@@ -59,8 +59,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_assigned"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "fordning": {
       "label": "Förordning",
@@ -103,8 +102,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_assigned"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "grundlag": {
       "label": "Grundlag",
@@ -140,8 +138,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

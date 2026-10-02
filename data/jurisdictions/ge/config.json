@@ -59,8 +59,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "georgian_alpha_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "organic_law": {
       "label": "Organic Law of Georgia",
@@ -96,8 +95,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "georgian_alpha_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Code of Georgia",
@@ -147,8 +145,7 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "georgian_alpha_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decree": {
       "label": "Presidential Decree",
@@ -170,8 +167,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "resolution": {
       "label": "Government Resolution",
@@ -193,8 +189,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of Georgia",
@@ -223,8 +218,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "law",

@@ -92,8 +92,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Code",
@@ -169,8 +168,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -199,8 +197,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret": {
       "label": "Décret",
@@ -229,8 +226,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -255,8 +251,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

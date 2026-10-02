@@ -76,13 +76,6 @@
             "alt1": "Tiret"
           }
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Oddział",
-          "name": "oddział",
-          "level": "higher"
-        }
       ]
     },
     "rozp": {
@@ -126,8 +119,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "alpha_lower_rparen"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Konstytucja Rzeczypospolitej Polskiej",
@@ -163,8 +155,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_rparen"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

@@ -67,8 +67,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "arabic_period"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "administrative_regulation": {
       "label": "Administrative Regulation (Xingzheng Fagui)",
@@ -111,8 +110,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "chinese_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution (Xianfa)",
@@ -148,8 +146,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "unnumbered_positional"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

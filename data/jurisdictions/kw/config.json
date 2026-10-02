@@ -60,12 +60,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "proviso",
-          "local_term": "مع مراعاة"
-        }
       ]
     },
     "decree_law": {
@@ -102,8 +96,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_or_labelled"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "emiri_decree": {
       "label": "Emiri Decree (مرسوم أميري)",
@@ -125,8 +118,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_or_labelled"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ministerial_decision": {
       "label": "Ministerial Decision (قرار وزاري)",
@@ -148,8 +140,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_or_labelled"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution (الدستور)",
@@ -171,8 +162,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

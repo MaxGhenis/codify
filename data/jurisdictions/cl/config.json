@@ -80,16 +80,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "roman_lower_closing_paren"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "tituloPreliminar",
-          "local_term": "Título Preliminar"
-        },
-        {
-          "name": "disposicionTransitoria",
-          "local_term": "Disposición Transitoria"
-        }
       ]
     },
     "dfl": {
@@ -140,8 +130,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "dl": {
       "label": "Decreto Ley",
@@ -184,8 +173,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitucion": {
       "label": "Constitución Política de la República de Chile",
@@ -213,12 +201,6 @@
           "level": "subdivision",
           "bluebell_keyword": null,
           "numbering": "positional_ordinal_word"
-        }
-      ],
-      "hcontainers": [
-        {
-          "name": "disposicionTransitoria",
-          "local_term": "Disposición Transitoria"
         }
       ]
     }

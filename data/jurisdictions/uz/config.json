@@ -54,16 +54,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "bolim",
-          "local_term": "Bolim"
-        },
-        {
-          "name": "proviso",
-          "local_term": "Proviso"
-        }
       ]
     },
     "kodeks": {
@@ -107,8 +97,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "farmon": {
       "label": "Decree of the President of the Republic of Uzbekistan",
@@ -125,12 +114,6 @@
           "local_terms": {
             "alt1": "Band"
           }
-        }
-      ],
-      "hcontainers": [
-        {
-          "name": "paragraph",
-          "local_term": "Paragraph"
         }
       ]
     },
@@ -161,8 +144,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "qonun",

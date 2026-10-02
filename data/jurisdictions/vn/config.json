@@ -68,12 +68,6 @@
           "bluebell_keyword": "POINT",
           "numbering": "vietnamese_alpha"
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Phụ lục",
-          "name": "phuluc"
-        }
       ]
     },
     "boluat": {
@@ -131,8 +125,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "vietnamese_alpha"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "phaplenhh": {
       "label": "Pháp lệnh (Ordinance)",
@@ -168,8 +161,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "vietnamese_alpha"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "nghi_dinh": {
       "label": "Nghị định (Decree)",
@@ -212,8 +204,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "vietnamese_alpha"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Hiến pháp (Constitution)",
@@ -242,8 +233,7 @@
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "luat",

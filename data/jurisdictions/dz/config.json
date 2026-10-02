@@ -75,8 +75,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "loi_organique": {
       "label": "Loi organique",
@@ -119,8 +118,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -170,8 +168,7 @@
           "bluebell_keyword": "ALINEA",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret_presidentiel": {
       "label": "Décret présidentiel",
@@ -200,8 +197,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret_executif": {
       "label": "Décret exécutif",
@@ -230,8 +226,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "code": {
       "label": "Code",
@@ -302,8 +297,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_implicit"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -332,8 +326,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

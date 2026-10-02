@@ -91,13 +91,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "implicit"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "dispositionPreliminaire",
-          "description": "Preliminary provisions before TITRE PREMIER",
-          "local_term": "Dispositionpreliminaire"
-        }
       ]
     },
     "loi_organique": {
@@ -134,8 +127,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_with_premier"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -171,8 +163,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_with_premier"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "decret": {
       "label": "Décret",
@@ -201,8 +192,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_with_premier"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -231,8 +221,7 @@
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_with_premier"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "loi",

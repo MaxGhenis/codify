@@ -96,8 +96,7 @@
             "rus": "Абзац"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "konstitutsionny_zakon": {
       "label": "Konstitutsionny zakon (Constitutional Law)",
@@ -149,8 +148,7 @@
             "rus": "Подпункт"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "kodeks": {
       "label": "Kodeks (Code)",
@@ -249,15 +247,6 @@
             "rus": "Абзац"
           }
         }
-      ],
-      "hcontainers": [
-        {
-          "local_term": "Primechaniye",
-          "name": "primechaniye",
-          "description": "Note appended to an article with full legal force (common in Criminal Code). Equivalent to Russian primechaniye.",
-          "bluebell_proxy": "SUBSECTION",
-          "requires_postprocessing": true
-        }
       ]
     },
     "ukaz": {
@@ -291,8 +280,7 @@
             "rus": "Подпункт"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "postanovleniye": {
       "label": "Postanovleniye Pravitel'stva (Government Resolution)",
@@ -322,8 +310,7 @@
             "rus": "Подпункт"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Konstitutsiya (Constitution)",
@@ -375,8 +362,7 @@
             "rus": "Подпункт"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "zakon",

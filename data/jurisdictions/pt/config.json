@@ -88,12 +88,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "roman_lower_closing_paren"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "preambulo",
-          "local_term": "Preambulo"
-        }
       ]
     },
     "dl": {
@@ -158,8 +152,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "roman_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "lo": {
       "label": "Lei Orgânica (Organic Law)",
@@ -195,8 +188,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "portaria": {
       "label": "Portaria (Ordinance — ministerial regulatory act)",
@@ -225,8 +217,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constituição da República Portuguesa",
@@ -276,8 +267,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "lei",

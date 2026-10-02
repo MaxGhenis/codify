@@ -56,13 +56,6 @@
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "division",
-          "local_term": "Division",
-          "bluebell_keyword": "SUBSECTION"
-        }
       ]
     },
     "ord": {
@@ -88,8 +81,7 @@
             "alt1": "Rule"
           }
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution of the Republic of Vanuatu",
@@ -111,8 +103,7 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",

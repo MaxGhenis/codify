@@ -74,16 +74,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "cyrillic_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "additionalProvisions",
-          "local_term": "Допълнителни разпоредби"
-        },
-        {
-          "name": "transitionalProvisions",
-          "local_term": "Преходни и заключителни разпоредби"
-        }
       ]
     },
     "code": {
@@ -149,16 +139,6 @@
           "bluebell_keyword": "INDENT",
           "numbering": "cyrillic_lower_parenthesized"
         }
-      ],
-      "hcontainers": [
-        {
-          "name": "additionalProvisions",
-          "local_term": "Допълнителни разпоредби"
-        },
-        {
-          "name": "transitionalProvisions",
-          "local_term": "Преходни и заключителни разпоредби"
-        }
       ]
     },
     "si": {
@@ -210,8 +190,7 @@
           "bluebell_keyword": "INDENT",
           "numbering": "cyrillic_lower_parenthesized"
         }
-      ],
-      "hcontainers": []
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -248,8 +227,7 @@
           "bluebell_keyword": "POINT",
           "numbering": "arabic_fullstop"
         }
-      ],
-      "hcontainers": []
+      ]
     }
   },
   "default_document_class": "act",
