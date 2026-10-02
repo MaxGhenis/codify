@@ -688,13 +688,11 @@ class SegmentationConfig(BaseModel):
             _refuse_empty_match(pattern, "a heading pattern")
             # Global flags mid-pattern fail only once wrapped, so check the wrapped form.
             try:
-                wrapped = heading_line_pattern(pattern)
+                heading_line_pattern(pattern)
             except re.error as exc:
                 raise ValueError(
                     f"a heading pattern does not compile at a line start: {pattern!r}: {exc}"
                 ) from exc
-            if _min_width(wrapped.pattern) == 0:
-                raise ValueError(f"a heading pattern must not match empty text: {pattern!r}")
         return value
 
     @field_validator("contents_keywords")
