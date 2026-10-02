@@ -1,0 +1,387 @@
+{
+  "code": "np",
+  "name": "Nepal",
+  "type": "national",
+  "tradition": [
+    "hindu",
+    "common_law",
+    "customary"
+  ],
+  "calendar": "dual",
+  "languages": [
+    "nep"
+  ],
+  "authoritative_language": "nep",
+  "document_classes": {
+    "act": {
+      "label": "Ain (Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "परिच्छेद",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
+        },
+        {
+          "local_term": "दफा",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Daphaa"
+          }
+        },
+        {
+          "local_term": "उपदफा",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadaphaa"
+          }
+        },
+        {
+          "local_term": "खण्ड",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
+        },
+        {
+          "local_term": "उपखण्ड",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Upakhanda"
+          }
+        }
+      ]
+    },
+    "samhita": {
+      "label": "Samhita (Code)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "भाग",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Bhaag"
+          }
+        },
+        {
+          "local_term": "परिच्छेद",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
+        },
+        {
+          "local_term": "दफा",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Daphaa"
+          }
+        },
+        {
+          "local_term": "उपदफा",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadaphaa"
+          }
+        },
+        {
+          "local_term": "खण्ड",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
+        },
+        {
+          "local_term": "उपखण्ड",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Upakhanda"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Nepal",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "भाग",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Bhaag"
+          }
+        },
+        {
+          "local_term": "धारा",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Dhaaraa"
+          }
+        },
+        {
+          "local_term": "उपधारा",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadhaaraa"
+          }
+        },
+        {
+          "local_term": "खण्ड",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
+        }
+      ]
+    },
+    "niyamavali": {
+      "label": "Niyamavali (Rules/Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "rule",
+      "hierarchy": [
+        {
+          "local_term": "परिच्छेद",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
+        },
+        {
+          "local_term": "नियम",
+          "akn_element": "rule",
+          "level": "basic",
+          "bluebell_keyword": "RULE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Niyam"
+          }
+        },
+        {
+          "local_term": "उपनियम",
+          "akn_element": "subrule",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBRULE",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upaniyam"
+          }
+        },
+        {
+          "local_term": "खण्ड",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
+        }
+      ]
+    },
+    "adhyadesh": {
+      "label": "Adhyadesh (Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "परिच्छेद",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
+        },
+        {
+          "local_term": "दफा",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Daphaa"
+          }
+        },
+        {
+          "local_term": "उपदफा",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadaphaa"
+          }
+        },
+        {
+          "local_term": "खण्ड",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "np",
+    "uri_patterns": {
+      "act": "/akn/np/act/{year}/{number}",
+      "constitution": "/akn/np/act/constitution/2015/constitution",
+      "samhita": "/akn/np/act/samhita/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "calendar_conversion": {
+      "kind": "bikram_samvat",
+      "offset": 57,
+      "new_year_month": 4,
+      "new_year_day": 14
+    }
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year} B.S.",
+    "act_citation_alt": "{short_title}, {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "In Section {N}, for the words '...' substitute '...' / After Section {N}, insert the following section",
+    "cross_reference_format": "short_title_and_year_bs"
+  },
+  "core_tlcs": [
+    {
+      "eId": "federalParliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/federal-parliament",
+      "showAs": "Federal Parliament of Nepal"
+    },
+    {
+      "eId": "pratinidhiSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/pratinidhi-sabha",
+      "showAs": "Pratinidhi Sabha (House of Representatives)"
+    },
+    {
+      "eId": "rastriyaSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/rastriya-sabha",
+      "showAs": "Rastriya Sabha (National Assembly)"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/np/president",
+      "showAs": "President of Nepal"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/np/prime-minister",
+      "showAs": "Prime Minister of Nepal"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/supreme-court",
+      "showAs": "Supreme Court of Nepal"
+    },
+    {
+      "eId": "nepalGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/np/nepal-gazette",
+      "showAs": "Nepal Gazette (Nepal Rajpatra)"
+    },
+    {
+      "eId": "lawCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/np/law-commission",
+      "showAs": "Law Commission of Nepal"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "devanagari",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

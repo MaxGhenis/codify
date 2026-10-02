@@ -1,0 +1,235 @@
+{
+  "code": "am",
+  "name": "Armenia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "hye"
+  ],
+  "authoritative_language": "hye",
+  "document_classes": {
+    "act": {
+      "label": "Law of the Republic of Armenia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Բաժին",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Գլուխ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Հոդված",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "մաս",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "կետ",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        },
+        {
+          "local_term": "ենթակետ",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "constitutional_law": {
+      "label": "Constitutional Law of the Republic of Armenia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Գլուխ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Հոդված",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "մաս",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "կետ",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        }
+      ]
+    },
+    "decision": {
+      "label": "Government Decision",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Գլուխ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Հոդված",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "մաս",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Armenia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Գլուխ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Հոդված",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "am",
+    "uri_patterns": {
+      "act": "/akn/am/act/{year}/{number}",
+      "constitutional_law": "/akn/am/act/constitutional-law/{year}/{number}",
+      "decision": "/akn/am/act/decision/{year}/{number}",
+      "constitution": "/akn/am/act/constitution/1995/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "HO-{number}-N of {date}",
+    "article_numbering": "arabic_continuous",
+    "insertion_style": "superscript_or_decimal"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article N of Law HO-{N}-N shall be supplemented by a new part with the following content: ... / Part N of Article N shall be amended as follows: ... / Article N shall be declared void.",
+    "cross_reference_format": "title_and_HO_number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/am/national-assembly",
+      "showAs": "National Assembly of the Republic of Armenia"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/am/president",
+      "showAs": "President of the Republic of Armenia"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/am/prime-minister",
+      "showAs": "Prime Minister of the Republic of Armenia"
+    },
+    {
+      "eId": "government",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/am/government",
+      "showAs": "Government of the Republic of Armenia"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/am/constitutional-court",
+      "showAs": "Constitutional Court of the Republic of Armenia"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/am/official-gazette",
+      "showAs": "Official Gazette of the Republic of Armenia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "integrated",
+    "heading_case": "title_case",
+    "script": "armenian",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

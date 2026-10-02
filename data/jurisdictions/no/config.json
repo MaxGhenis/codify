@@ -1,0 +1,242 @@
+{
+  "code": "no",
+  "name": "Norway",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "nob",
+    "nno"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "act": {
+      "label": "Lov",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Del",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Kapittel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Bokstav",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Nummer",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_closing_paren"
+        }
+      ]
+    },
+    "forskrift": {
+      "label": "Forskrift",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapittel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Bokstav",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "grunnloven": {
+      "label": "Kongeriket Norges Grunnlov",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Avdeling",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ]
+    },
+    "stortingsvedtak": {
+      "label": "Stortingsvedtak",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ledd",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "no",
+    "uri_patterns": {
+      "act": "/akn/no/act/{year}/{number}",
+      "forskrift": "/akn/no/act/fo/{year}/{number}",
+      "grunnloven": "/akn/no/act/constitution/1814/grunnloven",
+      "stortingsvedtak": "/akn/no/act/vedtak/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lov {date} nr. {number}",
+    "act_citation_alt": "Lov av {date} nr. {number}",
+    "insertion_style": "alphanumeric_no_space"
+  },
+  "amendments": {
+    "style": "textual_replacement",
+    "phrasing": "I lov {date} nr. {number} om {X} gjøres følgende endringer: § {N} skal lyde: ... / ny § {N}a skal lyde: ... / § {N} oppheves.",
+    "cross_reference_format": "short_title_and_date_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "stortinget",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/stortinget",
+      "showAs": "Stortinget"
+    },
+    {
+      "eId": "kongen",
+      "class": "TLCRole",
+      "href": "/ontology/role/no/kongen",
+      "showAs": "Kongen"
+    },
+    {
+      "eId": "statsministeren",
+      "class": "TLCRole",
+      "href": "/ontology/role/no/statsministeren",
+      "showAs": "Statsministeren"
+    },
+    {
+      "eId": "regjeringen",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/regjeringen",
+      "showAs": "Regjeringen"
+    },
+    {
+      "eId": "hoyesterett",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/hoyesterett",
+      "showAs": "Høyesterett"
+    },
+    {
+      "eId": "lovdata",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/no/lovdata",
+      "showAs": "Lovdata"
+    },
+    {
+      "eId": "norskLovtidend",
+      "class": "TLCObject",
+      "href": "/ontology/obj/no/norsk-lovtidend",
+      "showAs": "Norsk Lovtidend"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

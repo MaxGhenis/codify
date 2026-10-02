@@ -1,0 +1,288 @@
+{
+  "code": "rw",
+  "name": "Rwanda",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "kin",
+    "eng",
+    "fra"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "law": {
+      "label": "Law",
+      "akn_element": "act",
+      "akn_subtype": "law",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Point",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "ol": {
+      "label": "Organic Law",
+      "akn_element": "act",
+      "akn_subtype": "ol",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "po": {
+      "label": "Presidential Order",
+      "akn_element": "act",
+      "akn_subtype": "po",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "pmo": {
+      "label": "Prime Minister's Order",
+      "akn_element": "act",
+      "akn_subtype": "pmo",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "mo": {
+      "label": "Ministerial Order",
+      "akn_element": "act",
+      "akn_subtype": "mo",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "akn_subtype": "constitution",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "ordinal_english"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "rw",
+    "uri_patterns": {
+      "law": "/akn/rw/act/law/{year}/{number}",
+      "ol": "/akn/rw/act/ol/{year}/{number}",
+      "po": "/akn/rw/act/po/{year}/{number}",
+      "pmo": "/akn/rw/act/pmo/{year}/{number}",
+      "mo": "/akn/rw/act/mo/{year}/{number}",
+      "constitution": "/akn/rw/act/constitution/2003/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Law N° {number}/{year} of {date}",
+    "insertion_style": "bis_ter"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "is amended as follows",
+    "cross_reference_format": "full_citation_then_principal_law"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/rw/parliament",
+      "showAs": "Parliament of Rwanda"
+    },
+    {
+      "eId": "chamberOfDeputies",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/rw/chamber-of-deputies",
+      "showAs": "Chamber of Deputies"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/rw/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/rw/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/rw/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/rw/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/rw/official-gazette",
+      "showAs": "Official Gazette of the Republic of Rwanda"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

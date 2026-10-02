@@ -1,0 +1,233 @@
+{
+  "code": "se",
+  "name": "Sweden",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "swe"
+  ],
+  "authoritative_language": "swe",
+  "document_classes": {
+    "act": {
+      "label": "Lag",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Avdelning",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Strecksats",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_assigned"
+        }
+      ]
+    },
+    "grundlag": {
+      "label": "Grundlag",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        }
+      ]
+    },
+    "forordning": {
+      "label": "Förordning",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Strecksats",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_assigned"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "se",
+    "uri_patterns": {},
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "({year}:{sfs-number})",
+    "insertion_style": "alphanumeric_spaced"
+  },
+  "amendments": {
+    "style": "textual_replacement",
+    "phrasing": "I lagen ([year]:[number]) om [X] ska [N §] ha följande lydelse: ... / ska det införas en ny paragraf, [N §], av följande lydelse: ... / ska upphöra att gälla.",
+    "cross_reference_format": "short_title_and_sfs_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "riksdag",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/se/riksdag",
+      "showAs": "Riksdag"
+    },
+    {
+      "eId": "regeringen",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/se/regeringen",
+      "showAs": "Regeringen"
+    },
+    {
+      "eId": "lagradet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/se/lagradet",
+      "showAs": "Lagrådet"
+    },
+    {
+      "eId": "statsminister",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/statsminister",
+      "showAs": "Statsminister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "talman",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/talman",
+      "showAs": "Talman"
+    },
+    {
+      "eId": "kung",
+      "class": "TLCRole",
+      "href": "/ontology/role/se/kung",
+      "showAs": "Kungen"
+    },
+    {
+      "eId": "sfs",
+      "class": "TLCObject",
+      "href": "/ontology/obj/se/sfs",
+      "showAs": "Svensk författningssamling"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

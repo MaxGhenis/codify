@@ -550,7 +550,7 @@ def test_public_reference_defaults_to_excluded() -> None:
     assert cfg.public_reference is False
 
 
-def test_the_flagged_set_is_small_and_deliberate() -> None:
+def test_the_flagged_set_is_deliberate() -> None:
     """A flag that spreads quietly is the failure this design guards against, so
     the count is asserted rather than left to drift."""
     import json
@@ -559,7 +559,14 @@ def test_the_flagged_set_is_small_and_deliberate() -> None:
 
     registry = json.loads((JURISDICTIONS_DIR / "registry.json").read_text())
     flagged = sorted(j["code"] for j in registry["jurisdictions"] if j.get("public_reference"))
-    assert flagged == ["ee", "fi", "gb", "ie", "it", "nz"]
+    on_disk = sorted(
+        p.parent.name
+        for p in JURISDICTIONS_DIR.glob("*/config.json")
+        if json.loads(p.read_text()).get("public_reference")
+    )
+    assert flagged == on_disk
+    assert len(flagged) == 102
+    assert {"ee", "fi", "gb", "ie", "it", "nz"} <= set(flagged)
 
 
 def test_the_export_carries_a_filtered_registry(tmp_path, monkeypatch) -> None:
@@ -949,3 +956,749 @@ def test_a_connector_that_clashes_with_the_number_group_is_refused() -> None:
             series_citations=[{"name": "Act", "doctype": "act"}],
             series_citation_connectors=[r"(?P<num>No)\.?"],
         )
+
+
+_SHIPPED = [c for c in _CODES if (cfg := load_config(c)) is not None and cfg.public_reference]
+# Keys the loader keeps as loose extras and no code reads.
+_DEAD_STRUCTURING_KEYS = {
+    "prompt_variant",
+    "prompt_file",
+    "special_variants",
+    "constitution_prompt_variant",
+    "civil_code_prompt_variant",
+    "rtl_script",
+    "rtl_note",
+    "eid_special_rules",
+}
+_DEAD_CLASS_KEYS = {
+    "prompt_variant",
+    "frbr_locality",
+    "enacting_formula_position",
+    "label_en",
+}
+# Scope spellings `_doctype_matches` ignores, which make a formula a wildcard.
+_IGNORED_SCOPE_KEYS = {
+    "applies_to",
+    "instrument_type",
+    "document_type",
+    "document_types",
+    "type",
+    "instrument",
+    "instrument_types",
+}
+
+
+def _inside(formula):
+    from datetime import timedelta
+
+    if formula.from_date:
+        return formula.from_date
+    return formula.to_date - timedelta(days=1) if formula.to_date else None
+
+
+def _scope(formula) -> list[str]:
+    dc = formula.document_class
+    return [] if dc is None else [dc] if isinstance(dc, str) else list(dc)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_shipped_configs_carry_no_unread_keys(code: str) -> None:
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    dead = _DEAD_STRUCTURING_KEYS & set(raw.get("structuring", {}))
+    dead |= {
+        f"{name}.{k}"
+        for name, cls in raw["document_classes"].items()
+        for k in _DEAD_CLASS_KEYS & set(cls)
+    }
+    dead |= {
+        f"formula[{i}].{k}"
+        for i, f in enumerate(raw.get("enacting_formulae", []))
+        for k in _IGNORED_SCOPE_KEYS & set(f)
+    }
+    assert not dead, dead
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_formula_scope_is_respected_by_selection(code: str) -> None:
+    from codify.pipeline.enrich.enacting import select_formula
+
+    cfg = load_config(code)
+    classes = set(cfg.document_classes)
+    scoped = [f for f in cfg.enacting_formulae if _scope(f)]
+    for f in scoped:
+        assert set(_scope(f)) <= classes, (code, _scope(f))
+        for doctype in _scope(f):
+            chosen = select_formula(code, doctype, _inside(f))
+            assert chosen is not None and doctype in _scope(chosen), (code, doctype)
+        for other in classes - set(_scope(f)):
+            chosen = select_formula(code, other, _inside(f))
+            assert chosen is not f, (code, other)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_formula_bounds_are_gregorian_dates(code: str) -> None:
+    """Bounds are compared as Gregorian dates, so a Hijri or Solar Hijri year
+    written as a date would sit centuries before any instrument."""
+    cfg = load_config(code)
+    for f in cfg.enacting_formulae:
+        for bound in (f.from_date, f.to_date):
+            if bound is not None:
+                assert 1700 <= bound.year <= 2100, (code, bound)
+        if f.from_date and f.to_date:
+            assert f.from_date < f.to_date, (code, f.era)
+
+
+def _probe_dates(cfg) -> list:
+    from datetime import timedelta
+
+    dates: set = {None}
+    for f in cfg.enacting_formulae:
+        for d in (f.from_date, f.to_date):
+            if d:
+                dates |= {d, d - timedelta(days=1), d + timedelta(days=1)}
+    return list(dates)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_formula_is_reachable(code: str) -> None:
+    """`select_formula` takes the first match and ignores language, so a later
+    formula with the same scope and dates can never be chosen."""
+    from codify.pipeline.enrich.enacting import select_formula
+
+    cfg = load_config(code)
+    chosen = {
+        id(r)
+        for cl in cfg.document_classes
+        for d in _probe_dates(cfg)
+        if (r := select_formula(code, cl, d)) is not None
+    }
+    dead = [i for i, f in enumerate(cfg.enacting_formulae) if id(f) not in chosen]
+    assert not dead, (code, dead)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_unscoped_formula_leaks_across_classes(code: str) -> None:
+    from codify.pipeline.enrich.enacting import select_formula
+
+    cfg = load_config(code)
+    if len(cfg.document_classes) < 2:
+        return
+    leaked = {
+        (cl, str(d))
+        for cl in cfg.document_classes
+        for d in _probe_dates(cfg)
+        if (r := select_formula(code, cl, d)) is not None and not _scope(r)
+    }
+    assert not leaked, (code, sorted(leaked))
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_frbr_templates_use_only_supplied_placeholders(code: str) -> None:
+    """`build_frbr_work_uri` formats with year and number only, so any other
+    placeholder raises KeyError and the pattern is silently ignored."""
+    import string
+
+    cfg = load_config(code)
+    for doctype, template in (cfg.frbr.uri_patterns if cfg.frbr else {}).items():
+        fields = {n for _, n, _, _ in string.Formatter().parse(template) if n}
+        assert fields <= {"year", "number"}, (code, doctype, template)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_frbr_years_and_organisation_links_are_canonical(code: str) -> None:
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    frbr = json.dumps(raw.get("frbr", {}), ensure_ascii=False)
+    for year in re.findall(r"/(\d{4})(?=[/\"@ ])", frbr):
+        assert 1700 <= int(year) <= 2100, (code, year)
+    for tlc in raw["core_tlcs"]:
+        if isinstance(tlc, dict) and tlc["eId"] == "codify":
+            assert tlc["href"] == "/ontology/org/codify", (code, tlc["href"])
+
+
+def _unmodeled_keys(model, data, path: str = "") -> list[str]:
+    """Key paths in `data` that the pydantic models do not declare, by name or
+    alias: what `extra="forbid"` would reject at every level."""
+    import types
+    import typing
+
+    from pydantic import BaseModel
+
+    def walk(annotation, value, where: str) -> list[str]:
+        origin, args = typing.get_origin(annotation), typing.get_args(annotation)
+        if origin in (typing.Union, types.UnionType):
+            tries = [walk(a, value, where) for a in args if a is not type(None)]
+            return min(tries, key=len) if tries else []
+        if origin is list and isinstance(value, list):
+            return [k for i, v in enumerate(value) for k in walk(args[0], v, f"{where}[{i}]")]
+        if origin is dict and isinstance(value, dict) and len(args) == 2:
+            return [k for key, v in value.items() for k in walk(args[1], v, f"{where}/{key}")]
+        return _unmodeled_keys(annotation, value, where)
+
+    if not (isinstance(model, type) and issubclass(model, BaseModel)):
+        return []
+    if not isinstance(data, dict):
+        return []
+    declared: dict = {}
+    for name, field in model.model_fields.items():
+        declared[name] = field.annotation
+        if field.alias:
+            declared[field.alias] = field.annotation
+    found: list[str] = []
+    for key, value in data.items():
+        if key not in declared:
+            found.append(f"{path}/{key}")
+        else:
+            found += walk(declared[key], value, f"{path}/{key}")
+    return found
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_shipped_configs_carry_only_modeled_keys(code: str) -> None:
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    assert _unmodeled_keys(JurisdictionConfig, raw) == []
+
+
+def test_the_key_walk_names_an_unmodeled_key_at_depth() -> None:
+    raw = json.loads((JURISDICTIONS_DIR / "gb" / "config.json").read_text())
+    raw["enacting_formulae"][0]["text_fr"] = "x"
+    raw["display"] = {**(raw.get("display") or {}), "stray": 1}
+    assert _unmodeled_keys(JurisdictionConfig, raw) == [
+        "/enacting_formulae[0]/text_fr",
+        "/display/stray",
+    ]
+
+
+# The emitter writes one formula, into the preamble, and reads only `text`.
+_EMITTED_POSITIONS = {"preamble"}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_formula_has_text_and_an_emitted_position(code: str) -> None:
+    for i, f in enumerate(load_config(code).enacting_formulae):
+        assert (f.text or "").strip(), (code, i)
+        assert f.position in _EMITTED_POSITIONS, (code, i, f.position)
+
+
+def _emitted_keywords(code: str, doctype: str) -> set[str]:
+    """Header keywords the real scaffolder writes for a synthetic line of every
+    alias of every hierarchy kind the config declares."""
+    from codify.pipeline.enrich.anchors import build_anchor_regex, keyword_aliases, scan_anchors
+    from codify.pipeline.enrich.scaffold import scaffold_from_anchors
+
+    cfg = load_config(code)
+    regex = build_anchor_regex(cfg, doctype)
+    emitted: set[str] = set()
+    for aliases in keyword_aliases(cfg, doctype).values():
+        for alias in aliases:
+            anchors = scan_anchors(f"{alias} 1\n\nsample\n", regex, country=code, doctype=doctype)
+            scaffold, _ = scaffold_from_anchors(anchors, country=code)
+            for line in scaffold.splitlines():
+                head = line.split(" ", 1)[0]
+                if head.isupper() and head not in {"BODY", "PREFACE", "PREAMBLE", "LONGTITLE"}:
+                    emitted.add(head)
+    return emitted
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_scaffolded_hierarchy_keywords_are_in_the_bluebell_vocabulary(code: str) -> None:
+    from codify.pipeline.enrich.kinds import BLUEBELL_HIER_KEYWORDS, kind_to_kw
+
+    # SCHEDULE opens an attachment, which the grammar takes outside the hierarchy.
+    vocabulary = BLUEBELL_HIER_KEYWORDS | {"SCHEDULE"}
+    cfg = load_config(code)
+    unsupported: set[tuple[str, str]] = set()
+    for doctype, doc_class in cfg.document_classes.items():
+        for kw in _emitted_keywords(code, doctype) - vocabulary:
+            unsupported.add((doctype, kw))
+        # A level the scanner never matches in the sample still scaffolds under
+        # its element name, so declare only elements the grammar has a word for.
+        for entry in doc_class.hierarchy:
+            if entry.level in {"higher", "basic", "subdivision"}:
+                if kind_to_kw(entry.akn_element) not in BLUEBELL_HIER_KEYWORDS:
+                    unsupported.add((doctype, entry.akn_element))
+    assert not unsupported, (code, sorted(unsupported))
+
+
+# Namespace segment each TLC class lives under, as the AKN convention and the
+# existing profiles spell it.
+_TLC_NAMESPACE = {
+    "TLCPerson": "person",
+    "TLCOrganization": "org",
+    "TLCRole": "role",
+    "TLCObject": "obj",
+    "TLCLocation": "place",
+    "TLCEvent": "event",
+    "TLCProcess": "process",
+    "TLCConcept": "concept",
+    "TLCTerm": "term",
+    "TLCReference": "ref",
+}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_tlc_hrefs_use_the_namespace_of_their_class(code: str) -> None:
+    for tlc in load_config(code).core_tlcs:
+        segment = _TLC_NAMESPACE[tlc.tlc_class]
+        assert tlc.href.startswith(f"/ontology/{segment}/"), (code, tlc.eId, tlc.href)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_equal_authority_languages_do_not_name_one_authoritative(code: str) -> None:
+    import re
+
+    equal = re.compile(r"equal authority|co-equal|parallel originals", re.I)
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    stated = [s for s in _strings(raw) if equal.search(s)]
+    if stated and len(raw["languages"]) > 1:
+        assert raw.get("authoritative_language") is None, (code, stated[0][:80])
+
+
+def _strings(node):
+    if isinstance(node, str):
+        yield node
+    elif isinstance(node, dict):
+        for value in node.values():
+            yield from _strings(value)
+    elif isinstance(node, list):
+        for value in node:
+            yield from _strings(value)
+
+
+@pytest.mark.parametrize("code", ["be", "ca", "ch", "fi", "vu", "cm", "rw", "no"])
+def test_co_authoritative_configs_leave_the_language_unset(code: str) -> None:
+    assert load_config(code).authoritative_language is None
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_declared_bluebell_keyword_is_what_the_scaffolder_emits(code: str) -> None:
+    """The scanner emits from `akn_element`, so a differing `bluebell_keyword`
+    would promise a keyword the scaffold never writes."""
+    from codify.pipeline.enrich.anchors import StructuralAnchor
+    from codify.pipeline.enrich.scaffold import scaffold_from_anchors
+
+    mismatched = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        for entry in doc_class.hierarchy:
+            if not entry.bluebell_keyword:
+                continue
+            anchor = StructuralAnchor(
+                kind=entry.akn_element,
+                keyword=entry.local_term,
+                number="1",
+                char_offset=0,
+                line=0,
+                matched_text="",
+                akn_eid="x_1",
+            )
+            scaffold, _ = scaffold_from_anchors([anchor], country=code)
+            emitted = scaffold.splitlines()[-2].split()[0]
+            if emitted != entry.bluebell_keyword:
+                mismatched.append((doctype, entry.local_term, entry.bluebell_keyword, emitted))
+    assert not mismatched, (code, mismatched)
+
+
+# Scripts each language's own terms are written in; Latin is always allowed for
+# the English labels the profiles carry beside them. A language not listed here
+# is Latin-script or unchecked.
+_LANGUAGE_SCRIPTS = {
+    "hye": {"ARMENIAN"},
+    "kat": {"GEORGIAN"},
+    "ell": {"GREEK"},
+    "heb": {"HEBREW"},
+    "hin": {"DEVANAGARI"},
+    "nep": {"DEVANAGARI"},
+    "ben": {"BENGALI"},
+    "sin": {"SINHALA"},
+    "tam": {"TAMIL"},
+    "khm": {"KHMER"},
+    "lao": {"LAO"},
+    "mya": {"MYANMAR"},
+    "amh": {"ETHIOPIC"},
+    "tha": {"THAI"},
+    **{k: {"CYRILLIC"} for k in "rus bul ukr bel mkd srp kaz kir tgk mon uzb tuk".split()},
+    **{k: {"ARABIC"} for k in "ara fas urd pus kur snd uig prs".split()},
+    **{k: {"CJK", "HIRAGANA", "KATAKANA", "HANGUL"} for k in "zho cmn jpn kor yue".split()},
+}
+# URIs, citation patterns and examples are not human-readable names or terms.
+_NON_TEXT_PATHS = ("/uri", "/url", "href", "citation", "pattern", "example", "/validation")
+
+
+def _scripts_of(token: str) -> set[str]:
+    import unicodedata
+
+    return {unicodedata.name(c, "?").split(" ")[0] for c in token if c.isalpha()}
+
+
+def _paths(node, where: str = ""):
+    if isinstance(node, dict):
+        for key, value in node.items():
+            yield from _paths(value, f"{where}/{key}")
+    elif isinstance(node, list):
+        for i, value in enumerate(node):
+            yield from _paths(value, f"{where}[{i}]")
+    elif isinstance(node, str):
+        yield where, node
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_match_vocabulary_uses_one_script_consistent_with_the_languages(code: str) -> None:
+    """A term or name mixing scripts (an Armenian word with a Cyrillic or Latin
+    homoglyph) never matches the source, so its anchor silently never fires.
+    Covers every human-readable string: terms, labels, names, display names."""
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    native = [lang for lang in raw["languages"] if lang in _LANGUAGE_SCRIPTS]
+    allowed = {"LATIN"}.union(*(_LANGUAGE_SCRIPTS[lang] for lang in native))
+    bad = []
+    for where, text in _paths(raw):
+        if any(part in where.lower() for part in _NON_TEXT_PATHS):
+            continue
+        for token in re.findall(r"\w+", text):
+            # A bare N, M or X is a number placeholder, not a Latin letter of the term.
+            scripts = _scripts_of(re.sub(r"(?<![A-Za-z])[NMX](?![A-Za-z])", "", token))
+            if len(scripts) > 1 or (native and scripts - allowed):
+                bad.append((where, token, sorted(scripts)))
+    assert not bad, (code, bad)
+
+
+_ORIGINAL_PROFILES = {"ee", "fi", "gb", "ie", "it", "nz"}
+
+
+@pytest.mark.parametrize(
+    "code", [c for c in _SHIPPED if c not in _ORIGINAL_PROFILES], ids=lambda c: c
+)
+def test_minimal_profiles_carry_no_free_text_notes(code: str) -> None:
+    """Notes drift from the structured fields beside them; the validation block
+    is the one standard statement."""
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    found = [
+        where
+        for where, _ in _paths(raw)
+        if not where.startswith("/validation")
+        and re.search(r"/(note|notes|[a-z_]+_notes?)$", where)
+    ]
+    assert not found, (code, found)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_term_is_both_a_native_level_and_an_hcontainer(code: str) -> None:
+    """The prompted path reads hcontainers and the deterministic one reads the
+    hierarchy, so a term in both makes them disagree."""
+    import re
+
+    def norm(text: str | None) -> str:
+        return re.sub(r"\s*\(.*?\)", "", text or "").strip().casefold()
+
+    both = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        native = {
+            norm(term)
+            for entry in doc_class.hierarchy
+            for term in [*entry.local_term.split(" / "), *(entry.local_terms or {}).values()]
+        }
+        both += [
+            (doctype, h.local_term)
+            for h in doc_class.hcontainers
+            if {norm(h.local_term), norm(h.name)} & native
+        ]
+    assert not both, (code, both)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_uri_pattern_keys_name_declared_classes(code: str) -> None:
+    cfg = load_config(code)
+    patterns = cfg.frbr.uri_patterns if cfg.frbr else {}
+    assert set(patterns) <= set(cfg.document_classes), (
+        code,
+        sorted(set(patterns) - set(cfg.document_classes)),
+    )
+
+
+def _terms_of(entry) -> list[str]:
+    return [entry.local_term, *(entry.local_terms or {}).values()]
+
+
+def _outside_parentheses(text: str) -> str:
+    import re
+
+    return re.sub(r"\(.*?\)", "", text)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_term_is_an_unsplit_list_of_alternatives(code: str) -> None:
+    """`_heading_forms` splits only a parenthesised abbreviation, so alternatives
+    joined by a separator register as one literal heading nobody writes."""
+    import re
+
+    found = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        terms = [t for e in doc_class.hierarchy for t in _terms_of(e)]
+        terms += [h.local_term for h in doc_class.hcontainers]
+        found += [(doctype, t) for t in terms if re.search(r"[/;,]| or ", _outside_parentheses(t))]
+    assert not found, (code, found)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_class_declares_an_element_twice(code: str) -> None:
+    """Aliases are keyed by element, so a second level of the same element
+    replaces the first one's aliases."""
+    import collections
+
+    twice = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        counts = collections.Counter(e.akn_element for e in doc_class.hierarchy)
+        twice += [(doctype, k) for k, n in counts.items() if n > 1]
+    assert not twice, (code, twice)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_heading_form_is_a_plausible_single_heading(code: str) -> None:
+    import re
+
+    from codify.pipeline.enrich.anchors import _heading_forms
+
+    implausible = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        for entry in doc_class.hierarchy:
+            for term in _terms_of(entry):
+                for form in _heading_forms(term):
+                    if re.search(r"[/;,]| or ", form) or not form.strip() or len(form.split()) > 4:
+                        implausible.append((doctype, term, form))
+    assert not implausible, (code, implausible)
+
+
+# Accentless spellings of Portuguese and Spanish headings; matching does not
+# fold diacritics, so these never match a gazette that prints the accent.
+_ACCENTLESS = {
+    "Titulo",
+    "Capitulo",
+    "Seccion",
+    "Articulo",
+    "Paragrafo",
+    "Seccao",
+    "Numero",
+    "Alinea",
+}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_portuguese_and_spanish_terms_carry_their_accents(code: str) -> None:
+    import re
+
+    cfg = load_config(code)
+    if not {"por", "spa"} & set(cfg.languages):
+        return
+    found = []
+    for doctype, doc_class in cfg.document_classes.items():
+        for entry in doc_class.hierarchy:
+            for term in _terms_of(entry):
+                found += [(doctype, w) for w in re.findall(r"[^\W\d_]+", term) if w in _ACCENTLESS]
+    assert not found, (code, found)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_hcontainer_term_is_reachable(code: str) -> None:
+    """The anchor scanner reads only the hierarchy and the postprocessor only
+    renames a proxy that already exists, so a term declared as an hcontainer
+    alone never anchors. Reachable means a hierarchy term of the same class, or
+    a native Bluebell keyword the parser takes as written."""
+    from codify.pipeline.enrich.kinds import BLUEBELL_HIER_KEYWORDS
+
+    unreachable = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        terms = {t.casefold() for e in doc_class.hierarchy for t in _terms_of(e)}
+        for h in doc_class.hcontainers:
+            native = (
+                not h.requires_postprocessing
+                and h.bluebell_proxy in BLUEBELL_HIER_KEYWORDS
+                and h.bluebell_proxy.casefold() == h.local_term.casefold()
+            )
+            if h.local_term.casefold() not in terms and not native:
+                unreachable.append((doctype, h.local_term))
+    assert not unreachable, (code, unreachable)
+
+
+def test_a_new_zealand_bill_is_homed_under_bill() -> None:
+    from codify.frbr import build_frbr_work_uri
+
+    assert build_frbr_work_uri("nz", "bill", 2023, "12") == "/akn/nz/bill/2023/12"
+    assert build_frbr_work_uri("nz", "act", 2023, "12") == "/akn/nz/act/2023/12"
+
+
+# Scopes a TLC may live under besides the profile's own code: a legal order the
+# jurisdiction inherits or belongs to.
+_SHARED_TLC_SCOPES = {"gb", "ohada", "un", "caribbean", "gcc"}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_identifiers_agree_with_the_folder_code(code: str) -> None:
+    import re
+
+    cfg = load_config(code)
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    assert cfg.code == code
+    if cfg.frbr and cfg.frbr.country_code:
+        assert cfg.frbr.country_code == code
+    for doctype, template in (cfg.frbr.uri_patterns if cfg.frbr else {}).items():
+        scope = template.split("/")[2]
+        assert scope == code or scope.startswith(f"{code}-"), (code, doctype, template)
+    registry = {j["code"]: j for j in load_registry()}
+    assert registry[code]["languages"] == cfg.languages
+    for tlc in raw["core_tlcs"]:
+        if tlc["eId"] == "codify" or tlc["class"] == "TLCLocation":
+            continue
+        scope, *rest = tlc["href"].strip("/").split("/")[2:4]
+        assert scope in _SHARED_TLC_SCOPES or scope == code or scope.startswith(f"{code}-"), (
+            code,
+            tlc["href"],
+        )
+        assert all(re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", part) for part in rest), (
+            code,
+            tlc["href"],
+        )
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_a_declared_frbr_subtype_is_the_segment_the_work_uri_mints(code: str) -> None:
+    from codify.frbr import build_frbr_work_uri
+
+    for doctype, doc_class in load_config(code).document_classes.items():
+        if doc_class.frbr_subtype:
+            uri = build_frbr_work_uri(code, doctype, 2020, "5")
+            assert f"/act/{doc_class.frbr_subtype}/" in uri, (code, doctype, uri)
+
+
+# Languages with one script of their own. The scanner matches aliases literally,
+# so a level with no alias in that script anchors nothing in an authoritative text.
+_REQUIRED_SCRIPT = {
+    lang: next(iter(scripts))
+    for lang, scripts in _LANGUAGE_SCRIPTS.items()
+    if len(scripts) == 1 and lang not in {"uzb", "tuk", "srp"}
+}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_level_has_an_alias_in_the_authoritative_script(code: str) -> None:
+    from codify.pipeline.enrich.anchors import _alias_terms_for
+
+    cfg = load_config(code)
+    missing = []
+    for doctype, doc_class in cfg.document_classes.items():
+        authoritative = doc_class.authoritative_language or cfg.authoritative_language
+        languages = [authoritative] if authoritative else cfg.languages
+        needed = {_REQUIRED_SCRIPT[lang] for lang in languages if lang in _REQUIRED_SCRIPT}
+        for entry in doc_class.hierarchy:
+            if not any(ch.isalpha() for ch in entry.local_term):
+                continue  # a bare symbol such as § has no script
+            have = set().union(*(_scripts_of(alias) for alias in _alias_terms_for(entry)))
+            if needed - have:
+                missing.append((doctype, entry.local_term, sorted(needed - have)))
+    assert not missing, (code, missing)
+
+
+# Words a Spanish or Portuguese profile must spell with their accent. Matching
+# does not fold diacritics, and a label or name is read by people.
+_NEEDS_ACCENT = {
+    "spa": {
+        "republica": "República",
+        "nacion": "Nación",
+        "articulo": "Artículo",
+        "constitucion": "Constitución",
+        "camara": "Cámara",
+        "codigo": "Código",
+        "union": "Unión",
+        "region": "Región",
+        "politica": "Política",
+        "seccion": "Sección",
+        "titulo": "Título",
+        "capitulo": "Capítulo",
+        "parrafo": "Párrafo",
+        "direccion": "Dirección",
+        "procuraduria": "Procuraduría",
+        "contraloria": "Contraloría",
+        "modificase": "Modifícase",
+        "fraccion": "Fracción",
+    },
+    "por": {
+        "republica": "República",
+        "nacao": "Nação",
+        "camara": "Câmara",
+        "constituicao": "Constituição",
+        "orgao": "Órgão",
+        "codigo": "Código",
+        "numero": "Número",
+        "secao": "Seção",
+        "seccao": "Secção",
+        "subsecao": "Subseção",
+        "alinea": "Alínea",
+        "paragrafo": "Parágrafo",
+        "titulo": "Título",
+        "capitulo": "Capítulo",
+        "ministerio": "Ministério",
+        "justica": "Justiça",
+        "publica": "Pública",
+        "diario": "Diário",
+        "uniao": "União",
+        "ordinaria": "Ordinária",
+        "provisoria": "Provisória",
+        "redacao": "Redação",
+        "redaccao": "Redação",
+    },
+}
+_IDENTIFIER_PATHS = ("href", "/eId", "akn_element", "bluebell_keyword", "pattern", "/uri", "/name")
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_spanish_and_portuguese_display_text_carries_its_accents(code: str) -> None:
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    words: dict[str, str] = {}
+    for lang in ("spa", "por"):
+        if lang in raw["languages"]:
+            words.update(_NEEDS_ACCENT[lang])
+    if not words:
+        return
+    misspelt = []
+    for where, text in _paths(raw):
+        if any(part in where for part in _IDENTIFIER_PATHS):
+            continue
+        for token in re.findall(r"[^\W\d_]+", text):
+            if token.casefold() in words and token.casefold() == _fold(token):
+                misspelt.append((where, token, words[token.casefold()]))
+    assert not misspelt, (code, misspelt)
+
+
+def _fold(text: str) -> str:
+    import unicodedata
+
+    decomposed = unicodedata.normalize("NFD", text)
+    return "".join(c for c in decomposed if unicodedata.category(c) != "Mn").casefold()
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_hierarchy_term_is_a_placeholder(code: str) -> None:
+    """A term such as `N.1` compiles to that literal text, so a printed `1.1`
+    never anchors. A term must be a printed word or a printed symbol (§)."""
+    import re
+
+    from codify.pipeline.enrich.anchors import _alias_terms_for, _heading_forms
+
+    placeholders = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        for entry in doc_class.hierarchy:
+            forms = [*_heading_forms(entry.local_term), *_alias_terms_for(entry)]
+            for form in forms:
+                if form.strip() == "§":
+                    continue
+                letters = [c for c in form if c.isalpha()]
+                lone = len(letters) == 1 and letters[0] in "NXM"
+                token = re.search(r"(^|\s)[NXM](\.\d+)*\.?(\s|$)|\d", form)
+                if not letters or lone or token:
+                    placeholders.append((doctype, entry.local_term, form))
+    assert not placeholders, (code, placeholders)

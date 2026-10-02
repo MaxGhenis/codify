@@ -1,0 +1,542 @@
+{
+  "code": "dz",
+  "name": "Algeria",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "fra"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Livre"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_ordinal_degree",
+          "local_terms": {
+            "alt1": "Point numéroté"
+          }
+        }
+      ]
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        }
+      ]
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Livre"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        }
+      ]
+    },
+    "decret_presidentiel": {
+      "label": "Décret présidentiel",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    },
+    "decret_executif": {
+      "label": "Décret exécutif",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Livre"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "فرع",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Sous-section"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_implicit",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_ordinal_degree",
+          "local_terms": {
+            "alt1": "Point numéroté"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "dz",
+    "uri_patterns": {
+      "loi": "/akn/dz/act/{year}/{number}",
+      "loi_organique": "/akn/dz/act/loi-organique/{year}/{number}",
+      "ordonnance": "/akn/dz/act/ordonnance/{year}/{number}",
+      "decret_presidentiel": "/akn/dz/act/decret-presidentiel/{year}/{number}",
+      "decret_executif": "/akn/dz/act/decret-executif/{year}/{number}",
+      "constitution": "/akn/dz/act/constitution/2020/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "hyphen_suffix"
+  },
+  "amendments": {
+    "style": "textual_french",
+    "phrasing": "est modifié et rédigé comme suit / Il est inséré... un article... ainsi rédigé / est abrogé / les dispositions de l'article... sont remplacées par",
+    "cross_reference_format": "type_number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "apn",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/assemblee-populaire-nationale",
+      "showAs": "Assemblée Populaire Nationale"
+    },
+    {
+      "eId": "conseilNation",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/conseil-de-la-nation",
+      "showAs": "Conseil de la Nation"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "courConstitutionnelle",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/cour-constitutionnelle",
+      "showAs": "Cour constitutionnelle"
+    },
+    {
+      "eId": "courSupreme",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/cour-supreme",
+      "showAs": "Cour suprême"
+    },
+    {
+      "eId": "conseilEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/dz/conseil-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "presidentApn",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/president-apn",
+      "showAs": "Président de l'Assemblée Populaire Nationale"
+    },
+    {
+      "eId": "presidentConseilNation",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/president-conseil-nation",
+      "showAs": "Président du Conseil de la Nation"
+    },
+    {
+      "eId": "ministreJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/dz/ministre-justice",
+      "showAs": "Ministre de la Justice, Garde des Sceaux"
+    },
+    {
+      "eId": "joradp",
+      "class": "TLCObject",
+      "href": "/ontology/obj/dz/journal-officiel",
+      "showAs": "Journal Officiel de la République Algérienne Démocratique et Populaire"
+    },
+    {
+      "eId": "algerie",
+      "class": "TLCLocation",
+      "href": "/ontology/place/dz",
+      "showAs": "République Algérienne Démocratique et Populaire"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

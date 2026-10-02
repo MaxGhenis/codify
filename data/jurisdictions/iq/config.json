@@ -1,0 +1,310 @@
+{
+  "code": "iq",
+  "name": "Republic of Iraq",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "kur"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (قانون / Qanun)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "قسم (Qism)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl/Section-div)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit_or_arabic"
+        },
+        {
+          "local_term": "بند (Band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha_abjad"
+        }
+      ]
+    },
+    "decree_law": {
+      "label": "Presidential Decree (مرسوم جمهوري)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Executive Regulation (نظام / تعليمات)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        }
+      ]
+    },
+    "cpa_order": {
+      "label": "CPA Order (أمر السلطة المؤقتة)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "authoritative_language": "eng"
+    },
+    "constitution": {
+      "label": "Constitution (الدستور)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "iq",
+    "uri_patterns": {
+      "act": "/akn/iq/act/{year}/{number}",
+      "decree_law": "/akn/iq/act/decree-law/{year}/{number}",
+      "cpa_order": "/akn/iq/act/cpa-order/{number}",
+      "constitution": "/akn/iq/act/constitution/2005/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "قانون رقم {number} لسنة {year}",
+    "insertion_style": "bis_suffix",
+    "insertion_example": "مادة 5 مكرراً → art_5bis",
+    "article_numbering": "continuous_throughout_law"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "councilOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/council-of-representatives",
+      "showAs": "Council of Representatives"
+    },
+    {
+      "eId": "kurdistanParliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq-ku/kurdistan-parliament",
+      "showAs": "Kurdistan Parliament – Iraq"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "cpa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/coalition-provisional-authority",
+      "showAs": "Coalition Provisional Authority"
+    },
+    {
+      "eId": "revolutionaryCommandCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/revolutionary-command-council",
+      "showAs": "Revolutionary Command Council"
+    },
+    {
+      "eId": "governingCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/iq/governing-council",
+      "showAs": "Iraqi Governing Council"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "cpaAdministrator",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/cpa-administrator",
+      "showAs": "CPA Administrator"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/iq/speaker",
+      "showAs": "Speaker of the Council of Representatives"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/iq/al-waqaie-al-iraqiyya",
+      "showAs": "Al-Waqā'i' al-'Irāqiyah"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "natural",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

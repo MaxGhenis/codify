@@ -798,20 +798,28 @@ async def text_to_bluebell_scaffolded(
             kinds=sorted({s.kind for s in blocking}),
             detail=[s.detail for s in blocking[:5]],
         )
-        # Landing rests on `_assign_eids` having suffixed each colliding eId,
-        # true of `duplicate_number` and asserted of no other kind.
-        first = blocking[0]
-        if halt_policy == "land" and all(s.kind == "duplicate_number" for s in blocking):
-            halts.append(
-                StructureHalt(
-                    gate="duplicate_anchor",
-                    kind=first.kind,
-                    spans=len(blocking),
-                    detail=f"{first.emitted_by}: {first.detail}",
-                    eid=first.eid,
-                    first_offset=first.start,
+        # Landing rests on `_assign_eids` having suffixed each colliding eId, true
+        # of `duplicate_number`; a suspected boundary is declared and moves no anchor.
+        gates = {
+            "duplicate_number": "duplicate_anchor",
+            "act_boundary_suspected": "act_boundary_suspected",
+        }
+        if halt_policy == "land" and all(s.kind in gates for s in blocking):
+            for kind, gate in gates.items():
+                of_kind = [s for s in blocking if s.kind == kind]
+                if not of_kind:
+                    continue
+                first = of_kind[0]
+                halts.append(
+                    StructureHalt(
+                        gate=gate,
+                        kind=first.kind,
+                        spans=len(of_kind),
+                        detail=f"{first.emitted_by}: {first.detail}",
+                        eid=first.eid,
+                        first_offset=first.start,
+                    )
                 )
-            )
         else:
             _trace(fallback="invariant_gate")
             raise AnchorInvariantError(spans=blocking)

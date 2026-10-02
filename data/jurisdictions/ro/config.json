@@ -1,0 +1,365 @@
+{
+  "code": "ro",
+  "name": "Romania",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ron"
+  ],
+  "authoritative_language": "ron",
+  "document_classes": {
+    "lege": {
+      "label": "Lege (Act of Parliament)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Cartea",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Partea",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Punctul",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_fullstop"
+        }
+      ]
+    },
+    "oug": {
+      "label": "Ordonanță de urgență (Emergency Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Partea",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Punctul",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_fullstop"
+        }
+      ]
+    },
+    "og": {
+      "label": "Ordonanță (Government Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "hg": {
+      "label": "Hotărâre de Guvern (Government Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constituția României",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    }
+  },
+  "default_document_class": "lege",
+  "frbr": {
+    "country_code": "ro",
+    "uri_patterns": {
+      "lege": "/akn/ro/act/{year}/{number}",
+      "oug": "/akn/ro/act/oug/{year}/{number}",
+      "og": "/akn/ro/act/og/{year}/{number}",
+      "hg": "/akn/ro/act/hg/{year}/{number}",
+      "constitution": "/akn/ro/act/constitution/1991/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Legea nr. {number}/{year}"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "type_number_year_title"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/parliament",
+      "showAs": "Parlamentul României"
+    },
+    {
+      "eId": "cameraDeputatilor",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/camera-deputatilor",
+      "showAs": "Camera Deputaților"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/senat",
+      "showAs": "Senatul"
+    },
+    {
+      "eId": "presedinte",
+      "class": "TLCRole",
+      "href": "/ontology/role/ro/presedinte",
+      "showAs": "Președintele României"
+    },
+    {
+      "eId": "guvern",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/guvern",
+      "showAs": "Guvernul României"
+    },
+    {
+      "eId": "primMinistru",
+      "class": "TLCRole",
+      "href": "/ontology/role/ro/prim-ministru",
+      "showAs": "Prim-ministrul"
+    },
+    {
+      "eId": "curteaConstitutionala",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ro/curtea-constitutionala",
+      "showAs": "Curtea Constituțională a României"
+    },
+    {
+      "eId": "monitorulOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ro/monitorul-oficial",
+      "showAs": "Monitorul Oficial al României"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_bold",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,229 @@
+{
+  "code": "vu",
+  "name": "Vanuatu",
+  "type": "national",
+  "tradition": [
+    "customary",
+    "common_law",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "fra",
+    "bis"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic",
+          "local_terms": {
+            "fra": "Partie"
+          }
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "fra": "Article"
+          }
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "fra": "Alinéa"
+          }
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "ord": {
+      "label": "Subsidiary Legislation (Order / Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic",
+          "local_terms": {
+            "fra": "Partie"
+          }
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Rule",
+            "fra": "Règlement",
+            "fra_alt": "Règle"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Vanuatu",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "fra": "Chapitre"
+          }
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "fra": "Article"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "vu",
+    "uri_patterns": {
+      "act": "/akn/vu/act/{year}/{number}",
+      "ord": "/akn/vu/act/ord/{year}/{number}",
+      "constitution": "/akn/vu/act/constitution/1980/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "Cap. {number}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "Delete '...' substitute '...' / After [provision] Insert '...'",
+    "cross_reference_format": "short_title_and_cap"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vu/parliament",
+      "showAs": "Parliament of Vanuatu"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/speaker",
+      "showAs": "Speaker of Parliament"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vu/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "malvatuMauri",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vu/malvatu-mauri",
+      "showAs": "Malvatu Mauri — National Council of Chiefs"
+    },
+    {
+      "eId": "stateLawOffice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vu/state-law-office",
+      "showAs": "State Law Office"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/vu/official-gazette",
+      "showAs": "Republic of Vanuatu Official Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

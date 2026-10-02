@@ -1,0 +1,207 @@
+{
+  "code": "py",
+  "name": "Paraguay",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa",
+    "grn"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "act": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        }
+      ]
+    },
+    "decreto": {
+      "label": "Decreto",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitución Nacional",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "py",
+    "uri_patterns": {
+      "act": "/akn/py/act/{year}/{number}",
+      "decreto": "/akn/py/act/decreto/{year}/{number}",
+      "constitution": "/akn/py/act/constitution/1992/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Ley N° {number}/{year}"
+  },
+  "amendments": {
+    "style": "textual_modification",
+    "phrasing": "Modifícase el Artículo [N], que queda redactado de la siguiente manera:",
+    "cross_reference_format": "ley_number_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/py/congreso",
+      "showAs": "Congreso de la Nación Paraguaya"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/py/presidente",
+      "showAs": "Presidente de la República del Paraguay"
+    },
+    {
+      "eId": "gacetaOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/py/gaceta-oficial",
+      "showAs": "Gaceta Oficial de la República del Paraguay"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

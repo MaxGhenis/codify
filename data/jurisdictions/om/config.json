@@ -1,0 +1,245 @@
+{
+  "code": "om",
+  "name": "Oman",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Nizam (Royal Decree Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Kitab"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Juz'"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddah"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Faqrah"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_arabic",
+          "local_terms": {
+            "alt1": "Band"
+          }
+        }
+      ]
+    },
+    "basic_law": {
+      "label": "Al-Nizam al-Asasi (Basic Law of the State)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddah"
+          }
+        }
+      ]
+    },
+    "implementing_regulation": {
+      "label": "La'iha Tanfidhiyya (Implementing Regulation / Ministerial Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddah"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Faqrah"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "om",
+    "uri_patterns": {
+      "act": "/akn/om/act/{year}/{number}",
+      "basic_law": "/akn/om/act/constitution/{year}/{number}",
+      "implementing_regulation": "/akn/om/act/si/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Royal Decree No. {number}/{year}",
+    "insertion_style": "bis"
+  },
+  "amendments": {
+    "style": "wholesale_replacement_or_textual",
+    "phrasing": "يُستبدل بنص المادة ({N}) ... النص الآتي / Article ({N}) of [Law] shall be replaced by the following:",
+    "cross_reference_format": "royal_decree_number_gregorian_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "sultan",
+      "class": "TLCRole",
+      "href": "/ontology/role/om/sultan",
+      "showAs": "Sultan of Oman"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/om/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "majlisAlShura",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/om/majlis-al-shura",
+      "showAs": "Majlis al-Shura"
+    },
+    {
+      "eId": "councilOfState",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/om/council-of-state",
+      "showAs": "Council of State"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/om/official-gazette",
+      "showAs": "Official Gazette of Oman"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

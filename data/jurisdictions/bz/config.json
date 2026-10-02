@@ -1,0 +1,273 @@
+{
+  "code": "bz",
+  "name": "Belize",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "si": {
+      "label": "Statutory Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "criminal_code": {
+      "label": "Criminal Code (CAP. 101)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Belize",
+      "akn_element": "act",
+      "bluebell_compatible": false,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "bz",
+    "uri_patterns": {
+      "act": "/akn/bz/act/{year}/{number}",
+      "si": "/akn/bz/act/si/{year}/{number}",
+      "constitution": "/akn/bz/act/constitution/1981/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "CAP. {NNN}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by inserting immediately after section X the following... / is amended by deleting... and substituting...",
+    "cross_reference_format": "short_title_and_cap_or_act_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bz/national-assembly",
+      "showAs": "National Assembly of Belize"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bz/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bz/senate",
+      "showAs": "Senate of Belize"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/governor-general",
+      "showAs": "Governor-General of Belize"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/prime-minister",
+      "showAs": "Prime Minister of Belize"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/attorney-general",
+      "showAs": "Attorney General of Belize"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/speaker",
+      "showAs": "Speaker of the House of Representatives"
+    },
+    {
+      "eId": "senatePresident",
+      "class": "TLCRole",
+      "href": "/ontology/role/bz/senate-president",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "belizeGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bz/belize-gazette",
+      "showAs": "The Belize Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

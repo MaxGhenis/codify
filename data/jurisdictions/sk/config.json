@@ -1,0 +1,306 @@
+{
+  "code": "sk",
+  "name": "Slovakia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "slk"
+  ],
+  "authoritative_language": "slk",
+  "document_classes": {
+    "act": {
+      "label": "Zákon (Act of Parliament)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Časť",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_slovak"
+        },
+        {
+          "local_term": "Hlava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_slovak_or_roman"
+        },
+        {
+          "local_term": "Diel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_slovak"
+        },
+        {
+          "local_term": "Oddiel",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "ordinal_word_slovak"
+        },
+        {
+          "local_term": "§ (Paragraf)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Odsek",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Bod",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ]
+    },
+    "ustavny_zakon": {
+      "label": "Ústavný zákon (Constitutional Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hlava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_slovak"
+        },
+        {
+          "local_term": "Oddiel",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "ordinal_word_slovak"
+        },
+        {
+          "local_term": "Čl.",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Článok"
+          }
+        },
+        {
+          "local_term": "Odsek",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "nariadenie": {
+      "label": "Nariadenie vlády (Government Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Časť",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_slovak"
+        },
+        {
+          "local_term": "§ (Paragraf)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Odsek",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Bod",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ]
+    },
+    "vyhlaska": {
+      "label": "Vyhláška (Ministerial Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "§ (Paragraf)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Odsek",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Písmeno",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Bod",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_period"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "sk",
+    "uri_patterns": {
+      "act": "/akn/sk/act/{year}/{number}",
+      "ustavny_zakon": "/akn/sk/act/ustavn/{year}/{number}",
+      "nariadenie": "/akn/sk/act/nariadenie/{year}/{number}",
+      "vyhlaska": "/akn/sk/act/vyhlaska/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "zákon č. {number}/{year} Z.z.",
+    "act_citation_alt": "zákon č. {number}/{year} Z.z., o [short descriptive title], v znení neskorších predpisov",
+    "insertion_style": "alphanumeric_suffix",
+    "insertion_example": "§ 2 → § 2a, § 2b, § 2c"
+  },
+  "amendments": {
+    "style": "textual_continental",
+    "phrasing": "Zákon č. {NN}/{YYYY} Z.z. ... sa mení a dopĺňa takto: ... § X znie: ... Za § X sa vkladá nový § Xa ... § X sa zrušuje.",
+    "cross_reference_format": "zz_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "narodnaRada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sk/narodna-rada",
+      "showAs": "Národná rada Slovenskej republiky"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sk/vlada",
+      "showAs": "Vláda Slovenskej republiky"
+    },
+    {
+      "eId": "ustavnySud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sk/ustavny-sud",
+      "showAs": "Ústavný súd Slovenskej republiky"
+    },
+    {
+      "eId": "prezident",
+      "class": "TLCRole",
+      "href": "/ontology/role/sk/prezident",
+      "showAs": "Prezident Slovenskej republiky"
+    },
+    {
+      "eId": "predsedaNR",
+      "class": "TLCRole",
+      "href": "/ontology/role/sk/predseda-narodnej-rady",
+      "showAs": "Predseda Národnej rady Slovenskej republiky"
+    },
+    {
+      "eId": "predsedaVlady",
+      "class": "TLCRole",
+      "href": "/ontology/role/sk/predseda-vlady",
+      "showAs": "Predseda vlády Slovenskej republiky"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/sk/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "zbierkaZakonov",
+      "class": "TLCObject",
+      "href": "/ontology/obj/sk/zbierka-zakonov",
+      "showAs": "Zbierka zákonov Slovenskej republiky"
+    },
+    {
+      "eId": "slovenskaRepublika",
+      "class": "TLCLocation",
+      "href": "/ontology/place/sk",
+      "showAs": "Slovenská republika"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note_or_inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

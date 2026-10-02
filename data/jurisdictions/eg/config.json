@@ -1,0 +1,271 @@
+{
+  "code": "eg",
+  "name": "Arab Republic of Egypt",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (قانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl/Section-higher-div)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        },
+        {
+          "local_term": "بند (Band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        }
+      ]
+    },
+    "decree_law": {
+      "label": "Presidential Decree-Law (مرسوم بقانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Executive Regulation (لائحة تنفيذية)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_implicit"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution (الدستور)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "eg",
+    "uri_patterns": {
+      "act": "/akn/eg/act/{year}/{number}",
+      "decree_law": "/akn/eg/act/decree-law/{year}/{number}",
+      "constitution": "/akn/eg/act/constitution/{year}/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "قانون رقم {number} لسنة {year}",
+    "insertion_style": "bis_suffix",
+    "insertion_example": "مادة 5 مكرراً → art_5bis",
+    "article_numbering": "continuous_throughout_law"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/parliament",
+      "showAs": "Parliament of Egypt"
+    },
+    {
+      "eId": "peoplesAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/peoples-assembly",
+      "showAs": "People's Assembly"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/eg/president",
+      "showAs": "President of the Arab Republic of Egypt"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/eg/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/eg/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/eg/speaker",
+      "showAs": "Speaker of the House of Representatives"
+    },
+    {
+      "eId": "supremeConstitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/supreme-constitutional-court",
+      "showAs": "Supreme Constitutional Court"
+    },
+    {
+      "eId": "councilOfState",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/council-of-state",
+      "showAs": "Council of State"
+    },
+    {
+      "eId": "alAzhar",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/eg/al-azhar",
+      "showAs": "Al-Azhar"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/eg/al-jarida-al-rasmiyya",
+      "showAs": "Al-Jarida Al-Rasmiyya"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "natural",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

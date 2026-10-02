@@ -1,0 +1,335 @@
+{
+  "code": "tt",
+  "name": "Trinidad and Tobago",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-subparagraph",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_parenthesized"
+        }
+      ]
+    },
+    "si": {
+      "label": "Subsidiary Legislation (Legal Notice)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "tt",
+    "uri_patterns": {
+      "act": "/akn/tt/act/{year}/{number}",
+      "si": "/akn/tt/act/si/{year}/{number}",
+      "constitution": "/akn/tt/act/constitution/1976/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "Chap. {chapter}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "Firearms Amendment Act 2021 inserts sections 6A, 6B, 6C (after s.6) and 9B (after s.9A)"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and substituting... / is amended by inserting after section [N] the following section: / is deleted and the following is substituted:",
+    "cross_reference_format": "short_title_and_chapter_or_act_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/parliament",
+      "showAs": "Parliament of the Republic of Trinidad and Tobago"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/president",
+      "showAs": "President of the Republic of Trinidad and Tobago"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/governor-general",
+      "showAs": "Governor-General"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "chiefParliamentaryCounsel",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/chief-parliamentary-counsel",
+      "showAs": "Chief Parliamentary Counsel"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/speaker",
+      "showAs": "Speaker of the House of Representatives"
+    },
+    {
+      "eId": "clerkOfHouse",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/clerk-of-house",
+      "showAs": "Clerk of the House of Representatives"
+    },
+    {
+      "eId": "presidentOfSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/president-of-senate",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "clerkOfSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/clerk-of-senate",
+      "showAs": "Clerk of the Senate"
+    },
+    {
+      "eId": "leaderOfOpposition",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/leader-of-opposition",
+      "showAs": "Leader of the Opposition"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "commissionerOfPolice",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/commissioner-of-police",
+      "showAs": "Commissioner of Police"
+    },
+    {
+      "eId": "controller",
+      "class": "TLCRole",
+      "href": "/ontology/role/tt/controller",
+      "showAs": "Controller"
+    },
+    {
+      "eId": "lawRevisionCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/law-revision-commission",
+      "showAs": "Law Revision Commission"
+    },
+    {
+      "eId": "centralBank",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/central-bank",
+      "showAs": "Central Bank of Trinidad and Tobago"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/supreme-court",
+      "showAs": "Supreme Court of Judicature"
+    },
+    {
+      "eId": "courtOfAppeal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/court-of-appeal",
+      "showAs": "Court of Appeal"
+    },
+    {
+      "eId": "privyCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gb/privy-council",
+      "showAs": "Judicial Committee of the Privy Council"
+    },
+    {
+      "eId": "ccj",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/caribbean/ccj",
+      "showAs": "Caribbean Court of Justice"
+    },
+    {
+      "eId": "governmentPrintery",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tt/government-printery",
+      "showAs": "Government Printery of the Republic of Trinidad and Tobago"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/tt/official-gazette",
+      "showAs": "Trinidad and Tobago Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

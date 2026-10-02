@@ -1,0 +1,340 @@
+{
+  "code": "sn",
+  "name": "Senegal",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra"
+  ],
+  "authoritative_language": "fra",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "sequential_implicit"
+        },
+        {
+          "local_term": "Point (1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ]
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "sn",
+    "uri_patterns": {
+      "loi": "/akn/sn/act/{year}/{number}",
+      "loi_organique": "/akn/sn/act/loi-organique/{year}/{number}",
+      "decret": "/akn/sn/act/decret/{year}/{number}",
+      "constitution": "/akn/sn/act/constitution/2001/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "hyphen_suffix"
+  },
+  "amendments": {
+    "style": "textual_french",
+    "phrasing": "est modifié et remplacé ainsi qu'il suit / Il est inséré... un article... ainsi rédigé / est abrogé",
+    "cross_reference_format": "loi_number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "assemblee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/assemblee-nationale",
+      "showAs": "Assemblée nationale"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/conseil-constitutionnel",
+      "showAs": "Conseil constitutionnel"
+    },
+    {
+      "eId": "conseilEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/conseil-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "courCassation",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/cour-de-cassation",
+      "showAs": "Cour de Cassation"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/sn/senat",
+      "showAs": "Sénat"
+    },
+    {
+      "eId": "presidentAssemblee",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/president-assemblee",
+      "showAs": "Président de l'Assemblée nationale"
+    },
+    {
+      "eId": "ministre",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/ministre",
+      "showAs": "Ministre"
+    },
+    {
+      "eId": "ministreFinances",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/ministre-finances",
+      "showAs": "Ministre chargé des Finances"
+    },
+    {
+      "eId": "ministreJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/sn/ministre-justice",
+      "showAs": "Ministre de la Justice, Garde des Sceaux"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/sn/journal-officiel",
+      "showAs": "Journal Officiel de la République du Sénégal"
+    },
+    {
+      "eId": "senegal",
+      "class": "TLCLocation",
+      "href": "/ontology/place/sn",
+      "showAs": "Sénégal"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

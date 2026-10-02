@@ -1,0 +1,249 @@
+{
+  "code": "jo",
+  "name": "Jordan",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "law": {
+      "label": "Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "قسم (qism)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "فصل (fasl)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "مادة (madda)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (fiqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "بند (band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "temp_law": {
+      "label": "Temporary Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "مادة (madda)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (fiqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "بند (band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Regulation (Nizam)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (madda)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (fiqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "مادة (madda)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (fiqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "jo",
+    "uri_patterns": {
+      "law": "/akn/jo/act/{year}/{number}",
+      "temp_law": "/akn/jo/act/temp/{year}/{number}",
+      "regulation": "/akn/jo/act/reg/{year}/{number}",
+      "constitution": "/akn/jo/act/constitution/1952/constitution"
+    },
+    "date_calendar": "gregorian",
+    "number_format": "sequential_per_year"
+  },
+  "numbering": {
+    "act_citation": "Law No. ({number}) for the Year {year}",
+    "act_citation_alt": "Temporary Law No. ({number}) for the Year {year}",
+    "insertion_style": "mukrrar"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article (X) of Law No. (NN) for the Year YYYY shall be amended to read as follows:",
+    "cross_reference_format": "law_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jo/parliament",
+      "showAs": "Parliament of the Hashemite Kingdom of Jordan"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jo/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jo/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "king",
+      "class": "TLCRole",
+      "href": "/ontology/role/jo/king",
+      "showAs": "King of the Hashemite Kingdom of Jordan"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jo/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "lob",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jo/lob",
+      "showAs": "Legislation and Opinion Bureau"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/jo/official-gazette",
+      "showAs": "Official Gazette of the Hashemite Kingdom of Jordan"
+    },
+    {
+      "eId": "shariaCourts",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/jo/sharia-courts",
+      "showAs": "Sharia Courts of Jordan"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

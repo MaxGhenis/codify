@@ -54,6 +54,14 @@ Breaks, in that the structurer's output changes for documents it already read:
 
 New, additive:
 
+- `segmentation.act_heading_patterns` in the jurisdiction config: line-start
+  regexes for a line opening an act. Where a jurisdiction declares them and
+  its closing phrases, a duplicate-number fold whose dropped run holds a
+  closing phrase and then an act heading raises an `act_boundary_suspected`
+  span, which is blocking: the structurer refuses, or under
+  `halt_policy="land"` records an `act_boundary_suspected` halt. The source
+  reads as two acts numbered from 1, and keep-last kept only the later one.
+  The fold itself is unchanged.
 - `ingest-one --fallback-model`, defaulting to
   `LITELLM_CONTENT_FILTER_FALLBACK_MODEL`: the model retried on any
   content-filter refusal, so page reads, metadata and body-fill can all run on
@@ -74,8 +82,9 @@ New, additive:
   a page start agrees with. An adopted text, an attachment, a repeat of the
   open act's heading, a quotation or a missing enacting formula vetoes one. A
   heading no signal agrees with is read as a citation where it stands, named
-  in the reconciliation table, and neither splits nor holds. `segment_volume` reads a bound volume a page at a time, cuts it into issues
-  by the same rule and segments each issue. Configured by the jurisdiction's
+  in the reconciliation table, and neither splits nor holds. `segment_volume`
+  reads a bound volume a page at a time, cuts it into issues by the same rule
+  and segments each issue. Configured by the jurisdiction's
   `segmentation` block: `act_heading_patterns`, `issue_heading_patterns`,
   `contents_keywords` and `printed_page_pattern`, each pattern refused at load
   if it does not compile or can match empty text.

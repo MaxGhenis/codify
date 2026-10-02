@@ -1,0 +1,255 @@
+{
+  "code": "ar",
+  "name": "Argentina",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley Nacional",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_ordinal_word"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Punto",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "alt1": "Sub-inciso"
+          }
+        }
+      ]
+    },
+    "dnu": {
+      "label": "Decreto de Necesidad y Urgencia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "decreto": {
+      "label": "Decreto Reglamentario",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "constitucion": {
+      "label": "Constitución de la Nación Argentina",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "ar",
+    "uri_patterns": {
+      "ley": "/akn/ar/act/{year}/{number}",
+      "dnu": "/akn/ar/act/dnu/{year}/{number}",
+      "decreto": "/akn/ar/act/decreto/{year}/{number}",
+      "constitucion": "/akn/ar/act/constitucion/1853/constitucion"
+    },
+    "number_format": "bare_integer",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "bis_ter_quater"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "Ley N° [number_with_separator], artículo [N°]"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ar/congreso",
+      "showAs": "Congreso de la Nación Argentina"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ar/senado",
+      "showAs": "Senado de la Nación"
+    },
+    {
+      "eId": "camaraDeputados",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ar/camara-diputados",
+      "showAs": "Cámara de Diputados de la Nación"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/ar/presidente",
+      "showAs": "Presidente de la Nación"
+    },
+    {
+      "eId": "jefeGabinete",
+      "class": "TLCRole",
+      "href": "/ontology/role/ar/jefe-gabinete",
+      "showAs": "Jefe de Gabinete de Ministros"
+    },
+    {
+      "eId": "ministro",
+      "class": "TLCRole",
+      "href": "/ontology/role/ar/ministro",
+      "showAs": "Ministro"
+    },
+    {
+      "eId": "boletinOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ar/boletin-oficial",
+      "showAs": "Boletín Oficial de la República Argentina"
+    },
+    {
+      "eId": "argentina",
+      "class": "TLCLocation",
+      "href": "/ontology/place/ar",
+      "showAs": "República Argentina"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,284 @@
+{
+  "code": "za",
+  "name": "South Africa",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "afr",
+    "zul",
+    "xho",
+    "nso",
+    "sot",
+    "tsn",
+    "ssw",
+    "ven",
+    "tso",
+    "nbl"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_alpha"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Regulation (Government Notice)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "za",
+    "uri_patterns": {
+      "act": "/akn/za/act/{year}/{number}",
+      "regulation": "/akn/za/act/gn/{year}/{number}",
+      "constitution": "/akn/za/act/constitution/1996/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act {number} of {year}",
+    "act_citation_alt": "Act No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is hereby amended by the substitution for... of the following...",
+    "cross_reference_format": "short_title_and_year_and_act_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/parliament",
+      "showAs": "Parliament of South Africa"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "ncop",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/ncop",
+      "showAs": "National Council of Provinces"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/speaker",
+      "showAs": "Speaker of the National Assembly"
+    },
+    {
+      "eId": "chairpersonNcop",
+      "class": "TLCRole",
+      "href": "/ontology/role/za/chairperson-ncop",
+      "showAs": "Chairperson of the National Council of Provinces"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/constitutional-court",
+      "showAs": "Constitutional Court"
+    },
+    {
+      "eId": "governmentGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/za/government-gazette",
+      "showAs": "Government Gazette"
+    },
+    {
+      "eId": "governmentPrinter",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/za/government-printing-works",
+      "showAs": "Government Printing Works"
+    },
+    {
+      "eId": "southAfrica",
+      "class": "TLCLocation",
+      "href": "/ontology/place/za",
+      "showAs": "Republic of South Africa"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "source_adapters": [
+    {
+      "kind": "akn_native",
+      "name": "laws_africa",
+      "url_template": "https://api.laws.africa/v3{frbr_uri}.xml",
+      "auth_scheme": "token",
+      "auth_env_var": "LAWS_AFRICA_API_KEY"
+    }
+  ],
+  "public_reference": true
+}

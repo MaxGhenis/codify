@@ -1,0 +1,331 @@
+{
+  "code": "de",
+  "name": "Germany",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "deu"
+  ],
+  "authoritative_language": "deu",
+  "document_classes": {
+    "act": {
+      "label": "Gesetz (Stammgesetz)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Buch",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Teil",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "named"
+        },
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Unterabschnitt",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Untertitel",
+          "akn_element": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Nummer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Buchstabe",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "grundgesetz": {
+      "label": "Grundgesetz",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Nummer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Buchstabe",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "verordnung": {
+      "label": "Rechtsverordnung",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Nummer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Buchstabe",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "de",
+    "uri_patterns": {
+      "grundgesetz": "/akn/de/act/1949/gg"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "{abbreviation}",
+    "act_citation_alt": "BGBl. {year} I S. {page}",
+    "insertion_style": "alphanumeric_suffix"
+  },
+  "amendments": {
+    "style": "textual_artikelgesetz",
+    "phrasing": "wird wie folgt geaendert... wird wie folgt gefasst...",
+    "cross_reference_format": "abbreviation_and_bgbl"
+  },
+  "core_tlcs": [
+    {
+      "eId": "bundestag",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bundestag",
+      "showAs": "Deutscher Bundestag"
+    },
+    {
+      "eId": "bundesrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bundesrat",
+      "showAs": "Bundesrat"
+    },
+    {
+      "eId": "bundesregierung",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bundesregierung",
+      "showAs": "Bundesregierung"
+    },
+    {
+      "eId": "bundespraesident",
+      "class": "TLCRole",
+      "href": "/ontology/role/de/bundespraesident",
+      "showAs": "Bundespräsident"
+    },
+    {
+      "eId": "bundeskanzler",
+      "class": "TLCRole",
+      "href": "/ontology/role/de/bundeskanzler",
+      "showAs": "Bundeskanzler"
+    },
+    {
+      "eId": "bundesminister",
+      "class": "TLCRole",
+      "href": "/ontology/role/de/bundesminister",
+      "showAs": "Bundesminister"
+    },
+    {
+      "eId": "bmj",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bmj",
+      "showAs": "Bundesministerium der Justiz"
+    },
+    {
+      "eId": "bmi",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bmi",
+      "showAs": "Bundesministerium des Innern und für Heimat"
+    },
+    {
+      "eId": "bverfg",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bverfg",
+      "showAs": "Bundesverfassungsgericht"
+    },
+    {
+      "eId": "bgh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bgh",
+      "showAs": "Bundesgerichtshof"
+    },
+    {
+      "eId": "bverwg",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bverwg",
+      "showAs": "Bundesverwaltungsgericht"
+    },
+    {
+      "eId": "bfh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bfh",
+      "showAs": "Bundesfinanzhof"
+    },
+    {
+      "eId": "bag",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bag",
+      "showAs": "Bundesarbeitsgericht"
+    },
+    {
+      "eId": "bsg",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/bsg",
+      "showAs": "Bundessozialgericht"
+    },
+    {
+      "eId": "bgbl",
+      "class": "TLCObject",
+      "href": "/ontology/obj/de/bgbl",
+      "showAs": "Bundesgesetzblatt"
+    },
+    {
+      "eId": "vermittlungsausschuss",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/vermittlungsausschuss",
+      "showAs": "Vermittlungsausschuss"
+    },
+    {
+      "eId": "gemeinsamerAusschuss",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/de/gemeinsamer-ausschuss",
+      "showAs": "Gemeinsamer Ausschuss"
+    },
+    {
+      "eId": "germany",
+      "class": "TLCLocation",
+      "href": "/ontology/place/de",
+      "showAs": "Bundesrepublik Deutschland"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

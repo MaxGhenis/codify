@@ -1,0 +1,249 @@
+{
+  "code": "ir",
+  "name": "Iran",
+  "type": "national",
+  "tradition": [
+    "islamic",
+    "civil_law"
+  ],
+  "calendar": "solar_hijri",
+  "languages": [
+    "fas"
+  ],
+  "authoritative_language": "fas",
+  "document_classes": {
+    "act": {
+      "label": "Qanun (Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "جلد",
+          "akn_element": "tome",
+          "level": "higher",
+          "bluebell_keyword": "TOME",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Jeld"
+          }
+        },
+        {
+          "local_term": "کتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Ketab"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
+        },
+        {
+          "local_term": "مبحث",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Mabhas"
+          }
+        },
+        {
+          "local_term": "ماده",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddeh"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "persian_alpha",
+          "local_terms": {
+            "alt1": "Band"
+          }
+        },
+        {
+          "local_term": "جزء",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Joz'"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Qanun-e Asasi (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
+        },
+        {
+          "local_term": "اصل",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Asl"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Band"
+          }
+        }
+      ]
+    },
+    "ayin_nameh": {
+      "label": "Ayin-nameh (Executive Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "فصل",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
+        },
+        {
+          "local_term": "ماده",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddeh"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "persian_alpha",
+          "local_terms": {
+            "alt1": "Band"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "ir",
+    "uri_patterns": {
+      "constitution": "/akn/ir/act/constitution/1979/qanun-e-asasi"
+    },
+    "date_calendar": "gregorian",
+    "calendar_conversion": {
+      "kind": "hijri_solar"
+    }
+  },
+  "numbering": {
+    "insertion_style": "mokarer"
+  },
+  "amendments": {
+    "style": "textual_modification",
+    "phrasing": "Maddeh-ye [N] be sharh-e zir eslah mishavad:",
+    "cross_reference_format": "full_title_sh_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "supremeLeader",
+      "class": "TLCRole",
+      "href": "/ontology/role/ir/supreme-leader",
+      "showAs": "Supreme Leader"
+    },
+    {
+      "eId": "majles",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ir/majles",
+      "showAs": "Islamic Consultative Assembly"
+    },
+    {
+      "eId": "guardianCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ir/guardian-council",
+      "showAs": "Guardian Council"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ir/official-gazette",
+      "showAs": "Official Gazette (Ruznaameh-ye Rasmi)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

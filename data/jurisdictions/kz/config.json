@@ -1,0 +1,472 @@
+{
+  "code": "kz",
+  "name": "Republic of Kazakhstan",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "socialist"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "kaz",
+    "rus"
+  ],
+  "authoritative_language": "kaz",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon Respubliki Kazakhstan (Law of the Republic of Kazakhstan)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Razdel",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бөлім",
+            "rus": "Раздел"
+          }
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тарау",
+            "rus": "Глава"
+          }
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Параграф",
+            "rus": "Параграф"
+          }
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        },
+        {
+          "local_term": "Abzac",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "unnumbered",
+          "local_terms": {
+            "kaz": "Абзац",
+            "rus": "Абзац"
+          }
+        }
+      ]
+    },
+    "konstitutsionny_zakon": {
+      "label": "Konstitutsionny zakon (Constitutional Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тарау",
+            "rus": "Глава"
+          }
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ]
+    },
+    "kodeks": {
+      "label": "Kodeks (Code)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Obshchaya Chast'",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "named",
+          "local_terms": {
+            "alt1": "Osobennaya Chast'",
+            "kaz": "Жалпы бөлім",
+            "alt2": "Ерекше бөлім",
+            "rus": "Общая часть",
+            "alt3": "Особенная часть"
+          }
+        },
+        {
+          "local_term": "Razdel",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бөлім",
+            "rus": "Раздел"
+          }
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тарау",
+            "rus": "Глава"
+          }
+        },
+        {
+          "local_term": "Paragraf",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Параграф",
+            "rus": "Параграф"
+          }
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        },
+        {
+          "local_term": "Abzac",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "unnumbered",
+          "local_terms": {
+            "kaz": "Абзац",
+            "rus": "Абзац"
+          }
+        }
+      ]
+    },
+    "ukaz": {
+      "label": "Ukaz Prezidenta (Presidential Decree / Decree having force of law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Punkt",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "alt1": "Бап",
+            "rus": "Пункт",
+            "alt2": "Статья",
+            "alt3": "Stat'ya"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ]
+    },
+    "postanovleniye": {
+      "label": "Postanovleniye Pravitel'stva (Government Resolution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Punkt",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Konstitutsiya (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Razdel",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бөлім",
+            "rus": "Раздел"
+          }
+        },
+        {
+          "local_term": "Stat'ya",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "kaz": "Бап",
+            "rus": "Статья"
+          }
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period",
+          "local_terms": {
+            "kaz": "Тармақ",
+            "rus": "Пункт"
+          }
+        },
+        {
+          "local_term": "Podpunkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_parenthesis",
+          "local_terms": {
+            "kaz": "Тармақша",
+            "rus": "Подпункт"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "kz",
+    "uri_patterns": {
+      "zakon": "/akn/kz/act/{year}/{number}",
+      "konstitutsionny_zakon": "/akn/kz/act/constitutional/{year}/{number}",
+      "kodeks": "/akn/kz/act/{year}/{number}",
+      "ukaz": "/akn/kz/act/decree/{year}/{number}",
+      "postanovleniye": "/akn/kz/act/resolution/{year}/{number}",
+      "constitution": "/akn/kz/act/constitution/1995/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Zakon Respubliki Kazakhstan ot {date} № {number}",
+    "act_citation_alt": "ZRK № {number} ({year})",
+    "insertion_style": "hyphen_decimal",
+    "insertion_example": "Stat'ya 5-1 inserted between stat'ya 5 and stat'ya 6; existing article numbering unchanged"
+  },
+  "amendments": {
+    "style": "textual_statutory",
+    "phrasing": "vnosyatsya sleduyushchiye izmeneniya i dopolneniya... priznat' utrativshim silu...",
+    "cross_reference_format": "law_type_date_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/parlament",
+      "showAs": "Parlament Respubliki Kazakhstan"
+    },
+    {
+      "eId": "mazhilis",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/mazhilis",
+      "showAs": "Mazhilis Parlamenta Respubliki Kazakhstan"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/senat",
+      "showAs": "Senat Parlamenta Respubliki Kazakhstan"
+    },
+    {
+      "eId": "prezident",
+      "class": "TLCRole",
+      "href": "/ontology/role/kz/prezident",
+      "showAs": "Prezident Respubliki Kazakhstan"
+    },
+    {
+      "eId": "pravitelstvo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/pravitelstvo",
+      "showAs": "Pravitel'stvo Respubliki Kazakhstan"
+    },
+    {
+      "eId": "konstitutsionnyySud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kz/konstitutsionny-sud",
+      "showAs": "Konstitutsionny Sud Respubliki Kazakhstan"
+    },
+    {
+      "eId": "egemenkKazakhstan",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kz/egemen-kazakhstan",
+      "showAs": "Egemen Kazakhstan"
+    },
+    {
+      "eId": "kazakhstanskayaPravda",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kz/kazakhstanskaya-pravda",
+      "showAs": "Kazakhstanskaya Pravda"
+    },
+    {
+      "eId": "adiletLIS",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kz/adilet-lis",
+      "showAs": "Adilet Legal Information System (adilet.zan.kz)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

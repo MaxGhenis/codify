@@ -29,6 +29,31 @@ def _act_with_subsection(heading: str) -> str:
 '''
 
 
+def _act_class(*containers: dict) -> dict:
+    return {"document_classes": {"act": {"label": "Act", "hcontainers": list(containers)}}}
+
+
+_EXPLANATION = {"local_term": "Explanation", "name": "explanation", "requires_postprocessing": True}
+_TABSAREH = {"local_term": "Tabsareh (Note/Proviso)", "name": "tabsareh"}
+
+
+@pytest.fixture(autouse=True)
+def _declared_hcontainers(monkeypatch, tmp_path):
+    """Synthetic configs, so the renaming is tested without any shipped profile
+    having to declare these containers."""
+    from codify.jurisdictions import try_load_config
+    from tests.config_fixtures import isolated_configs
+
+    configs = {
+        "in": _act_class(_EXPLANATION),
+        "pk": _act_class(_EXPLANATION),
+        "ir": _act_class(_TABSAREH),
+    }
+    with isolated_configs(monkeypatch, tmp_path / "data" / "jurisdictions", configs):
+        yield
+    try_load_config.cache_clear()
+
+
 class TestPostprocessHcontainers:
     def test_india_explanation_renamed(self):
         out = postprocess_hcontainers(

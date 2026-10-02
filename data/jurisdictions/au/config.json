@@ -1,0 +1,320 @@
+{
+  "code": "au",
+  "name": "Australia",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament (Commonwealth)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_dotted"
+        },
+        {
+          "local_term": "Subdivision",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "alpha_upper_dotted"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "legislative_instrument": {
+      "label": "Legislative Instrument (Commonwealth)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_dotted"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "bill": {
+      "label": "Bill (Commonwealth Parliament)",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_dotted"
+        },
+        {
+          "local_term": "Subdivision",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "alpha_upper_dotted"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "explanatory_memorandum": {
+      "label": "Explanatory Memorandum",
+      "akn_element": "doc",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "au",
+    "uri_patterns": {
+      "act": "/akn/au/act/{year}/{number}",
+      "legislative_instrument": "/akn/au/act/li/{year}/{number}"
+    },
+    "sample_uris": {
+      "Income Tax Assessment Act 1997 (No. 38, 1997)": "/akn/au/act/1997/38",
+      "Corporations Act 2001 (No. 50, 2001)": "/akn/au/act/2001/50",
+      "Criminal Code Act 1995 (No. 12, 1995)": "/akn/au/act/1995/12",
+      "Commonwealth of Australia Constitution Act 1900": "/akn/au/act/1901/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "{Short Title} {year}",
+    "act_citation_alt": "No. {number} of {year}",
+    "insertion_style": "decimal"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "commonwealthParliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/au/commonwealth-parliament",
+      "showAs": "Parliament of Australia"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/au/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/au/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/au/governor-general",
+      "showAs": "Governor-General"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/au/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "highCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/au/high-court",
+      "showAs": "High Court of Australia"
+    },
+    {
+      "eId": "federalRegisterOfLegislation",
+      "class": "TLCObject",
+      "href": "/ontology/obj/au/federal-register-of-legislation",
+      "showAs": "Federal Register of Legislation"
+    },
+    {
+      "eId": "australia",
+      "class": "TLCLocation",
+      "href": "/ontology/place/au",
+      "showAs": "Australia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

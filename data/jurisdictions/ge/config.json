@@ -1,0 +1,313 @@
+{
+  "code": "ge",
+  "name": "Georgia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "kat"
+  ],
+  "authoritative_language": "kat",
+  "document_classes": {
+    "law": {
+      "label": "Law of Georgia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "წიგნი",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "ნაწილი",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "თავი",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "მუხლი",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "პუნქტი",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "ქვეპუნქტი",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "georgian_alpha_parenthesized"
+        }
+      ]
+    },
+    "organic_law": {
+      "label": "Organic Law of Georgia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "თავი",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "მუხლი",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "პუნქტი",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "ქვეპუნქტი",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "georgian_alpha_parenthesized"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code of Georgia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "წიგნი",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "ნაწილი",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "თავი",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "მუხლი",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "პუნქტი",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "ქვეპუნქტი",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "georgian_alpha_parenthesized"
+        }
+      ]
+    },
+    "decree": {
+      "label": "Presidential Decree",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "მუხლი",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "პუნქტი",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "resolution": {
+      "label": "Government Resolution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "მუხლი",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "პუნქტი",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Georgia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "თავი",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "მუხლი",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "პუნქტი",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "ge",
+    "uri_patterns": {
+      "law": "/akn/ge/act/{year}/{number}",
+      "organic_law": "/akn/ge/act/organic/{year}/{number}",
+      "code": "/akn/ge/act/{year}/{number}",
+      "decree": "/akn/ge/act/decree/{year}/{number}",
+      "resolution": "/akn/ge/act/resolution/{year}/{number}",
+      "constitution": "/akn/ge/act/constitution/1995/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "superscript"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "მუხლი [N] ჩამოყალიბდეს შემდეგი რედაქციით:",
+    "cross_reference_format": "law_title_and_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ge/parliament",
+      "showAs": "Parliament of Georgia"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ge/president",
+      "showAs": "President of Georgia"
+    },
+    {
+      "eId": "government",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ge/government",
+      "showAs": "Government of Georgia"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ge/supreme-court",
+      "showAs": "Supreme Court of Georgia"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ge/constitutional-court",
+      "showAs": "Constitutional Court of Georgia"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ge/prime-minister",
+      "showAs": "Prime Minister of Georgia"
+    },
+    {
+      "eId": "legislativeMatsne",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ge/legislative-matsne",
+      "showAs": "Sakanonmdeblo Matsne"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "title_case",
+    "script": "georgian_mkhedruli",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

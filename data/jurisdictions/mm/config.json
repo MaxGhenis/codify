@@ -1,0 +1,153 @@
+{
+  "code": "mm",
+  "name": "Myanmar",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary",
+    "socialist"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "mya"
+  ],
+  "authoritative_language": "mya",
+  "document_classes": {
+    "act": {
+      "label": "Law (Pyidaungsu Hluttaw Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "အခန်း",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "ပုဒ်မ",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of the Union of Myanmar",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "အခန်း",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "ပုဒ်မ",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "mm",
+    "uri_patterns": {
+      "act": "/akn/mm/act/{year}/{number}",
+      "constitution": "/akn/mm/act/constitution/2008/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Pyidaungsu Hluttaw Law No. {number}/{year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "The Law Amending the [Original Law Title]",
+    "cross_reference_format": "title_and_law_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "pyidaungsuHluttaw",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mm/pyidaungsu-hluttaw",
+      "showAs": "Pyidaungsu Hluttaw"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/mm/president",
+      "showAs": "President"
+    },
+    {
+      "eId": "slorc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mm/slorc",
+      "showAs": "State Law and Order Restoration Council"
+    },
+    {
+      "eId": "spdc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mm/spdc",
+      "showAs": "State Peace and Development Council"
+    },
+    {
+      "eId": "sac",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mm/sac",
+      "showAs": "State Administration Council"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mm/official-gazette",
+      "showAs": "Gazette of the Republic of the Union of Myanmar"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "myanmar",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

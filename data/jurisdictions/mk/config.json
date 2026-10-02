@@ -1,0 +1,381 @@
+{
+  "code": "mk",
+  "name": "North Macedonia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "mkd",
+    "sqi"
+  ],
+  "authoritative_language": "mkd",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon (Act/Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Del",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_arabic",
+          "local_terms": {
+            "alt1": "Дел"
+          }
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic",
+          "local_terms": {
+            "alt1": "Глава"
+          }
+        },
+        {
+          "local_term": "Oddel",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Оддел"
+          }
+        },
+        {
+          "local_term": "Člen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
+        },
+        {
+          "local_term": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Точка"
+          }
+        },
+        {
+          "local_term": "Alineja",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "unnumbered",
+          "local_terms": {
+            "alt1": "Алинеа"
+          }
+        }
+      ]
+    },
+    "uredba": {
+      "label": "Uredba (Government Regulation/Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic",
+          "local_terms": {
+            "alt1": "Глава"
+          }
+        },
+        {
+          "local_term": "Člen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
+        },
+        {
+          "local_term": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Точка"
+          }
+        }
+      ]
+    },
+    "pravilnik": {
+      "label": "Pravilnik (Ministerial Rulebook)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Глава"
+          }
+        },
+        {
+          "local_term": "Člen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
+        },
+        {
+          "local_term": "Tochka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Точка"
+          }
+        }
+      ]
+    },
+    "odluka": {
+      "label": "Odluka / Одлука (Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Člen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Ustav na Republika Severna Makedonija / Устав на Република Северна Македонија",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Del",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Дел"
+          }
+        },
+        {
+          "local_term": "Člen",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "mk",
+    "uri_patterns": {
+      "constitution": "/akn/mk/act/constitution/1991/ustav"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Sl. vesnik na RSM, br. {issue}/{year-short}",
+    "act_citation_alt": "\"Sl. vesnik na RSM\", br. {issue}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "Член 5-а, Член 5-б",
+    "article_numbering": "continuous_throughout_act"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_name_and_gazette_citation"
+  },
+  "core_tlcs": [
+    {
+      "eId": "sobranie",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/sobranie",
+      "showAs": "Собрание на Република Северна Македонија"
+    },
+    {
+      "eId": "pretsedatelSobranie",
+      "class": "TLCRole",
+      "href": "/ontology/role/mk/pretsedatel-sobranie",
+      "showAs": "Претседател на Собранието"
+    },
+    {
+      "eId": "pretsedatel",
+      "class": "TLCRole",
+      "href": "/ontology/role/mk/pretsedatel",
+      "showAs": "Претседател на Република Северна Македонија"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/vlada",
+      "showAs": "Влада на Република Северна Македонија"
+    },
+    {
+      "eId": "ustavenSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/ustaven-sud",
+      "showAs": "Уставен суд на Република Северна Македонија"
+    },
+    {
+      "eId": "vrhovenSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mk/vrhoven-sud",
+      "showAs": "Врховен суд на Република Северна Македонија"
+    },
+    {
+      "eId": "sluzbenVesnik",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mk/sluzhben-vesnik",
+      "showAs": "Службен весник на Република Северна Македонија"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^Zakon\\s+za\\s+|^Закон\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "zakon",
+        "priority": 60
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Uredba\\s+za\\s+|^Уредба\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "uredba",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Pravilnik\\s+za\\s+|^Правилник\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "pravilnik",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Odluka\\s+za\\s+|^Одлука\\s+за\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "odluka",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "Ustav\\s+na\\s+Republika|Устав\\s+на\\s+Република",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 100
+      }
+    ]
+  },
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

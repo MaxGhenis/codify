@@ -1,0 +1,153 @@
+{
+  "code": "mn",
+  "name": "Mongolia",
+  "name_local": "Монгол Улс",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "socialist"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "mon"
+  ],
+  "authoritative_language": "mon",
+  "document_classes": {
+    "act": {
+      "label": "Law of Mongolia (Монгол Улсын хууль)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "local_label": "Монгол Улсын хууль",
+      "hierarchy": [
+        {
+          "local_term": "Бүлэг",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Зүйл",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Заалт",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "decimal_dotted"
+        },
+        {
+          "local_term": "Дэд заалт",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "decimal_dotted_deep"
+        },
+        {
+          "local_term": "Үе",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Mongolia (Монгол Улсын Үндсэн хууль)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "local_label": "Монгол Улсын Үндсэн хууль",
+      "hierarchy": [
+        {
+          "local_term": "Бүлэг",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Зүйл",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Заалт",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "decimal_dotted"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "mn",
+    "uri_patterns": {
+      "act": "/akn/mn/act/{year}/{number}",
+      "constitution": "/akn/mn/act/constitution/1992/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Монгол Улсын хууль {year} оны {number} дүгээр",
+    "insertion_style": "superscript_arabic"
+  },
+  "amendments": {
+    "style": "textual_civilian",
+    "phrasing": "дараах нэмэлт, өөрчлөлт оруулах",
+    "cross_reference_format": "article_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "ulsyinIkhhural",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mn/ulsyin-ikhhural",
+      "showAs": "Улсын Их Хурал (State Great Khural)"
+    },
+    {
+      "eId": "erenhilogch",
+      "class": "TLCRole",
+      "href": "/ontology/role/mn/erenhilogch",
+      "showAs": "Монгол Улсын Ерөнхийлөгч (President of Mongolia)"
+    },
+    {
+      "eId": "toriinMedeelel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mn/torin-medeelel",
+      "showAs": "Төрийн мэдээлэл (State Bulletin)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

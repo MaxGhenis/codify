@@ -1,0 +1,451 @@
+{
+  "code": "lb",
+  "name": "Lebanon",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "fra"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "law": {
+      "label": "Law (قانون / Loi)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Livre"
+          }
+        },
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "قسم (Qism)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        },
+        {
+          "local_term": "بند (Band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "Point"
+          }
+        }
+      ]
+    },
+    "legislative_decree": {
+      "label": "Legislative Decree (مرسوم تشريعي / Décret législatif)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Livre"
+          }
+        },
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        },
+        {
+          "local_term": "بند (Band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "Point"
+          }
+        }
+      ]
+    },
+    "decree_law": {
+      "label": "Decree-Law (مرسوم بقوة القانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre"
+          }
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        }
+      ]
+    },
+    "decree": {
+      "label": "Decree (مرسوم / Décret)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        }
+      ]
+    },
+    "personal_status": {
+      "label": "Personal Status Law (قانون الأحوال الشخصية)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre",
+            "alt2": "Titulus"
+          }
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Caput"
+          }
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Canon"
+          }
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution (الدستور / Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "lb",
+    "uri_patterns": {
+      "law": "/akn/lb/act/{year}/{number}",
+      "legislative_decree": "/akn/lb/act/legislative-decree/{year}/{number}",
+      "decree_law": "/akn/lb/act/decree-law/{year}/{number}",
+      "decree": "/akn/lb/act/decree/{year}/{number}",
+      "constitution": "/akn/lb/act/constitution/1926/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Law No. {number}/{year}",
+    "article_numbering": "continuous_throughout_law",
+    "insertion_style": "mkarran_or_hyphen"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "chamberOfDeputies",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/chamber-of-deputies",
+      "showAs": "Chamber of Deputies"
+    },
+    {
+      "eId": "majlisAlNuwwab",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/majlis-al-nuwwab",
+      "showAs": "مجلس النواب"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "majlisAlWuzara",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/majlis-al-wuzara",
+      "showAs": "مجلس الوزراء"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/lb/president",
+      "showAs": "President of the Republic"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/lb/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/lb/speaker",
+      "showAs": "Speaker of the Chamber of Deputies"
+    },
+    {
+      "eId": "constitutionalCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/constitutional-council",
+      "showAs": "Constitutional Council"
+    },
+    {
+      "eId": "courtOfCassation",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/court-of-cassation",
+      "showAs": "Court of Cassation"
+    },
+    {
+      "eId": "councilOfState",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/council-of-state",
+      "showAs": "Council of State"
+    },
+    {
+      "eId": "darAlFatwa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/dar-al-fatwa",
+      "showAs": "Dar Al-Fatwa (Sunni)"
+    },
+    {
+      "eId": "shiaCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/supreme-islamic-shia-council",
+      "showAs": "Supreme Islamic Shia Council"
+    },
+    {
+      "eId": "druzeCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/druze-court",
+      "showAs": "Druze Personal Status Court"
+    },
+    {
+      "eId": "maronitePatriarchate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/maronite-patriarchate",
+      "showAs": "Maronite Patriarchate"
+    },
+    {
+      "eId": "greekOrthodoxPatriarchate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lb/greek-orthodox-patriarchate",
+      "showAs": "Greek Orthodox Patriarchate of Antioch"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/lb/al-jarida-al-rasmiyya",
+      "showAs": "Al-Jarida Al-Rasmiyya"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

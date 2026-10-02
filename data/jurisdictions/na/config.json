@@ -1,0 +1,305 @@
+{
+  "code": "na",
+  "name": "Namibia",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman_or_alpha"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Namibia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Government Notice Regulation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_or_roman"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "proclamation": {
+      "label": "Presidential Proclamation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "na",
+    "uri_patterns": {
+      "act": "/akn/na/act/{year}/{number}",
+      "regulation": "/akn/na/act/gn/{year}/{number}",
+      "proclamation": "/akn/na/act/proclamation/{year}/{number}",
+      "constitution": "/akn/na/act/constitution/1990/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act {number} of {year}",
+    "act_citation_alt": "Act No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by the substitution for... of the following...",
+    "cross_reference_format": "short_title_year_and_act_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/parliament",
+      "showAs": "Parliament of the Republic of Namibia"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "nationalCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/national-council",
+      "showAs": "National Council"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/na/president",
+      "showAs": "President of the Republic of Namibia"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/na/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/na/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/na/attorney-general",
+      "showAs": "Attorney-General"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/na/speaker",
+      "showAs": "Speaker of the National Assembly"
+    },
+    {
+      "eId": "chairpersonNc",
+      "class": "TLCRole",
+      "href": "/ontology/role/na/chairperson-national-council",
+      "showAs": "Chairperson of the National Council"
+    },
+    {
+      "eId": "lawReformCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/law-reform-commission",
+      "showAs": "Law Reform and Development Commission"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/supreme-court",
+      "showAs": "Supreme Court of Namibia"
+    },
+    {
+      "eId": "highCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/high-court",
+      "showAs": "High Court of Namibia"
+    },
+    {
+      "eId": "governmentGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/na/government-gazette",
+      "showAs": "Government Gazette of the Republic of Namibia"
+    },
+    {
+      "eId": "governmentPrinter",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/na/government-printer",
+      "showAs": "Government Printing Office"
+    },
+    {
+      "eId": "namibia",
+      "class": "TLCLocation",
+      "href": "/ontology/place/na",
+      "showAs": "Republic of Namibia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,360 @@
+{
+  "code": "vn",
+  "name": "Việt Nam",
+  "name_en": "Vietnam",
+  "type": "national",
+  "tradition": [
+    "socialist",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "vie"
+  ],
+  "authoritative_language": "vie",
+  "document_classes": {
+    "luat": {
+      "label": "Luật (Law / Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Phần",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Mục",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Tiểu mục",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ]
+    },
+    "boluat": {
+      "label": "Bộ luật (Code)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Phần",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Mục",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Tiểu mục",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ]
+    },
+    "phaplenhh": {
+      "label": "Pháp lệnh (Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ]
+    },
+    "nghi_dinh": {
+      "label": "Nghị định (Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Mục",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Điểm",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "vietnamese_alpha"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Hiến pháp (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chương",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Điều",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Khoản",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ]
+    }
+  },
+  "default_document_class": "luat",
+  "frbr": {
+    "country_code": "vn",
+    "uri_patterns": {
+      "luat": "/akn/vn/act/{year}/{number}",
+      "boluat": "/akn/vn/act/{year}/{number}",
+      "phaplenhh": "/akn/vn/act/ordinance/{year}/{number}",
+      "nghi_dinh": "/akn/vn/act/decree/{year}/{number}",
+      "constitution": "/akn/vn/act/constitution/2013/constitution"
+    },
+    "number_extraction": "Strip all text after the first '/' in the official designation. E.g., '59/2020/QH14' → number='59', year='2020'. Store the full designation as FRBRalias.",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "{number}/{year}/QH{legislature_term}",
+    "insertion_style": "alphabetic_lower",
+    "insertion_example": "Điều 5a, Điều 5b (not 5A, 5B)"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "được sửa đổi, bổ sung như sau (is amended and supplemented as follows)",
+    "cross_reference_format": "short_title_and_official_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/national-assembly",
+      "showAs": "Quốc hội"
+    },
+    {
+      "eId": "standingCommittee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/standing-committee",
+      "showAs": "Ủy ban Thường vụ Quốc hội"
+    },
+    {
+      "eId": "government",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/government",
+      "showAs": "Chính phủ"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/vn/president",
+      "showAs": "Chủ tịch nước"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vn/prime-minister",
+      "showAs": "Thủ tướng Chính phủ"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/vn/minister",
+      "showAs": "Bộ trưởng"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/ministry-of-justice",
+      "showAs": "Bộ Tư pháp"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/supreme-peoples-court",
+      "showAs": "Tòa án nhân dân tối cao"
+    },
+    {
+      "eId": "supremeProcuracy",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/supreme-peoples-procuracy",
+      "showAs": "Viện kiểm sát nhân dân tối cao"
+    },
+    {
+      "eId": "communistParty",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/vn/communist-party",
+      "showAs": "Đảng Cộng sản Việt Nam"
+    },
+    {
+      "eId": "congBao",
+      "class": "TLCObject",
+      "href": "/ontology/obj/vn/cong-bao",
+      "showAs": "Công Báo"
+    },
+    {
+      "eId": "vietnam",
+      "class": "TLCLocation",
+      "href": "/ontology/place/vn",
+      "showAs": "Việt Nam"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "mixed",
+    "script": "latin_extended",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

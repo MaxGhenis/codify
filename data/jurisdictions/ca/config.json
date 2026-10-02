@@ -1,0 +1,272 @@
+{
+  "code": "ca",
+  "name": "Canada",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "fra"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_italic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_parenthesized"
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Regulation (Statutory Orders and Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_italic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution Act",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_italic_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "ca",
+    "uri_patterns": {},
+    "sample_uris": {
+      "Criminal Code (RSC 1985, c. C-46)": "/akn/ca/act/1985/c-46",
+      "Income Tax Act (RSC 1985, c. 1 (5th Supp.))": "/akn/ca/act/1985/i-3.3",
+      "Budget Implementation Act, 2024, No. 1 (SC 2024, c. 17)": "/akn/ca/act/2024/17",
+      "SIN Regulations (SOR/2013-82)": "/akn/ca/act/sor/2013/82",
+      "Constitution Act, 1867": "/akn/ca/act/constitution/1867/constitution-act",
+      "Constitution Act, 1982": "/akn/ca/act/constitution/1982/constitution-act",
+      "Bill C-69, 44th Parliament 1st Session": "/akn/ca/bill/44-1/c-69"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "decimal"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "cross_reference_format": "short_title_and_rsc_or_sc"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ca/parliament",
+      "showAs": "Parliament of Canada"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ca/senate",
+      "showAs": "Senate of Canada"
+    },
+    {
+      "eId": "houseOfCommons",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ca/house-of-commons",
+      "showAs": "House of Commons"
+    },
+    {
+      "eId": "monarch",
+      "class": "TLCRole",
+      "href": "/ontology/role/ca/monarch",
+      "showAs": "His Majesty the King"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/ca/governor-general",
+      "showAs": "Governor General of Canada"
+    },
+    {
+      "eId": "governorInCouncil",
+      "class": "TLCRole",
+      "href": "/ontology/role/ca/governor-in-council",
+      "showAs": "Governor in Council"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ca/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/ca/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/ca/attorney-general",
+      "showAs": "Attorney General of Canada"
+    },
+    {
+      "eId": "canadaGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ca/canada-gazette",
+      "showAs": "Canada Gazette"
+    },
+    {
+      "eId": "kingsPrinter",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ca/kings-printer",
+      "showAs": "King's Printer for Canada"
+    },
+    {
+      "eId": "canada",
+      "class": "TLCLocation",
+      "href": "/ontology/place/ca",
+      "showAs": "Canada"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ca/supreme-court",
+      "showAs": "Supreme Court of Canada"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,228 @@
+{
+  "code": "in",
+  "name": "India",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "hindu"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "hin"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "si": {
+      "label": "Subordinate Legislation (Rules/Regulations)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of India",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "in",
+    "uri_patterns": {
+      "act": "/akn/in/act/{year}/{number}",
+      "si": "/akn/in/act/si/{year}/{number}",
+      "constitution": "/akn/in/act/constitution/1950/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "for the words '...' the word(s) '...' shall be substituted / after section [N] the following section shall be inserted",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/in/parliament",
+      "showAs": "Parliament of India"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/in/president",
+      "showAs": "President of India"
+    },
+    {
+      "eId": "lokSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/in/lok-sabha",
+      "showAs": "Lok Sabha"
+    },
+    {
+      "eId": "rajyaSabha",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/in/rajya-sabha",
+      "showAs": "Rajya Sabha"
+    },
+    {
+      "eId": "gazetteOfIndia",
+      "class": "TLCObject",
+      "href": "/ontology/obj/in/gazette-of-india",
+      "showAs": "The Gazette of India"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

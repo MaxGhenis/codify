@@ -2,6 +2,497 @@
   "_comment": "// GENERATED — do not edit by hand. Run `uv run python scripts/build_registry.py` after modifying per-jurisdiction configs.",
   "jurisdictions": [
     {
+      "code": "ae",
+      "name": "United Arab Emirates",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic",
+        "common_law"
+      ],
+      "languages": [
+        "ara",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "am",
+      "name": "Armenia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "hye"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ar",
+      "name": "Argentina",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "at",
+      "name": "Austria",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "deu"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "au",
+      "name": "Australia",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "az",
+      "name": "Azerbaijan",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "aze"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bb",
+      "name": "Barbados",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 4,
+      "status": "draft",
+      "effective_tier": 4,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bd",
+      "name": "Bangladesh",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "ben",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "be",
+      "name": "Belgium",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "nld",
+        "fra",
+        "deu"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bg",
+      "name": "Bulgaria",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "bul"
+      ],
+      "calendar": "gregorian",
+      "tier": 4,
+      "status": "draft",
+      "effective_tier": 4,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bh",
+      "name": "Bahrain",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic",
+        "common_law"
+      ],
+      "languages": [
+        "ara",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "br",
+      "name": "Brazil",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "por"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bs",
+      "name": "Bahamas",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bw",
+      "name": "Botswana",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "bz",
+      "name": "Belize",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ca",
+      "name": "Canada",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "civil_law"
+      ],
+      "languages": [
+        "eng",
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ch",
+      "name": "Switzerland",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "deu",
+        "fra",
+        "ita",
+        "roh"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ci",
+      "name": "Côte d'Ivoire",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "cl",
+      "name": "Chile",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "cm",
+      "name": "Cameroon",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "common_law",
+        "customary",
+        "islamic"
+      ],
+      "languages": [
+        "fra",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "co",
+      "name": "Colombia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "cr",
+      "name": "Costa Rica",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "cz",
+      "name": "Czech Republic",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "ces"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "de",
+      "name": "Germany",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "deu"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "dk",
+      "name": "Denmark",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "dan"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "dz",
+      "name": "Algeria",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara",
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
       "code": "ee",
       "name": "Estonia",
       "type": "national",
@@ -15,6 +506,45 @@
       "tier": 2,
       "status": "draft",
       "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "eg",
+      "name": "Arab Republic of Egypt",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "et",
+      "name": "Ethiopia",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "amh",
+        "eng"
+      ],
+      "calendar": "ethiopian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
       "coverage_status": "in_scope",
       "subsumed_by": null,
       "public_reference": true
@@ -39,6 +569,45 @@
       "public_reference": true
     },
     {
+      "code": "fj",
+      "name": "Fiji",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng",
+        "fij",
+        "hif"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "fr",
+      "name": "France",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
       "code": "gb",
       "name": "United Kingdom",
       "type": "national",
@@ -57,6 +626,97 @@
       "public_reference": true
     },
     {
+      "code": "ge",
+      "name": "Georgia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "kat"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "gh",
+      "name": "Ghana",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "gr",
+      "name": "Greece",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "ell"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "hr",
+      "name": "Croatia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "hrv"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "hu",
+      "name": "Hungary",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "hun"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
       "code": "ie",
       "name": "Ireland",
       "type": "national",
@@ -66,6 +726,105 @@
       "languages": [
         "eng",
         "gle"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "il",
+      "name": "Israel",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "jewish",
+        "sui_generis"
+      ],
+      "languages": [
+        "heb",
+        "ara",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "in",
+      "name": "India",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "hindu"
+      ],
+      "languages": [
+        "eng",
+        "hin"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "iq",
+      "name": "Republic of Iraq",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara",
+        "kur"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ir",
+      "name": "Iran",
+      "type": "national",
+      "tradition": [
+        "islamic",
+        "civil_law"
+      ],
+      "languages": [
+        "fas"
+      ],
+      "calendar": "solar_hijri",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "is",
+      "name": "Iceland",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "isl"
       ],
       "calendar": "gregorian",
       "tier": 2,
@@ -94,6 +853,496 @@
       "public_reference": true
     },
     {
+      "code": "jm",
+      "name": "Jamaica",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "jo",
+      "name": "Jordan",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ke",
+      "name": "Kenya",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary",
+        "islamic"
+      ],
+      "languages": [
+        "eng",
+        "swa"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "kh",
+      "name": "Cambodia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "khm"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "kw",
+      "name": "State of Kuwait",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "kz",
+      "name": "Republic of Kazakhstan",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "socialist"
+      ],
+      "languages": [
+        "kaz",
+        "rus"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "la",
+      "name": "Lao People's Democratic Republic",
+      "type": "national",
+      "tradition": [
+        "socialist",
+        "civil_law"
+      ],
+      "languages": [
+        "lao"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "lb",
+      "name": "Lebanon",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara",
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "lk",
+      "name": "Sri Lanka",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "sui_generis",
+        "customary"
+      ],
+      "languages": [
+        "sin",
+        "tam",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "lv",
+      "name": "Latvia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "lav"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ma",
+      "name": "Morocco",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara",
+        "fra",
+        "zgh"
+      ],
+      "calendar": "dual",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "md",
+      "name": "Republic of Moldova",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "ron"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "me",
+      "name": "Montenegro",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "cnr",
+        "srp",
+        "bos",
+        "sqi",
+        "hrv"
+      ],
+      "calendar": "gregorian",
+      "tier": 4,
+      "status": "draft",
+      "effective_tier": 4,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "mg",
+      "name": "Madagascar",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "fra",
+        "mlg"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "mk",
+      "name": "North Macedonia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "mkd",
+        "sqi"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "mm",
+      "name": "Myanmar",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary",
+        "socialist"
+      ],
+      "languages": [
+        "mya"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "mn",
+      "name": "Mongolia",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "socialist"
+      ],
+      "languages": [
+        "mon"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "mu",
+      "name": "Mauritius",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "common_law"
+      ],
+      "languages": [
+        "eng",
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "mx",
+      "name": "Mexico",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "my",
+      "name": "Malaysia",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "islamic",
+        "customary"
+      ],
+      "languages": [
+        "msa",
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "na",
+      "name": "Namibia",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ng",
+      "name": "Nigeria",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "islamic",
+        "customary"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "nl",
+      "name": "Netherlands",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "nld"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "no",
+      "name": "Norway",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "nob",
+        "nno"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "np",
+      "name": "Nepal",
+      "type": "national",
+      "tradition": [
+        "hindu",
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "nep"
+      ],
+      "calendar": "dual",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
       "code": "nz",
       "name": "New Zealand",
       "type": "national",
@@ -109,6 +1358,613 @@
       "tier": 1,
       "status": "draft",
       "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "om",
+      "name": "Oman",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "pe",
+      "name": "Peru",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa",
+        "que",
+        "aym"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "pg",
+      "name": "Papua New Guinea",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng",
+        "tpi",
+        "hmo"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "pk",
+      "name": "Pakistan",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "islamic"
+      ],
+      "languages": [
+        "eng",
+        "urd"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "pl",
+      "name": "Poland",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "pol"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "pt",
+      "name": "Portugal",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "por"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "py",
+      "name": "Paraguay",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa",
+        "grn"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "qa",
+      "name": "Qatar",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ro",
+      "name": "Romania",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "ron"
+      ],
+      "calendar": "gregorian",
+      "tier": 4,
+      "status": "draft",
+      "effective_tier": 4,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "rw",
+      "name": "Rwanda",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "kin",
+        "eng",
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "sa",
+      "name": "Saudi Arabia",
+      "type": "national",
+      "tradition": [
+        "islamic"
+      ],
+      "languages": [
+        "ara"
+      ],
+      "calendar": "lunar_hijri",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "sb",
+      "name": "Solomon Islands",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "se",
+      "name": "Sweden",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "swe"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "sg",
+      "name": "Singapore",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng",
+        "msa",
+        "cmn",
+        "tam"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "sk",
+      "name": "Slovakia",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "slk"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "sn",
+      "name": "Senegal",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "tl",
+      "name": "Timor-Leste",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "por",
+        "tet"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "tn",
+      "name": "Tunisia",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "islamic"
+      ],
+      "languages": [
+        "ara",
+        "fra"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "to",
+      "name": "Tonga",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng",
+        "ton"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "tr",
+      "name": "Turkey",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "tur"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "tt",
+      "name": "Trinidad and Tobago",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "tz",
+      "name": "Tanzania",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary",
+        "islamic"
+      ],
+      "languages": [
+        "eng",
+        "swa"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ua",
+      "name": "Ukraine",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "ukr"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "us",
+      "name": "United States",
+      "type": "national",
+      "tradition": [
+        "common_law"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "uy",
+      "name": "Uruguay",
+      "type": "national",
+      "tradition": [
+        "civil_law"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "uz",
+      "name": "Uzbekistan",
+      "type": "national",
+      "tradition": [
+        "civil_law",
+        "socialist"
+      ],
+      "languages": [
+        "uzb",
+        "rus"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "vn",
+      "name": "Việt Nam",
+      "type": "national",
+      "tradition": [
+        "socialist",
+        "civil_law"
+      ],
+      "languages": [
+        "vie"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "vu",
+      "name": "Vanuatu",
+      "type": "national",
+      "tradition": [
+        "customary",
+        "common_law",
+        "civil_law"
+      ],
+      "languages": [
+        "eng",
+        "fra",
+        "bis"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "ws",
+      "name": "Samoa",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng",
+        "smo"
+      ],
+      "calendar": "gregorian",
+      "tier": 3,
+      "status": "draft",
+      "effective_tier": 3,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "za",
+      "name": "South Africa",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "civil_law",
+        "customary"
+      ],
+      "languages": [
+        "eng",
+        "afr",
+        "zul",
+        "xho",
+        "nso",
+        "sot",
+        "tsn",
+        "ssw",
+        "ven",
+        "tso",
+        "nbl"
+      ],
+      "calendar": "gregorian",
+      "tier": 1,
+      "status": "draft",
+      "effective_tier": 1,
+      "coverage_status": "in_scope",
+      "subsumed_by": null,
+      "public_reference": true
+    },
+    {
+      "code": "zm",
+      "name": "Zambia",
+      "type": "national",
+      "tradition": [
+        "common_law",
+        "customary"
+      ],
+      "languages": [
+        "eng"
+      ],
+      "calendar": "gregorian",
+      "tier": 2,
+      "status": "draft",
+      "effective_tier": 2,
       "coverage_status": "in_scope",
       "subsumed_by": null,
       "public_reference": true

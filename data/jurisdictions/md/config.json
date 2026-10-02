@@ -1,0 +1,298 @@
+{
+  "code": "md",
+  "name": "Republic of Moldova",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ron"
+  ],
+  "authoritative_language": "ron",
+  "document_classes": {
+    "lege": {
+      "label": "Lege (Parliamentary Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Cartea",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman_ordinal"
+        },
+        {
+          "local_term": "Partea",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_ordinal"
+        },
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Punctul",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "arabic_fullstop"
+        }
+      ]
+    },
+    "hg": {
+      "label": "Hotărâre de Guvern (Government Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "og": {
+      "label": "Ordonanță de Guvern (Government Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alineatul",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constituția Republicii Moldova",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titlul",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capitolul",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secțiunea",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Articolul",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "lege",
+  "frbr": {
+    "country_code": "md",
+    "uri_patterns": {
+      "lege": "/akn/md/act/{year}/{number}",
+      "hg": "/akn/md/act/hg/{year}/{number}",
+      "og": "/akn/md/act/og/{year}/{number}",
+      "constitution": "/akn/md/act/constitution/1994/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Legea nr. {number}/{year}"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "type_number_year_title"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/parlament",
+      "showAs": "Parlamentul Republicii Moldova"
+    },
+    {
+      "eId": "presedinte",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/presedinte",
+      "showAs": "Președintele Republicii Moldova"
+    },
+    {
+      "eId": "guvern",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/guvern",
+      "showAs": "Guvernul Republicii Moldova"
+    },
+    {
+      "eId": "primMinistru",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/prim-ministru",
+      "showAs": "Prim-ministrul"
+    },
+    {
+      "eId": "curteaConstitutionala",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/curtea-constitutionala",
+      "showAs": "Curtea Constituțională a Republicii Moldova"
+    },
+    {
+      "eId": "curteaSuprema",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/md/curtea-suprema",
+      "showAs": "Curtea Supremă de Justiție"
+    },
+    {
+      "eId": "ministrulJustitiei",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/ministrul-justitiei",
+      "showAs": "Ministrul Justiției"
+    },
+    {
+      "eId": "ministru",
+      "class": "TLCRole",
+      "href": "/ontology/role/md/ministru",
+      "showAs": "Ministru"
+    },
+    {
+      "eId": "monitorulOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/md/monitorul-oficial",
+      "showAs": "Monitorul Oficial al Republicii Moldova"
+    },
+    {
+      "eId": "moldova",
+      "class": "TLCLocation",
+      "href": "/ontology/place/md",
+      "showAs": "Republica Moldova"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_bold",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

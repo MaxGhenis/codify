@@ -1,0 +1,313 @@
+{
+  "code": "fj",
+  "name": "Fiji",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "fij",
+    "hif"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "ln": {
+      "label": "Legal Notice (Subsidiary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Regulation",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "decree": {
+      "label": "Decree (Military Era 2006–2013)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "fj",
+    "uri_patterns": {
+      "act": "/akn/fj/act/{year}/{number}",
+      "decree": "/akn/fj/act/decree/{year}/{number}",
+      "ln": "/akn/fj/act/ln/{year}/{number}",
+      "constitution": "/akn/fj/act/constitution/{year}/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act {number} of {year}",
+    "act_citation_alt": "Cap. {number}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by deleting... and substituting...",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fj/parliament",
+      "showAs": "Parliament of the Republic of Fiji"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/fj/president",
+      "showAs": "President of the Republic of Fiji"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/fj/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/fj/attorney-general",
+      "showAs": "Attorney-General"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/fj/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "commander",
+      "class": "TLCRole",
+      "href": "/ontology/role/fj/rfmf-commander",
+      "showAs": "Commander, Republic of Fiji Military Forces"
+    },
+    {
+      "eId": "iTaukeiLandTrustBoard",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fj/itaukei-land-trust-board",
+      "showAs": "iTaukei Land Trust Board"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/fj/official-gazette",
+      "showAs": "Fiji Government Gazette"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "legal_eras": [
+    {
+      "id": "colonial",
+      "label": "Colonial era",
+      "to": "1970-10-10",
+      "enacting_authority": "British colonial legislature",
+      "document_class": "act"
+    },
+    {
+      "id": "first_republic",
+      "label": "First Republic (1970 Constitution)",
+      "from": "1970-10-10",
+      "to": "1987-05-14",
+      "enacting_authority": "Parliament of Fiji",
+      "document_class": "act"
+    },
+    {
+      "id": "coup1_interim",
+      "label": "Post-Coup I interim (1987)",
+      "from": "1987-05-14",
+      "to": "1990-07-25",
+      "enacting_authority": "Military government / President by decree",
+      "document_class": "decree"
+    },
+    {
+      "id": "constitution_1990",
+      "label": "1990 Constitution era",
+      "from": "1990-07-25",
+      "to": "1997-07-25",
+      "enacting_authority": "Parliament of Fiji",
+      "document_class": "act"
+    },
+    {
+      "id": "constitution_1997",
+      "label": "1997 Constitution era",
+      "from": "1997-07-25",
+      "to": "2006-12-05",
+      "enacting_authority": "Parliament of the Fiji Islands",
+      "document_class": "act"
+    },
+    {
+      "id": "bainimarama_decree",
+      "label": "Bainimarama era (2006–2013)",
+      "from": "2006-12-05",
+      "to": "2013-09-06",
+      "enacting_authority": "Commander / President acting on advice of Prime Minister",
+      "document_class": "decree"
+    },
+    {
+      "id": "current",
+      "label": "Current Republic (2013 Constitution)",
+      "from": "2014-09-22",
+      "enacting_authority": "Parliament of the Republic of Fiji",
+      "document_class": "act"
+    }
+  ],
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

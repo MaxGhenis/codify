@@ -1,0 +1,295 @@
+{
+  "code": "pl",
+  "name": "Poland",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "pol"
+  ],
+  "authoritative_language": "pol",
+  "document_classes": {
+    "act": {
+      "label": "Ustawa",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Księga",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_pl"
+        },
+        {
+          "local_term": "Tytuł",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Dział",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Rozdział",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artykuł",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ustęp",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_rparen"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_rparen",
+          "local_terms": {
+            "alt1": "Tiret"
+          }
+        }
+      ]
+    },
+    "rozp": {
+      "label": "Rozporządzenie",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Rozdział",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artykuł",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ustęp",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_rparen"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_rparen"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Konstytucja Rzeczypospolitej Polskiej",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Rozdział",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artykuł",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Ustęp",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_rparen"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "pl",
+    "uri_patterns": {
+      "constitution": "/akn/pl/act/constitution/1997/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "ustawa z dnia {date} r. {title} (Dz.U. {year} poz. {poz})",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "art. 5a, art. 5b",
+    "article_numbering": "continuous_arabic"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "short_title_and_dzu_position"
+  },
+  "core_tlcs": [
+    {
+      "eId": "sejm",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/sejm",
+      "showAs": "Sejm Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/senat",
+      "showAs": "Senat Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/president",
+      "showAs": "Prezydent Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "marshalSejm",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/marshal-sejm",
+      "showAs": "Marszałek Sejmu"
+    },
+    {
+      "eId": "marshalSenat",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/marshal-senat",
+      "showAs": "Marszałek Senatu"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/council-of-ministers",
+      "showAs": "Rada Ministrów"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/prime-minister",
+      "showAs": "Prezes Rady Ministrów"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/pl/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "constitutionalTribunal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/constitutional-tribunal",
+      "showAs": "Trybunał Konstytucyjny"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/supreme-court",
+      "showAs": "Sąd Najwyższy"
+    },
+    {
+      "eId": "supremeAdminCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/supreme-admin-court",
+      "showAs": "Naczelny Sąd Administracyjny"
+    },
+    {
+      "eId": "rcl",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pl/rzadowe-centrum-legislacji",
+      "showAs": "Rządowe Centrum Legislacji"
+    },
+    {
+      "eId": "dzienniKUstaw",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pl/dziennik-ustaw",
+      "showAs": "Dziennik Ustaw Rzeczypospolitej Polskiej"
+    },
+    {
+      "eId": "monitorPolski",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pl/monitor-polski",
+      "showAs": "Monitor Polski"
+    },
+    {
+      "eId": "poland",
+      "class": "TLCLocation",
+      "href": "/ontology/place/pl",
+      "showAs": "Rzeczpospolita Polska"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

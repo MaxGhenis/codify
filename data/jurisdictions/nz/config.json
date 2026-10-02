@@ -2,9 +2,15 @@
   "code": "nz",
   "name": "New Zealand",
   "type": "national",
-  "tradition": ["common_law", "sui_generis"],
+  "tradition": [
+    "common_law",
+    "sui_generis"
+  ],
   "calendar": "gregorian",
-  "languages": ["eng", "mri"],
+  "languages": [
+    "eng",
+    "mri"
+  ],
   "authoritative_language": "eng",
   "note": "Māori (te reo Māori) is an official language under the Māori Language Act 1987 (Te Ture mō te Reo Māori 2016 as revised). English is the drafting language of legislation. Some Acts are enacted with Māori-language titles and preambles (e.g., Treaty of Waitangi legislation). NZ Sign Language is also an official language (NZ Sign Language Act 2006) but is not a written legislative language. The sui_generis tradition captures the constitutional status of the Treaty of Waitangi / Te Tiriti o Waitangi as a foundational instrument that influences statutory interpretation and administrative law, without constituting a written constitution.",
   "document_classes": {
@@ -105,11 +111,14 @@
           "note": "Legislative instruments (regulations, orders in council) use 'regulation' or 'clause' as the basic unit term; maps to AKN section."
         },
         {
-          "local_term": "Subclause / Subsection",
+          "local_term": "Subclause",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Subsection"
+          }
         },
         {
           "local_term": "Paragraph",
@@ -180,11 +189,8 @@
   "frbr": {
     "country_code": "nz",
     "uri_patterns": {
-      "act_public": "/akn/nz/act/{year}/{number}",
-      "act_private": "/akn/nz/act/private/{year}/{number}",
-      "act_local": "/akn/nz/act/local/{year}/{number}",
       "legislative_instrument": "/akn/nz/act/li/{year}/{number}",
-      "bill": "/akn/nz/bill/{year}/{slug}"
+      "bill": "/akn/nz/bill/{year}/{number}"
     },
     "sample_uris": {
       "Companies Act 1993": "/akn/nz/act/1993/105",
@@ -205,12 +211,6 @@
   "numbering": {
     "act_citation": "{Short Title} {year}",
     "act_citation_alt": "{year} No {number}",
-    "act_citation_note": "NZ Acts are cited by short title and year. The formal number ('No N') is rarely used in citation but appears in official publications. Example: 'Companies Act 1993' or '1993 No 105'.",
-    "li_citation": "LI {year}/{number}",
-    "section_numbering": "arabic_continuous",
-    "subsection_numbering": "arabic_parenthesized",
-    "paragraph_numbering": "alpha_lower_parenthesized",
-    "subparagraph_numbering": "roman_lower_parenthesized",
     "insertion_style": "alphanumeric",
     "insertion_note": "Inserted sections use alphanumeric suffix: 12A, 12B. Inserted subsections: (1A), (1B). NZ does not re-enact consolidations — the Parliamentary Counsel Office publishes online consolidated versions showing current text with amendment history."
   },
@@ -220,29 +220,21 @@
       "position": "preamble",
       "era": "post-1986",
       "from": "1986-01-01",
-      "note": "Standard formula since the Constitution Act 1986 reconstituted parliament as unicameral. No royal assent formula in the preamble — assent given by Governor-General separately."
+      "note": "Standard formula since the Constitution Act 1986 reconstituted parliament as unicameral. No royal assent formula in the preamble — assent given by Governor-General separately.",
+      "document_class": "act"
     },
     {
       "text": "Be it enacted by the General Assembly of New Zealand in Parliament assembled, and by the authority of the same, as follows:",
       "position": "preamble",
       "era": "pre-1987",
       "to": "1986-12-31",
-      "note": "Pre-Constitution Act 1986 formula, referring to the General Assembly. Legislative Council (upper house) was abolished 1951; this formula was used 1951-1986 with bicameral language retained as convention."
+      "note": "Pre-Constitution Act 1986 formula, referring to the General Assembly. Legislative Council (upper house) was abolished 1951; this formula was used 1951-1986 with bicameral language retained as convention.",
+      "document_class": "act"
     }
   ],
   "amendments": {
     "style": "textual_commonwealth",
-    "phrasing_patterns": [
-      "Section [N] of the principal Act is amended by...",
-      "After [section N], insert:",
-      "Repeal [section N].",
-      "In [section N], replace '[old text]' with '[new text]'.",
-      "In [section N(1)], after paragraph (a), insert:",
-      "The [Act] is amended by repealing [section N] and substituting..."
-    ],
-    "cross_reference_format": "short_title_year",
-    "cross_reference_example": "the Companies Act 1993",
-    "principal_act_convention": "Amendment Acts refer to the amended Act as 'the principal Act', defined in section 2 or by context."
+    "cross_reference_format": "short_title_year"
   },
   "core_tlcs": [
     {
@@ -307,7 +299,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "New Zealand legislation uses PART > SUBPART (optional) > SECTION as the primary structural hierarchy. SUBPART is a distinctive NZ mid-level grouping within a Part; it is fully supported by the Bluebell SUBPART keyword (maps to AKN subpart). Not all Acts use Subparts — check whether the document has Subpart headings; if absent, structure is PART > SECTION directly. SECTION is the basic citable unit, numbered continuously in Arabic numerals throughout the Act (not restarting per Part or Subpart). Subsections use (1), (2); paragraphs use (a), (b); subparagraphs use (i), (ii). Bills use 'clause'/'subclause' terminology — map to SECTION/SUBSECTION. Acts drafted under the PCO's plain-language 'Purpose and principles' approach typically open with a purpose section (section 3 or 4) and an outline section before the substantive provisions. Treaty of Waitangi preambles and purpose sections are common in legislation affecting Māori rights — preserve these carefully as they carry significant interpretive weight and are frequently cited in courts. Some Acts have bilingual Māori/English titles (e.g., Te Ture mō te Reo Māori 2016 / Māori Language Act 2016) — capture the Māori title as an FRBRalias. The Waitangi Tribunal (established by Treaty of Waitangi Act 1975) is a permanent commission of inquiry with quasi-judicial status — it is distinct from the courts but its recommendations carry significant legal and political weight."
   },
   "supranational_memberships": [
@@ -345,8 +336,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "special_chars_note": "Māori (te reo Māori) uses macrons (tohutō) over vowels: ā, ē, ī, ō, ū (and uppercase Ā, Ē, Ī, Ō, Ū). Official Māori titles and text must preserve macrons — failure to do so is linguistically incorrect and politically sensitive. Modern legislation.govt.nz correctly encodes macrons in UTF-8."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

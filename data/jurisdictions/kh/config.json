@@ -1,0 +1,277 @@
+{
+  "code": "kh",
+  "name": "Cambodia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "khm"
+  ],
+  "authoritative_language": "khm",
+  "document_classes": {
+    "act": {
+      "label": "Preah Reach Kram (Royal Kram / Primary Legislation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ជំពូក",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "មាត្រា",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "កថាខណ្ឌ",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Paragraph"
+          }
+        }
+      ]
+    },
+    "anukret": {
+      "label": "Anukret (Sub-Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ជំពូក",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "មាត្រា",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "កថាខណ្ឌ",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Paragraph"
+          }
+        }
+      ]
+    },
+    "prakas": {
+      "label": "Prakas (Ministerial Proclamation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ជំពូក",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "មាត្រា",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Kingdom of Cambodia",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ជំពូក",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "មាត្រា",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "kh",
+    "uri_patterns": {
+      "act": "/akn/kh/act/{year}/{number}",
+      "anukret": "/akn/kh/act/anukret/{year}/{number}",
+      "prakas": "/akn/kh/act/prakas/{year}/{number}",
+      "constitution": "/akn/kh/act/constitution/1993/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Preah Reach Kram No. NS/RKM/{MMYY}/{NNN}",
+    "insertion_style": "bis_ter"
+  },
+  "amendments": {
+    "style": "structural_civil_law",
+    "phrasing": "Article [N] of the Law on [Subject] is amended to read as follows:",
+    "cross_reference_format": "short_title_and_kram_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/parliament",
+      "showAs": "Parliament of Cambodia"
+    },
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "constitutionalCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/constitutional-council",
+      "showAs": "Constitutional Council"
+    },
+    {
+      "eId": "king",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/king",
+      "showAs": "King of Cambodia"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "presidentNationalAssembly",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/president-national-assembly",
+      "showAs": "President of the National Assembly"
+    },
+    {
+      "eId": "presidentSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/president-senate",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kh/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/ministry-of-justice",
+      "showAs": "Ministry of Justice"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kh/supreme-court",
+      "showAs": "Supreme Court"
+    },
+    {
+      "eId": "reachKech",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kh/reach-kech",
+      "showAs": "Reach Kech"
+    },
+    {
+      "eId": "cambodia",
+      "class": "TLCLocation",
+      "href": "/ontology/place/kh",
+      "showAs": "Kingdom of Cambodia"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "chapter_title_then_article",
+    "heading_case": "upper_case",
+    "script": "khmer",
+    "rtl": false,
+    "font_preference": "sans-serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -3,9 +3,13 @@
   "name": "United Kingdom",
   "name_en": "United Kingdom of Great Britain and Northern Ireland",
   "type": "national",
-  "tradition": ["common_law"],
+  "tradition": [
+    "common_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["eng"],
+  "languages": [
+    "eng"
+  ],
   "authoritative_language": "eng",
   "note": "Westminster Parliament legislates for the whole UK on reserved matters. Devolved legislation is covered here through the publisher's type tokens (asp, anaw, asc, nia, ssi, wsi, nisr and the rest), each a document class below. Scotland has a mixed common-law/civil-law tradition. Welsh is co-official in Wales. The UK has no codified constitution.",
   "document_classes": {
@@ -242,9 +246,7 @@
   "default_document_class": "act",
   "frbr": {
     "country_code": "gb",
-    "uri_patterns": {
-      "bill": "/akn/gb/bill/{year}/{number}"
-    },
+    "uri_patterns": {},
     "date_calendar": "gregorian",
     "note": "Follows legislation.gov.uk conventions: Acts cited by regnal year and chapter before 1963, by calendar year and chapter after. Each publisher type token declared as a document class is minted as the FRBR subtype, /akn/gb/act/{token}/{year}/{number}; a token not declared here is neither walked nor minted."
   },
@@ -265,15 +267,12 @@
       "era": "king-charles-iii",
       "from": "2022-09-08",
       "note": "Standard form for Acts passed by both Houses (Public Bills). Used from accession of King Charles III.",
-      "document_class": ["act", "ukpga", "ukla", "ukppa"]
-    },
-    {
-      "text": "BE IT ENACTED by the King's most Excellent Majesty, by and with the advice and consent of the Commons in this present Parliament assembled, in accordance with the provisions of the Parliament Acts 1911 and 1949, and by the authority of the same, as follows:—",
-      "position": "preamble",
-      "era": "king-charles-iii",
-      "from": "2022-09-08",
-      "note": "Money Bills and bills passed under Parliament Acts procedure (Commons only — Lords consent not required). Used from accession of King Charles III.",
-      "document_class": ["act", "ukpga", "ukla", "ukppa"]
+      "document_class": [
+        "act",
+        "ukpga",
+        "ukla",
+        "ukppa"
+      ]
     },
     {
       "text": "BE IT ENACTED by the Queen's most Excellent Majesty, by and with the advice and consent of the Lords Spiritual and Temporal, and Commons, in this present Parliament assembled, and by the authority of the same, as follows:—",
@@ -281,7 +280,12 @@
       "era": "queen-elizabeth-ii",
       "to": "2022-09-08",
       "note": "Standard form used during the reign of Queen Elizabeth II.",
-      "document_class": ["act", "ukpga", "ukla", "ukppa"]
+      "document_class": [
+        "act",
+        "ukpga",
+        "ukla",
+        "ukppa"
+      ]
     }
   ],
   "amendments": {
@@ -317,7 +321,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
   },
   "supranational_memberships": [
@@ -332,7 +335,9 @@
       "direct_effect": "indirect_transposition",
       "member_since": "1949-08-05",
       "note": "Founding member. The European Convention on Human Rights was incorporated into domestic law by the Human Rights Act 1998 (indirect transposition, not direct effect). The UK remains a member of the Council of Europe post-Brexit.",
-      "direct_effect_instruments": ["echr_via_hra_1998"],
+      "direct_effect_instruments": [
+        "echr_via_hra_1998"
+      ],
       "transposition_required": true
     },
     {
@@ -378,47 +383,5 @@
   },
   "tier": 1,
   "status": "draft",
-  "public_reference": true,
-  "drafting_style": {
-    "note": "Rules keyed on document class, matching uri_patterns and document_classes. Term sets are English-language and hold only for this jurisdiction's drafting register. Triggers are phrases that impose a penalty, not any mention of one: a power to amend a schedule of penalties names no offence and is correct.",
-    "terms": {
-      "penalty_terms": [
-        "liable on conviction",
-        "shall be liable to a fine",
-        "punishable by",
-        "commits an offence and is liable"
-      ],
-      "offence_terms": ["offence", "guilty", "contravenes", "commits"],
-      "power_terms": ["may by regulations", "may by order", "may make regulations"],
-      "procedure_terms": [
-        "laid before",
-        "statutory instrument",
-        "annulment",
-        "affirmative resolution",
-        "consultation"
-      ]
-    },
-    "rules": [
-      {
-        "id": "penalty_without_offence",
-        "severity": "style",
-        "applies_to": ["act", "si"],
-        "message": "This unit sets a penalty but names no offence it attaches to.",
-        "requires": {
-          "section_containing": ["penalty_terms"],
-          "must_also_contain": ["offence_terms"]
-        }
-      },
-      {
-        "id": "power_without_procedure",
-        "severity": "style",
-        "applies_to": ["act", "si"],
-        "message": "This unit confers a power but states no procedure for exercising it.",
-        "requires": {
-          "section_containing": ["power_terms"],
-          "must_also_contain": ["procedure_terms"]
-        }
-      }
-    ]
-  }
+  "public_reference": true
 }

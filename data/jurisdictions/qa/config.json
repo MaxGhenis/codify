@@ -1,0 +1,317 @@
+{
+  "code": "qa",
+  "name": "Qatar",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (Qanun)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Book"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Paragraph"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Item"
+          }
+        }
+      ]
+    },
+    "emiri_decree": {
+      "label": "Emiri Decree (Marsoom Amiri)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Paragraph"
+          }
+        }
+      ]
+    },
+    "ministerial_decision": {
+      "label": "Ministerial Decision (Qarar Wizari)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Paragraph"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Permanent Constitution of Qatar",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "قسم",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    },
+    "qfc_regulation": {
+      "label": "QFC Regulation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "authoritative_language": "eng"
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "qa",
+    "uri_patterns": {
+      "act": "/akn/qa/act/{year}/{number}",
+      "emiri_decree": "/akn/qa/act/decree/{year}/{number}",
+      "ministerial_decision": "/akn/qa/act/ministerial/{year}/{number}",
+      "constitution": "/akn/qa/act/constitution/2004/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Law No. ({number}) of {year}",
+    "insertion_style": "mkarrar"
+  },
+  "amendments": {
+    "style": "wholesale_replacement",
+    "phrasing": "Article ({N}) of Law No. ({NN}) of {year} shall be amended to read as follows: / Article ({N}) shall be added to Law No. ({NN}) of {year} to read as follows: / Article ({N}) of Law No. ({NN}) of {year} shall be repealed.",
+    "cross_reference_format": "law_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "shuraCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa/shura-council",
+      "showAs": "Shura Council"
+    },
+    {
+      "eId": "emir",
+      "class": "TLCRole",
+      "href": "/ontology/role/qa/emir",
+      "showAs": "Emir of the State of Qatar"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa/ministry-of-justice",
+      "showAs": "Ministry of Justice"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/qa/official-gazette",
+      "showAs": "Al-Jarida Al-Rasmiyya"
+    },
+    {
+      "eId": "qfcAuthority",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/qa-qfc/qfc-authority",
+      "showAs": "Qatar Financial Centre Authority"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

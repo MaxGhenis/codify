@@ -1,0 +1,271 @@
+{
+  "code": "be",
+  "name": "Belgium",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "nld",
+    "fra",
+    "deu"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "act": {
+      "label": "Loi / Wet (Federal Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_ordinal",
+          "local_term": "Titre"
+        },
+        {
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal",
+          "local_term": "Section"
+        },
+        {
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic_ordinal",
+          "local_term": "Sous-section"
+        },
+        {
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        },
+        {
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "section_symbol_ordinal",
+          "local_term": "Paragraphe (§)"
+        },
+        {
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "sequential_unnumbered",
+          "local_term": "Alinéa"
+        },
+        {
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "degree_notation",
+          "local_term": "Point (1°, 2°...)"
+        },
+        {
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_closing_paren",
+          "local_term": "Lettre"
+        }
+      ]
+    },
+    "special_act": {
+      "label": "Loi spéciale / Bijzondere wet (Special Majority Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_ordinal",
+          "local_term": "Titre"
+        },
+        {
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        },
+        {
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "section_symbol_ordinal",
+          "local_term": "Paragraphe (§)"
+        }
+      ]
+    },
+    "royal_decree": {
+      "label": "Arrêté royal / Koninklijk Besluit",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        },
+        {
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "section_symbol_ordinal",
+          "local_term": "Paragraphe (§)"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution de Belgique / Belgische Grondwet",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_ordinal",
+          "local_term": "Titre"
+        },
+        {
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_ordinal",
+          "local_term": "Chapitre"
+        },
+        {
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_ordinal",
+          "local_term": "Section"
+        },
+        {
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_term": "Article"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "be",
+    "uri_patterns": {
+      "constitution": "/akn/be/act/constitution/1831/constitution"
+    },
+    "date_calendar": "gregorian",
+    "number_format": "10-digit numeric, year-prefixed (e.g. 2024005008)"
+  },
+  "numbering": {},
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "date_based"
+  },
+  "core_tlcs": [
+    {
+      "eId": "chambre",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/chambre",
+      "showAs": "Chambre des représentants"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/senat",
+      "showAs": "Sénat de Belgique"
+    },
+    {
+      "eId": "conseilEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/conseil-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "gouvernementFederal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/be/gouvernement-federal",
+      "showAs": "Gouvernement fédéral"
+    },
+    {
+      "eId": "roi",
+      "class": "TLCRole",
+      "href": "/ontology/role/be/roi",
+      "showAs": "Le Roi des Belges"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/be/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "moniteurBelge",
+      "class": "TLCObject",
+      "href": "/ontology/obj/be/moniteur-belge",
+      "showAs": "Moniteur belge / Belgisch Staatsblad"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "mixed",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

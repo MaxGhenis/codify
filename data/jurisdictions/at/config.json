@@ -1,0 +1,327 @@
+{
+  "code": "at",
+  "name": "Austria",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "deu"
+  ],
+  "authoritative_language": "deu",
+  "document_classes": {
+    "act": {
+      "label": "Bundesgesetz",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Teil",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_german"
+        },
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "§",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "bvg": {
+      "label": "Bundesverfassungsgesetz",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_alpha"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "vo": {
+      "label": "Verordnung",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "§",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "sv": {
+      "label": "Staatsvertrag",
+      "akn_element": "act",
+      "bluebell_compatible": false,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Bundes-Verfassungsgesetz (B-VG)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "at",
+    "uri_patterns": {
+      "act": "/akn/at/act/{year}/{number}",
+      "bvg": "/akn/at/act/bvg/{year}/{number}",
+      "vo": "/akn/at/act/vo/{year}/{number}",
+      "sv": "/akn/at/act/sv/{year}/{number}",
+      "constitution": "/akn/at/act/constitution/1920/bvg"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "alphanumeric",
+    "insertion_example": "§ 14a, § 14b, § 22a"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "short_title_and_bgbl"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/nationalrat",
+      "showAs": "Nationalrat"
+    },
+    {
+      "eId": "bundesrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/bundesrat",
+      "showAs": "Bundesrat"
+    },
+    {
+      "eId": "parlament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/parlament",
+      "showAs": "Parlament Österreich"
+    },
+    {
+      "eId": "bundespraesident",
+      "class": "TLCRole",
+      "href": "/ontology/role/at/bundespraesident",
+      "showAs": "Bundespräsident"
+    },
+    {
+      "eId": "bundeskanzler",
+      "class": "TLCRole",
+      "href": "/ontology/role/at/bundeskanzler",
+      "showAs": "Bundeskanzler"
+    },
+    {
+      "eId": "bundesminister",
+      "class": "TLCRole",
+      "href": "/ontology/role/at/bundesminister",
+      "showAs": "Bundesminister"
+    },
+    {
+      "eId": "vfgh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/vfgh",
+      "showAs": "Verfassungsgerichtshof"
+    },
+    {
+      "eId": "vwgh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/vwgh",
+      "showAs": "Verwaltungsgerichtshof"
+    },
+    {
+      "eId": "ogh",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/ogh",
+      "showAs": "Oberster Gerichtshof"
+    },
+    {
+      "eId": "bgbl",
+      "class": "TLCObject",
+      "href": "/ontology/obj/at/bgbl",
+      "showAs": "Bundesgesetzblatt"
+    },
+    {
+      "eId": "bundeskanzleramt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/at/bundeskanzleramt",
+      "showAs": "Bundeskanzleramt"
+    },
+    {
+      "eId": "oesterreich",
+      "class": "TLCLocation",
+      "href": "/ontology/place/at",
+      "showAs": "Österreich"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

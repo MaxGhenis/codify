@@ -1,0 +1,335 @@
+{
+  "code": "bh",
+  "name": "Bahrain",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic",
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara",
+    "eng"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "law": {
+      "label": "Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Book"
+          }
+        },
+        {
+          "local_term": "قسم",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Sub-item"
+          }
+        }
+      ]
+    },
+    "legislative_decree": {
+      "label": "Legislative Decree",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "قسم",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "فقرة",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
+        },
+        {
+          "local_term": "بند",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Sub-item"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "فصل",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    },
+    "royal_decree": {
+      "label": "Royal Decree",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "bh",
+    "uri_patterns": {
+      "law": "/akn/bh/act/{year}/{number}",
+      "legislative_decree": "/akn/bh/act/{year}/{number}",
+      "royal_decree": "/akn/bh/act/royal-decree/{year}/{number}",
+      "constitution": "/akn/bh/act/constitution/2002/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "bis"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article (N) of [Law citation] shall be amended to read as follows: / shall be cancelled / The following Article shall be added after Article (N):",
+    "cross_reference_format": "type_number_year_subject"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/national-assembly",
+      "showAs": "National Assembly"
+    },
+    {
+      "eId": "shuraCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/shura-council",
+      "showAs": "Shura Council"
+    },
+    {
+      "eId": "councilOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/council-of-representatives",
+      "showAs": "Council of Representatives"
+    },
+    {
+      "eId": "king",
+      "class": "TLCRole",
+      "href": "/ontology/role/bh/king",
+      "showAs": "King of the Kingdom of Bahrain"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bh/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bh/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "courtOfCassation",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/court-of-cassation",
+      "showAs": "Court of Cassation"
+    },
+    {
+      "eId": "sunniShariaCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/high-sunni-sharia-court-of-appeal",
+      "showAs": "High Sunni Sharia Court of Appeal"
+    },
+    {
+      "eId": "jaafariShariaCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/high-jaafari-sharia-court-of-appeal",
+      "showAs": "High Jaafari Sharia Court of Appeal"
+    },
+    {
+      "eId": "bcdr",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/bcdr",
+      "showAs": "Bahrain Chamber for Dispute Resolution"
+    },
+    {
+      "eId": "cbb",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/central-bank",
+      "showAs": "Central Bank of Bahrain"
+    },
+    {
+      "eId": "lloc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bh/lloc",
+      "showAs": "Legislation and Legal Opinion Commission"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bh/official-gazette",
+      "showAs": "Al-Jarida Al-Rasmiya (Official Gazette of Bahrain)"
+    },
+    {
+      "eId": "bahrain",
+      "class": "TLCLocation",
+      "href": "/ontology/place/bh",
+      "showAs": "Kingdom of Bahrain"
+    },
+    {
+      "eId": "gcc",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gcc",
+      "showAs": "Gulf Cooperation Council"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "article_title",
+    "heading_case": "title_case",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

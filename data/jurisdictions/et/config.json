@@ -1,0 +1,235 @@
+{
+  "code": "et",
+  "name": "Ethiopia",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "ethiopian",
+  "languages": [
+    "amh",
+    "eng"
+  ],
+  "authoritative_language": "amh",
+  "document_classes": {
+    "act": {
+      "label": "Proclamation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ክፍል",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "ምዕራፍ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "አንቀጽ",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "ንዑስ አንቀጽ",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-Article"
+          }
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Council of Ministers Regulation",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ክፍል",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "ምዕራፍ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "አንቀጽ",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "ንዑስ አንቀጽ",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-Article"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the FDRE",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "ምዕራፍ",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "አንቀጽ",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
+        },
+        {
+          "local_term": "ንዑስ አንቀጽ",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-Article"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "et",
+    "uri_patterns": {
+      "act": "/akn/et/act/{year}/{number}",
+      "regulation": "/akn/et/act/regulation/{year}/{number}",
+      "constitution": "/akn/et/act/constitution/1995/1"
+    },
+    "date_calendar": "gregorian",
+    "calendar_conversion": {
+      "kind": "ethiopian"
+    }
+  },
+  "numbering": {
+    "act_citation": "Proclamation No. {number}/{year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_civil",
+    "phrasing": "Article X of Proclamation No. Y/Z is hereby amended as follows:",
+    "cross_reference_format": "short_title_and_proclamation_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "hpr",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/et/house-of-peoples-representatives",
+      "showAs": "House of Peoples' Representatives"
+    },
+    {
+      "eId": "hof",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/et/house-of-federation",
+      "showAs": "House of Federation"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/et/president",
+      "showAs": "President"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/et/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/et/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "negaritGazeta",
+      "class": "TLCObject",
+      "href": "/ontology/obj/et/negarit-gazeta",
+      "showAs": "Federal Negarit Gazeta"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "centered",
+    "heading_case": "upper_case",
+    "script": "ethiopic",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}
