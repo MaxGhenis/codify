@@ -72,8 +72,9 @@ New, additive:
   reconciliation table in plain words). A boundary is a declared act heading
   that a closing phrase, a numbering restart, a contents entry on its page or
   a page start agrees with. An adopted text, an attachment, a repeat of the
-  open act's heading, a quotation or a missing enacting formula vetoes one.
-  `segment_volume` reads a bound volume a page at a time, cuts it into issues
+  open act's heading, a quotation or a missing enacting formula vetoes one. A
+  heading no signal agrees with is read as a citation where it stands, named
+  in the reconciliation table, and neither splits nor holds. `segment_volume` reads a bound volume a page at a time, cuts it into issues
   by the same rule and segments each issue. Configured by the jurisdiction's
   `segmentation` block: `act_heading_patterns`, `issue_heading_patterns`,
   `contents_keywords` and `printed_page_pattern`, each pattern refused at load

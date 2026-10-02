@@ -19,6 +19,7 @@ from codify.jurisdictions import JurisdictionConfig, load_config
 from codify.pipeline.enrich.ocr import PageSpan
 from codify.pipeline.segment import (
     PAGE_SEPARATOR,
+    Issue,
     Segmentation,
     SourcePage,
     _key,
@@ -227,19 +228,21 @@ def test_a_contents_page_number_that_disagrees_holds_the_region(
     assert rows == [("contents", "page_mismatch"), ("heading", "page_mismatch")]
 
 
-def test_an_uncorroborated_heading_is_held_not_split(config: JurisdictionConfig) -> None:
-    """Mid-page, unsigned before, numbering carried on: nothing agrees it opens an act."""
+def test_a_heading_no_signal_agrees_with_is_a_citation(config: JurisdictionConfig) -> None:
+    """Mid-page, unsigned before, numbering carried on: a citation in the open act,
+    neither split nor held, and reported as one."""
     lines = _act(3, "THE HARBOUR DUES ACT", 3)
     lines += ["ACT No. 9 OF 2020 is amended as follows.", "", "Section 4. Duty 4", ""]
     text, spans = _join([lines])
     result = segment(text, spans, config=config)
-    assert result.outcome == "abstained"
-    assert result.segments == ()
+    assert result.outcome == "single"
+    assert result.held == ()
+    assert result.segments[0].text is text
     assert [(r.key, r.status) for r in result.reconciliation] == [
         ("act 3", "opening"),
-        ("act 9", "uncorroborated"),
+        ("act 9", "citation"),
     ]
-    assert result.held[0].reason.endswith("no signal agrees it opens an act")
+    assert result.reconciliation[1].describe().endswith("read as a citation")
 
 
 def test_a_quoted_heading_is_not_a_boundary(config: JurisdictionConfig) -> None:
@@ -356,16 +359,21 @@ def test_a_running_head_repeating_the_issue_is_not_a_boundary(config: Jurisdicti
     assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 3)]
 
 
-def test_an_issue_heading_nothing_agrees_with_holds_the_issue(config: JurisdictionConfig) -> None:
+def _issue_citations(issue: Issue) -> list[tuple[str, int | None]]:
+    rows = issue.segmentation.reconciliation
+    return [(r.label, r.pdf_page) for r in rows if r.status == "citation"]
+
+
+def test_an_issue_heading_nothing_agrees_with_is_a_citation(config: JurisdictionConfig) -> None:
     # Unsigned, mid-page, and no page numbers to restart.
     issue = [["ISSUE No. 11", ""], _act(1, "THE FERRIES ACT", 3)]
     issue.append(["The tolls of", "ISSUE No. 12", "are reduced."])
     found = list(segment_volume(_pages([issue]), config=config))
-    assert len(found) == 1
-    assert found[0].status == "uncorroborated"
-    assert found[0].segmentation.outcome == "abstained"
-    assert found[0].segmentation.segments == ()
-    assert "ISSUE No. 12" in found[0].segmentation.held[0].reason
+    assert [(i.key, i.first_page, i.last_page, i.status) for i in found] == [
+        ("11", 1, 3, "opening")
+    ]
+    assert found[0].segmentation.held == ()
+    assert _issue_citations(found[0]) == [("ISSUE No. 12", 3)]
 
 
 def _with_line_in_first_act(line: list[str]) -> tuple[str, list[PageSpan]]:
@@ -506,7 +514,7 @@ def test_a_closing_inside_the_act_is_not_a_closing_before_the_next(
     text, spans = _join([unsigned])
     result = segment(text, spans, config=config)
     row = next(r for r in result.reconciliation if r.key == "act 4")
-    assert (row.status, row.signals) == ("uncorroborated", ())
+    assert (row.status, row.signals) == ("citation", ())
 
 
 def test_a_quoted_closing_is_not_a_closing(config: JurisdictionConfig) -> None:
@@ -515,7 +523,7 @@ def test_a_quoted_closing_is_not_a_closing(config: JurisdictionConfig) -> None:
     second[second.index("Section 1. Duty 1")] = "Section 4. Duty 4"
     text, spans = _join([first + second])
     row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
-    assert (row.status, row.signals) == ("uncorroborated", ())
+    assert (row.status, row.signals) == ("citation", ())
 
 
 @pytest.mark.parametrize(("sections", "signals"), [(2, ()), (3, ("restart",))])
@@ -752,8 +760,8 @@ def test_an_issue_closing_must_close_the_page_before(
     pages = [["ISSUE No. 11", ""], _act(1, "THE FERRIES ACT", 3) + before[0], *before[1:]]
     pages.append(["Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"])
     found = list(segment_volume(_pages([pages]), config=config))
-    assert [(i.key, i.status) for i in found] == [("11", "uncorroborated")]
-    assert "ISSUE No. 12" in found[0].segmentation.held[0].reason
+    assert [(i.key, i.status) for i in found] == [("11", "opening")]
+    assert _issue_citations(found[0]) == [("ISSUE No. 12", len(pages))]
 
 
 def test_an_issue_closing_on_the_page_before_agrees(config: JurisdictionConfig) -> None:
@@ -775,7 +783,7 @@ def test_a_cited_section_is_not_a_numbering_run(config: JurisdictionConfig, refe
     first = _act(3, "THE HARBOUR DUES ACT", 2) + [reference, ""]
     text, spans = _mid_page_second_act(first)
     row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
-    assert (row.status, row.signals) == ("uncorroborated", ())
+    assert (row.status, row.signals) == ("citation", ())
 
 
 def test_a_closing_phrase_inside_the_last_provision_is_not_a_closing(
@@ -786,7 +794,7 @@ def test_a_closing_phrase_inside_the_last_provision_is_not_a_closing(
     second[second.index("Section 1. Duty 1")] = "Section 5. Duty 5"
     text, spans = _join([first + second])
     row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
-    assert (row.status, row.signals) == ("uncorroborated", ())
+    assert (row.status, row.signals) == ("citation", ())
 
 
 def test_a_quoted_heading_cannot_open_the_source(config: JurisdictionConfig) -> None:

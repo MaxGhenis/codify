@@ -4,8 +4,9 @@ Deterministic, and every rule comes from jurisdiction config. A boundary is a de
 act heading that one independent signal agrees with: a closing phrase before it, a
 numbering restart after it, a contents entry naming it on its page, or a page start.
 Known non-boundaries veto a heading: an adopted or attached text, a repeat of the open
-act's own heading, a quotation, a missing enacting formula. Where the evidence
-disagrees the region is held for review, never folded into a neighbour.
+act's own heading, a quotation, a missing enacting formula. A heading no signal agrees
+with is read as a citation and stays where it stands. Where the evidence disagrees the
+region is held for review, never folded into a neighbour.
 
 A bound volume of gazette issues is read a page at a time by `segment_volume`, which
 applies the same rule to issue headings and then segments each issue into acts.
@@ -16,7 +17,7 @@ from __future__ import annotations
 import re
 from bisect import bisect_right
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from itertools import pairwise
 from typing import Literal
 
@@ -40,7 +41,7 @@ Status = Literal[
     "opening",
     "matched",
     "corroborated",
-    "uncorroborated",
+    "citation",
     "vetoed",
     "heading_only",
     "contents_only",
@@ -113,7 +114,7 @@ class ReconciliationRow:
             "opening": "opens the source",
             "matched": "agrees with the contents",
             "corroborated": "agreed by " + ", ".join(self.signals),
-            "uncorroborated": "no signal agrees it opens an act",
+            "citation": "no signal agrees it opens anything: read as a citation",
             "vetoed": f"not an act boundary: {self.veto}",
             "heading_only": "found in the text but not in the contents"
             + ("" if self.signals else ", and no signal agrees: read as a citation"),
@@ -497,14 +498,14 @@ def _decide(
             if status == "matched":
                 signals = (*signals, "contents")
         else:
-            status = "opening" if is_opening else "corroborated" if signals else "uncorroborated"
+            status = "opening" if is_opening else "corroborated" if signals else "citation"
         row = _row(heading, status, signals)
         rows.append(row)
         if status in ("matched", "corroborated", "opening"):
             if not is_opening:
                 decided.append((heading, signals))
             open_heading, previous = heading, heading.start
-        elif status != "heading_only" or signals:
+        elif signals or status not in ("heading_only", "citation"):
             doubts.append((heading.start, row.describe()))
         if is_opening:
             open_heading, previous = heading, heading.start
@@ -736,7 +737,8 @@ class _OpenIssue:
     status: Status = "opening"
     signals: tuple[str, ...] = ()
     pages: list[SourcePage] = field(default_factory=list)
-    doubts: list[str] = field(default_factory=list)
+    # Issue headings read as citations, reported with the issue's acts.
+    citations: list[ReconciliationRow] = field(default_factory=list)
 
 
 def segment_volume(
@@ -810,7 +812,9 @@ def _settle(
         yield _close(issue, config, doctype)
         issue = _OpenIssue(heading=heading, key=key, status="corroborated", signals=tuple(signals))
     else:
-        issue.doubts.append(f"issue heading {heading!r} on PDF page {page.page}: no signal agrees")
+        issue.citations.append(
+            ReconciliationRow("heading", heading, key, "citation", pdf_page=page.page)
+        )
     issue.pages.append(page)
     return issue
 
@@ -829,18 +833,15 @@ def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -
         bodies.append(page.text)
     text = PAGE_SEPARATOR.join(bodies)
     furniture = {p.page: p.furniture for p in issue.pages if p.furniture}
-    if issue.doubts:
-        first, last = issue.pages[0].page, issue.pages[-1].page
-        whole = HeldSpan(0, len(text), first, last, "; ".join(issue.doubts), text)
-        result = Segmentation("abstained", (), (whole,))
-    else:
-        result = segment(text, spans, config=config, furniture=furniture, doctype=doctype)
+    result = segment(text, spans, config=config, furniture=furniture, doctype=doctype)
+    if issue.citations:
+        result = replace(result, reconciliation=(*result.reconciliation, *issue.citations))
     return Issue(
         heading=issue.heading,
         key=issue.key,
         first_page=issue.pages[0].page,
         last_page=issue.pages[-1].page,
-        status="uncorroborated" if issue.doubts else issue.status,
+        status=issue.status,
         signals=issue.signals,
         segmentation=result,
     )
