@@ -267,6 +267,18 @@ def test_a_whole_line_heading_is_judged_by_its_first_character(
     assert bool(found) is declared, [s.detail for s in found]
 
 
+def test_a_heading_match_of_indentation_alone_declares_nothing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A repeated run under one title, signed: a pattern consuming nothing before the
+    signature block is no act heading."""
+    headings = [HEADING, r"(?:BILL No\. \d+)?(?=Speaker)"]
+    configs = {COUNTRY: _config(segmentation={"act_heading_patterns": headings})}
+    text = _two_acts().replace("ACT No. 4 OF 2020", "SCHEDULE OF DUES")
+    with isolated_configs(monkeypatch, tmp_path / "jurisdictions", configs):
+        assert not _suspected(text)
+
+
 @pytest.mark.usefixtures("unarmed")
 def test_no_declared_heading_declares_nothing() -> None:
     """Silence, not a finding: the closing alone cannot say a second act began."""

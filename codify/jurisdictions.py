@@ -656,7 +656,9 @@ def _refuse_empty_match(pattern: str, what: str) -> re.Pattern[str]:
         compiled = re.compile(pattern)
     except re.error as exc:
         raise ValueError(f"{what} does not compile: {pattern!r}: {exc}") from exc
-    if not pattern.strip() or compiled.match("") is not None:
+    # Probes for a match that consumes nothing, as `(?:ACT)?\b` does at any word.
+    empty = any((m := compiled.match(probe)) and not m.group(0) for probe in ("", "x", "1", " "))
+    if not pattern.strip() or empty:
         raise ValueError(f"{what} must not be empty or match empty text: {pattern!r}")
     return compiled
 

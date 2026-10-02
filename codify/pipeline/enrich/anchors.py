@@ -3932,7 +3932,8 @@ def _declare_act_boundary_suspected(
         )
         # Judged at the heading's first character: a whole-line match may end in a quote.
         opened = min(
-            (m for m in candidates if not mask[_past_indent(m)]),
+            # A match of indentation alone names no heading.
+            (m for m in candidates if _past_indent(m) < m.end() and not mask[_past_indent(m)]),
             key=lambda m: m.start(),
             default=None,
         )
