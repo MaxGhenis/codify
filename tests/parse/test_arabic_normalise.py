@@ -16,7 +16,7 @@ from codify.pipeline.enrich.arabic_normalise import (
 
 def test_mid_word_ta_marbuta_stripped():
     """Ta-marbuta is a final-form letter, anywhere mid-word it's OCR noise.
-    Real-world example from PS Monetary Authority 1997 art 1."""
+    Shape taken from an OCR'd definitions article."""
     out, n = normalise_arabic_text("والعبارات الآتيةة المعةاني المخصصةة لاةا")
     assert out == "والعبارات الآتية المعاني المخصصة لاا"
     assert n == 4
@@ -144,16 +144,16 @@ def test_in_tree_walks_p_text_and_tails():
     root = etree.fromstring(xml.encode())
     n = normalise_arabic_in_tree(root)
     assert n == 3
-    ps = list(root.iter(f"{{{AKN_NS}}}p"))
-    assert ps[0].text == "الآتية text"
-    assert ps[0][0].tail == " bar الآتية"
-    assert ps[1].text == "المعاني"
+    paras = list(root.iter(f"{{{AKN_NS}}}p"))
+    assert paras[0].text == "الآتية text"
+    assert paras[0][0].tail == " bar الآتية"
+    assert paras[1].text == "المعاني"
 
 
 # --- OCR-header strip -----------------------------------------------------
 
-_PS_PATTERNS = [
-    r"الوقائع\s+الفلسطينية",
+_GAZETTE_PATTERNS = [
+    r"الوقائع\s+الزرزورية",
     r"(?m)^\s*قانون\s+رقم\s*\(?\s*\d+\s*\)?\s*لسنة\s*\d{4}\s*بشأن\s+[^\n]{1,60}$",
     r"(?m)^\s*صفحة\s*\d+\s*$",
     r"\d+\s*بشأن\s+البيئة\s*\d{4}\s*\)?\s*لسنة\s*\d+\s*\)?\s*قانون\s+رقم",
@@ -163,30 +163,30 @@ _PS_PATTERNS = [
 class TestStripOCRHeaders:
     def test_gazette_masthead_removed(self):
         out, n = strip_ocr_headers_text(
-            "الوقائع الفلسطينية مقدمة", [__import__("re").compile(r"الوقائع\s+الفلسطينية")]
+            "الوقائع الزرزورية مقدمة", [__import__("re").compile(r"الوقائع\s+الزرزورية")]
         )
         assert n == 1
         assert "الوقائع" not in out
 
     def test_running_law_header_at_line_start_stripped(self):
-        """A "قانون رقم 7 لسنة 1999 بشأن البيئة" running header at start of
+        """A "قانون رقم 9 لسنة 1987 بشأن البيئة" running header at start of
         line is stripped; the same phrase in prose is NOT stripped."""
         import re
 
-        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _PS_PATTERNS]
-        source = "قانون رقم 7 لسنة 1999 بشأن البيئة\nالمادة 1: هذا القانون يهدف إلى حماية البيئة."
+        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _GAZETTE_PATTERNS]
+        source = "قانون رقم 9 لسنة 1987 بشأن البيئة\nالمادة 1: هذا القانون يهدف إلى حماية البيئة."
         out, n = strip_ocr_headers_text(source, patterns)
         assert n >= 1
         assert "المادة 1: هذا القانون يهدف" in out
 
     def test_substantive_law_reference_not_stripped(self):
-        """A prose-embedded "قانون رقم 7 لسنة 1999" reference must NOT be
+        """A prose-embedded "قانون رقم 9 لسنة 1987" reference must NOT be
         stripped, the pattern requires it to be at line-start with the
         distinctive "بشأن X" suffix."""
         import re
 
-        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _PS_PATTERNS]
-        source = "يستند هذا القرار إلى قانون رقم 7 لسنة 1999 المعمول به"
+        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _GAZETTE_PATTERNS]
+        source = "يستند هذا القرار إلى قانون رقم 9 لسنة 1987 المعمول به"
         out, n = strip_ocr_headers_text(source, patterns)
         assert n == 0
         assert out == source
@@ -194,7 +194,7 @@ class TestStripOCRHeaders:
     def test_page_number_footer_stripped(self):
         import re
 
-        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _PS_PATTERNS]
+        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _GAZETTE_PATTERNS]
         source = "نص المادة السابقة.\nصفحة 27\nنص المادة التالية."
         out, n = strip_ocr_headers_text(source, patterns)
         assert n == 1
@@ -205,8 +205,8 @@ class TestStripOCRHeaders:
         title fragment, all mashed together into one run."""
         import re
 
-        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _PS_PATTERNS]
-        source = "الشركات المشاركة 22 بشأن البيئة 1999 لسنة 7 قانون رقم في نشاطها"
+        patterns = [re.compile(p, re.MULTILINE | re.UNICODE) for p in _GAZETTE_PATTERNS]
+        source = "الشركات المشاركة 22 بشأن البيئة 1987 لسنة 9 قانون رقم في نشاطها"
         out, n = strip_ocr_headers_text(source, patterns)
         assert n == 1
         assert "22 بشأن البيئة" not in out
@@ -214,12 +214,12 @@ class TestStripOCRHeaders:
     def test_tree_walk_touches_all_p_text_and_tail(self):
         xml = (
             "<root xmlns='http://docs.oasis-open.org/legaldocml/ns/akn/3.0'>"
-            "<p>الوقائع الفلسطينية prefix<a>x</a>tail with الوقائع الفلسطينية again</p>"
+            "<p>الوقائع الزرزورية prefix<a>x</a>tail with الوقائع الزرزورية again</p>"
             "<p>clean text</p>"
             "</root>"
         )
         root = etree.fromstring(xml.encode())
-        n = strip_ocr_headers(root, [r"الوقائع\s+الفلسطينية"])
+        n = strip_ocr_headers(root, [r"الوقائع\s+الزرزورية"])
         assert n == 2  # once in text, once in tail
         p0 = list(root.iter(f"{{{AKN_NS}}}p"))[0]
         assert "الوقائع" not in (p0.text or "")
@@ -251,7 +251,7 @@ class TestStripOCRHeaders:
 class TestLatinBulletRemap:
     """Arabic list-bullet normaliser.
 
-    Older PS gazettes typeset alphabetic list markers (أ- ب- ج- د- ه- …)
+    Older Arabic gazettes typeset alphabetic list markers (أ- ب- ج- د- ه- …)
     as visually similar Latin letters in OCR output (`v-`, `w-`, `c-`,
     `h-`, `x-`). The remap walks line-anchored Latin-letter markers in
     document order and replaces by list position, not by identity.
@@ -456,15 +456,15 @@ def test_latinise_extended_compound_ordinals() -> None:
     assert latinise_arabic_ordinal("الحادية عشرة") == "11"
 
 
-def test_indonesian_page_numbers_are_stripped_whichever_dash_is_printed() -> None:
+def test_dashed_page_numbers_are_stripped_whichever_dash_is_printed() -> None:
     """The declared pattern allowed a hyphen where the sources print an en-dash,
     so it never matched. These patterns also drive header stripping in
-    translation and enacting-formula cleanup, so an Indonesian page number was
+    translation and enacting-formula cleanup, so a dashed page number was
     invisible to both."""
     from codify.jurisdictions import load_config
     from codify.pipeline.enrich.arabic_normalise import drop_header_only_lines
 
-    cfg = load_config("id")
+    cfg = load_config("xl")
     assert cfg is not None
     patterns = [*cfg.ocr_header_patterns, *cfg.furniture_line_patterns]
     text = "Ketentuan ini\n- 41 -\n- 42 –\n– 43 —\nberlaku.\n"

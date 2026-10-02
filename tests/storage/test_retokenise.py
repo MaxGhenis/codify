@@ -66,11 +66,11 @@ async def session() -> AsyncIterator[AsyncSession]:
 async def _seed(session: AsyncSession, language: str = "eng") -> uuid.UUID:
     suffix = uuid.uuid4().hex[:8]
     bb = "BODY\n  SECTION 1\n    ARTICLE 1\n      The rights of the accused.\n"
-    akn = parse_to_akn(bb, country="ps", doctype="act", number=suffix, date="2020-01-01")
+    akn = parse_to_akn(bb, country="xz", doctype="act", number=suffix, date="2020-01-01")
     doc = parse_akn(akn)
     doc.language = language
     vid = await save_document(
-        session, doc, jurisdiction_code="ps", law_title=f"Retokenise {suffix}", akn_xml=akn
+        session, doc, jurisdiction_code="xz", law_title=f"Retokenise {suffix}", akn_xml=akn
     )
     await session.commit()
     return vid

@@ -63,9 +63,9 @@ async def session() -> AsyncIterator[AsyncSession]:
 async def _seed_version(session: AsyncSession) -> tuple[uuid.UUID, str]:
     bb = "BODY\n  SECTION 1\n    ARTICLE 1\n      Body of article one.\n    ARTICLE 2\n"
     suffix = uuid.uuid4().hex[:8]
-    akn = parse_to_akn(bb, country="ps", doctype="act", number=suffix, date="2020-01-01")
+    akn = parse_to_akn(bb, country="xz", doctype="act", number=suffix, date="2020-01-01")
     vid = await save_document(
-        session, parse_akn(akn), jurisdiction_code="ps", law_title=f"Dossier {suffix}", akn_xml=akn
+        session, parse_akn(akn), jurisdiction_code="xz", law_title=f"Dossier {suffix}", akn_xml=akn
     )
     await session.commit()
     return vid, akn
@@ -105,15 +105,15 @@ async def test_scan_with_aged_out_evidence_classifies_missing(session: AsyncSess
     are gone must read as "missing" (re-OCR possible), never "none"."""
     bb = "BODY\n  ARTICLE 1\n    Body text.\n"
     suffix = uuid.uuid4().hex[:8]
-    akn = parse_to_akn(bb, country="ps", doctype="act", number=suffix, date="2020-01-01")
+    akn = parse_to_akn(bb, country="xz", doctype="act", number=suffix, date="2020-01-01")
     sha = uuid.uuid4().hex + uuid.uuid4().hex
     session.add(
         SourceDocument(
             sha256=sha,
             original_filename=f"{suffix}.pdf",
             byte_size=1,
-            object_key=f"uploads/ps/{suffix}.pdf",
-            jurisdiction_code="ps",
+            object_key=f"uploads/xz/{suffix}.pdf",
+            jurisdiction_code="xz",
         )
     )
     await session.flush()
@@ -122,7 +122,7 @@ async def test_scan_with_aged_out_evidence_classifies_missing(session: AsyncSess
     outcome = await save_document_reporting(
         session,
         parse_akn(akn),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Missing {suffix}",
         akn_xml=akn,
         source_sha256=sha,
@@ -132,7 +132,7 @@ async def test_scan_with_aged_out_evidence_classifies_missing(session: AsyncSess
     inputs = await dossier_inputs_for_version(session, outcome.version_id)
     assert inputs is not None
     assert inputs.page_evidence_source == "missing"
-    assert inputs.object_key == f"uploads/ps/{suffix}.pdf"
+    assert inputs.object_key == f"uploads/xz/{suffix}.pdf"
 
 
 async def test_no_evidence_classifies_none_for_textual_ingest(session: AsyncSession) -> None:
@@ -149,15 +149,15 @@ async def test_textual_upload_with_sha_is_none_not_missing(session: AsyncSession
     (re-OCR on text bytes fails)."""
     bb = "BODY\n  ARTICLE 1\n    Body text.\n"
     suffix = uuid.uuid4().hex[:8]
-    akn = parse_to_akn(bb, country="ps", doctype="act", number=suffix, date="2020-01-01")
+    akn = parse_to_akn(bb, country="xz", doctype="act", number=suffix, date="2020-01-01")
     sha = uuid.uuid4().hex + uuid.uuid4().hex
     session.add(
         SourceDocument(
             sha256=sha,
             original_filename=f"{suffix}.txt",
             byte_size=1,
-            object_key=f"uploads/ps/{suffix}.txt",
-            jurisdiction_code="ps",
+            object_key=f"uploads/xz/{suffix}.txt",
+            jurisdiction_code="xz",
         )
     )
     await session.flush()
@@ -166,7 +166,7 @@ async def test_textual_upload_with_sha_is_none_not_missing(session: AsyncSession
     outcome = await save_document_reporting(
         session,
         parse_akn(akn),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Textual {suffix}",
         akn_xml=akn,
         source_sha256=sha,

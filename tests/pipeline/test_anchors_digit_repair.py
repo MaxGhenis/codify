@@ -1,7 +1,7 @@
 """Anchor-level integration tests for the digit-substitution OCR repair.
 
 Complements `tests/parse/test_digit_confusion.py` (unit-level scoring) by
-exercising the full `scan_anchors` path with realistic PS-shaped article
+exercising the full `scan_anchors` path with realistic Arabic article
 sequences carrying the observed OCR defects."""
 
 from __future__ import annotations
@@ -38,9 +38,9 @@ Body prose for the eighth provision.
 
 
 def _regex():
-    config = load_config("ps")
+    config = load_config("xz")
     assert config is not None
-    return build_anchor_regex(config, "qanun")
+    return build_anchor_regex(config, "act")
 
 
 def test_synthetic_six_read_as_one_is_repaired() -> None:

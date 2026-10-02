@@ -22,13 +22,13 @@ _BLUEBELL = "PREFACE\n\nBODY\n\n  ARTICLE 1.\n\n    Text.\n"
 def _parsed() -> str:
     """Real parser output: a hand-written fixture can be wrong in the same
     direction as the code reading it."""
-    return parse_to_akn(_BLUEBELL, "ps", "act", "1999", "1", "ara")
+    return parse_to_akn(_BLUEBELL, "xz", "act", "1999", "1", "ara")
 
 
-def _stored(uri: str = "/akn/ps/act/1999/1") -> str:
+def _stored(uri: str = "/akn/xz/act/1999/1") -> str:
     """What a stored version holds: parsed, then through enrich."""
     return enrich_akn(
-        _parsed(), title="T", country="ps", doctype="act", year="1999", number="1", work_uri=uri
+        _parsed(), title="T", country="xz", doctype="act", year="1999", number="1", work_uri=uri
     )
 
 
@@ -53,40 +53,40 @@ class TestEnrichPin:
         out = enrich_akn(
             _parsed(),
             title="T",
-            country="ps",
+            country="xz",
             doctype="act",
             year="2008",
             number="99",
-            work_uri="/akn/ps/act/2008/8-11",
+            work_uri="/akn/xz/act/2008/8-11",
         )
-        assert _work(out, "FRBRuri") == "/akn/ps/act/2008/8-11"
+        assert _work(out, "FRBRuri") == "/akn/xz/act/2008/8-11"
         assert _work(out, "FRBRnumber") == "8-11"
 
     def test_without_a_pin_the_derived_uri_still_applies(self) -> None:
         # First ingest and uploads carry no stored URI and must be unaffected.
         out = enrich_akn(
-            _parsed(), title="T", country="ps", doctype="act", year="2008", number="99"
+            _parsed(), title="T", country="xz", doctype="act", year="2008", number="99"
         )
-        assert _work(out, "FRBRuri") == "/akn/ps/act/2008/99"
+        assert _work(out, "FRBRuri") == "/akn/xz/act/2008/99"
 
     def test_an_empty_pin_is_not_a_pin(self) -> None:
         out = enrich_akn(
-            _parsed(), title="T", country="ps", doctype="act", year="2008", number="99", work_uri=""
+            _parsed(), title="T", country="xz", doctype="act", year="2008", number="99", work_uri=""
         )
-        assert _work(out, "FRBRuri") == "/akn/ps/act/2008/99"
+        assert _work(out, "FRBRuri") == "/akn/xz/act/2008/99"
 
 
 class TestSetWorkUri:
     def test_it_restates_number_and_uri_from_the_work_uri(self) -> None:
         # Cobalt's setter is the whole repair: the components follow the URI.
-        out = set_work_uri(_stored(), "/akn/ps/act/2009/259", "/akn/ps/act/2009/259/ara")
+        out = set_work_uri(_stored(), "/akn/xz/act/2009/259", "/akn/xz/act/2009/259/ara")
         assert out is not None
-        assert _work(out, "FRBRuri") == "/akn/ps/act/2009/259"
+        assert _work(out, "FRBRuri") == "/akn/xz/act/2009/259"
         assert _work(out, "FRBRnumber") == "259"
 
     def test_an_already_correct_document_costs_no_write(self) -> None:
         assert (
-            set_work_uri(_stored(), "/akn/ps/act/1999/1", _expr(_stored(), "FRBRuri") or "") is None
+            set_work_uri(_stored(), "/akn/xz/act/1999/1", _expr(_stored(), "FRBRuri") or "") is None
         )
 
     def test_an_enactment_date_survives_a_number_repair(self) -> None:
@@ -94,7 +94,7 @@ class TestSetWorkUri:
         # same year that is a loss of precision, not a correction.
         doc = _stored().replace('<FRBRdate date="1999"', '<FRBRdate date="1999-05-04"', 1)
         assert _work(doc, "FRBRdate") == "1999-05-04"
-        out = set_work_uri(doc, "/akn/ps/act/1999/8-11", "/akn/ps/act/1999/8-11/ara@2026-01-01")
+        out = set_work_uri(doc, "/akn/xz/act/1999/8-11", "/akn/xz/act/1999/8-11/ara@2026-01-01")
         assert out is not None
         assert _work(out, "FRBRnumber") == "8-11"
         assert _work(out, "FRBRdate") == "1999-05-04"
@@ -103,7 +103,7 @@ class TestSetWorkUri:
         # It described a different work, so keeping it would assert a date the
         # repaired identity never had.
         doc = _stored().replace('<FRBRdate date="1999"', '<FRBRdate date="1994-05-04"', 1)
-        out = set_work_uri(doc, "/akn/ps/act/2009/259", "/akn/ps/act/2009/259/ara@2026-01-01")
+        out = set_work_uri(doc, "/akn/xz/act/2009/259", "/akn/xz/act/2009/259/ara@2026-01-01")
         assert out is not None
         assert _work(out, "FRBRdate") == "2009"
 
@@ -124,7 +124,7 @@ class TestSetWorkUriRefusals:
         without this guard an empty row is "repaired" into a stub carrying
         FRBRalias "Untitled" and no body."""
         with pytest.raises(ValueError, match="empty document"):
-            set_work_uri("", "/akn/ps/act/2009/259", "/akn/ps/act/2009/259/ara")
+            set_work_uri("", "/akn/xz/act/2009/259", "/akn/xz/act/2009/259/ara")
 
     def test_the_expression_comes_from_the_row_not_the_document(self) -> None:
         """The document's own tail is not a safe source. Cobalt rebuilds its
@@ -132,31 +132,31 @@ class TestSetWorkUriRefusals:
         the row is the English expression, so carrying the document's tail
         writes a language mislabel onto a corrected work URI."""
         doc = _stored()
-        out = set_work_uri(doc, "/akn/ps/act/2009/259", "/akn/ps/act/2009/259/eng@2015-06-01")
+        out = set_work_uri(doc, "/akn/xz/act/2009/259", "/akn/xz/act/2009/259/eng@2015-06-01")
         assert out is not None
-        assert _expr(out, "FRBRuri") == "/akn/ps/act/2009/259/eng@2015-06-01"
-        assert _expr(out, "FRBRthis") == "/akn/ps/act/2009/259/eng@2015-06-01/!main"
+        assert _expr(out, "FRBRuri") == "/akn/xz/act/2009/259/eng@2015-06-01"
+        assert _expr(out, "FRBRthis") == "/akn/xz/act/2009/259/eng@2015-06-01/!main"
         # Nothing of the document's own expression identity survives.
         assert "ara@" not in (_expr(out, "FRBRuri") or "")
 
     def test_an_expression_outside_its_work_is_refused(self) -> None:
         with pytest.raises(ValueError, match="not under work"):
-            set_work_uri(_stored(), "/akn/ps/act/2009/259", "/akn/xx/act/1900/9/ara")
+            set_work_uri(_stored(), "/akn/xz/act/2009/259", "/akn/xx/act/1900/9/ara")
 
 
 class TestIsCitableWorkUri:
     @pytest.mark.parametrize(
         ("uri", "citable"),
         [
-            ("/akn/ps/act/2008/8-11", True),
+            ("/akn/xz/act/2008/8-11", True),
             ("/akn/eu/act/reg/2016/679", True),
-            ("/akn/ps/act/0001/draft-3f9a2c1", False),
-            ("/akn/ps/act/2008/draft-3f9a2c1", False),
+            ("/akn/xz/act/0001/draft-3f9a2c1", False),
+            ("/akn/xz/act/2008/draft-3f9a2c1", False),
             # The `_UNCITABLE_SEGMENT` shapes this module refuses elsewhere.
-            ("/akn/ps/act/2008/", False),
+            ("/akn/xz/act/2008/", False),
             ("//", False),
             # A date URI: the selector rejects it, so the guard must agree.
-            ("/akn/ps/act/2008-04-13/8", False),
+            ("/akn/xz/act/2008-04-13/8", False),
             ("", False),
         ],
     )
@@ -175,8 +175,8 @@ class TestManifestationFormat:
         [
             ("/akn/eu/act/reg/2016/679/eng@2016-05-04.xml", ".xml"),
             ("/akn/eu/act/reg/2016/679/eng@2016-05-04/!main.akn", "/!main.akn"),
-            ("/akn/ps/act/2008/8-11/ara@2020-01-01/!main", "/!main"),
-            ("/akn/ps/act/2008/8-11/ara@2020-01-01", ""),
+            ("/akn/xz/act/2008/8-11/ara@2020-01-01/!main", "/!main"),
+            ("/akn/xz/act/2008/8-11/ara@2020-01-01", ""),
             # A dotted work number is not a format.
             ("/akn/xx/act/2020/1.2/eng@2020-01-01", ""),
             (None, ""),
@@ -188,7 +188,7 @@ class TestManifestationFormat:
 
 def _with_attachment(doc: str) -> str:
     """A second `<identification>` inside a nested `<doc>`, as an attachment
-    carries. 60 ps versions hold one."""
+    carries. 60 versions in one corpus hold one."""
     ident = re.search(r"<identification.*?</identification>", doc, re.S)
     assert ident is not None
     nested = ident.group(0).replace("/!main", "/!schedule1")
@@ -205,27 +205,27 @@ def _with_attachment(doc: str) -> str:
 
 def test_every_identification_block_moves_together() -> None:
     """Cobalt rewrites each component's blocks from the generation date, so
-    correcting the root alone left 58 of 60 multi-component ps documents
+    correcting the root alone left 58 of 60 multi-component documents
     asserting two expressions of one work, at two dates, and `/!schedule1` no
     longer resolving under the root."""
     doc = _with_attachment(_stored())
     assert len(re.findall(r"<identification", doc)) == 2
 
-    out = set_work_uri(doc, "/akn/ps/act/2009/259", "/akn/ps/act/2009/259/eng@2015-06-01")
+    out = set_work_uri(doc, "/akn/xz/act/2009/259", "/akn/xz/act/2009/259/eng@2015-06-01")
     assert out is not None
 
     # Both blocks name the same work, which the bare-`<attachment>` shape does
     # not achieve because Cobalt never reaches it.
     works = re.findall(r'<FRBRWork>.*?<FRBRuri value="([^"]*)"', out, re.S)
-    assert works == ["/akn/ps/act/2009/259", "/akn/ps/act/2009/259"]
+    assert works == ["/akn/xz/act/2009/259", "/akn/xz/act/2009/259"]
     uris = re.findall(r'<FRBRExpression>.*?<FRBRuri value="([^"]*)"', out, re.S)
     assert len(uris) == 2
-    assert set(uris) == {"/akn/ps/act/2009/259/eng@2015-06-01"}
+    assert set(uris) == {"/akn/xz/act/2009/259/eng@2015-06-01"}
     # The attachment keeps addressing its own component, not the whole work.
     this = re.findall(r'<FRBRExpression>.*?<FRBRthis value="([^"]*)"', out, re.S)
     assert this == [
-        "/akn/ps/act/2009/259/eng@2015-06-01/!main",
-        "/akn/ps/act/2009/259/eng@2015-06-01/!schedule1",
+        "/akn/xz/act/2009/259/eng@2015-06-01/!main",
+        "/akn/xz/act/2009/259/eng@2015-06-01/!schedule1",
     ]
     # And no block is left declaring the document's own stale language.
     assert 'language="ara"' not in out
@@ -240,7 +240,7 @@ class TestExpressionDate:
 
     def test_both_date_elements_follow_the_row(self) -> None:
         out = set_work_uri(
-            _stored(), "/akn/ps/act/2009/259", "/akn/ps/act/2009/259/eng@2015-06-01", "2015-06-01"
+            _stored(), "/akn/xz/act/2009/259", "/akn/xz/act/2009/259/eng@2015-06-01", "2015-06-01"
         )
         assert out is not None
         for block in ("FRBRExpression", "FRBRManifestation"):
@@ -253,11 +253,11 @@ class TestExpressionDate:
         turns off is taking the expression from the row. The date therefore
         stays the document's, not the row's."""
         doc = _stored()
-        out = set_work_uri(doc, "/akn/ps/act/2009/259")
+        out = set_work_uri(doc, "/akn/xz/act/2009/259")
         assert out is not None
         assert _work(out, "FRBRnumber") == "259"
         now = _expr(out, "FRBRuri")
-        assert now is not None and now.startswith("/akn/ps/act/2009/259/ara@")
+        assert now is not None and now.startswith("/akn/xz/act/2009/259/ara@")
         was_date = re.search(r"<FRBRExpression>.*?<FRBRdate [^>]*date=\"([^\"]*)\"", doc, re.S)
         is_date = re.search(r"<FRBRExpression>.*?<FRBRdate [^>]*date=\"([^\"]*)\"", out, re.S)
         assert was_date is not None and is_date is not None

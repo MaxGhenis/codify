@@ -97,15 +97,15 @@ class TestAuditPhaseOneExtensions:
     def test_header_bleed_regex_detected(self):
         """If a running-header pattern still fires against the translated
         text, the audit catches it."""
-        translated = "Some prose here.\nAl-Waqa'i Al-Filastiniyya\nMore prose after the header."
+        translated = "Some prose here.\nAl-Waqa'i Al-Zerzuriyya\nMore prose after the header."
         out = audit_translation(
             "source",
             translated,
             {},
-            header_patterns=[r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Filastiniyya"],
+            header_patterns=[r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Zerzuriyya"],
         )
         assert out["header_bleed_hits"]
-        assert len(out["header_bleed_hits"][r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Filastiniyya"]) == 1
+        assert len(out["header_bleed_hits"][r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Zerzuriyya"]) == 1
 
     def test_header_bleed_clean_output_no_hits(self):
         translated = "Fully translated substantive text with no header residue."
@@ -113,7 +113,7 @@ class TestAuditPhaseOneExtensions:
             "source",
             translated,
             {},
-            header_patterns=[r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Filastiniyya"],
+            header_patterns=[r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Zerzuriyya"],
         )
         assert out["header_bleed_hits"] == {}
 
@@ -276,7 +276,7 @@ class TestAuditV38Extensions:
             "<article eId='art_8'>"
             "<num>8</num>"
             "<content>"
-            "<p eId='art_8__content__p_1'>A fine of (68,000) 68,000 Jordanian Dinars.</p>"
+            "<p eId='art_8__content__p_1'>A fine of (68,000) 68,000 Zerzuran Dinars.</p>"
             "</content></article>"
         )
         out = audit_translation(
@@ -296,7 +296,7 @@ class TestAuditV38Extensions:
             "<article eId='art_10'>"
             "<num>10</num>"
             "<content>"
-            "<p eId='art_10__content__p_1'>A fine of 2,400 Jordanian Dinars applies.</p>"
+            "<p eId='art_10__content__p_1'>A fine of 2,400 Zerzuran Dinars applies.</p>"
             "</content></article>"
         )
         out = audit_translation(
@@ -316,7 +316,7 @@ class TestAuditV38Extensions:
         translated_xml = _akn_wrap(
             "<article eId='art_1'>"
             "<num>1</num>"
-            "<p eId='art_1__p_1'>A fine of 2,400 Jordanian Dinars applies.</p>"
+            "<p eId='art_1__p_1'>A fine of 2,400 Zerzuran Dinars applies.</p>"
             "</article>"
         )
         out = audit_translation(
@@ -354,7 +354,7 @@ class TestAuditV38Extensions:
         translated_xml = _akn_wrap(
             "<article eId='art_1'>"
             "<num>1</num>"
-            "<content><p>A fine of 2,400 Jordanian Dinars applies.</p></content>"
+            "<content><p>A fine of 2,400 Zerzuran Dinars applies.</p></content>"
             "</article>"
         )
         out = audit_translation("src", translated_xml, {}, target_language="eng")

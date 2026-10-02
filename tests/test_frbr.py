@@ -108,29 +108,29 @@ def test_work_uri_string_none_year_becomes_the_placeholder():
 def test_work_uri_null_and_none_year_sentinels() -> None:
     # str(None) leaks, JSON "null" and blank all mean "year unresolved", and all
     # resolve to the placeholder rather than to a missing segment.
-    assert build_frbr_work_uri("ps", "act", "None", "7") == "/akn/ps/act/0001/7"
-    assert build_frbr_work_uri("ps", "act", "null", "7") == "/akn/ps/act/0001/7"
-    assert build_frbr_work_uri("ps", "act", "  ", "7") == "/akn/ps/act/0001/7"
+    assert build_frbr_work_uri("xz", "act", "None", "7") == "/akn/xz/act/0001/7"
+    assert build_frbr_work_uri("xz", "act", "null", "7") == "/akn/xz/act/0001/7"
+    assert build_frbr_work_uri("xz", "act", "  ", "7") == "/akn/xz/act/0001/7"
 
 
 def test_configured_template_never_formats_sentinel_year() -> None:
-    # PS declares uri_patterns for qanun; the sentinel must resolve before
+    # xz declares uri_patterns for act; the sentinel must resolve before
     # the template branch or it mints /null/ segments there.
     try_load_config.cache_clear()
     for sentinel in ("None", "null", "", None):
-        uri = build_frbr_work_uri("ps", "qanun", sentinel, "7")  # type: ignore[arg-type]
+        uri = build_frbr_work_uri("xz", "act", sentinel, "7")  # type: ignore[arg-type]
         assert "null" not in uri.lower() and "none" not in uri.lower()
         assert "//" not in uri.removeprefix("/")
 
 
 def test_builder_refuses_a_uri_with_an_empty_segment() -> None:
-    # The last gate before an identity is stored. Returning `/akn/ps/act/2009/`
+    # The last gate before an identity is stored. Returning `/akn/xz/act/2009/`
     # names a law by a hole: nobody can cite it and Cobalt cannot parse it, so
     # the ingest fails here rather than the defect reaching a unique index.
     with pytest.raises(UncitableFrbrUri) as exc:
-        build_frbr_work_uri("ps", "act", "2009", "")
+        build_frbr_work_uri("xz", "act", "2009", "")
     # The inputs are what was wrong, so the error names them, not just the result.
-    assert "country='ps'" in str(exc.value)
+    assert "country='xz'" in str(exc.value)
 
     with pytest.raises(UncitableFrbrUri):
         build_frbr_work_uri("", "act", "2009", "7")
@@ -145,7 +145,7 @@ def test_number_token_rejects_an_office_routing_code() -> None:
 
 
 def test_expression_uri_date_reads_what_build_wrote():
-    work = "/akn/ps/act/1999/7"
+    work = "/akn/xz/act/1999/7"
     assert expression_uri_date(build_frbr_expression_uri(work, "ara", "1999-06-08")) == "1999-06-08"
     # A component tail and a manifestation format both sit after the date, so
     # neither may be mistaken for part of it.
@@ -156,8 +156,8 @@ def test_expression_uri_date_reads_what_build_wrote():
 def test_expression_uri_date_is_none_when_the_uri_names_none():
     # What `build_frbr_expression_uri(..., None)` mints, and what 158 stored rows
     # carry. Not a date of "today"; the URI simply does not name one.
-    assert expression_uri_date("/akn/ps/act/1999/7/ara") is None
-    assert expression_uri_date("/akn/ps/act/1999/7") is None
+    assert expression_uri_date("/akn/xz/act/1999/7/ara") is None
+    assert expression_uri_date("/akn/xz/act/1999/7") is None
     assert expression_uri_date(None) is None
     assert expression_uri_date("") is None
 
@@ -166,7 +166,7 @@ def test_expression_uri_date_refuses_a_shape_it_cannot_read_correctly():
     """A reader that returns the wrong date is worse than one that returns none.
     `@2026-08-021` matched a prefix and handed back `2026-08-02`, which rebuilds a
     URI the row does not hold and forks the version the caller means to replace."""
-    work = "/akn/ps/act/1999/7"
+    work = "/akn/xz/act/1999/7"
     assert expression_uri_date(f"{work}/eng@2026-08-021") is None
     assert expression_uri_date(f"{work}/eng@2026-13-45") is None
     assert expression_uri_date(f"{work}/eng@2026-02-30") is None
@@ -175,24 +175,24 @@ def test_expression_uri_date_refuses_a_shape_it_cannot_read_correctly():
 def test_expression_uri_date_takes_the_first_segment_when_a_uri_carries_two():
     """Not a shape our writers emit, but a URI is a stored string. Pinned so the
     answer is a decision rather than an accident of the regex."""
-    assert expression_uri_date("/akn/ps/act/1999/7/ara@1999-06-08/eng@2026-08-02") == "1999-06-08"
+    assert expression_uri_date("/akn/xz/act/1999/7/ara@1999-06-08/eng@2026-08-02") == "1999-06-08"
 
 
 class TestSeriesNumber:
     """A court case number is `{number}/{series}/{year}`. Discarding it whole
-    cost five Indonesian judgments their citable identity."""
+    cost judgments their citable identity."""
 
     def test_a_case_number_yields_the_number_it_starts_with(self) -> None:
-        assert series_number("45/PUU-IX/2011") == "45"
-        assert series_number("132/PUU-XXII/2024") == "132"
+        assert series_number("45/PUL-IX/2011") == "45"
+        assert series_number("132/PUL-XXII/2024") == "132"
 
     def test_arabic_indic_digits_are_folded_first(self) -> None:
-        assert series_number("٤٥/PUU-IX/٢٠١١") == "45"
+        assert series_number("٤٥/PUL-IX/٢٠١١") == "45"
 
     def test_a_roman_first_segment_is_not_a_number(self) -> None:
-        """`I/MPR/2001` is a real citation and not a path segment: the URI
+        """`I/DEW/2001` is a citation shape, not a path segment: the URI
         number space is numeric, so this still falls to the draft address."""
-        assert series_number("I/MPR/2001") == ""
+        assert series_number("I/DEW/2001") == ""
 
     def test_a_compound_law_number_is_left_to_the_guard(self) -> None:
         """`4/2016` is a whole law number, not a series citation, and
@@ -223,7 +223,7 @@ class TestPublisherTokens:
 
 @pytest.mark.parametrize("suffix", ["2024/32", "0001/32", "2024/32/main#art_2", "si/2024/32"])
 def test_akn_country_segment_is_not_an_external_publisher_prefix(suffix: str) -> None:
-    uri = f"/akn/id/act/{suffix}"
+    uri = f"/akn/xl/act/{suffix}"
     work, _, eid = uri.partition("#")
     assert parse_source_ref(uri) == (work.removesuffix("/main"), eid or None)
 

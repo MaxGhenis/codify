@@ -145,8 +145,8 @@ _TITLE_NUMBER = re.compile(
     re.IGNORECASE,
 )
 
-# Words after which a title is naming another instrument, not itself. An
-# Indonesian designation puts its own number before `tentang`; everything the
+# Words after which a title is naming another instrument, not itself. A
+# `tentang` designation puts its own number before `tentang`; everything the
 # act is about, including the act it amends, comes after.
 _REFERS_ONWARD = re.compile(
     r"\b(?:tentang|atas|pelaksanaan|to\s+amend|amending|implementing|modifiant|"

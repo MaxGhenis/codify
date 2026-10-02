@@ -154,8 +154,8 @@ def test_each_subcommand_routes_to_its_own_handler(
     monkeypatch.setattr(cli, "_run", _fake_run)
     monkeypatch.setattr(cli, "_run_scan_corpus", lambda a: fired.append("scan-corpus") or 0)
 
-    cli.main(["scan-corpus", str(tmp_path), "--jurisdiction", "ps"])
-    cli.main(["ingest-one", "x.txt", "--jurisdiction", "ps", "--out", str(tmp_path)])
+    cli.main(["scan-corpus", str(tmp_path), "--jurisdiction", "xz"])
+    cli.main(["ingest-one", "x.txt", "--jurisdiction", "xz", "--out", str(tmp_path)])
     assert fired == ["scan-corpus", "ingest-one"]
 
 
@@ -165,9 +165,9 @@ def test_a_mistargeted_root_exits_non_zero_without_printing(
     """A redirect keeps the file whatever the exit code says."""
     from codify.cli import main
 
-    assert main(["scan-corpus", str(tmp_path), "--jurisdiction", "ps"]) == 1
+    assert main(["scan-corpus", str(tmp_path), "--jurisdiction", "xz"]) == 1
     assert capsys.readouterr().out == ""
-    assert main(["scan-corpus", str(tmp_path / "nope.txt"), "--jurisdiction", "ps"]) == 2
+    assert main(["scan-corpus", str(tmp_path / "nope.txt"), "--jurisdiction", "xz"]) == 2
 
 
 def test_an_unscannable_corpus_says_why_on_stderr(

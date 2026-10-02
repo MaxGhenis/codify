@@ -1,13 +1,11 @@
 """The container-coverage probe: the source presented grouping headings
 (Bab/Fasl) that structuring flattened into the article run. A config-independent
-guard against the silent level-drop the PS cabinet-decision config gap caused
-(#896): the OCR transcribed all seven الفصل headings faithfully, yet the run
-produced zero chapters and graded clean.
+guard against the silent level-drop a config gap causes: the OCR transcribed
+every الفصل heading faithfully, yet the run produced zero chapters and graded clean.
 
-`sy/decree` is the standing config-gap fixture: `فصل` is a grouping keyword the
-jurisdiction knows through other Syrian doctypes, but `decree` declares no
-container level, so the anchor scan emits no chapter for a `الفصل الأول` heading,
-exactly the pre-#896 PS state.
+`xz/decree` is the standing config-gap fixture: `فصل` is a grouping keyword the
+jurisdiction knows through its other doctypes, but `decree` declares no
+container level, so the anchor scan emits no chapter for a `الفصل الأول` heading.
 """
 
 from __future__ import annotations
@@ -33,7 +31,7 @@ _FLAT = "المادة 1\nنص.\n\nالمادة 2\nنص.\n"
 # A prose sentence opening with the keyword but no ordinal ("the previous Fasl").
 _PROSE = "الفصل السابق ينطبق على هذه الحالة.\nالمادة 1\nنص.\n"
 # An amendment quoting another law's structure: the heading is line-initial and
-# inside a «…» span, and `فصل` is undeclared for sy/decree so it carries no
+# inside a «…» span, and `فصل` is undeclared for xz/decree so it carries no
 # `inside_quoted_text` span. Only a source quote-mask read excludes it.
 _QUOTED = (
     "المادة 1\nيُستبدل بالمادة الآتية ما يلي:\n«الأحكام العامة\nالفصل الأول\nالمادة 5\nنص معدل.»\n"
@@ -66,34 +64,34 @@ def _probe(text: str, code: str, doctype: str) -> dict:
 
 def test_config_gap_flattening_fires() -> None:
     """Three Fusul, no container level declared: all present, none found."""
-    probe = _probe(_FUSUL, "sy", "decree")
+    probe = _probe(_FUSUL, "xz", "decree")
     assert probe["present"] == 3
     assert probe["found"] == 0
     assert container_coverage_below_floor(probe) is True
 
 
 def test_recovered_structure_does_not_fire() -> None:
-    """After #896 a PS cabinet-decision detects its Fusul as chapters, so the
+    """A cabinet decision declaring its Fusul detects them as chapters, so the
     probe finds every heading and does not warn. The fix and the probe agree."""
-    probe = _probe(_FUSUL, "ps", "qarar_majlis_wuzara")
+    probe = _probe(_FUSUL, "xz", "cabinet_decision")
     assert probe["present"] == probe["found"] == 3
     assert container_coverage_below_floor(probe) is False
 
 
 def test_flat_document_is_silent() -> None:
     """No grouping headings in the source: nothing to lose, no finding."""
-    assert _probe(_FLAT, "sy", "decree")["present"] == 0
+    assert _probe(_FLAT, "xz", "decree")["present"] == 0
 
 
 def test_prose_keyword_without_ordinal_is_not_a_heading() -> None:
     """`الفصل السابق` opens a line but names no ordinal, so it is prose, not a
     heading, and must not reach the denominator."""
-    assert _probe(_PROSE, "sy", "decree")["present"] == 0
+    assert _probe(_PROSE, "xz", "decree")["present"] == 0
 
 
 def test_quoted_amendment_heading_is_excluded() -> None:
     """A heading a document only quotes is not its own structure."""
-    assert _probe(_QUOTED, "sy", "decree")["present"] == 0
+    assert _probe(_QUOTED, "xz", "decree")["present"] == 0
 
 
 def test_floor_fires_only_when_most_headings_are_lost() -> None:
@@ -125,16 +123,16 @@ def test_corpus_scan_check_compares_against_real_akn_containers() -> None:
     stored AKN actually kept, so it catches a dedicated parser that flattened
     them even though a re-scan of the source would still find every heading."""
     # Structured-parser flatten: three source Fusul, an AKN with zero chapters.
-    gap = _scan_finding(_FUSUL, load_config("sy"), "decree", _akn(0))
+    gap = _scan_finding(_FUSUL, load_config("xz"), "decree", _akn(0))
     assert gap.check == "container_coverage"
     assert gap.failed is True
     assert gap.detail["present"] == 3 and gap.detail["found"] == 0
 
     # The AKN kept all three chapters: no flatten.
-    recovered = _scan_finding(_FUSUL, load_config("sy"), "decree", _akn(3))
+    recovered = _scan_finding(_FUSUL, load_config("xz"), "decree", _akn(3))
     assert recovered.failed is False
     assert recovered.detail["found"] == 3
 
     # No grouping headings in the source: not a miss whatever the AKN holds.
-    flat = _scan_finding(_FLAT, load_config("sy"), "decree", _akn(0))
+    flat = _scan_finding(_FLAT, load_config("xz"), "decree", _akn(0))
     assert flat.failed is None

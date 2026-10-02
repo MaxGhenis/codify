@@ -1,0 +1,29 @@
+{
+  "code": "xa",
+  "instrument_class": "harbour_treasury_jmc",
+  "year": "2031",
+  "number": "007",
+  "expected_uri": "/akn/xa/act/harbour-treasury-jmc/2031/007",
+  "classification": [
+    {
+      "title": "HB-TR Joint Memorandum Circular No. 2031-007",
+      "source": "",
+      "expected": "harbour_treasury_jmc"
+    },
+    {
+      "title": "Example implementing rules",
+      "source": "JOINT MEMORANDUM CIRCULAR NO. 2031-007\nSeries of 2031\nThe Implementing Rules of the Harbours Act No. 1103\nExample text.",
+      "expected": "harbour_treasury_jmc"
+    },
+    {
+      "title": "Other authority circular",
+      "source": "OTHER AUTHORITY\nJoint Memorandum Circular No. 2031-007\nThis cites Implementing Rules of the Harbours Act No. 1103.",
+      "expected": "act"
+    },
+    {
+      "title": "Joint Memorandum Circular No. 2031-007",
+      "source": "JOINT MEMORANDUM CIRCULAR NO. 2031-007\nSeries of 2031\nThe Implementing Rules of the Harbours Act No. 9999",
+      "expected": "act"
+    }
+  ]
+}

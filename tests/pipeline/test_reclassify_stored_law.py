@@ -11,12 +11,12 @@ NS = "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
 
 # Called per test, not at import: a tree without the config must skip, and a
 # module-level call raises during collection where no hook can convert it.
-def ps_config() -> JurisdictionConfig:
-    return load_config("ps")
+def xz_config() -> JurisdictionConfig:
+    return load_config("xz")
 
 
-# The Article 43 formula a decree-law recites. Priority 80, above the title rule.
-_DECREE_PREAMBLE = "استناداً لأحكام النظام الأساسي ولا سيما المادة الثالثة والأربعون منه"
+# The enabling-article formula a decree-law recites. Priority 80, above the title rule.
+_DECREE_PREAMBLE = "استناداً لأحكام النظام الأساسي ولا سيما المادة الحادية والستون منه"
 
 
 def _akn(preamble: str = "") -> str:
@@ -29,33 +29,33 @@ def _akn(preamble: str = "") -> str:
 
 
 class TestSignals:
-    def test_a_mandate_law_classifies_from_its_title(self) -> None:
+    def test_an_old_law_classifies_from_its_title(self) -> None:
         doctype, signal = reclassify_stored_law(
-            ps_config(), title="قانون ضريبة الحيوانات رقم 38 لسنة 1944", year=1944, akn_xml=_akn()
+            xz_config(), title="قانون ضريبة الحيوانات رقم 38 لسنة 1944", year=1944, akn_xml=_akn()
         )
-        assert (doctype, signal) == ("qanun", "title_and_year")
+        assert (doctype, signal) == ("act", "title_and_year")
 
     def test_a_decree_law_title_classifies_without_any_preamble(self) -> None:
         doctype, _ = reclassify_stored_law(
-            ps_config(), title="قرار بقانون رقم 3 لسنة 2016", year=2016, akn_xml=_akn()
+            xz_config(), title="قرار بقانون رقم 3 لسنة 2016", year=2016, akn_xml=_akn()
         )
-        assert doctype == "qarar_bi_qanun"
+        assert doctype == "decree_law"
 
     def test_the_preamble_overrides_a_title_that_reads_as_an_ordinary_law(self) -> None:
-        """The rule that earns the preamble extractor: a post-2007 decree-law
-        titled `قانون…` reads as `qanun` on its title alone."""
+        """The rule that earns the preamble extractor: a decree-law
+        titled `قانون…` reads as `act` on its title alone."""
         title = "قانون الشركات التجارية رقم (7) لسنة 2012م"
-        bare, _ = reclassify_stored_law(ps_config(), title=title, year=2012, akn_xml=_akn())
+        bare, _ = reclassify_stored_law(xz_config(), title=title, year=2012, akn_xml=_akn())
         withp, signal = reclassify_stored_law(
-            ps_config(), title=title, year=2012, akn_xml=_akn(_DECREE_PREAMBLE)
+            xz_config(), title=title, year=2012, akn_xml=_akn(_DECREE_PREAMBLE)
         )
-        assert bare == "qanun"
-        assert (withp, signal) == ("qarar_bi_qanun", "preamble")
+        assert bare == "act"
+        assert (withp, signal) == ("decree_law", "preamble")
 
     def test_the_signal_says_title_when_the_preamble_changed_nothing(self) -> None:
         """Otherwise every law with any preamble would look preamble-decided."""
         _, signal = reclassify_stored_law(
-            ps_config(), title="قانون رقم 5 لسنة 1944", year=1944, akn_xml=_akn("نص تمهيدي عادي")
+            xz_config(), title="قانون رقم 5 لسنة 1944", year=1944, akn_xml=_akn("نص تمهيدي عادي")
         )
         assert signal == "title_and_year"
 
@@ -64,7 +64,7 @@ class TestRefusals:
     def test_a_law_with_no_title_is_left_alone(self) -> None:
         """Returning the jurisdiction default here would write the same silent
         fallback this reclassification exists to remove."""
-        assert reclassify_stored_law(ps_config(), title="", year=1944, akn_xml=_akn()) == (
+        assert reclassify_stored_law(xz_config(), title="", year=1944, akn_xml=_akn()) == (
             None,
             "no_title",
         )
@@ -88,7 +88,7 @@ class TestRefusals:
         """Otherwise it lands in `title_and_year` and reads as evidence the
         preamble rarely helps, when it means the preamble was never read."""
         assert reclassify_stored_law(
-            ps_config(), title="قانون رقم 5 لسنة 1944", year=1944, akn_xml="<akomaNtoso><unclosed>"
+            xz_config(), title="قانون رقم 5 لسنة 1944", year=1944, akn_xml="<akomaNtoso><unclosed>"
         ) == (None, "akn_unparseable")
 
 

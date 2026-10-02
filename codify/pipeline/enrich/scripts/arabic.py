@@ -83,7 +83,7 @@ _PROSE_PRECURSORS: tuple[str, ...] = (
     "هذا",
     "تلك",
     "ذلك",
-    # Preamble citation precursors. PS decree-laws cite the authorising Basic Law
+    # Preamble citation precursors. Decree-laws may cite the authorising Basic Law
     # article as "استناداً لأحكام … لا سيما المادة (55)", and without these the citation was
     # promoted to a structural Article 55 anchor that then owned the preamble body.
     "استناداً",

@@ -51,7 +51,7 @@ def test_list_rendering_items_are_not_counted() -> None:
 
 
 def test_a_numbered_point_is_counted() -> None:
-    """An Indonesian huruf is a numbered unit of law, not a rendering artefact,
+    """A lettered point (Bahasa huruf) is a numbered unit of law, not a rendering artefact,
     so it stays in the comparison even though it shares a kind with `<item>`."""
     root = _root(
         '<article eId="art_1"><num>1</num>'
@@ -62,7 +62,7 @@ def test_a_numbered_point_is_counted() -> None:
 
 
 def test_a_named_hcontainer_is_law_and_is_counted() -> None:
-    """PS declares the bis article (`mukrrar`) as a named `<hcontainer>`. A tag
+    """A config may declare the bis article (`mukrrar`) as a named `<hcontainer>`. A tag
     test alone would drop it and hide the loss of every bis article."""
     named = _root('<hcontainer eId="art_1_bis" name="mukrrar"><num>1</num></hcontainer>')
     bare = _root('<hcontainer eId="hcontainer_1"><p>scaffolding</p></hcontainer>')
@@ -143,7 +143,7 @@ def test_a_bis_article_is_distinct_from_its_base() -> None:
 
 
 def test_a_named_bis_hcontainer_is_a_basic_unit() -> None:
-    """PS declares the bis article as <hcontainer name="mukrrar">; dropping it is
+    """A config may declare the bis article as <hcontainer name="mukrrar">; dropping it is
     dropping law, so the floor must see it. The bare Bluebell wrapper is not."""
     named = _root('<hcontainer eId="art_1_bis" name="mukrrar"><num>1</num></hcontainer>')
     bare = _root('<hcontainer eId="hcontainer_1"><p>scaffolding</p></hcontainer>')

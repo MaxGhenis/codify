@@ -455,6 +455,24 @@ class FrbrConfig(BaseModel):
         return self
 
 
+class SeriesCitation(BaseModel):
+    """A citation naming an instrument by series number alone ("Act No. 386")."""
+
+    model_config = _STRICT
+
+    # Regex for the instrument's name or abbreviation, matched case-insensitively.
+    name: str
+    doctype: str
+
+    @field_validator("name")
+    @classmethod
+    def _name_compiles(cls, value: str) -> str:
+        # A pattern that can match nothing would cite any bare number.
+        if not value.strip() or re.compile(value).match("") is not None:
+            raise ValueError("series citation name must not be empty or match empty text")
+        return value
+
+
 class NumberingConfig(BaseModel):
     model_config = _LOOSE
 
@@ -476,6 +494,32 @@ class NumberingConfig(BaseModel):
     # rather than about the corpus held, which may hold only one of the
     # collisions and so cannot disprove it.
     numbers_unique_across_years: bool = False
+    # Instruments cited by a never-reused series number and no year. Order
+    # matters: full names before abbreviations, so the full form wraps first.
+    series_citations: list[SeriesCitation] = Field(default_factory=list)
+    # Regex fragments that may sit between a series name and its number.
+    series_citation_connectors: list[str] = Field(
+        default_factory=lambda: [r"No\.?", r"Nos\.?", "Numbered"]
+    )
+
+    @field_validator("series_citation_connectors")
+    @classmethod
+    def _connectors_compile(cls, value: list[str]) -> list[str]:
+        for fragment in value:
+            re.compile(fragment)
+        return value
+
+    @model_validator(mode="after")
+    def _series_patterns_compose(self) -> "NumberingConfig":
+        # Compile each name with the connectors as the inline-markup pass does,
+        # so a clashing group name fails at load rather than on every run.
+        connectors = "|".join(self.series_citation_connectors)
+        for series in self.series_citations:
+            try:
+                re.compile(rf"(?:{series.name})\s+(?:{connectors})?\s*(?P<num>\d+)")
+            except re.error as exc:
+                raise ValueError(f"series citation {series.name!r}: {exc}") from exc
+        return self
 
 
 class EnactingFormula(BaseModel):
@@ -518,7 +562,7 @@ class AmendmentConfig(BaseModel):
     # articles are Roman, so an Arabic-numbered one after them is quoted text.
     amending_body_structure: str | None = None
     # Hierarchy element that numbers one amendment made by an amending article
-    # (Indonesia's `Angka`). What follows it belongs to the amended statute, so
+    # (a numbered `Angka` item). What follows it belongs to the amended statute, so
     # it must not compete in the host's numbering. Empty leaves the pass inert.
     amendment_item_kind: str | None = None
 
@@ -544,7 +588,7 @@ class ClassificationRule(BaseModel):
 
     signal          what `pattern` is tested against
       date_range      nothing; the match is `date_from`/`date_until` alone, for laws
-                      post-dating a regime change (PS `qarar_bi_qanun` from 2007-06-14)
+                      post-dating a regime change (a decree-law class from 1961-07-15)
       preamble_match  the preamble or enacting-formula text
       issuer_role     the enacting body's role ("Pope", "Council of Ministers", "OHR")
       gazette_series  the official gazette series the document was published in
@@ -653,7 +697,7 @@ class StructuringConfig(BaseModel):
     reference_nouns: list[str] = Field(default_factory=list)
     # True where the drafting standard puts every article inside a container, so
     # an article before the first one is a citation in the opening material.
-    # Indonesian laws cite the constitution that way in `Mengingat`.
+    # Some laws cite the constitution that way in the legal-basis recital.
     body_opens_with_container: bool = False
     example_markers: list[str] = Field(
         default_factory=list,
@@ -1258,8 +1302,7 @@ class JurisdictionConfig(BaseModel):
         """
         # OCR'd Arabic titles often store hamza decomposed (bare alef + U+0654)
         # where the rule patterns use the precomposed letter; canonically equal,
-        # byte-different, so match on NFC. 61% of the PS corpus is affected,
-        # including the Basic Law and every presidential decision.
+        # byte-different, so match on NFC.
         title = unicodedata.normalize("NFC", title)
         preamble = unicodedata.normalize("NFC", preamble)
         issuer_role = unicodedata.normalize("NFC", issuer_role)

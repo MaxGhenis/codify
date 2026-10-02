@@ -1,22 +1,21 @@
-"""The constitutional citation in an Indonesian enacting formula is not a provision.
+"""The constitutional citation in a Bahasa enacting formula is not a provision.
 
-Every blocking document in the Indonesian corpus was blocked by one phantom
-article built from its own `Mengingat` recital. The scanner anchored on
-`Pasal 5`, which landed an article at <body> root before BAB I and swallowed
-`MEMUTUSKAN` into it.
+A `Mengingat` recital citing the constitution by Pasal can build a phantom
+article: anchored on `Pasal 5`, it lands at <body> root before BAB I and
+swallows `MEMUTUSKAN`.
 """
 
 from __future__ import annotations
 
 from codify.pipeline.enrich.anchors import cached_regex, scan_anchors_with_ambiguity
 
-# UU 26/2007's opening, close to the stored page text: the citation opens its
+# A statute's opening as page text reads: the citation opens its
 # own line, which is why `sameline_precursors` cannot catch it.
 PREAMBLE = (
-    "Menimbang: bahwa ruang wilayah Negara Kesatuan Republik Indonesia;\n"
+    "Menimbang: bahwa ruang wilayah Republik Langkasuka;\n"
     "Mengingat:\n"
     "Pasal 5 ayat (1), Pasal 20, Pasal 25A, dan Pasal 33 ayat (3)\n"
-    "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945;\n"
+    "Undang-Undang Dasar Republik Langkasuka Tahun 1957;\n"
     "MEMUTUSKAN:\n"
     "Menetapkan: UNDANG-UNDANG TENTANG PENATAAN RUANG.\n"
     "BAB I\n"
@@ -37,7 +36,7 @@ def _scan(text: str, country: str):
 
 
 def test_the_citation_before_the_first_chapter_is_not_anchored() -> None:
-    scan = _scan(PREAMBLE, "id")
+    scan = _scan(PREAMBLE, "xl")
     articles = [a for a in scan.anchors if a.kind == "article"]
     assert [a.number for a in articles] == ["1", "2"]
     # The enacting formula stays ahead of every anchor, so the preamble split
@@ -46,7 +45,7 @@ def test_the_citation_before_the_first_chapter_is_not_anchored() -> None:
 
 
 def test_the_drop_is_recorded_as_resolved() -> None:
-    scan = _scan(PREAMBLE, "id")
+    scan = _scan(PREAMBLE, "xl")
     dropped = [s for s in scan.ambiguity if s.emitted_by == "drop_preamble_citation_articles"]
     assert len(dropped) == 1
     assert dropped[0].resolved is True
@@ -55,20 +54,20 @@ def test_the_drop_is_recorded_as_resolved() -> None:
 
 
 def test_an_amending_act_keeps_its_roman_pasal() -> None:
-    """UU 32/2024's `Pasal I` carries the amendments and legitimately precedes a
+    """An amending act's `Pasal I` carries the amendments and legitimately precedes a
     quoted container, so the pass declines for the whole document."""
     amending = (
         "Mengingat:\n"
-        "Pasal 20, Pasal 21 Undang-Undang Dasar 1945;\n"
+        "Pasal 20, Pasal 21 Undang-Undang Dasar 1957;\n"
         "MEMUTUSKAN:\n"
         "Pasal I\n"
-        "Beberapa ketentuan dalam Undang-Undang Nomor 5 Tahun 1990 diubah:\n"
+        "Beberapa ketentuan dalam Undang-Undang Nomor 8 Tahun 1991 diubah:\n"
         "BAB IX\n"
         "KETENTUAN PIDANA\n"
         "Pasal 40\n"
         "Setiap orang dilarang melakukan kegiatan yang mengakibatkan kerusakan.\n"
     )
-    numbers = [a.number for a in _scan(amending, "id").anchors if a.kind == "article"]
+    numbers = [a.number for a in _scan(amending, "xl").anchors if a.kind == "article"]
     assert "I" in numbers
     assert "20" in numbers  # untouched: the pass declines document-wide
 
@@ -81,7 +80,7 @@ def test_a_document_with_no_container_keeps_its_root_articles() -> None:
         "Pasal 2\n"
         "Peraturan ini mulai berlaku pada tanggal diundangkan.\n"
     )
-    numbers = [a.number for a in _scan(flat, "id").anchors if a.kind == "article"]
+    numbers = [a.number for a in _scan(flat, "xl").anchors if a.kind == "article"]
     assert numbers == ["1", "2"]
 
 
@@ -91,7 +90,7 @@ def test_a_flat_body_survives_a_structured_annex() -> None:
     container, which would drop every real article ahead of it."""
     flat_body_structured_annex = (
         "Mengingat:\n"
-        "Pasal 5 ayat (1) Undang-Undang Dasar 1945;\n"
+        "Pasal 5 ayat (1) Undang-Undang Dasar 1957;\n"
         "MEMUTUSKAN:\n"
         "Pasal 1\n"
         "Dalam Peraturan Pemerintah ini yang dimaksud dengan Menteri adalah menteri.\n"
@@ -105,7 +104,7 @@ def test_a_flat_body_survives_a_structured_annex() -> None:
         "Pedoman teknis ini menjadi acuan pelaksanaan.\n"
     )
     numbers = [
-        a.number for a in _scan(flat_body_structured_annex, "id").anchors if a.kind == "article"
+        a.number for a in _scan(flat_body_structured_annex, "xl").anchors if a.kind == "article"
     ]
     assert "2" in numbers  # the flat body's own articles are untouched
     assert numbers.count("1") >= 1

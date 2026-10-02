@@ -146,7 +146,7 @@ class TestEmitEnactingFormula:
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
 
-def _ps_act(preamble_text: str | None = None) -> str:
+def _arabic_act(preamble_text: str | None = None) -> str:
     preamble = f"<preamble><p>{preamble_text}</p></preamble>" if preamble_text else ""
     return f'''<?xml version="1.0"?>
 <akomaNtoso xmlns="{AKN_NS}">
@@ -161,8 +161,8 @@ def _ps_act(preamble_text: str | None = None) -> str:
 
 class TestSourceCarriesFormula:
     def test_marker_in_source_skips_injection(self):
-        src = _ps_act("رئيس دولة فلسطين، استناداً للقانون الأساسي، أصدر القرار الآتي بقانون:")
-        out = emit_enacting_formula(src, "ps", "act", "2001-06-01")
+        src = _arabic_act("رئيس جمهورية زرزورة، استناداً للقانون الأساسي، أصدر القرار الآتي بقانون:")
+        out = emit_enacting_formula(src, "xz", "act", "2001-06-01")
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
@@ -170,25 +170,25 @@ class TestSourceCarriesFormula:
         # A municipal amendment names the council early, then enacts with a
         # third-person verb ("... قد أصدر التعديل التالي"), the council is not
         # adjacent to the verb, so only the self-enacting marker catches it.
-        src = _ps_act(
-            "إن مجلس بلدية غزة واستناداً إلى الصلاحيات المخولة له في المادة الخامسة "
-            "عشر من قانون الهيئات المحلية رقم (1) لسنة 1997 قد أصدر التعديل التالي:-"
+        src = _arabic_act(
+            "إن مجلس بلدية الواحة واستناداً إلى الصلاحيات المخولة له في المادة الخامسة "
+            "عشر من قانون الهيئات المحلية رقم (2) لسنة 1995 قد أصدر التعديل التالي:-"
         )
-        out = emit_enacting_formula(src, "ps", "act", "1999-06-01")
+        out = emit_enacting_formula(src, "xz", "act", "1999-06-01")
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
-    def test_plc_era_without_marker_injects_fallback(self):
-        out = emit_enacting_formula(_minimal_act(), "ps", "act", "2001-06-01")
+    def test_assembly_era_without_marker_injects_fallback(self):
+        out = emit_enacting_formula(_minimal_act(), "xz", "act", "2001-06-01")
         root = etree.fromstring(out.encode("utf-8"))
         formula = root.find(".//akn:formula[@name='enactingFormula']", NS)
         assert formula is not None
-        assert "المجلس التشريعي" in formula.find("akn:p", NS).text
+        assert "مجلس الأمة" in formula.find("akn:p", NS).text
 
-    def test_post_2007_without_marker_injects_nothing(self):
-        # The only PS config formula is PLC-era-bounded; it must never
+    def test_after_the_era_without_marker_injects_nothing(self):
+        # The only config formula is era-bounded; it must never
         # leak outside its era via the date-filter fallback.
-        out = emit_enacting_formula(_minimal_act(), "ps", "act", "2014-06-01")
+        out = emit_enacting_formula(_minimal_act(), "xz", "act", "2014-06-01")
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
@@ -197,7 +197,7 @@ class TestSourceCarriesFormula:
         # fabricated_formula validator check; losing it would make every
         # injection self-report as fabrication. It is not @source because the
         # schema refuses that attribute on <formula>.
-        out = emit_enacting_formula(_minimal_act(), "ps", "act", "2001-06-01")
+        out = emit_enacting_formula(_minimal_act(), "xz", "act", "2001-06-01")
         root = etree.fromstring(out.encode("utf-8"))
         formula = root.find(".//akn:formula[@name='enactingFormula']", NS)
         assert formula.get("refersTo") == "#codify"
@@ -205,14 +205,14 @@ class TestSourceCarriesFormula:
 
     def test_marker_matches_despite_orthography_drift(self):
         # OCR text with bare alef vs config marker with hamza still matches.
-        src = _ps_act("رئيس دولة فلسطين اصدر القرار الاتي بقانون:")
-        out = emit_enacting_formula(src, "ps", "act", "2001-06-01")
+        src = _arabic_act("رئيس جمهورية زرزورة اصدر القرار الاتي بقانون:")
+        out = emit_enacting_formula(src, "xz", "act", "2001-06-01")
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
     def test_marker_check_idempotent_with_existing_formula(self):
-        out = emit_enacting_formula(_minimal_act(), "ps", "act", "2001-06-01")
-        again = emit_enacting_formula(out, "ps", "act", "2001-06-01")
+        out = emit_enacting_formula(_minimal_act(), "xz", "act", "2001-06-01")
+        again = emit_enacting_formula(out, "xz", "act", "2001-06-01")
         root = etree.fromstring(again.encode("utf-8"))
         assert len(root.findall(".//akn:formula[@name='enactingFormula']", NS)) == 1
 
@@ -222,28 +222,28 @@ class TestSplitOpeningMaterial:
         from codify.pipeline.enrich.enacting import split_opening_material
 
         text = (
-            "قانون رقم (7) لسنة 1999م بشأن البيئة\n"
-            "رئيس السلطة الوطنية الفلسطينية\n"
+            "قانون رقم (7) لسنة 1999م بشأن المراعي\n"
+            "رئيس جمهورية زرزورة\n"
             "بعد الاطلاع على القانون الأساسي،\n"
             "وبناءً على تنسيب مجلس الوزراء،\n"
             "أصدرنا القانون الآتي:\n"
         )
-        preface, preamble = split_opening_material(text, "ps")
-        assert preface is not None and "بشأن البيئة" in preface
-        assert "رئيس السلطة" in preface
+        preface, preamble = split_opening_material(text, "xz")
+        assert preface is not None and "بشأن المراعي" in preface
+        assert "رئيس جمهورية" in preface
         assert preamble is not None and preamble.startswith("بعد الاطلاع")
         assert "أصدرنا القانون الآتي" in preamble
 
     def test_no_opener_stays_preface(self):
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        preface, preamble = split_opening_material("قانون رقم 5 لسنة 2000\n", "ps")
+        preface, preamble = split_opening_material("قانون رقم 5 لسنة 2000\n", "xz")
         assert preface is not None and preamble is None
 
     def test_empty(self):
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        assert split_opening_material("  \n ", "ps") == (None, None)
+        assert split_opening_material("  \n ", "xz") == (None, None)
 
 
 class TestOpeningMaterialTerminator:
@@ -252,12 +252,12 @@ class TestOpeningMaterialTerminator:
     it as formula evidence, and cutting there deletes the recitals."""
 
     PERBUP = (
-        "BUPATI SAROLANGUN\n"
-        "PERATURAN BUPATI SAROLANGUN NOMOR 21 TAHUN 2023\n"
-        "DENGAN RAHMAT TUHAN YANG MAHA ESA\n"
-        "BUPATI SAROLANGUN,\n"
-        "Menimbang : a. bahwa berdasarkan ketentuan Pasal 343 Peraturan Menteri;\n"
-        "Mengingat : 1. Undang-Undang Nomor 23 Tahun 2014;\n"
+        "BUPATI TANJUNG SERI\n"
+        "PERATURAN BUPATI TANJUNG SERI NOMOR 7 TAHUN 2031\n"
+        "DENGAN RAHMAT TUHAN YANG MAHA KUASA\n"
+        "BUPATI TANJUNG SERI,\n"
+        "Menimbang : a. bahwa berdasarkan ketentuan Pasal 34 Peraturan Menteri;\n"
+        "Mengingat : 1. Undang-Undang Nomor 9 Tahun 2011;\n"
         "MEMUTUSKAN:\n"
         "Menetapkan : PERATURAN BUPATI TENTANG PERUBAHAN ATAS PERATURAN BUPATI.\n"
     )
@@ -265,7 +265,7 @@ class TestOpeningMaterialTerminator:
     def test_invocation_does_not_truncate_the_recitals(self):
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        preface, preamble = split_opening_material(self.PERBUP, "id")
+        preface, preamble = split_opening_material(self.PERBUP, "xl")
         both = f"{preface or ''}\n{preamble or ''}"
         assert "Menimbang" in both
         assert "Mengingat" in both
@@ -276,15 +276,15 @@ class TestOpeningMaterialTerminator:
         config fallback; the two fields answer different questions."""
         from codify.jurisdictions import load_config
 
-        cfg = load_config("id")
-        assert "DENGAN RAHMAT TUHAN YANG MAHA ESA" in cfg.enacting_formula_markers
-        assert "DENGAN RAHMAT TUHAN YANG MAHA ESA" not in cfg.opening_material_terminators
+        cfg = load_config("xl")
+        assert "DENGAN RAHMAT TUHAN YANG MAHA KUASA" in cfg.enacting_formula_markers
+        assert "DENGAN RAHMAT TUHAN YANG MAHA KUASA" not in cfg.opening_material_terminators
 
     def test_no_terminator_declared_means_no_cut(self):
         from codify.pipeline.enrich.enacting import _truncate_after_enacting_formula
 
         lines = ["TITLE", "recital", "tail"]
-        assert _truncate_after_enacting_formula(lines, [], "id") == lines
+        assert _truncate_after_enacting_formula(lines, [], "xl") == lines
 
 
 class TestFurnitureNeverBecomesOpeningMaterial:
@@ -295,18 +295,18 @@ class TestFurnitureNeverBecomesOpeningMaterial:
         from codify.pipeline.enrich.enacting import split_opening_material
 
         text = (
-            "الوقائع الفلسطينية\n"
-            "قانون رقم (3) لسنة 2000م بشأن التحكيم\n"
+            "الوقائع الزرزورية\n"
+            "قانون رقم (3) لسنة 2000م بشأن الآبار\n"
             "صفحة 12\n"
             "بعد الاطلاع على القانون الأساسي،\n"
             "صفحة 13\n"
             "وبناءً على تنسيب مجلس الوزراء،\n"
             "أصدرنا القانون الآتي:\n"
         )
-        preface, preamble = split_opening_material(text, "ps")
+        preface, preamble = split_opening_material(text, "xz")
         assert preface is not None and preamble is not None
         both = f"{preface}\n{preamble}"
-        assert "الوقائع الفلسطينية" not in both
+        assert "الوقائع الزرزورية" not in both
         assert "صفحة 12" not in both and "صفحة 13" not in both
         # The recitals interleaved with the footers survive, in order.
         assert preamble.startswith("بعد الاطلاع")
@@ -320,25 +320,25 @@ class TestFurnitureNeverBecomesOpeningMaterial:
         # delete the document's title from its preface.
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        text = "قانون رقم (7) لسنة 1999 بشأن البيئة\nبعد الاطلاع على القانون الأساسي،\n"
-        preface, _preamble = split_opening_material(text, "ps")
-        assert preface is not None and "بشأن البيئة" in preface
+        text = "قانون رقم (7) لسنة 1999 بشأن المراعي\nبعد الاطلاع على القانون الأساسي،\n"
+        preface, _preamble = split_opening_material(text, "xz")
+        assert preface is not None and "بشأن المراعي" in preface
 
     def test_partial_match_keeps_the_rest_of_the_line(self):
         # Provenance sharing a line with the masthead is retained: only the
         # matched phrase goes, not the issue number and year.
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        text = "الوقائع الفلسطينية - العدد 45 - 2016\nبعد الاطلاع على القانون الأساسي،\n"
-        preface, _preamble = split_opening_material(text, "ps")
+        text = "الوقائع الزرزورية - العدد 45 - 2016\nبعد الاطلاع على القانون الأساسي،\n"
+        preface, _preamble = split_opening_material(text, "xz")
         assert preface is not None
         assert "45" in preface and "2016" in preface
-        assert "الوقائع الفلسطينية" not in preface
+        assert "الوقائع الزرزورية" not in preface
 
     def test_all_furniture_opening_material_yields_nothing(self):
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        assert split_opening_material("الوقائع الفلسطينية\nصفحة 3\n", "ps") == (
+        assert split_opening_material("الوقائع الزرزورية\nصفحة 3\n", "xz") == (
             None,
             None,
         )
@@ -368,28 +368,28 @@ class TestAuthorityGate:
 <akomaNtoso xmlns="{AKN_NS}">
   <act contains="originalVersion">
     <meta><identification source="#codify"/></meta>
-    <preface><p>قرار مجلس الوزراء رقم (39) لسنة 2004 باللائحة التنفيذية</p></preface>
+    <preface><p>قرار مجلس الوزراء رقم (41) لسنة 2004 باللائحة التنفيذية</p></preface>
     <body><section eId="sec_1"><num>1.</num><content><p>نص.</p></content></section></body>
   </act>
 </akomaNtoso>
 '''
 
-    def test_com_instrument_skips_plc_formula(self):
-        out = emit_enacting_formula(self._com_regulation(), "ps", "act", date(2004, 8, 1))
+    def test_com_instrument_skips_assembly_formula(self):
+        out = emit_enacting_formula(self._com_regulation(), "xz", "act", date(2004, 8, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
-    def test_plc_era_act_without_instrument_phrase_still_injected(self):
+    def test_assembly_era_act_without_instrument_phrase_still_injected(self):
         plain = f'''<?xml version="1.0"?>
 <akomaNtoso xmlns="{AKN_NS}">
   <act contains="originalVersion">
     <meta><identification source="#codify"/></meta>
-    <preface><p>قانون رقم (3) لسنة 2000 بشأن التحكيم</p></preface>
+    <preface><p>قانون رقم (3) لسنة 2000 بشأن الآبار</p></preface>
     <body><section eId="sec_1"><num>1.</num><content><p>نص.</p></content></section></body>
   </act>
 </akomaNtoso>
 '''
-        out = emit_enacting_formula(plain, "ps", "act", date(2000, 6, 1))
+        out = emit_enacting_formula(plain, "xz", "act", date(2000, 6, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is not None
 
@@ -404,7 +404,7 @@ class TestAuthorityGate:
   </act>
 </akomaNtoso>
 '''
-        out = emit_enacting_formula(recital, "ps", "act", date(2000, 6, 1))
+        out = emit_enacting_formula(recital, "xz", "act", date(2000, 6, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is not None
 
@@ -421,7 +421,7 @@ class TestAuthorityGate:
   </act>
 </akomaNtoso>
 '''
-        out = emit_enacting_formula(recital, "ps", "act", date(2005, 6, 1))
+        out = emit_enacting_formula(recital, "xz", "act", date(2005, 6, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is not None
 
@@ -430,12 +430,12 @@ class TestAuthorityGate:
 
         com_doc = f'''<?xml version="1.0"?>
 <akomaNtoso xmlns="{AKN_NS}">
-  <act><meta/><preface><p>قرار مجلس الوزراء رقم (39) لسنة 2004</p></preface><body/></act>
+  <act><meta/><preface><p>قرار مجلس الوزراء رقم (41) لسنة 2004</p></preface><body/></act>
 </akomaNtoso>
 '''
         root = etree.fromstring(com_doc.encode("utf-8"))
         assert not _authority_conflict(root, "قرر مجلس الوزراء ما يلي")
-        assert _authority_conflict(root, "قرر المجلس التشريعي الفلسطيني القانون الآتي")
+        assert _authority_conflict(root, "أصدر مجلس الأمة الزرزوري القانون الآتي نصه:")
 
     def _municipal_bylaw(self, opener: str) -> str:
         # A city-council نظام ratified by the Minister of Local Governance.
@@ -449,18 +449,18 @@ class TestAuthorityGate:
 </akomaNtoso>
 '''
 
-    def test_municipal_bylaw_construct_form_skips_plc_formula(self):
-        # "أصدر مجلس بلدية غزة النظام التالي", a PLC-era date must not pull
+    def test_municipal_bylaw_construct_form_skips_assembly_formula(self):
+        # "أصدر مجلس بلدية الواحة النظام التالي", an assembly-era date must not pull
         # the legislative-council formula onto a municipal by-law.
-        src = self._municipal_bylaw("أصدر مجلس بلدية غزة النظام التالي")
-        out = emit_enacting_formula(src, "ps", "act", date(2005, 6, 1))
+        src = self._municipal_bylaw("أصدر مجلس بلدية الواحة النظام التالي")
+        out = emit_enacting_formula(src, "xz", "act", date(2005, 6, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
-    def test_municipal_bylaw_adjective_form_skips_plc_formula(self):
-        # "أصدر المجلس البلدي لمدينة الزهراء النظام التالي".
-        src = self._municipal_bylaw("أصدر المجلس البلدي لمدينة الزهراء النظام التالي")
-        out = emit_enacting_formula(src, "ps", "act", date(1999, 6, 1))
+    def test_municipal_bylaw_adjective_form_skips_assembly_formula(self):
+        # "أصدر المجلس البلدي لمدينة زرزورة النظام التالي".
+        src = self._municipal_bylaw("أصدر المجلس البلدي لمدينة زرزورة النظام التالي")
+        out = emit_enacting_formula(src, "xz", "act", date(1999, 6, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is None
 
@@ -473,24 +473,24 @@ class TestAuthorityGate:
   <act contains="originalVersion">
     <meta><identification source="#codify"/></meta>
     <preface><p>قانون رقم (5) لسنة 2001 بشأن الحكم المحلي</p></preface>
-    <preamble><p>وعلى قرار مجلس بلدية غزة رقم (12) لسنة 2000،</p></preamble>
+    <preamble><p>وعلى قرار مجلس بلدية الواحة رقم (12) لسنة 2000،</p></preamble>
     <body><section eId="sec_1"><num>1.</num><content><p>نص.</p></content></section></body>
   </act>
 </akomaNtoso>
 '''
-        out = emit_enacting_formula(recital, "ps", "act", date(2001, 6, 1))
+        out = emit_enacting_formula(recital, "xz", "act", date(2001, 6, 1))
         root = etree.fromstring(out.encode("utf-8"))
         assert root.find(".//akn:formula[@name='enactingFormula']", NS) is not None
 
     def test_the_bidi_mangled_form_of_the_title_is_not_furniture(self):
-        # PS OCR emits the law's own title with its tokens in visual order.
+        # Arabic OCR can emit the law's own title with its tokens in visual order.
         # That form matches a pattern kept for mid-paragraph scrubbing, and
         # promoting it to whole-line disposal deleted the statute's title.
         from codify.pipeline.enrich.enacting import split_opening_material
 
-        mangled = "7 بشأن البيئة 1999 ) لسنة 7 ) قانون رقم"
+        mangled = "7 بشأن المراعي 1999 ) لسنة 7 ) قانون رقم"
         preface, _preamble = split_opening_material(
-            f"{mangled}\nبعد الاطلاع على القانون الأساسي،\n", "ps"
+            f"{mangled}\nبعد الاطلاع على القانون الأساسي،\n", "xz"
         )
         assert preface is not None and mangled in preface
 
@@ -503,7 +503,7 @@ def test_opening_material_stops_at_the_enacting_formula() -> None:
         [
             "قانون المرصد رقم ٤١ لسنة ٢٠٤٢",
             "بعد الإطلاع على نظام الأدوات التجريبية لسنة ٢٠٤٠،",
-            "وبعد إقرار المجلس التشريعي،",
+            "وبعد إقرار مجلس الأمة،",
             "أصدرنا القانون التالي:",
             "-٥-",
             "12062042",
@@ -511,7 +511,7 @@ def test_opening_material_stops_at_the_enacting_formula() -> None:
             "يونيه ٢٠٤٢",
         ]
     )
-    preface, preamble = split_opening_material(text, "ps")
+    preface, preamble = split_opening_material(text, "xz")
     assert preamble is not None
     assert preamble.strip().endswith("أصدرنا القانون التالي:")
     assert "بعد الإطلاع" in preamble
@@ -525,7 +525,7 @@ def test_opening_material_without_a_formula_is_not_truncated() -> None:
     from codify.pipeline.enrich.enacting import split_opening_material
 
     text = "نظام\nبعد الإطلاع على شيء،\nسطر أخير"
-    _, preamble = split_opening_material(text, "ps")
+    _, preamble = split_opening_material(text, "xz")
     assert preamble is not None
     assert preamble.strip().endswith("سطر أخير")
 
@@ -544,7 +544,7 @@ def test_truncation_declines_when_the_tail_carries_provisions() -> None:
             "يعمل بأحكام هذا القانون اعتباراً من تاريخ نشره.",
         ]
     )
-    _, preamble = split_opening_material(text, "ps")
+    _, preamble = split_opening_material(text, "xz")
     assert preamble is not None
     assert "يعمل بأحكام هذا القانون" in preamble
 
@@ -565,7 +565,7 @@ def test_truncation_cuts_at_the_first_formula_not_a_repeated_one() -> None:
             "أصدرنا القانون التالي:",
         ]
     )
-    _, preamble = split_opening_material(text, "ps")
+    _, preamble = split_opening_material(text, "xz")
     assert preamble is not None
     assert preamble.strip().endswith("أصدرنا القانون التالي:")
     assert "-٥-" not in preamble
@@ -583,7 +583,7 @@ def test_truncation_declines_when_recitals_follow_the_formula() -> None:
             "وبناء على ما تقدم من مشروع القانون،",
         ]
     )
-    _, preamble = split_opening_material(text, "ps")
+    _, preamble = split_opening_material(text, "xz")
     assert preamble is not None
     assert "وبناء على ما تقدم" in preamble
 
@@ -592,6 +592,6 @@ def test_document_with_no_preamble_marker_is_all_preface() -> None:
     """No opener and no formula: nothing cut, nothing becomes a preamble."""
     from codify.pipeline.enrich.enacting import split_opening_material
 
-    preface, preamble = split_opening_material("ARBITRATION REGULATION\nSome title line", "ps")
+    preface, preamble = split_opening_material("ARBITRATION REGULATION\nSome title line", "xz")
     assert preamble is None
     assert preface == "ARBITRATION REGULATION\nSome title line"

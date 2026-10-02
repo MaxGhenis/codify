@@ -25,7 +25,7 @@ def _layout() -> PageLayout:
     return PageLayout(
         engine="mistral",
         model="mistral-ocr-4-0",
-        header="الوقائع الفلسطينية",
+        header="الوقائع الزرزورية",
         footer="٣٥",
         dimensions=A4,
         blocks=[

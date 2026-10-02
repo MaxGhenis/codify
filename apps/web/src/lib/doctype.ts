@@ -7,23 +7,11 @@ const GENERIC: Record<string, string> = {
   decree: 'Decree',
   regulation: 'Regulation',
   treaty: 'Treaty',
+  decree_law: 'Decree-Law',
+  cabinet_decision: 'Cabinet Decision',
 };
 
 const BY_JURISDICTION: Record<string, Record<string, string>> = {
-  ps: {
-    qanun: 'Law',
-    qarar_bi_qanun: 'Decree-Law',
-    basic_law: 'Basic Law',
-    marsoum: 'Decree',
-    laihat: 'By-law',
-    qarar_majlis_wuzara: 'Cabinet Decision',
-    qarar_wazir: 'Ministerial Decision',
-    qarar_rais: 'Presidential Decision',
-    qarar: 'Decision',
-    nizam: 'Regulation',
-    taalimat: 'Instructions',
-    amr: 'Ordinance',
-  },
   gb: {
     ukpga: 'UK Public General Act',
     ukla: 'UK Local Act',

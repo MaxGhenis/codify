@@ -125,12 +125,12 @@ def resolve_informal_reference(
     ``JurisdictionConfigError`` where the jurisdiction has no config: the hierarchy is
     what resolves the path, so without one there is nothing to answer with.
 
-    Examples (bb.act)::
+    Examples (xa.act)::
 
-        resolve_informal_reference("section 5", "bb")        -> "sec_5"
-        resolve_informal_reference("section 5(2)", "bb")     -> "sec_5__subsec_2"
-        resolve_informal_reference("section 5(2)(a)", "bb")  -> "sec_5__subsec_2__para_a"
-        resolve_informal_reference("s. 5(2)", "bb")          -> "sec_5__subsec_2"
+        resolve_informal_reference("section 5", "xa")        -> "sec_5"
+        resolve_informal_reference("section 5(2)", "xa")     -> "sec_5__subsec_2"
+        resolve_informal_reference("section 5(2)(a)", "xa")  -> "sec_5__subsec_2__para_a"
+        resolve_informal_reference("s. 5(2)", "xa")          -> "sec_5__subsec_2"
 
     Examples (fr.loi)::
 

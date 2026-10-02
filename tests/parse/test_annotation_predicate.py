@@ -45,10 +45,10 @@ class TestProvisionText:
 
 
 _META = """<meta><identification source="#src"><FRBRWork>
- <FRBRthis value="/akn/ps/act/2005/1"/><FRBRuri value="/akn/ps/act/2005/1"/>
+ <FRBRthis value="/akn/xz/act/2005/1"/><FRBRuri value="/akn/xz/act/2005/1"/>
  <FRBRdate date="2005-01-01" name="enacted"/></FRBRWork>
- <FRBRExpression><FRBRthis value="/akn/ps/act/2005/1/ara@2005-01-01"/>
- <FRBRuri value="/akn/ps/act/2005/1/ara@2005-01-01"/>
+ <FRBRExpression><FRBRthis value="/akn/xz/act/2005/1/ara@2005-01-01"/>
+ <FRBRuri value="/akn/xz/act/2005/1/ara@2005-01-01"/>
  <FRBRdate date="2005-01-01" name="validFrom"/><FRBRlanguage language="ara"/>
  </FRBRExpression></identification></meta>"""
 
@@ -80,7 +80,7 @@ class TestParser:
             '<article eId="art_1"><num>1</num><content>'
             '<p eId="art_1__p_1">Illicit gain means any asset.'
             '<authorialNote eId="fn_1" placement="bottom"><p>Amended by '
-            '<ref href="/akn/ps/act/2010/7">Decree-Law 7 of 2010</ref>.</p></authorialNote>'
+            '<ref href="/akn/xz/act/2010/7">Law 7 of 2010</ref>.</p></authorialNote>'
             "</p></content></article>"
         )
         assert "Amended by" not in el.text
@@ -93,7 +93,7 @@ class TestParser:
             '<article eId="art_1"><num>1</num><content>'
             '<p eId="art_1__p_1">Operative.'
             '<authorialNote eId="fn_1" placement="bottom"><p>See '
-            '<ref href="/akn/ps/act/2010/7">Decree-Law 7</ref>.</p></authorialNote>'
+            '<ref href="/akn/xz/act/2010/7">Law 7</ref>.</p></authorialNote>'
             "</p></content></article>"
         )
         assert list(el.references or []) == []

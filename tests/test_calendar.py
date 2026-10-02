@@ -344,8 +344,8 @@ class TestOnlyAWholeYearIsAYear:
 
         for raw in ("12024", "99", "1"):
             metadata = {"year": raw}
-            assert resolve_year(metadata, "ps") == "", raw
-            assert gregorian_year(metadata, "ps") is None, raw
+            assert resolve_year(metadata, "xz") == "", raw
+            assert gregorian_year(metadata, "xz") is None, raw
 
     def test_a_three_or_four_digit_year_still_passes(self) -> None:
         """A URI segment is four digits, so a three-digit year is carried padded
@@ -355,11 +355,11 @@ class TestOnlyAWholeYearIsAYear:
 
         for raw in ("1443", "2024"):
             metadata = {"year": raw}
-            assert resolve_year(metadata, "ps") == raw, raw
-            assert gregorian_year(metadata, "ps") == int(raw), raw
+            assert resolve_year(metadata, "xz") == raw, raw
+            assert gregorian_year(metadata, "xz") == int(raw), raw
         for raw in ("622", "0622"):
-            assert resolve_year({"year": raw}, "ps") == "0622", raw
-            assert gregorian_year({"year": raw}, "ps") == 622, raw
+            assert resolve_year({"year": raw}, "xz") == "0622", raw
+            assert gregorian_year({"year": raw}, "xz") == 622, raw
 
 
 class TestOfficialTextNumbersItsEras:

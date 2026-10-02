@@ -73,7 +73,7 @@ _CLASSIFIER = {
                 "signal": "title_regex",
                 "pattern": (
                     "^(?:ال)?قرار\\s+(?:ال)?(?:رئيس|رئاسي)(?!\\s+(?:مجلس|الوزراء|(?:ال)?سلطة(?!\\s"
-                    "+الوطنية)|(?:ال)?ه"
+                    "+الاتحادية)|(?:ال)?ه"
                     "يئة|(?:ال)?بلدية|(?:ال)?لجنة|(?:ال)?ديوان|(?:ال)?دائرة|(?:ال)?محكمة|(?:ال)?مؤ"
                     "سسة|(?:ال)?جامعة))"
                 ),
@@ -112,7 +112,7 @@ _CLASSIFIER = {
             },
             {
                 "signal": "preamble_match",
-                "pattern": "المادة الثالثة والأربعون",
+                "pattern": "المادة الحادية والستون",
                 "target_document_class": "qarar_bi_qanun",
                 "priority": 80,
             },
@@ -124,7 +124,7 @@ _CLASSIFIER = {
             },
             {
                 "signal": "date_range",
-                "date_from": "2007-06-15",
+                "date_from": "1961-07-15",
                 "target_document_class": "qarar_bi_qanun",
                 "priority": 50,
             },
@@ -136,7 +136,7 @@ _CLASSIFIER = {
             },
             {
                 "signal": "date_range",
-                "date_until": "2007-06-14",
+                "date_until": "1961-07-14",
                 "target_document_class": "qanun",
                 "priority": 40,
             },
@@ -210,7 +210,7 @@ _CLASSIFIER = {
             "basic_unit": "article",
         },
         "amr": {
-            "label": "Mandate Ordinance (أمر)",
+            "label": "Ordinance (أمر)",
             "akn_element": "act",
             "bluebell_compatible": True,
             "basic_unit": "article",
@@ -274,14 +274,14 @@ def test_an_unknown_jurisdiction_falls_back_to_act() -> None:
 @pytest.mark.parametrize(
     ("title", "expected"),
     [
-        ("قانون رقم (7) لسنة 1999 بشأن البيئة", "qanun"),
-        ("قانون التجارة رقم (2) لسنة 2014م", "qanun"),
-        ("القانون المدني رقم (4) لسنة 2014", "qanun"),
-        ("القانون الأساسي المعدل لسنة 2003", "basic_law"),
+        ("قانون رقم (9) لسنة 1987 بشأن البيئة", "qanun"),
+        ("قانون التجارة رقم (2) لسنة 1974م", "qanun"),
+        ("القانون المدني رقم (4) لسنة 1968", "qanun"),
+        ("القانون الأساسي المعدل لسنة 1962", "basic_law"),
         ("قرار بقانون رقم (18) لسنة 2016", "qarar_bi_qanun"),
     ],
 )
-def test_real_ps_titles_classify_to_their_own_class(title: str, expected: str) -> None:
+def test_arabic_titles_classify_to_their_own_class(title: str, expected: str) -> None:
     """A qanun names its subject before the number, and the Civil Code opens
     القانون المدني, so a rule anchored on "قانون رقم" matched neither."""
     assert _cfg().classify_document_class(title=title) == expected
@@ -289,7 +289,7 @@ def test_real_ps_titles_classify_to_their_own_class(title: str, expected: str) -
 
 def test_the_basic_law_is_not_swept_up_by_the_general_qanun_rule() -> None:
     """It carries its own class and its own URI pattern."""
-    assert _cfg().classify_document_class(title="القانون الأساسي لسنة 2003") == "basic_law"
+    assert _cfg().classify_document_class(title="القانون الأساسي لسنة 1962") == "basic_law"
 
 
 _HAMZA_ABOVE = "ٔ"  # combining mark; NFC composes ا+◌ٔ → أ, ي+◌ٔ → ئ
@@ -300,11 +300,11 @@ _HAMZA_ABOVE = "ٔ"  # combining mark; NFC composes ا+◌ٔ → أ, ي+◌ٔ �
     [
         # الأساسي written decomposed (bare alef + combining hamza), how OCR
         # stored the Basic Law, which the precomposed rule pattern missed.
-        (f"القانون الا{_HAMZA_ABOVE}ساسي المعدل لسنة 2003", "basic_law"),
+        (f"القانون الا{_HAMZA_ABOVE}ساسي المعدل لسنة 1962", "basic_law"),
         # رئيس decomposed (ي + combining hamza); the prime-minister form must
         # still reach the cabinet rule, not fall through to generic qarar.
         (f"قرار ري{_HAMZA_ABOVE}يس مجلس الوزراء رقم 11 لسنة 2008", "qarar_majlis_wuzara"),
-        (f"قرار ري{_HAMZA_ABOVE}يس دولة فلسطين رقم 7 لسنة 2018", "qarar_rais"),
+        (f"قرار ري{_HAMZA_ABOVE}يس دولة زرزورة رقم 7 لسنة 2018", "qarar_rais"),
     ],
 )
 def test_decomposed_arabic_hamza_is_matched_via_nfc(title: str, expected: str) -> None:
@@ -322,7 +322,7 @@ def test_decomposed_arabic_hamza_is_matched_via_nfc(title: str, expected: str) -
         ("قرار وزير العدل رقم (3) لسنة 2019", "qarar_wazir"),
         ("قرار وزاري رقم 2 لسنة 2020", "qarar_wazir"),
         ("القرار الوزاري رقم 2 لسنة 2020", "qarar_wazir"),
-        ("قرار رئيس دولة فلسطين رقم (7) لسنة 2018", "qarar_rais"),
+        ("قرار رئيس دولة زرزورة رقم (7) لسنة 2018", "qarar_rais"),
         ("قرار رئاسي رقم 9 لسنة 2017", "qarar_rais"),
         ("قرار رقم (259) لسنة 2009", "qarar"),
         ("نظام رقم (4) لسنة 2011", "nizam"),
@@ -353,23 +353,23 @@ def test_a_cabinet_decision_by_the_prime_minister_is_not_read_as_presidential() 
     [
         # رئيس of a named authority/body is that body's own decision, not the head
         # of state; it falls through the presidential rule to the generic decision.
-        ("قرار رئيس سلطة جودة البيئة رقم (33) لسنة 2013", "qarar"),
-        ("قرار رئيس سلطة الأراضي رقم (55) لسنة 2010", "qarar"),
-        ("قرار رئيس هيئة سوق رأس المال رقم 2 لسنة 2014", "qarar"),
+        ("قرار رئيس سلطة الواحات رقم (33) لسنة 2013", "qarar"),
+        ("قرار رئيس سلطة الموانئ رقم (55) لسنة 2010", "qarar"),
+        ("قرار رئيس هيئة القوافل رقم 2 لسنة 2014", "qarar"),
         ("قرار رئيس لجنة التنظيم رقم 8 لسنة 2016", "qarar"),
         # definite ال- spellings of the body name must be excluded too.
         ("قرار رئيس المحكمة العليا رقم 3 لسنة 2015", "qarar"),
         ("قرار رئيس البلدية رقم 2 لسنة 2018", "qarar"),
         # genuine head-of-state forms keep matching the presidential rule.
-        ("قرار رئيس دولة فلسطين رقم (7) لسنة 2018", "qarar_rais"),
-        ("قرار رئيس السلطة الوطنية الفلسطينية رقم 3 لسنة 2015", "qarar_rais"),
+        ("قرار رئيس دولة زرزورة رقم (7) لسنة 2018", "qarar_rais"),
+        ("قرار رئيس السلطة الاتحادية الزرزورية رقم 3 لسنة 2015", "qarar_rais"),
         ("قرار الرئيس رقم 5 لسنة 2016", "qarar_rais"),
         ("قرار رئاسي رقم 9 لسنة 2017", "qarar_rais"),
     ],
 )
 def test_head_of_an_authority_is_not_read_as_presidential(title: str, expected: str) -> None:
     """رئيس سلطة/هيئة/لجنة X is the head of a sub-authority; only رئيس دولة /
-    رئيس السلطة الوطنية and the adjective قرار رئاسي are the President."""
+    رئيس السلطة الاتحادية and the adjective قرار رئاسي are the President."""
     assert _cfg().classify_document_class(title=title) == expected
 
 
@@ -421,8 +421,8 @@ def test_a_preamble_rule_matches_when_the_title_does_not() -> None:
 
 def test_a_date_rule_places_a_document_either_side_of_the_cutover() -> None:
     """A dated rule splits the classes either side of its bound."""
-    assert _cfg().classify_document_class(title="x", doc_date=date(2007, 6, 16)) == "qarar_bi_qanun"
-    assert _cfg().classify_document_class(title="x", doc_date=date(2007, 6, 14)) == "qanun"
+    assert _cfg().classify_document_class(title="x", doc_date=date(1961, 7, 16)) == "qarar_bi_qanun"
+    assert _cfg().classify_document_class(title="x", doc_date=date(1961, 7, 14)) == "qanun"
 
 
 def test_a_date_rule_is_skipped_when_no_date_is_known() -> None:
@@ -435,8 +435,8 @@ def test_a_bare_year_does_not_decide_a_bound_that_falls_inside_it() -> None:
     """The fixture's cutover is mid-year, so a document known only by year could
     sit either side; 1 January would classify all of it by the earlier rule."""
     for raw_date, year, expected in (
-        ("", "2007", _cfg().default_document_class),
-        ("", "1999", "qanun"),
+        ("", "1961", _cfg().default_document_class),
+        ("", "1950", "qanun"),
         ("", "2016", "qarar_bi_qanun"),
     ):
         assert resolve_doctype(_cfg(), title="x", raw_date=raw_date, year=year, source="") == (
@@ -445,11 +445,11 @@ def test_a_bare_year_does_not_decide_a_bound_that_falls_inside_it() -> None:
 
 
 def test_priority_order_decides_when_two_rules_match() -> None:
-    """The decree-law title rule sits above the date rules, so a pre-2007
+    """The decree-law title rule sits above the date rules, so a pre-cutover
     decree-law is not reclassified by its date."""
     assert (
         _cfg().classify_document_class(
-            title="قرار بقانون رقم 8 لسنة 1963", doc_date=date(1963, 1, 1)
+            title="قرار بقانون رقم 8 لسنة 1955", doc_date=date(1955, 1, 1)
         )
         == "qarar_bi_qanun"
     )
@@ -519,7 +519,7 @@ def test_the_caller_selects_the_document_class() -> None:
     the act hierarchy and collided its chapter numbers."""
     desc = resolve_descriptors(
         {"title": "Some Act", "number": "1"},
-        jurisdiction_code="ph",
+        jurisdiction_code="xa",
         source_bytes=b"",
         fallback_stem="x",
         requested_doctype="code",
@@ -531,7 +531,7 @@ def test_an_undeclared_class_is_refused_not_ignored() -> None:
     with pytest.raises(ValueError, match="declares no document class"):
         resolve_descriptors(
             {"title": "Some Act", "number": "1"},
-            jurisdiction_code="ph",
+            jurisdiction_code="xa",
             source_bytes=b"",
             fallback_stem="x",
             requested_doctype="statute",
@@ -541,16 +541,16 @@ def test_an_undeclared_class_is_refused_not_ignored() -> None:
 @pytest.mark.parametrize(
     ("title", "expected"),
     [
-        ("Civil Code of the Philippines", "code"),
-        ("The Revised Penal Code", "code"),
-        ("The 1987 Constitution of the Republic of the Philippines", "constitution"),
-        ("Ease of Doing Business Act of 2018", "act"),
+        ("Civil Code of Atlantis", "code"),
+        ("The Consolidated Penal Code", "code"),
+        ("The 1987 Constitution of the Commonwealth of Atlantis", "constitution"),
+        ("Harbour Dues Act of 2018", "act"),
     ],
 )
-def test_philippine_codes_classify_without_the_caller(title: str, expected: str) -> None:
+def test_codes_classify_without_the_caller(title: str, expected: str) -> None:
     desc = resolve_descriptors(
         {"title": title, "number": "1"},
-        jurisdiction_code="ph",
+        jurisdiction_code="xa",
         source_bytes=b"",
         fallback_stem="x",
     )
@@ -561,8 +561,8 @@ def test_an_omitted_doctype_leaves_the_rules_to_classify() -> None:
     """The ingest APIs used to default the field to "act", which reached
     `requested` as a real value and stopped every rule from running."""
     desc = resolve_descriptors(
-        {"title": "Civil Code of the Philippines", "number": "386"},
-        jurisdiction_code="ph",
+        {"title": "Civil Code of Atlantis", "number": "386"},
+        jurisdiction_code="xa",
         source_bytes=b"",
         fallback_stem="x",
         requested_doctype=None,
@@ -573,15 +573,15 @@ def test_an_omitted_doctype_leaves_the_rules_to_classify() -> None:
 @pytest.mark.parametrize(
     "title",
     [
-        "An Act Amending the Civil Code of the Philippines",
-        "An Act Further Amending the Revised Penal Code",
-        "An Act Amending Article 315 of the Revised Penal Code",
+        "An Act Amending the Civil Code of Atlantis",
+        "An Act Further Amending the Consolidated Penal Code",
+        "An Act Amending Article 315 of the Consolidated Penal Code",
     ],
 )
 def test_an_act_that_amends_a_code_is_not_one(title: str) -> None:
-    """These are section-based Republic Acts. Routing them through the
+    """These are section-based acts. Routing them through the
     article-based hierarchy would structure them wrongly."""
-    cfg = load_config("ph")
+    cfg = load_config("xa")
     assert cfg is not None
     assert cfg.classify_document_class(title=title) is None
 
@@ -594,26 +594,26 @@ class TestNumberSurvivesAModelMiss:
     def _descriptors(metadata: dict[str, object], title: str) -> object:
         return resolve_descriptors(
             {**metadata, "title": title},
-            jurisdiction_code="id",
+            jurisdiction_code="xl",
             source_bytes="d0d0d0d0d0d0d0d0",
             fallback_stem="scan",
         )
 
     def test_a_full_case_number_is_reduced_rather_than_discarded(self) -> None:
         desc = self._descriptors(
-            {"number": "45/PUU-IX/2011", "year": "2011"}, "Putusan Nomor 45/PUU-IX/2011"
+            {"number": "45/PUL-IX/2011", "year": "2011"}, "Putusan Nomor 45/PUL-IX/2011"
         )
         assert desc.number == "45"
 
     def test_the_title_answers_when_the_model_does_not(self) -> None:
-        desc = self._descriptors({"number": "", "year": "2011"}, "Putusan Nomor 45/PUU-IX/2011")
+        desc = self._descriptors({"number": "", "year": "2011"}, "Putusan Nomor 45/PUL-IX/2011")
         assert desc.number == "45"
 
     def test_a_law_states_its_own_number_before_the_one_it_amends(self) -> None:
         desc = self._descriptors(
             {"number": "", "year": "2024"},
             "Undang-Undang Nomor 32 Tahun 2024 tentang Perubahan atas "
-            "Undang-Undang Nomor 5 Tahun 1990 tentang Konservasi",
+            "Undang-Undang Nomor 8 Tahun 1991 tentang Konservasi",
         )
         assert desc.number == "32"
 
@@ -622,7 +622,7 @@ class TestNumberSurvivesAModelMiss:
         assert desc.number.startswith("draft-")
 
     def test_trailing_punctuation_does_not_cost_the_document_its_number(self) -> None:
-        desc = self._descriptors({"number": "", "year": "2011"}, "Putusan Nomor 45/PUU-IX/2011.")
+        desc = self._descriptors({"number": "", "year": "2011"}, "Putusan Nomor 45/PUL-IX/2011.")
         assert desc.number == "45"
 
 
@@ -635,7 +635,7 @@ class TestTheTitleFallbackDeclines:
     def _number(metadata: dict[str, object], title: str) -> str:
         return resolve_descriptors(
             {**metadata, "title": title},
-            jurisdiction_code="id",
+            jurisdiction_code="xl",
             source_bytes="d0d0d0d0d0d0d0d0",
             fallback_stem="scan",
         ).number
@@ -643,7 +643,7 @@ class TestTheTitleFallbackDeclines:
     def test_a_title_the_model_flagged_as_an_amendment_is_not_read(self) -> None:
         got = self._number(
             {"number": "", "year": "2024", "is_amendment": True},
-            "Perubahan Atas Undang-Undang Nomor 5 Tahun 1990 tentang Konservasi",
+            "Perubahan Atas Undang-Undang Nomor 8 Tahun 1991 tentang Konservasi",
         )
         assert got.startswith("draft-")
 
@@ -652,9 +652,9 @@ class TestTheTitleFallbackDeclines:
         titles that reach this fallback are the ones most likely to name another
         act's number first."""
         for title in (
-            "Perubahan Atas Undang-Undang Nomor 5 Tahun 1990 tentang Konservasi",
+            "Perubahan Atas Undang-Undang Nomor 8 Tahun 1991 tentang Konservasi",
             "An Act to amend the Companies Act, No. 7 of 2007",
-            "Peraturan tentang pelaksanaan Undang-Undang Nomor 8 Tahun 1981",
+            "Peraturan tentang pelaksanaan Undang-Undang Nomor 6 Tahun 1983",
         ):
             assert self._number({"number": "", "year": "2024"}, title).startswith("draft-"), title
 
@@ -663,7 +663,7 @@ class TestTheTitleFallbackDeclines:
         metadata prompt refuses the filename for the title for the same reason."""
         desc = resolve_descriptors(
             {"number": "", "year": "2024"},
-            jurisdiction_code="id",
+            jurisdiction_code="xl",
             source_bytes="d0d0d0d0d0d0d0d0",
             fallback_stem="batch no 12",
         )
@@ -673,6 +673,6 @@ class TestTheTitleFallbackDeclines:
         got = self._number(
             {"number": "", "year": "2024"},
             "Undang-Undang Nomor 32 Tahun 2024 tentang Perubahan atas "
-            "Undang-Undang Nomor 5 Tahun 1990",
+            "Undang-Undang Nomor 8 Tahun 1991",
         )
         assert got == "32"

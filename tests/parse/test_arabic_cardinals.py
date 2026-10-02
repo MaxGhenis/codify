@@ -46,14 +46,14 @@ def test_parse_rejects_non_number_words() -> None:
 class TestMoneyWordMismatch:
     def test_arb_reg_art8_numeral_words_disagree(self) -> None:
         # Synthetic disagreement: numeral says 500,000, words say 50,000.
-        text = "بغرامة لا تقل عن (500,000) خمسون ألف دينار أردني أو ما يعادلها"
+        text = "بغرامة لا تقل عن (500,000) خمسون ألف دينار زرزوري أو ما يعادلها"
         found = find_money_word_mismatches(text)
         assert len(found) == 1
         assert found[0].numeral_value == 500_000
         assert found[0].words_value == 50_000
 
     def test_words_before_numeral_order(self) -> None:
-        text = "غرامة قدرها خمسون ألف دينار أردني (500,000) تدفع فوراً"
+        text = "غرامة قدرها خمسون ألف دينار زرزوري (500,000) تدفع فوراً"
         found = find_money_word_mismatches(text)
         assert len(found) == 1
         assert found[0].words_value == 50_000
@@ -61,8 +61,8 @@ class TestMoneyWordMismatch:
     @pytest.mark.parametrize(
         "clean",
         [
-            "بغرامة لا تقل عن (50,000) خمسون ألف دينار أردني",
-            "بغرامة قدرها (1,000) ألف دينار أردني",
+            "بغرامة لا تقل عن (50,000) خمسون ألف دينار زرزوري",
+            "بغرامة قدرها (1,000) ألف دينار زرزوري",
             "وفقاً لأحكام المادة (5) والفقرة (2) من هذا القانون",
             "خلال مدة أقصاها (30) يوماً من تاريخ النشر",
             "تتكون اللجنة من (7) أعضاء يعينهم المجلس",
@@ -84,5 +84,35 @@ def test_fused_hundred_short_spelling() -> None:
 
 def test_bare_scale_multiplier_notation_not_flagged() -> None:
     # "(50) ألف دينار" means 50,000 (numeral × scale), not a second reading.
-    assert find_money_word_mismatches("غرامة قدرها (50) ألف دينار أردني") == []
+    assert find_money_word_mismatches("غرامة قدرها (50) ألف دينار زرزوري") == []
     assert find_money_word_mismatches("مبلغ (2) مليون دينار") == []
+
+
+@pytest.mark.parametrize(
+    "currency",
+    [
+        "دينار",
+        "دنانير",
+        "درهم",
+        "دراهم",
+        "ريال",
+        "ريالات",
+        "دولار",
+        "جنيه",
+        "ليرة",
+        "ليرات",
+        "يورو",
+        "فرنك",
+        "شيقل",
+    ],
+)
+def test_every_listed_currency_anchors_the_words(currency: str) -> None:
+    # Words after the numeral, then words before it: both orders need the anchor.
+    after = find_money_word_mismatches(f"بغرامة لا تقل عن (500,000) خمسون ألف {currency}")
+    before = find_money_word_mismatches(f"غرامة قدرها خمسون ألف {currency} (500,000) تدفع")
+    assert [m.words_value for m in after] == [50_000], currency
+    assert [m.words_value for m in before] == [50_000], currency
+
+
+def test_a_non_currency_noun_does_not_anchor() -> None:
+    assert find_money_word_mismatches("بغرامة لا تقل عن (500,000) خمسون ألف كتاب") == []

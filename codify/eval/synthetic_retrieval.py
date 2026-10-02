@@ -238,7 +238,7 @@ async def run(keep: bool) -> int:
                     + "  ".join(f"{k}={v:.3f}" for k, v in means.items())
                 )
             # Mean of the per-language means, matching the private runner: 18
-            # English queries would otherwise outweigh three Indonesian ones.
+            # English queries would otherwise outweigh three in another language.
             overall = mean_scores([mean_scores(rows) for rows in per_language.values()])
             print("  " + "  ".join(f"{k}={v:.3f}" for k, v in overall.items()) + "  (all)")
             if keep:

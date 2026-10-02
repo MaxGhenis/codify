@@ -65,7 +65,7 @@ async def session() -> AsyncIterator[AsyncSession]:
 def _akn(number: str) -> str:
     return parse_to_akn(
         "BODY\n  ARTICLE 1\n    Body text.\n",
-        country="ps",
+        country="xz",
         doctype="act",
         number=number,
         date="2020-01-01",
@@ -79,7 +79,7 @@ async def _save(session: AsyncSession, **kw: object) -> uuid.UUID:
     return await save_document(
         session,
         parse_akn(xml),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Source text {suffix}",
         akn_xml=xml,
         **kw,  # type: ignore[arg-type]
@@ -160,12 +160,12 @@ async def test_re_ingesting_the_same_file_backfills_the_source_text(
         original_filename=f"{suffix}.pdf",
         byte_size=1,
         object_key=f"uploads/{suffix}.pdf",
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
     )
     first = await save_document(
         session,
         parse_akn(xml),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Backfill {suffix}",
         akn_xml=xml,
         source_sha256=f"sha-{suffix}",
@@ -176,7 +176,7 @@ async def test_re_ingesting_the_same_file_backfills_the_source_text(
         again = await save_document(
             session,
             parse_akn(xml),
-            jurisdiction_code="ps",
+            jurisdiction_code="xz",
             law_title=f"Backfill {suffix}",
             akn_xml=xml,
             source_sha256=f"sha-{suffix}",
@@ -204,7 +204,7 @@ async def test_superseding_carries_the_source_text_to_the_new_version(
     first = await save_document(
         session,
         parse_akn(xml),
-        jurisdiction_code="ps",
+        jurisdiction_code="xz",
         law_title=f"Supersede {suffix}",
         akn_xml=xml,
     )
@@ -213,7 +213,7 @@ async def test_superseding_carries_the_source_text_to_the_new_version(
         await supersede_document(
             session,
             parse_akn(xml),
-            jurisdiction_code="ps",
+            jurisdiction_code="xz",
             law_title=f"Supersede {suffix}",
             akn_xml=xml,
             source_text=_SOURCE,

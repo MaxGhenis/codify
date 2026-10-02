@@ -541,7 +541,7 @@
       },
       "ClassificationRule": {
         "additionalProperties": false,
-        "description": "Deterministic rule for assigning a document class from the incoming header or\nmetadata. Tried in descending priority; the first match wins. No match falls back to\n`default_document_class` and to whatever heuristics `StructuringConfig.prompt_additions`\nstill carries.\n\nsignal          what `pattern` is tested against\n  date_range      nothing; the match is `date_from`/`date_until` alone, for laws\n                  post-dating a regime change (PS `qarar_bi_qanun` from 2007-06-14)\n  preamble_match  the preamble or enacting-formula text\n  issuer_role     the enacting body's role (\"Pope\", \"Council of Ministers\", \"OHR\")\n  gazette_series  the official gazette series the document was published in\n  title_regex     the document title (\"Basic Law:\", \"Motu Proprio\")",
+        "description": "Deterministic rule for assigning a document class from the incoming header or\nmetadata. Tried in descending priority; the first match wins. No match falls back to\n`default_document_class` and to whatever heuristics `StructuringConfig.prompt_additions`\nstill carries.\n\nsignal          what `pattern` is tested against\n  date_range      nothing; the match is `date_from`/`date_until` alone, for laws\n                  post-dating a regime change (a decree-law class from 1961-07-15)\n  preamble_match  the preamble or enacting-formula text\n  issuer_role     the enacting body's role (\"Pope\", \"Council of Ministers\", \"OHR\")\n  gazette_series  the official gazette series the document was published in\n  title_regex     the document title (\"Basic Law:\", \"Motu Proprio\")",
         "properties": {
           "date_from": {
             "anyOf": [
@@ -3095,6 +3095,20 @@
             "default": false,
             "title": "Numbers Unique Across Years",
             "type": "boolean"
+          },
+          "series_citation_connectors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Series Citation Connectors",
+            "type": "array"
+          },
+          "series_citations": {
+            "items": {
+              "$ref": "#/components/schemas/SeriesCitation"
+            },
+            "title": "Series Citations",
+            "type": "array"
           }
         },
         "title": "NumberingConfig",
@@ -3396,6 +3410,26 @@
           "matches"
         ],
         "title": "SearchResult",
+        "type": "object"
+      },
+      "SeriesCitation": {
+        "additionalProperties": false,
+        "description": "A citation naming an instrument by series number alone (\"Act No. 386\").",
+        "properties": {
+          "doctype": {
+            "title": "Doctype",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "doctype"
+        ],
+        "title": "SeriesCitation",
         "type": "object"
       },
       "SourceAdapter": {

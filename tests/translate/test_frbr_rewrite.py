@@ -19,22 +19,22 @@ _AKN = f'''<?xml version="1.0"?>
     <meta>
       <identification source="#codify">
         <FRBRWork>
-          <FRBRthis value="/akn/ps/act/1999/7"/>
-          <FRBRuri value="/akn/ps/act/1999/7"/>
+          <FRBRthis value="/akn/xz/act/1999/7"/>
+          <FRBRuri value="/akn/xz/act/1999/7"/>
           <FRBRdate date="1999-06-08" name="Generation"/>
           <FRBRauthor href="#codify"/>
-          <FRBRcountry value="ps"/>
+          <FRBRcountry value="xz"/>
         </FRBRWork>
         <FRBRExpression>
-          <FRBRthis value="/akn/ps/act/1999/7/ara@1999-06-08"/>
-          <FRBRuri value="/akn/ps/act/1999/7/ara@1999-06-08"/>
+          <FRBRthis value="/akn/xz/act/1999/7/ara@1999-06-08"/>
+          <FRBRuri value="/akn/xz/act/1999/7/ara@1999-06-08"/>
           <FRBRdate date="1999-06-08" name="Generation"/>
           <FRBRauthor href="#codify"/>
           <FRBRlanguage language="ara"/>
         </FRBRExpression>
         <FRBRManifestation>
-          <FRBRthis value="/akn/ps/act/1999/7/ara@1999-06-08.akn"/>
-          <FRBRuri value="/akn/ps/act/1999/7/ara@1999-06-08.akn"/>
+          <FRBRthis value="/akn/xz/act/1999/7/ara@1999-06-08.akn"/>
+          <FRBRuri value="/akn/xz/act/1999/7/ara@1999-06-08.akn"/>
           <FRBRdate date="1999-06-08" name="Generation"/>
           <FRBRauthor href="#codify"/>
         </FRBRManifestation>
@@ -54,7 +54,7 @@ def _attr(root: etree._Element, path: str, attr: str) -> str | None:
 def test_target_language_rewrites_expression_and_manifestation():
     out = apply_translation_to_akn(_AKN, [], [], target_language="English")
     root = etree.fromstring(out.encode("utf-8"))
-    expr = "/akn/ps/act/1999/7/eng@1999-06-08"
+    expr = "/akn/xz/act/1999/7/eng@1999-06-08"
     ident = ".//akn:identification/"
     assert _attr(root, f"{ident}akn:FRBRExpression/akn:FRBRthis", "value") == expr
     assert _attr(root, f"{ident}akn:FRBRExpression/akn:FRBRuri", "value") == expr
@@ -62,7 +62,7 @@ def test_target_language_rewrites_expression_and_manifestation():
     assert _attr(root, f"{ident}akn:FRBRManifestation/akn:FRBRthis", "value") == f"{expr}.akn"
     assert _attr(root, f"{ident}akn:FRBRManifestation/akn:FRBRuri", "value") == f"{expr}.akn"
     # Work identity untouched.
-    assert _attr(root, f"{ident}akn:FRBRWork/akn:FRBRuri", "value") == "/akn/ps/act/1999/7"
+    assert _attr(root, f"{ident}akn:FRBRWork/akn:FRBRuri", "value") == "/akn/xz/act/1999/7"
 
 
 def test_no_target_language_leaves_meta_untouched():
@@ -85,9 +85,9 @@ _WITH_ATTACHMENT = f'''<?xml version="1.0"?>
   <act>
     <meta>
       <identification source="#codify">
-        <FRBRWork><FRBRthis value="/akn/ps/act/2016/18"/><FRBRuri value="/akn/ps/act/2016/18"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRcountry value="ps"/></FRBRWork>
-        <FRBRExpression><FRBRthis value="/akn/ps/act/2016/18/ara@2016-01-01"/><FRBRuri value="/akn/ps/act/2016/18/ara@2016-01-01"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRlanguage language="ara"/></FRBRExpression>
-        <FRBRManifestation><FRBRthis value="/akn/ps/act/2016/18/ara@2016-01-01.akn"/><FRBRuri value="/akn/ps/act/2016/18/ara@2016-01-01.akn"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/></FRBRManifestation>
+        <FRBRWork><FRBRthis value="/akn/xz/act/2016/18"/><FRBRuri value="/akn/xz/act/2016/18"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRcountry value="xz"/></FRBRWork>
+        <FRBRExpression><FRBRthis value="/akn/xz/act/2016/18/ara@2016-01-01"/><FRBRuri value="/akn/xz/act/2016/18/ara@2016-01-01"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRlanguage language="ara"/></FRBRExpression>
+        <FRBRManifestation><FRBRthis value="/akn/xz/act/2016/18/ara@2016-01-01.akn"/><FRBRuri value="/akn/xz/act/2016/18/ara@2016-01-01.akn"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/></FRBRManifestation>
       </identification>
     </meta>
     <body><article eId="art_1"><num>1</num><content><p>نص.</p></content></article></body>
@@ -96,9 +96,9 @@ _WITH_ATTACHMENT = f'''<?xml version="1.0"?>
         <doc name="schedule">
           <meta>
             <identification source="#codify">
-              <FRBRWork><FRBRthis value="/akn/ps/act/2016/18/!schedule_1"/><FRBRuri value="/akn/ps/act/2016/18"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRcountry value="ps"/></FRBRWork>
-              <FRBRExpression><FRBRthis value="/akn/ps/act/2016/18/ara@2016-01-01/!schedule_1"/><FRBRuri value="/akn/ps/act/2016/18/ara@2016-01-01"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRlanguage language="ara"/></FRBRExpression>
-              <FRBRManifestation><FRBRthis value="/akn/ps/act/2016/18/ara@2016-01-01.akn"/><FRBRuri value="/akn/ps/act/2016/18/ara@2016-01-01.akn"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/></FRBRManifestation>
+              <FRBRWork><FRBRthis value="/akn/xz/act/2016/18/!schedule_1"/><FRBRuri value="/akn/xz/act/2016/18"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRcountry value="xz"/></FRBRWork>
+              <FRBRExpression><FRBRthis value="/akn/xz/act/2016/18/ara@2016-01-01/!schedule_1"/><FRBRuri value="/akn/xz/act/2016/18/ara@2016-01-01"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/><FRBRlanguage language="ara"/></FRBRExpression>
+              <FRBRManifestation><FRBRthis value="/akn/xz/act/2016/18/ara@2016-01-01.akn"/><FRBRuri value="/akn/xz/act/2016/18/ara@2016-01-01.akn"/><FRBRdate date="2016-01-01" name="Generation"/><FRBRauthor href="#codify"/></FRBRManifestation>
             </identification>
           </meta>
           <mainBody><p eId="att_1__p_1">جدول الرواتب.</p></mainBody>
@@ -139,10 +139,10 @@ class TestNestedAttachmentIdentification:
             if el.getparent() is not None and el.getparent().tag.endswith("FRBRExpression")
         ]
         assert this_values == [
-            "/akn/ps/act/2016/18/eng@2016-01-01",
+            "/akn/xz/act/2016/18/eng@2016-01-01",
             # The annex keeps addressing its own component, rebased onto the
             # translated expression rather than collapsing to the whole work.
-            "/akn/ps/act/2016/18/eng@2016-01-01/!schedule_1",
+            "/akn/xz/act/2016/18/eng@2016-01-01/!schedule_1",
         ]
 
 
@@ -158,7 +158,7 @@ class TestDeclaringTheTranslation:
         out = apply_translation_to_akn(_AKN, [], [], target_language="English")
         (el,) = _translations(etree.fromstring(out.encode("utf-8")))
         assert el.get("fromLanguage") == "ara"
-        assert el.get("href") == "/akn/ps/act/1999/7/ara@1999-06-08"
+        assert el.get("href") == "/akn/xz/act/1999/7/ara@1999-06-08"
         assert el.get("by") == "#codify"
         assert el.get("authoritative") == "false"
 
@@ -170,7 +170,7 @@ class TestDeclaringTheTranslation:
         with_sibling = _AKN.replace(
             '<FRBRlanguage language="ara"/>',
             '<FRBRlanguage language="ara"/>\n          '
-            '<FRBRtranslation fromLanguage="heb" href="/akn/ps/act/1999/7/heb@1999-06-08"'
+            '<FRBRtranslation fromLanguage="heb" href="/akn/xz/act/1999/7/heb@1999-06-08"'
             ' by="#codify"/>',
         )
         out = apply_translation_to_akn(with_sibling, [], [], target_language="English")
@@ -215,8 +215,8 @@ class TestDeclaringTheTranslation:
         out = apply_translation_to_akn(_WITH_ATTACHMENT, [], [], target_language="English")
         hrefs = [el.get("href") for el in _translations(etree.fromstring(out.encode("utf-8")))]
         assert hrefs == [
-            "/akn/ps/act/2016/18/ara@2016-01-01",
-            "/akn/ps/act/2016/18/ara@2016-01-01",
+            "/akn/xz/act/2016/18/ara@2016-01-01",
+            "/akn/xz/act/2016/18/ara@2016-01-01",
         ]
 
 
@@ -230,7 +230,7 @@ class TestTheTranslationIsDatedWhenItIsMade:
             _AKN, [], [], target_language="English", expression_date="2026-08-09"
         )
         root = etree.fromstring(out.encode("utf-8"))
-        expr = "/akn/ps/act/1999/7/eng@2026-08-09"
+        expr = "/akn/xz/act/1999/7/eng@2026-08-09"
         ident = ".//akn:identification/"
         assert _attr(root, f"{ident}akn:FRBRExpression/akn:FRBRuri", "value") == expr
         assert _attr(root, f"{ident}akn:FRBRExpression/akn:FRBRdate", "date") == "2026-08-09"
@@ -255,7 +255,7 @@ class TestTheTranslationIsDatedWhenItIsMade:
         manif = f"{ident}akn:FRBRManifestation/"
         assert _attr(root, f"{manif}akn:FRBRdate", "date") == date.today().isoformat()
         assert _attr(root, f"{manif}akn:FRBRuri", "value") == (
-            "/akn/ps/act/1999/7/eng@1999-06-08.akn"
+            "/akn/xz/act/1999/7/eng@1999-06-08.akn"
         )
 
     def test_the_work_keeps_its_own_date(self) -> None:
@@ -274,4 +274,4 @@ class TestTheTranslationIsDatedWhenItIsMade:
             _AKN, [], [], target_language="English", expression_date="2026-08-09"
         )
         (el,) = _translations(etree.fromstring(out.encode("utf-8")))
-        assert el.get("href") == "/akn/ps/act/1999/7/ara@1999-06-08"
+        assert el.get("href") == "/akn/xz/act/1999/7/ara@1999-06-08"

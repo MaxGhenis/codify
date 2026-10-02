@@ -75,14 +75,14 @@ async def _fixture_law(session: AsyncSession, code: str) -> tuple[uuid.UUID, uui
 
 
 async def test_a_rate_keeps_could_not_run_out_of_the_denominator(session: AsyncSession) -> None:
-    run_id, law_id, version_id = await _fixture_law(session, "ps")
+    run_id, law_id, version_id = await _fixture_law(session, "xz")
     await record_findings(
         session,
         scan_run_id=run_id,
         version_id=version_id,
         law_id=law_id,
-        jurisdiction_code="ps",
-        era="military_orders",
+        jurisdiction_code="xz",
+        era="assembly",
         doctype="act",
         findings=[
             ("body_units_present", True, {"count": 0}),
@@ -92,7 +92,7 @@ async def test_a_rate_keeps_could_not_run_out_of_the_denominator(session: AsyncS
     )
     await session.commit()
 
-    rates = {r.check_name: r for r in await finding_rates(session, run_id, "ps")}
+    rates = {r.check_name: r for r in await finding_rates(session, run_id, "xz")}
     assert rates["body_units_present"].failed == 1
     assert rates["body_units_present"].rate == 1.0
     assert rates["eid_unique"].rate == 0.0
@@ -103,7 +103,7 @@ async def test_a_rate_keeps_could_not_run_out_of_the_denominator(session: AsyncS
 
     failing = await versions_failing(session, run_id, "body_units_present")
     assert len(failing) == 1
-    assert failing[0][0].startswith("/akn/ps/act/1999/test-")
+    assert failing[0][0].startswith("/akn/xz/act/1999/test-")
     # The denominator's size, not only the ratio it produced.
     assert await scanned_versions(session, run_id) == 1
 
@@ -115,9 +115,9 @@ async def test_a_rate_keeps_could_not_run_out_of_the_denominator(session: AsyncS
 async def test_two_jurisdictions_do_not_share_a_denominator(session: AsyncSession) -> None:
     """Every profile with no declared eras reports era "all", so grouping without
     the jurisdiction would pool unrelated corpora."""
-    run_id, ps_law, ps_version = await _fixture_law(session, "ps")
+    run_id, xz_law, xz_version = await _fixture_law(session, "xz")
     gb_run, gb_law, gb_version = await _fixture_law(session, "gb")
-    for law_id, version_id, code in ((ps_law, ps_version, "ps"), (gb_law, gb_version, "gb")):
+    for law_id, version_id, code in ((xz_law, xz_version, "xz"), (gb_law, gb_version, "gb")):
         await record_findings(
             session,
             scan_run_id=run_id,
@@ -126,12 +126,12 @@ async def test_two_jurisdictions_do_not_share_a_denominator(session: AsyncSessio
             jurisdiction_code=code,
             era="all",
             doctype="act",
-            findings=[("eid_unique", code == "ps", {})],
+            findings=[("eid_unique", code == "xz", {})],
         )
     await session.commit()
 
     rates = {(r.jurisdiction_code, r.check_name): r for r in await finding_rates(session, run_id)}
-    assert rates[("ps", "eid_unique")].failed == 1
+    assert rates[("xz", "eid_unique")].failed == 1
     assert rates[("gb", "eid_unique")].failed == 0
     assert rates[("gb", "eid_unique")].rate == 0.0
 
@@ -142,25 +142,25 @@ async def test_two_jurisdictions_do_not_share_a_denominator(session: AsyncSessio
     assert await scanned_versions(session, run_id, "al") == 0
 
     await session.execute(text("DELETE FROM runs WHERE id = ANY(:ids)"), {"ids": [run_id, gb_run]})
-    await session.execute(text("DELETE FROM laws WHERE id = ANY(:ids)"), {"ids": [ps_law, gb_law]})
+    await session.execute(text("DELETE FROM laws WHERE id = ANY(:ids)"), {"ids": [xz_law, gb_law]})
     await session.commit()
 
 
 async def test_rescanning_a_version_replaces_its_rows(session: AsyncSession) -> None:
-    run_id, law_id, version_id = await _fixture_law(session, "ps")
+    run_id, law_id, version_id = await _fixture_law(session, "xz")
     args = {
         "scan_run_id": run_id,
         "version_id": version_id,
         "law_id": law_id,
-        "jurisdiction_code": "ps",
-        "era": "plc",
+        "jurisdiction_code": "xz",
+        "era": "assembly",
         "doctype": "act",
     }
     await record_findings(session, **args, findings=[("eid_unique", True, {})])
     await record_findings(session, **args, findings=[("eid_unique", False, {})])
     await session.commit()
 
-    rates = {r.check_name: r for r in await finding_rates(session, run_id, "ps")}
+    rates = {r.check_name: r for r in await finding_rates(session, run_id, "xz")}
     assert rates["eid_unique"].failed == 0
     assert rates["eid_unique"].passed == 1
 

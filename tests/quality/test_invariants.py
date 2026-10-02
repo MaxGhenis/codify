@@ -61,7 +61,7 @@ class TestMissingBetween:
         assert missing_between([1, 1, 2]) == ([], 0, 0, 1, 2)
 
     def test_a_wild_ocr_number_does_not_expand_the_range(self) -> None:
-        """Digit repair produced 6453 beside 1 on a real PS document. Expanding
+        """Digit repair produced 6453 beside 1 on a real document. Expanding
         that eagerly costs more than the finding is worth."""
         examples, total, max_run, lo, hi = missing_between([1, 10**9], cap=5)
         assert len(examples) == 5
@@ -87,7 +87,7 @@ class TestAmbiguitySpan:
         assert AmbiguitySpan(kind="toc_without_body", start=0, end=1).blocking is False
 
     def test_a_resolved_duplicate_does_not_block(self) -> None:
-        """Blocking a dropped TOC twin refused 3 of 36 correct PS documents."""
+        """Blocking a dropped TOC twin refused 3 of 36 correct documents."""
         span = AmbiguitySpan(kind="duplicate_number", start=0, end=1, resolved=True)
         assert span.blocking is False
 

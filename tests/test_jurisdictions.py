@@ -445,44 +445,42 @@ def test_al_discovery_config_present() -> None:
     assert set(disc.queries) == {"ligj", "vendim"}
 
 
-# Indonesian instrument titles are formulaic, so the class is decidable from the
-# title alone. The pairs below are real titles; the ordering hazards are that
-# "Peraturan Pemerintah Pengganti Undang-Undang" must beat "Peraturan
-# Pemerintah", and both Perda tiers must beat the bare Undang-Undang rule.
-ID_TITLE_CLASSES = [
+# Bahasa instrument titles are formulaic, so the class is decidable from the
+# title alone. The ordering hazards are that "Peraturan Pemerintah Pengganti
+# Undang-Undang" must beat "Peraturan Pemerintah", and both Perda tiers must
+# beat the bare Undang-Undang rule.
+XL_TITLE_CLASSES = [
     (
-        "UNDANG-UNDANG REPUBLIK INDONESIA NOMOR 13 TAHUN 2003 TENTANG KETENAGAKERJAAN",
+        "UNDANG-UNDANG REPUBLIK LANGKASUKA NOMOR 13 TAHUN 2003 TENTANG KETENAGAKERJAAN",
         "act",
     ),
-    ("UNDANG-UNDANG NOMOR 6 TAHUN 2023 TENTANG CIPTA KERJA", "omnibus"),
     ("PERATURAN PEMERINTAH PENGGANTI UNDANG-UNDANG NOMOR 2 TAHUN 2022", "perppu"),
     ("PERATURAN PEMERINTAH NOMOR 5 TAHUN 2021", "pp"),
     ("PERATURAN PRESIDEN NOMOR 68 TAHUN 2021", "perpres"),
     ("PERATURAN MENTERI KETENAGAKERJAAN NOMOR 14 TAHUN 2023", "permen"),
-    ("PERATURAN DAERAH PROVINSI JAWA BARAT NOMOR 3 TAHUN 2022", "perda_provinsi"),
-    ("PERATURAN DAERAH KABUPATEN BELITUNG TIMUR NOMOR 2 TAHUN 2012", "perda_kabkota"),
-    ("PERATURAN GUBERNUR DKI JAKARTA NOMOR 10 TAHUN 2020", "perkada"),
-    ("QANUN ACEH NOMOR 6 TAHUN 2020", "qanun"),
-    ("PERATURAN OTORITAS JASA KEUANGAN NOMOR 11 TAHUN 2020", "peraturan_lembaga"),
-    ("UNDANG-UNDANG DASAR NEGARA REPUBLIK INDONESIA TAHUN 1945", "constitution"),
+    ("PERATURAN DAERAH PROVINSI TANJUNG SERI NOMOR 3 TAHUN 2022", "perda_provinsi"),
+    ("PERATURAN DAERAH KABUPATEN PULAU SERI NOMOR 2 TAHUN 2012", "perda_kabkota"),
+    ("PERATURAN GUBERNUR TANJUNG SERI NOMOR 10 TAHUN 2020", "perkada"),
+    ("PERATURAN KOMISI INFORMASI NOMOR 11 TAHUN 2020", "peraturan_lembaga"),
+    ("UNDANG-UNDANG DASAR REPUBLIK LANGKASUKA TAHUN 1957", "constitution"),
     # The ikhtisar's title contains the judgment's, so it must outrank it.
-    ("PUTUSAN Nomor 167/PUU-XXIV/2026", "putusan_mk"),
-    ("Ikhtisar Putusan Mahkamah Konstitusi Nomor 167/PUU-XXIV/2026", "ikhtisar_mk"),
+    ("PUTUSAN Nomor 12/PUL-III/2029", "putusan"),
+    ("Ikhtisar Putusan Mahkamah Konstitusi Nomor 12/PUL-III/2029", "ikhtisar"),
 ]
 
 
-@pytest.mark.parametrize("title,expected", ID_TITLE_CLASSES, ids=lambda v: v if len(v) < 24 else "")
-def test_id_classification_rules_resolve_instrument_type(title: str, expected: str) -> None:
+@pytest.mark.parametrize("title,expected", XL_TITLE_CLASSES, ids=lambda v: v if len(v) < 24 else "")
+def test_classification_rules_resolve_instrument_type(title: str, expected: str) -> None:
     try_load_config.cache_clear()
-    cfg = load_config("id")
+    cfg = load_config("xl")
     assert cfg is not None
     assert cfg.classify_document_class(title=title) == expected
 
 
-def test_id_classification_targets_all_exist() -> None:
+def test_classification_targets_all_exist() -> None:
     """A rule pointing at a class that isn't declared classifies into nothing."""
     try_load_config.cache_clear()
-    cfg = load_config("id")
+    cfg = load_config("xl")
     assert cfg is not None
     assert cfg.structuring is not None
     for rule in cfg.structuring.classification_rules:
@@ -646,7 +644,7 @@ def test_the_export_refuses_a_non_empty_destination(tmp_path) -> None:
 
     dest = tmp_path / "export"
     assert export(dest) == 0
-    stale = dest / "data" / "jurisdictions" / "ps"
+    stale = dest / "data" / "jurisdictions" / "zz"
     stale.mkdir(parents=True)
     assert export(dest) == 1
     assert stale.exists(), "a refused export must not delete what it found"
@@ -928,4 +926,26 @@ def test_extends_refuses_a_chain() -> None:
                 "mid": {"extends": "act", "label": "Mid"},
                 "leaf": {"extends": "mid", "label": "Leaf"},
             }
+        )
+
+
+@pytest.mark.parametrize("name", ["", "   ", "(?:)", "a*"])
+def test_an_empty_series_citation_name_is_refused(name: str) -> None:
+    from pydantic import ValidationError
+
+    from codify.jurisdictions import SeriesCitation
+
+    with pytest.raises(ValidationError, match="must not be empty"):
+        SeriesCitation(name=name, doctype="act")
+
+
+def test_a_connector_that_clashes_with_the_number_group_is_refused() -> None:
+    from pydantic import ValidationError
+
+    from codify.jurisdictions import NumberingConfig
+
+    with pytest.raises(ValidationError, match="redefinition of group name"):
+        NumberingConfig(
+            series_citations=[{"name": "Act", "doctype": "act"}],
+            series_citation_connectors=[r"(?P<num>No)\.?"],
         )

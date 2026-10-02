@@ -587,7 +587,7 @@ def _precursor_re(words: tuple[str, ...]) -> re.Pattern[str]:
         return re.compile(r"(?!)")
     alts = _precursor_alt(words)
     # A trailing colon is part of the precursor, not a break from it:
-    # Indonesian writes the legal basis as "Mengingat :   Pasal 5 ayat (1)".
+    # a legal-basis line reads "Mengingat :   Pasal 5 ayat (1)".
     # Case-insensitive: a precursor is a word, and a line can end on it in any
     # case a scan produces.
     return re.compile(
@@ -1528,7 +1528,7 @@ def _annex_caption_re(country: str) -> re.Pattern[str]:
     prefixed = rf"|^[ \t]{{0,60}}(?P<prefixed>(?:{opener})[^\r\n]*)" if opener else ""
     # A declared caption tolerates a centred indent and its own numbering
     # ("LAMPIRAN I"); the inferred Arabic form keeps its tight margin and its
-    # bare-keyword rule, so PS behaviour does not move.
+    # bare-keyword rule, so its behaviour does not move.
     return re.compile(
         rf"(?m)^(?:[ \t]{{0,8}}(?:ال)?(?:ملحق|جدول)"
         rf"|[ \t]{{0,60}}(?P<declared>{alts or '(?!)'})(?P<decnum>[ \t]+[IVXLCDM]+|[ \t]+\d+)?)"
@@ -2908,8 +2908,8 @@ def _unclosed_openers(text: str) -> frozenset[int]:
     """Offsets of directional openers with no later character to close them.
 
     Left in, each masks every marker to end of file and is then dropped as quoted
-    text with no gate tripping. The Philippine Corporation Code carries a stray „
-    and a lone «, together masking 81% of the document.
+    text with no gate tripping. A stray „ and a lone « in one long code together
+    masked 81% of the document.
 
     Each opener is matched only against the closer it takes: a low-9 pairs with a
     curly, not a guillemet. One shared stack would let a » pop a „, so in `« … „ … »`
@@ -3683,7 +3683,7 @@ def _drop_preamble_citation_articles(
     """Drop articles preceding the first container, where the drafting standard puts
     every article inside one.
 
-    Indonesian laws cite the constitutional basis in their `Mengingat` recital. The
+    Some laws cite the constitutional basis in a `Mengingat` recital. The
     scanner anchors on that citation, landing an article at <body> root that
     swallows the rest of the preamble, and truncating the preamble besides: opening
     material ends at the first anchor, and that anchor is inside it.
@@ -3772,10 +3772,8 @@ def _drop_lone_compilation_container(
     return [a for j, a in enumerate(anchors) if j != i]
 
 
-# A drop preserves content when the next anchor follows closely. Measured over
-# 807 id and 237 ps drops: the median sits at 1.9x and 0.7x the document's own
-# anchor gap, while known body-losing drops sit at 45x, 62x and 343x. These
-# floors flag 12 of 37 id documents with drops, and 3 of 70 in ps.
+# A drop preserves content when the next anchor follows closely: typical drops
+# sit near the document's own anchor gap, body-losing ones at 45x to 343x.
 #
 # `_ORPHAN_GAP_CHARS` floors every path: below it the loss cannot matter whatever
 # the ratio. Above it the ratio decides, so a document with long provisions is

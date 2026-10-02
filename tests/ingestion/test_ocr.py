@@ -321,7 +321,7 @@ async def test_a_divergent_text_layer_is_read_by_vision_not_kept(monkeypatch) ->
 
 @pytest.mark.asyncio
 async def test_a_layer_that_splits_words_the_rival_keeps_whole_goes_to_vision(monkeypatch):
-    """The MK 132 case. The layer encodes a tracked-out label as literal spaces,
+    """A court-ruling scan. The layer encodes a tracked-out label as literal spaces,
     which whole-page divergence cannot see: the two reads share almost every
     token. Only the split words fault the layer, and the layer must not anchor
     the read that replaces it."""
@@ -329,11 +329,11 @@ async def test_a_layer_that_splits_words_the_rival_keeps_whole_goes_to_vision(mo
 
     body = (
         " Bahwa para Pemohon mendalilkan ketentuan a quo bertentangan dengan "
-        "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 sepanjang dimaknai "
+        "Undang-Undang Dasar Republik Langkasuka Tahun 1957 sepanjang dimaknai "
         "sebagaimana diuraikan dalam permohonan a quo."
     )
-    layer = "N a m a : Budi Santoso\nA l a m a t : Dulang, RT. 001/RW. 000" + body
-    rival = "Nama : Budi Santoso\nAlamat : Dulang, RT. 001/RW. 000" + body
+    layer = "N a m a : Awang Seri\nA l a m a t : Kampung Seri, RT. 001/RW. 000" + body
+    rival = "Nama : Awang Seri\nAlamat : Kampung Seri, RT. 001/RW. 000" + body
 
     class _Page:
         def extract_text(self) -> str:
@@ -350,7 +350,7 @@ async def test_a_layer_that_splits_words_the_rival_keeps_whole_goes_to_vision(mo
 
     async def _fake_ocr(*_a: object, page_text_layer: str = "", **_k: object) -> str:
         captured["anchor"] = page_text_layer
-        return "Nama : Budi Santoso Alamat : Dulang, RT. 001/RW. 000" + body
+        return "Nama : Awang Seri Alamat : Kampung Seri, RT. 001/RW. 000" + body
 
     async def _fake_window(_pdf: bytes, first: int, last: int, _dpi: int) -> dict[int, bytes]:
         return {n: b"\x89PNG" for n in range(first, last + 1)}
@@ -417,10 +417,10 @@ async def test_a_diverted_layer_page_is_never_dropped_when_vision_returns_nothin
 
     body = (
         " Bahwa para Pemohon mendalilkan ketentuan a quo bertentangan dengan "
-        "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 sepanjang dimaknai."
+        "Undang-Undang Dasar Republik Langkasuka Tahun 1957 sepanjang dimaknai."
     )
-    layer = "A l a m a t : Dulang, RT. 001/RW. 000" + body
-    rival = "Alamat : Dulang, RT. 001/RW. 000" + body
+    layer = "A l a m a t : Kampung Seri, RT. 001/RW. 000" + body
+    rival = "Alamat : Kampung Seri, RT. 001/RW. 000" + body
 
     class _Page:
         def extract_text(self) -> str:
@@ -450,7 +450,7 @@ async def test_a_diverted_layer_page_is_never_dropped_when_vision_returns_nothin
 
     assert len(pages) == 1
     # The clean rival that proved the layer was damaged is what the page keeps.
-    assert "Alamat : Dulang" in pages[0].text
+    assert "Alamat : Kampung Seri" in pages[0].text
     assert "A l a m a t" not in pages[0].text
     assert ocr_mod._page_body_for_combine(pages[0]) is not None
 
@@ -625,8 +625,8 @@ class TestStructuredOcrResponse:
             {
                 "index": 0,
                 "markdown": body,
-                "header": "منظومة القضاء والتشريع في فلسطين",
-                "footer": "الوقائع الفلسطينية العدد ١٣٨٠",
+                "header": "منظومة التشريع في زرزورة",
+                "footer": "الوقائع الزرزورية العدد ١٣٨٠",
                 "blocks": blocks,
             }
         )
@@ -634,8 +634,8 @@ class TestStructuredOcrResponse:
         # Concatenating either furniture field back on is what put a masthead at
         # anchor zero, and it passes every other assertion in this class.
         assert pages[0].text == body
-        assert pages[0].header == "منظومة القضاء والتشريع في فلسطين"
-        assert pages[0].footer == "الوقائع الفلسطينية العدد ١٣٨٠"
+        assert pages[0].header == "منظومة التشريع في زرزورة"
+        assert pages[0].footer == "الوقائع الزرزورية العدد ١٣٨٠"
         assert pages[0].layout is not None
         assert [b.type for b in pages[0].layout.blocks] == ["header", "title"]
         assert pages[0].layout.blocks[0].content == "مصنف"
@@ -729,7 +729,7 @@ class TestStructuredOcrResponse:
         assert len(events) == 1 and events[0]["pages"] == [1]
 
     def test_furniture_survives_the_multi_chunk_merge(self) -> None:
-        """A PS gazette scan runs past the 25-page cap, so it is served by several
+        """A long gazette scan runs past the 25-page cap, so it is served by several
         calls whose pages are merged and re-indexed. A `_one` that rebuilt the page
         dicts instead of mutating them would drop furniture for exactly this class
         of document and pass every other test here."""
@@ -868,7 +868,7 @@ class TestStructuredOcrResponse:
                 return [
                     {"index": 0, "markdown": "المادة ١ - نص كامل هنا بوضوح تام."},
                     {"index": 1, "markdown": "", "header": "ترويسة الجريدة"},
-                    {"index": 2, "markdown": "", "footer": "الوقائع الفلسطينية ١٣٨٠"},
+                    {"index": 2, "markdown": "", "footer": "الوقائع الزرزورية ١٣٨٠"},
                 ]
 
         with capture_logs() as captured:
@@ -1253,7 +1253,7 @@ class TestComposedRead:
             "index": index,
             "markdown": markdown,
             "header": "منظومة القضاء",
-            "footer": "الوقائع الفلسطينية",
+            "footer": "الوقائع الزرزورية",
             "blocks": [
                 {
                     "type": "header",

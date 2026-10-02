@@ -122,7 +122,7 @@ def test_paren_both_and_paren_right_are_different_levels():
 
 
 def test_arabic_paren_paragraphs_with_alpha_subpoints_nest():
-    """`(١) (٢)` paragraphs (PS Arabic) with `(أ) (ب)` sub-points, should nest."""
+    """`(١) (٢)` paragraphs (Arabic) with `(أ) (ب)` sub-points, should nest."""
     out = nest_enumerated_lines(
         ["(١) الفقرة الأولى", "(أ) فرع أول", "(ب) فرع ثاني", "(٢) الفقرة الثانية"]
     )
@@ -169,8 +169,8 @@ def test_letter_reset_opens_child():
 def test_alpha_run_stays_flat_through_the_roman_letters():
     """Seven letters double as roman numerals (c d i l m v x). A plain lettered
     list must stay flat across every one of them: `(a)..(z)` is one level, not a
-    list that sprouts children at c, i, l, v and x. Philippine and other
-    Anglophone acts routinely run paragraph lists well past (c)."""
+    list that sprouts children at c, i, l, v and x. Anglophone acts routinely
+    run paragraph lists well past (c)."""
     out = nest_enumerated_lines([f"({chr(c)}) item" for c in range(ord("a"), ord("z") + 1)])
     assert not any(ln.startswith("  POINT") for ln in out)
     assert sum(1 for ln in out if ln.startswith("POINT (")) == 26
@@ -303,8 +303,8 @@ def test_arabic_letter_with_kashida_recognised():
     Pre-fix `_MARK` only matched single-letter Arabic tokens [ء-ي] so the
     kashida-suffixed form silently failed, and the LLM-emitted (هـ) got
     swallowed into the preceding sibling's body. Now both forms are markers.
-    This was the root cause of the 12 swallowed-enumerator cases in PS
-    Criminal Code 1936's art_36/75/206/207/235/etc."""
+    This was the root cause of swallowed enumerators across a whole
+    criminal code."""
     out = nest_enumerated_lines(
         [
             "The following acts are prohibited:",
@@ -381,7 +381,7 @@ class TestAmountAndCitationGuards:
         assert nest_enumerated_lines([line]) == [line]
 
     def test_fine_amounts_stay_whole(self) -> None:
-        line = "يعاقب بغرامة لا تقل عن (2000) دينار أردني ولا تزيد على (4000) دينار أردني."
+        line = "يعاقب بغرامة لا تقل عن (2000) دينار زرزوري ولا تزيد على (4000) دينار زرزوري."
         assert nest_enumerated_lines([line]) == [line]
 
     def test_genuine_list_still_splits(self) -> None:

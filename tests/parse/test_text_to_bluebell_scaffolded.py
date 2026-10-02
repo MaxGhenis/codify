@@ -430,7 +430,7 @@ async def test_an_anchorless_document_keeps_the_remark_in_place():
     assert first < remark < last, result
 
 
-_PS_TATWEEL_BODY = """\
+_TATWEEL_BODY = """\
 مـادة (1)
 نص المادة الأولى.
 
@@ -472,8 +472,8 @@ async def test_scaffolded_raises_on_low_anchor_coverage_ratio(monkeypatch):
         await text_to_bluebell_scaffolded(
             "مادة (1)\nنص المادة الأولى.",
             client=_NeverCalledLLMClient({}),
-            country="ps",
-            doctype="qanun",
+            country="xz",
+            doctype="act",
         )
     err = excinfo.value
     assert err.kind == "article"
@@ -493,10 +493,10 @@ async def test_scaffolded_passes_when_coverage_clears_threshold():
         "art_3": BodyBlock(eid="art_3", heading=None, lines=["نص المادة الثالثة."]),
     }
     result = await text_to_bluebell_scaffolded(
-        _PS_TATWEEL_BODY,
+        _TATWEEL_BODY,
         client=_RecordingLLMClient(canned),
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
     )
     # All three articles landed as anchors and the LLM saw their eids.
     assert result.count("ARTICLE ") >= 3
@@ -510,7 +510,7 @@ async def test_scaffolded_gate_disabled_when_min_anchor_coverage_zero(monkeypatc
     from codify.jurisdictions import load_config
     from codify.pipeline.enrich import structure as structure_mod
 
-    real_config = load_config("ps")
+    real_config = load_config("xz")
     assert real_config is not None
     opted_out = real_config.model_copy(update={"min_anchor_coverage": 0.0})
 
@@ -525,8 +525,8 @@ async def test_scaffolded_gate_disabled_when_min_anchor_coverage_zero(monkeypatc
     result = await structure_mod.text_to_bluebell_scaffolded(
         text,
         client=_RecordingLLMClient({}),
-        country="ps",
-        doctype="qanun",
+        country="xz",
+        doctype="act",
     )
     assert "BODY" in result
 
@@ -574,7 +574,7 @@ async def test_every_window_failing_is_an_error_not_an_empty_document() -> None:
 
     text = "SECTION 1. Short Title.\n\nBody one.\n\nSEC. 2. Coverage.\n\nBody two.\n"
     with pytest.raises(BodyFillError, match="no body"):
-        await text_to_bluebell_scaffolded(text, client=_AlwaysFails(), country="ph", doctype="act")
+        await text_to_bluebell_scaffolded(text, client=_AlwaysFails(), country="xa", doctype="act")
 
 
 @pytest.mark.asyncio

@@ -71,9 +71,9 @@ async def session() -> AsyncIterator[AsyncSession]:
 async def _seed(session: AsyncSession) -> tuple[uuid.UUID, str, dict[str, object]]:
     bb = "BODY\n  ARTICLE 1\n    Body of article one.\n  ARTICLE 2\n"
     suffix = uuid.uuid4().hex[:8]
-    akn = parse_to_akn(bb, country="ps", doctype="act", number=suffix, date="2020-01-01")
+    akn = parse_to_akn(bb, country="xz", doctype="act", number=suffix, date="2020-01-01")
     vid = await save_document(
-        session, parse_akn(akn), jurisdiction_code="ps", law_title=f"Prop {suffix}", akn_xml=akn
+        session, parse_akn(akn), jurisdiction_code="xz", law_title=f"Prop {suffix}", akn_xml=akn
     )
     await session.commit()
     finding = next(f for f in validate_akn(akn) if f["check"] == "empty_article")
@@ -126,7 +126,7 @@ async def test_full_lifecycle_pending_to_applied(session: AsyncSession) -> None:
     res = apply_plan(
         akn,
         [SetBody(eid=str(finding["eid"]), bluebell="Restored body.")],
-        country="ps",
+        country="xz",
         target_finding=finding,
     )
     assert res.ok, res.error

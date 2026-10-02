@@ -59,8 +59,8 @@ def _doc(language: str) -> Document:
     )
     return Document(
         id=uuid.uuid4(),
-        frbr_work_uri="/akn/ps/act/2012/7",
-        frbr_expression_uri=f"/akn/ps/act/2012/7/{language}@2012",
+        frbr_work_uri="/akn/xz/act/2012/7",
+        frbr_expression_uri=f"/akn/xz/act/2012/7/{language}@2012",
         language=language,
         expression_date="2012-01-01",
         body=[chapter, attachment],

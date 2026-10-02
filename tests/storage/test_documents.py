@@ -343,7 +343,7 @@ def test_ordinary_hrefs_survive() -> None:
     from codify.storage.documents import InlineRef, _push_inline
 
     ns = "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
-    for href in ("#art_5", "/akn/ps/act/2014/4", "https://example.test/x", "mailto:a@b.test"):
+    for href in ("#art_5", "/akn/xz/act/2014/4", "https://example.test/x", "mailto:a@b.test"):
         out: list = []
         _push_inline(_parse(f'<ref xmlns="{ns}" href="{href}">x</ref>'), out)
         assert isinstance(out[0], InlineRef)

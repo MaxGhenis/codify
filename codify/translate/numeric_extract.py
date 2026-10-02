@@ -27,7 +27,7 @@ TokenKind = Literal[
     "article_para_ref",  # "المادة (4/9)" — article 4, paragraph 9
     "para_of_article_ref",  # "الفقرة (3) من المادة (20)"
     "statute_ref",  # "Law No. 7 of 1999"
-    "money",  # "1000 Jordanian Dinars"
+    "money",  # "1000 Dinars"
     "date",  # "3/2/2000"
     "unknown",  # numeric-adjacent but unclassified
 ]
@@ -142,9 +142,11 @@ _STATUTE_REF_AR = re.compile(
 
 # Monetary amounts: digits adjacent to a currency word (Arabic + English).
 _CURRENCY_WORDS = (
-    r"Jordanian\s+Dinars?|Dinars?|Dollars?|Shekels?|Euros?|Pounds?"
-    r"|دينار(?:اً|ا|ين)?|شيقل(?:اً|ا)?|دولار(?:اً|ا)?"
-    r"|שקל(?:ים)?|דינר|דולר"
+    r"(?:[A-Z][a-z]+\s+)?"
+    r"(?:Dinars?|Dirhams?|Riyals?|Dollars?|Shekels?|Euros?|Pounds?|Liras?|Lire|Francs?)"
+    r"|دينار(?:اً|ا|ين)?|دنانير|درهم(?:اً|ا)?|دراهم|ريال(?:اً|ا|ات)?"
+    r"|دولار(?:اً|ا|ات)?|شيقل(?:اً|ا)?|جنيه(?:اً|ا|ات)?|ليرة|ليرات|يورو|فرنك(?:اً|ا|ات)?"
+    r"|שקל(?:ים)?|דינר|דולר|יורו|לירה"
 )
 _MONEY = re.compile(
     rf"([{_DIGIT_CHARS}]+(?:[,.][{_DIGIT_CHARS}]+)*)\s*(?:{_CURRENCY_WORDS})",

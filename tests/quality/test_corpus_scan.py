@@ -22,8 +22,8 @@ _TWO_ARTICLES = "مادة (1)\nنص الأولى.\n\nمادة (2)\nنص الثا
 _BIDI_WRAPPED = "‫مادة ‪(1)‬‬\nنص.\n\n‫مادة ‪(2)‬‬\nنص.\n"
 
 
-def _scan(text: str, doctype: str = "qanun"):
-    return scan_text(text, config=load_config("ps"), country="ps", doctype=doctype)
+def _scan(text: str, doctype: str = "act"):
+    return scan_text(text, config=load_config("xz"), country="xz", doctype=doctype)
 
 
 class TestNormalisation:
@@ -96,13 +96,11 @@ class TestGroupingRecall:
         assert "paragraph" not in _scan(_TWO_ARTICLES).container_recall
 
     def test_a_grouping_keyword_the_class_never_declares_is_reported(self) -> None:
-        """`sy/decree` declares no chapter, so silence would read as perfect recall.
-        (The PS subordinate instruments all declare a container level since 2026-08,
-        so the flat-class exemplar moved to a genuinely flat Arabic decree class.)"""
+        """`xz/decree` declares no chapter, so silence would read as perfect recall."""
         scan = scan_text(
             "الفصل الأول\n\n" + _TWO_ARTICLES,
-            config=load_config("sy"),
-            country="sy",
+            config=load_config("xz"),
+            country="xz",
             doctype="decree",
         )
         assert scan.container_recall == {}
@@ -122,17 +120,17 @@ class TestProvenance:
         has to appear in the summary."""
         (tmp_path / "law.txt").write_text(_TWO_ARTICLES, encoding="utf-8")
         (tmp_path / "law.AR.txt").write_text(_TWO_ARTICLES, encoding="utf-8")
-        sweep = scan_corpus(tmp_path, jurisdiction="ps")
+        sweep = scan_corpus(tmp_path, jurisdiction="xz")
         assert len(sweep.scans) == 1
         assert aggregate(sweep)["documents_excluded_as_our_own_export"] == 1
-        assert len(scan_corpus(tmp_path, jurisdiction="ps", include_derived=True).scans) == 2
+        assert len(scan_corpus(tmp_path, jurisdiction="xz", include_derived=True).scans) == 2
 
     def test_an_unreadable_file_is_counted_not_scored(self, tmp_path: Path) -> None:
         """A wrong-codec file scans to zero anchors, which reads as a
         structuring failure rather than a file we could not read."""
         (tmp_path / "law.txt").write_text(_TWO_ARTICLES, encoding="utf-8")
         (tmp_path / "cp1256.txt").write_bytes("مادة (1)\nنص.\n".encode("cp1256"))
-        sweep = scan_corpus(tmp_path, jurisdiction="ps")
+        sweep = scan_corpus(tmp_path, jurisdiction="xz")
         assert len(sweep.scans) == 1
         assert aggregate(sweep)["documents_unreadable"] == 1
 
@@ -152,7 +150,7 @@ class TestCensusVocabulary:
         from codify.pipeline.enrich.anchors import _kind_from_match, cached_regex, keyword_aliases
         from codify.quality.corpus_scan import _census_aliases
 
-        for country, doctype in (("ps", "qanun"), ("gb", "act"), ("al", "ligj"), ("ua", "law")):
+        for country, doctype in (("xz", "act"), ("gb", "act"), ("al", "ligj"), ("ua", "law")):
             regex = cached_regex(country, doctype)
             grouped = _census_aliases(keyword_aliases(load_config(country), doctype), regex)
             for kind, terms in grouped.items():
@@ -168,14 +166,14 @@ class TestDoctypeClassification:
         law classified as a modern decree-law is scored against the wrong levels."""
         from codify.quality.corpus_scan import scan_file
 
-        cfg = load_config("ps")
+        cfg = load_config("xz")
         for name, expected in (
-            ("قانون رقم 5 لسنة 1999", "qanun"),
-            ("قرار بقانون رقم 3 لسنة 2016", "qarar_bi_qanun"),
+            ("قانون رقم 5 لسنة 1999", "act"),
+            ("قرار بقانون رقم 3 لسنة 2016", "decree_law"),
         ):
             path = tmp_path / f"{name}.txt"
             path.write_text(_TWO_ARTICLES, encoding="utf-8")
-            assert scan_file(path, config=cfg, country="ps").doctype == expected
+            assert scan_file(path, config=cfg, country="xz").doctype == expected
 
     def test_a_filename_with_no_year_still_classifies(self, tmp_path: Path) -> None:
         """A hash-named or scanner-named file must not raise; it falls to the
@@ -184,7 +182,7 @@ class TestDoctypeClassification:
 
         path = tmp_path / "a3f9c2e1.txt"
         path.write_text(_TWO_ARTICLES, encoding="utf-8")
-        assert scan_file(path, config=load_config("ps"), country="ps").doctype
+        assert scan_file(path, config=load_config("xz"), country="xz").doctype
 
 
 class TestAggregate:
@@ -224,9 +222,9 @@ class TestUnmeasurableDocuments:
         assert summary["documents_without_basic_unit"] == 0
 
     def test_a_class_with_no_grouping_level_cannot_lose_a_container(self) -> None:
-        """`sy/decree` declares article and paragraph only, so counting it as a
+        """`xz/decree` declares article and paragraph only, so counting it as a
         document that lost its chapters is counting an impossibility."""
-        scan = scan_text(_TWO_ARTICLES, config=load_config("sy"), country="sy", doctype="decree")
+        scan = scan_text(_TWO_ARTICLES, config=load_config("xz"), country="xz", doctype="decree")
         assert scan.grouping_declared is False
         assert aggregate([scan])["documents_with_units_and_no_container"] == 0
 

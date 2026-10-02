@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import pytest
+
 from codify.translate.numeric_extract import (
     decode_sentinels,
     encode_sentinels,
@@ -52,7 +54,7 @@ class TestExtractTokens:
         assert "41" in stat.expected_target_surface
 
     def test_money_with_currency_english(self):
-        m = extract_tokens("shall be punished with 1000 Jordanian Dinars.")
+        m = extract_tokens("shall be punished with 1000 Zerzuran Dinars.")
         money = next(t for t in m.tokens if t.kind == "money")
         assert money.expected_target_surface == "1000"
 
@@ -105,6 +107,49 @@ class TestExtractTokens:
         assert m.tokens == []
 
 
+@pytest.mark.parametrize(
+    "phrase",
+    [
+        "1000 Dinars",
+        "1000 Zerzuran Dinars",
+        "1000 Dirhams",
+        "1000 Riyals",
+        "1000 Dollars",
+        "1000 Shekels",
+        "1000 Euros",
+        "1000 Pounds",
+        "1000 Liras",
+        "1000 Lire",
+        "1000 Francs",
+        "1000 دينار",
+        "1000 دنانير",
+        "1000 درهم",
+        "1000 ريال",
+        "1000 دولار",
+        "1000 شيقل",
+        "1000 جنيه",
+        "1000 ليرة",
+        "1000 يورو",
+        "1000 فرنك",
+        "1000 שקל",
+        "1000 דינר",
+        "1000 דולר",
+        "1000 יורו",
+        "1000 לירה",
+    ],
+)
+def test_every_listed_currency_marks_money(phrase: str) -> None:
+    kinds = {
+        t.kind: t.expected_target_surface for t in extract_tokens(f"a fine of {phrase}.").tokens
+    }
+    assert kinds.get("money") == "1000", phrase
+
+
+def test_a_non_currency_noun_is_not_money() -> None:
+    kinds = [t.kind for t in extract_tokens("a fine of 1000 Books.").tokens]
+    assert "money" not in kinds
+
+
 class TestSentinelEncodeDecode:
     def test_encode_places_sentinels_at_token_positions(self):
         source = "30 days after Article 5."
@@ -115,7 +160,7 @@ class TestSentinelEncodeDecode:
             assert m.sentinel_for(tok) in encoded
 
     def test_decode_restores_target_surfaces(self):
-        source = "Article 62 shall punish with 1000 Jordanian Dinars."
+        source = "Article 62 shall punish with 1000 Zerzuran Dinars."
         m = extract_tokens(source)
         encoded = encode_sentinels(source, m)
         # Simulate LLM that preserves sentinels verbatim

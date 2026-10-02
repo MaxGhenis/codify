@@ -11,14 +11,14 @@ from codify.pipeline.enrich.akn_meta import normalise_akn_meta, normalise_akn_me
 from codify.pipeline.enrich.validator import validate_akn as advisory_findings
 
 _META = """<meta><identification source="#codify">
- <FRBRWork><FRBRthis value="/akn/ps/act/2007/237/!main"/><FRBRuri value="/akn/ps/act/2007/237"/>
-  <FRBRdate date="2007" name="Generation"/><FRBRauthor href="#codify"/><FRBRcountry value="ps"/></FRBRWork>
- <FRBRExpression><FRBRthis value="/akn/ps/act/2007/237/eng@2026-08-02"/>
-  <FRBRuri value="/akn/ps/act/2007/237/eng@2026-08-02"/>
+ <FRBRWork><FRBRthis value="/akn/xz/act/2007/237/!main"/><FRBRuri value="/akn/xz/act/2007/237"/>
+  <FRBRdate date="2007" name="Generation"/><FRBRauthor href="#codify"/><FRBRcountry value="xz"/></FRBRWork>
+ <FRBRExpression><FRBRthis value="/akn/xz/act/2007/237/eng@2026-08-02"/>
+  <FRBRuri value="/akn/xz/act/2007/237/eng@2026-08-02"/>
   <FRBRdate date="2026-08-02" name="Generation"/><FRBRauthor href="#codify"/>
   <FRBRlanguage language="eng"/></FRBRExpression>
- <FRBRManifestation><FRBRthis value="/akn/ps/act/2007/237/eng@2026-08-02.xml"/>
-  <FRBRuri value="/akn/ps/act/2007/237/eng@2026-08-02.xml"/>
+ <FRBRManifestation><FRBRthis value="/akn/xz/act/2007/237/eng@2026-08-02.xml"/>
+  <FRBRuri value="/akn/xz/act/2007/237/eng@2026-08-02.xml"/>
   <FRBRdate date="2026-08-02" name="Generation"/><FRBRauthor href="#codify"/></FRBRManifestation>
  </identification></meta>"""
 _BODY = '<body><article eId="art_1"><num>1</num><content><p>Body.</p></content></article></body>'
@@ -104,13 +104,13 @@ class TestAnUndatedExpression:
         row disagree with itself. This is the defect the first version shipped."""
         got = normalise_akn_meta(_doc(), work_date="2007-03-17", expression_undated=True)
         assert _uris(got) == [
-            "/akn/ps/act/2007/237/!main",
-            "/akn/ps/act/2007/237",
-            "/akn/ps/act/2007/237/eng@2007-03-17",
-            "/akn/ps/act/2007/237/eng@2007-03-17",
+            "/akn/xz/act/2007/237/!main",
+            "/akn/xz/act/2007/237",
+            "/akn/xz/act/2007/237/eng@2007-03-17",
+            "/akn/xz/act/2007/237/eng@2007-03-17",
             # The manifestation format survives the substitution.
-            "/akn/ps/act/2007/237/eng@2007-03-17.xml",
-            "/akn/ps/act/2007/237/eng@2007-03-17.xml",
+            "/akn/xz/act/2007/237/eng@2007-03-17.xml",
+            "/akn/xz/act/2007/237/eng@2007-03-17.xml",
         ]
 
     def test_a_year_only_work_still_supplies_one(self) -> None:
@@ -118,7 +118,7 @@ class TestAnUndatedExpression:
         from the URI, so the run date would otherwise survive."""
         got = normalise_akn_meta(_doc(), expression_undated=True)
         assert _dates(got)[:2] == ["2007-01-01", "2007-01-01"]
-        assert "/akn/ps/act/2007/237/eng@2007-01-01" in _uris(got)
+        assert "/akn/xz/act/2007/237/eng@2007-01-01" in _uris(got)
 
     def test_the_name_stops_claiming_generation(self) -> None:
         got = normalise_akn_meta(_doc(), expression_undated=True)
@@ -138,7 +138,7 @@ class TestAnUndatedExpression:
         unknown = _doc().replace('<FRBRdate date="2007" ', '<FRBRdate date="0001-01-01" ')
         got = normalise_akn_meta(unknown, expression_undated=True)
         assert _dates(got)[1:] == ["2026-08-02", "2026-08-02"]
-        assert "/akn/ps/act/2007/237/eng@2026-08-02" in _uris(got)
+        assert "/akn/xz/act/2007/237/eng@2026-08-02" in _uris(got)
 
     def test_two_work_dates_are_refused_rather_than_ranked(self) -> None:
         """Document order is not a ranking. Taking the first would read the
@@ -153,14 +153,14 @@ class TestAnUndatedExpression:
         # Work block keeps both of its own; the expression is left where it was
         # rather than taking the generation date under an "Original" label.
         assert _dates(got)[2:] == ["2026-08-02", "2026-08-02"]
-        assert "/akn/ps/act/2007/237/eng@2026-08-02" in _uris(got)
+        assert "/akn/xz/act/2007/237/eng@2026-08-02" in _uris(got)
 
     def test_the_lanes_that_read_a_real_date_are_not_opted_in(self) -> None:
         """FORMEX and native AKN source their own expression date, so the
         default must leave the element exactly as it found it."""
         got = normalise_akn_meta(_doc(), work_date="2007-03-17")
         assert _dates(got)[1:] == ["2026-08-02", "2026-08-02"]
-        assert "/akn/ps/act/2007/237/eng@2026-08-02" in _uris(got)
+        assert "/akn/xz/act/2007/237/eng@2026-08-02" in _uris(got)
 
 
 class TestTheIngestLaneOptsIn:
@@ -178,7 +178,7 @@ class TestTheIngestLaneOptsIn:
 
 class TestAnEmptyWorkDate:
     """The shape a document takes when no year resolved at all, so the work URI
-    has no year segment either. Found by ingesting a real PS scan, not by the
+    has no year segment either. Found by ingesting a real scan, not by the
     bare-year fixtures above."""
 
     _EMPTY = _doc().replace(

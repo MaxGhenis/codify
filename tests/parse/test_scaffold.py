@@ -509,7 +509,7 @@ def test_bluebell_agrees_with_the_boundary() -> None:
 
     def sections(body: str) -> list[str]:
         src = f"PREFACE\n\n  P.\n\nBODY\n\n  SECTION 1\n\n    {body}\n"
-        akn = parse_to_akn(src, country="ph", doctype="act", date="2018-05-28", number="1")
+        akn = parse_to_akn(src, country="xa", doctype="act", date="2018-05-28", number="1")
         return re.findall(r'<section eId="([^"]+)"', akn)
 
     assert sections("Section 6 of the same Act is hereby amended.") == ["sec_1"]

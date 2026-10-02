@@ -36,8 +36,8 @@ class WordList:
     # accepts any letter, right for a Latin-script language on a Latin-script page.
     letter_re: re.Pattern[str] | None = None
     # Floors for `verdict_from_rates`, measured per language and not transferable:
-    # clean Arabic prose runs 91 to 176 per 1,000 where Philippine English runs 213 to
-    # 433. A None lexicon floor means the content-noun tie-break is unusable here, so a
+    # clean Arabic prose runs 91 to 176 per 1,000 where English runs 213 to 433. A
+    # None lexicon floor means the content-noun tie-break is unusable here, so a
     # low-prose document reports no verdict rather than a wrong one.
     prose_floor: float | None = None
     lexicon_floor: float | None = None
@@ -200,16 +200,13 @@ INDONESIAN_WORDS = register(
     )
 )
 
-# English. Carries the Philippine corpus, the largest in the system, and the
-# UK and Irish acts.
+# English.
 ENGLISH_WORDS = register(
     WordList(
         language="eng",
         letter_re=_LATIN_RE,
-        # Measured over 70 Philippine documents: function words p5 309.7, lexicon p5
-        # 15.4, 2 of 127 under the floor. The list is built from document frequency
-        # over that corpus rather than guessed, which a first attempt got wrong: these
-        # statutes write "provisions", not "provision".
+        # Built from document frequency over held statutes rather than guessed: they
+        # write "provisions", not "provision".
         prose_floor=80.0,
         lexicon_floor=12.0,
         function_words=frozenset(

@@ -6,8 +6,19 @@ import pytest
 from pydantic import ValidationError
 
 from codify.jurisdictions import HierarchyEntry
+from codify.pipeline.enrich import anchors as _anchors
 from codify.pipeline.enrich.anchors import _scan_declared_markers, scan_anchors_with_ambiguity
 from codify.pipeline.enrich.scaffold import BodyBlock
+
+
+@pytest.fixture(autouse=True)
+def _fresh_anchor_caches():
+    """Fixture configs stand in for xa; no per-country cache may outlive them."""
+    yield
+    for fn in vars(_anchors).values():
+        if hasattr(fn, "cache_clear"):
+            fn.cache_clear()
+
 
 ENTRIES = [
     HierarchyEntry(

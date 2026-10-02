@@ -6,7 +6,7 @@ phrase, not a provision, so rewording stays free; each ``why`` records its defec
 They live in ``pins/<jurisdiction>.jsonl`` beside this module. A pin is meaningful
 only if its eId resolves, so resolve a new one against a real translation first::
 
-    python -m codify.translate.regression_pins delivered.xml /akn/ps/act/2005/1 eng
+    python -m codify.translate.regression_pins delivered.xml /akn/xa/act/2005/1 eng
 """
 
 from __future__ import annotations

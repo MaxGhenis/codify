@@ -388,7 +388,7 @@ class TestRepairLoopEndToEnd:
         """LLM drops sentinels on first pass; repair loop restores them.
         Final audit reflects perfect recall + repair activity."""
         source = _akn_with_one_article(
-            "Any person who violates Article (12) shall pay 1000 Jordanian Dinars."
+            "Any person who violates Article (12) shall pay 1000 Zerzuran Dinars."
         )
         llm = _DropThenRepairLLM()
         result = await translate_document(
@@ -478,17 +478,17 @@ class TestOCRHeaderBeltAndBraces:
         zero hits because nothing was there to translate."""
         xml = (
             f"<root xmlns='{_AKN_NS}'>"
-            "<p>الوقائع الفلسطينية header</p>"
+            "<p>الوقائع الزرزورية header</p>"
             "<p>substantive prose without any header</p>"
             "</root>"
         )
         root = etree.fromstring(xml.encode())
-        patterns = [r"الوقائع\s+الفلسطينية"]
+        patterns = [r"الوقائع\s+الزرزورية"]
         n = strip_ocr_headers(root, patterns)
         assert n == 1
         # After strip, first paragraph no longer carries the masthead.
-        ps = list(root.iter(f"{{{_AKN_NS}}}p"))
-        assert "الوقائع" not in (ps[0].text or "")
+        paras = list(root.iter(f"{{{_AKN_NS}}}p"))
+        assert "الوقائع" not in (paras[0].text or "")
 
     def test_audit_sweep_catches_survival_when_strip_missed(self):
         """If a translation carries text matching an OCR-header pattern,
@@ -496,14 +496,14 @@ class TestOCRHeaderBeltAndBraces:
         'braces' half of the belt-and-braces design."""
         translated_prose = (
             "Introduction to the Environmental Law\n"
-            "Al-Waqa'i Al-Filastiniyya\n"
+            "Al-Waqa'i Al-Zerzuriyya\n"
             "The Minister shall issue Regulations."
         )
         out = audit_translation(
             "source",
             translated_prose,
             {},
-            header_patterns=[r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Filastiniyya"],
+            header_patterns=[r"Al\s*-?\s*Waqa'?i\s+Al\s*-?\s*Zerzuriyya"],
         )
         assert out["header_bleed_hits"]
 
@@ -511,12 +511,10 @@ class TestOCRHeaderBeltAndBraces:
         """Realistic flow: strip runs on the source AKN, translation
         proceeds on the cleaned bodies, audit sweep finds no bleed."""
         xml = (
-            f"<root xmlns='{_AKN_NS}'>"
-            "<p>الوقائع الفلسطينية prefix substantive prose text</p>"
-            "</root>"
+            f"<root xmlns='{_AKN_NS}'><p>الوقائع الزرزورية prefix substantive prose text</p></root>"
         )
         root = etree.fromstring(xml.encode())
-        patterns = [r"الوقائع\s+الفلسطينية"]
+        patterns = [r"الوقائع\s+الزرزورية"]
         strip_ocr_headers(root, patterns)
         # After strip, a downstream translation of the cleaned p.text
         # would not carry the masthead. The audit sees no bleed.
@@ -565,7 +563,7 @@ class TestHebrewCoverage:
 
 class TestMoneyGroupingSeparators:
     def test_comma_grouped_amount_extracted(self):
-        m = extract_tokens("a fine of 1,000 Jordanian Dinars")
+        m = extract_tokens("a fine of 1,000 Zerzuran Dinars")
         money_tokens = [t for t in m.tokens if t.kind == "money"]
         assert len(money_tokens) == 1
         # Grouping preserved as-is in target surface (digits + . + ,)
@@ -578,7 +576,7 @@ class TestMoneyGroupingSeparators:
         assert money_tokens[0].expected_target_surface == "500.50"
 
     def test_grouped_amount_round_trips_via_sentinel(self):
-        source = "a fine of 1,000.50 Jordanian Dinars"
+        source = "a fine of 1,000.50 Zerzuran Dinars"
         m = extract_tokens(source)
         from codify.translate.numeric_extract import (
             encode_sentinels,

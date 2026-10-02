@@ -275,9 +275,9 @@ class TestUndetectedAmendmentShapeScope:
         assert warns[0]["number"] == 3
 
     def test_arabic_indic_digits_detected(self) -> None:
-        """PS AKN articles carry <num>١</num>, and the
+        """Arabic AKN articles carry <num>١</num>, and the
         check must fold to compare. Pre-fix zero warnings would have been
-        silent on PS corpus."""
+        silent on an Arabic corpus."""
         inner = "".join(
             f'<article eId="art_{i}"><num>{n}</num><content><p>x</p></content></article>'
             for i, n in enumerate(["١", "٢", "٤", "٥", "٣", "٦"], start=1)
@@ -606,12 +606,12 @@ class TestUncitableWorkUri:
         return [i for i in issues if i["check"] == "uncitable_work_uri"]
 
     def test_a_draft_number_is_reported(self) -> None:
-        found = self._findings("/akn/id/judgment/mk/2011/draft-fbf1614f137f")
+        found = self._findings("/akn/xl/judgment/mk/2011/draft-fbf1614f137f")
         assert len(found) == 1
         assert found[0]["severity"] == "warning"
 
     def test_a_citable_uri_is_silent(self) -> None:
-        assert self._findings("/akn/id/judgment/mk/2011/45") == []
+        assert self._findings("/akn/xl/judgment/mk/2011/45") == []
 
     def test_a_component_tail_does_not_fault_a_citable_law(self) -> None:
         """`FRBRthis` appends `/!main`, which shifts the year/number window by

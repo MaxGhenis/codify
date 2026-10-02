@@ -39,7 +39,7 @@ ARABIC_JOINERS = "ـ‌‍"
 JOINER_STRIP_TABLE = str.maketrans("", "", ARABIC_JOINERS)
 _JOINERS = re.compile(f"[{ARABIC_JOINERS}]")
 
-# Arabic-index letter markers. PS gazette OCR emits the visually similar Latin
+# Arabic-index letter markers. Gazette OCR can emit the visually similar Latin
 # letter (`v-`, `w-`, `c-`), collapsing the list identity. Ordered by sequence
 # position, so a rewrite matches how a jurist reads the list.
 _ARABIC_INDEX_LETTERS = ("أ", "ب", "ج", "د", "ه", "و", "ز", "ح", "ط", "ي")

@@ -54,6 +54,8 @@ def synthetic_outline_config(monkeypatch):
 
     original = jurisdictions.load_config
     raw = original("xa").model_dump()
+    # The toy classes below replace xa's; its routing rules would name missing ones.
+    raw["structuring"]["classification_rules"] = []
 
     def level(term, element, kind, numbering, **extra):
         return dict(
@@ -202,9 +204,9 @@ def test_attachment_only_level_gets_a_rank_between_its_neighbours() -> None:
 def test_jurisdictions_without_an_annex_hierarchy_are_unchanged() -> None:
     # No annex level to splice in, so every rank stays a whole number: the
     # fractional ranks above are the only thing that inserts between two.
-    ps = _rank_map_for("xb", "act")
-    assert ps is not None
-    assert sorted(ps.values()) == [float(i) for i in range(len(ps))]
+    ranks = _rank_map_for("xb", "act")
+    assert ranks is not None
+    assert sorted(ranks.values()) == [float(i) for i in range(len(ranks))]
 
 
 def test_an_attachment_declares_no_hierarchy_by_default() -> None:

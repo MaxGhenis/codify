@@ -9,7 +9,7 @@ from codify.pipeline.enrich.notes import emit_authorial_notes
 from codify.pipeline.enrich.regions import Region, RegionVocabulary
 
 NS = {"akn": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"}
-PS_VOCAB = RegionVocabulary(closing_phrases=("صدر بمدينة",))
+ARABIC_VOCAB = RegionVocabulary(closing_phrases=("صدر بمدينة",))
 
 
 def _act(body: str) -> str:
@@ -40,9 +40,9 @@ def _region(kind: str, text: str = "") -> dict[int, list[Region]]:
 ARTICLE_79 = _act(
     """<article eId="art_79"><num>79</num><content>
       <p eId="art_79__p_1">على جميع الجهات المختصة تنفيذ أحكام هذه اللائحة</p>
-      <p eId="art_79__p_2">صدر بمدينة رام الله بتاريخ : ١٢ / ٤ / ٢٠٠٤ ميلادية</p>
+      <p eId="art_79__p_2">صدر بمدينة زرزورة بتاريخ : ١٢ / ٤ / ٢٠٠٤ ميلادية</p>
       <p eId="art_79__p_3">الموافق : ٢٢ / صفر / ١٤٢٥ هجرية</p>
-      <p eId="art_79__p_4">أحمد قريع (أبو علاء)</p>
+      <p eId="art_79__p_4">سالم بن رشيد (أبو فارس)</p>
       <p eId="art_79__p_5">رئيس مجلس الوزراء</p>
     </content></article>"""
 )
@@ -50,12 +50,12 @@ ARTICLE_79 = _act(
 
 class TestConclusions:
     def test_the_final_article_is_left_with_only_its_own_paragraph(self) -> None:
-        root = etree.fromstring(emit_conclusions(ARTICLE_79, vocab=PS_VOCAB).encode())
+        root = etree.fromstring(emit_conclusions(ARTICLE_79, vocab=ARABIC_VOCAB).encode())
         paragraphs = root.findall(".//akn:article/akn:content/akn:p", NS)
         assert [p.get("eId") for p in paragraphs] == ["art_79__p_1"]
 
     def test_the_attestation_becomes_conclusions_after_the_body(self) -> None:
-        root = etree.fromstring(emit_conclusions(ARTICLE_79, vocab=PS_VOCAB).encode())
+        root = etree.fromstring(emit_conclusions(ARTICLE_79, vocab=ARABIC_VOCAB).encode())
         act = root.find("akn:act", NS)
         assert [etree.QName(el).localname for el in act] == [
             "meta",
@@ -65,14 +65,14 @@ class TestConclusions:
 
     def test_place_and_date_are_direct_paragraphs(self) -> None:
         """`<formula>` accepts only enactingFormula and promulgation as its name."""
-        root = etree.fromstring(emit_conclusions(ARTICLE_79, vocab=PS_VOCAB).encode())
+        root = etree.fromstring(emit_conclusions(ARTICLE_79, vocab=ARABIC_VOCAB).encode())
         direct = root.findall(".//akn:conclusions/akn:p", NS)
         assert len(direct) == 2
         assert "صدر بمدينة" in "".join(direct[0].itertext())
 
     def test_the_signatory_is_a_block_container_not_a_signature_element(self) -> None:
         """`<signature>` is reserved for the inline name-block, per the EU lane."""
-        out = emit_conclusions(ARTICLE_79, vocab=PS_VOCAB)
+        out = emit_conclusions(ARTICLE_79, vocab=ARABIC_VOCAB)
         root = etree.fromstring(out.encode())
         block = root.find(".//akn:conclusions/akn:blockContainer", NS)
         assert block is not None and block.get("eId") == "sig_1"
@@ -81,7 +81,7 @@ class TestConclusions:
 
     def test_both_calendars_survive_the_move(self) -> None:
         text = "".join(
-            etree.fromstring(emit_conclusions(ARTICLE_79, vocab=PS_VOCAB).encode())
+            etree.fromstring(emit_conclusions(ARTICLE_79, vocab=ARABIC_VOCAB).encode())
             .find(".//akn:conclusions", NS)
             .itertext()
         )
@@ -89,32 +89,32 @@ class TestConclusions:
 
     def test_a_phrase_broken_across_a_line_still_lifts(self) -> None:
         split = ARTICLE_79.replace("صدر بمدينة", "صدر\nبمدينة")
-        root = etree.fromstring(emit_conclusions(split, vocab=PS_VOCAB).encode())
+        root = etree.fromstring(emit_conclusions(split, vocab=ARABIC_VOCAB).encode())
         paragraphs = root.findall(".//akn:article/akn:content/akn:p", NS)
         assert [p.get("eId") for p in paragraphs] == ["art_79__p_1"]
 
     def test_a_phrase_broken_by_a_blank_line_does_not_lift(self) -> None:
         split = ARTICLE_79.replace("صدر بمدينة", "صدر\n\nبمدينة")
-        assert emit_conclusions(split, vocab=PS_VOCAB) == split
+        assert emit_conclusions(split, vocab=ARABIC_VOCAB) == split
 
     def test_a_document_with_no_closing_phrase_is_untouched(self) -> None:
         plain = _act('<article eId="art_1"><content><p>نص عادي</p></content></article>')
-        assert emit_conclusions(plain, vocab=PS_VOCAB) == plain
+        assert emit_conclusions(plain, vocab=ARABIC_VOCAB) == plain
 
     def test_a_jurisdiction_declaring_no_phrase_is_untouched(self) -> None:
         assert emit_conclusions(ARTICLE_79, vocab=RegionVocabulary()) == ARTICLE_79
 
     def test_running_twice_does_not_produce_two_conclusions(self) -> None:
-        once = emit_conclusions(ARTICLE_79, vocab=PS_VOCAB)
-        assert emit_conclusions(once, vocab=PS_VOCAB) == once
+        once = emit_conclusions(ARTICLE_79, vocab=ARABIC_VOCAB)
+        assert emit_conclusions(once, vocab=ARABIC_VOCAB) == once
 
     def test_a_closing_phrase_quoted_mid_document_is_left_as_prose(self) -> None:
         """Only the final container is considered; an earlier match is a quote."""
         quoted = _act(
-            '<article eId="art_1"><content><p>ورد فيه صدر بمدينة رام الله</p></content></article>'
+            '<article eId="art_1"><content><p>ورد فيه صدر بمدينة زرزورة</p></content></article>'
             '<article eId="art_2"><content><p>نص ختامي</p></content></article>'
         )
-        assert emit_conclusions(quoted, vocab=PS_VOCAB) == quoted
+        assert emit_conclusions(quoted, vocab=ARABIC_VOCAB) == quoted
 
 
 _NOTE_ONE = "¹ عدلت بموجب المادة (٧) من القرار بقانون رقم (٧) لسنة ٢٠١٠"
@@ -199,15 +199,15 @@ class TestAuthorialNotes:
 
 _META = (
     '<meta><identification source="#codify"><FRBRWork>'
-    '<FRBRthis value="/akn/ps/act/2004/39/main"/><FRBRuri value="/akn/ps/act/2004/39"/>'
+    '<FRBRthis value="/akn/xz/act/2004/41/main"/><FRBRuri value="/akn/xz/act/2004/41"/>'
     '<FRBRdate date="2004-04-12" name="Generation"/><FRBRauthor href="#codify"/>'
-    '<FRBRcountry value="ps"/></FRBRWork><FRBRExpression>'
-    '<FRBRthis value="/akn/ps/act/2004/39/ara@2004-04-12/main"/>'
-    '<FRBRuri value="/akn/ps/act/2004/39/ara@2004-04-12"/>'
+    '<FRBRcountry value="xz"/></FRBRWork><FRBRExpression>'
+    '<FRBRthis value="/akn/xz/act/2004/41/ara@2004-04-12/main"/>'
+    '<FRBRuri value="/akn/xz/act/2004/41/ara@2004-04-12"/>'
     '<FRBRdate date="2004-04-12" name="Generation"/><FRBRauthor href="#codify"/>'
     '<FRBRlanguage language="ara"/></FRBRExpression><FRBRManifestation>'
-    '<FRBRthis value="/akn/ps/act/2004/39/ara@2004-04-12/main.xml"/>'
-    '<FRBRuri value="/akn/ps/act/2004/39/ara@2004-04-12.xml"/>'
+    '<FRBRthis value="/akn/xz/act/2004/41/ara@2004-04-12/main.xml"/>'
+    '<FRBRuri value="/akn/xz/act/2004/41/ara@2004-04-12.xml"/>'
     '<FRBRdate date="2004-04-12" name="Generation"/><FRBRauthor href="#codify"/>'
     "</FRBRManifestation></identification></meta>"
 )
@@ -229,12 +229,12 @@ class TestTheSchemaGate:
         source = _valid_act(
             '<article eId="art_79"><num>79</num><content>'
             '<p eId="p1">tail of the article</p>'
-            '<p eId="p2">صدر بمدينة رام الله</p>'
+            '<p eId="p2">صدر بمدينة زرزورة</p>'
             '<p eId="p3">second date line</p>'
             '<p eId="p4">signatory name</p>'
             '<p eId="p5">signatory role</p></content></article>'
         )
-        out = emit_conclusions(source, vocab=PS_VOCAB)
+        out = emit_conclusions(source, vocab=ARABIC_VOCAB)
         # Assert the emission happened, or this only validates the fixture.
         assert "<conclusions" in out
         validate_akn(out, strict=True)
@@ -275,9 +275,9 @@ def test_an_article_emptied_by_the_lift_does_not_survive_as_a_bare_number() -> N
     only_attestation = _act(
         '<article eId="art_1"><num>1</num><content><p>نص عادي</p></content></article>'
         '<article eId="art_2"><num>2</num><content>'
-        "<p>صدر بمدينة رام الله</p></content></article>"
+        "<p>صدر بمدينة زرزورة</p></content></article>"
     )
-    out = emit_conclusions(only_attestation, vocab=PS_VOCAB)
+    out = emit_conclusions(only_attestation, vocab=ARABIC_VOCAB)
     root = etree.fromstring(out.encode())
     assert [a.get("eId") for a in root.findall(".//akn:article", NS)] == ["art_1"]
 
@@ -338,7 +338,7 @@ class TestTextIsMovedNeverLost:
         cited = _act(
             '<article eId="art_1"><num>1</num><content>'
             "<p>Operative text.</p>"
-            '<p>¹ Amended by <ref href="/akn/ps/act/2004/9">Law 9 of 2004</ref>.</p>'
+            '<p>¹ Amended by <ref href="/akn/xz/act/2004/9">Law 9 of 2004</ref>.</p>'
             "</content></article>"
         )
         out = emit_authorial_notes(
@@ -355,10 +355,10 @@ class TestTextIsMovedNeverLost:
         with_tail = (
             '<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">'
             '<act name="act"><meta/><body>'
-            '<article eId="art_1"><content><p>صدر بمدينة رام الله</p></content>KEEP-ME</article>'
+            '<article eId="art_1"><content><p>صدر بمدينة زرزورة</p></content>KEEP-ME</article>'
             "</body></act></akomaNtoso>"
         )
-        assert "KEEP-ME" in emit_conclusions(with_tail, vocab=PS_VOCAB)
+        assert "KEEP-ME" in emit_conclusions(with_tail, vocab=ARABIC_VOCAB)
 
     def test_a_provision_that_merely_quotes_the_phrase_keeps_its_text(self) -> None:
         """The final provision is exactly where the phrasing lives, so a match
@@ -370,7 +370,7 @@ class TestTextIsMovedNeverLost:
             "this law and to any body that succeeds one of them.</p>"
             "</content></article>"
         )
-        assert emit_conclusions(quoting, vocab=PS_VOCAB) == quoting
+        assert emit_conclusions(quoting, vocab=ARABIC_VOCAB) == quoting
 
     def test_a_scan_separator_rule_does_not_hide_the_marker(self) -> None:
         """The OCR prints the footnote rule as leading underscores, which an
@@ -396,7 +396,7 @@ class TestTextIsMovedNeverLost:
         a target is found; otherwise the skip path leaves a gutted paragraph."""
         alone = _act(
             '<article eId="art_1"><num>1</num><intro>'
-            '<p>¹ Amended by <ref href="/akn/ps/act/1999/5">Law 5 of 1999</ref>.</p>'
+            '<p>¹ Amended by <ref href="/akn/xz/act/1999/5">Law 5 of 1999</ref>.</p>'
             "</intro></article>"
         )
         out = emit_authorial_notes(
@@ -410,18 +410,18 @@ class TestTextIsMovedNeverLost:
         assert "Law 5 of 1999" in "".join(root.find(".//akn:intro", NS).itertext())
 
     def _signatory(self, body: str) -> list[str | None]:
-        block = etree.fromstring(emit_conclusions(_act(body), vocab=PS_VOCAB).encode()).find(
+        block = etree.fromstring(emit_conclusions(_act(body), vocab=ARABIC_VOCAB).encode()).find(
             ".//akn:blockContainer", NS
         )
         assert block is not None
         return [p.text for p in block]
 
     def test_a_second_calendar_line_does_not_displace_the_signatory(self) -> None:
-        """PS attestation prints both the Gregorian and the Hijri date, so the
+        """An attestation can print both the Gregorian and the Hijri date, so the
         name and role are neither the first pair nor at a fixed offset."""
         assert self._signatory(
             '<article eId="art_79"><num>79</num><content>'
-            "<p>صدر بمدينة Ramallah on 12 / 4 / 2004</p>"
+            "<p>صدر بمدينة Zerzura on 12 / 4 / 2004</p>"
             "<p>corresponding to 22 / Safar / 1425</p>"
             "<p>SIGNATORY-NAME</p><p>SIGNATORY-ROLE</p>"
             "</content></article>"
@@ -432,7 +432,7 @@ class TestTextIsMovedNeverLost:
         would otherwise be grouped and tagged as the signatory's role."""
         assert self._signatory(
             '<article eId="art_79"><num>79</num><content>'
-            "<p>صدر بمدينة Ramallah on 12 April 2004</p>"
+            "<p>صدر بمدينة Zerzura on 12 April 2004</p>"
             "<p>SIGNATORY-NAME</p><p>SIGNATORY-ROLE</p><p>issue 88 page 12</p>"
             "</content></article>"
         ) == ["SIGNATORY-NAME", "SIGNATORY-ROLE"]
@@ -447,7 +447,7 @@ class TestDownstreamKeepsNotesApart:
         '<article eId="art_1"><num>1</num><content>'
         '<p eId="art_1__p_1">Operative text.'
         '<authorialNote eId="fn_1" placement="bottom">'
-        '<p>Amended by <ref href="/akn/ps/act/2010/7">Decree-Law 7 of 2010</ref>.</p>'
+        '<p>Amended by <ref href="/akn/xz/act/2010/7">Decree-Law 7 of 2010</ref>.</p>'
         "</authorialNote></p>"
         "</content></article>"
         "</body></act></akomaNtoso>"
@@ -462,7 +462,7 @@ class TestDownstreamKeepsNotesApart:
         assert p is not None
         notes = [n for n in _walk_inline(p) if isinstance(n, InlineNote)]
         assert len(notes) == 1
-        assert any(getattr(c, "href", None) == "/akn/ps/act/2010/7" for c in notes[0].children)
+        assert any(getattr(c, "href", None) == "/akn/xz/act/2010/7" for c in notes[0].children)
 
     def test_the_translator_is_not_handed_the_footnote(self) -> None:
         from codify.translate.anchors import provision_text

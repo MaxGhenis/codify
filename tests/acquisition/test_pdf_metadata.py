@@ -104,7 +104,7 @@ def test_scanned_style_pdf_has_page_count_but_sparse_info_dict():
 
 def test_digital_source_pdf_populates_producer_and_creation_date():
     """A born-digital PDF carries the info-dict fields the scan lacks, the
-    OCR-vs-digital contrast the real PS/UA fixtures used to exercise."""
+    OCR-vs-digital contrast scanned fixtures used to exercise."""
     out = extract_pdf_metadata(_digital_source_pdf())
     assert out.get("page_count") == 1
     assert out.get("pdf_producer") == "Codify Synthetic Composer"

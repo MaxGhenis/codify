@@ -57,7 +57,7 @@ def _context() -> TelemetryContext:
         run_id="run-1",
         workflow_kind="translation",
         langfuse_trace_id="a" * 32,
-        jurisdiction="ps",
+        jurisdiction="xz",
         actor_id="actor@example.com",
         session_id="session-1",
         release="v1.2.3",
@@ -68,8 +68,8 @@ def test_make_run_telemetry_is_deterministic(monkeypatch: Any) -> None:
     client = _Client()
     monkeypatch.setattr("langfuse.get_client", lambda: client)
 
-    one = make_run_telemetry("run-1", "ingest", {"jurisdiction_code": "ps"})
-    two = make_run_telemetry("run-1", "ingest", {"jurisdiction_code": "ps"})
+    one = make_run_telemetry("run-1", "ingest", {"jurisdiction_code": "xz"})
+    two = make_run_telemetry("run-1", "ingest", {"jurisdiction_code": "xz"})
 
     assert one.langfuse_trace_id == two.langfuse_trace_id == "trace:run-1"
 
@@ -84,7 +84,7 @@ def test_proxy_headers_use_existing_trace_and_parent(monkeypatch: Any) -> None:
     assert headers["langfuse_parent_observation_id"] == "b" * 16
     assert headers["langfuse_run_id"] == "run-1"
     assert headers["langfuse_workflow_kind"] == "translation"
-    assert headers["langfuse_jurisdiction"] == "ps"
+    assert headers["langfuse_jurisdiction"] == "xz"
     assert headers["langfuse_actor_id"] == "actor@example.com"
     assert headers["langfuse_codify_session_id"] == "session-1"
     assert "langfuse_trace_id" not in headers
@@ -228,7 +228,7 @@ def test_the_workspace_is_tagged_so_cost_can_be_split_by_it(
         run_id="run-1",
         workflow_kind="ingest",
         langfuse_trace_id="trace-1",
-        jurisdiction="ps",
+        jurisdiction="xz",
         org_id="7f69c0c5-9d39-4fed-a364-9786769ac754",
     )
     with bind_telemetry(context):
@@ -236,7 +236,7 @@ def test_the_workspace_is_tagged_so_cost_can_be_split_by_it(
 
     assert captured["tags"] == [
         "workflow:ingest",
-        "jurisdiction:ps",
+        "jurisdiction:xz",
         "organisation:7f69c0c5-9d39-4fed-a364-9786769ac754",
     ]
 
@@ -286,14 +286,14 @@ def test_a_pipeline_stage_adds_tags_without_dropping_the_workspace(
             run_id="run-1",
             workflow_kind="ingest",
             langfuse_trace_id="t",
-            jurisdiction="ps",
+            jurisdiction="xz",
             org_id="org-1",
         )
     ):
         # What pipeline/formats/pdf.py stamps once it reaches the document.
-        attach_trace_attribution(object(), tags=["jurisdiction:ps", "pipeline:ingest"])
+        attach_trace_attribution(object(), tags=["jurisdiction:xz", "pipeline:ingest"])
 
     tags = json.loads(span.attributes["langfuse.trace.tags"])
     assert "pipeline:ingest" in tags, "the caller's own tag must survive"
     assert "organisation:org-1" in tags, "the workspace must not be dropped"
-    assert tags.count("jurisdiction:ps") == 1, "a tag both sides carry is not duplicated"
+    assert tags.count("jurisdiction:xz") == 1, "a tag both sides carry is not duplicated"

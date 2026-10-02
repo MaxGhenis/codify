@@ -84,7 +84,7 @@ class TestAttachmentUnits:
 
         base = parse_to_akn(
             "BODY\n  ARTICLE 1\n    نص المادة.\n",
-            country="ps",
+            country="xz",
             doctype="act",
             date="2016",
             number="18",
@@ -141,7 +141,7 @@ class TestBarePAttachment:
 
         base = parse_to_akn(
             "BODY\n  ARTICLE 1\n    نص المادة.\n",
-            country="ps",
+            country="xz",
             doctype="act",
             date="2016",
             number="18",

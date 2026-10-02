@@ -46,8 +46,8 @@ def set_work_uri(
     act = Act(akn_xml)
     # Every `<identification>`, not just the root's: Cobalt's setter rewrites each
     # component's blocks from the generation-date-and-stale-language source this
-    # exists to stop trusting. Correcting only the root left 58 of 60 multi-component
-    # ps documents asserting two expressions of one work, at two dates, with
+    # exists to stop trusting. Correcting only the root left most multi-component
+    # documents asserting two expressions of one work, at two dates, with
     # `/!schedule1` no longer resolving. `write.py:_patch_frbr_meta` walks them all.
     saved = [_snapshot(el) for el in _identifications(act)]
 
@@ -196,7 +196,7 @@ def enrich_akn(
 
     # Canonical work URI, doctype-keyed so a VKM never collides with a ligj. A
     # year-less document still gets one from `build_frbr_work_uri`: Bluebell mints
-    # `/akn/ps/act//draft-x` for an
+    # `/akn/xz/act//draft-x` for an
     # empty date, and declining to overwrite is how that gap reaches storage.
     if work_uri:
         try:

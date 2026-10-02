@@ -39,7 +39,7 @@ def test_a_script_with_no_pack_returns_none() -> None:
 
 
 def test_the_config_declaration_selects_the_pack() -> None:
-    assert pack_for_config(load_config("ps")) is ARABIC
+    assert pack_for_config(load_config("xz")) is ARABIC
     assert pack_for_config(load_config("gb")) is None
 
 
@@ -51,8 +51,8 @@ def test_content_is_the_fallback_when_the_config_declares_no_pack() -> None:
 
 
 def test_the_config_wins_over_the_content() -> None:
-    """A PS act quoting an English treaty is still a PS act."""
-    assert resolve_pack(load_config("ps"), "This Agreement shall enter into force") is ARABIC
+    """An Arabic act quoting an English treaty is still an Arabic act."""
+    assert resolve_pack(load_config("xz"), "This Agreement shall enter into force") is ARABIC
 
 
 def test_detection_ignores_a_stray_word() -> None:
@@ -108,7 +108,7 @@ def test_an_arabic_jurisdiction_runs_it(monkeypatch) -> None:  # type: ignore[no
         return original(text, apply_arabic_only=apply_arabic_only)
 
     monkeypatch.setattr(module, "normalise_arabic_text", spy)
-    normalise_arabic_in_tree(_doc("المادة (1) من هذا القانون"), country="ps")
+    normalise_arabic_in_tree(_doc("المادة (1) من هذا القانون"), country="xz")
     assert seen == [True]
 
 

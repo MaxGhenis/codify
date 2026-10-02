@@ -95,7 +95,7 @@ def is_lifted_note(el: etree._Element) -> bool:
 # Bluebell and the FORMEX converter derive these from a `<blockList>`, so the count
 # tracks prose reflow, not legal structure: recovering list punctuation invents them,
 # resolving a split list back into prose removes them, and neither is a loss. `point`
-# is absent deliberately, an Indonesian huruf being a numbered unit whose loss is real.
+# is absent deliberately: a lettered point is a numbered unit whose loss is real.
 LIST_RENDERING_TAGS = frozenset({"item", "indent"})
 
 
@@ -150,7 +150,7 @@ def basic_unit_numbers(root: etree._Element) -> frozenset[str]:
         if not isinstance(el.tag, str):
             continue
         name = local_name(el.tag)
-        # article/section/rule, plus a named hcontainer that carries law (a PS
+        # article/section/rule, plus a named hcontainer that carries law (a
         # mukrrar bis article); the bare generic wrapper is skipped.
         if name not in _BASIC_UNIT_KINDS and is_generic_container(name, el.get("name")):
             continue

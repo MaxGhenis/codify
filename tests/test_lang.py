@@ -44,7 +44,7 @@ def test_eu_official_languages_fold():
 def test_locale_tags_fold_on_primary_subtag():
     assert to_iso639_3("en-US") == "eng"
     assert to_iso639_3("uk_UA") == "ukr"
-    assert to_iso639_3("ar-PS") == "ara"
+    assert to_iso639_3("ar-EG") == "ara"
 
 
 def test_off_table_three_letter_passes_with_warning():
