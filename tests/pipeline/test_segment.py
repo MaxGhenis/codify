@@ -999,3 +999,55 @@ def test_an_issue_heading_quoted_across_pages_is_not_a_boundary(
     issue += pages[1:]
     found = list(segment_volume(_pages([issue]), config=config))
     assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, len(issue))]
+
+
+def test_a_quoted_contents_listing_lists_nothing(config: JurisdictionConfig) -> None:
+    """A form quoted in the body that carries its own contents block is cited text."""
+    first = ["- 1 -", "", *_act(3, "THE HARBOUR DUES ACT", 3)]
+    first += ["The form reads: “", "Contents", "", "ACT No. 4 OF 2020 The ... Act"]
+    first += ["of the Assembly ............ 2", "”", "", *_signed()]
+    second = ["- 2 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()]
+    text, spans = _join([first, second])
+    result = segment(text, spans, config=config)
+    assert [r for r in result.reconciliation if r.source == "contents"] == []
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_a_quoted_section_does_not_restart_the_numbering(config: JurisdictionConfig) -> None:
+    """An inserted section quoted under the next heading is not that act's first."""
+    lines = _act(3, "THE HARBOUR DUES ACT", 3)
+    lines += ["ACT No. 4 OF 2020", "THE AMENDING ACT", "", "It inserts: “"]
+    lines += ["Section 1. New duty", "”", "Section 4. Duty 4", ""]
+    text, spans = _join([lines])
+    row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
+    assert (row.status, row.signals) == ("citation", ())
+
+
+def test_a_closing_opening_a_quoted_line_is_not_a_closing(config: JurisdictionConfig) -> None:
+    first = _act(3, "THE HARBOUR DUES ACT", 3)
+    first += ["The seal reads: “", f"{CLOSING}.", "”", ""]
+    second = _act(4, "THE LIGHTHOUSE ACT", 3)
+    second[second.index("Section 1. Duty 1")] = "Section 4. Duty 4"
+    text, spans = _join([first + second])
+    row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
+    assert (row.status, row.signals) == ("citation", ())
+
+
+def test_a_quoted_issue_heading_does_not_name_the_first_issue(
+    config: JurisdictionConfig,
+) -> None:
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[0] = ["It replaces “", "ISSUE No. 9", "”", *issue[0]]
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [i.key for i in found] == ["11"]
+
+
+def test_an_issue_closing_in_a_quote_opened_pages_before_is_not_a_closing(
+    config: JurisdictionConfig,
+) -> None:
+    pages = [["ISSUE No. 11", ""], _act(1, "THE FERRIES ACT", 3) + ["The seal reads: “"]]
+    pages.append([f"{CLOSING}.", "”"])
+    pages.append(["Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"])
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [i.key for i in found] == ["11"]
+    assert _issue_citations(found[0]) == [("ISSUE No. 12", 4)]

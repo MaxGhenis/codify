@@ -254,6 +254,7 @@ def _contents(
     headings: Sequence[_Heading],
     markers: Sequence[_Marker],
     pages: _Pages,
+    country: str,
 ) -> tuple[list[tuple[int, int]], list[_Entry]]:
     """Contents listings and their entries. A listing ends at the first heading a
     numbered provision follows, the body's own, or where the earliest page it names
@@ -270,7 +271,7 @@ def _contents(
     listed = [m.offset for m in markers if _leads_to_page(text, m.offset, pages)]
     as_entries = set(listed)
     body = [m for m in markers if m.offset not in as_entries]
-    for found in keyword.finditer(text):
+    for found in _live(keyword.finditer(text), text, country):
         if _within(found.start(), blocks):
             continue
         end = len(text)
@@ -336,13 +337,9 @@ def _markers(text: str, config: JurisdictionConfig, doctype: str) -> list[_Marke
         return []
     regex = build_anchor_regex(config, doctype)
     markers: list[_Marker] = []
-    for match in regex.finditer(text):
+    for match in _live(regex.finditer(text), text, config.code):
         at = match.start() + len(match.group(0)) - len(match.group(0).lstrip())
-        if (
-            _kind_from_match(match) != kind
-            or _quoted(text, at, config.code)
-            or _cited(text, match, config)
-        ):
+        if _kind_from_match(match) != kind or _cited(text, match, config):
             continue
         num = _repair_damaged_num(match) if "num" in match.groupdict() else None
         markers.append(_Marker(at, _normalise_number(num)))
@@ -428,6 +425,25 @@ def _quoted(text: str, at: int, country: str) -> bool:
     return at < len(text) and _quote_mask(text, country)[at]
 
 
+def _live(
+    matches: Iterable[re.Match[str]], text: str, country: str, shift: int = 0
+) -> Iterator[re.Match[str]]:
+    """Matches outside a closed quotation, judged at their first non-space character;
+    `shift` places the searched string inside `text`, the quote context."""
+    for match in matches:
+        at = match.start() + len(match.group(0)) - len(match.group(0).lstrip())
+        if not _quoted(text, shift + at, country):
+            yield match
+
+
+def _found(
+    pattern: re.Pattern[str], text: str, country: str, start: int = 0, stop: int | None = None
+) -> bool:
+    """Whether `pattern` matches live text in `text[start:stop]`."""
+    hits = pattern.finditer(text, start, len(text) if stop is None else stop)
+    return next(_live(hits, text, country), None) is not None
+
+
 @lru_cache(maxsize=1)
 def _quote_mask(text: str, country: str) -> tuple[bool, ...]:
     return _closed_quote_mask(text, country)
@@ -457,7 +473,7 @@ def segment(
     pages = _Pages(text, spans, furniture or {}, printed)
     headings = _headings(text, _heading_patterns(rules.act_heading_patterns), pages)
     markers = _markers(text, config, doctype or config.default_document_class)
-    blocks, entries = _contents(text, rules, headings, markers, pages)
+    blocks, entries = _contents(text, rules, headings, markers, pages, config.code)
     candidates = [h for h in headings if not _within(h.start, blocks)]
     # A provision a listing names is an entry: it neither opens nor numbers the body.
     markers = [m for m in markers if not _within(m.offset, blocks)]
@@ -549,24 +565,26 @@ def _veto(
         return "inside a quotation"
     if open_heading is not None and heading.key == open_heading.key:
         return "repeats the open act's own heading"
-    window = text[max(0, heading.start - VETO_WINDOW) : heading.start]
-    if rules.adoption is not None and rules.adoption.search(window):
+    lo, country = max(0, heading.start - VETO_WINDOW), rules.country
+    if rules.adoption is not None and _found(rules.adoption, text, country, lo, heading.start):
         return "follows a declaration adopting another text"
-    if rules.caption is not None and rules.caption.search(window):
+    if rules.caption is not None and _found(rules.caption, text, country, lo, heading.start):
         return "follows an attachment caption"
     if rules.enacting is not None and open_heading is not None:
         # Each bounded by the heading after it, or one act's formula stands in for another's.
-        opened = _opening_region(text, open_heading.start, heading.start, markers)
-        here = _opening_region(text, heading.start, following, markers)
-        if rules.enacting.search(opened) and not rules.enacting.search(here):
+        opened = _opening_region(open_heading.start, heading.start, markers, len(text))
+        here = _opening_region(heading.start, following, markers, len(text))
+        if _found(rules.enacting, text, country, *opened) and not _found(
+            rules.enacting, text, country, *here
+        ):
             return "carries no enacting formula where the act before it does"
     return ""
 
 
-def _opening_region(text: str, start: int, stop: int, markers: list[_Marker]) -> str:
+def _opening_region(start: int, stop: int, markers: list[_Marker], length: int) -> tuple[int, int]:
     """From a heading to its first numbered provision, or `stop` before one."""
-    first = next((m.offset for m in markers if m.offset > start), len(text))
-    return text[start : min(first, stop)]
+    first = next((m.offset for m in markers if m.offset > start), length)
+    return start, min(first, stop)
 
 
 def _signals(
@@ -582,10 +600,8 @@ def _signals(
     before = [m for m in markers if previous <= m.offset < heading.start]
     if rules.closing is not None:
         lo = before[-1].offset if before else previous
-        for match in rules.closing.finditer(text, lo, heading.start):
-            if not _quoted(text, match.start(), rules.country):
-                signals.append("closing")
-                break
+        if _found(rules.closing, text, rules.country, lo, heading.start):
+            signals.append("closing")
     after = next((m for m in markers if heading.start <= m.offset < following), None)
     reached = [n for m in before if (n := _roman_or_digit(m.number)) is not None]
     restarts = after is not None and _roman_or_digit(after.number) == 1
@@ -789,7 +805,7 @@ def segment_volume(
             # Decided once the next page is read: a restart or a closing quote may show there.
             waiting = (page, found)
             continue
-        match = next((m for m in found if not _quoted(page.text, m.start(), config.code)), None)
+        match = next(_live(found, page.text, config.code), None)
         if match is not None:
             issue.heading, issue.key = _line(page.text, match), _key(match)
         issue.pages.append(page)
@@ -813,9 +829,7 @@ def _settle(
     absorb it. Quote state reads the whole open issue and the page after."""
     prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
     context = prefix + page.text + (PAGE_SEPARATOR + after.text if after else "")
-    match = next(
-        (m for m in found if not _quoted(context, len(prefix) + m.start(), config.code)), None
-    )
+    match = next(_live(found, context, config.code, len(prefix)), None)
     if match is None:
         issue.pages.append(page)
         return issue
@@ -824,7 +838,9 @@ def _settle(
     signals: list[str] = []
     if _bare(page.text[: page.text.rfind("\n", 0, match.start()) + 1], printed):
         signals.append("page_start")
-    if _closes(issue_pages[-1].text, closing, config, doctype):
+    # The page before, read in the open issue's quote context.
+    end = len(prefix) - len(PAGE_SEPARATOR)
+    if _closes(context, end - len(issue_pages[-1].text), end, closing, config, doctype):
         signals.append("closing")
     seen = [
         n for p in issue_pages if (n := _printed_number(p.text, p.furniture, printed)) is not None
@@ -885,14 +901,20 @@ def _issue_headings(
 
 
 def _closes(
-    text: str, closing: re.Pattern[str] | None, config: JurisdictionConfig, doctype: str | None
+    context: str,
+    start: int,
+    end: int,
+    closing: re.Pattern[str] | None,
+    config: JurisdictionConfig,
+    doctype: str | None,
 ) -> bool:
-    """An unquoted closing after the page's last numbered provision, as for acts."""
+    """An unquoted closing after the last numbered provision of the page at
+    `context[start:end]`, as for acts."""
     if closing is None:
         return False
-    markers = _markers(text, config, doctype or config.default_document_class)
-    lo = markers[-1].offset if markers else 0
-    return any(not _quoted(text, m.start(), config.code) for m in closing.finditer(text, lo))
+    markers = _markers(context[start:end], config, doctype or config.default_document_class)
+    lo = start + (markers[-1].offset if markers else 0)
+    return _found(closing, context, config.code, lo, end)
 
 
 def _line(text: str, match: re.Match[str]) -> str:
