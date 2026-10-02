@@ -1485,11 +1485,15 @@ def test_a_page_mismatch_holds_from_the_listed_page_to_the_heading(
     assert [(h.first_page, h.last_page) for h in result.held] == [(2, 2), (3, 4)]
 
 
+@pytest.mark.parametrize(
+    "lead",
+    [pytest.param([], id="heading-opens-page"), pytest.param(["Notice."], id="heading-mid-page")],
+)
 def test_a_listed_act_is_matched_at_its_listed_page_not_at_a_mention(
-    config: JurisdictionConfig,
+    config: JurisdictionConfig, lead: list[str]
 ) -> None:
     """A prose line naming act 4 on page 2 leaves the entry to act 4's heading on
-    page 3, where the contents lists it."""
+    page 3, where the contents lists it, whether or not that heading opens the page."""
     contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
     first = _act(3, "THE HARBOUR DUES ACT", 3)
     first[first.index("Section 2. Duty 2") : first.index("Section 2. Duty 2")] = [
@@ -1499,7 +1503,7 @@ def test_a_listed_act_is_matched_at_its_listed_page_not_at_a_mention(
     pages = [
         contents,
         ["- 2 -", "", *first, *_signed()],
-        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+        ["- 3 -", "", *lead, *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
     ]
     text, spans = _join(pages)
     result = segment(text, spans, config=config)
@@ -1511,3 +1515,28 @@ def test_a_listed_act_is_matched_at_its_listed_page_not_at_a_mention(
         ("heading", "heading_only", 2),
         ("heading", "matched", 3),
     ]
+
+
+def test_off_its_listed_page_the_heading_opening_a_page_claims_the_entry(
+    config: JurisdictionConfig,
+) -> None:
+    """Listed at page 4, named on pages 2 and 3: the heading opening page 3 is the
+    act's, and its page mismatch is what holds, not the mention's."""
+    contents = _contents_page(
+        [("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 4), ("ACT No. 5 OF 2020", 4)]
+    )
+    first = _act(3, "THE HARBOUR DUES ACT", 3)
+    first[first.index("Section 2. Duty 2") : first.index("Section 2. Duty 2")] = [
+        "ACT No. 4 OF 2020 follows below.",
+        "",
+    ]
+    pages = [
+        contents,
+        ["- 2 -", "", *first, *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+        ["- 4 -", "", *_act(5, "THE BUOYS ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    rows = [(r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [("heading_only", 2), ("page_mismatch", 3), ("page_mismatch", 4)]
