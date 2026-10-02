@@ -946,11 +946,15 @@ def _settle(
     if seen and any(b < a for a, b in pairwise([seen[-1], *fresh])):
         shared.append("restart")
     # One heading per act named, each with the evidence that is its own.
+    own = {id(m): _own_signals(page.text, m, printed, seen[-1] if seen else None) for m in matches}
+    # Per act named, the first heading with evidence of its own, else its first.
     distinct: list[re.Match[str]] = []
     for m in matches:
-        if all(_key(m) != _key(d) for d in distinct):
+        same = next((i for i, d in enumerate(distinct) if _key(d) == _key(m)), None)
+        if same is None:
             distinct.append(m)
-    own = {id(m): _own_signals(page.text, m, printed, seen[-1] if seen else None) for m in distinct}
+        elif own[id(m)] and not own[id(distinct[same])]:
+            distinct[same] = m
     backed = [m for m in distinct if own[id(m)]]
     if len(distinct) > 1 and len(backed) != 1 and (shared or backed):
         labels = " and ".join(repr(_line(page.text, m)) for m in distinct)

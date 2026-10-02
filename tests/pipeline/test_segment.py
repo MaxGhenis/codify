@@ -1415,3 +1415,17 @@ def test_two_issue_headings_nothing_tells_apart_hold_the_issue(
     held = found[0].segmentation
     assert held.outcome == "abstained"
     assert "'ISSUE No. 9 lapses.' and 'ISSUE No. 12'" in held.held[0].reason
+
+
+def test_the_heading_with_its_own_evidence_stands_for_its_issue(
+    config: JurisdictionConfig,
+) -> None:
+    """A citation naming issue 12 above its real heading does not displace it."""
+    issue = _two_issue_headings(["- 1 -"])
+    issue[-1][1] = "ISSUE No. 12 follows."
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.heading, i.first_page) for i in found] == [
+        ("11", "ISSUE No. 11", 1),
+        ("12", "ISSUE No. 12", 3),
+    ]
+    assert found[1].signals == ("restart", "closing")
