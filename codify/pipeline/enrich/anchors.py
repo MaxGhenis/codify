@@ -1409,6 +1409,9 @@ def scan_anchors_with_ambiguity(
     fires["declare_orphaned_drops"] = sum(
         1 for sp in spans if sp.emitted_by == "declare_orphaned_drops"
     )
+    mark = len(spans)
+    _declare_act_boundary_suspected(text, raw, spans, country)
+    fires["declare_act_boundary_suspected"] = len(spans) - mark
     assigned = _assign_eids(raw, rank_map, spans, _abbrev_map_for(country, doctype))
     # eIds assigned, not collisions raised: this pass runs on every document and
     # a zero here would read as dead code in a table read for deletions.
@@ -3846,7 +3849,7 @@ def _declare_orphaned_drops(
     if not dropped:
         return
     dropped_starts = {s.start for s in dropped}
-    boundaries = sorted({*(a.char_offset for a in anchors), *dropped_starts})
+    boundaries = _drop_boundaries(anchors, dropped)
     # The rhythm of the undisturbed document, so a gap opened by a drop does not
     # enter the median it is about to be compared against. In a document with
     # few anchors the orphaned gap would otherwise dominate its own denominator
@@ -3876,6 +3879,59 @@ def _declare_orphaned_drops(
                     "orphaned_chars": orphaned,
                     "median_gap": round(median),
                     "ratio": round(orphaned / median, 1) if median else None,
+                },
+            )
+        )
+
+
+def _drop_boundaries(anchors: list[StructuralAnchor], dropped: list[AmbiguitySpan]) -> list[int]:
+    """Offsets that end a dropped marker's run: survivors and other drops alike."""
+    return sorted({*(a.char_offset for a in anchors), *(s.start for s in dropped)})
+
+
+def _declare_act_boundary_suspected(
+    text: str, anchors: list[StructuralAnchor], spans: list[AmbiguitySpan], country: str
+) -> None:
+    """A fold whose run closes one instrument and opens another: two acts numbered
+    from 1 read as one, and keep-last took the earlier. Declared, never undone."""
+    from codify.pipeline.enrich.closing import _phrase_pattern, closing_phrases_for
+
+    config = load_config(country) if country else None
+    segmentation = config.segmentation if config is not None else None
+    headings = segmentation.act_heading_patterns if segmentation is not None else []
+    phrases = [p for p in closing_phrases_for(country) if p.strip()]
+    folds = [s for s in spans if s.emitted_by == "drop_toc_duplicates"]
+    if not headings or not phrases or not folds:
+        return
+    # Anywhere on a line: a closing phrase opening its own line ends the body
+    # before the fold runs, so a fold only ever sees one that does not.
+    closing = re.compile("|".join(map(_phrase_pattern, phrases)))
+    heading = re.compile("(?m)^[ \t]*(?:" + "|".join(f"(?:{h})" for h in headings) + ")")
+    boundaries = _drop_boundaries(anchors, [s for s in spans if s.emitted_by.startswith("drop_")])
+    quoted: tuple[bool, ...] | None = None
+    for fold in folds:
+        end = next((o for o in boundaries if o > fold.start), len(text))
+        shut = closing.search(text, fold.start, end)
+        opened = heading.search(text, shut.end(), end) if shut else None
+        if shut is None or opened is None:
+            continue
+        if quoted is None:
+            quoted = _closed_quote_mask(text, country)
+        if quoted[shut.end() - 1] or quoted[opened.end() - 1]:
+            continue
+        line_end = text.find("\n", opened.start(), end)
+        spans.append(
+            AmbiguitySpan(
+                kind="act_boundary_suspected",
+                start=fold.start,
+                end=end,
+                emitted_by="declare_act_boundary_suspected",
+                detail={
+                    "number": fold.detail.get("number"),
+                    "closing_at": shut.start(),
+                    "heading_at": opened.start(),
+                    "heading": text[opened.start() : line_end if line_end >= 0 else end].strip(),
+                    "orphaned_chars": end - fold.start,
                 },
             )
         )

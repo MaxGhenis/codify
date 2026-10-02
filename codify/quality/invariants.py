@@ -22,6 +22,7 @@ AMBIGUITY_KINDS: tuple[str, ...] = (
     "untwinned_tail",
     "adoption_suppressed",
     "tail_excluded",
+    "act_boundary_suspected",
 )
 
 # `toc_without_body` is absent on purpose: a cover-listed unit still yields an
@@ -32,7 +33,7 @@ AMBIGUITY_KINDS: tuple[str, ...] = (
 # `untwinned_tail` is absent for a different reason: its own gate in the structurer
 # decides what happens, and under the landing policy that is a blocking halt rather
 # than a refusal. Counting it here as well would price one finding twice.
-BLOCKING_KINDS: frozenset[str] = frozenset({"duplicate_number"})
+BLOCKING_KINDS: frozenset[str] = frozenset({"duplicate_number", "act_boundary_suspected"})
 
 
 # Repair edits the AKN, so a gate whose loss is not in the AKN must say so, or
@@ -49,6 +50,10 @@ _REMEDIES = {
     "markers_masked": (
         "Landed rather than refused; the hidden provisions were never anchored, "
         "so the route is the source text and its unclosed quote, not the AKN."
+    ),
+    "act_boundary_suspected": (
+        "Landed rather than refused; the source reads as two acts, so the route is "
+        "splitting the source, not repair."
     ),
     "body_fill_failed": (
         "Landed rather than refused; no model call wrote a body, so the route is "

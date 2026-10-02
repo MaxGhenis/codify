@@ -1227,6 +1227,7 @@ export interface components {
             public_reference: boolean;
             /** Residual Legal Systems */
             residual_legal_systems?: components["schemas"]["ResidualLaw"][];
+            segmentation?: components["schemas"]["SegmentationConfig"] | null;
             /** Source Adapters */
             source_adapters?: components["schemas"]["SourceAdapter"][];
             /**
@@ -1539,6 +1540,21 @@ export interface components {
             matches: components["schemas"]["SearchMatch"][];
             /** Query */
             query: string;
+        };
+        /**
+         * SegmentationConfig
+         * @description Lines that open an issue or an act, for telling apart the instruments one
+         *     source holds. Absent means the jurisdiction declares none, and nothing splits.
+         */
+        SegmentationConfig: {
+            /** Act Heading Patterns */
+            act_heading_patterns?: string[];
+            /** Contents Keywords */
+            contents_keywords?: string[];
+            /** Issue Heading Patterns */
+            issue_heading_patterns?: string[];
+            /** Printed Page Pattern */
+            printed_page_pattern?: string | null;
         };
         /**
          * SeriesCitation
