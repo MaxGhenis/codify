@@ -95,7 +95,6 @@
     "country_code": "mn",
     "uri_patterns": {
       "act": "/akn/mn/act/{year}/{number}",
-      "bill": "/akn/mn/bill/{year}/{number}",
       "constitution": "/akn/mn/act/constitution/1992/constitution"
     },
     "date_calendar": "gregorian"

@@ -172,8 +172,6 @@
       "act": "/akn/am/act/{year}/{number}",
       "constitutional_law": "/akn/am/act/constitutional-law/{year}/{number}",
       "decision": "/akn/am/act/decision/{year}/{number}",
-      "decree": "/akn/am/act/decree/{year}/{number}",
-      "bill": "/akn/am/bill/{year}/{number}",
       "constitution": "/akn/am/act/constitution/1995/constitution"
     },
     "date_calendar": "gregorian"

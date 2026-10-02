@@ -181,7 +181,6 @@
       "act": "/akn/na/act/{year}/{number}",
       "regulation": "/akn/na/act/gn/{year}/{number}",
       "proclamation": "/akn/na/act/proclamation/{year}/{number}",
-      "bill": "/akn/na/bill/{year}/{number}",
       "constitution": "/akn/na/act/constitution/1990/constitution"
     },
     "date_calendar": "gregorian"

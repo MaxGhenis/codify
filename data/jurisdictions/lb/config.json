@@ -260,8 +260,7 @@
       "legislative_decree": "/akn/lb/act/legislative-decree/{year}/{number}",
       "decree_law": "/akn/lb/act/decree-law/{year}/{number}",
       "decree": "/akn/lb/act/decree/{year}/{number}",
-      "constitution": "/akn/lb/act/constitution/1926/constitution",
-      "ottoman_era": "/akn/lb/act/ottoman/{year}/{number}"
+      "constitution": "/akn/lb/act/constitution/1926/constitution"
     },
     "date_calendar": "gregorian"
   },

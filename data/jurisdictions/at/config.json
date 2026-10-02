@@ -225,7 +225,6 @@
       "bvg": "/akn/at/act/bvg/{year}/{number}",
       "vo": "/akn/at/act/vo/{year}/{number}",
       "sv": "/akn/at/act/sv/{year}/{number}",
-      "bill": "/akn/at/bill/{year}/{number}",
       "constitution": "/akn/at/act/constitution/1920/bvg"
     },
     "date_calendar": "gregorian"

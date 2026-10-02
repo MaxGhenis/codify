@@ -98,11 +98,6 @@
       ],
       "hcontainers": [
         {
-          "name": "paragraphe",
-          "description": "Structural Paragraphe grouping multiple articles within a Chapitre; bluebell workaround: SUBPART",
-          "local_term": "Paragraphe"
-        },
-        {
           "name": "dispositionPreliminaire",
           "description": "Preliminary provisions before TITRE PREMIER",
           "local_term": "Dispositionpreliminaire"
@@ -252,7 +247,6 @@
       "loi_organique": "/akn/ci/act/ol/{year}/{number}",
       "ordonnance": "/akn/ci/act/ord/{year}/{number}",
       "decret": "/akn/ci/act/decree/{year}/{number}",
-      "bill": "/akn/ci/bill/{year}/{number}",
       "constitution": "/akn/ci/act/constitution/2016/886"
     },
     "number_extraction": "From 'Loi n° YYYY-NNN du [date]': year = YYYY, number = NNN (drop leading zeros only if number < 100; preserve 3-digit numbers as-is e.g. 902, 886, 975)",

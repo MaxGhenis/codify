@@ -166,7 +166,6 @@
     "uri_patterns": {
       "act": "/akn/kh/act/{year}/{number}",
       "anukret": "/akn/kh/act/anukret/{year}/{number}",
-      "reach_kret": "/akn/kh/act/reach-kret/{year}/{number}",
       "prakas": "/akn/kh/act/prakas/{year}/{number}",
       "constitution": "/akn/kh/act/constitution/1993/constitution"
     },

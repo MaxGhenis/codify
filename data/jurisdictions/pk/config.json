@@ -329,14 +329,8 @@
     "uri_patterns": {
       "act": "/akn/pk/act/{year}/{number}",
       "ordinance": "/akn/pk/act/ord/{year}/{number}",
-      "presidents_order": "/akn/pk/act/po/{year}/{number}",
       "constitution": "/akn/pk/act/constitution/1973/constitution",
-      "si": "/akn/pk/act/si/{year}/{number}",
-      "bill": "/akn/pk/bill/{year}/{number}",
-      "provincial_act_punjab": "/akn/pk-pb/act/{year}/{number}",
-      "provincial_act_sindh": "/akn/pk-sd/act/{year}/{number}",
-      "provincial_act_kpk": "/akn/pk-kp/act/{year}/{number}",
-      "provincial_act_balochistan": "/akn/pk-bl/act/{year}/{number}"
+      "si": "/akn/pk/act/si/{year}/{number}"
     },
     "date_calendar": "gregorian"
   },

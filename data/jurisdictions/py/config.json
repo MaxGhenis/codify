@@ -151,8 +151,6 @@
     "uri_patterns": {
       "act": "/akn/py/act/{year}/{number}",
       "decreto": "/akn/py/act/decreto/{year}/{number}",
-      "acordada": "/akn/py/act/acordada/{year}/{number}",
-      "bill": "/akn/py/bill/{year}/{number}",
       "constitution": "/akn/py/act/constitution/1992/constitution"
     },
     "date_calendar": "gregorian"

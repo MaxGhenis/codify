@@ -184,7 +184,6 @@
     "country_code": "az",
     "uri_patterns": {
       "law": "/akn/az/act/{year}/{number}",
-      "bill": "/akn/az/bill/{year}/{number}",
       "constitution": "/akn/az/act/constitution/1995/constitution",
       "decree": "/akn/az/act/decree/{year}/{number}",
       "resolution": "/akn/az/act/resolution/{year}/{number}"

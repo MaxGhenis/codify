@@ -208,7 +208,6 @@
       "li": "/akn/gh/act/li/{year}/{number}",
       "ci": "/akn/gh/act/ci/{year}/{number}",
       "ei": "/akn/gh/act/ei/{year}/{number}",
-      "bill": "/akn/gh/bill/{year}/{number}",
       "constitution": "/akn/gh/act/{year}/constitution"
     },
     "date_calendar": "gregorian"

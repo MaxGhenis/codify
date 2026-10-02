@@ -160,10 +160,7 @@
   "default_document_class": "act",
   "frbr": {
     "country_code": "ca",
-    "uri_patterns": {
-      "regulation_sor": "/akn/ca/act/sor/{year}/{number}",
-      "regulation_si": "/akn/ca/act/si/{year}/{number}"
-    },
+    "uri_patterns": {},
     "sample_uris": {
       "Criminal Code (RSC 1985, c. C-46)": "/akn/ca/act/1985/c-46",
       "Income Tax Act (RSC 1985, c. 1 (5th Supp.))": "/akn/ca/act/1985/i-3.3",

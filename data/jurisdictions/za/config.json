@@ -169,7 +169,6 @@
     "uri_patterns": {
       "act": "/akn/za/act/{year}/{number}",
       "regulation": "/akn/za/act/gn/{year}/{number}",
-      "bill": "/akn/za/bill/{year}/{number}",
       "constitution": "/akn/za/act/constitution/1996/constitution"
     },
     "date_calendar": "gregorian"

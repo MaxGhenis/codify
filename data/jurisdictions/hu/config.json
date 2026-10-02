@@ -74,12 +74,7 @@
           "numbering": "double_alpha_lower_closeparen"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "alcim",
-          "local_term": "Alcím"
-        }
-      ]
+      "hcontainers": []
     },
     "rendelet": {
       "label": "Government Decree",
@@ -147,9 +142,6 @@
     "country_code": "hu",
     "uri_patterns": {
       "act": "/akn/hu/act/{year}/{number}",
-      "rendelet_korm": "/akn/hu/act/korm/{year}/{number}",
-      "rendelet_min": "/akn/hu/act/rendelet/{year}/{number}",
-      "bill": "/akn/hu/bill/{year}/{number}",
       "alaptorvenye": "/akn/hu/act/alaptorvenye/2011/alaptorvenye"
     },
     "date_calendar": "gregorian"

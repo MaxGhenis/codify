@@ -287,7 +287,6 @@
       "oug": "/akn/ro/act/oug/{year}/{number}",
       "og": "/akn/ro/act/og/{year}/{number}",
       "hg": "/akn/ro/act/hg/{year}/{number}",
-      "ordin": "/akn/ro/act/ordin/{year}/{number}",
       "constitution": "/akn/ro/act/constitution/1991/constitution"
     },
     "date_calendar": "gregorian"

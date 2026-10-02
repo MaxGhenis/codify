@@ -236,7 +236,6 @@
       "loi": "/akn/cm/act/{year}/{number}",
       "ordonnance": "/akn/cm/act/ordonnance/{year}/{number}",
       "decret": "/akn/cm/act/decret/{year}/{number}",
-      "bill": "/akn/cm/bill/{year}/{number}",
       "constitution": "/akn/cm/act/constitution/1972/constitution"
     },
     "number_format": "YYYY/NNN",

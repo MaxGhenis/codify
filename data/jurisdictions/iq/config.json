@@ -199,10 +199,7 @@
       "act": "/akn/iq/act/{year}/{number}",
       "decree_law": "/akn/iq/act/decree-law/{year}/{number}",
       "cpa_order": "/akn/iq/act/cpa-order/{number}",
-      "cpa_regulation": "/akn/iq/act/cpa-regulation/{number}",
-      "constitution": "/akn/iq/act/constitution/2005/constitution",
-      "tal": "/akn/iq/act/constitution/2004/tal",
-      "krg_act": "/akn/iq-ku/act/{year}/{number}"
+      "constitution": "/akn/iq/act/constitution/2005/constitution"
     },
     "date_calendar": "gregorian"
   },

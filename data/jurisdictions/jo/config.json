@@ -167,7 +167,6 @@
       "law": "/akn/jo/act/{year}/{number}",
       "temp_law": "/akn/jo/act/temp/{year}/{number}",
       "regulation": "/akn/jo/act/reg/{year}/{number}",
-      "bill": "/akn/jo/bill/{year}/{number}",
       "constitution": "/akn/jo/act/constitution/1952/constitution"
     },
     "date_calendar": "gregorian",

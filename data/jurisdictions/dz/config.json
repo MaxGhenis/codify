@@ -345,7 +345,6 @@
       "ordonnance": "/akn/dz/act/ordonnance/{year}/{number}",
       "decret_presidentiel": "/akn/dz/act/decret-presidentiel/{year}/{number}",
       "decret_executif": "/akn/dz/act/decret-executif/{year}/{number}",
-      "bill": "/akn/dz/bill/{year}/{number}",
       "constitution": "/akn/dz/act/constitution/2020/constitution"
     },
     "date_calendar": "gregorian"

@@ -1383,3 +1383,37 @@ def test_minimal_profiles_carry_no_free_text_notes(code: str) -> None:
         and re.search(r"/(note|notes|[a-z_]+_notes?)$", where)
     ]
     assert not found, (code, found)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_term_is_both_a_native_level_and_an_hcontainer(code: str) -> None:
+    """The prompted path reads hcontainers and the deterministic one reads the
+    hierarchy, so a term in both makes them disagree."""
+    import re
+
+    def norm(text: str | None) -> str:
+        return re.sub(r"\s*\(.*?\)", "", text or "").strip().casefold()
+
+    both = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        native = {
+            norm(term)
+            for entry in doc_class.hierarchy
+            for term in [*entry.local_term.split(" / "), *(entry.local_terms or {}).values()]
+        }
+        both += [
+            (doctype, h.local_term)
+            for h in doc_class.hcontainers
+            if {norm(h.local_term), norm(h.name)} & native
+        ]
+    assert not both, (code, both)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_uri_pattern_keys_name_declared_classes(code: str) -> None:
+    cfg = load_config(code)
+    patterns = cfg.frbr.uri_patterns if cfg.frbr else {}
+    assert set(patterns) <= set(cfg.document_classes), (
+        code,
+        sorted(set(patterns) - set(cfg.document_classes)),
+    )

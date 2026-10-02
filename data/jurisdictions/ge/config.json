@@ -236,7 +236,6 @@
       "code": "/akn/ge/act/{year}/{number}",
       "decree": "/akn/ge/act/decree/{year}/{number}",
       "resolution": "/akn/ge/act/resolution/{year}/{number}",
-      "bill": "/akn/ge/bill/{year}/{number}",
       "constitution": "/akn/ge/act/constitution/1995/constitution"
     },
     "date_calendar": "gregorian"

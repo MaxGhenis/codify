@@ -287,11 +287,7 @@
       "lei": "/akn/pt/act/{year}/{number}",
       "dl": "/akn/pt/act/dl/{year}/{number}",
       "lo": "/akn/pt/act/lo/{year}/{number}",
-      "lc": "/akn/pt/act/lc/{year}/{number}",
       "portaria": "/akn/pt/act/portaria/{year}/{number}",
-      "rcm": "/akn/pt/act/rcm/{year}/{number}",
-      "dn": "/akn/pt/act/dn/{year}/{number}",
-      "bill": "/akn/pt/bill/{year}/{number}",
       "constitution": "/akn/pt/act/constitution/1976/crp"
     },
     "number_format": "sequential_within_year",

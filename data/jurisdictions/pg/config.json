@@ -180,7 +180,6 @@
     "country_code": "pg",
     "uri_patterns": {
       "act": "/akn/pg/act/{year}/{number}",
-      "bill": "/akn/pg/bill/{year}/{number}",
       "constitution": "/akn/pg/act/constitution/1975/constitution"
     },
     "date_calendar": "gregorian"

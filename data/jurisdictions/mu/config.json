@@ -145,18 +145,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "livre",
-          "local_term": "Livre",
-          "bluebell_proxy": "SUBSECTION"
-        },
-        {
-          "name": "titre",
-          "local_term": "Titre",
-          "bluebell_proxy": "SUBSECTION"
-        }
-      ]
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -165,9 +154,7 @@
     "uri_patterns": {
       "act": "/akn/mu/act/{year}/{number}",
       "gn": "/akn/mu/act/genn/{year}/{number}",
-      "bill": "/akn/mu/bill/{year}/{number}",
-      "constitution": "/akn/mu/act/constitution/1968/constitution",
-      "act_cap": "/akn/mu/act/cap{number}/cap{number}"
+      "constitution": "/akn/mu/act/constitution/1968/constitution"
     },
     "date_calendar": "gregorian"
   },

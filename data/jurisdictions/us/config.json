@@ -105,23 +105,7 @@
           "numbering": "roman_upper_parenthesized"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "division",
-          "description": "Top-level grouping in omnibus legislation (Division A, Division B). No AKN native equivalent.",
-          "local_term": "Division"
-        },
-        {
-          "name": "subtitle",
-          "description": "Grouping within a Title (Subtitle A, Subtitle B).",
-          "local_term": "Subtitle"
-        },
-        {
-          "name": "subpart",
-          "description": "Grouping within a Part (Subpart A, Subpart B).",
-          "local_term": "Subpart"
-        }
-      ]
+      "hcontainers": []
     },
     "usc_title": {
       "label": "United States Code Title",
@@ -210,23 +194,7 @@
           "numbering": "roman_upper_parenthesized"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "subtitle",
-          "description": "Grouping within a USC Title (Subtitle A, B).",
-          "local_term": "Subtitle"
-        },
-        {
-          "name": "subchapter",
-          "description": "Grouping within a Chapter (Subchapter I, II). Very common in USC.",
-          "local_term": "Subchapter"
-        },
-        {
-          "name": "subpart",
-          "description": "Grouping within a Part.",
-          "local_term": "Subpart"
-        }
-      ]
+      "hcontainers": []
     },
     "cfr_title": {
       "label": "Code of Federal Regulations Title",
@@ -272,18 +240,7 @@
           "numbering": "part_dot_sequential"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "subchapter",
-          "description": "Letter-labelled grouping within CFR Chapter (Subchapter A, B, C).",
-          "local_term": "Subchapter"
-        },
-        {
-          "name": "subpart",
-          "description": "Letter-labelled grouping within CFR Part (Subpart A, B).",
-          "local_term": "Subpart"
-        }
-      ]
+      "hcontainers": []
     },
     "bill": {
       "label": "Bill",
@@ -371,18 +328,7 @@
           "numbering": "roman_upper_parenthesized"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "division",
-          "description": "Top-level grouping in omnibus bills.",
-          "local_term": "Division"
-        },
-        {
-          "name": "subtitle",
-          "description": "Grouping within a Title.",
-          "local_term": "Subtitle"
-        }
-      ]
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of the United States",
@@ -436,7 +382,6 @@
     "country_code": "us",
     "uri_patterns": {
       "constitution": "/akn/us/act/constitution/1788/constitution",
-      "constitution_amendment": "/akn/us/act/constitution-amendment/{year}/{number}",
       "executive_order": "/akn/us/doc/executive-order/{year}/{number}"
     },
     "date_calendar": "gregorian"

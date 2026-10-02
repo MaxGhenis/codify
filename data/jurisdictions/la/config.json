@@ -126,7 +126,6 @@
       "act": "/akn/la/act/{year}/{number}",
       "decree": "/akn/la/act/decree/{year}/{number}",
       "ordinance": "/akn/la/act/ordinance/{year}/{number}",
-      "bill": "/akn/la/bill/{year}/{number}",
       "constitution": "/akn/la/act/constitution/1991/constitution"
     },
     "date_calendar": "gregorian"

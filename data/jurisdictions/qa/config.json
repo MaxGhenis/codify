@@ -204,10 +204,7 @@
     "uri_patterns": {
       "act": "/akn/qa/act/{year}/{number}",
       "emiri_decree": "/akn/qa/act/decree/{year}/{number}",
-      "emiri_decision": "/akn/qa/act/decision/{year}/{number}",
-      "cabinet_decision": "/akn/qa/act/cabinet/{year}/{number}",
       "ministerial_decision": "/akn/qa/act/ministerial/{year}/{number}",
-      "bill": "/akn/qa/bill/{year}/{number}",
       "constitution": "/akn/qa/act/constitution/2004/constitution"
     },
     "date_calendar": "gregorian"

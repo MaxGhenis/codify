@@ -254,10 +254,6 @@
       "boluat": "/akn/vn/act/{year}/{number}",
       "phaplenhh": "/akn/vn/act/ordinance/{year}/{number}",
       "nghi_dinh": "/akn/vn/act/decree/{year}/{number}",
-      "thong_tu": "/akn/vn/act/circular/{year}/{number}",
-      "quyet_dinh_ttg": "/akn/vn/act/decision-pm/{year}/{number}",
-      "nghi_quyet_qh": "/akn/vn/act/resolution/{year}/{number}",
-      "bill": "/akn/vn/bill/{year}/{number}",
       "constitution": "/akn/vn/act/constitution/2013/constitution"
     },
     "number_extraction": "Strip all text after the first '/' in the official designation. E.g., '59/2020/QH14' → number='59', year='2020'. Store the full designation as FRBRalias.",

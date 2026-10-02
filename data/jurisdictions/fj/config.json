@@ -176,9 +176,7 @@
     "uri_patterns": {
       "act": "/akn/fj/act/{year}/{number}",
       "decree": "/akn/fj/act/decree/{year}/{number}",
-      "promulgation": "/akn/fj/act/promulgation/{year}/{number}",
       "ln": "/akn/fj/act/ln/{year}/{number}",
-      "bill": "/akn/fj/bill/{year}/{number}",
       "constitution": "/akn/fj/act/constitution/{year}/constitution"
     },
     "date_calendar": "gregorian"

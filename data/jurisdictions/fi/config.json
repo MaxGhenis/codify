@@ -198,7 +198,6 @@
       "act": "/akn/fi/act/{year}/{number}",
       "vna": "/akn/fi/act/vna/{year}/{number}",
       "tpa": "/akn/fi/act/tpa/{year}/{number}",
-      "bill": "/akn/fi/bill/{year}/{number}",
       "constitution": "/akn/fi/act/constitution/1999/731",
       "ax_act": "/akn/fi-ax/act/{year}/{number}"
     },

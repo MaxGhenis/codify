@@ -211,9 +211,7 @@
       "law": "/akn/ua/act/{year}/{number}",
       "code": "/akn/ua/act/{year}/{number}",
       "constitution": "/akn/ua/act/constitution/1996/254k-96-vr",
-      "bill": "/akn/ua/bill/{year}/{number}",
-      "resolution": "/akn/ua/act/resolution/{year}/{number}",
-      "decree": "/akn/ua/act/decree/{year}/{number}"
+      "resolution": "/akn/ua/act/resolution/{year}/{number}"
     },
     "number_extraction": "full_seq_convocation",
     "date_calendar": "gregorian"

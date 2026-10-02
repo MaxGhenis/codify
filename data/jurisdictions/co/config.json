@@ -219,10 +219,7 @@
     "uri_patterns": {
       "act": "/akn/co/act/{year}/{number}",
       "decreto": "/akn/co/act/decreto/{year}/{number}",
-      "decreto_ley": "/akn/co/act/decreto-ley/{year}/{number}",
       "acto_legislativo": "/akn/co/act/acto-legislativo/{year}/{number}",
-      "resolucion": "/akn/co/act/resolucion/{year}/{number}",
-      "bill": "/akn/co/bill/{year}/{number}",
       "constitucion": "/akn/co/act/constitucion/1991/constitucion"
     },
     "date_calendar": "gregorian"

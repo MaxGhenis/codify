@@ -171,9 +171,7 @@
     "country_code": "lv",
     "uri_patterns": {
       "noteikumi": "/akn/lv/act/mk/{year}/{number}",
-      "constitution": "/akn/lv/act/1922/satversme",
-      "civillikums": "/akn/lv/act/1937/civillikums",
-      "kriminallikums": "/akn/lv/act/1998/kriminallikums"
+      "constitution": "/akn/lv/act/1922/satversme"
     },
     "date_calendar": "gregorian"
   },

@@ -137,9 +137,7 @@
     "uri_patterns": {
       "act": "/akn/om/act/{year}/{number}",
       "basic_law": "/akn/om/act/constitution/{year}/{number}",
-      "implementing_regulation": "/akn/om/act/si/{year}/{number}",
-      "bill": "/akn/om/bill/{year}/{number}",
-      "royal_order": "/akn/om/doc/royal-order/{year}/{number}"
+      "implementing_regulation": "/akn/om/act/si/{year}/{number}"
     },
     "date_calendar": "gregorian"
   },

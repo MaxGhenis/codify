@@ -63,13 +63,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "division",
-          "local_term": "Division",
-          "level": "intermediate"
-        }
-      ]
+      "hcontainers": []
     },
     "sl": {
       "label": "Subsidiary Legislation",
@@ -166,7 +160,6 @@
     "uri_patterns": {
       "act": "/akn/sg/act/{year}/{number}",
       "sl": "/akn/sg/act/sl/{year}/{number}",
-      "bill": "/akn/sg/bill/{year}/{number}",
       "constitution": "/akn/sg/act/constitution/1963/constitution"
     },
     "date_calendar": "gregorian"

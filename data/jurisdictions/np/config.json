@@ -262,9 +262,6 @@
     "country_code": "np",
     "uri_patterns": {
       "act": "/akn/np/act/{year}/{number}",
-      "ordinance": "/akn/np/act/ordinance/{year}/{number}",
-      "rules": "/akn/np/act/rules/{year}/{number}",
-      "bill": "/akn/np/bill/{year}/{number}",
       "constitution": "/akn/np/act/constitution/2015/constitution",
       "samhita": "/akn/np/act/samhita/{year}/{number}"
     },

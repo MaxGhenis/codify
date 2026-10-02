@@ -188,9 +188,7 @@
       "act": "/akn/dk/act/{year}/{number}",
       "lovbekendtgorelse": "/akn/dk/act/{year}/{number}",
       "bekendtgorelse": "/akn/dk/act/bkg/{year}/{number}",
-      "cirkulaere": "/akn/dk/act/cir/{year}/{number}",
-      "grundloven": "/akn/dk/act/constitution/1953/grundloven",
-      "officialGazette": "/akn/dk/officialGazette/{year}/{number}"
+      "grundloven": "/akn/dk/act/constitution/1953/grundloven"
     },
     "date_calendar": "gregorian"
   },

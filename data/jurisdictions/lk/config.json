@@ -255,7 +255,6 @@
       "bill": "/akn/lk/bill/{year}/{number}",
       "regulation": "/akn/lk/act/regulation/{year}/{number}",
       "order": "/akn/lk/act/order/{year}/{number}",
-      "proclamation": "/akn/lk/act/proclamation/{year}/{number}",
       "constitution": "/akn/lk/act/constitution/1978/constitution"
     },
     "date_calendar": "gregorian"

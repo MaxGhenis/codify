@@ -220,7 +220,6 @@
       "act": "/akn/bd/act/{year}/{number}",
       "ordinance": "/akn/bd/act/ordinance/{year}/{number}",
       "si": "/akn/bd/act/si/{year}/{number}",
-      "bill": "/akn/bd/bill/{year}/{number}",
       "constitution": "/akn/bd/act/constitution/1972/constitution"
     },
     "date_calendar": "gregorian"

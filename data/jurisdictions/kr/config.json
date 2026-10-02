@@ -216,12 +216,8 @@
     "uri_patterns": {
       "act": "/akn/kr/act/{year}/{number}",
       "daetongryeong-ryeong": "/akn/kr/act/presidentialdecree/{year}/{number}",
-      "chongri-ryeong": "/akn/kr/act/primeministerialordinance/{year}/{number}",
-      "bu-ryeong": "/akn/kr/act/ministerialordinance/{year}/{number}",
-      "gyuchik": "/akn/kr/act/rule/{year}/{number}",
       "jorye": "/akn/kr/act/municipalordinance/{year}/{number}",
-      "constitution": "/akn/kr/act/constitution/1948/constitution",
-      "bill": "/akn/kr/bill/{year}/{number}"
+      "constitution": "/akn/kr/act/constitution/1948/constitution"
     },
     "date_calendar": "gregorian"
   },

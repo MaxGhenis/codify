@@ -244,11 +244,7 @@
   "frbr": {
     "country_code": "my",
     "uri_patterns": {
-      "subsidiary_pua": "/akn/my/act/si/{year}/{number}",
-      "subsidiary_pub": "/akn/my/doc/si-b/{year}/{number}",
-      "bill": "/akn/my/bill/{year}/{number}",
-      "constitution": "/akn/my/act/constitution/1957/constitution",
-      "sarawak_ordinance": "/akn/my-sw/act/{year}/{number}"
+      "constitution": "/akn/my/act/constitution/1957/constitution"
     },
     "date_calendar": "gregorian"
   },

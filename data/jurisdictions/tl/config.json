@@ -246,8 +246,7 @@
       "act": "/akn/tl/act/{year}/{number}",
       "decreto_lei": "/akn/tl/act/decreto-lei/{year}/{number}",
       "untaet_reg": "/akn/tl/act/untaet-reg/{year}/{number}",
-      "constitution": "/akn/tl/act/constitution/2002/constitution",
-      "bill": "/akn/tl/bill/{year}/{number}"
+      "constitution": "/akn/tl/act/constitution/2002/constitution"
     },
     "date_calendar": "gregorian"
   },

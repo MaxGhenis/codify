@@ -70,12 +70,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "division",
-          "local_term": "Division"
-        }
-      ]
+      "hcontainers": []
     },
     "ordinance": {
       "label": "Ordinance (pre-independence)",
@@ -206,9 +201,7 @@
       "act": "/akn/tz/act/{year}/{number}",
       "ordinance": "/akn/tz/act/ord/{year}/{number}",
       "gn": "/akn/tz/act/gn/{year}/{number}",
-      "bill": "/akn/tz/bill/{year}/{number}",
-      "constitution": "/akn/tz/act/constitution/1977/constitution",
-      "officialGazette": "/akn/tz/officialGazette/{year}/{number}"
+      "constitution": "/akn/tz/act/constitution/1977/constitution"
     },
     "date_calendar": "gregorian"
   },

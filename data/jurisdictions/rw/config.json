@@ -210,8 +210,6 @@
       "po": "/akn/rw/act/po/{year}/{number}",
       "pmo": "/akn/rw/act/pmo/{year}/{number}",
       "mo": "/akn/rw/act/mo/{year}/{number}",
-      "reg": "/akn/rw/act/reg/{year}/{number}",
-      "bill": "/akn/rw/bill/{year}/{number}",
       "constitution": "/akn/rw/act/constitution/2003/constitution"
     },
     "date_calendar": "gregorian"

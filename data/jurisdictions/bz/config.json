@@ -176,12 +176,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [
-        {
-          "local_term": "Division",
-          "name": "division"
-        }
-      ]
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -190,8 +185,7 @@
     "uri_patterns": {
       "act": "/akn/bz/act/{year}/{number}",
       "si": "/akn/bz/act/si/{year}/{number}",
-      "constitution": "/akn/bz/act/constitution/1981/constitution",
-      "gazette": "/akn/bz/officialGazette/{year}/{number}"
+      "constitution": "/akn/bz/act/constitution/1981/constitution"
     },
     "date_calendar": "gregorian"
   },

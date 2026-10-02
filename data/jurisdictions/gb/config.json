@@ -246,9 +246,7 @@
   "default_document_class": "act",
   "frbr": {
     "country_code": "gb",
-    "uri_patterns": {
-      "bill": "/akn/gb/bill/{year}/{number}"
-    },
+    "uri_patterns": {},
     "date_calendar": "gregorian",
     "note": "Follows legislation.gov.uk conventions: Acts cited by regnal year and chapter before 1963, by calendar year and chapter after. Each publisher type token declared as a document class is minted as the FRBR subtype, /akn/gb/act/{token}/{year}/{number}; a token not declared here is neither walked nor minted."
   },

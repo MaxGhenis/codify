@@ -265,10 +265,6 @@
       "ley": "/akn/pe/act/{year}/{number}",
       "ley_organica": "/akn/pe/act/{year}/{number}",
       "decreto_legislativo": "/akn/pe/act/dl/{year}/{number}",
-      "decreto_urgencia": "/akn/pe/act/du/{year}/{number}",
-      "decreto_ley": "/akn/pe/act/decreto-ley/{number}",
-      "resolucion_legislativa": "/akn/pe/act/rl/{number}",
-      "bill": "/akn/pe/bill/{year}/{number}",
       "constitucion": "/akn/pe/act/constitution/1993/constitucion"
     },
     "date_calendar": "gregorian"

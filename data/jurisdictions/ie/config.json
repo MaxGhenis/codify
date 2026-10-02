@@ -144,9 +144,7 @@
     "uri_patterns": {
       "act": "/akn/ie/act/{year}/{number}",
       "si": "/akn/ie/act/si/{year}/{number}",
-      "bill": "/akn/ie/bill/{year}/{number}",
-      "constitution": "/akn/ie/act/constitution/1937/bunreacht-na-heireann",
-      "pre_1922": "/akn/ie/act/{year}/{number}"
+      "constitution": "/akn/ie/act/constitution/1937/bunreacht-na-heireann"
     },
     "date_calendar": "gregorian"
   },

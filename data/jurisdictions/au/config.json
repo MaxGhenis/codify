@@ -228,8 +228,7 @@
     "country_code": "au",
     "uri_patterns": {
       "act": "/akn/au/act/{year}/{number}",
-      "legislative_instrument": "/akn/au/act/li/{year}/{number}",
-      "constitution": "/akn/au/act/1901/constitution"
+      "legislative_instrument": "/akn/au/act/li/{year}/{number}"
     },
     "sample_uris": {
       "Income Tax Assessment Act 1997 (No. 38, 1997)": "/akn/au/act/1997/38",

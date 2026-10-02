@@ -63,13 +63,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [
-        {
-          "name": "division",
-          "bluebell_keyword": "DIVISION",
-          "local_term": "Division"
-        }
-      ]
+      "hcontainers": []
     },
     "legal_notice": {
       "label": "Legal Notice (Subsidiary Legislation)",
@@ -197,8 +191,7 @@
       "act": "/akn/ke/act/{year}/{number}",
       "legal_notice": "/akn/ke/act/ln/{year}/{number}",
       "bill": "/akn/ke/bill/{year}/{number}",
-      "constitution": "/akn/ke/act/2010/constitution",
-      "eac_instrument": "/akn/aa-eac/act/{year}/{number}"
+      "constitution": "/akn/ke/act/2010/constitution"
     },
     "date_calendar": "gregorian"
   },

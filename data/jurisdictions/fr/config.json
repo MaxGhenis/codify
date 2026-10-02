@@ -308,8 +308,7 @@
       "loi_organique": "/akn/fr/act/lo/{year}/{number}",
       "ordonnance": "/akn/fr/act/ord/{year}/{number}",
       "decret": "/akn/fr/act/decret/{year}/{number}",
-      "constitution": "/akn/fr/act/constitution/1958/constitution",
-      "bill": "/akn/fr/bill/{year}/{number}"
+      "constitution": "/akn/fr/act/constitution/1958/constitution"
     },
     "date_calendar": "gregorian"
   },

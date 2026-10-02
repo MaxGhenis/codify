@@ -182,7 +182,6 @@
     "uri_patterns": {
       "act": "/akn/bs/act/{year}/{number}",
       "si": "/akn/bs/act/si/{year}/{number}",
-      "bill": "/akn/bs/bill/{year}/{number}",
       "constitution": "/akn/bs/act/constitution/1973/constitution"
     },
     "date_calendar": "gregorian"

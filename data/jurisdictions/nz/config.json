@@ -186,9 +186,6 @@
   "frbr": {
     "country_code": "nz",
     "uri_patterns": {
-      "act_public": "/akn/nz/act/{year}/{number}",
-      "act_private": "/akn/nz/act/private/{year}/{number}",
-      "act_local": "/akn/nz/act/local/{year}/{number}",
       "legislative_instrument": "/akn/nz/act/li/{year}/{number}"
     },
     "sample_uris": {

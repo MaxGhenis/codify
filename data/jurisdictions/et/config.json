@@ -145,9 +145,7 @@
     "uri_patterns": {
       "act": "/akn/et/act/{year}/{number}",
       "regulation": "/akn/et/act/regulation/{year}/{number}",
-      "directive": "/akn/et/act/directive/{year}/{number}",
-      "constitution": "/akn/et/act/constitution/1995/1",
-      "bill": "/akn/et/bill/{year}/{number}"
+      "constitution": "/akn/et/act/constitution/1995/1"
     },
     "date_calendar": "gregorian",
     "calendar_conversion": {

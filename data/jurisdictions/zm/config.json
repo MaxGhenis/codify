@@ -144,7 +144,6 @@
     "uri_patterns": {
       "act": "/akn/zm/act/{year}/{number}",
       "si": "/akn/zm/act/si/{year}/{number}",
-      "bill": "/akn/zm/bill/{year}/{number}",
       "constitution": "/akn/zm/act/constitution/1991/constitution"
     },
     "date_calendar": "gregorian"

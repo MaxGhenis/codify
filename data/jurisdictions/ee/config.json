@@ -177,7 +177,6 @@
     "uri_patterns": {
       "act": "/akn/ee/act/{year}/{number}",
       "maarrus": "/akn/ee/act/maarrus/{year}/{number}",
-      "bill": "/akn/ee/bill/{year}/{number}",
       "constitution": "/akn/ee/act/1992/pohiseadus"
     },
     "date_calendar": "gregorian"

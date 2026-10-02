@@ -200,7 +200,6 @@
       "loi_organique": "/akn/mg/act/loi-organique/{year}/{number}",
       "ordonnance": "/akn/mg/act/ordonnance/{year}/{number}",
       "decret": "/akn/mg/act/decret/{year}/{number}",
-      "bill": "/akn/mg/bill/{year}/{number}",
       "constitution": "/akn/mg/act/constitution/2010/constitution"
     },
     "date_calendar": "gregorian"

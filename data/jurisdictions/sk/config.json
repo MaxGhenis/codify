@@ -217,9 +217,7 @@
       "act": "/akn/sk/act/{year}/{number}",
       "ustavny_zakon": "/akn/sk/act/ustavn/{year}/{number}",
       "nariadenie": "/akn/sk/act/nariadenie/{year}/{number}",
-      "vyhlaska": "/akn/sk/act/vyhlaska/{year}/{number}",
-      "constitution": "/akn/sk/act/ustavn/1992/460",
-      "judgment_us": "/akn/sk/judgment/us/{year}/{number}"
+      "vyhlaska": "/akn/sk/act/vyhlaska/{year}/{number}"
     },
     "date_calendar": "gregorian"
   },

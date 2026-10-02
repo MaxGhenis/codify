@@ -457,8 +457,7 @@
       "decreto_legge": "/akn/it/act/dl/{year}/{number}",
       "dpr": "/akn/it/act/dpr/{year}/{number}",
       "regio_decreto": "/akn/it/act/rd/{year}/{number}",
-      "costituzione": "/akn/it/act/constitution/1948/constitution",
-      "bill": "/akn/it/bill/{year}/{number}"
+      "costituzione": "/akn/it/act/constitution/1948/constitution"
     },
     "date_calendar": "gregorian",
     "note": "Number is the sequential number within the calendar year (e.g., n. 241 of year 1990 → /akn/it/act/1990/241). Subtypes: 'dlgs' for Decreto Legislativo, 'dl' for Decreto Legge, 'dpr' for D.P.R., 'rd' for Regio Decreto, 'cost' for Legge Costituzionale."

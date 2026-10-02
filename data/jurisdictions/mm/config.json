@@ -120,9 +120,7 @@
     "country_code": "mm",
     "uri_patterns": {
       "act": "/akn/mm/act/{year}/{number}",
-      "si": "/akn/mm/act/si/{year}/{number}",
-      "constitution": "/akn/mm/act/constitution/2008/constitution",
-      "bill": "/akn/mm/bill/{year}/{number}"
+      "constitution": "/akn/mm/act/constitution/2008/constitution"
     },
     "date_calendar": "gregorian"
   },

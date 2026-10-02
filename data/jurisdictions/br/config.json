@@ -259,8 +259,6 @@
       "act": "/akn/br/act/{year}/{number}",
       "lc": "/akn/br/act/lc/{year}/{number}",
       "mp": "/akn/br/act/mp/{year}/{number}",
-      "ec": "/akn/br/act/ec/{year}/{number}",
-      "decreto": "/akn/br/act/decreto/{year}/{number}",
       "constitution": "/akn/br/act/constituicao/1988/1"
     },
     "date_calendar": "gregorian"

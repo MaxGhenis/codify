@@ -151,7 +151,6 @@
     "uri_patterns": {
       "act": "/akn/jp/act/{year}/{number}",
       "cabinetorder": "/akn/jp/act/cabinetorder/{year}/{number}",
-      "bill": "/akn/jp/bill/{year}/{number}",
       "constitution": "/akn/jp/act/constitution/1947/constitution"
     },
     "date_calendar": "gregorian",

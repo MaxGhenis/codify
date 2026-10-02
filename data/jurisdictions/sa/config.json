@@ -136,7 +136,6 @@
     "uri_patterns": {
       "act": "/akn/sa/act/{year}/m-{number}",
       "basic_law": "/akn/sa/act/{year}/a-{number}",
-      "resolution": "/akn/sa/act/resolution/{year}/{number}",
       "implementing_regulation": "/akn/sa/act/si/{year}/{number}"
     },
     "date_calendar": "gregorian",

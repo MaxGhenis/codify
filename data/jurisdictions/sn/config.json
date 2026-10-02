@@ -226,8 +226,6 @@
       "loi": "/akn/sn/act/{year}/{number}",
       "loi_organique": "/akn/sn/act/loi-organique/{year}/{number}",
       "decret": "/akn/sn/act/decret/{year}/{number}",
-      "ordonnance": "/akn/sn/act/ordonnance/{year}/{number}",
-      "bill": "/akn/sn/bill/{year}/{number}",
       "constitution": "/akn/sn/act/constitution/2001/constitution"
     },
     "date_calendar": "gregorian"

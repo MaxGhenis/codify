@@ -260,10 +260,7 @@
     "uri_patterns": {
       "nomos": "/akn/gr/act/{year}/{number}",
       "presidential_decree": "/akn/gr/act/pd/{year}/{number}",
-      "legislative_act_pnp": "/akn/gr/act/pnp/{year}/{number}",
-      "constitution": "/akn/gr/act/constitution/1975/syntagma",
-      "civil_code": "/akn/gr/act/1940/civil-code",
-      "penal_code": "/akn/gr/act/1950/penal-code"
+      "constitution": "/akn/gr/act/constitution/1975/syntagma"
     },
     "date_calendar": "gregorian"
   },

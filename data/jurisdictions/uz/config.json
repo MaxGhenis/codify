@@ -168,9 +168,6 @@
     "uri_patterns": {
       "qonun": "/akn/uz/act/{year}/{number}",
       "farmon": "/akn/uz/act/decree/{year}/{number}",
-      "qaror_prezident": "/akn/uz/act/resolution/{year}/{number}",
-      "qaror_vazirlar": "/akn/uz/act/cabinet-resolution/{year}/{number}",
-      "bill": "/akn/uz/bill/{year}/{number}",
       "constitution": "/akn/uz/act/constitution/{year}/constitution"
     },
     "number_format": "LRU-sequential",

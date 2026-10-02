@@ -207,8 +207,6 @@
       "lege": "/akn/md/act/{year}/{number}",
       "hg": "/akn/md/act/hg/{year}/{number}",
       "og": "/akn/md/act/og/{year}/{number}",
-      "hp": "/akn/md/act/hp/{year}/{number}",
-      "decret": "/akn/md/act/decret/{year}/{number}",
       "constitution": "/akn/md/act/constitution/1994/constitution"
     },
     "date_calendar": "gregorian"

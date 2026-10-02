@@ -278,8 +278,6 @@
       "federal_law": "/akn/ae/act/{year}/{number}",
       "federal_decree_law": "/akn/ae/act/{year}/{number}",
       "cabinet_resolution": "/akn/ae/act/cabinet-resolution/{year}/{number}",
-      "ministerial_resolution": "/akn/ae/act/ministerial-resolution/{year}/{number}",
-      "bill": "/akn/ae/bill/{year}/{number}",
       "constitution": "/akn/ae/act/constitution/1971/constitution",
       "difc_law": "/akn/ae-difc/act/{year}/{number}"
     },

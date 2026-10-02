@@ -163,8 +163,7 @@
       "reglugjord": "/akn/is/act/rgj/{year}/{number}",
       "stjornarskra": "/akn/is/act/constitution/1944/stjornarskra",
       "thingsalyktun": "/akn/is/act/tsa/{year}/{number}",
-      "tilskipun": "/akn/is/act/tsk/{year}/{number}",
-      "officialGazette": "/akn/is/officialGazette/{year}/{number}"
+      "tilskipun": "/akn/is/act/tsk/{year}/{number}"
     },
     "date_calendar": "gregorian"
   },
