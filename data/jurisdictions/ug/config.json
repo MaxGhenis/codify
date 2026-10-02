@@ -66,14 +66,6 @@
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "roman_lower_parenthesized"
-        },
-        {
-          "local_term": "Schedule (sch)",
-          "akn_element": "hcontainer",
-          "eid_abbrev": "sch",
-          "akn_name": "schedule",
-          "level": "grouping",
-          "numbering": "arabic"
         }
       ],
       "hcontainers": []
@@ -114,14 +106,6 @@
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "alpha_lower_parenthesized"
-        },
-        {
-          "local_term": "Schedule (sch)",
-          "akn_element": "hcontainer",
-          "eid_abbrev": "sch",
-          "akn_name": "schedule",
-          "level": "grouping",
-          "numbering": "arabic"
         }
       ],
       "hcontainers": []
@@ -239,9 +223,9 @@
     "documents_examined": 4,
     "bluebell_tested": true,
     "unresolved_ambiguities": 2,
-    "documents_examined_note": "National Social Security Fund Act (Cap. 230, revised edition, 38-page scan); Local Governments (Amendment) (No. 2) Act, 2008 (12-page scan); Income Tax (Amendment) Act, 2012 (4-page scan); Excise Duty (Amendment) Act, 2024 (text-layer PDF). All four ingested end to end; the anchor scan reads 64 sections in the NSSF Act and 18 in the 2008 Act, and the 2008 Act's scaffold round-trips through Bluebell with no findings.",
+    "documents_examined_note": "National Social Security Fund Act (Cap. 230, revised edition, 38-page scan); Local Governments (Amendment) (No. 2) Act, 2008 (12-page scan); Income Tax (Amendment) Act, 2012 (4-page scan); Excise Duty (Amendment) Act, 2024 (text-layer PDF). All four ingested end to end; the anchor scan reads 65 sections, 8 Parts and the three closing schedules in the NSSF Act and 18 in the 2008 Act, and the 2008 Act's scaffold round-trips through Bluebell with no findings.",
     "ambiguities": [
-      "A reference in running prose ('Schedule 1 to this Act', 'the Fifth Schedule') is claimed as a schedule container, so the NSSF Act's scaffold carries phantom hcontainers inside Parts I, III, IV and IX and the validator reports markup_as_text.",
+      "A schedule that itself divides into Parts or Divisions (as a schedule of regulations does) is not anchored, because the scan floors schedules after the last container; its Divisions nest under the body's last Part.",
       "The Statutory Instruments Supplement numbering form has not been read through the pipeline; the si class is a hypothesis from the Act hierarchy."
     ],
     "laws_africa_reference": "ulii.org publishes unofficial consolidations built by Laws.Africa; official texts are the Gazette and the revised edition."
@@ -249,12 +233,12 @@
   "ocr_header_patterns": [
     "^\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+.+$",
     "^.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5}\\s*$",
-    "^Act\\s+\\d+\\s+.+\\bAct(\\s+\\d{4})?\\s*$"
+    "^Act\\s+\\d+\\s+(?!of\\b)[A-Z].*\\bAct(\\s+\\d{4})?\\s*$"
   ],
   "furniture_line_patterns": [
     "^\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+.+$",
     "^.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5}\\s*$",
-    "^Act\\s+\\d+\\s+.+\\bAct(\\s+\\d{4})?\\s*$"
+    "^Act\\s+\\d+\\s+(?!of\\b)[A-Z].*\\bAct(\\s+\\d{4})?\\s*$"
   ],
   "furniture_inline_patterns": [
     "\\b\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]?\\s+[A-Z][A-Za-z ()]+ Act\\b"

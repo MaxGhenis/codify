@@ -36,15 +36,19 @@ Four Acts were ingested end to end while this profile was written: the National
 Social Security Fund Act (Cap. 230, revised edition, 38 scanned pages), the
 Local Governments (Amendment) (No. 2) Act, 2008 (12 scanned pages), the Income
 Tax (Amendment) Act, 2012 (4 scanned pages) and the Excise Duty (Amendment) Act,
-2024 (text layer). The anchor scan reads 64 sections in the NSSF Act and 18 in
-the 2008 Act; the 2008 Act's scaffold round-trips through Bluebell with no
-findings.
+2024 (text layer). The anchor scan reads 65 sections, 8 Parts and the three
+closing schedules in the NSSF Act, and 18 sections in the 2008 Act; the 2008
+Act's scaffold round-trips through Bluebell with no findings.
 
-Two things remain open. A schedule named in running prose ("Schedule 1 to this
-Act", "the Fifth Schedule") is claimed as a container, which leaves phantom
-hcontainers in the NSSF scaffold. And no Statutory Instruments Supplement has
-been read through the pipeline, so the `si` class is a hypothesis carried over
-from the Act hierarchy.
+Schedules use the scanner's own schedule handling rather than a declared
+container, so a schedule named in running prose ("Schedule 1 to this Act")
+stays text and the closing schedules anchor at the top level.
+
+Two things remain open. A schedule that itself divides into Parts or Divisions,
+as a schedule of regulations does, is not anchored, and its Divisions nest under
+the body's last Part. And no Statutory Instruments Supplement has been read
+through the pipeline, so the `si` class is a hypothesis carried over from the
+Act hierarchy.
 
 ## Running heads
 
