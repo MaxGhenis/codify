@@ -564,6 +564,7 @@ def _decide(
     unmatched = list(entries)
     # An entry another heading names is that heading's, never a mismatch for this one.
     named = {c.key for c in candidates}
+    claims = _claims(text, candidates, entries, pages)
     open_heading: _Heading | None = None
     previous = 0
     for index, heading in enumerate(candidates):
@@ -581,7 +582,7 @@ def _decide(
         status: Status
         entry: _Entry | None = None
         if entries:
-            status, entry = _against_contents(heading, entries, unmatched, named)
+            status, entry = _against_contents(heading, entries, unmatched, named, claims)
             if entry is not None:
                 unmatched.remove(entry)
                 rows.append(_entry_row(entry, status))
@@ -701,11 +702,31 @@ def _signals(
     return tuple(signals)
 
 
+def _claims(
+    text: str, candidates: list[_Heading], entries: list[_Entry], pages: _Pages
+) -> dict[str, _Heading]:
+    """The heading each listed act's entry belongs to, among those naming it: the
+    first on the listed page, else the first opening its page, else the first."""
+    claims: dict[str, _Heading] = {}
+    for entry in entries:
+        same = [c for c in candidates if c.key == entry.key]
+        if same:
+            claims[entry.key] = next(
+                (c for c in same if c.page == entry.pdf_page),
+                next((c for c in same if _page_start(text, c, pages)), same[0]),
+            )
+    return claims
+
+
 def _against_contents(
-    heading: _Heading, entries: list[_Entry], unmatched: list[_Entry], named: set[str]
+    heading: _Heading,
+    entries: list[_Entry],
+    unmatched: list[_Entry],
+    named: set[str],
+    claims: dict[str, _Heading],
 ) -> tuple[Status, _Entry | None]:
     same = next((e for e in unmatched if e.key == heading.key), None)
-    if same is not None:
+    if same is not None and claims.get(heading.key) is heading:
         return ("matched" if same.pdf_page == heading.page else "page_mismatch"), same
     if any(e.key == heading.key for e in entries):
         # Listed once and already claimed: a second heading for one entry.

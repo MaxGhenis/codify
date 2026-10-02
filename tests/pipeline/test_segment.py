@@ -1483,3 +1483,31 @@ def test_a_page_mismatch_holds_from_the_listed_page_to_the_heading(
     assert result.segments == ()
     # Act 5 is no boundary, so pages 3 and 4 hold as one region.
     assert [(h.first_page, h.last_page) for h in result.held] == [(2, 2), (3, 4)]
+
+
+def test_a_listed_act_is_matched_at_its_listed_page_not_at_a_mention(
+    config: JurisdictionConfig,
+) -> None:
+    """A prose line naming act 4 on page 2 leaves the entry to act 4's heading on
+    page 3, where the contents lists it."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    first = _act(3, "THE HARBOUR DUES ACT", 3)
+    first[first.index("Section 2. Duty 2") : first.index("Section 2. Duty 2")] = [
+        "ACT No. 4 OF 2020 follows below.",
+        "",
+    ]
+    pages = [
+        contents,
+        ["- 2 -", "", *first, *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [(s.key, s.first_page) for s in result.segments] == [("act 3", 2), ("act 4", 3)]
+    rows = [(r.source, r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [
+        ("contents", "matched", 3),
+        ("heading", "heading_only", 2),
+        ("heading", "matched", 3),
+    ]
