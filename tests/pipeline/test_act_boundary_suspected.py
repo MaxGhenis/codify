@@ -15,6 +15,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 import pytest
+from pydantic import ValidationError
 
 import codify.jurisdictions as jurisdictions
 from codify.pipeline.enrich import structure as structure_mod
@@ -188,6 +189,53 @@ def test_a_quoted_closing_declares_nothing() -> None:
     )
     assert text.count(signed) == 1
     assert not _suspected(text)
+
+
+@pytest.mark.usefixtures("armed")
+def test_a_quoted_closing_before_the_signing_line_still_declares() -> None:
+    """A recital earlier in the run is skipped, not taken as the run's only closing."""
+    signed = f"This Act was {CLOSING} at Port Town."
+    text = _two_acts().replace(
+        signed, f"It recites \u201c{CLOSING}\u201d from the charter.\n{signed}", 1
+    )
+    found = _suspected(text)
+    assert [s.detail["closing_at"] for s in found] == [text.index(signed) + len("This Act was ")]
+
+
+@pytest.mark.usefixtures("armed")
+def test_a_quoted_heading_before_the_real_one_still_declares() -> None:
+    second = "ACT No. 4 OF 2020\nTHE LIGHTHOUSE ACT"
+    text = _two_acts().replace(
+        second, f"The schedule reads: \u201c\nACT No. 9 OF 2019\u201d\n{second}", 1
+    )
+    found = _suspected(text)
+    assert [s.detail["heading"] for s in found] == ["ACT No. 4 OF 2020"]
+
+
+def test_two_heading_patterns_may_share_a_group_name(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Each pattern runs alone, so two `number` groups cannot collide."""
+    headings = [r"BILL No\. (?P<number>\d+) OF \d{4}", HEADING]
+    configs = {COUNTRY: _config(segmentation={"act_heading_patterns": headings})}
+    with isolated_configs(monkeypatch, tmp_path / "jurisdictions", configs):
+        found = _suspected(_two_acts())
+    assert [s.detail["heading"] for s in found] == ["ACT No. 4 OF 2020"]
+
+
+def test_a_flagged_heading_pattern_is_refused_or_scoped(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Global flags break the line-start wrapper and are refused at load; scoped
+    flags run, case-blind."""
+    refused = {COUNTRY: _config(segmentation={"act_heading_patterns": ["(?i)" + HEADING]})}
+    with isolated_configs(monkeypatch, tmp_path / "refused", refused):
+        with pytest.raises(ValidationError, match="at a line start"):
+            jurisdictions.load_config(COUNTRY)
+    scoped = {COUNTRY: _config(segmentation={"act_heading_patterns": [f"(?i:{HEADING})"]})}
+    with isolated_configs(monkeypatch, tmp_path / "scoped", scoped):
+        found = _suspected(_two_acts().replace("ACT No. 4 OF 2020", "Act No. 4 of 2020"))
+    assert [s.detail["heading"] for s in found] == ["Act No. 4 of 2020"]
 
 
 @pytest.mark.usefixtures("unarmed")

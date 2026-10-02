@@ -40,6 +40,15 @@ def test_a_heading_that_does_not_compile_is_refused(field: str) -> None:
         SegmentationConfig.model_validate({field: ["ACT (No"]})
 
 
+@pytest.mark.parametrize("field", ["act_heading_patterns", "issue_heading_patterns"])
+def test_a_heading_that_fails_only_once_wrapped_is_refused(field: str) -> None:
+    """Global flags compile alone but not inside the line-start wrapper headings run in."""
+    with pytest.raises(ValidationError, match="does not compile at a line start"):
+        SegmentationConfig.model_validate({field: ["(?i)ACT"]})
+    # Scoped flags survive the wrapper.
+    assert SegmentationConfig.model_validate({field: ["(?i:ACT)"]})
+
+
 def test_a_blank_contents_keyword_is_refused() -> None:
     with pytest.raises(ValidationError, match="contents keyword must not be blank"):
         SegmentationConfig.model_validate({"contents_keywords": ["Contents", " "]})

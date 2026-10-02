@@ -19,6 +19,7 @@ from codify.jurisdictions import (
     JurisdictionConfig,
     JurisdictionConfigError,
     fold_inserted_suffix,
+    heading_line_pattern,
     load_config,
     ordinal_word_folds,
 )
@@ -3906,18 +3907,28 @@ def _declare_act_boundary_suspected(
     # Anywhere on a line: a closing phrase opening its own line ends the body
     # before the fold runs, so a fold only ever sees one that does not.
     closing = re.compile("|".join(map(_phrase_pattern, phrases)))
-    heading = re.compile("(?m)^[ \t]*(?:" + "|".join(f"(?:{h})" for h in headings) + ")")
+    # One pattern each: two may both name a `number` group.
+    patterns = [heading_line_pattern(h) for h in headings]
     boundaries = _drop_boundaries(anchors, [s for s in spans if s.emitted_by.startswith("drop_")])
     quoted: tuple[bool, ...] | None = None
     for fold in folds:
         end = next((o for o in boundaries if o > fold.start), len(text))
-        shut = closing.search(text, fold.start, end)
-        opened = heading.search(text, shut.end(), end) if shut else None
-        if shut is None or opened is None:
+        if closing.search(text, fold.start, end) is None:
             continue
         if quoted is None:
             quoted = _closed_quote_mask(text, country)
-        if quoted[shut.end() - 1] or quoted[opened.end() - 1]:
+        mask = quoted
+        # A quoted candidate is cited text: skip it and keep reading the run.
+        shut = next(
+            (m for m in closing.finditer(text, fold.start, end) if not mask[m.end() - 1]), None
+        )
+        candidates = (
+            m for p in patterns for m in p.finditer(text, shut.end() if shut else end, end)
+        )
+        opened = min(
+            (m for m in candidates if not mask[m.end() - 1]), key=lambda m: m.start(), default=None
+        )
+        if shut is None or opened is None:
             continue
         line_end = text.find("\n", opened.start(), end)
         spans.append(
