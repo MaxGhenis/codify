@@ -558,8 +558,9 @@ def _decide(
     opening = first if first and not any(m.offset < first.start for m in markers) else None
     rows: list[ReconciliationRow] = []
     decided: list[tuple[_Heading, tuple[str, ...]]] = []
-    # Where the evidence disagreed, and why; None places a doubt nowhere, so everywhere.
-    doubts: list[tuple[int | None, str]] = []
+    # Where the evidence disagreed, as a span, and why; None places a doubt nowhere,
+    # so everywhere.
+    doubts: list[tuple[tuple[int, int] | None, str]] = []
     unmatched = list(entries)
     # An entry another heading names is that heading's, never a mismatch for this one.
     named = {c.key for c in candidates}
@@ -578,6 +579,7 @@ def _decide(
             else _signals(text, heading, previous, following, markers, pages, rules)
         )
         status: Status
+        entry: _Entry | None = None
         if entries:
             status, entry = _against_contents(heading, entries, unmatched, named)
             if entry is not None:
@@ -594,14 +596,19 @@ def _decide(
                 decided.append((heading, signals))
             open_heading, previous = heading, heading.start
         elif signals or status not in ("heading_only", "citation"):
-            doubts.append((heading.start, row.describe()))
+            at = (heading.start, heading.start)
+            listed_at = pages.start_of(entry.pdf_page) if entry and entry.pdf_page else None
+            if status == "page_mismatch" and listed_at is not None:
+                # Everything between where the listing puts the act and where it stands.
+                at = (min(listed_at, heading.start), max(listed_at, heading.start))
+            doubts.append((at, row.describe()))
         if is_opening:
             open_heading, previous = heading, heading.start
     for entry in unmatched:
         row = _entry_row(entry, "contents_only")
         rows.append(row)
         begins = pages.start_of(entry.pdf_page) if entry.pdf_page is not None else None
-        doubts.append((begins, row.describe()))
+        doubts.append(((begins, begins) if begins is not None else None, row.describe()))
     if not decided and not doubts:
         return _single(text, pages.spans, tuple(rows))
     return _assemble(text, pages, opening, decided, doubts, tuple(rows))
@@ -748,7 +755,7 @@ def _assemble(
     pages: _Pages,
     opening: _Heading | None,
     decided: list[tuple[_Heading, tuple[str, ...]]],
-    doubts: list[tuple[int | None, str]],
+    doubts: list[tuple[tuple[int, int] | None, str]],
     rows: tuple[ReconciliationRow, ...],
 ) -> Segmentation:
     # The opening takes its page's furniture as later boundaries do.
@@ -760,14 +767,14 @@ def _assemble(
     segments: list[Segment] = []
     held: list[HeldSpan] = []
     # A doubt ahead of the opening is not front matter: hold that region instead.
-    early = [why for at, why in doubts if at is not None and at < first]
+    early = [why for at, why in doubts if at is not None and at[0] < first]
     if early:
         first_page, last_page = _page_range(pages, 0, first)
         held.append(HeldSpan(0, first, first_page, last_page, "; ".join(early), text[:first]))
     for index, (start, heading, signals) in enumerate(cuts):
         end = cuts[index + 1][0] if index + 1 < len(cuts) else len(text)
         first_page, last_page = _page_range(pages, start, end)
-        here = [why for at, why in doubts if at is None or start <= at < end]
+        here = [why for at, why in doubts if at is None or (at[0] < end and at[1] >= start)]
         if here:
             held.append(
                 HeldSpan(start, end, first_page, last_page, "; ".join(here), text[start:end])

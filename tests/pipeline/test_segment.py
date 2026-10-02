@@ -1462,3 +1462,24 @@ def test_a_citation_after_a_line_ending_on_a_connective_is_not_an_entry(
     assert result.outcome == "decided"
     listed = [(r.key, r.printed_page) for r in result.reconciliation if r.source == "contents"]
     assert listed == [("act 3", 2), ("act 4", 2), ("act 5", 3)]
+
+
+def test_a_page_mismatch_holds_from_the_listed_page_to_the_heading(
+    config: JurisdictionConfig,
+) -> None:
+    """Listed at page 2, found on page 4: the acts between are in doubt too."""
+    contents = _contents_page(
+        [("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3), ("ACT No. 5 OF 2020", 2)]
+    )
+    pages = [
+        contents,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *_act(4, "THE PILOTS ACT", 3), *_signed()],
+        ["- 4 -", "", *_act(5, "THE BUOYS ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "abstained"
+    assert result.segments == ()
+    # Act 5 is no boundary, so pages 3 and 4 hold as one region.
+    assert [(h.first_page, h.last_page) for h in result.held] == [(2, 2), (3, 4)]
