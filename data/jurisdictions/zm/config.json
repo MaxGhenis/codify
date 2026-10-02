@@ -158,16 +158,6 @@
     "insertion_style": "alphanumeric",
     "note": "Post-1997 acts cited as 'Act No. NN of YYYY'. Pre-1997 consolidated statutes cited by Chapter number."
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of Zambia.",
-      "position": "preamble",
-      "era": "current",
-      "from": "1964-10-24",
-      "verified": true,
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by the deletion of... and the substitution therefor of the following",
@@ -211,9 +201,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Note: Zambia uses 'regulation' and 'subregulation' as basic unit terms in statutory instruments (map to SECTION/SUBSECTION). The Constitution uses 'Article' as basic unit and 'clause' for subdivisions. Section numbering is continuous throughout each Act, not resetting per Part."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "sadc",

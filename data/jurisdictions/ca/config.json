@@ -185,24 +185,6 @@
     "insertion_style": "decimal",
     "insertion_note": "Federal legislation uses decimal insertion (5.1, 5.2) between existing sections. Lettered insertion (5A) occasionally seen in older statutes."
   },
-  "enacting_formulae": [
-    {
-      "language": "eng",
-      "text": "His Majesty, by and with the advice and consent of the Senate and House of Commons of Canada, enacts as follows:",
-      "era": "post-2022",
-      "from": "2022-09-08",
-      "note": "Following accession of King Charles III on 8 September 2022",
-      "document_class": "act"
-    },
-    {
-      "language": "eng",
-      "text": "Her Majesty, by and with the advice and consent of the Senate and House of Commons of Canada, enacts as follows:",
-      "era": "pre-2022",
-      "to": "2022-09-08",
-      "note": "During Queen Elizabeth II's reign",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "cross_reference_format": "short_title_and_rsc_or_sc"
@@ -293,9 +275,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Canada federal legislation is BILINGUAL — both English and French versions are co-equal originals. Process each language version separately. Normalise Part numbers to Arabic numerals (PART 1, not PART I). Use SECTION as basic unit for both Acts and Regulations. Division and Subdivision elements (Income Tax Act) require post-processing — treat as PART level in Bluebell output and flag for renaming to hcontainer in post-processing step. Marginal notes are not part of the enactment (Interpretation Act s. 14) — map to heading elements."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

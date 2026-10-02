@@ -230,22 +230,6 @@
   "numbering": {
     "act_citation": "Legea nr. {number}/{year}"
   },
-  "enacting_formulae": [
-    {
-      "text": "Parlamentul adoptă prezenta lege.",
-      "position": "preamble",
-      "era": "current",
-      "note": "Ordinary law (lege ordinară). Identical structure; classified by voting threshold not formula.",
-      "document_class": "lege"
-    },
-    {
-      "text": "Guvernul Republicii Moldova HOTĂRĂŞTE:",
-      "position": "preamble",
-      "era": "current",
-      "note": "Government Decision enacting formula.",
-      "document_class": "hg"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "type_number_year_title"
@@ -318,9 +302,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Use ARTICLE (not SECTION) as the basic legislative unit. DIVISION maps to Secțiunea (higher grouping above articles — NOT the basic unit). Article numbering is continuous throughout the entire act. Alineate (paragraphs) are numbered (1), (2) in parentheses: cite as alin.(1). Litere (letters) are a), b), c) with closing parenthesis only: cite as lit.a). Puncte are 1., 2., 3. with full stop. Base this prompt on structure_ro.txt — Moldova shares the same civil law drafting tradition as Romania. Key Moldova-specific differences: (1) unicameral Parliament; (2) enacting formula 'Parlamentul adoptă prezenta lege organică.' (organic) or 'Parlamentul adoptă prezenta lege.' (ordinary); (3) amendment acts use Roman-numeral top-level articles (Art. I, Art. II) each targeting a different principal act."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "council-of-europe",

@@ -113,16 +113,16 @@
       "hierarchy": [
         {
           "local_term": "Livre",
-          "akn_element": "hcontainer",
+          "akn_element": "book",
           "level": "higher",
-          "bluebell_keyword": null,
+          "bluebell_keyword": "BOOK",
           "numbering": "roman"
         },
         {
           "local_term": "Titre",
-          "akn_element": "hcontainer",
+          "akn_element": "title",
           "level": "higher",
-          "bluebell_keyword": null,
+          "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
@@ -180,23 +180,6 @@
     "act_citation_alt": "Cap. {number}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of Mauritius, as follows —",
-      "position": "preamble",
-      "era": "post-republic",
-      "from": "1992-03-12",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the National Assembly of Mauritius and by the authority of the same as follows:",
-      "position": "preamble",
-      "era": "pre-republic",
-      "from": "1968-03-12",
-      "to": "1992-03-12",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and replacing... / by inserting, after section N, the following new section —",
@@ -240,9 +223,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Mauritius uses PART (Roman numerals) > SECTION (Arabic continuous) hierarchy for all English-language Acts. Section 1 = Short title, Section 2 = Interpretation. Enacting formula: 'ENACTED by the Parliament of Mauritius, as follows —'. Presidential assent block appears at document head before the preface ('I assent — [Name], President of the Republic of Mauritius'). Omit the 'Arrangement of Sections' table of contents from AKN body. If document is in French (Code Civil Mauricien, Code de Commerce), do NOT use this prompt — route to specialist review."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "comesa",

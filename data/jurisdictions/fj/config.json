@@ -193,43 +193,6 @@
     "act_citation_alt": "Cap. {number}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of the Republic of Fiji—",
-      "position": "preamble",
-      "era": "current",
-      "from": "2014-09-22",
-      "note": "Post-2013 Constitution. Parliament restored September 2014. Confirmed verbatim from: Electricity Act 2017 (Act No. 13 of 2017), Information Act 2018 (Act No. 9 of 2018), Bills No. 17 of 2021 and No. 29 of 2019.",
-      "document_class": "act"
-    },
-    {
-      "text": "ENACTED by the Parliament of the Fiji Islands as follows:",
-      "position": "preamble",
-      "era": "1997-constitution",
-      "from": "1997-07-25",
-      "to": "2006-12-05",
-      "note": "Under the 1997 Constitution (Republic of the Fiji Islands). Verbatim confirmation pending.",
-      "document_class": "act"
-    },
-    {
-      "text": "ENACTED by the Parliament of Fiji as follows:",
-      "position": "preamble",
-      "era": "1970-constitution",
-      "from": "1970-10-10",
-      "to": "1987-05-14",
-      "note": "Under the 1970 Constitution. Verbatim confirmation pending.",
-      "document_class": "act"
-    },
-    {
-      "text": "Promulgated by the President of the Republic of the Fiji Islands acting on the advice of the Prime Minister",
-      "position": "preamble",
-      "era": "decree",
-      "from": "2006-12-05",
-      "to": "2013-09-06",
-      "note": "Military era Decrees and Promulgations. Exact wording varies by instrument type and year — flag each for manual review.",
-      "document_class": "decree"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting...",
@@ -291,9 +254,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Fiji uses arabic numerals for Part numbering (Part 1, Part 2) in post-1990 acts, and roman numerals (Part I, Part II) in older Cap-era legislation. Section numbering is continuous throughout the act. Some large acts use a Division level between Part and Section — flag these for post-processing rather than attempting to model in Bluebell. Decree-era documents (2006-2013) use a promulgating formula rather than an enacting formula — record verbatim text of the formula block."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "pacific-community",

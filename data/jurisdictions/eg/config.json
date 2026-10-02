@@ -188,34 +188,6 @@
     "insertion_example": "مادة 5 مكرراً → art_5bis",
     "article_numbering": "continuous_throughout_law"
   },
-  "enacting_formulae": [
-    {
-      "transliteration": "Asdar Majlis Al-Nuwwab Al-Qanun Al-Ati Nassuh",
-      "position": "preamble",
-      "era": "post-2014-constitution",
-      "from": "2014-01-18",
-      "enacting_body_tlc": "houseOfRepresentatives",
-      "document_class": "act",
-      "text": "أصدر مجلس النواب القانون الآتي نصه:"
-    },
-    {
-      "transliteration": "Asdar Majlis Al-Sha'b Al-Qanun Al-Ati Nassuh",
-      "position": "preamble",
-      "era": "pre-2014-constitution",
-      "to": "2014-01-18",
-      "enacting_body_tlc": "peoplesAssembly",
-      "document_class": "act",
-      "text": "أصدر مجلس الشعب القانون الآتي نصه:"
-    },
-    {
-      "position": "preamble",
-      "era": "presidential-decree-law",
-      "enacting_body_tlc": "president",
-      "note": "Used for مراسيم بقوانين (Presidential Decree-Laws) issued between parliamentary sessions per Constitution Art. 156.",
-      "document_class": "decree_law",
-      "text": "رئيس الجمهورية. بعد الاطلاع على الدستور... أصدر القرار الآتي:"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "law_number_and_year"
@@ -300,9 +272,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Arabic RTL text. Basic unit is ARTICLE (مادة/Maddah), not SECTION. Hierarchy for major codes: BOOK > CHAPTER > [DIVISION for فصل] > ARTICLE. Simple laws: [CHAPTER >] ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة and POINT for بند. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, CHAPTER, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic numerals ٠-٩ should be normalised to 0-9 in structural position markers. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "arab-league",

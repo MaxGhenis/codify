@@ -253,30 +253,6 @@
     "insertion_style": "decimal",
     "insertion_note": "Modern Commonwealth drafting uses alphabetic insertion (5A, 5AA) for new sections and decimal (100-1) in some later Acts. Point-in-time versions tracked by legislation.gov.au."
   },
-  "enacting_formulae": [
-    {
-      "text": "The Parliament of Australia enacts:",
-      "position": "preamble",
-      "era": "post-1973",
-      "from": "1973-01-01",
-      "note": "Modern enacting formula introduced by the Acts Interpretation Amendment Act 1973. Prior formula used Royal style.",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, the Senate, and the House of Representatives of the Commonwealth of Australia, as follows:—",
-      "position": "preamble",
-      "era": "pre-1973-queen",
-      "to": "1973-01-01",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the King's Most Excellent Majesty, the Senate, and the House of Representatives of the Commonwealth of Australia, as follows:—",
-      "position": "preamble",
-      "era": "pre-1973-king",
-      "note": "Used during reigns of Edward VII, George V, George VI. Detect by monarch era.",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "cross_reference_format": "short_title_and_year"
@@ -337,9 +313,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Australian Commonwealth legislation uses a distinctive five-level hierarchy above the basic unit: CHAPTER > PART > DIVISION > SUBDIVISION > SECTION. Division and Subdivision are native AKN/Bluebell elements (DIVISION keyword → dvs, SUBDIVISION keyword → subdvs) — use them directly, no hcontainer post-processing required. Not every Act uses all levels; skip levels that are absent. Sections are numbered continuously throughout the Act (not reset within each Part or Division). Division numbers are typically dotted within their Part (e.g. 'Division 2.3' = Division 3 of Part 2); Subdivision labels are alphabetical (Subdivision A, B, C). Below Section: Subsection (arabic in parentheses), Paragraph (lowercase alpha in parentheses), Subparagraph (roman lower in parentheses). Bills use 'clause'/'subclause' terminology — treat as SECTION/SUBSECTION. Constitution s 51 uses bracketed Roman numerals for paragraphs (e.g. s 51(xxxi)) — treat as PARAGRAPH level numbered with roman_lower_parenthesized. Australian plain-language drafting style: note headings ('Note:') and examples ('Example:') appear inline in sections and are not structural hierarchy — treat as block content within the section. Amending Acts operate via numbered Schedules; each Schedule item contains explicit textual instructions. Defined terms are capitalised in body text and collected in a Dictionary section."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

@@ -230,18 +230,6 @@
     "insertion_style": "superscript_numeric",
     "insertion_note": "Inserted articles use superscript numeral suffix: Article 96¹ (plain: 96-1, eId: art_96-1). No renumbering of existing articles."
   },
-  "enacting_formulae": [
-    {
-      "text": "Верховна Рада України ухвалює цей Закон:",
-      "position": "preamble",
-      "document_class": "law"
-    },
-    {
-      "text": "Верховна Рада України ухвалює цей Кодекс:",
-      "position": "preamble",
-      "document_class": "code"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Article N of the Law of Ukraine [...] (VVR, YYYY, No. NN, Art. NNN) shall be amended as follows:",
@@ -291,9 +279,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase. Civil-law numbering: inline points like '1.' or '(1)' under an article are body content, not structural anchors — keep them as text."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "council-of-europe",

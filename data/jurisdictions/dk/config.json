@@ -204,23 +204,6 @@
     "insertion_style": "alphanumeric_spaced",
     "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b."
   },
-  "enacting_formulae": [
-    {
-      "text": "Bekendtgøres herved, at Folketinget har vedtaget følgende lov:",
-      "position": "preamble",
-      "era": "current",
-      "from": "1953-06-05",
-      "note": "This formula appears in the Lovtidende publication notice, not within the act body itself.",
-      "document_class": "act"
-    },
-    {
-      "text": "I medfør af § {N} i lov om {X}, jf. lovbekendtgørelse nr. {NNN} af {dato}, fastsættes:",
-      "position": "preamble",
-      "era": "bekendtgorelse",
-      "document_class": "bekendtgorelse",
-      "note": "Enabling formula for executive orders, citing the parent lov provision."
-    }
-  ],
   "amendments": {
     "style": "textual_artikellov",
     "phrasing": "I [lov], foretages følgende ændringer: ... affattes således: ...",
@@ -264,9 +247,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Danish § (Paragraf) maps to ARTICLE keyword and AKN article element. Kapitel (Chapter) maps to CHAPTER. Afsnit (Part/Section) maps to PART. Stykke (stk.) maps to PARAGRAPH — the first stykke is stk. 1 marked inline as 'Stk. 1.' not in parentheses. Nummer (nr.) maps to POINT, numbered 1), 2). Litra maps to INDENT, lettered a), b). The § symbol is part of the number display but should not be included in the ARTICLE number field in Bluebell input. Many short Danish acts have no Kapitel — just a sequence of ARTICLEs. The final ARTICLE is always the commencement provision (ikrafttrædelsesbestemmelse)."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

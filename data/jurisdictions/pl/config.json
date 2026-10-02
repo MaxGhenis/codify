@@ -201,21 +201,6 @@
     "insertion_example": "art. 5a, art. 5b",
     "article_numbering": "continuous_arabic"
   },
-  "enacting_formulae": [
-    {
-      "text": "Sejm Rzeczypospolitej Polskiej uchwala, co następuje:",
-      "position": "preamble",
-      "era": "current",
-      "from": "1997-10-17",
-      "document_class": "act"
-    },
-    {
-      "text": "[Issuing body], działając na podstawie art. {N} [enabling act], zarządza, co następuje:",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "rozp"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "short_title_and_dzu_position"
@@ -318,9 +303,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Poland uses civil law structure. Basic unit is ARTICLE (artykuł), not SECTION. Higher divisions: BOOK (księga), TITLE (tytuł), PART (dział), CHAPTER (rozdział). Subdivisions: SUBSECTION (ustęp, numbered with period: 1. 2.), POINT (punkt, numbered with right parenthesis: 1) 2)), INDENT (litera, lettered: a) b)), INDENT (tiret, unnumbered dash). Article numbering is ALWAYS continuous throughout the entire act — do not restart at each chapter. Enacting formula: 'Sejm Rzeczypospolitej Polskiej uchwala, co następuje:'"
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

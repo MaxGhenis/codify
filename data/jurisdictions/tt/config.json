@@ -183,27 +183,6 @@
     "insertion_style": "alphanumeric",
     "insertion_example": "Firearms Amendment Act 2021 inserts sections 6A, 6B, 6C (after s.6) and 9B (after s.9A)"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of Trinidad and Tobago as follows:",
-      "position": "preamble",
-      "era": "post-republic",
-      "from": "1976-08-01",
-      "verified": true,
-      "note": "Gazette renders first word in small-caps. The em-dash variant ('as follows:—') also observed (Act No. 2 of 2000). Both forms are equivalent.",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Trinidad and Tobago, and by the authority of the same, as follows:—",
-      "position": "preamble",
-      "era": "independence-pre-republic",
-      "from": "1962-08-31",
-      "to": "1976-08-01",
-      "verified": false,
-      "note": "Standard Commonwealth Independence form assumed.",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting... / is amended by inserting after section [N] the following section: / is deleted and the following is substituted:",
@@ -361,9 +340,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Trinidad and Tobago uses PART (Roman) > SECTION (continuous Arabic) as the standard structure for Acts. The Constitution uses CHAPTER (Arabic) > PART (Roman) > SECTION — handle with the constitution document class. Some complex acts and SIs add DIVISION (Arabic) between PART and SECTION — flag division headings for post-processing injection of hcontainer wrappers. Basic unit is always SECTION. Subsection (1), Paragraph (a) in italics, Subparagraph (i). Inserted sections carry alphanumeric suffix: 6A, 6B, 6C. Constitutional special-majority acts begin with WHEREAS recitals before the enacting formula — model each as a recital element. Paragraph labels in amendment acts are italicised: (a), (b), (c)."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "caricom",

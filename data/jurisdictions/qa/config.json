@@ -231,38 +231,6 @@
     "insertion_style": "mkarrar",
     "insertion_note": "Civil law tradition uses wholesale article replacement. If insertion occurs, Arabic مكرر (mkarrar = repeated/bis) suffix expected, e.g., Article (5) mkarrar → art_5mkarrar."
   },
-  "enacting_formulae": [
-    {
-      "text": "We, Tamim bin Hamad Al-Thani, Emir of the State of Qatar, After perusal of the Constitution, [recitals of prior relevant legislation], And pursuant to the proposal of the Council of Ministers, Have promulgated the following law:",
-      "position": "preamble",
-      "era": "post-2013",
-      "from": "2013-06-25",
-      "note": "Tamim succeeded Hamad bin Khalifa on 25 June 2013.",
-      "document_class": "act"
-    },
-    {
-      "text": "We, Hamad bin Khalifa Al-Thani, Emir of the State of Qatar, After perusal of the Constitution, [recitals], And pursuant to the proposal of the Council of Ministers, Have promulgated the following law:",
-      "position": "preamble",
-      "era": "post-constitution",
-      "from": "2004-06-09",
-      "to": "2013-06-25",
-      "document_class": "act"
-    },
-    {
-      "text": "We, Hamad bin Khalifa Al-Thani, Emir of the State of Qatar, After perusal of [prior law or basic law], Have decided the following:",
-      "position": "preamble",
-      "era": "pre-constitution",
-      "to": "2004-06-09",
-      "note": "Pre-Constitution laws issued by Emiri Decree without Shura Council involvement.",
-      "document_class": "act"
-    },
-    {
-      "text": "[Emir's name and title], After perusal of the Constitution, [recitals], Have decided the following:",
-      "position": "preamble",
-      "note": "Formula for Emiri Decisions (executive instruments). Signature block at conclusions.",
-      "document_class": "emiri_decree"
-    }
-  ],
   "amendments": {
     "style": "wholesale_replacement",
     "phrasing": "Article ({N}) of Law No. ({NN}) of {year} shall be amended to read as follows: / Article ({N}) shall be added to Law No. ({NN}) of {year} to read as follows: / Article ({N}) of Law No. ({NN}) of {year} shall be repealed.",
@@ -312,9 +280,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Qatar uses ARTICLE (مادة, maddah) as the basic unit — numbered continuously throughout the law. Chapter (باب, bab) and Section (فصل, fasl) are higher divisions ABOVE articles, not below them. Section is NOT the basic unit. Article numbers appear in parentheses in Qatari convention: 'Article (5)'. Source documents are in Arabic (RTL); English translations may exist but Arabic is authoritative. Paragraph subdivisions within articles use (1), (2) numbering; lettered items use (a), (b). Most short laws have no subdivisions within articles. The signature block (Emir's name, date) appears at the END of the document — model as <conclusions>, not <preamble>."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "gcc",

@@ -196,16 +196,6 @@
     "insertion_style": "superscript_numeric",
     "note": "No sequential act numbers — gazette reference is the formal identifier. Pants insertion uses superscript: 5¹ → art_51, 5² → art_52. Cabinet regulations are numbered sequentially per year: MK noteikumi Nr. {N}."
   },
-  "enacting_formulae": [
-    {
-      "text": "Izdoti saskaņā ar {enabling_act_reference}",
-      "position": "preamble",
-      "era": "current",
-      "from": "1991-08-21",
-      "document_class": "noteikumi",
-      "note": "Cabinet Regulations have an enabling authority formula citing the parent act and specific pants/daļa/punkts. Maps to <preamble><formula name='enablingAuthority'>."
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "papildināt... izteikt... šādā redakcijā... izslēgt...",
@@ -267,9 +257,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Latvian 'pants' maps to AKN article (Germanic tradition, same as German § and Estonian paragrahv). 'Daļa' (of a pants) maps to AKN paragraph — numbered (1), (2). 'Punkts' maps to AKN point — numbered 1), 2). 'Apakšpunkts' maps to AKN indent — lettered a), b). 'Nodaļa' maps to AKN chapter. 'Iedaļa' maps to AKN section (as higher division). Top-level 'Daļa' (Part) in large codes maps to AKN part. CRITICAL: Latvian acts have NO body-text enacting formula — do not invent one. Begin BODY with first CHAPTER or ARTICLE. Terminal block 'Pārejas noteikumi' (Transitional Provisions) must be detected by heading string and wrapped in hcontainer, not treated as a nodaļa. Terminal block 'Informatīvā atsauce' similarly. Pants numbering is continuous throughout and does NOT restart per nodaļa. Insertion numbering: 5¹ → art_51, 5² → art_52."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

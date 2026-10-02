@@ -196,20 +196,6 @@
     "insertion_style": "bis_ter_quater",
     "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter, Artículo 8 quater."
   },
-  "enacting_formulae": [
-    {
-      "text": "El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc., sancionan con fuerza de Ley:",
-      "position": "preamble",
-      "document_class": "ley",
-      "note": "Standard abbreviated form per Art. 84 CN. Full constitutional formula: 'decretan o sancionan con fuerza de ley'. Both variants observed."
-    },
-    {
-      "text": "VISTO [...] El PRESIDENTE DE LA NACIÓN ARGENTINA DECRETA:",
-      "position": "preamble",
-      "document_class": "dnu",
-      "note": "DNU formula. VISTO block cites Art. 99(3) CN and Cabinet agreement. Full formula varies per decree."
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "Ley N° [number_with_separator], artículo [N°]"
@@ -270,9 +256,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Argentina uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions: BOOK (libro, codes only), TITLE (título), CHAPTER (capítulo), SUBDIVISION (sección as grouping in codes). First-level subdivisions within articles are PARAGRAPH for incisos (a), b), c)). Second-level subdivisions are POINT for sub-incisos. No marginal notes — article headings are inline after the article number and dash. Insertion numbering uses bis/ter/quater (Artículo 5° bis). Law numbers are continuous integers without year component (Ley 27742). Strip degree symbols from article numbers in eIds (Artículo 1° → art_1)."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "mercosur",

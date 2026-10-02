@@ -292,20 +292,6 @@
     "insertion_example": "Άρθρο 5Α, Άρθρο 5Β",
     "note": "Inserted articles append a Greek capital letter (Α, Β, Γ); normalise to ASCII Latin capital for eId (5A, 5B, 5C)."
   },
-  "enacting_formulae": [
-    {
-      "text": "Ο ΠΡΟΕΔΡΟΣ ΤΗΣ ΕΛΛΗΝΙΚΗΣ ΔΗΜΟΚΡΑΤΙΑΣ\nΕκδίδομε τον ακόλουθο νόμο που ψήφισε η Βουλή:",
-      "position": "preamble",
-      "document_class": "nomos",
-      "note": "based on constitutional practice (Art. 42 Constitution)."
-    },
-    {
-      "text": "Ο ΠΡΟΕΔΡΟΣ ΤΗΣ ΕΛΛΗΝΙΚΗΣ ΔΗΜΟΚΡΑΤΙΑΣ\nΈχοντας υπόψη: [...]\nΑποφασίζουμε:",
-      "position": "preamble",
-      "document_class": "presidential_decree",
-      "note": "Presidential Decrees include recitals of the authorising provisions before the operative text. Recitals map to <recitals> in AKN preamble."
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "η παράγραφος X του άρθρου Y αντικαθίσταται ως εξής: «...»",
@@ -391,9 +377,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

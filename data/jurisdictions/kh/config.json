@@ -182,15 +182,6 @@
     "act_citation": "Preah Reach Kram No. NS/RKM/{MMYY}/{NNN}",
     "insertion_style": "bis_ter"
   },
-  "enacting_formulae": [
-    {
-      "position": "preamble",
-      "era": "post-constitution",
-      "from": "1993-09-24",
-      "text": "PREAH REACH KRAM No. NS/RKM/[MMYY]/[NNN]\n\nWe, [Royal style of the King],\n\nHaving seen the Constitution of the Kingdom of Cambodia;\nHaving seen the Royal Kram No. NS/RKM/0801/14 dated 28 January 2008 on the promulgation of the Law on the Organization and Functioning of the Council of Ministers;\nHaving seen [relevant prior legislation];\nHaving proposed by [the Prime Minister];\n\nPromulgate:\n\nThe Law on [Subject] passed by the National Assembly on [date] in the [ordinal] plenary session of the [ordinal] legislature and reviewed and approved by the Senate in accordance with the form and spirit of the law without revision on [date] during the [ordinal] plenary session of the [ordinal] legislature, the content of which is as follows:",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "structural_civil_law",
     "phrasing": "Article [N] of the Law on [Subject] is amended to read as follows:",
@@ -288,9 +279,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Cambodia uses ARTICLE (not SECTION) as the basic unit. Hierarchy for most laws: CHAPTER > ARTICLE. For codes (Civil Code, Labor Code): BOOK or PART > CHAPTER > [SECTION >] ARTICLE. Subdivisions within articles: PARAGRAPH (1)(2)(3) > POINT (a)(b)(c) > INDENT (i)(ii)(iii). SECTION is reserved for higher-division use only. Article numbering is continuous throughout the whole instrument, not restarting per chapter."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "asean",

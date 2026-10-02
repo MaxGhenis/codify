@@ -303,7 +303,6 @@
     "insertion_style": "alphanumeric_cyrillic",
     "insertion_note": "Inserted articles receive a Cyrillic letter suffix: Чл. 5а, Чл. 5б. Maps to art_5a, art_5b in eIds."
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_continental",
     "cross_reference_format": "short_title_and_sg_citation"
@@ -346,9 +345,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

@@ -227,35 +227,6 @@
     "insertion_example": "مادة 5 مكرراً → art_5bis",
     "article_numbering": "continuous_throughout_law"
   },
-  "enacting_formulae": [
-    {
-      "transliteration": "Asdar Majlis al-Nuwwab al-Qanun al-Ati Nassuh",
-      "position": "preamble",
-      "era": "post-2005-constitution",
-      "from": "2006-01-01",
-      "enacting_body_tlc": "councilOfRepresentatives",
-      "document_class": "act",
-      "text": "أصدر مجلس النواب القانون الآتي نصه:"
-    },
-    {
-      "transliteration": "Ba-ism al-Sha'b",
-      "position": "preamble",
-      "era": "post-2003-general",
-      "note": "Presidential promulgation preamble that appears in the gazette header alongside the law text. Precedes or accompanies the CoR enacting formula.",
-      "enacting_body_tlc": "president",
-      "document_class": "act",
-      "text": "باسم الشعب"
-    },
-    {
-      "text": "Pursuant to my authority as Administrator of the Coalition Provisional Authority (CPA), relevant UN Security Council resolutions, including Resolution 1483 (2003) and 1511 (2003), and the laws and usages of war, I hereby promulgate the following:",
-      "position": "preamble",
-      "era": "cpa-2003-2004",
-      "from": "2003-05-16",
-      "to": "2004-06-28",
-      "enacting_body_tlc": "cpaAdministrator",
-      "document_class": "cpa_order"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "law_number_and_year"
@@ -340,9 +311,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Arabic and Kurdish RTL text. Basic unit is ARTICLE (مادة/Maddah), not SECTION. Hierarchy for major codes: BOOK > [PART >] CHAPTER > [DIVISION for فصل/Fasl] > ARTICLE. Simple laws: [CHAPTER >] ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة/Faqra and POINT for بند/Band. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, PART, CHAPTER, DIVISION, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic-script numerals ٠-٩ should be normalised to 0-9 in structural position markers only. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis. CPA Orders use English section-based structure — use SECTION/SUBSECTION/PARAGRAPH hierarchy instead, with structure_iq_cpa.txt variant."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "arab-league",

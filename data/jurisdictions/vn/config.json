@@ -280,29 +280,6 @@
     "insertion_style": "alphabetic_lower",
     "insertion_example": "Điều 5a, Điều 5b (not 5A, 5B)"
   },
-  "enacting_formulae": [
-    {
-      "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nQuốc hội ban hành Luật [tên văn bản].",
-      "position": "preamble",
-      "era": "current",
-      "from": "2013-11-28",
-      "document_class": "luat"
-    },
-    {
-      "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nỦy ban Thường vụ Quốc hội ban hành Pháp lệnh [tên văn bản].",
-      "position": "preamble",
-      "era": "current",
-      "from": "2013-11-28",
-      "document_class": "phaplenhh"
-    },
-    {
-      "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam năm 1992;\nQuốc hội ban hành [Luật / Bộ luật] [tên văn bản].",
-      "position": "preamble",
-      "era": "pre-2013",
-      "to": "2013-11-28",
-      "document_class": "luat"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "được sửa đổi, bổ sung như sau (is amended and supplemented as follows)",
@@ -388,9 +365,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword for Điều. The hierarchy is: PART (Phần, optional) > CHAPTER (Chương) > SECTION (Mục, optional) > ARTICLE (Điều) > PARAGRAPH (Khoản) > POINT (Điểm). The letter sequence for POINT labels is a, b, c, d, đ, e, g, h, i, k — note that đ appears between d and e. When outputting eId-relevant labels, romanise đ as 'dd'. Chapter headings are in Vietnamese and should be preserved. Article headings follow the article number on the same or next line."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "asean",

@@ -250,23 +250,6 @@
     "insertion_style": "alphanumeric",
     "insertion_example": "§ 14a, § 14b, § 22a"
   },
-  "enacting_formulae": [
-    {
-      "text": "Der Nationalrat hat beschlossen:",
-      "position": "preamble",
-      "document_class": "act",
-      "era": "second-republic",
-      "from": "1945-04-27"
-    },
-    {
-      "text": "Auf Grund des § {N} des {Stammgesetz}, BGBl. {citation}, wird verordnet:",
-      "position": "preamble",
-      "document_class": "vo",
-      "era": "second-republic",
-      "from": "1945-04-27",
-      "note": "Enabling provision citation precedes body. Specific § varies per ordinance."
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "short_title_and_bgbl"
@@ -351,9 +334,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Austrian civil law: § (Paragraph) is the basic unit mapped to ARTICLE in Bluebell. Hauptstück maps to CHAPTER. Abschnitt maps to SECTION (higher division, not basic unit). Absatz maps to PARAGRAPH. Ziffer maps to POINT. Litera maps to INDENT. Constitutional laws use Artikel instead of §, same Bluebell mapping."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

@@ -116,7 +116,6 @@
     "insertion_style": "superscript_arabic",
     "insertion_note": "Inserted articles use superscript Arabic numerals per Law on Legislation Art. 28.10: 'Article 5¹', 'Article 5²', etc. Neither letter suffix ('5а') nor hyphen-decimal ('5-1') is the prescribed style."
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civilian",
     "phrasing": "дараах нэмэлт, өөрчлөлт оруулах",
@@ -148,9 +147,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Mongolian laws use Зүйл (article) as the basic unit — map to ARTICLE keyword. Higher grouping: Бүлэг (chapter) maps to CHAPTER. Subdivisions within an article: Заалт (paragraph, dotted-decimal numbered e.g. 1.1, 1.2) maps to PARAGRAPH; Дэд заалт (sub-paragraph, deeper decimal e.g. 1.1.1) maps to POINT; Үе (clause, lettered а, б, в) maps to INDENT. Article headings appear inline: '1 дүгээр зүйл. [Heading text]'. Article numbering is continuous across the whole law, not restarting per chapter. Laws have no formal enacting preamble — they begin directly with Article 1. Inserted articles use superscript Arabic numerals in source (5¹, 5²); map to sequential eIds (art_5_1, art_5_2). All current legislation is in Cyrillic script."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

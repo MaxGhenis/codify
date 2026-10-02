@@ -139,16 +139,6 @@
   "numbering": {
     "act_citation": "Law No. {number}/NA of {date}"
   },
-  "enacting_formulae": [
-    {
-      "text": "The National Assembly of the Lao People's Democratic Republic hereby enacts this Law",
-      "position": "preamble",
-      "era": "post-1991",
-      "note": "English translation only. Lao-script original is authoritative. Full formula includes session reference and constitutional basis recitals.",
-      "from": "1991-08-14",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "full_replacement_or_textual",
     "phrasing": "full replacement of laws common; standalone amendment laws also used",
@@ -198,9 +188,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Hierarchy is PART > CHAPTER > ARTICLE > PARAGRAPH > POINT. Article numbering is continuous throughout the law and does not restart per Chapter or Part. Lao PDR follows the French civil law tradition inherited from the colonial period."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "asean",

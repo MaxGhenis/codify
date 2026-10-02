@@ -271,15 +271,6 @@
     "act_citation": "Lei n. {number}, de {year}",
     "insertion_style": "alphanumeric_hyphenated"
   },
-  "enacting_formulae": [
-    {
-      "text": "O PRESIDENTE DA REPUBLICA Faco saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei:",
-      "position": "preamble",
-      "era": "post-1988",
-      "from": "1988-10-05",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_substitution",
     "phrasing": "passa a vigorar com a seguinte redacao... (NR)",
@@ -311,9 +302,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Brazil uses ARTICLE as basic unit. Secao/Subsecao are HIGHER divisions above articles, NOT the basic unit. Inciso uses Roman numerals (I, II, III). Paragrafo unico is a special sole-paragraph designation."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "mercosur",

@@ -206,29 +206,6 @@
     "makes the following Regulations",
     "makes the following Rules"
   ],
-  "enacting_formulae": [
-    {
-      "text": "Enacted by the Parliament of The Bahamas",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1973-07-10",
-      "verified": true,
-      "note": "Standard short-form enacting formula confirmed from gazetted primary legislation.",
-      "document_class": "act"
-    },
-    {
-      "text": "NOW THEREFORE, in exercise of the powers conferred by subsection (1) of section 3 of the Protection of Revenue Act, the Governor-General makes the following Order —",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1973-07-10",
-      "verified": true,
-      "note": "Enacting formula confirmed from gazetted statutory orders under the Protection of Revenue Act.",
-      "document_class": [
-        "si",
-        "act"
-      ]
-    }
-  ],
   "attachments": [
     {
       "caption": "SCHEDULE",
@@ -363,7 +340,6 @@
     }
   ],
   "structuring": {
-    "prompt_additions": "The Bahamas uses PART > SECTION (not CHAPTER > SECTION) in ordinary legislation. The Constitution uses CHAPTER > ARTICLE. The Penal Code (CH.84 only) uses BOOK > TITLE > SECTION. Sections are numbered continuously (not restarting per Part). Section 1 = short title; Section 2 = interpretation. The enacting formula begins 'BE IT ENACTED by the Senate and House of Assembly of the Commonwealth of The Bahamas...' or 'Enacted by the Parliament of The Bahamas'.",
     "marker_boundary": "line_anchored",
     "classification_rules": [
       {

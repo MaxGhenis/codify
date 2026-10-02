@@ -259,14 +259,6 @@
     "insertion_style": "bis_ter_quater",
     "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter."
   },
-  "enacting_formulae": [
-    {
-      "text": "La Junta de Gobierno de la República de Chile ha acordado dictar el siguiente Decreto Ley:",
-      "position": "preamble",
-      "document_class": "dl",
-      "era": "1973-1990"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "el artículo [N°] de la Ley N° [XX.XXX]"
@@ -321,9 +313,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Chile uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions: BOOK (libro, codes only), TITLE (título), CHAPTER (capítulo), SECTION (párrafo — a grouping level ABOVE artículos, NOT a subdivision below them). Subdivisions within artículos: incisos are unnumbered paragraphs with no Bluebell keyword — leave as bare paragraph blocks and note them for post-processing. PARAGRAPH for numbered items (N° 1°, N° 2°). POINT for letras (a), b), c)). INDENT for sub-letras (i), ii)). Article numbers use degree symbols (Artículo 1°) — strip for eId: art_1. Law numbers use thousands-separator periods (Ley N° 21.719) — strip for URIs: 21719. Insertion numbering: bis/ter suffixes (Artículo 5° bis → art_5bis). No embedded enacting formula in body — law begins directly with articles."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

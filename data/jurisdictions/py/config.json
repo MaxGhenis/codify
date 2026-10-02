@@ -163,15 +163,6 @@
   "numbering": {
     "act_citation": "Ley N. {number}/{year}"
   },
-  "enacting_formulae": [
-    {
-      "text": "EL CONGRESO DE LA NACION PARAGUAYA SANCIONA CON FUERZA DE LEY:",
-      "position": "preamble",
-      "era": "post-1992",
-      "from": "1992-06-20",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_modification",
     "phrasing": "Modificase el Articulo [N], que queda redactado de la siguiente manera:",
@@ -203,9 +194,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Paraguay uses ARTICLE as basic unit. Seccion is a HIGHER division (not the basic unit). Inciso uses Arabic numerals with closing parenthesis."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "mercosur",

@@ -255,40 +255,6 @@
     "insertion_style": "hyphen_or_bis",
     "note": "Year/number separator is forward slash (/) not hyphen. Numbers are zero-padded to 3 digits. Pre-1990 laws used two-digit years (YY/NNN); expand to YYYY in URIs."
   },
-  "enacting_formulae": [
-    {
-      "text": "L'Assemblée nationale et le Sénat ont délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "bicameral_current",
-      "from": "2013-01-01",
-      "verified": true,
-      "note": "Formula confirmed from Cameroon legislative practice. Senate first sat in 2013 (100 senators sworn in May 2013). Bicameral formula confirmed as standard from Cameroon Tribune reports on 2024 laws. Source: https://www.senat.cm/ and https://www.cameroon-tribune.cm/",
-      "document_class": "loi"
-    },
-    {
-      "text": "L'Assemblée nationale a délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "unicameral_transitional",
-      "from": "1996-01-18",
-      "to": "2013-01-01",
-      "note": "Senate created by 1996 Constitution but did not sit until 2013. Unicameral formula used during this period.",
-      "document_class": "loi"
-    },
-    {
-      "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nPromulgue l'ordonnance dont la teneur suit :",
-      "position": "preamble",
-      "era": "ordonnance",
-      "note": "Ordonnance enabling clause. 'Vu' recitals cite constitutional basis and enabling legislation. Promulgated by President under Art. 28.",
-      "document_class": "ordonnance"
-    },
-    {
-      "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\n{additional_vus}\nDécrète :",
-      "position": "preamble",
-      "era": "decret",
-      "note": "Decree enabling clause.",
-      "document_class": "decret"
-    }
-  ],
   "amendments": {
     "style": "textual_french",
     "phrasing": "modifiant et complétant certaines dispositions de la loi n° {number} du {date}",
@@ -392,9 +358,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Basic unit is ARTICLE (not SECTION). In the French text: 'Article 1er', 'Article 2'… In the English bilingual text: 'Section 1', 'Section 2'… — both map to Bluebell ARTICLE keyword and AKN article element. Hierarchy above articles: TITLE (Titre) > CHAPTER (Chapitre) > DIVISION (Section as higher grouping). Use BOOK (Livre) only for the largest codes. Article numbering is continuous throughout the entire document regardless of higher divisions. Subdivisions within articles: unnumbered alinéas, then POINT (1°, 2°…), then INDENT (tiret –). The Constitution uses PART (Partie) not TITLE as its highest division."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "ohada",

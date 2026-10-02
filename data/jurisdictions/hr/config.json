@@ -231,16 +231,6 @@
     "insertion_example": "Članak 5.a, Članak 5.b",
     "article_numbering": "continuous_throughout_act"
   },
-  "enacting_formulae": [
-    {
-      "text": "Hrvatski sabor na sjednici {date}, donio je {naziv zakona}",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1991-06-25",
-      "note": "Parliamentary adoption formula. Appears as opening of law text in Narodne novine.",
-      "document_class": "zakon"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "law_name_and_nn_citation"
@@ -283,9 +273,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Croatian legislation uses ARTICLE (članak) as the basic unit — NOT SECTION. SECTION is only a higher division (Odjeljak). Article numbering is continuous throughout the entire act and never resets per chapter or part. Stavak (paragraph) numbered (1), (2) only when two or more exist. Točka (point) numbered 1., 2. or a), b). The presidential promulgation decree at the head of each gazette item is NOT part of the enacted law — stop before it and begin digitisation from the law title (ZAKON O...)."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

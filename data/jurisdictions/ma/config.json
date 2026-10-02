@@ -226,27 +226,6 @@
     "insertion_style": "bis_ter",
     "note": "Two-digit year in law numbers refers to legislative session year, not calendar year of promulgation. Disambiguation: if number portion >99, it is the sequential number not the year."
   },
-  "enacting_formulae": [
-    {
-      "text": "Le Parlement a adopté et délibéré ce qui suit :",
-      "position": "preamble",
-      "language": "fra",
-      "document_class": "loi"
-    },
-    {
-      "text": "Le Parlement a adopté et délibéré la loi organique dont la teneur suit :",
-      "position": "preamble",
-      "language": "fra",
-      "document_class": "loi_organique"
-    },
-    {
-      "text": "Nous, Mohammed VI, Roi du Maroc,\nVu la Constitution, notamment ses articles 42 et 50,\nAvons décidé ce qui suit :",
-      "position": "preamble",
-      "language": "fra",
-      "note": "Dahir promulgation formula. Precedes the law text in the BO. Model as <preamble><formula name='promulgationFormula'>.",
-      "document_class": "dahir"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "law_number_and_name"
@@ -319,9 +298,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Basic unit is ARTICLE (not SECTION). SECTION is a higher division above articles. Hierarchy: BOOK > TITLE > CHAPTER > SECTION > ARTICLE > SUBSECTION/PARAGRAPH. Dual calendar: extract both Gregorian and Hijri dates from document headers. Both Arabic and French text appear — process the language version specified in the job metadata. Alinéas within articles: if numbered use SUBSECTION; if unnumbered flag for post-processing as <alinea> element."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

@@ -133,15 +133,6 @@
     "insertion_style": "alphanumeric",
     "note": "Dual numbering system: post-consolidation acts cited as 'No. N of YYYY'; consolidated acts cited as 'Cap. NNN'. Cap number is canonical for consolidated legislation."
   },
-  "enacting_formulae": [
-    {
-      "text": "Be it enacted by the President and Parliament as follows:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1980-07-30",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "Delete '...' substitute '...' / After [provision] Insert '...'",
@@ -209,9 +200,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Vanuatu uses 'Be it enacted by the President and Parliament as follows:' as the enacting formula. Parts are the primary higher division (PART 1, PART 2). The Constitution uses Chapters instead of Parts. English and French versions are parallel originals — process each language separately. Acts are numbered 'No. N of YYYY' or 'Cap. NNN' for consolidated legislation."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

@@ -29,9 +29,9 @@
         },
         {
           "local_term": "Division",
-          "akn_element": "hcontainer",
+          "akn_element": "division",
           "level": "higher",
-          "bluebell_keyword": null,
+          "bluebell_keyword": "DIVISION",
           "numbering": "arabic_continuous",
           "note": "Division sits between Part and Section in complex Acts. No Bluebell keyword — requires post-processing to wrap in hcontainer name='division'. Not present in all Acts."
         },
@@ -181,22 +181,6 @@
     "insertion_style": "alphanumeric",
     "insertion_example": "9A, 9AA, 9AB"
   },
-  "enacting_formulae": [
-    {
-      "text": "Be it enacted by the President with the advice and consent of the Parliament of Singapore, as follows:",
-      "position": "preamble",
-      "era": "republic",
-      "from": "1965-08-09",
-      "document_class": "act"
-    },
-    {
-      "text": "[Minister], in exercise of the powers conferred by section [N] of the [Parent Act], hereby makes the following Regulations:",
-      "position": "preamble",
-      "era": "current",
-      "note": "Enabling power section and parent Act always cited. Instrument type varies: Regulations, Rules, Order, Notification.",
-      "document_class": "sl"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting...",
@@ -264,9 +248,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Singapore enacting formula: 'Be it enacted by the President with the advice and consent of the Parliament of Singapore, as follows:'. Standard hierarchy is PART (roman numerals) > SECTION (arabic, continuous). Division level (arabic, within Parts) is present in complex Acts — flatten to Part > Section for pipeline; flag for post-processing. Constitution requires separate prompt variant (structure_sg_constitution.txt) using PART > CHAPTER > ARTICLE."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "asean",

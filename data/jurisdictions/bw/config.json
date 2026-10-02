@@ -129,15 +129,6 @@
     "act_citation_alt": "Cap. {volume}:{chapter}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of Botswana.",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1966-09-30",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is hereby amended by deleting... and substituting...",
@@ -193,9 +184,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Botswana uses 'PART' as the primary higher division and 'SECTION' as the basic unit (Arabic numerals, continuous throughout Act). The Constitution uses 'CHAPTER' above 'PART'. Subsections use Arabic numerals in parentheses (1), (2); Paragraphs use lowercase letters (a), (b); Subparagraphs use Roman numerals (i), (ii). Enacting formula is 'ENACTED by the Parliament of Botswana.' Statutory Instruments use 'Regulation' as the basic unit but map to SECTION in Bluebell."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "sadc",

@@ -288,23 +288,6 @@
     "act_citation_alt": "{short_title}, {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "Parliament has enacted this Act.",
-      "position": "preamble",
-      "era": "federal-republic",
-      "from": "2015-09-20",
-      "document_class": "act"
-    },
-    {
-      "text": "His Majesty's Government has enacted this Act.",
-      "position": "preamble",
-      "era": "monarchy",
-      "from": "1959-01-01",
-      "to": "2008-05-28",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "In Section {N}, for the words '...' substitute '...' / After Section {N}, insert the following section",
@@ -366,9 +349,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Nepal legislation is written in Devanagari script in the Nepali language. Key hierarchy terms: Parichched = Chapter, Daphaa = Section (basic citable unit), Upadaphaa = Sub-section, Khanda = Paragraph/Clause (lettered), Upakhanda = Sub-paragraph. For the Constitution: Bhaag = Part, Dhaaraa = Article, Upadhaaraa = sub-clause. For Codes (Samhita), Bhaag may appear above Parichched. Nepal Gazette citations use Bikram Samvat (B.S.) dates — convert to Gregorian for FRBR URIs (subtract 56 or 57 years depending on month; Nepali New Year is mid-April). Store the original B.S. date as FRBRalias. English translations of Nepali laws exist on lawcommission.gov.np but the Nepali text is authoritative. Watch for Proviso-style clauses ('Tara' = 'Provided that') and Spashtikaran (Explanation) blocks."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

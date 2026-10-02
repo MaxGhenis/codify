@@ -327,32 +327,6 @@
     "insertion_style": "hyphen_suffix",
     "note": "Laws are cited by their number and publication date: 'Loi n° 2023-270 du 14 avril 2023'. In codes, inserted articles use hyphen notation: after art. L.123-4 comes L.123-4-1, L.123-4-2. Article numbering in codes encodes hierarchical position."
   },
-  "enacting_formulae": [
-    {
-      "text": "L'Assemblée nationale et le Sénat ont adopté,\nLe Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "cinquieme_republique",
-      "from": "1958-10-04",
-      "note": "Standard promulgation formula for ordinary laws under the Fifth Republic. Signed by President, countersigned by Premier ministre and relevant ministers.",
-      "document_class": "loi"
-    },
-    {
-      "text": "Le Parlement a adopté,\nVu la décision du Conseil constitutionnel n° [number] du [date] déclarant la présente loi organique conforme à la Constitution ;\nLe Président de la République promulgue la loi organique dont la teneur suit :",
-      "position": "preamble",
-      "era": "loi_organique",
-      "from": "1958-10-04",
-      "note": "Organic law formula; includes mandatory Conseil constitutionnel conformity declaration.",
-      "document_class": "loi_organique"
-    },
-    {
-      "text": "Le Président de la République,\nSur le rapport du Premier ministre et des ministres [portfolios],\nVu l'article 38 de la Constitution,\n[...]\nOrdonne :",
-      "position": "preamble",
-      "era": "ordonnance_art38",
-      "from": "1958-10-04",
-      "note": "Ordonnance issued under Article 38 delegation. VISA block lists authorizing law, Conseil d'Etat opinion, Conseil des ministres deliberation.",
-      "document_class": "ordonnance"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "est ainsi rédigé... est complété par... est abrogé... est remplacé par...",
@@ -426,9 +400,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "French law uses Article as the basic unit (ARTICLE keyword). Higher divisions are Livre (BOOK), Titre (TITLE), Chapitre (CHAPTER), Section (SECTION), Sous-section (SUBSECTION) — all higher divisions, not basic units. Alinéa is an unnumbered paragraph subdivision within an article; use PARAGRAPH keyword. In codes, article numbers encode hierarchy position (L.xxx-x, R.xxx-x, D.xxx-x) — preserve these exactly as the article number. Do not confuse Section (a higher division) with section in the Anglophone sense."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

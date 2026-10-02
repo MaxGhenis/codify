@@ -120,22 +120,6 @@
     "act_citation_alt": "Cap. {number}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of Barbados as follows:",
-      "position": "preamble",
-      "era": "post-republic",
-      "from": "2021-11-30",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Assembly of Barbados and by the authority of the same as follows:",
-      "position": "preamble",
-      "era": "pre-republic",
-      "to": "2021-11-30",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting...",
@@ -167,9 +151,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": null
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "caricom",

@@ -253,23 +253,6 @@
     "insertion_example": "artikel 5a, 5b inserted between artikel 5 and artikel 6",
     "article_numbering": "arabic_continuous"
   },
-  "enacting_formulae": [
-    {
-      "text": "Wij Willem-Alexander, bij de gratie Gods, Koning der Nederlanden, Prins van Oranje-Nassau, enz. enz. enz. Allen, die deze zullen zien of horen lezen, saluut! doen te weten: Alzo Wij in overweging genomen hebben, dat [considerans]; Zo is het, dat Wij, de Afdeling advisering van de Raad van State gehoord, en met gemeen overleg der Staten-Generaal, hebben goedgevonden en verstaan, gelijk Wij goedvinden en verstaan bij deze:",
-      "position": "preamble",
-      "era": "Willem-Alexander",
-      "from": "2013-04-30",
-      "document_class": "act"
-    },
-    {
-      "text": "Wij Beatrix, bij de gratie Gods, Koningin der Nederlanden, Prinses van Oranje-Nassau, enz. enz. enz. Allen, die deze zullen zien of horen lezen, saluut! doen te weten: Alzo Wij in overweging genomen hebben, dat [considerans]; Zo is het, dat Wij, de Afdeling advisering van de Raad van State gehoord, en met gemeen overleg der Staten-Generaal, hebben goedgevonden en verstaan, gelijk Wij goedvinden en verstaan bij deze:",
-      "position": "preamble",
-      "era": "Beatrix",
-      "from": "1980-04-30",
-      "to": "2013-04-30",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "citeertitel"
@@ -330,9 +313,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Dutch legislation uses ARTICLE as the basic unit (not SECTION). Hierarchy: CHAPTER > SECTION (Afdeling) > ARTICLE > PARAGRAPH (lid) > POINT (onderdeel). SECTION here is a higher division container, not the basic unit. All acts open with a royal enacting formula (aanhef) in the PREAMBLE and close with a royal signature block in CONCLUSIONS."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

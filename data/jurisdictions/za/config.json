@@ -183,30 +183,6 @@
     "act_citation_alt": "Act No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED by the Parliament of the Republic of South Africa, as follows:—",
-      "position": "preamble",
-      "era": "post-constitution",
-      "from": "1997-02-04",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the State President and the Parliament of the Republic of South Africa, as follows:",
-      "position": "preamble",
-      "era": "tricameral",
-      "from": "1984-01-01",
-      "to": "1994-04-26",
-      "document_class": "act"
-    },
-    {
-      "text": "The [Minister], in terms of section [N] of the [Act], makes the following regulations:",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "regulation",
-      "note": "Exact ministerial title and enabling section vary by instrument"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is hereby amended by the substitution for... of the following...",
@@ -286,9 +262,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "South African legislation uses 'CHAPTER' as the highest division in major statutes and the Constitution. 'PART' is used within chapters or directly in shorter acts. Sections are numbered continuously throughout the entire act — they do NOT restart per chapter or part. The enacting formula is 'BE IT ENACTED by the Parliament of the Republic of South Africa, as follows:—'. Government Notice Regulations use 'regulation N' as the basic unit term but should be structured using the SECTION keyword. Part numbering may be Arabic (Part 1), Roman (Part I), or alphabetic (Part A)."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "african-union",

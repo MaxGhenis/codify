@@ -197,28 +197,6 @@
     "act_citation_alt": "Act No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED by the Parliament of the Republic of Namibia, as follows:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1990-03-21",
-      "document_class": "act"
-    },
-    {
-      "text": "The Minister of [Portfolio], in terms of section [N] of the [Act Name] (Act [No.] of [YYYY]), makes the following regulations:",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "regulation",
-      "note": "Exact ministerial title and enabling section vary by instrument"
-    },
-    {
-      "text": "I, [Name], President of the Republic of Namibia, in terms of section [N] of the [Act Name] (Act [No.] of [YYYY]), hereby proclaim as follows:",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "proclamation"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by the substitution for... of the following...",
@@ -322,9 +300,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Namibian legislation uses 'CHAPTER' as the highest division in major statutes and 'PART' within chapters or directly in shorter acts. Sections are numbered continuously throughout the entire act — they do NOT restart per chapter or part. The enacting formula is 'BE IT ENACTED by the Parliament of the Republic of Namibia, as follows:'. Government Notice Regulations use 'regulation N' as the basic unit term but should be structured using the SECTION keyword. Part numbering may be Arabic (Part 1), Roman (Part I), or alphabetic (Part A) — all are valid; use the numbering as it appears in the source document. EXCEPTION: The Namibia Constitution uses 'Article' (ARTICLE keyword) as its basic unit instead of 'Section'. Apply the ARTICLE keyword when processing the Constitution."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "sadc",

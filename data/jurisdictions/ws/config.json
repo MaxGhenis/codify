@@ -147,15 +147,6 @@
     "act_citation_alt": "{short_title} {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED by the Legislative Assembly of Samoa in Parliament assembled",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1962-01-01",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting...",
@@ -211,9 +202,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Samoa Acts open with an 'Arrangement of Provisions' (table of contents) — skip this block entirely and do not include it in the Bluebell output. Begin output with PREFACE (long title) or PREAMBLE (enacting formula). Parts use Arabic numerals (PART 1, PART 2). Constitution variant: Parts use Roman numerals (PART I, PART II); basic unit is 'Article' — output as SECTION. Assent/commencement date line at top of act is metadata, not body content — omit from Bluebell body."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "pacific-islands-forum",

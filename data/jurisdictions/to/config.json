@@ -150,16 +150,6 @@
     "insertion_style": "alphanumeric",
     "note": "Dual numbering: sessional (Act No. N of YYYY) and consolidated decimal chapter (Cap. X.YY or X.YY.ZZ for SI). Chapter numbers changed between 1988 and 2020 revised editions — use 2020 edition numbers as canonical."
   },
-  "enacting_formulae": [
-    {
-      "text": "Be it enacted by the King and Legislative Assembly of Tonga in the Legislature of the Kingdom as follows:",
-      "position": "preamble",
-      "era": "current",
-      "from": "1875-11-04",
-      "note": "Unchanged since the Constitution of 1875. Invokes both King and Legislative Assembly.",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting...",
@@ -215,9 +205,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Tonga Acts use PART > SECTION as the standard hierarchy. Complex Acts (e.g., tax, financial) also use DIVISION between PART and SECTION (PART > DIVISION > SECTION). Use DIVISION only when explicitly present in the source document. Constitution uses PART > SECTION (Clauses map to SECTION). Subsidiary legislation uses SECTION for individual regulations (REGULATION is not a Bluebell keyword). The enacting formula is: 'Be it enacted by the King and Legislative Assembly of Tonga in the Legislature of the Kingdom as follows:'"
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "pacific-islands-forum",

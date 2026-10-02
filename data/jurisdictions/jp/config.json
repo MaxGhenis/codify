@@ -60,13 +60,6 @@
           "numbering": "implicit_first"
         },
         {
-          "local_term": "Go (Item)",
-          "akn_element": "item",
-          "level": "subdivision",
-          "bluebell_keyword": "INDENT",
-          "numbering": "chinese_numeral"
-        },
-        {
           "local_term": "Sub-item",
           "akn_element": "indent",
           "level": "subdivision",
@@ -118,13 +111,6 @@
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "implicit_first"
-        },
-        {
-          "local_term": "Go (Item)",
-          "akn_element": "item",
-          "level": "subdivision",
-          "bluebell_keyword": "INDENT",
-          "numbering": "chinese_numeral"
         }
       ],
       "hcontainers": [],
@@ -209,7 +195,6 @@
     "act_citation": "Act No. {number} of {year}",
     "insertion_style": "no_suffix"
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_amendment_act",
     "phrasing": "Article [N] is amended to read as follows...",
@@ -247,9 +232,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Japan uses ARTICLE as basic unit. First paragraph (Ko) of each article is implicit/unnumbered. Items (Go) use kanji numerals. Setsu (Section) is a HIGHER division. Supplementary provisions (Fusoku) map to SCHEDULE. e-Gov JLS XML is the primary source."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

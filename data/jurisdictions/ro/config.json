@@ -301,26 +301,6 @@
   "numbering": {
     "act_citation": "Legea nr. {number}/{year}"
   },
-  "enacting_formulae": [
-    {
-      "text": "Parlamentul României adoptă prezenta lege.",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "lege"
-    },
-    {
-      "text": "În temeiul art. 115 alin. (4) din Constituția României, republicată, Guvernul României adoptă prezenta ordonanță de urgență.",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "oug"
-    },
-    {
-      "text": "În temeiul art. 108 din Constituția României, republicată, Guvernul României adoptă prezenta hotărâre.",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "hg"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "type_number_year_title"
@@ -381,9 +361,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

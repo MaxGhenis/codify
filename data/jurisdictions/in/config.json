@@ -208,15 +208,6 @@
     "act_citation": "Act No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "BE it enacted by Parliament in the [Ordinal] Year of the Republic of India as follows:--",
-      "position": "preamble",
-      "era": "post-republic",
-      "from": "1950-01-26",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "for the words '...' the word(s) '...' shall be substituted / after section [N] the following section shall be inserted",
@@ -260,9 +251,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Indian legislation uses Proviso ('Provided that'), Explanation ('Explanation.--'), and Illustration as hcontainers within sections. These have full legal force and must be preserved. Output as SUBSECTION for Bluebell; post-processing renames to hcontainer. Clause uses (a), (b), (c) not (1), (2), (3). Constitution uses Article as basic unit, not Section."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

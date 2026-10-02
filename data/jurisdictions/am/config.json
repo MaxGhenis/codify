@@ -189,7 +189,6 @@
     "article_numbering": "arabic_continuous",
     "insertion_style": "superscript_or_decimal"
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Article N of Law HO-{N}-N shall be supplemented by a new part with the following content: ... / Part N of Article N shall be amended as follows: ... / Article N shall be declared void.",
@@ -239,9 +238,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Hierarchy is CHAPTER > ARTICLE > PARAGRAPH > POINT. Articles are numbered continuously throughout the entire act — they do not restart per chapter. Parts within articles (Armenian: մաس, 'mas') map to PARAGRAPH. Points within parts (Armenian: կetq) map to POINT. There is no SUBSECTION level in Armenian legislation. The document heading block ('LAW OF THE REPUBLIC OF ARMENIA / [Title] / Adopted by the National Assembly on [date]') maps to PREFACE, not PREAMBLE. Only include PREAMBLE if the act has substantive recitals. The President's signature block at the end maps to CONCLUSIONS."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eaeu",

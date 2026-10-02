@@ -152,15 +152,6 @@
   "numbering": {
     "act_citation": "Royal Decree No. M/{number}"
   },
-  "enacting_formulae": [
-    {
-      "text": "With the help of Allah the Almighty, We, [King's name], King of the Kingdom of Saudi Arabia, pursuant to the provisions of Articles Sixty-Seven, Seventy and Seventy-Eight of the Basic Law of Governance issued by Royal Decree No. A/90 dated 27/08/1412H, have decreed as follows:",
-      "position": "preamble",
-      "era": "post-basic-law",
-      "from": "1992-03-01",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "wholesale_replacement",
     "phrasing": "Article {N} shall be amended to read as follows...",
@@ -198,9 +189,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Saudi legislation uses ARTICLE as basic unit. Fasl (Section) is a higher division. Arabic original is authoritative; English translations from Bureau of Experts may use inconsistent terms for Bab/Fasl. RTL script."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "gcc",

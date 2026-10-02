@@ -192,15 +192,6 @@
     "act_citation_alt": "Chapter {number}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "MADE by the National Parliament.",
-      "position": "preamble",
-      "era": "current",
-      "from": "1975-09-16",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "The Principal Act is amended in Part [N] by adding...",
@@ -238,9 +229,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "PNG acts use DIVISION within PART for complex legislation. The Constitution uses Part > Division > Subdivision > Section."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

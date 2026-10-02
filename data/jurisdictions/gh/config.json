@@ -228,15 +228,6 @@
     "insertion_style": "alphanumeric",
     "note": "Act numbers are continuous across all years since 1960 — the year in the citation is the enactment year, not the number's year. E.g., 'Whistleblower Act, 2006 (Act 720)' = the 720th act since 1960, enacted in 2006."
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED by Parliament as follows:",
-      "position": "preamble",
-      "era": "republic",
-      "note": "Standard formula for all Acts of the Republic of Ghana since 1960. Parliament acts alone — no reference to a head of state in the enacting formula.",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by the deletion of... and the insertion of...",
@@ -286,9 +277,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Ghana Acts use continuous arabic section numbering that does not restart per Part. Complex codifying acts (e.g., Companies Act) may use Chapter > Part > Section with chapters named by ordinal words (CHAPTER ONE). Sections are always cited as 'section N', never 'article N', except in the Constitution where 'Article N' is used."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "ecowas",

@@ -121,22 +121,6 @@
     "insertion_style": "alphanumeric",
     "note": "Act numbers are sequential within year. Older revised statutes have chapter references in the Revised Laws volumes; use short-title slug as URI fallback and record chapter as FRBRalias."
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED by The King's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Jamaica, and by the authority of the same, as follows:",
-      "position": "preamble",
-      "era": "king-charles-iii",
-      "from": "2022-09-08",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by The Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Jamaica, and by the authority of the same, as follows:",
-      "position": "preamble",
-      "era": "queen-elizabeth-ii",
-      "to": "2022-09-08",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting therefor...",
@@ -192,9 +176,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": null
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "caricom",

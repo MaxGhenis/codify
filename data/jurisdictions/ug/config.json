@@ -255,21 +255,6 @@
     "act_citation": "Act {number} of {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED by Parliament as follows:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1962-10-09",
-      "document_class": "act"
-    },
-    {
-      "text": "In exercise of the powers conferred upon the Minister by section [N] of the [Parent Act], these Regulations are made this [day] day of [month], [year].",
-      "position": "preamble",
-      "era": "si",
-      "document_class": "si"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by substituting / by deleting / by inserting",
@@ -325,9 +310,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Uganda uses 'BE IT ENACTED by Parliament as follows:' as its enacting formula. Higher divisions are Parts (roman numeral). Basic unit is Section (arabic, continuous). Subdivisions: Subsection (1)(2), Paragraph (a)(b), Subparagraph (i)(ii). SIs use 'Regulation' as the basic unit term but map to SECTION keyword. Constitution uses Chapters, not Parts."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eac",

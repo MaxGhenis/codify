@@ -269,31 +269,6 @@
     "act_citation": "Act No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "BE it enacted by the Parliament of the Democratic Socialist Republic of Sri Lanka as follows:-",
-      "position": "preamble",
-      "era": "post-1978-constitution",
-      "from": "1978-09-07",
-      "document_class": "act"
-    },
-    {
-      "text": "BE it enacted by the National State Assembly of Sri Lanka as follows:-",
-      "position": "preamble",
-      "era": "first-republic",
-      "from": "1972-05-22",
-      "to": "1978-09-06",
-      "document_class": "act"
-    },
-    {
-      "text": "BE it enacted by the Senate and House of Representatives of Ceylon in Parliament assembled, as follows:-",
-      "position": "preamble",
-      "era": "dominion-ceylon",
-      "from": "1948-02-04",
-      "to": "1972-05-21",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is hereby amended by the substitution for the words '...' of the words '...' / by the insertion immediately after section [N] of the following new section",
@@ -361,9 +336,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Sri Lankan legislation is drafted in English (authoritative), with Sinhala and Tamil translations having equal constitutional status under the 13th Amendment (1987). The legal tradition is a complex mixture: Roman-Dutch law governs general private law (property, delict, unjust enrichment) inherited from Dutch colonial period (1658–1796); common law governs public and commercial law from British colonial period (1815–1948); Kandyan customary law applies to Sinhalese Kandyans in personal matters (marriage, inheritance); Thesawalamai applies to Tamils of the Northern Province; Muslim personal law applies to Muslims (governed by the Muslim Marriage and Divorce Act). When structuring legislation, be alert to which tradition it draws from — colonial-era codes (Penal Code, Civil Procedure Code, Evidence Ordinance) use British-India drafting conventions very similar to Indian statutes. Proviso ('Provided that') and Explanation are the standard hcontainers — treat identically to India. Section numbering is usually continuous throughout the Act; however, some modern Acts (post-2000) restart section numbering per chapter — detect and flag this pattern. Bills use 'clause' as the basic unit; these become 'sections' on enactment. The Constitution (1978, as amended) uses 'Article' and 'Clause' not 'Section' and 'Sub-section'. For AKN expressions: English is expression lang 'eng'; Sinhala is 'sin' (Sinhala script); Tamil is 'tam' (Tamil script). Each language version is a separate FRBR expression of the same work."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

@@ -161,22 +161,6 @@
     "insertion_style": "bis_ter",
     "insertion_note": "Inserted articles use 'bis', 'ter', 'quater', 'quinquies' suffixes (e.g., Artículo 3 bis). eId: art_3bis."
   },
-  "enacting_formulae": [
-    {
-      "text": "LA ASAMBLEA LEGISLATIVA DE LA REPÚBLICA DE COSTA RICA DECRETA:",
-      "position": "preamble",
-      "document_class": "ley",
-      "era": "all",
-      "note": "Consistent formula observed across six decades (1970–2025)."
-    },
-    {
-      "text": "El Presidente de la República y el Ministro de {ministry}, en uso de las atribuciones que les confieren los artículos 140, incisos 3) y 18) y 146 de la Constitución Política, decretan:",
-      "position": "preamble",
-      "document_class": "decreto_ejecutivo",
-      "era": "all",
-      "note": "Template — ministry name and legal basis vary by decree."
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "ley_number_and_name"
@@ -219,9 +203,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Costa Rica uses ARTICLE (not SECTION) as the basic unit. CHAPTER, TITLE, and BOOK are higher divisions above ARTICLE. SECTION is also a higher division (never the basic unit). Inciso subdivisions within articles use PARAGRAPH keyword. Two inciso numbering styles exist: alphabetic (a), b), c)) and numeric (1), 2), 3)) — detect from document. Transitorios at the end of laws use SECTION as a proxy keyword with heading 'Transitorio N'. The enacting formula is 'LA ASAMBLEA LEGISLATIVA DE LA REPÚBLICA DE COSTA RICA DECRETA:' and goes in the PREAMBLE block."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "sica",

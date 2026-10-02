@@ -258,25 +258,6 @@
   "numbering": {
     "insertion_style": "superscript"
   },
-  "enacting_formulae": [
-    {
-      "text": "საქართველოს პარლამენტი ადგენს:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1991-04-09",
-      "document_class": "law"
-    },
-    {
-      "text": "საქართველოს პრეზიდენტი ბრძანებს:",
-      "position": "preamble",
-      "document_class": "decree"
-    },
-    {
-      "text": "საქართველოს მთავრობა ადგენს:",
-      "position": "preamble",
-      "document_class": "resolution"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "მუხლი [N] ჩამოყალიბდეს შემდეგი რედაქციით:",
@@ -332,9 +313,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Georgia uses ARTICLE (მუხლი) as the basic unit, not SECTION. Higher divisions are CHAPTER (თავი) for ordinary laws, and BOOK (წიგნი) > CHAPTER for codes (Civil Code has 5 books: I General Provisions, II Family, III Property, IV Obligations, V Inheritance). Article numbering is continuous throughout the document — do not restart per chapter. First-level subdivisions within articles use PARAGRAPH with Arabic numeral enumeration (1),(2),(3). Second-level subdivisions use SUBPARAGRAPH with Georgian alphabetic enumeration (ა,ბ,გ,დ…). For eIds, transliterate Georgian letters using ISO 9984: ა→a, ბ→b, გ→g, დ→d, ე→e, ვ→v, ზ→z, თ→t, ი→i, კ→k, ლ→l, მ→m, ნ→n, ო→o, პ→p. Inserted articles (5¹, 5²) become art_5-1, art_5-2 in eIds. Detect 'კოდექსი' in document title and use BOOK-level hierarchy variant."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "council-of-europe",

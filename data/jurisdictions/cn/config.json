@@ -164,7 +164,6 @@
   "numbering": {
     "insertion_style": "zhiyi_numeric"
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_decision",
     "phrasing": "Article [N] is amended to read...",
@@ -202,9 +201,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Chinese law uses ARTICLE as basic unit. Kuan (paragraphs) are UNNUMBERED in source text -- pipeline must assign sequential numbers. Chinese structural markers must be converted to Latin Bluebell keywords. Jie (Section) is a HIGHER division, not the basic unit."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

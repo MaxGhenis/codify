@@ -286,23 +286,6 @@
     "insertion_style": "mkarran_or_hyphen",
     "note": "Insertion style inconsistent across eras and drafters. Mandate-era and French-tradition instruments use hyphen suffix (-1, -2); Arabic-tradition instruments use mكرراً (mkarran/bis). Detect per document and record in metadata."
   },
-  "enacting_formulae": [
-    {
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1943-11-22",
-      "note": "Standard post-independence promulgation formula. Countersigned by Prime Minister and relevant minister(s). Arabic is authoritative; French text also appears in Official Gazette.",
-      "document_class": "law",
-      "text": "رئيس الجمهورية،\nبناءً على الدستور، لا سيما المواد 17 و51 منه،\nوبناءً على قرار مجلس النواب بتاريخ {date}،\nيصدر القانون الآتي نصه:"
-    },
-    {
-      "position": "preamble",
-      "era": "legislative_decree",
-      "note": "Used for مراسيم تشريعية (legislative decrees) issued by Council of Ministers when Parliament is not in session. The VISA block references constitutional authorization. 'Arrête'/'تقرر' is the decision verb.",
-      "document_class": "legislative_decree",
-      "text": "حكومة الجمهورية اللبنانية،\nbناءً على الدستور،\n[بلوك الإشارات]\nتقرر ما يأتي:"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "law_number_and_date"
@@ -411,9 +394,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Lebanon uses Arabic (authoritative) and French (working language). Basic unit is ARTICLE (مادة/Maddah) — never SECTION. Hierarchy for major codes and laws: [BOOK >] TITLE > CHAPTER > [DIVISION >] ARTICLE. Simple laws: [TITLE >] [CHAPTER >] ARTICLE only. DIVISION keyword maps to قسم/Section (a higher division above articles, NOT the basic unit); post-process <division> → <section> in output. PARAGRAPH maps to فقرة/Alinéa (paragraph break within an article, usually unnumbered); post-process <paragraph> → <alinea>. POINT maps to بند/point (lettered or numbered list item). Article numbering is continuous throughout the entire law regardless of TITLE or CHAPTER boundaries — never restart the count. Arabic-Indic numerals (١-٩) must be normalised to Western Arabic (1-9) in structural positions. Use ASCII Bluebell keywords (ARTICLE, TITLE, CHAPTER, etc.) but preserve Arabic and French article body text verbatim. Insertion articles: مادة 5 مكرراً → ARTICLE 5mkarran; Article 5-1 → ARTICLE 5-1. RTL text direction required for Arabic content."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "arab-league",

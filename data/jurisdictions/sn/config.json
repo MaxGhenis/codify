@@ -244,41 +244,6 @@
   "numbering": {
     "insertion_style": "hyphen_suffix"
   },
-  "enacting_formulae": [
-    {
-      "text": "L'Assemblée nationale a adopté, en sa séance du {date} ;\nLe Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "unicameral",
-      "from": "2012-09-19",
-      "verified": true,
-      "note": "Formula confirmed from Journal Officiel de la République du Sénégal (jo.gouv.sn). Amnesty Law (March 2024) and other laws confirmed unicameral formula with 'en sa séance du'. Source: https://jo.gouv.sn/ and search results confirming Assemblée nationale single-chamber adoption post-2012.",
-      "document_class": "loi"
-    },
-    {
-      "text": "L'Assemblée nationale a adopté, en sa séance du {date} ;\nLe Sénat a adopté, en sa séance du {date} ;\nLe Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "bicameral",
-      "from": "2007-01-01",
-      "to": "2012-09-19",
-      "verified": false,
-      "note": "Bicameral era formula (2007 Senate restoration to 2012 abolition). Consistent with constitutional procedure.",
-      "document_class": "loi"
-    },
-    {
-      "text": "L'Assemblée nationale a adopté, en sa séance du {date}, conformément à l'article {N} de la Constitution ;\nLe Président de la République promulgue la loi organique dont la teneur suit :",
-      "position": "preamble",
-      "era": "loi_organique",
-      "note": "Formula for organic laws; Conseil constitutionnel review mandatory before promulgation",
-      "document_class": "loi_organique"
-    },
-    {
-      "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
-      "position": "preamble",
-      "era": "decret",
-      "note": "Decree enabling clause; 'Vu' recitals cite constitutional basis and parent legislation",
-      "document_class": "decret"
-    }
-  ],
   "amendments": {
     "style": "textual_french",
     "phrasing": "est modifié et remplacé ainsi qu'il suit / Il est inséré... un article... ainsi rédigé / est abrogé",
@@ -423,9 +388,7 @@
       "direct_effect": "none"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Basic unit is ARTICLE (not SECTION). Hierarchy above articles: TITLE > CHAPTER > DIVISION (for Section). Use BOOK only for the largest codes with Livre divisions. Article numbering is continuous throughout the entire document regardless of higher divisions. The first article header is 'Article premier'; all subsequent articles are 'Art. N'. Subdivisions within articles are alinéas (unnumbered paragraphs), which may contain POINT (1°, 2°…) or INDENT (tiret –) lists. French-language legislation only."
-  },
+  "structuring": {},
   "display": {
     "heading_type": "section_heading",
     "heading_case": "upper_case",

@@ -181,7 +181,6 @@
   "numbering": {
     "insertion_style": "mokarer"
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_modification",
     "phrasing": "Maddeh-ye [N] be sharh-e zir eslah mishavad:",
@@ -219,9 +218,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Iran uses ARTICLE as basic unit. Tabsareh (Note/Proviso) is a unique element with full legal force -- use SUBSECTION as proxy then post-process to hcontainer. Band uses Persian alphabet letters for enumeration. Enacting formula appears at END of law (conclusions), not beginning. RTL script."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

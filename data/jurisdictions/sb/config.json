@@ -151,16 +151,6 @@
     "act_citation_alt": "Cap. {number}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED BY THE NATIONAL PARLIAMENT OF SOLOMON ISLANDS.",
-      "position": "preamble",
-      "era": "current",
-      "from": "1978-07-07",
-      "note": "Confirmed verbatim from Constitution (Amendment) (Constituent Assembly) Act 2023 (No. 18 of 2023) — paclii.org. All-caps throughout. The Legislation Act 2023 prescribes this as the statutory form of enacting words.",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting...",
@@ -222,9 +212,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Solomon Islands uses a British-derived common law structure. Acts are enacted by the National Parliament and assented to by the Governor-General. Parts are the primary higher division (Part I, Part II in older Cap-era legislation; Part 1, Part 2 in more recent acts). Larger acts may contain a Division level between Part and Section — use DIVISION keyword. Sections are numbered continuously throughout the act. Subsidiary legislation (Legal Notices) uses 'regulation' or 'rule' as the basic unit but map to SECTION. The Constitution uses Chapters not Parts. Customary law is recognised by the Constitution (s. 75) and applied by Local Courts and the Customary Land Appeal Court — flag any provisions referring to kastom for TLC annotation."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

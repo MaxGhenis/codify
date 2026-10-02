@@ -190,7 +190,6 @@
     "insertion_style": "dash_suffix",
     "insertion_example": "48-1, 48-2 (Article 48-1 inserted after Article 48)"
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "[Act citation]ning [N]-moddasiga quyidagi o'zgartishlar kiritilsin: [N]-moddaning [N]-qismi quyidagi tahrirda bayon etilsin: [new text]",
@@ -252,9 +251,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Higher divisions are TITLE (bo'lim) and CHAPTER (bob). Article subdivisions use PARAGRAPH (qism, numbered 1 2 3) and POINT (band, lettered a b v). Articles are numbered continuously throughout the entire act regardless of chapter. Do not use SECTION or PART keywords."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "cis",

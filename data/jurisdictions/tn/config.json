@@ -268,35 +268,6 @@
     "insertion_style": "bis_ter",
     "note": "First article normalised to ARTICLE 1 in Bluebell pre-processing"
   },
-  "enacting_formulae": [
-    {
-      "text": "Au nom du peuple,\nL'Assemblée des représentants du peuple ayant adopté,\nLe Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "post-2022-constitution",
-      "from": "2022-08-16",
-      "document_class": "loi"
-    },
-    {
-      "text": "Le Président de la République,\nVu la Constitution,\nVu le décret présidentiel n° 2021-117 du 22 septembre 2021 [...],\nPrend le décret-loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "exceptional-measures",
-      "from": "2021-07-25",
-      "to": "2022-08-16",
-      "document_class": "decret-loi"
-    },
-    {
-      "text": "Le Président de la République,\nVu la Constitution, notamment ses articles [...],\nPrend le décret présidentiel dont la teneur suit :",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "decret-presidentiel"
-    },
-    {
-      "text": "Le Chef du Gouvernement,\nSur proposition du ministre [...],\nVu la Constitution, notamment ses articles [...],\nPrend le décret gouvernemental dont la teneur suit :",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "decret-gouvernemental"
-    }
-  ],
   "amendments": {
     "style": "textual_francophone",
     "phrasing": "est modifié comme suit / est ajouté / est abrogé",
@@ -346,9 +317,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "In Tunisian legislation, ARTICLE is always the basic unit. SECTION, CHAPTER (CHAPITRE), and TITLE (TITRE) are higher divisions that contain articles, not the basic unit. Never treat SECTION as the basic unit. The first article is always 'Article premier' — normalise to ARTICLE 1. Alinéas (sub-paragraphs within articles) are unnumbered; use PARAGRAPH as the closest Bluebell keyword. French text is informative; Arabic text is authoritative."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "arab-maghreb-union",

@@ -167,9 +167,9 @@
         },
         {
           "local_term": "Division",
-          "akn_element": "hcontainer",
+          "akn_element": "division",
           "level": "higher",
-          "bluebell_keyword": null,
+          "bluebell_keyword": "DIVISION",
           "numbering": "arabic",
           "note": "hcontainer name='division'; no direct Bluebell keyword — requires post-processing"
         },
@@ -209,16 +209,6 @@
     "insertion_style": "alphanumeric",
     "insertion_note": "Letter suffix on preceding section number (25A, 60A, 68A, 68B, 68C). No renumbering on consolidation."
   },
-  "enacting_formulae": [
-    {
-      "text": "BE IT ENACTED, by and with the advice and consent of the House of Representatives and Senate of Belize and by the authority of the same, as follows:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1981-09-21",
-      "note": "Confirmed in Acts No. 17/2015, 27/2024, 24/2025. Comma after 'ENACTED' present in recent Acts; absent in some older post-independence Acts — both are valid.",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by inserting immediately after section X the following... / is amended by deleting... and substituting...",
@@ -286,9 +276,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "For Criminal Code (CAP. 101) only: add TITLE as a hierarchy level between PART and SECTION. For Constitution: disable Bluebell pipeline and use manual AKN authoring or post-processing for Division elements."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "caricom",

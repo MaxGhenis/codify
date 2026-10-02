@@ -258,22 +258,6 @@
     "act_citation": "Lei n.o {number}/{year}",
     "insertion_style": "hyphenated_alpha"
   },
-  "enacting_formulae": [
-    {
-      "text": "O Parlamento Nacional decreta, nos termos do n.o [X] do artigo [Y].o da Constituicao da Republica, para valer como lei, o seguinte:",
-      "position": "preamble",
-      "era": "independence",
-      "from": "2002-05-20",
-      "document_class": "act"
-    },
-    {
-      "text": "O Governo decreta, nos termos do n.o 3 do artigo 115.o da Constituicao da Republica, para valer como lei, o seguinte:",
-      "position": "preamble",
-      "era": "decreto_lei",
-      "from": "2002-05-20",
-      "document_class": "decreto_lei"
-    }
-  ],
   "amendments": {
     "style": "textual_civil",
     "phrasing": "O artigo X.o da Lei n.o Y/YYYY passa a ter a seguinte redaccao:",
@@ -317,9 +301,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Timor-Leste uses Lusophone civil law structure: ARTICLE as basic unit, PARAGRAPH for numbered items (1., 2.), POINT for lettered items (a), b)). SECTION and SUBSECTION are higher divisions above ARTICLE (civil law usage). UNTAET regulations (1999-2002) use Anglophone SECTION as basic unit -- detect and switch hierarchy."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

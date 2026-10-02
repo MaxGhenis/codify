@@ -213,23 +213,6 @@
     "note": "Acts identified by promulgation date, not sequential act number. The 10-digit Moniteur unique ID is used as the {number} segment. When unknown, use slugified French short title temporarily."
   },
   "numbering": {},
-  "enacting_formulae": [
-    {
-      "position": "preamble",
-      "era": "Philippe/Filip",
-      "from": "2013-07-21",
-      "document_class": "act",
-      "text": "FILIP, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :"
-    },
-    {
-      "position": "preamble",
-      "era": "Albert II",
-      "from": "1993-08-09",
-      "to": "2013-07-21",
-      "document_class": "act",
-      "text": "ALBERT, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "date_based"
@@ -284,9 +267,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Belgium uses ARTICLE as the basic unit (civil law tradition). Hierarchy: TITLE > CHAPTER > DIVISION > ARTICLE > PARAGRAPH > SUBSECTION (proxy for alinea). Belgian 'section' (afdeling) is a higher division above articles — map to DIVISION keyword. List items use degree notation (1°, 2°, 3°) — convert to POINT 1, POINT 2, POINT 3. Sub-items (a), b)) map to INDENT a, INDENT b. Process one language version (French or Dutch) per run. Alineas are unnumbered paragraph blocks within articles or paragraphs."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

@@ -227,23 +227,6 @@
     "insertion_style": "bis_ter",
     "insertion_note": "Francophone bis/ter convention: Article 5 bis, Article 12 ter. eIds: art_5bis, art_12ter."
   },
-  "enacting_formulae": [
-    {
-      "text": "INTEKO ISHINGA AMATEGEKO YEMEJE, NONE NATWE DUHAMIJE, DUTANGAJE ITEGEKO RITEYE RITYA KANDI DUTEGETSE KO RYANDIKWA MU IGAZETI YA LETA YA REPUBULIKA Y'U RWANDA.",
-      "position": "preamble",
-      "document_class": [
-        "law",
-        "po",
-        "pmo",
-        "mo"
-      ]
-    },
-    {
-      "text": "THE PARLIAMENT HAS ADOPTED AND WE SANCTION, PROMULGATE THE FOLLOWING ORGANIC LAW AND ORDER IT BE PUBLISHED IN THE OFFICIAL GAZETTE OF THE REPUBLIC OF RWANDA.",
-      "position": "preamble",
-      "document_class": "ol"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "is amended as follows",
@@ -299,9 +282,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Rwanda uses ARTICLE as the basic unit (civil law tradition). CHAPTER is the highest division; SECTION groups articles within chapters (not a basic unit). First article is numbered 'Article One' / 'Article premier' / 'Ingingo ya mbere' — treat as Article 1. Subsequent articles use Arabic numerals. Law numbers follow format 'Law N° NN/YYYY of DD/MM/YYYY'. Organic Laws have '.OL' suffix in citation."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eac",

@@ -1048,12 +1048,6 @@ def test_formula_bounds_are_gregorian_dates(code: str) -> None:
             assert f.from_date < f.to_date, (code, f.era)
 
 
-def test_the_lunar_hijri_formula_bound_is_converted() -> None:
-    from datetime import date
-
-    assert load_config("sa").enacting_formulae[0].from_date == date(1992, 3, 1)
-
-
 def _probe_dates(cfg) -> list:
     from datetime import timedelta
 
@@ -1185,3 +1179,43 @@ def test_every_formula_has_text_and_an_emitted_position(code: str) -> None:
     for i, f in enumerate(load_config(code).enacting_formulae):
         assert (f.text or "").strip(), (code, i)
         assert f.position in _EMITTED_POSITIONS, (code, i, f.position)
+
+
+def _emitted_keywords(code: str, doctype: str) -> set[str]:
+    """Header keywords the real scaffolder writes for a synthetic line of every
+    alias of every hierarchy kind the config declares."""
+    from codify.pipeline.enrich.anchors import build_anchor_regex, keyword_aliases, scan_anchors
+    from codify.pipeline.enrich.scaffold import scaffold_from_anchors
+
+    cfg = load_config(code)
+    regex = build_anchor_regex(cfg, doctype)
+    emitted: set[str] = set()
+    for aliases in keyword_aliases(cfg, doctype).values():
+        for alias in aliases:
+            anchors = scan_anchors(f"{alias} 1\n\nsample\n", regex, country=code, doctype=doctype)
+            scaffold, _ = scaffold_from_anchors(anchors, country=code)
+            for line in scaffold.splitlines():
+                head = line.split(" ", 1)[0]
+                if head.isupper() and head not in {"BODY", "PREFACE", "PREAMBLE", "LONGTITLE"}:
+                    emitted.add(head)
+    return emitted
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_scaffolded_hierarchy_keywords_are_in_the_bluebell_vocabulary(code: str) -> None:
+    from codify.pipeline.enrich.kinds import BLUEBELL_HIER_KEYWORDS, kind_to_kw
+
+    # SCHEDULE opens an attachment, which the grammar takes outside the hierarchy.
+    vocabulary = BLUEBELL_HIER_KEYWORDS | {"SCHEDULE"}
+    cfg = load_config(code)
+    unsupported: set[tuple[str, str]] = set()
+    for doctype, doc_class in cfg.document_classes.items():
+        for kw in _emitted_keywords(code, doctype) - vocabulary:
+            unsupported.add((doctype, kw))
+        # A level the scanner never matches in the sample still scaffolds under
+        # its element name, so declare only elements the grammar has a word for.
+        for entry in doc_class.hierarchy:
+            if entry.level in {"higher", "basic", "subdivision"}:
+                if kind_to_kw(entry.akn_element) not in BLUEBELL_HIER_KEYWORDS:
+                    unsupported.add((doctype, entry.akn_element))
+    assert not unsupported, (code, sorted(unsupported))

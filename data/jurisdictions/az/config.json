@@ -209,7 +209,6 @@
     "insertion_example": "49-1",
     "note": "Convocation suffix: IQ (1st), IIQ (2nd), IIIQ (3rd), IVQ (4th), VQ (5th), VIQ (6th), VIIQ (7th). Constitutional laws add D suffix (e.g. IIIQD)."
   },
-  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Maddə X aşağıdakı redaksiyada verilsin (Article X shall be stated in the following wording)",
@@ -247,9 +246,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword. Hierarchy is PART > CHAPTER > ARTICLE. Subdivisions use decimal dot notation (5.1, 5.1.1) — output as PARAGRAPH and SUBPARAGRAPH with decimal num values. Not all laws use PART; detect the highest division present. The attestation block (adopted by/signed by) appears at the END of the document — model as CONCLUSIONS, not PREAMBLE."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "council-of-europe",

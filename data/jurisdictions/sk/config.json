@@ -243,29 +243,6 @@
     "insertion_style": "alphanumeric_suffix",
     "insertion_example": "§ 2 → § 2a, § 2b, § 2c"
   },
-  "enacting_formulae": [
-    {
-      "text": "Národná rada Slovenskej republiky sa uzniesla na tomto zákone:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1993-01-01",
-      "document_class": "act"
-    },
-    {
-      "text": "Vláda Slovenskej republiky podľa § {N} zákona č. {NN}/{YYYY} Z.z. o {title} nariaďuje:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1993-01-01",
-      "document_class": "nariadenie"
-    },
-    {
-      "text": "{Ministry} podľa § {N} zákona č. {NN}/{YYYY} Z.z. o {title} ustanovuje:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1993-01-01",
-      "document_class": "vyhlaska"
-    }
-  ],
   "amendments": {
     "style": "textual_continental",
     "phrasing": "Zákon č. {NN}/{YYYY} Z.z. ... sa mení a dopĺňa takto: ... § X znie: ... Za § X sa vkladá nový § Xa ... § X sa zrušuje.",
@@ -333,9 +310,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Slovak § (paragraf) maps to AKN article — use ARTICLE keyword. Constitutional laws use Čl. (článok) as basic unit — also ARTICLE. Higher divisions: Časť (PART), Hlava (CHAPTER), Diel (TITLE), Oddiel (DIVISION). All higher divisions use Slovak ordinal words (PRVÁ ČASŤ = Part 1, normalise to Arabic integer for eId). Subdivisions: Odsek (PARAGRAPH) with (1)(2) numbering, Písmeno (POINT) with a)b) closing-paren lettering, Bod (INDENT) with 1.2. numbering. Enacting formula for statutes: 'Národná rada Slovenskej republiky sa uzniesla na tomto zákone:'. Amendment acts (novelizácie) detected by title containing 'mení a dopĺňa' — their Čl. I, Čl. II are amendment groupers, not constitutional articles."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

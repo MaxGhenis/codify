@@ -132,31 +132,6 @@
     "act_citation": "Pyidaungsu Hluttaw Law No. {number}/{year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "The Pyidaungsu Hluttaw hereby enacts this Law.",
-      "position": "preamble",
-      "era": "constitutional",
-      "from": "2011-01-31",
-      "document_class": "act"
-    },
-    {
-      "text": "The State Law and Order Restoration Council hereby enacts the following Law:",
-      "position": "preamble",
-      "era": "slorc",
-      "from": "1988-09-18",
-      "to": "1997-11-15",
-      "document_class": "act"
-    },
-    {
-      "text": "The State Peace and Development Council hereby enacts the following Law:",
-      "position": "preamble",
-      "era": "spdc",
-      "from": "1997-11-15",
-      "to": "2011-01-31",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "The Law Amending the [Original Law Title]",
@@ -206,9 +181,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Myanmar uses Chapter > Section as primary hierarchy. Companies Law 2017 is an outlier with Part > Division > Section. Constitution uses Chapter > Part > Section (inverted). Multiple political eras with different enacting authorities -- detect from document date and law number prefix."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "asean",

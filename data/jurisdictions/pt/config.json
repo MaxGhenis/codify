@@ -320,34 +320,6 @@
     "insertion_style": "dash_alpha",
     "insertion_example": "Artigo 5.º-A"
   },
-  "enacting_formulae": [
-    {
-      "text": "A Assembleia da República decreta, nos termos da alínea c) do artigo 161.º da Constituição, o seguinte:",
-      "position": "preamble",
-      "era": "current",
-      "note": "Constitutional reference varies: alínea c) for ordinary legislation; different subparagraphs for organic laws, authorisations, etc.",
-      "document_class": "lei"
-    },
-    {
-      "text": "A Assembleia da República decreta, nos termos da alínea c) do artigo 161.º e do n.º 2 do artigo 166.º da Constituição, a seguinte lei orgânica:",
-      "position": "preamble",
-      "era": "current",
-      "document_class": "lo"
-    },
-    {
-      "text": "O Governo decreta, nos termos da alínea a) do n.º 1 do artigo 198.º da Constituição, o seguinte:",
-      "position": "preamble",
-      "era": "current",
-      "note": "Constitutional reference varies by the legislative competence invoked. Article 198.º governs government legislative competence.",
-      "document_class": "dl"
-    },
-    {
-      "text": "A Assembleia Constituinte, reunida na sessão plenária de 2 de Abril de 1976, aprova e decreta a seguinte Constituição da República Portuguesa:",
-      "position": "preamble",
-      "era": "1976",
-      "document_class": "constitution"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "cross_reference_format": "full_citation_with_date"
@@ -408,9 +380,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Portugal uses ARTICLE (Artigo) as the basic unit — never SECTION as basic unit. The hierarchy for ordinary legislation is CHAPTER (Capítulo, Roman numerals) > ARTICLE (Artigo N.º, e.g. 'ARTICLE 1'). For large codes, BOOK (Livro) > TITLE (Título) > CHAPTER (Capítulo) > SECTION (Secção, higher division only) > ARTICLE. SECTION here is a higher division containing ARTICLEs, not the basic unit. Numbered article subdivisions (n.º) use PARAGRAPH (e.g. 'PARA 1'). Lettered items (alínea a)) use POINT. Roman-numeral sub-items (subalínea i)) use INDENT. Artigo numbers include ordinal mark: 'Artigo 1.º', 'Artigo 2.º' — strip the '.º' for the Bluebell number. Inserted articles have dash-letter suffix: 'Artigo 5.º-A' → 'ARTICLE 5A'. Article headings (epígrafes) appear in parentheses after the number: 'Artigo 1.º (Objeto)' — the heading text in parentheses maps to <heading>. Many Decretos-Lei have no article headings — do not error. The enacting formula for a Lei is 'A Assembleia da República decreta, nos termos da alínea c) do artigo 161.º da Constituição, o seguinte:' and for a DL 'O Governo decreta, nos termos da alínea a) do n.º 1 do artigo 198.º da Constituição, o seguinte:' — both go inside PREAMBLE. The lengthy explanatory preâmbulo before the enacting formula in DLs also goes in PREAMBLE as body paragraphs before the formula."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eu",

@@ -29,7 +29,7 @@
         },
         {
           "local_term": "Division",
-          "akn_element": "hcontainer",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_continuous",
@@ -213,15 +213,6 @@
     "insertion_style": "alphanumeric",
     "note": "Dual numbering system: Act No./year for post-independence legislation; Cap. number for consolidated revised edition. Both appear in cross-references."
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of Kenya, as follows—",
-      "position": "preamble",
-      "era": "post-2010-constitution",
-      "from": "2010-08-27",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended — (a) by deleting ... and substituting therefor ...",
@@ -283,9 +274,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Kenya uses 'PART I—PRELIMINARY' heading style (em-dash separator). Sections numbered continuously throughout the act. Amendment phrasing: 'is amended — (a) by deleting ... and substituting therefor'. Marginal notes appear as section headings."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eac",

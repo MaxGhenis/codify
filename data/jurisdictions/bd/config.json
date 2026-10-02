@@ -234,15 +234,6 @@
     "act_citation_alt": "{number} of {year}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "IT IS HEREBY enacted as follows:-",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1971-12-16",
-      "document_class": "act"
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "for the words '...' the words '...' shall be substituted / after section [N] the following section shall be inserted",
@@ -298,9 +289,7 @@
       "showAs": "Ministry of Law, Justice and Parliamentary Affairs"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Bangladesh legislation: Bangla (Bengali script) is the SOLE AUTHORITATIVE language per the Bangladesh Official Language Act 1987 and Constitutional practice. English text on bdlaws.minlaw.gov.bd is a reference translation only — if both are present, treat Bangla as the source of truth. The Proviso ('Provided that') and Explanation drafting convention is inherited from British India and is widespread; output Proviso as PROVISO keyword, Explanation as SUBSECTION for post-processing. Hierarchy for Acts: PART (Roman) > CHAPTER (Roman) > SECTION (Arabic, continuous) > SUBSECTION (Arabic, parenthesized) > CLAUSE (lowercase alpha, parenthesized). Sub-clauses use lowercase Roman. The Constitution uses PART > ARTICLE (not Section). SROs are cited as 'SRO No. {number}-Law/{year}'. Personal law (Muslim, Hindu, Christian) applies to personal status matters per community but does not alter the documentary structure of Acts."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "un",

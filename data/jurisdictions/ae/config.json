@@ -306,29 +306,6 @@
     "act_citation": "Federal Law No. ({number}) of {year}",
     "insertion_note": "Egyptian civil law tradition uses 'mukrar' (مكرر) for inserted articles (Article 5 مكرر = Article 5 bis). UAE may follow this convention."
   },
-  "enacting_formulae": [
-    {
-      "text": "We, [President's name], President of the United Arab Emirates, Having reviewed the Constitution, [list of reviewed laws], Based on the proposal of [Minister] and the approval of the Cabinet, Have issued the following Decree-Law:",
-      "position": "preamble",
-      "language": "eng",
-      "note": "[PARTIALLY VERIFIED] Pattern confirmed from legal publications. Exact Arabic text not read verbatim from official PDF — verify before production use.",
-      "document_class": "federal_decree_law"
-    },
-    {
-      "text": "We, [President's name], President of the United Arab Emirates, Having reviewed the Constitution, [list of reviewed laws], Based on the proposal of [Minister], After the approval of the Cabinet, And the ratification of the Federal Supreme Council, Have issued the following Law:",
-      "position": "preamble",
-      "language": "eng",
-      "note": "[PARTIALLY VERIFIED] Standard legislative process formula.",
-      "document_class": "federal_law"
-    },
-    {
-      "text": "This Law is made by the Ruler of Dubai.",
-      "position": "preamble",
-      "language": "eng",
-      "note": "Confirmed from DIFC law publications. Short single-sentence formula.",
-      "document_class": "difc_law"
-    }
-  ],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Article (N) of [Law citation] shall be replaced by the following: / shall be cancelled",
@@ -414,9 +391,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "UAE federal legislation uses ARTICLE as the basic unit (مادة, maddah), not SECTION. The hierarchy is: BOOK (codes only) > PART > CHAPTER > ARTICLE > SUBSECTION (numbered clauses) > PARAGRAPH (lettered sub-clauses). Article numbering is continuous throughout the law regardless of Chapter/Part boundaries. Headings after the ARTICLE number are the article title. DIFC and ADGM laws use SECTION as the basic unit and follow Anglophone structure."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "gcc",

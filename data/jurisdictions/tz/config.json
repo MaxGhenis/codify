@@ -37,9 +37,9 @@
         },
         {
           "local_term": "Division",
-          "akn_element": "hcontainer",
+          "akn_element": "division",
           "level": "higher",
-          "bluebell_keyword": null,
+          "bluebell_keyword": "DIVISION",
           "numbering": "alpha_upper",
           "note": "Sub-Part grouping in large acts (e.g., Mining Act). No Bluebell keyword — requires post-processing. hcontainer name='division'."
         },
@@ -223,29 +223,6 @@
     "act_citation_alt": "Cap. {chapter}",
     "insertion_style": "alphanumeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "ENACTED by the Parliament of the United Republic of Tanzania.",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1961-12-09",
-      "document_class": "act"
-    },
-    {
-      "text": "BE IT ENACTED by the Governor of Tanganyika, with the advice and consent of the Legislative Council thereof, as follows:",
-      "position": "preamble",
-      "era": "colonial-ordinance",
-      "to": "1961-12-09",
-      "document_class": "ordinance"
-    },
-    {
-      "text": "[Minister/Authority], in exercise of the powers conferred by section [N] of the [Parent Act], hereby makes the following Regulations:",
-      "position": "preamble",
-      "era": "subsidiary-legislation",
-      "document_class": "gn",
-      "note": "Enabling formula varies; parent act and enabling section must be extracted and linked as TLC references."
-    }
-  ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "by deleting... and substituting for it the following",
@@ -301,9 +278,7 @@
       "showAs": "Codify"
     }
   ],
-  "structuring": {
-    "prompt_additions": "Tanzania uses PART > SECTION as the standard hierarchy (Commonwealth/East African pattern). Some large acts (e.g., Mining Act) have a Division level within Parts (Division A, Division B, Division C) — treat these as hcontainer groupings, not as standard hierarchy elements. Section numbering is continuous throughout the act, not restarting per Part. Subsidiary legislation (Government Notices) uses 'regulation' or 'rule' as the basic unit term — map to SECTION keyword."
-  },
+  "structuring": {},
   "supranational_memberships": [
     {
       "body": "eac",
