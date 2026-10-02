@@ -61,7 +61,43 @@
         }
       ]
     },
-    "fordning": {
+    "grundlag": {
+      "label": "Grundlag",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel (kap.)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraf (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stycke",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Punkt",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        }
+      ]
+    },
+    "forordning": {
       "label": "Förordning",
       "akn_element": "act",
       "bluebell_compatible": true,
@@ -101,42 +137,6 @@
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
           "numbering": "sequential_assigned"
-        }
-      ]
-    },
-    "grundlag": {
-      "label": "Grundlag",
-      "akn_element": "act",
-      "bluebell_compatible": true,
-      "basic_unit": "article",
-      "hierarchy": [
-        {
-          "local_term": "Kapitel (kap.)",
-          "akn_element": "chapter",
-          "level": "higher",
-          "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
-        },
-        {
-          "local_term": "Paragraf (§)",
-          "akn_element": "article",
-          "level": "basic",
-          "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
-        },
-        {
-          "local_term": "Stycke",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_sequential_assigned"
-        },
-        {
-          "local_term": "Punkt",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "arabic_period"
         }
       ]
     }

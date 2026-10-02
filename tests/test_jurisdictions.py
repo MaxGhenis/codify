@@ -1528,3 +1528,46 @@ def test_a_new_zealand_bill_is_homed_under_bill() -> None:
 
     assert build_frbr_work_uri("nz", "bill", 2023, "12") == "/akn/nz/bill/2023/12"
     assert build_frbr_work_uri("nz", "act", 2023, "12") == "/akn/nz/act/2023/12"
+
+
+# Scopes a TLC may live under besides the profile's own code: a legal order the
+# jurisdiction inherits or belongs to.
+_SHARED_TLC_SCOPES = {"gb", "ohada", "un", "caribbean", "gcc"}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_identifiers_agree_with_the_folder_code(code: str) -> None:
+    import re
+
+    cfg = load_config(code)
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    assert cfg.code == code
+    if cfg.frbr and cfg.frbr.country_code:
+        assert cfg.frbr.country_code == code
+    for doctype, template in (cfg.frbr.uri_patterns if cfg.frbr else {}).items():
+        scope = template.split("/")[2]
+        assert scope == code or scope.startswith(f"{code}-"), (code, doctype, template)
+    registry = {j["code"]: j for j in load_registry()}
+    assert registry[code]["languages"] == cfg.languages
+    for tlc in raw["core_tlcs"]:
+        if tlc["eId"] == "codify" or tlc["class"] == "TLCLocation":
+            continue
+        scope, *rest = tlc["href"].strip("/").split("/")[2:4]
+        assert scope in _SHARED_TLC_SCOPES or scope == code or scope.startswith(f"{code}-"), (
+            code,
+            tlc["href"],
+        )
+        assert all(re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", part) for part in rest), (
+            code,
+            tlc["href"],
+        )
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_a_declared_frbr_subtype_is_the_segment_the_work_uri_mints(code: str) -> None:
+    from codify.frbr import build_frbr_work_uri
+
+    for doctype, doc_class in load_config(code).document_classes.items():
+        if doc_class.frbr_subtype:
+            uri = build_frbr_work_uri(code, doctype, 2020, "5")
+            assert f"/act/{doc_class.frbr_subtype}/" in uri, (code, doctype, uri)

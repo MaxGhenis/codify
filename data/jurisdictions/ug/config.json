@@ -233,7 +233,8 @@
       "statute": "/akn/ug/act/statute/{year}/{number}",
       "decree": "/akn/ug/act/decree/{year}/{number}",
       "si": "/akn/ug/act/si/{year}/{number}",
-      "constitution": "/akn/ug/act/statute/1995/constitution"
+      "constitution": "/akn/ug/act/1995/constitution",
+      "ordinance": "/akn/ug/act/ord/{year}/{number}"
     },
     "date_calendar": "gregorian"
   },
