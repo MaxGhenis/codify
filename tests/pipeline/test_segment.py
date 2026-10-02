@@ -1263,3 +1263,18 @@ def test_a_contents_page_listing_only_provisions_is_front_matter(
     assert [s.key for s in result.segments] == ["act 3", "act 4"]
     assert [(r.key, r.status) for r in result.reconciliation][0] == ("act 3", "opening")
     _conserved(result, text)
+
+
+def test_a_provision_listing_ends_at_the_bodys_first_provision(
+    config: JurisdictionConfig,
+) -> None:
+    """With no act heading after it, the body's own sections end the listing, so
+    they still number the act they belong to."""
+    listing = ["- 1 -", "Contents", ""]
+    listing += [f"Section {i}. Duty {i} ............ 2" for i in range(1, 4)]
+    body = ["- 2 -", "", *[f"Section {i}. Duty {i}" for i in range(1, 4)], "", *_signed()]
+    pages = [listing, body, ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()]]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert [s.key for s in result.segments] == ["", "act 4"]
+    assert "restart" in result.segments[1].signals
