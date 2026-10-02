@@ -802,3 +802,38 @@ def test_a_quoted_heading_cannot_open_the_source(config: JurisdictionConfig) -> 
         ("act 9", "inside a quotation")
     ]
     _conserved(result, text)
+
+
+def test_an_enacting_formula_is_not_borrowed_from_the_next_act(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A heading with no provision of its own reads only up to the next heading."""
+    fields = _config(enacting_formula_markers=["BE IT ENACTED"])
+    notice = ["ACT No. 4 OF 2020", "THE TOLLS NOTICE", "", "Tolls are abolished.", ""]
+    pages = [_act(3, "THE HARBOUR DUES ACT", 3) + _signed(), notice + _signed()]
+    pages.append(_act(5, "THE BUOYS ACT", 3) + _signed())
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        text, spans = _join(pages)
+        result = segment(text, spans, config=load_config(COUNTRY))
+    row = next(r for r in result.reconciliation if r.key == "act 4")
+    assert (row.status, row.veto) == (
+        "vetoed",
+        "carries no enacting formula where the act before it does",
+    )
+
+
+def test_an_issue_restart_on_the_page_after_the_heading_counts(
+    config: JurisdictionConfig,
+) -> None:
+    """Printed 4, 5, then 6 on the heading page and 1 after: the numbers fell."""
+    pages = [
+        ["- 4 -", "ISSUE No. 11", "", *_act(1, "THE FERRIES ACT", 3)],
+        ["- 5 -", "", "The keeper shall keep the light."],
+        ["- 6 -", "Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"],
+        ["- 1 -", "", *_act(2, "THE TOLLS ACT", 3), *_signed()],
+    ]
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [(i.key, i.first_page, i.signals) for i in found] == [
+        ("11", 1, ()),
+        ("12", 3, ("restart",)),
+    ]

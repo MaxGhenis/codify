@@ -17,6 +17,7 @@ import re
 from bisect import bisect_right
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
+from itertools import pairwise
 from typing import Literal
 
 from codify.jurisdictions import JurisdictionConfig, SegmentationConfig, heading_line_pattern
@@ -460,7 +461,8 @@ def _decide(
         (
             c
             for c in candidates
-            if (not entries or c.key in listed) and not _veto(text, c, None, markers, rules)
+            if (not entries or c.key in listed)
+            and not _veto(text, c, None, len(text), markers, rules)
         ),
         None,
     )
@@ -477,7 +479,7 @@ def _decide(
     for index, heading in enumerate(candidates):
         following = candidates[index + 1].start if index + 1 < len(candidates) else len(text)
         is_opening = heading is opening
-        veto = "" if is_opening else _veto(text, heading, open_heading, markers, rules)
+        veto = "" if is_opening else _veto(text, heading, open_heading, following, markers, rules)
         if veto:
             rows.append(_row(heading, "vetoed", veto=veto))
             continue
@@ -520,6 +522,7 @@ def _veto(
     text: str,
     heading: _Heading,
     open_heading: _Heading | None,
+    following: int,
     markers: list[_Marker],
     rules: _Rules,
 ) -> str:
@@ -533,17 +536,18 @@ def _veto(
     if rules.caption is not None and rules.caption.search(window):
         return "follows an attachment caption"
     if rules.enacting is not None and open_heading is not None:
-        opened = _opening_region(text, open_heading.start, markers)
-        here = _opening_region(text, heading.start, markers)
+        # Each bounded by the heading after it, or one act's formula stands in for another's.
+        opened = _opening_region(text, open_heading.start, heading.start, markers)
+        here = _opening_region(text, heading.start, following, markers)
         if rules.enacting.search(opened) and not rules.enacting.search(here):
             return "carries no enacting formula where the act before it does"
     return ""
 
 
-def _opening_region(text: str, start: int, markers: list[_Marker]) -> str:
-    """From a heading to its first numbered provision: where a formula would stand."""
+def _opening_region(text: str, start: int, stop: int, markers: list[_Marker]) -> str:
+    """From a heading to its first numbered provision, or `stop` before one."""
     first = next((m.offset for m in markers if m.offset > start), len(text))
-    return text[start:first]
+    return text[start : min(first, stop)]
 
 
 def _signals(
@@ -799,7 +803,8 @@ def _settle(
         for p in (page, after)
         if p is not None and (n := _printed_number(p.text, p.furniture, printed)) is not None
     ]
-    if seen and fresh and fresh[0] < max(seen):
+    # Any fall across the window: the new issue's numbers may start a page late.
+    if seen and any(b < a for a, b in pairwise([max(seen), *fresh])):
         signals.append("restart")
     if signals:
         yield _close(issue, config, doctype)

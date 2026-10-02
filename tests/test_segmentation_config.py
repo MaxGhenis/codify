@@ -28,7 +28,7 @@ def test_an_unknown_key_is_refused() -> None:
 
 
 @pytest.mark.parametrize("field", ["act_heading_patterns", "issue_heading_patterns"])
-@pytest.mark.parametrize("pattern", ["", "   ", r"(?:ACT)?", r"\d*"])
+@pytest.mark.parametrize("pattern", ["", "   ", r"(?:ACT)?", r"\d*", r"(?:ACT)?\b"])
 def test_a_heading_that_matches_empty_text_is_refused(field: str, pattern: str) -> None:
     with pytest.raises(ValidationError, match="must not be empty or match empty text"):
         SegmentationConfig.model_validate({field: ["ACT", pattern]})
