@@ -7,7 +7,6 @@ elements the document carries, so a reference to one lands on the nearest row.
 
 from __future__ import annotations
 
-import os
 import uuid
 from collections.abc import AsyncIterator
 from datetime import date
@@ -25,6 +24,7 @@ from codify.storage.resolve_refs import (
     nearest_stored_row,
     resolve_references_for_version,
 )
+from codify.testing import postgres_url
 
 _NS = "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
 
@@ -52,6 +52,9 @@ _AKN = f"""<akomaNtoso xmlns="{_NS}"><act><body>
 </point></list></paragraph>
 </body></act></akomaNtoso>"""
 
+# The mapper stores a section with its own text twice: the section row and the
+# `__content` provision. Both are present here, as they are in a real corpus.
+_SECTIONS = {"section-8", "pt_2"}
 _STORED = {
     "regulation-3-1",
     "regulation-3-2",
@@ -60,7 +63,6 @@ _STORED = {
     "chp_1__content",
     "art_5__intro",
     "art_5__para_a",
-    "pt_2",  # a section row
     "p_x__a",
 }
 
@@ -86,37 +88,32 @@ def _index() -> dict[str, etree._Element]:
     ],
 )
 def test_an_anchor_lands_on_the_nearest_stored_row(anchor: str, lands_on: tuple[str, str]) -> None:
-    assert nearest_stored_row(_index(), anchor, _STORED) == lands_on
+    assert nearest_stored_row(_index(), anchor, _STORED, _SECTIONS) == lands_on
 
 
 def test_quoted_text_never_lands_on_its_own_parts() -> None:
     """Even a stored part of quoted text is text being inserted elsewhere."""
-    assert nearest_stored_row(_index(), "d1e5", _STORED | {"d1e6"}) == (
+    assert nearest_stored_row(_index(), "d1e5", _STORED | {"d1e6"}, _SECTIONS) == (
         "section-8__content",
         "enclosing",
     )
 
 
 def test_a_placeholder_is_not_an_answer_and_nor_are_its_parts() -> None:
-    assert nearest_stored_row(_index(), "p_x", _STORED, placeholders={"p_x"}) is None
+    assert nearest_stored_row(_index(), "p_x", _STORED, _SECTIONS, {"p_x"}) is None
 
 
 def test_an_anchor_the_document_lacks_lands_nowhere() -> None:
-    assert nearest_stored_row(_index(), "regulation-9", _STORED) is None
+    assert nearest_stored_row(_index(), "regulation-9", _STORED, _SECTIONS) is None
 
 
 def test_an_element_with_no_stored_row_near_it_lands_nowhere() -> None:
     assert nearest_stored_row(_index(), "regulation-3", {"article-16-1"}) is None
 
 
-def _postgres_url() -> str:
-    raw = os.environ.get("POSTGRES_URL", "postgresql://codify:codify@localhost:5432/codify")
-    return raw.replace("postgresql://", "postgresql+asyncpg://", 1)
-
-
 @pytest.fixture
 async def session() -> AsyncIterator[AsyncSession]:
-    engine = create_async_engine(_postgres_url(), pool_pre_ping=True)
+    engine = create_async_engine(postgres_url(), pool_pre_ping=True)
     try:
         async with engine.connect() as c:
             if (await c.execute(text("SELECT to_regclass('provisions')"))).scalar() is None:
@@ -146,8 +143,13 @@ def _doc(work: str) -> Document:
                 akn_eid="pt_2",
                 akn_type="article",
                 position=1,
-                children=[para(e, i) for i, e in enumerate(sorted(_STORED - {"pt_2"}), start=1)],
-            )
+                children=[
+                    para(e, i)
+                    for i, e in enumerate(sorted(_STORED - {"section-8__content"}), start=1)
+                ],
+            ),
+            # Own text and no parts: the mapper writes `section-8` and `section-8__content`.
+            Article(akn_eid="section-8", akn_type="article", position=2, text="Insert."),
         ],
     )
 

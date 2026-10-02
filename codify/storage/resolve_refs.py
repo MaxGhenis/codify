@@ -679,7 +679,8 @@ class _Anchors:
     """A version's elements by eId and wId, and its rows by eId."""
 
     index: dict[str, etree._Element]
-    rows: dict[str, tuple[str, uuid.UUID]]  # eId -> ("provision" | "section", id)
+    provisions: dict[str, uuid.UUID]
+    sections: dict[str, uuid.UUID]
     placeholders: set[str]
 
 
@@ -697,7 +698,8 @@ def element_index(root: etree._Element) -> dict[str, etree._Element]:
 def nearest_stored_row(
     index: dict[str, etree._Element],
     eid: str,
-    rows: Container[str],
+    provisions: Container[str],
+    sections: Container[str] = frozenset(),
     placeholders: Container[str] = frozenset(),
 ) -> tuple[str, str] | None:
     """The stored row an anchor with no row of its own lands on, and how.
@@ -705,7 +707,8 @@ def nearest_stored_row(
     A container stored only as its parts lands on its first stored part
     ("container"); an element inside a stored row, quoted amending text above
     all, lands on that row ("enclosing"), never on a part of the quoted text.
-    An element's rows are its eId and the mapper's `__intro` and `__content`.
+    An element's rows are its eId and the mapper's `__intro` and `__content`
+    provisions, then its section: the text row is where the words are.
     """
     el = index.get(eid)
     if el is None:
@@ -715,7 +718,10 @@ def nearest_stored_row(
         name = e.get("eId")
         if not name:
             return None
-        return next((c for c in (name, f"{name}__intro", f"{name}__content") if c in rows), None)
+        text = next(
+            (c for c in (name, f"{name}__intro", f"{name}__content") if c in provisions), None
+        )
+        return text or (name if name in sections else None)
 
     name = el.get("eId") or eid
     # A placeholder is not an answer, and neither is a part of one.
@@ -769,12 +775,11 @@ async def _anchors(
             select(Section.akn_eid, Section.id).where(Section.version_id == version_id)
         )
     ).all()
-    rows: dict[str, tuple[str, uuid.UUID]] = {e: ("section", i) for e, i in sections}
-    rows.update({e: ("provision", i) for e, i, excluded in provisions if excluded is not True})
     cache[key] = _Anchors(
         # The same names the mapper reads, over the same parse.
         index=element_index(root),
-        rows=rows,
+        provisions={e: i for e, i, excluded in provisions if excluded is not True},
+        sections={e: i for e, i in sections},
         placeholders={e for e, _, excluded in provisions if excluded is True},
     )
     return cache[key]
@@ -844,16 +849,17 @@ async def resolve_references_for_version(
                 continue
             doc = await _anchors(session, version_id, anchors)
             near = (
-                nearest_stored_row(doc.index, uri[1:], doc.rows, doc.placeholders)
+                nearest_stored_row(
+                    doc.index, uri[1:], doc.provisions, doc.sections, doc.placeholders
+                )
                 if doc is not None
                 else None
             )
             if doc is not None and near is not None:
-                kind, row_id = doc.rows[near[0]]
-                if kind == "section":
-                    ref.target_section_id = row_id
+                if near[0] in doc.provisions:
+                    ref.target_provision_id = doc.provisions[near[0]]
                 else:
-                    ref.target_provision_id = row_id
+                    ref.target_section_id = doc.sections[near[0]]
                 if near[1] == "container":
                     stats.resolved_container += 1
                 else:
