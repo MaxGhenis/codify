@@ -203,65 +203,32 @@
   },
   "numbering": {
     "act_citation": "قانون رقم {number} لسنة {year}",
-    "act_citation_latin": "Law No. {number} of {year}",
-    "article_basic_unit": "مادة",
-    "article_basic_unit_latin": "Maddah",
     "insertion_style": "bis_suffix",
-    "insertion_arabic": "مكرراً",
-    "insertion_latin": "bis",
     "insertion_example": "مادة 5 مكرراً → art_5bis",
-    "article_numbering": "continuous_throughout_law",
-    "paragraph_label_normalisation": {
-      "أ": "a",
-      "ب": "b",
-      "ج": "c",
-      "د": "d",
-      "هـ": "e",
-      "و": "f",
-      "ز": "g",
-      "ح": "h",
-      "ط": "i",
-      "ي": "j",
-      "أولاً": "1",
-      "ثانياً": "2",
-      "ثالثاً": "3",
-      "رابعاً": "4",
-      "خامساً": "5",
-      "سادساً": "6",
-      "سابعاً": "7",
-      "ثامناً": "8",
-      "تاسعاً": "9"
-    }
+    "article_numbering": "continuous_throughout_law"
   },
   "enacting_formulae": [
     {
-      "arabic": "بسم الله الرحمن الرحيم\nباسم الشعب\nأصدر مجلس الأمة القانون الآتي نصه، وقد صدّقنا عليه وأصدرناه",
       "transliteration": "Bismi Allahi Al-Rahmani Al-Raheem / Bism Al-Sha'b / Asdar Majlis Al-Umma Al-Qanun Al-Ati Nassuh, wa qad saddaqna alayhi wa asdaranah",
-      "translation": "In the name of God, the Most Gracious, the Most Merciful. In the name of the People. The National Assembly has enacted the following law, and We have ratified and promulgated it.",
       "position": "preamble",
       "era": "parliamentary_law",
       "from": "1962-11-11",
       "enacting_body_tlc": "nationalAssembly",
-      "document_class": "act"
+      "document_class": "act",
+      "text": "بسم الله الرحمن الرحيم\nباسم الشعب\nأصدر مجلس الأمة القانون الآتي نصه، وقد صدّقنا عليه وأصدرناه"
     },
     {
-      "arabic": "بسم الله الرحمن الرحيم\nنحن [اسم الأمير]، أمير دولة الكويت\nبعد الاطلاع على الدستور ... أصدرنا المرسوم الآتي",
-      "translation": "In the name of God, the Most Gracious, the Most Merciful. We, [Amir's name], Amir of the State of Kuwait, having reviewed the Constitution... have issued the following decree:",
       "position": "preamble",
       "era": "decree_law",
       "enacting_body_tlc": "amir",
       "note": "Used for مراسيم بقوانين (Decree-Laws) issued when Assembly is not in session per Constitution Art. 71, and for مراسيم أميرية (Emiri Decrees). The preamble typically recites the constitutional provisions consulted.",
-      "document_class": "decree_law"
+      "document_class": "decree_law",
+      "text": "بسم الله الرحمن الرحيم\nنحن [اسم الأمير]، أمير دولة الكويت\nبعد الاطلاع على الدستور ... أصدرنا المرسوم الآتي"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "تستبدل بالمادة [X] من القانون رقم [Y] لسنة [YYYY] النص الآتي:",
-    "phrasing_substitution_latin": "The following text shall replace Article X of Law No. Y of YYYY:",
-    "phrasing_addition": "يضاف إلى القانون رقم [Y] لسنة [YYYY] مادة جديدة برقم [X مكرراً] نصها الآتي:",
-    "phrasing_repeal": "تُلغى المادة [X] من القانون رقم [Y] لسنة [YYYY]",
-    "cross_reference_format": "law_number_and_year",
-    "cross_reference_example": "القانون رقم 67 لسنة 1980"
+    "cross_reference_format": "law_number_and_year"
   },
   "core_tlcs": [
     {
@@ -337,9 +304,6 @@
     {
       "body": "un",
       "direct_effect": "none",
-      "direct_effect_exceptions": [
-        "Security Council Chapter VII resolutions — binding"
-      ],
       "superseded_subjects": []
     },
     {
@@ -352,8 +316,7 @@
     "heading_case": "natural",
     "script": "arabic",
     "rtl": true,
-    "font_preference": "serif",
-    "note": "Arabic RTL display. Article numbers appear in Arabic text as 'مادة 5' or 'المادة الخامسة' (ordinal form); pipeline normalises to Western Arabic for eIds. Review UI must support RTL text direction (direction: rtl; unicode-bidi: embed). Bab/Fasl headings are styled as titled headings (not marginal notes)."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

@@ -167,17 +167,13 @@
       "grunnloven": "/akn/no/act/constitution/1814/grunnloven",
       "stortingsvedtak": "/akn/no/act/vedtak/{year}/{number}"
     },
-    "uri_note": "Norwegian acts cited as 'Lov {date} nr {number}' — e.g., Lov 15. mai 2008 nr. 35. FRBR URI uses year of enactment and sequential number: /akn/no/act/2008/35. Forarbeider (Ot.prop./Prop.) cited by session and proposal number.",
     "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Lov {date} nr. {number}",
     "act_citation_alt": "Lov av {date} nr. {number}",
     "insertion_style": "alphanumeric_no_space",
-    "insertion_note": "Inserted §§ use a letter suffix without space: § 5a, § 5b. eId: art_5a, art_5b. This differs from the Swedish/Danish convention of a space before the suffix.",
-    "section_symbol": "§",
-    "section_symbol_position": "pre",
-    "section_citation": "§ {number}"
+    "insertion_note": "Inserted §§ use a letter suffix without space: § 5a, § 5b. eId: art_5a, art_5b. This differs from the Swedish/Danish convention of a space before the suffix."
   },
   "enacting_formulae": [
     {
@@ -200,8 +196,7 @@
   "amendments": {
     "style": "textual_replacement",
     "phrasing": "I lov {date} nr. {number} om {X} gjøres følgende endringer: § {N} skal lyde: ... / ny § {N}a skal lyde: ... / § {N} oppheves.",
-    "cross_reference_format": "short_title_and_date_number",
-    "note": "Amending acts (endringslov) are ordinary acts. Each § of the amending act typically targets one provision of the principal act. Commencement provision (ikrafttredelses-§) is the last §. Model as separate FRBR work with activeModifications. Lovdata publishes consolidated texts but also preserves the individual amending acts."
+    "cross_reference_format": "short_title_and_date_number"
   },
   "core_tlcs": [
     {
@@ -295,10 +290,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "basic_unit_symbol": "§",
-    "basic_unit_plural_symbol": "§§",
-    "chapter_abbreviation": "kap."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

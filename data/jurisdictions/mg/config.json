@@ -213,11 +213,7 @@
   "numbering": {
     "act_citation": "Loi n° {year}-{number}",
     "act_citation_alt": "Loi n° {year}-{number} du {date}",
-    "organic_citation": "Loi organique n° {year}-{number}",
-    "ordonnance_citation": "Ordonnance n° {year}-{number}",
-    "decret_citation": "Décret n° {year}-{number}",
-    "insertion_style": "bis_ter",
-    "first_article": "Article premier"
+    "insertion_style": "bis_ter"
   },
   "enacting_formulae": [
     {

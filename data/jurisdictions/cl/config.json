@@ -256,22 +256,10 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "law_citation": "Ley N° {number_with_separator}",
-    "law_citation_example": "Ley N° 21.719",
-    "dfl_citation": "DFL N° {number}, {ministerio}, {year}",
-    "dl_citation": "Decreto Ley N° {number_with_separator}",
-    "ds_citation": "DS N° {number}, {ministerio}, {year}",
     "insertion_style": "bis_ter_quater",
     "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter."
   },
   "enacting_formulae": [
-    {
-      "text": "Teniendo presente que el H. Congreso Nacional ha dado su aprobación al siguiente Proyecto de Ley: [...] Por tanto, promúlguese y llévese a efecto como Ley de la República.",
-      "position": "promulgation_decree",
-      "document_class": "ley",
-      "era": "post-1990",
-      "note": "Presidential promulgation formula. Appears as a header decree in the Diario Oficial wrapping the law text. The law body itself begins directly with its articles — there is no embedded enacting formula in the body text."
-    },
     {
       "text": "La Junta de Gobierno de la República de Chile ha acordado dictar el siguiente Decreto Ley:",
       "position": "preamble",
@@ -281,13 +269,6 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "Sustitúyese el artículo [N°] de la Ley N° [XX.XXX] por el siguiente:",
-    "phrasing_substitution_alt": "Reemplázase el artículo [N°] de la Ley N° [XX.XXX] por el siguiente:",
-    "phrasing_inciso_substitution": "Sustitúyese el inciso [ordinal] del artículo [N°] de la Ley N° [XX.XXX], por el siguiente:",
-    "phrasing_insertion": "Incorpórase el siguiente artículo [N° bis] a la Ley N° [XX.XXX]:",
-    "phrasing_insertion_alt": "Agrégase el siguiente inciso [ordinal] al artículo [N°] de la Ley N° [XX.XXX]:",
-    "phrasing_repeal": "Deróganse los artículos [N°] y [N°] de la Ley N° [XX.XXX].",
-    "phrasing_multiple": "Introdúcense las siguientes modificaciones en la Ley N° [XX.XXX]:",
     "cross_reference_format": "el artículo [N°] de la Ley N° [XX.XXX]"
   },
   "core_tlcs": [
@@ -363,13 +344,10 @@
   ],
   "display": {
     "heading_type": "inline_or_marginal",
-    "heading_note": "Heading style varies: codes use inline titles after the hierarchy number (e.g., 'TÍTULO I – DE LAS DISPOSICIONES GENERALES'). Ordinary leyes may use inline headings after artículo number. No consistent marginal note tradition in Chilean legislation.",
     "heading_case": "sentence_case_or_upper",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "number_display": "degree_symbol",
-    "number_display_note": "Display article numbers with degree symbol: Artículo 1°. Strip for eId generation. Law numbers display with thousands-separator: Ley N° 21.719."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

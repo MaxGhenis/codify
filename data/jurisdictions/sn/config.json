@@ -239,22 +239,10 @@
       "bill": "/akn/sn/bill/{year}/{number}",
       "constitution": "/akn/sn/act/constitution/2001/constitution"
     },
-    "date_calendar": "gregorian",
-    "language_code": "fra"
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "loi_citation": "Loi n° {year}-{number} du {day} {month} {year}",
-    "loi_organique_citation": "Loi organique n° {year}-{number} du {day} {month} {year}",
-    "decret_citation": "Décret n° {year}-{number}",
-    "article_first": "Article premier",
-    "article_subsequent": "Art. {number}",
-    "insertion_style": "hyphen_suffix",
-    "insertion_examples": [
-      "Art. 5-1",
-      "Art. 5-2",
-      "Art. 5 bis",
-      "Art. 5 ter"
-    ]
+    "insertion_style": "hyphen_suffix"
   },
   "enacting_formulae": [
     {
@@ -294,8 +282,7 @@
   "amendments": {
     "style": "textual_french",
     "phrasing": "est modifié et remplacé ainsi qu'il suit / Il est inséré... un article... ainsi rédigé / est abrogé",
-    "cross_reference_format": "loi_number_and_date",
-    "entry_into_force": "La présente loi sera exécutée comme loi de l'État"
+    "cross_reference_format": "loi_number_and_date"
   },
   "core_tlcs": [
     {
@@ -444,8 +431,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "locale": "fr-SN"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

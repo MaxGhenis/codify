@@ -156,8 +156,7 @@
   },
   "enacting_formulae": [
     {
-      "text": "Having reviewed the Basic Law of the State, And in pursuance of the public interest, We hereby decree the following:",
-      "text_ara": "بعد الاطلاع على النظام الأساسي للدولة، وبناءً على ما تقتضيه المصلحة العامة، رسمنا بما هو آت:",
+      "text": "بعد الاطلاع على النظام الأساسي للدولة، وبناءً على ما تقتضيه المصلحة العامة، رسمنا بما هو آت:",
       "position": "preamble",
       "era": "post-basic-law-2021",
       "from": "2021-01-11",
@@ -165,8 +164,7 @@
       "document_class": "act"
     },
     {
-      "text": "Having reviewed the Basic Law of the Sultanate issued by Royal Decree No. 101/96, And in pursuance of the public interest, We hereby decree the following:",
-      "text_ara": "بعد الاطلاع على النظام الأساسي للدولة الصادر بالمرسوم السلطاني رقم ١٠١/٩٦، وبناءً على ما تقتضيه المصلحة العامة، رسمنا بما هو آت:",
+      "text": "بعد الاطلاع على النظام الأساسي للدولة الصادر بالمرسوم السلطاني رقم ١٠١/٩٦، وبناءً على ما تقتضيه المصلحة العامة، رسمنا بما هو آت:",
       "position": "preamble",
       "era": "post-basic-law-1996",
       "from": "1996-11-06",
@@ -178,8 +176,7 @@
   "amendments": {
     "style": "wholesale_replacement_or_textual",
     "phrasing": "يُستبدل بنص المادة ({N}) ... النص الآتي / Article ({N}) of [Law] shall be replaced by the following:",
-    "cross_reference_format": "royal_decree_number_gregorian_year",
-    "note": "Major revisions use wholesale replacement (new RD supersedes old). Targeted amendments substitute specific articles. Both patterns must be handled."
+    "cross_reference_format": "royal_decree_number_gregorian_year"
   },
   "core_tlcs": [
     {

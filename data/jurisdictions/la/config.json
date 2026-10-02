@@ -137,8 +137,7 @@
     "number_note": "Laws numbered as No. NN/NA; use the numeric part only as {number}. When number is ambiguous, use slugified short title."
   },
   "numbering": {
-    "act_citation": "Law No. {number}/NA of {date}",
-    "decree_citation": "Decree No. {number}/PS of {date}"
+    "act_citation": "Law No. {number}/NA of {date}"
   },
   "enacting_formulae": [
     {
@@ -225,8 +224,7 @@
     "heading_case": "sentence_case",
     "script": "lao",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "font_note": "Lao script requires a Unicode font with Lao block support (e.g., Noto Sans Lao, Phetsarath OT). Latin fallback for transliterations."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

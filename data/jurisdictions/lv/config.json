@@ -79,14 +79,12 @@
           "local_term": "Pārejas noteikumi",
           "name": "parejasNoteikumi",
           "position": "terminal_body",
-          "contains": "article",
           "note": "Transitional Provisions — always present, always at end of body before attachments. Contains numbered pants (continuing main body sequence). Detect by heading string 'Pārejas noteikumi'."
         },
         {
           "local_term": "Informatīvā atsauce",
           "name": "informativaAtsauce",
           "position": "terminal_body",
-          "contains": "refs",
           "note": "Informational Reference to EU Directives — mandatory in EU transposing acts, appears after Pārejas noteikumi. Contains list of Directives being transposed. Post-2004 only."
         }
       ]
@@ -170,14 +168,12 @@
         {
           "local_term": "Pārejas noteikumi",
           "name": "parejasNoteikumi",
-          "position": "terminal_body",
-          "contains": "article"
+          "position": "terminal_body"
         },
         {
           "local_term": "Informatīvā atsauce",
           "name": "informativaAtsauce",
-          "position": "terminal_body",
-          "contains": "refs"
+          "position": "terminal_body"
         }
       ],
       "note": "Cabinet Regulations follow the same pants/daļa/punkts pattern as acts. Issued under enabling powers of parent act. Cited by sequential MK number per year: 'Ministru kabineta noteikumi Nr. {N}'."
@@ -192,40 +188,15 @@
       "civillikums": "/akn/lv/act/1937/civillikums",
       "kriminallikums": "/akn/lv/act/1998/kriminallikums"
     },
-    "slug_convention": "latvian_short_title_diacritics_stripped",
-    "romanisation": {
-      "ā": "a",
-      "č": "c",
-      "ē": "e",
-      "ģ": "g",
-      "ī": "i",
-      "ķ": "k",
-      "ļ": "l",
-      "ņ": "n",
-      "š": "s",
-      "ū": "u",
-      "ž": "z"
-    },
-    "date_calendar": "gregorian",
-    "gazette_citation_format": "LV, {year}, Nr. {number}",
-    "lv_citation_format": "Latvijas Vēstnesis, {Nr.}, {DD.MM.YYYY}"
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "LV, {year}, Nr. {number}",
     "act_citation_alt": "{short_title}",
     "insertion_style": "superscript_numeric",
-    "insertion_eid_style": "suffix_numeric",
     "note": "No sequential act numbers — gazette reference is the formal identifier. Pants insertion uses superscript: 5¹ → art_51, 5² → art_52. Cabinet regulations are numbered sequentially per year: MK noteikumi Nr. {N}."
   },
   "enacting_formulae": [
-    {
-      "text": null,
-      "position": "none",
-      "era": "current",
-      "from": "1991-08-21",
-      "note": "Latvian acts have no body-text enacting formula. Adoption/promulgation metadata appears in the document header on Latvijas Vēstnesis / likumi.lv. The body begins directly with the first nodaļa or pants. Do not invent an enacting formula.",
-      "document_class": "act"
-    },
     {
       "text": "Izdoti saskaņā ar {enabling_act_reference}",
       "position": "preamble",
@@ -238,16 +209,7 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "papildināt... izteikt... šādā redakcijā... izslēgt...",
-    "typical_phrases": [
-      "Papildināt {pants} ar {daļu/punktu}",
-      "Izteikt {pants} šādā redakcijā:",
-      "Izslēgt {pants}",
-      "{pants} {daļā} vārdus '...' aizstāt ar vārdiem '...'"
-    ],
-    "cross_reference_format": "short_title_and_pants",
-    "consolidation": "likumi_lv_realtime",
-    "consolidation_url": "https://likumi.lv/ta/id/{id}",
-    "note": "Likumi.lv provides continuously consolidated versions with amendment history. Each consolidation version maps to a FRBR Expression. Amendment phrasing follows Germanic model: precise textual substitution with full replacement text quoted."
+    "cross_reference_format": "short_title_and_pants"
   },
   "core_tlcs": [
     {
@@ -344,30 +306,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Latvian headings use sentence case. Likumi.lv renders nodaļa headings in bold above the pants group. Pants number rendered as Arabic ordinal with period: '5. pants'. § symbol is informal; use 'pants' in all display."
-  },
-  "classification_rules": {
-    "dala_disambiguation": {
-      "description": "The word 'daļa' appears at two structural levels. Rule-based disambiguation:",
-      "rules": [
-        {
-          "condition": "Element has a titled heading (e.g., 'Pirmā daļa — Ģimenes tiesības') and contains nodaļa children",
-          "classification": "part",
-          "akn_element": "part",
-          "bluebell_keyword": "PART",
-          "note": "Top-level Part in large codes (Civillikums, Komerclikums). Ordinal Latvian label: 'Pirmā daļa', 'Otrā daļa'. Only present in codes with 200+ pants."
-        },
-        {
-          "condition": "Element is a numbered inline subdivision of a pants — preceded by '(1)', '(2)' pattern and contains prose text, not titled heading",
-          "classification": "paragraph",
-          "akn_element": "paragraph",
-          "bluebell_keyword": "PARAGRAPH",
-          "note": "Paragraph subdivision of pants. Numbered (1), (2). No heading. Most common usage — occurs in virtually every Latvian act."
-        }
-      ],
-      "fallback": "If ambiguous, inspect parent element: if parent is 'likums' body root, classify as part; if parent is 'pants', classify as paragraph."
-    }
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

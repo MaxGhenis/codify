@@ -122,14 +122,11 @@
       "bill": "/akn/bw/bill/{year}/{number}",
       "constitution": "/akn/bw/act/constitution/1966/constitution"
     },
-    "date_calendar": "gregorian",
-    "uri_notes": "When only a Cap. number is known (no original Act year/number), use 'cap{NN}-{NN}' as both year and number segments (e.g., Cap. 42:01 → /akn/bw/act/cap42-01/cap42-01). Record the Cap. number as FRBRalias. Update URI when original year/number is determined. Gazettes.Africa already uses /akn/bw/ — maintain compatibility."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "No. {number} of {year}",
     "act_citation_alt": "Cap. {volume}:{chapter}",
-    "act_citation_gazette": "Act No. {number} of {year}",
-    "si_citation": "Statutory Instrument No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [

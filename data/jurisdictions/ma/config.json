@@ -7,7 +7,6 @@
     "islamic"
   ],
   "calendar": "dual",
-  "frbr_calendar": "gregorian",
   "languages": [
     "ara",
     "fra",
@@ -214,7 +213,6 @@
       "constitution": "/akn/ma/act/constitution/2011/constitution"
     },
     "date_calendar": "gregorian",
-    "alias_calendar": "hijri",
     "notes": [
       "Law number segment is the YY-NNN portion of the official Loi n° YY-NNN identifier (hyphens retained).",
       "Dahir number segment drops the leading '1-' category prefix (e.g., Dahir n° 1-11-91 → URI segment '11-91').",
@@ -225,12 +223,7 @@
     ]
   },
   "numbering": {
-    "law_citation": "Loi n° {law-number}",
-    "organic_citation": "Loi organique n° {law-number}",
-    "dahir_citation": "Dahir n° 1-{dahir-number}",
-    "decree_citation": "Décret n° 2-{decree-number}",
     "insertion_style": "bis_ter",
-    "insertion_alt": "hyphenated_decimal",
     "note": "Two-digit year in law numbers refers to legislative session year, not calendar year of promulgation. Disambiguation: if number portion >99, it is the sequential number not the year."
   },
   "enacting_formulae": [
@@ -256,9 +249,6 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "L'article [N] de la loi n° [YY-NNN] est modifié comme suit :",
-    "phrasing_insertion": "Il est inséré, après l'article [N] de la loi précitée, un article [N bis] ainsi rédigé :",
-    "phrasing_repeal": "L'article [N] de la loi n° [YY-NNN] est abrogé.",
     "cross_reference_format": "law_number_and_name"
   },
   "core_tlcs": [
@@ -363,15 +353,7 @@
     "heading_case": "title_case",
     "script": "arabic_and_latin",
     "rtl": true,
-    "rtl_languages": [
-      "ara",
-      "zgh"
-    ],
-    "ltr_languages": [
-      "fra"
-    ],
-    "font_preference": "sans_serif",
-    "note": "Arabic text is RTL; French text is LTR. UI must support bidirectional rendering."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

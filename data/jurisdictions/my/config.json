@@ -13,7 +13,6 @@
     "eng"
   ],
   "authoritative_language": "msa",
-  "authoritative_language_note": "Bahasa Malaysia authoritative for post-1967 legislation. English authoritative for pre-1967 colonial-era legislation. Many Acts published bilingually; BM text prevails in conflict.",
   "document_classes": {
     "act": {
       "label": "Act of Parliament",
@@ -257,25 +256,11 @@
       "constitution": "/akn/my/act/constitution/1957/constitution",
       "sarawak_ordinance": "/akn/my-sw/act/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "uri_notes": [
-      "Federal Acts: date = original enactment year; number = cumulative Act integer (e.g., 777, 854). Acts do NOT use year-sequential numbering.",
-      "Older Acts with Cap. numbers only: use cap{NNN} as placeholder until enactment year is confirmed, e.g., /akn/my/act/cap136/cap136.",
-      "Amendment Acts have 'A' prefix number (e.g., Act A1701). Represent as /akn/my/act/amendment/a1701.",
-      "State sub-national codes (ISO 3166-2): Johor=my-01, Kedah=my-02, Kelantan=my-03, Melaka=my-04, Negeri Sembilan=my-05, Pahang=my-06, Penang=my-07, Perak=my-08, Perlis=my-09, Selangor=my-10, Terengganu=my-11, Sabah=my-12/my-sb, Sarawak=my-13/my-sw, Kuala Lumpur FT=my-14, Labuan FT=my-15, Putrajaya FT=my-16.",
-      "PU(A) = substantive subsidiary legislation; PU(B) = administrative instruments (appointments, notifications). Map PU(B) as doc type."
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "{Short Title} {Year} [Act {number}]",
-    "act_citation_example": "Companies Act 2016 [Act 777]",
     "act_citation_alt": "Cap. {number}",
-    "act_citation_alt_note": "Cap. numbers for pre-1969 revised laws",
-    "amendment_act_citation": "Act A{number}",
-    "subsidiary_pua_citation": "P.U.(A) {year}/{number}",
-    "subsidiary_pub_citation": "P.U.(B) {year}/{number}",
-    "state_enactment_citation": "Enactment No. {number} of {year}",
-    "sarawak_ordinance_citation": "Ordinance No. {number} of {year}",
     "insertion_style": "alphanumeric",
     "insertion_note": "Inserted sections: 3A, 3B. Inserted subsections: (1A), (1B). No renumbering on amendment."
   },
@@ -296,8 +281,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by inserting... / by deleting... and substituting...",
-    "cross_reference_format": "short_title_year_and_act_number_brackets",
-    "cross_reference_example": "Companies Act 2016 [Act 777]"
+    "cross_reference_format": "short_title_year_and_act_number_brackets"
   },
   "core_tlcs": [
     {
@@ -411,10 +395,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "bilingual": true,
-    "primary_script_language": "msa",
-    "secondary_script_language": "eng"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

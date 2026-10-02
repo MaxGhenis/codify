@@ -259,13 +259,10 @@
   },
   "numbering": {
     "act_citation": "Sl. list CG, br. {issue}/{year-short}",
-    "act_citation_full": "Službeni list Crne Gore, br. {issue}/{year}",
     "act_citation_alt": "\"Sl. list CG\", br. {issue}/{year}",
     "insertion_style": "alphanumeric",
     "insertion_example": "Član 5a, Član 5b",
-    "article_numbering": "continuous_throughout_act",
-    "subdivision_stav": "arabic_parenthesized",
-    "subdivision_tacka": "arabic_stop_or_alpha_lower_parenthesized"
+    "article_numbering": "continuous_throughout_act"
   },
   "enacting_formulae": [
     {
@@ -289,13 +286,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "mijenja se i glasi",
-    "phrasing_deletion": "briše se",
-    "phrasing_addition": "dodaje se novi ... koji glasi",
-    "amendment_act_naming": "Zakon o izmjenama i dopunama Zakona o {subject}",
-    "cross_reference_format": "law_name_and_gazette_citation",
-    "cross_reference_example": "Zakon o parničnom postupku (Sl. list CG, br. 22/04, 76/06)",
-    "intra_act_reference": "u smislu člana X stava Y ovog zakona"
+    "cross_reference_format": "law_name_and_gazette_citation"
   },
   "core_tlcs": [
     {
@@ -439,8 +430,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Latin script is primary for legislation; 2007 Constitution recognises both Latin and Cyrillic as co-official scripts. Modern legislation (post-2006) predominantly Latin. OCR must handle Montenegrin diacritics: š, č, ž, ć, đ (same set as Croatian/Serbian Latin). Headings typically in ALL CAPS."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

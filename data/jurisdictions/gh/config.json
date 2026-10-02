@@ -225,10 +225,6 @@
   "numbering": {
     "act_citation": "Act {number}",
     "act_citation_alt": "Act {number} of {year}",
-    "act_citation_with_year": "{short_title}, {year} (Act {number})",
-    "li_citation": "L.I. {number}",
-    "ci_citation": "C.I. {number}",
-    "ei_citation": "E.I. {number}",
     "insertion_style": "alphanumeric",
     "note": "Act numbers are continuous across all years since 1960 — the year in the citation is the enactment year, not the number's year. E.g., 'Whistleblower Act, 2006 (Act 720)' = the 720th act since 1960, enacted in 2006."
   },
@@ -244,9 +240,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by the deletion of... and the insertion of...",
-    "phrasing_alt": "is amended by the substitution of...",
-    "cross_reference_format": "short_title_and_act_number",
-    "note": "Amendment acts cite the principal enactment by short title and act number, e.g., 'the Public Procurement Act, 2003 (Act 663) referred to in this Act as the principal enactment'. Deletions and insertions are described textually (Commonwealth-style) rather than by setting out full replacement text."
+    "cross_reference_format": "short_title_and_act_number"
   },
   "core_tlcs": [
     {

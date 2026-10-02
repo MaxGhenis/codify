@@ -223,35 +223,28 @@
   },
   "numbering": {
     "act_citation": "قانون رقم {number} لسنة {year}",
-    "act_citation_latin": "Law No. {number} of {year}",
-    "article_basic_unit": "مادة",
-    "article_basic_unit_latin": "Maddah",
     "insertion_style": "bis_suffix",
-    "insertion_arabic": "مكرراً",
-    "insertion_latin": "bis",
     "insertion_example": "مادة 5 مكرراً → art_5bis",
     "article_numbering": "continuous_throughout_law"
   },
   "enacting_formulae": [
     {
-      "arabic": "أصدر مجلس النواب القانون الآتي نصه:",
       "transliteration": "Asdar Majlis al-Nuwwab al-Qanun al-Ati Nassuh",
-      "translation": "The Council of Representatives has enacted the following law:",
       "position": "preamble",
       "era": "post-2005-constitution",
       "from": "2006-01-01",
       "enacting_body_tlc": "councilOfRepresentatives",
-      "document_class": "act"
+      "document_class": "act",
+      "text": "أصدر مجلس النواب القانون الآتي نصه:"
     },
     {
-      "arabic": "باسم الشعب",
       "transliteration": "Ba-ism al-Sha'b",
-      "translation": "In the name of the People",
       "position": "preamble",
       "era": "post-2003-general",
       "note": "Presidential promulgation preamble that appears in the gazette header alongside the law text. Precedes or accompanies the CoR enacting formula.",
       "enacting_body_tlc": "president",
-      "document_class": "act"
+      "document_class": "act",
+      "text": "باسم الشعب"
     },
     {
       "text": "Pursuant to my authority as Administrator of the Coalition Provisional Authority (CPA), relevant UN Security Council resolutions, including Resolution 1483 (2003) and 1511 (2003), and the laws and usages of war, I hereby promulgate the following:",
@@ -265,12 +258,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "تستبدل المادة (N) من القانون رقم (X) لسنة (YYYY) بالنص الآتي:",
-    "phrasing_substitution_latin": "Article N of Law No. X of YYYY is replaced by the following text:",
-    "phrasing_addition": "تضاف إلى القانون رقم (X) لسنة (YYYY) مادة جديدة برقم (N مكرراً) نصها الآتي:",
-    "phrasing_repeal": "تلغى المادة (N) من القانون رقم (X) لسنة (YYYY)",
-    "cross_reference_format": "law_number_and_year",
-    "cross_reference_example": "القانون رقم (111) لسنة 1969"
+    "cross_reference_format": "law_number_and_year"
   },
   "core_tlcs": [
     {
@@ -365,9 +353,6 @@
     {
       "body": "un",
       "direct_effect": "none",
-      "direct_effect_exceptions": [
-        "Security Council Chapter VII resolutions — binding on member states"
-      ],
       "superseded_subjects": []
     }
   ],
@@ -376,8 +361,7 @@
     "heading_case": "natural",
     "script": "arabic",
     "rtl": true,
-    "font_preference": "serif",
-    "note": "Arabic RTL primary display. Article numbers may appear in Arabic-script numerals (٥) or Western Arabic (5); pipeline normalises to Western Arabic for eIds. Kurdish Sorani also uses Perso-Arabic script (RTL). Review UI must set direction: rtl; unicode-bidi: embed."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

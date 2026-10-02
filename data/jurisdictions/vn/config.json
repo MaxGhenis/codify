@@ -277,39 +277,27 @@
   },
   "numbering": {
     "act_citation": "{number}/{year}/QH{legislature_term}",
-    "act_citation_example": "31/2024/QH15",
-    "decree_citation": "{number}/{year}/NĐ-CP",
-    "ordinance_citation": "{number}/{year}/UBTVQH{legislature_term}",
-    "circular_citation": "{number}/{year}/TT-{ministry_code}",
     "insertion_style": "alphabetic_lower",
-    "insertion_example": "Điều 5a, Điều 5b (not 5A, 5B)",
-    "point_sequence": "a, b, c, d, đ, e, g, h, i, k",
-    "point_eid_note": "The letter đ is transliterated as 'dd' in eId values. điểm đ → point_dd"
+    "insertion_example": "Điều 5a, Điều 5b (not 5A, 5B)"
   },
   "enacting_formulae": [
     {
       "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nQuốc hội ban hành Luật [tên văn bản].",
-      "text_en": "Pursuant to the Constitution of the Socialist Republic of Vietnam; The National Assembly hereby promulgates the Law on [subject].",
       "position": "preamble",
-      "issuer": "national_assembly",
       "era": "current",
       "from": "2013-11-28",
       "document_class": "luat"
     },
     {
       "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nỦy ban Thường vụ Quốc hội ban hành Pháp lệnh [tên văn bản].",
-      "text_en": "Pursuant to the Constitution of the Socialist Republic of Vietnam; The Standing Committee of the National Assembly hereby promulgates the Ordinance on [subject].",
       "position": "preamble",
-      "issuer": "standing_committee",
       "era": "current",
       "from": "2013-11-28",
       "document_class": "phaplenhh"
     },
     {
       "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam năm 1992;\nQuốc hội ban hành [Luật / Bộ luật] [tên văn bản].",
-      "text_en": "Pursuant to the 1992 Constitution of the Socialist Republic of Vietnam; The National Assembly hereby promulgates the [Law / Code] on [subject].",
       "position": "preamble",
-      "issuer": "national_assembly",
       "era": "pre-2013",
       "to": "2013-11-28",
       "document_class": "luat"
@@ -318,11 +306,7 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "được sửa đổi, bổ sung như sau (is amended and supplemented as follows)",
-    "insertion_phrasing": "Bổ sung Điều [N]a vào sau Điều [N] như sau",
-    "repeal_phrasing": "Bãi bỏ Điều [N]",
-    "cross_reference_format": "short_title_and_official_number",
-    "cross_reference_example": "Luật Đất đai số 31/2024/QH15",
-    "consolidated_texts": "Ministry of Justice issues văn bản hợp nhất (VBHN) as unofficial consolidations. These are FRBR expressions of the original work, not new works."
+    "cross_reference_format": "short_title_and_official_number"
   },
   "core_tlcs": [
     {
@@ -434,9 +418,7 @@
   "display": {
     "heading_type": "inline",
     "heading_case": "mixed",
-    "heading_note": "Chapter headings appear in ALL CAPS in official gazette printing. Article headings use sentence case or title case.",
     "script": "latin_extended",
-    "script_note": "Vietnamese Latin alphabet with full diacritic system. Requires Unicode Latin Extended Additional block (U+1E00–U+1EFF) support.",
     "rtl": false,
     "font_preference": "serif"
   },

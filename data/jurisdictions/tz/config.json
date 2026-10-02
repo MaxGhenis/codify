@@ -216,16 +216,11 @@
       "constitution": "/akn/tz/act/constitution/1977/constitution",
       "officialGazette": "/akn/tz/officialGazette/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "locality_codes": {
-      "zanzibar": "tz-znz"
-    }
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "No. {number} of {year}",
     "act_citation_alt": "Cap. {chapter}",
-    "act_citation_consolidated": "[CAP. {chapter} R.E. {re_year}]",
-    "gn_citation": "G.N. No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
@@ -253,7 +248,6 @@
   ],
   "amendments": {
     "style": "textual_commonwealth",
-    "vehicle": "written_laws_miscellaneous_amendments",
     "phrasing": "by deleting... and substituting for it the following",
     "cross_reference_format": "short_title_and_cap"
   },

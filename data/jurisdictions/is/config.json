@@ -172,13 +172,11 @@
       "tilskipun": "/akn/is/act/tsk/{year}/{number}",
       "officialGazette": "/akn/is/officialGazette/{year}/{number}"
     },
-    "uri_note": "Act numbers are sequential integers per year, cited as 'lög nr. {number}/{year}' — e.g. lög nr. 33/1944. URI uses the number before the slash and the year: /akn/is/act/1944/33. Regulations use a separate sequential numbering series in Stjórnartíðindi.",
     "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "lög nr. {number}/{year}",
     "act_citation_alt": "{short-title}, nr. {number}/{year}",
-    "reglugjord_citation": "reglugerð nr. {number}/{year}",
     "insertion_style": "alphanumeric_spaced",
     "insertion_note": "Inserted §§ use a letter suffix with a space: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Consistent with DK/SE convention."
   },
@@ -195,8 +193,7 @@
   "amendments": {
     "style": "textual_replacement",
     "phrasing": "Á eftir {N}. gr. laganna kemur ný grein, {N+1}. gr., svohljóðandi: ... / Orðin '...' í {N}. gr. falla brott. / {N}. gr. laganna orðast svo: ...",
-    "cross_reference_format": "short_title_and_law_number",
-    "note": "Amending acts (breytingarlög) modify specific greinar of the principal act. The amending act is itself a lög with its own number. Final grein gives commencement date (gildistaka). Model each breytingarlög as a separate FRBR work with activeModifications linking to principal act."
+    "cross_reference_format": "short_title_and_law_number"
   },
   "core_tlcs": [
     {
@@ -292,10 +289,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "basic_unit_symbol": "§",
-    "basic_unit_plural_symbol": "§§",
-    "chapter_abbreviation": "kafli"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

@@ -110,23 +110,20 @@
       "akn_element": "act",
       "bluebell_compatible": false,
       "basic_unit": "article",
-      "language": "fra",
       "hierarchy": [
         {
           "local_term": "Livre",
           "akn_element": "hcontainer",
           "level": "higher",
           "bluebell_keyword": null,
-          "numbering": "roman",
-          "name_attr": "livre"
+          "numbering": "roman"
         },
         {
           "local_term": "Titre",
           "akn_element": "hcontainer",
           "level": "higher",
           "bluebell_keyword": null,
-          "numbering": "roman",
-          "name_attr": "titre"
+          "numbering": "roman"
         },
         {
           "local_term": "Chapitre",
@@ -162,7 +159,6 @@
           "bluebell_proxy": "SUBSECTION"
         }
       ],
-      "requires_postprocessing": true,
       "note": "French-language codes inherited from French colonial period. Require separate prompt variant structure_mu_civil.txt."
     }
   },
@@ -182,7 +178,6 @@
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "gn_citation": "GN No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [

@@ -210,12 +210,6 @@
   "numbering": {
     "act_citation": "{Short Title} {year}",
     "act_citation_alt": "{year} No {number}",
-    "act_citation_note": "NZ Acts are cited by short title and year. The formal number ('No N') is rarely used in citation but appears in official publications. Example: 'Companies Act 1993' or '1993 No 105'.",
-    "li_citation": "LI {year}/{number}",
-    "section_numbering": "arabic_continuous",
-    "subsection_numbering": "arabic_parenthesized",
-    "paragraph_numbering": "alpha_lower_parenthesized",
-    "subparagraph_numbering": "roman_lower_parenthesized",
     "insertion_style": "alphanumeric",
     "insertion_note": "Inserted sections use alphanumeric suffix: 12A, 12B. Inserted subsections: (1A), (1B). NZ does not re-enact consolidations — the Parliamentary Counsel Office publishes online consolidated versions showing current text with amendment history."
   },
@@ -239,17 +233,7 @@
   ],
   "amendments": {
     "style": "textual_commonwealth",
-    "phrasing_patterns": [
-      "Section [N] of the principal Act is amended by...",
-      "After [section N], insert:",
-      "Repeal [section N].",
-      "In [section N], replace '[old text]' with '[new text]'.",
-      "In [section N(1)], after paragraph (a), insert:",
-      "The [Act] is amended by repealing [section N] and substituting..."
-    ],
-    "cross_reference_format": "short_title_year",
-    "cross_reference_example": "the Companies Act 1993",
-    "principal_act_convention": "Amendment Acts refer to the amended Act as 'the principal Act', defined in section 2 or by context."
+    "cross_reference_format": "short_title_year"
   },
   "core_tlcs": [
     {
@@ -351,8 +335,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "special_chars_note": "Māori (te reo Māori) uses macrons (tohutō) over vowels: ā, ē, ī, ō, ū (and uppercase Ā, Ē, Ī, Ō, Ū). Official Māori titles and text must preserve macrons — failure to do so is linguistically incorrect and politically sensitive. Modern legislation.govt.nz correctly encodes macrons in UTF-8."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

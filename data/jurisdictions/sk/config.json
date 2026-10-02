@@ -240,17 +240,12 @@
   "numbering": {
     "act_citation": "zákon č. {number}/{year} Z.z.",
     "act_citation_alt": "zákon č. {number}/{year} Z.z., o [short descriptive title], v znení neskorších predpisov",
-    "pre_independence_citation": "zákon č. {number}/{year} Zb.",
-    "section_citation": "§ {number}",
-    "subsection_citation": "§ {section} ods. {odsek}",
-    "full_citation": "§ {section} ods. {odsek} písm. {pismeno}) bod {bod}.",
     "insertion_style": "alphanumeric_suffix",
     "insertion_example": "§ 2 → § 2a, § 2b, § 2c"
   },
   "enacting_formulae": [
     {
       "text": "Národná rada Slovenskej republiky sa uzniesla na tomto zákone:",
-      "translation": "The National Council of the Slovak Republic has resolved on this Act:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1993-01-01",
@@ -258,7 +253,6 @@
     },
     {
       "text": "Vláda Slovenskej republiky podľa § {N} zákona č. {NN}/{YYYY} Z.z. o {title} nariaďuje:",
-      "translation": "The Government of the Slovak Republic, pursuant to § {N} of Act No. {NN}/{YYYY} Z.z. on {title}, hereby decrees:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1993-01-01",
@@ -266,7 +260,6 @@
     },
     {
       "text": "{Ministry} podľa § {N} zákona č. {NN}/{YYYY} Z.z. o {title} ustanovuje:",
-      "translation": "{Ministry}, pursuant to § {N} of Act No. {NN}/{YYYY} Z.z. on {title}, hereby provides:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1993-01-01",
@@ -276,10 +269,7 @@
   "amendments": {
     "style": "textual_continental",
     "phrasing": "Zákon č. {NN}/{YYYY} Z.z. ... sa mení a dopĺňa takto: ... § X znie: ... Za § X sa vkladá nový § Xa ... § X sa zrušuje.",
-    "cross_reference_format": "zz_number_and_year",
-    "cross_reference_example": "zákon č. 300/2005 Z.z., Trestný zákon",
-    "amendment_act_structure": "novelizácia uses its own Z.z. number; internal modifications grouped under Čl. I, Čl. II (one per target statute)",
-    "amendment_act_title_pattern": "Zákon, ktorým sa mení a dopĺňa zákon č. {NN}/{YYYY} Z.z. o {title}"
+    "cross_reference_format": "zz_number_and_year"
   },
   "core_tlcs": [
     {
@@ -351,7 +341,6 @@
       "body": "eu",
       "direct_effect": "direct",
       "member_since": "2004-05-01",
-      "euro_adopted": "2009-01-01",
       "superseded_subjects": [],
       "note": "EU Regulations directly applicable; Directives transposed via zákon or delegated legislation. Large volume of post-2004 Slovak law is EU-derived. Slovakia is in the eurozone (since 2009) — ECB and eurozone regulations apply."
     },
@@ -379,8 +368,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Slovak laws may have § headings (rubrika) as bold/italic text within body, as marginal notes, or absent entirely (common in older acts and codes). Pipeline must handle headingless §§ gracefully."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

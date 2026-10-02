@@ -19,7 +19,6 @@
       "hierarchy": [
         {
           "local_term": "Book",
-          "local_term_khmer": "ក្បាល",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
@@ -28,7 +27,6 @@
         },
         {
           "local_term": "Part",
-          "local_term_khmer": "ផ្នែក",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
@@ -36,7 +34,6 @@
         },
         {
           "local_term": "Chapter",
-          "local_term_khmer": "ជំពូក",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -60,7 +57,6 @@
         },
         {
           "local_term": "Article",
-          "local_term_khmer": "មាត្រា",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -68,7 +64,6 @@
         },
         {
           "local_term": "Paragraph",
-          "local_term_khmer": "កថាខណ្ឌ",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -181,28 +176,17 @@
       "prakas": "/akn/kh/act/prakas/{year}/{number}",
       "constitution": "/akn/kh/act/constitution/1993/constitution"
     },
-    "date_calendar": "gregorian",
-    "kram_number_decoding": {
-      "format": "NS/RKM/MMYY/NNN",
-      "year_extraction": "4-digit from MMYY (century prefix 20 assumed for YY < 50)",
-      "number_extraction": "NNN as integer (drop leading zeros)",
-      "alias": "Store full NS/RKM/MMYY/NNN as FRBRalias"
-    }
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Preah Reach Kram No. NS/RKM/{MMYY}/{NNN}",
-    "anukret_citation": "Anukret No. {NNN}.ANK.BK",
-    "prakas_citation": "Prakas No. {NNN}",
-    "insertion_style": "bis_ter",
-    "insertion_style_note": "Assumed French-influenced bis/ter/quater."
+    "insertion_style": "bis_ter"
   },
   "enacting_formulae": [
     {
-      "label": "Preah Reach Kram (current, post-1993)",
       "position": "preamble",
       "era": "post-constitution",
       "from": "1993-09-24",
-      "structure": "header_block + royal_style + having_seen_clauses + promulgate_clause + parliamentary_adoption_recital",
       "text": "PREAH REACH KRAM No. NS/RKM/[MMYY]/[NNN]\n\nWe, [Royal style of the King],\n\nHaving seen the Constitution of the Kingdom of Cambodia;\nHaving seen the Royal Kram No. NS/RKM/0801/14 dated 28 January 2008 on the promulgation of the Law on the Organization and Functioning of the Council of Ministers;\nHaving seen [relevant prior legislation];\nHaving proposed by [the Prime Minister];\n\nPromulgate:\n\nThe Law on [Subject] passed by the National Assembly on [date] in the [ordinal] plenary session of the [ordinal] legislature and reviewed and approved by the Senate in accordance with the form and spirit of the law without revision on [date] during the [ordinal] plenary session of the [ordinal] legislature, the content of which is as follows:",
       "document_class": "act"
     }
@@ -210,8 +194,6 @@
   "amendments": {
     "style": "structural_civil_law",
     "phrasing": "Article [N] of the Law on [Subject] is amended to read as follows:",
-    "insertion_phrasing": "A new Article [N] bis is inserted after Article [N] of the Law on [Subject] as follows:",
-    "repeal_phrasing": "Article [N] of the Law on [Subject] is hereby repealed.",
     "cross_reference_format": "short_title_and_kram_number"
   },
   "core_tlcs": [
@@ -332,9 +314,7 @@
     "heading_case": "upper_case",
     "script": "khmer",
     "rtl": false,
-    "font_preference": "sans-serif",
-    "khmer_unicode_range": "U+1780-U+17FF",
-    "note": "Primary text in Khmer script. Pipeline must support Khmer OCR. English translations are unofficial."
+    "font_preference": "sans-serif"
   },
   "validation": {
     "status": "draft",

@@ -402,32 +402,14 @@
   "numbering": {
     "act_citation": "Zakon Respubliki Kazakhstan ot {date} № {number}",
     "act_citation_alt": "ZRK № {number} ({year})",
-    "constitutional_law_citation": "Konstitutsionny zakon Respubliki Kazakhstan ot {date} № {number}",
-    "kodeks_citation": "Kodeks Respubliki Kazakhstan ot {date} № {number}",
-    "ukaz_citation": "Ukaz Prezidenta Respubliki Kazakhstan ot {date} № {number}",
     "insertion_style": "hyphen_decimal",
-    "insertion_example": "Stat'ya 5-1 inserted between stat'ya 5 and stat'ya 6; existing article numbering unchanged",
-    "notes": "The convocation suffix (e.g. -V, -VI) appears in official citations and distinguishes acts enacted by different parliamentary convocations. Include in FRBR URI number segment in lowercase hyphenated form."
+    "insertion_example": "Stat'ya 5-1 inserted between stat'ya 5 and stat'ya 6; existing article numbering unchanged"
   },
-  "enacting_formulae": [
-    {
-      "text": "Қабылданды\nҚазақстан Республикасының Парламенті",
-      "transliteration": "Qabylданды\nQazaqstan Respublikasının Parlamenti",
-      "translation": "Adopted by the Parliament of the Republic of Kazakhstan",
-      "position": "preface",
-      "era": "post-1995",
-      "from": "1995-08-30",
-      "note": "The adoption notice appears in the preface block, attributed to Parliament (both chambers). The President's signature/promulgation date is recorded separately. No body-level enacting formula is used — the law begins directly with its articles.",
-      "document_class": "zakon"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_statutory",
     "phrasing": "vnosyatsya sleduyushchiye izmeneniya i dopolneniya... priznat' utrativshim silu...",
-    "phrasing_kaz": "өзгерістер мен толықтырулар енгізу туралы...",
-    "phrasing_rus": "вносятся следующие изменения и дополнения... признать утратившим силу...",
-    "cross_reference_format": "law_type_date_number",
-    "notes": "Amendment laws are titled 'О внесении изменений и дополнений в...' (On amending and supplementing...). Standard formulations: 'в статье X слова \"...\" заменить словами \"...\"' (replace words in article X), 'дополнить статьёй X-1 следующего содержания' (add new article X-1 with the following content), 'признать утратившим силу' (declare void). Amendments and supplements ('izmeneniya i dopolneniya') are distinguished: izmeneniya replaces existing text; dopolneniya adds new provisions."
+    "cross_reference_format": "law_type_date_number"
   },
   "core_tlcs": [
     {
@@ -534,9 +516,7 @@
     "heading_case": "sentence_case",
     "script": "cyrillic",
     "rtl": false,
-    "font_preference": "serif",
-    "romanisation": "ISO_9_1995",
-    "notes": "Article headings appear inline with the article number in both official languages: 'Статья 1. Основные понятия' (Russian) / 'Бап 1. Негізгі ұғымдар' (Kazakh). Both Cyrillic scripts are used — Kazakh uses a Cyrillic script with additional characters (Ә, Ғ, Қ, Ң, Ө, Ұ, Ү, Һ). Kazakhstan has been transitioning Kazakh to Latin script since 2017 but official legislation remains in Cyrillic as of 2026. Language authoritativeness: Art. 7 of the 1995 Constitution designates Kazakh as the state language (мемлекеттік тіл) and Russian as the official language of interethnic communication (ресми тіл). Both languages are legally authoritative on adilet.zan.kz — Kazakh as state language takes precedence in case of conflict. All hierarchy terms are verified against the bilingual Civil Code (Azamattyq kodeks / Гражданский кодекс) on adilet.zan.kz: Бөлім/Раздел (Razdel), Тарау/Глава (Glava), Бап/Статья (Stat'ya), Тармақ/Пункт (Punkt), Тармақша/Подпункт (Podpunkt). Параграф is borrowed identically into Kazakh and requires no separate Kazakh term."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

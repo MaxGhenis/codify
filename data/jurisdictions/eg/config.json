@@ -184,54 +184,41 @@
   },
   "numbering": {
     "act_citation": "قانون رقم {number} لسنة {year}",
-    "act_citation_latin": "Law No. {number} of {year}",
-    "article_basic_unit": "مادة",
-    "article_basic_unit_latin": "Maddah",
     "insertion_style": "bis_suffix",
-    "insertion_arabic": "مكرراً",
-    "insertion_latin": "bis",
     "insertion_example": "مادة 5 مكرراً → art_5bis",
     "article_numbering": "continuous_throughout_law"
   },
   "enacting_formulae": [
     {
-      "arabic": "أصدر مجلس النواب القانون الآتي نصه:",
       "transliteration": "Asdar Majlis Al-Nuwwab Al-Qanun Al-Ati Nassuh",
-      "translation": "The House of Representatives has enacted the following law:",
       "position": "preamble",
       "era": "post-2014-constitution",
       "from": "2014-01-18",
       "enacting_body_tlc": "houseOfRepresentatives",
-      "document_class": "act"
+      "document_class": "act",
+      "text": "أصدر مجلس النواب القانون الآتي نصه:"
     },
     {
-      "arabic": "أصدر مجلس الشعب القانون الآتي نصه:",
       "transliteration": "Asdar Majlis Al-Sha'b Al-Qanun Al-Ati Nassuh",
-      "translation": "The People's Assembly has enacted the following law:",
       "position": "preamble",
       "era": "pre-2014-constitution",
       "to": "2014-01-18",
       "enacting_body_tlc": "peoplesAssembly",
-      "document_class": "act"
+      "document_class": "act",
+      "text": "أصدر مجلس الشعب القانون الآتي نصه:"
     },
     {
-      "arabic": "رئيس الجمهورية. بعد الاطلاع على الدستور... أصدر القرار الآتي:",
-      "translation": "The President of the Republic. Having reviewed the Constitution... has issued the following decree:",
       "position": "preamble",
       "era": "presidential-decree-law",
       "enacting_body_tlc": "president",
       "note": "Used for مراسيم بقوانين (Presidential Decree-Laws) issued between parliamentary sessions per Constitution Art. 156.",
-      "document_class": "decree_law"
+      "document_class": "decree_law",
+      "text": "رئيس الجمهورية. بعد الاطلاع على الدستور... أصدر القرار الآتي:"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "تستبدل بالمادة [X] من القانون رقم [Y] لسنة [YYYY] النص الآتي",
-    "phrasing_substitution_latin": "The following text shall replace Article X of Law No. Y of YYYY",
-    "phrasing_addition": "يضاف إلى القانون رقم [Y] لسنة [YYYY] مادة جديدة برقم [X مكرراً]",
-    "phrasing_repeal": "تلغى المادة [X] من القانون رقم [Y] لسنة [YYYY]",
-    "cross_reference_format": "law_number_and_year",
-    "cross_reference_example": "القانون رقم 131 لسنة 1948"
+    "cross_reference_format": "law_number_and_year"
   },
   "core_tlcs": [
     {
@@ -331,9 +318,6 @@
     {
       "body": "un",
       "direct_effect": "none",
-      "direct_effect_exceptions": [
-        "Security Council Chapter VII resolutions — binding"
-      ],
       "superseded_subjects": []
     },
     {
@@ -351,8 +335,7 @@
     "heading_case": "natural",
     "script": "arabic",
     "rtl": true,
-    "font_preference": "serif",
-    "note": "Arabic RTL display. Article numbers may appear in either Arabic-script numerals (٥) or Western Arabic numerals (5); pipeline normalises to Western Arabic for eIds. Review UI must support RTL text direction (direction: rtl; unicode-bidi: embed)."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

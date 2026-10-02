@@ -22,86 +22,75 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman_ordinal",
-          "notes": "Highest division; used only in major codes (Código Penal, Código Civil). E.g., LIBRO PRIMERO / LIBRO SEGUNDO."
+          "numbering": "roman_ordinal"
         },
         {
           "local_term": "Parte",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman_ordinal",
-          "notes": "PARTE GENERAL / PARTE ESPECIAL; used inside Libros in major codes. Not universal."
+          "numbering": "roman_ordinal"
         },
         {
           "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman",
-          "notes": "Main structural grouping in most leyes. E.g., TÍTULO I, TÍTULO II. In codes: groups of chapters within a Libro."
+          "numbering": "roman"
         },
         {
           "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "notes": "Most common higher division in ordinary leyes. E.g., CAPÍTULO I, CAPÍTULO II. Immediately above articles."
+          "numbering": "roman"
         },
         {
           "local_term": "Sección",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "notes": "Optional subdivision within a Capítulo; used when chapter is large. Maps to AKN section AS HIGHER DIVISION (not basic unit). Relatively uncommon."
+          "numbering": "roman"
         },
         {
           "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "notes": "The basic citable unit. Numbered continuously throughout the entire ley (not restarting per Título/Capítulo). E.g., Artículo 1°, Artículo 2°."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Parágrafo",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_or_transitorio",
-          "notes": "Attached to an artículo; contains supplementary or exceptional rules. Cited as 'Parágrafo 1°' or 'Parágrafo Transitorio'. Not equivalent to a French alinéa — it is a substantive subdivision with legal force. Maps to AKN paragraph."
+          "numbering": "arabic_or_transitorio"
         },
         {
           "local_term": "Inciso",
           "akn_element": "alinea",
           "level": "subdivision",
-          "bluebell_keyword": null,
-          "notes": "Unnumbered paragraph within an artículo or parágrafo. Equivalent to French alinéa. Incisos are not independently citable; referenced by position (e.g., 'inciso tercero del artículo 5'). Requires post-processing; Bluebell has no INCISO keyword."
+          "bluebell_keyword": null
         },
         {
           "local_term": "Numeral",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_parenthesized",
-          "notes": "Numbered list item within an artículo. E.g., 1., 2., 3. or 1°, 2°, 3°. Maps to AKN point."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Literal",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized",
-          "notes": "Lettered list item within a numeral or artículo. E.g., a), b), c). Maps to AKN point (same element as numeral, distinguished by number format)."
+          "numbering": "alpha_lower_parenthesized"
         }
       ],
       "hcontainers": [
         {
           "name": "paragrafoTransitorio",
-          "local_term": "Parágrafo Transitorio",
-          "notes": "Parágrafo with transitional provisions. Model as paragraph with name attribute or hcontainer."
+          "local_term": "Parágrafo Transitorio"
         }
       ]
     },
@@ -244,10 +233,7 @@
   },
   "numbering": {
     "act_citation": "Ley {number} de {year}",
-    "decreto_citation": "Decreto {number} de {year}",
-    "acto_legislativo_citation": "Acto Legislativo {number} de {year}",
-    "insertion_style": "alphanumeric",
-    "notes": "All instrument categories reset their sequential counter on 1 January each year. Acts do not use a chapter/compilation number. Ordinal suffix '°' (degree sign) is typographic convention, not structural."
+    "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
     {
@@ -271,15 +257,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_examples": [
-      "Modifíquese el artículo [N] de la Ley [N] de [año]...",
-      "Adiciónese un parágrafo al artículo [N] de la Ley [N] de [año]...",
-      "Derógase el artículo [N] de la Ley [N] de [año].",
-      "El artículo [N] de la Ley [N] de [año], quedará así:",
-      "Adiciónese a la Ley [N] de [año] el siguiente artículo:"
-    ],
-    "cross_reference_format": "short_title_or_ley_number_year",
-    "notes": "Colombian amendments typically quote the replacement text inline after a colon. Derogation is explicit ('derógase'). No Commonwealth-style 'delete and substitute' formula."
+    "cross_reference_format": "short_title_or_ley_number_year"
   },
   "core_tlcs": [
     {
@@ -373,15 +351,13 @@
   "supranational_memberships": [
     {
       "body": "can",
-      "name": "Comunidad Andina (CAN)",
       "direct_effect": "direct",
       "superseded_subjects": [
         "customs",
         "intellectual_property",
         "trade_in_goods",
         "agricultural_policy"
-      ],
-      "notes": "CAN Decisions (Decisiones) are directly applicable and take precedence over domestic law. Subject areas include customs union, IP (Decision 486 on industrial property), agricultural sanitary rules, and transport. Model CAN instruments under /akn/can/ not /akn/co/."
+      ]
     },
     {
       "body": "unasur",
@@ -402,8 +378,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "notes": "Colombian legislation headings (rúbricas) appear above chapters and titles in all caps. Artículo headings, when present, appear on the same line or immediately above the article number."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

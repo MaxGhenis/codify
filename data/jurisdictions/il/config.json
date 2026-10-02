@@ -216,12 +216,7 @@
   "numbering": {
     "act_citation": "S.H. {number} (Sefer HaChukim {number})",
     "act_citation_alt": "{Short Title}, {year}",
-    "insertion_style": "alphanumeric",
-    "insertion_examples": [
-      "5א",
-      "5ב",
-      "(א1)"
-    ]
+    "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
     {

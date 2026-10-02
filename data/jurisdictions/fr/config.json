@@ -356,8 +356,7 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "est ainsi rédigé... est complété par... est abrogé... est remplacé par...",
-    "cross_reference_format": "number_and_date",
-    "note": "French amendments quote the new text in full ('est ainsi rédigé'). Repeal uses 'est abrogé'. Cross-references cite by number and date: 'la loi n° 2023-270 du 14 avril 2023'. Within codes, articles are cited by their L./R./D. number."
+    "cross_reference_format": "number_and_date"
   },
   "core_tlcs": [
     {
@@ -466,8 +465,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "French legislation uses inline headings (not marginal notes). Article headings appear on the same line or immediately above the article text, not in a side margin. Section/Chapitre headings are centred and in small capitals in the JORF typesetting."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

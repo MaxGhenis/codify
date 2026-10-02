@@ -266,7 +266,6 @@
     "act_citation": "Loi n° {year}-{number} du {date}",
     "act_citation_alt": null,
     "insertion_style": "bis_ter",
-    "first_article_term": "Article premier",
     "note": "First article normalised to ARTICLE 1 in Bluebell pre-processing"
   },
   "enacting_formulae": [
@@ -301,8 +300,7 @@
   "amendments": {
     "style": "textual_francophone",
     "phrasing": "est modifié comme suit / est ajouté / est abrogé",
-    "cross_reference_format": "loi_number_and_date",
-    "insertion_style": "bis_ter"
+    "cross_reference_format": "loi_number_and_date"
   },
   "core_tlcs": [
     {
@@ -381,8 +379,7 @@
     "heading_case": "upper_case",
     "script": "arabic_primary_latin_secondary",
     "rtl": true,
-    "font_preference": "sans_serif",
-    "note": "RTL for Arabic text; French text is LTR. Bilingual display requires bidi handling."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

@@ -180,40 +180,19 @@
       "bill": "/akn/ee/bill/{year}/{number}",
       "constitution": "/akn/ee/act/1992/pohiseadus"
     },
-    "slug_convention": "estonian_short_title_romanised",
-    "romanisation": {
-      "ä": "a",
-      "ö": "o",
-      "ü": "u",
-      "õ": "o"
-    },
-    "date_calendar": "gregorian",
-    "rt_citation_format": "RT I, {DD.MM.YYYY}, {N}"
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "RT I, {date}, {number}",
     "act_citation_alt": "{abbreviation}",
     "insertion_style": "superscript_numeric",
-    "insertion_eid_style": "suffix_numeric",
     "note": "No sequential act numbers. RT publication date + number is the formal identifier. Official abbreviations (TsÜS, KarS, TLS) used for practical citation."
   },
-  "enacting_formulae": [
-    {
-      "text": "Vastu võetud {date}",
-      "position": "header_metadata",
-      "era": "current",
-      "from": "1992-06-28",
-      "note": "Adoption notice appears in Riigi Teataja header, not in body text. No body-text enacting formula in Estonian acts.",
-      "document_class": "act"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "muudetakse ja sõnastatakse järgmiselt... täiendatakse §-ga... tunnistatakse kehtetuks",
-    "cross_reference_format": "short_title_and_rt",
-    "consolidation": "riigi_teataja_realtime",
-    "consolidation_url": "https://www.riigiteataja.ee/akt/{identifier}",
-    "note": "Riigi Teataja provides real-time consolidated versions. Each consolidation date maps to a FRBR Expression version. Amendment phrasing follows German model: replace text quoted in full."
+    "cross_reference_format": "short_title_and_rt"
   },
   "core_tlcs": [
     {
@@ -305,8 +284,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Estonian headings use sentence case (first word capitalised only). Riigi Teataja renders headings inline with the § number. § symbol must be preserved in display."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

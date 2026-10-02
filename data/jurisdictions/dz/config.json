@@ -361,28 +361,10 @@
       "constitution": "/akn/dz/act/constitution/2020/constitution"
     },
     "date_calendar": "gregorian",
-    "language_code_authoritative": "ara",
-    "language_code_production": "fra",
     "note": "Arabic is the constitutionally authoritative language; French is the production language for the Bluebell pipeline. Each law has two FRBR expressions: ara@{date} (authoritative) and fra@{date} (parallel). Hijri dates in citations are stored as FRBRalias, not in the URI."
   },
   "numbering": {
-    "loi_citation": "Loi n° {yy}-{number} du {day} {month} {year}",
-    "loi_organique_citation": "Loi organique n° {yy}-{number} du {day} {month} {year}",
-    "ordonnance_citation": "Ordonnance n° {yy}-{number} du {day} {month} {year}",
-    "decret_presidentiel_citation": "Décret présidentiel n° {yy}-{number} du {day} {month} {year}",
-    "decret_executif_citation": "Décret exécutif n° {yy}-{number} du {day} {month} {year}",
-    "article_first": "Article 1er",
-    "article_subsequent": "Art. {number}",
-    "article_first_arabic": "المادة 1",
-    "article_subsequent_arabic": "المادة {number}",
-    "insertion_style": "hyphen_suffix",
-    "insertion_examples": [
-      "Art. 5-1",
-      "Art. 5-2",
-      "Art. 5 bis",
-      "Art. 5 ter"
-    ],
-    "year_prefix_note": "Law numbers use two-digit year prefix (YY-NN for lois; YY-NNN for décrets). FRBR URI year is always the four-digit Gregorian year from the promulgation date, not derived from the two-digit prefix. Years 62–99 = 1962–1999; years 00–onwards = 2000+."
+    "insertion_style": "hyphen_suffix"
   },
   "enacting_formulae": [
     {
@@ -427,8 +409,7 @@
   "amendments": {
     "style": "textual_french",
     "phrasing": "est modifié et rédigé comme suit / Il est inséré... un article... ainsi rédigé / est abrogé / les dispositions de l'article... sont remplacées par",
-    "cross_reference_format": "type_number_and_date",
-    "entry_into_force": "La présente loi sera publiée au Journal officiel de la République algérienne démocratique et populaire."
+    "cross_reference_format": "type_number_and_date"
   },
   "core_tlcs": [
     {
@@ -542,9 +523,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "locale": "fr-DZ",
-    "note": "French (LTR) is the production display language. Arabic (RTL, script: arabic) is the authoritative parallel; RTL display requires separate rendering pass."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

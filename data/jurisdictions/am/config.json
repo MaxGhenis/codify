@@ -182,37 +182,18 @@
       "bill": "/akn/am/bill/{year}/{number}",
       "constitution": "/akn/am/act/constitution/1995/constitution"
     },
-    "date_calendar": "gregorian",
-    "language_code": "hye"
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "HO-{number}-N of {date}",
-    "act_citation_note": "HO = Հ.Օ. (Հայաuтан Orenlq, RA Law). Sequential within year. Number resets each year.",
-    "constitutional_law_citation": "HO-{number}-N (Constitutional Law) of {date}",
-    "decision_citation": "N {number}-N of {date}",
-    "decree_citation": "NH-{number}-N of {date}",
     "article_numbering": "arabic_continuous",
-    "article_numbering_note": "Articles numbered continuously throughout entire act; do not restart per Chapter",
-    "subdivision_numbering": "arabic_parenthesized_parts_then_arabic_points",
-    "insertion_style": "superscript_or_decimal",
-    "insertion_style_note": "Inserted articles may use Article 5¹ or Article 5.1 notation."
+    "insertion_style": "superscript_or_decimal"
   },
-  "enacting_formulae": [
-    {
-      "text": "LAW OF THE REPUBLIC OF ARMENIA\n[Title]\nAdopted by the National Assembly of the Republic of Armenia on [date]",
-      "position": "preface",
-      "era": "current",
-      "from": "1991-09-23",
-      "note": "No Anglophone-style 'Be it enacted' formula. The adoption attribution in the preface header is the functional equivalent. In Armenian: Ընдunнвад э Хайаstaни Ханрапетутян Азгаын Жогови когмits [ամuathiw]-ин.",
-      "document_class": "act"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Article N of Law HO-{N}-N shall be supplemented by a new part with the following content: ... / Part N of Article N shall be amended as follows: ... / Article N shall be declared void.",
-    "amendment_act_title_pattern": "Law of the Republic of Armenia on Making Amendments and Supplements to the Law of the Republic of Armenia on [Subject]",
-    "cross_reference_format": "title_and_HO_number_and_date",
-    "repeal_phrasing": "shall be declared void (ուժ կortsratskh ճanaсhel)"
+    "cross_reference_format": "title_and_HO_number_and_date"
   },
   "core_tlcs": [
     {
@@ -264,7 +245,6 @@
   "supranational_memberships": [
     {
       "body": "eaeu",
-      "full_name": "Eurasian Economic Union",
       "member_since": "2015-01-02",
       "direct_effect": "direct",
       "direct_effect_note": "EAEU Regulations have direct effect per EAEU Court ruling of April 2017. EAEU Customs Code directly applicable. Domestic law in customs, technical regulations, and sanitary/phytosanitary standards may be superseded.",
@@ -278,7 +258,6 @@
     },
     {
       "body": "council-of-europe",
-      "full_name": "Council of Europe",
       "member_since": "2001-01-25",
       "direct_effect": "none",
       "direct_effect_note": "ECHR judgments are binding on Armenia. Convention rights must be applied by domestic courts. Requires no transposition but has constitutional-level effect.",
@@ -286,13 +265,11 @@
     },
     {
       "body": "cis",
-      "full_name": "Commonwealth of Independent States",
       "direct_effect": "none",
       "superseded_subjects": []
     },
     {
       "body": "un",
-      "full_name": "United Nations",
       "direct_effect": "none",
       "direct_effect_note": "UN Security Council Chapter VII resolutions are binding. General Assembly resolutions are non-binding.",
       "superseded_subjects": []
@@ -306,11 +283,8 @@
     "heading_type": "integrated",
     "heading_case": "title_case",
     "script": "armenian",
-    "script_note": "Armenian script (Հayeren). Unicode block: U+0531–U+058F (Armenian), U+FB13–U+FB17 (Armenian ligatures). Left-to-right. Not Latin, not Cyrillic.",
     "rtl": false,
-    "font_preference": "serif",
-    "font_recommendation": "Noto Serif Armenian, Mshtakan",
-    "bcp47_language_tag": "hy-AM"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

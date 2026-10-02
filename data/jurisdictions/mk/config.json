@@ -238,13 +238,10 @@
   },
   "numbering": {
     "act_citation": "Sl. vesnik na RSM, br. {issue}/{year-short}",
-    "act_citation_full": "Sluzhben vesnik na Republika Severna Makedonija, br. {issue}/{year}",
     "act_citation_alt": "\"Sl. vesnik na RSM\", br. {issue}/{year}",
     "insertion_style": "alphanumeric",
     "insertion_example": "Член 5-а, Член 5-б",
-    "article_numbering": "continuous_throughout_act",
-    "subdivision_stav": "arabic_parenthesized",
-    "subdivision_tochka": "arabic_stop_or_alpha_lower_parenthesized"
+    "article_numbering": "continuous_throughout_act"
   },
   "enacting_formulae": [
     {
@@ -272,13 +269,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "se menuva i glasi",
-    "phrasing_deletion": "se brishe",
-    "phrasing_addition": "se dodava nov ... koj glasi",
-    "amendment_act_naming": "Zakon za izmenuvanye i dopolnuvanye na Zakonot za {subject}",
-    "cross_reference_format": "law_name_and_gazette_citation",
-    "cross_reference_example": "Zakonot za rabotni odnosi (Sl. vesnik na RM, br. 62/05)",
-    "intra_act_reference": "vo smisla na členot X stav Y od ovoj zakon"
+    "cross_reference_format": "law_name_and_gazette_citation"
   },
   "core_tlcs": [
     {
@@ -429,8 +420,7 @@
     "heading_case": "upper_case",
     "script": "cyrillic",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Macedonian legislation is published in Cyrillic script as primary. Albanian co-official legislation uses Latin script. OCR must handle Macedonian Cyrillic (31 letters, differs from Serbian Cyrillic in having Ѓ, Ѕ, Ј, Љ, Њ, Ќ, Џ). Headings typically in ALL CAPS Cyrillic. Transliteration for FRBR URI slugs follows ISO 9 or BGN/PCGN romanisation conventions — document which is used during ingestion."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

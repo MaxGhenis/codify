@@ -20,9 +20,6 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term_fr": "Titre",
-          "local_term_nl": "Titel",
-          "local_term_de": "Titel",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
@@ -31,9 +28,6 @@
           "local_term": "Titre"
         },
         {
-          "local_term_fr": "Chapitre",
-          "local_term_nl": "Hoofdstuk",
-          "local_term_de": "Kapitel",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -42,9 +36,6 @@
           "local_term": "Chapitre"
         },
         {
-          "local_term_fr": "Section",
-          "local_term_nl": "Afdeling",
-          "local_term_de": "Abschnitt",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
@@ -53,9 +44,6 @@
           "local_term": "Section"
         },
         {
-          "local_term_fr": "Sous-section",
-          "local_term_nl": "Onderafdeling",
-          "local_term_de": "Unterabschnitt",
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
@@ -64,9 +52,6 @@
           "local_term": "Sous-section"
         },
         {
-          "local_term_fr": "Article",
-          "local_term_nl": "Artikel",
-          "local_term_de": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -75,9 +60,6 @@
           "local_term": "Article"
         },
         {
-          "local_term_fr": "Paragraphe (§)",
-          "local_term_nl": "Paragraaf (§)",
-          "local_term_de": "Paragraph (§)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -86,9 +68,6 @@
           "local_term": "Paragraphe (§)"
         },
         {
-          "local_term_fr": "Alinéa",
-          "local_term_nl": "Lid",
-          "local_term_de": "Absatz",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
@@ -97,9 +76,6 @@
           "local_term": "Alinéa"
         },
         {
-          "local_term_fr": "Point (1°, 2°...)",
-          "local_term_nl": "Punt (1°, 2°...)",
-          "local_term_de": "Punkt (1°, 2°...)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -108,9 +84,6 @@
           "local_term": "Point (1°, 2°...)"
         },
         {
-          "local_term_fr": "Lettre (a), b)...)",
-          "local_term_nl": "Letter (a), b)...)",
-          "local_term_de": "Buchstabe (a), b)...)",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -128,8 +101,6 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term_fr": "Titre",
-          "local_term_nl": "Titel",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
@@ -137,8 +108,6 @@
           "local_term": "Titre"
         },
         {
-          "local_term_fr": "Chapitre",
-          "local_term_nl": "Hoofdstuk",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -146,8 +115,6 @@
           "local_term": "Chapitre"
         },
         {
-          "local_term_fr": "Article",
-          "local_term_nl": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -155,8 +122,6 @@
           "local_term": "Article"
         },
         {
-          "local_term_fr": "Paragraphe (§)",
-          "local_term_nl": "Paragraaf (§)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -174,8 +139,6 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term_fr": "Chapitre",
-          "local_term_nl": "Hoofdstuk",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -183,8 +146,6 @@
           "local_term": "Chapitre"
         },
         {
-          "local_term_fr": "Article",
-          "local_term_nl": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -192,8 +153,6 @@
           "local_term": "Article"
         },
         {
-          "local_term_fr": "Paragraphe (§)",
-          "local_term_nl": "Paragraaf (§)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -211,8 +170,6 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term_fr": "Titre",
-          "local_term_nl": "Titel",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
@@ -220,8 +177,6 @@
           "local_term": "Titre"
         },
         {
-          "local_term_fr": "Chapitre",
-          "local_term_nl": "Hoofdstuk",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -229,8 +184,6 @@
           "local_term": "Chapitre"
         },
         {
-          "local_term_fr": "Section",
-          "local_term_nl": "Afdeling",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
@@ -238,8 +191,6 @@
           "local_term": "Section"
         },
         {
-          "local_term_fr": "Article",
-          "local_term_nl": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -257,102 +208,31 @@
     "uri_patterns": {
       "constitution": "/akn/be/act/constitution/1831/constitution"
     },
-    "sub_national_uri_patterns": {
-      "flemish_decree": "/akn/be-vl/act/{year}/{unique-id}",
-      "walloon_decree": "/akn/be-wa/act/{year}/{unique-id}",
-      "french_community_decree": "/akn/be-fw/act/{year}/{unique-id}",
-      "brussels_ordinance": "/akn/be-bru/act/{year}/{unique-id}",
-      "german_community_decree": "/akn/be-dg/act/{year}/{unique-id}"
-    },
-    "eli_pattern": "http://www.ejustice.just.fgov.be/eli/{type}/{year}/{month}/{day}/{unique-id}/justel",
-    "eli_type_map": {
-      "act": "loi",
-      "royal_decree": "arrete",
-      "constitution": "constitution"
-    },
     "date_calendar": "gregorian",
-    "number_field": "moniteur_unique_id",
     "number_format": "10-digit numeric, year-prefixed (e.g. 2024005008)",
     "note": "Acts identified by promulgation date, not sequential act number. The 10-digit Moniteur unique ID is used as the {number} segment. When unknown, use slugified French short title temporarily."
   },
-  "multilingual": {
-    "parallel_originals": true,
-    "languages": [
-      "nld",
-      "fra"
-    ],
-    "optional_languages": [
-      "deu"
-    ],
-    "note": "Dutch and French versions are parallel originals — equally authoritative, not translations. Model as separate FRBR expressions. Do NOT use FRBRtranslation. German version is published with delay and applies primarily to German-speaking Community territory.",
-    "expression_uri_pattern": "/akn/be/act/{year}/{unique-id}/{lang}@{publication-date}"
-  },
-  "numbering": {
-    "act_citation_fr": "loi du {DD mois AAAA}",
-    "act_citation_nl": "wet van {DD maand JJJJ}",
-    "act_citation_de": "Gesetz vom {TT. Monat JJJJ}",
-    "article_abbreviation": "Art.",
-    "paragraph_symbol": "§",
-    "paragraph_first_ordinal_fr": "§ 1er",
-    "paragraph_first_ordinal_nl": "§ 1",
-    "list_item_style": "degree_notation",
-    "list_item_examples": [
-      "1°",
-      "2°",
-      "3°"
-    ],
-    "sub_item_style": "alpha_lower_closing_paren",
-    "sub_item_examples": [
-      "a)",
-      "b)",
-      "c)"
-    ],
-    "royal_decree_citation_fr": "arrêté royal du {DD mois AAAA}",
-    "royal_decree_citation_nl": "koninklijk besluit van {DD maand JJJJ}"
-  },
+  "numbering": {},
   "enacting_formulae": [
     {
-      "text_fr": "PHILIPPE, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
-      "text_nl": "FILIP, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :",
       "position": "preamble",
       "era": "Philippe/Filip",
       "from": "2013-07-21",
-      "document_class": "act"
+      "document_class": "act",
+      "text": "FILIP, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :"
     },
     {
-      "text_fr": "ALBERT, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
-      "text_nl": "ALBERT, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :",
       "position": "preamble",
       "era": "Albert II",
       "from": "1993-08-09",
       "to": "2013-07-21",
-      "document_class": "act"
-    },
-    {
-      "text_fr": "BAUDOUIN, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
-      "position": "preamble",
-      "era": "Baudouin/Boudewijn",
-      "from": "1951-07-11",
-      "to": "1993-08-09",
-      "document_class": "act"
-    }
-  ],
-  "conclusions_formulae": [
-    {
-      "text_fr": "Promulguons la présente loi, ordonnons qu'elle soit revêtue du sceau de l'État et publiée par le Moniteur belge.",
-      "text_nl": "Kondigen deze wet af, bevelen dat zij met 's Lands zegel zal worden bekleed en door het Belgisch Staatsblad zal worden bekendgemaakt.",
-      "position": "conclusions",
-      "era": "Philippe/Filip",
-      "from": "2013-07-21"
+      "document_class": "act",
+      "text": "ALBERT, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_fr": "L'article X de la loi du [date] est remplacé par ce qui suit : / À l'article X, les mots «...» sont remplacés par les mots «...».",
-    "phrasing_nl": "Artikel X van de wet van [date] wordt vervangen als volgt : / In artikel X worden de woorden «...» vervangen door de woorden «...».",
-    "cross_reference_format": "date_based",
-    "cross_reference_example_fr": "la loi du 25 avril 2014",
-    "cross_reference_example_nl": "de wet van 25 april 2014"
+    "cross_reference_format": "date_based"
   },
   "core_tlcs": [
     {
@@ -411,24 +291,15 @@
     {
       "body": "eu",
       "direct_effect": "direct",
-      "instrument_types": [
-        "regulation",
-        "decision"
-      ],
       "transposition_required": [
         "directive"
       ],
-      "frbr_namespace": "/akn/eu/",
       "superseded_subjects": [],
       "note": "Belgium is a founding EU member (1957). EU Regulations apply directly. Directives require transposition via federal or sub-national legislation depending on competence distribution."
     },
     {
       "body": "council-of-europe",
       "direct_effect": "none",
-      "instrument_types": [
-        "convention",
-        "echr_judgment"
-      ],
       "transposition_required": [
         "convention"
       ],
@@ -438,9 +309,6 @@
     {
       "body": "un",
       "direct_effect": "none",
-      "instrument_types": [
-        "sc_chapter_vii_resolution"
-      ],
       "superseded_subjects": [],
       "note": "UN Security Council Chapter VII resolutions are binding. General multilateral treaty obligations apply."
     },
@@ -458,8 +326,7 @@
     "heading_case": "mixed",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Belgian legislation uses inline headings for chapters and sections (not marginal notes). Article headings (if any) are typically brief inline titles."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

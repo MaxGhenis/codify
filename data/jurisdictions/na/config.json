@@ -195,9 +195,6 @@
   "numbering": {
     "act_citation": "Act {number} of {year}",
     "act_citation_alt": "Act No. {number} of {year}",
-    "regulation_citation": "GN {number} of {year}",
-    "proclamation_citation": "Proclamation {number} of {year}",
-    "gazette_citation": "Government Gazette No. {gazette-number}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
@@ -225,10 +222,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by the substitution for... of the following...",
-    "phrasing_insertion": "is amended by the insertion after section [N] of the following section:",
-    "phrasing_repeal": "is repealed",
-    "cross_reference_format": "short_title_year_and_act_number",
-    "cross_reference_example": "the Communications Act, 2009 (Act No. 8 of 2009)"
+    "cross_reference_format": "short_title_year_and_act_number"
   },
   "core_tlcs": [
     {

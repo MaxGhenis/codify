@@ -116,17 +116,7 @@
     "insertion_style": "superscript_arabic",
     "insertion_note": "Inserted articles use superscript Arabic numerals per Law on Legislation Art. 28.10: 'Article 5¹', 'Article 5²', etc. Neither letter suffix ('5а') nor hyphen-decimal ('5-1') is the prescribed style."
   },
-  "enacting_formulae": [
-    {
-      "text": null,
-      "position": "none",
-      "era": "post-socialist",
-      "from": "1992-01-13",
-      "verified": true,
-      "note": "Mongolian laws contain no formal enacting formula in the body text. Enacted laws begin directly with 'LAW OF MONGOLIA / [date] / [city] / [title]' followed immediately by articles. No 'hereby enacted by the State Great Khural' clause appears. The chairman's signature appears at the end. Verified against multiple laws on legalinfo.mn including the Law on Courts (2021) and Law on Status of Ministries (2004).",
-      "document_class": "act"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civilian",
     "phrasing": "дараах нэмэлт, өөрчлөлт оруулах",
@@ -179,7 +169,6 @@
     "heading_type": "inline",
     "heading_case": "sentence_case",
     "script": "cyrillic",
-    "script_note": "Cyrillic is the operational script for all legislation. From January 1 2025 the Law on the Mongolian Language requires state bodies to use both Cyrillic and traditional Mongol bichig (vertical script) in official affairs. No enacted law has yet been published in traditional script; Cyrillic remains authoritative in practice. Monitor legalinfo.mn for first dual-script publication.",
     "rtl": false,
     "font_preference": "sans_serif"
   },

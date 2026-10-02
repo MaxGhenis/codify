@@ -164,42 +164,28 @@
       "bill": "/akn/hu/bill/{year}/{number}",
       "alaptorvenye": "/akn/hu/act/alaptorvenye/2011/alaptorvenye"
     },
-    "date_calendar": "gregorian",
-    "number_notes": "Roman numeral act number (e.g. LXIX) converted to Arabic integer for URI (e.g. 69). Store Hungarian canonical citation '2024. évi LXIX. törvény' as FRBRalias."
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation_hu": "{year}. évi {roman}. törvény",
-    "act_citation_en": "Act {roman} of {year}",
-    "act_uri_number": "arabic_equivalent_of_roman",
-    "decree_citation": "{number}/{year}. ({month_roman}. {day}.) {issuer} rendelet",
     "insertion_style": "slash_alpha",
     "insertion_example": "5/A. §, 5/B. §"
   },
   "enacting_formulae": [
     {
       "text": "Az Országgyűlés [purpose clause] a következő törvényt alkotja:",
-      "translation": "The National Assembly, [purpose clause], adopts the following act:",
       "position": "preamble",
       "note": "Present in acts with a purpose preamble. Simple amending acts omit this formula and begin directly with the body.",
       "document_class": "act"
     },
     {
       "text": "A Kormány [enabling clause] a következő rendeletet alkotja:",
-      "translation": "The Government, [enabling clause], adopts the following decree:",
       "position": "preamble",
       "document_class": "rendelet"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "insertion_phrasing": "[Act] X. §-a a következő (N) bekezdéssel egészül ki:",
-    "substitution_phrasing": "[Act] X. § (N) bekezdése helyébe a következő rendelkezés lép:",
-    "repeal_phrasing": "Hatályát veszti [Act] X. §-a.",
-    "new_section_phrasing": "[Act] X. §-át követően a következő X/A. §-sal egészül ki:",
-    "cross_reference_format": "a {year}. évi {roman}. törvény {section}. §",
-    "quotation_marks": "hungarian",
-    "quotation_open": "„",
-    "quotation_close": "”"
+    "cross_reference_format": "a {year}. évi {roman}. törvény {section}. §"
   },
   "core_tlcs": [
     {
@@ -274,9 +260,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "section_symbol": "§",
-    "notes": "Hungarian acts display section headings inline after the § number. Alcím headings appear as titled subheadings between chapter and section. Quotation marks use Hungarian low-high style: „...”."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

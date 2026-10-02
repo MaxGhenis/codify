@@ -191,8 +191,6 @@
   "numbering": {
     "act_citation": "Act {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "decree_citation": "Decree {number} of {year}",
-    "ln_citation": "L.N. No. {number} of {year}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
@@ -228,7 +226,6 @@
       "era": "decree",
       "from": "2006-12-05",
       "to": "2013-09-06",
-      "formula_name": "promulgatingFormula",
       "note": "Military era Decrees and Promulgations. Exact wording varies by instrument type and year — flag each for manual review.",
       "document_class": "decree"
     }

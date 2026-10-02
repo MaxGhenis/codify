@@ -285,20 +285,11 @@
       "constitution": "/akn/mx/act/constitution/1917/cpeum"
     },
     "date_calendar": "gregorian",
-    "slug_construction": "short_title_no_accents_hyphenated",
-    "year_convention": "original_enactment_year",
     "note": "No sequential act numbering. Year = original DOF enactment year. Slug = slugified short title (no accents, lowercase, spaces to hyphens). Amendment decrees use year of their own DOF publication under subtype 'reforma' or 'const-reforma'."
   },
   "numbering": {
     "act_citation": "[Short title] (D.O. {date})",
-    "amendment_citation": "Decreto por el que se reforman... [ley], D.O. {date}",
     "insertion_style": "bis_ter",
-    "insertion_suffixes": [
-      "Bis",
-      "Ter",
-      "Quáter",
-      "Quinquies"
-    ],
     "note": "No sequential act number assigned. Laws cited by short title + DOF date. Insertion uses Bis/Ter/Quáter suffixes, not alphanumeric. eIds: art_5bis, art_5ter."
   },
   "enacting_formulae": [
@@ -306,7 +297,6 @@
       "text": "El Congreso General de los Estados Unidos Mexicanos, decreta:",
       "position": "preamble",
       "era": "current",
-      "actor": "Congreso de la Unión",
       "document_class": [
         "ley",
         "codigo"
@@ -316,27 +306,17 @@
       "text": "[Nombre del Presidente], Presidente de los Estados Unidos Mexicanos, en ejercicio de la facultad que me confiere el Artículo 89, fracción I de la Constitución Política de los Estados Unidos Mexicanos, y con fundamento en [artículos habilitantes], he tenido a bien expedir el siguiente: REGLAMENTO DE LA LEY [NOMBRE]:",
       "position": "preamble",
       "era": "current",
-      "actor": "Presidente de la República",
       "document_class": "reglamento"
     },
     {
       "text": "El Congreso General de los Estados Unidos Mexicanos, en uso de la facultad que le confiere el artículo 135 de la Constitución General de la República y previa aprobación de la mayoría de las Legislaturas de los estados, declara reformados los artículos [N] de la Constitución Política de los Estados Unidos Mexicanos, en los siguientes términos:",
       "position": "preamble",
       "era": "current",
-      "actor": "Congreso de la Unión + Legislaturas de los estados",
       "document_class": "constitution"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "decree_title_pattern": "DECRETO por el que se reforman, adicionan y derogan diversas disposiciones de la {ley}",
-    "operative_phrases": {
-      "reform": "Se reforma el artículo {N}... para quedar como sigue:",
-      "addition": "Se adiciona {artículo N Bis / fracción X al artículo N}...",
-      "repeal": "Se deroga el artículo {N}.",
-      "combined": "Se reforman los artículos {N, N}; se adicionan los artículos {N Bis}; y se deroga el artículo {N}, todos de la {Ley X}, para quedar como sigue:"
-    },
-    "transitorios": "Every instrument ends with numbered Artículos Transitorios specifying effective date, repeals, and transitional arrangements.",
     "cross_reference_format": "short_title_only"
   },
   "core_tlcs": [
@@ -432,8 +412,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Mexican laws use titled headings embedded within the hierarchy (e.g., 'Título Primero - Disposiciones Generales') rather than marginal notes. Article headings appear inline before the article text in some laws, as separate lines in others."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

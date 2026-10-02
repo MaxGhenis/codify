@@ -142,7 +142,6 @@
       "act": "/akn/to/act/{year}/{number}",
       "constitution": "/akn/to/act/constitution/1875/constitution"
     },
-    "uri_fallback_cap": "When only a chapter number is available, use cap{decimal} as both year and number segments, e.g. Cap.11.05 → /akn/to/act/cap11.05/cap11.05. Store chapter number as FRBRalias.",
     "date_calendar": "gregorian"
   },
   "numbering": {

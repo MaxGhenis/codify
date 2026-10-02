@@ -278,7 +278,6 @@
       "penal_code": "/akn/gr/act/1950/penal-code"
     },
     "date_calendar": "gregorian",
-    "language_code": "ell",
     "notes": [
       "Law number is sequential integer assigned at enactment. Format: {number}/{year} in Greek citation, maps to /akn/gr/act/{year}/{number} in FRBR URI.",
       "Presidential Decrees (ΠΔ) use subtype 'pd'.",
@@ -289,7 +288,6 @@
   "numbering": {
     "act_citation": "Ν. {number}/{year}",
     "act_citation_alt": "νόμος {number}/{year}",
-    "pd_citation": "ΠΔ {number}/{year}",
     "insertion_style": "greek_letter_suffix",
     "insertion_example": "Άρθρο 5Α, Άρθρο 5Β",
     "note": "Inserted articles append a Greek capital letter (Α, Β, Γ); normalise to ASCII Latin capital for eId (5A, 5B, 5C)."
@@ -297,14 +295,12 @@
   "enacting_formulae": [
     {
       "text": "Ο ΠΡΟΕΔΡΟΣ ΤΗΣ ΕΛΛΗΝΙΚΗΣ ΔΗΜΟΚΡΑΤΙΑΣ\nΕκδίδομε τον ακόλουθο νόμο που ψήφισε η Βουλή:",
-      "translation": "THE PRESIDENT OF THE HELLENIC REPUBLIC\nWe promulgate the following law which the Parliament has voted:",
       "position": "preamble",
       "document_class": "nomos",
       "note": "based on constitutional practice (Art. 42 Constitution)."
     },
     {
       "text": "Ο ΠΡΟΕΔΡΟΣ ΤΗΣ ΕΛΛΗΝΙΚΗΣ ΔΗΜΟΚΡΑΤΙΑΣ\nΈχοντας υπόψη: [...]\nΑποφασίζουμε:",
-      "translation": "THE PRESIDENT OF THE HELLENIC REPUBLIC\nHaving regard to: [...]\nWe decide:",
       "position": "preamble",
       "document_class": "presidential_decree",
       "note": "Presidential Decrees include recitals of the authorising provisions before the operative text. Recitals map to <recitals> in AKN preamble."
@@ -313,13 +309,7 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "η παράγραφος X του άρθρου Y αντικαθίσταται ως εξής: «...»",
-    "phrasing_translation": "paragraph X of article Y is replaced as follows: «...»",
-    "insertion_phrasing": "μετά το άρθρο X προστίθεται άρθρο XΑ ως εξής:",
-    "repeal_phrasing": "το άρθρο X καταργείται",
-    "quoted_text_delimiter": "«»",
-    "cross_reference_format": "ν. {number}/{year}",
-    "consolidation": "none_official",
-    "consolidation_note": "No official consolidation service exists. Private databases (NOMOS/Sakkoulas, Isocrates/DSANET) provide unofficial consolidated texts. Pipeline should treat all ingested documents as point-in-time (at ΦΕΚ publication date)."
+    "cross_reference_format": "ν. {number}/{year}"
   },
   "core_tlcs": [
     {
@@ -404,70 +394,6 @@
   "structuring": {
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
   },
-  "gazette": {
-    "name": "Εφημερίδα της Κυβερνήσεως",
-    "abbreviation": "ΦΕΚ",
-    "publisher": "Εθνικό Τυπογραφείο",
-    "online": "https://search.et.gr/en/fek/",
-    "primary_series_for_laws": "Α΄",
-    "primary_series_for_delegated": "Β΄",
-    "series": [
-      {
-        "code": "Α",
-        "contents": "Laws, Presidential Decrees, acts of Ministerial Council, international treaties"
-      },
-      {
-        "code": "Β",
-        "contents": "Ministerial and Joint Ministerial Decisions (regulatory)"
-      },
-      {
-        "code": "Γ",
-        "contents": "Individual administrative acts (appointments, transfers, promotions) — summary form"
-      },
-      {
-        "code": "Δ",
-        "contents": "Land use, urban planning, grants of public property"
-      },
-      {
-        "code": "ΑΑΠ",
-        "contents": "Compulsory expropriations and urban planning matters"
-      },
-      {
-        "code": "ΥΟΔΔ",
-        "contents": "Special-position employees and public sector administrative bodies"
-      },
-      {
-        "code": "ΑΕ-ΕΠΕ-ΓΕΜΗ",
-        "contents": "Companies (SA, Ltd) and General Commercial Registry"
-      },
-      {
-        "code": "ΕΒΙ",
-        "contents": "Commercial and industrial property (trademarks, patents)"
-      },
-      {
-        "code": "ΑΣΕΠ",
-        "contents": "Supreme Personnel Selection Council announcements"
-      },
-      {
-        "code": "ΔΔΣ",
-        "contents": "Public procurement announcements"
-      },
-      {
-        "code": "ΑΕΙΔ",
-        "contents": "Supreme Special Court decisions"
-      },
-      {
-        "code": "ΟΠΚ",
-        "contents": "Political party and coalition financing"
-      },
-      {
-        "code": "ΝΠΔΔ",
-        "contents": "Legal persons under public law (discontinued 2006)"
-      }
-    ],
-    "issue_citation_format": "ΦΕΚ {series}΄ {issue_number}/{year}",
-    "citation_example": "ΦΕΚ Α΄ 80/2015"
-  },
   "supranational_memberships": [
     {
       "body": "eu",
@@ -499,13 +425,7 @@
     "heading_case": "mixed",
     "script": "greek",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Greek legislation uses article rubrics (bold headings above or within the article text) rather than Anglophone-style marginal notes. The rubric is part of the enacted text, not an editorial addition."
-  },
-  "language_notes": {
-    "register": "Modern Greek (Dimotiki) from 1976 onwards. Pre-1976 legislation in Katharevousa (archaic formal register). OCR and NLP models must handle both. Flag pre-1976 documents in metadata.",
-    "script": "Greek alphabet. All structural terms in Greek: Άρθρο (article), Κεφάλαιο (chapter), Παράγραφος (paragraph), Εδάφιο (clause), Νόμος (law), Προεδρικό Διάταγμα (presidential decree), Εφημερίδα της Κυβερνήσεως (government gazette).",
-    "normalisation": "Greek capital letter ordinals (Α΄, Β΄, Γ΄) → Arabic for eId. Greek lowercase sub-paragraph labels (α, β, γ) → Latin lowercase (a, b, c) for eId."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

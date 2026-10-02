@@ -253,11 +253,7 @@
   },
   "numbering": {
     "act_citation": "Act {number} of {year}",
-    "act_citation_alt_6th": "Cap. {cap_number}",
-    "act_citation_alt_7th": "Cap. {cap_number_7th}",
-    "si_citation": "Statutory Instrument No. {number} of {year}",
-    "insertion_style": "alphanumeric",
-    "notes": "Dual cap numbering: 6th Revised Edition (2000) and 7th Revised Edition (2024) assign different chapter numbers. Store both as FRBRalias. URI uses enactment year/number."
+    "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
     {
@@ -265,7 +261,6 @@
       "position": "preamble",
       "era": "post-independence",
       "from": "1962-10-09",
-      "notes": "Confirmed verbatim in Prevention of Trafficking in Persons Act 2009. Unicameral Parliament; no reference to upper house or head of state.",
       "document_class": "act"
     },
     {
@@ -278,8 +273,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by substituting / by deleting / by inserting",
-    "cross_reference_format": "short_title_and_act_number",
-    "cross_reference_format_consolidated": "short_title_and_cap"
+    "cross_reference_format": "short_title_and_act_number"
   },
   "core_tlcs": [
     {

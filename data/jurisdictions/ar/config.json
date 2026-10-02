@@ -190,16 +190,9 @@
     },
     "number_format": "bare_integer",
     "number_note": "Strip thousands-separator periods from Argentine citation format (Ley 26.994 → 26994 in URI). Display layer re-adds separator.",
-    "date_calendar": "gregorian",
-    "locality_prefix": "ar-",
-    "locality_iso_suffix": "iso3166-2",
-    "locality_note": "Provinces use ISO 3166-2:AR codes lowercase: ar-b (Buenos Aires), ar-c (CABA), ar-x (Córdoba), ar-s (Santa Fe), ar-t (Tucumán), ar-e (Entre Ríos), ar-k (Catamarca), ar-h (Chaco), ar-u (Chubut), ar-w (Corrientes), ar-g (Santiago del Estero), ar-j (San Juan), ar-d (San Luis), ar-p (Formosa), ar-y (Jujuy), ar-l (La Pampa), ar-f (La Rioja), ar-m (Mendoza), ar-n (Misiones), ar-q (Neuquén), ar-r (Río Negro), ar-a (Salta), ar-z (Santa Cruz), ar-v (Tierra del Fuego)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "law_citation": "Ley N° {number_with_separator}",
-    "law_citation_example": "Ley N° 27.742",
-    "decree_citation": "Decreto N° {number}/{year}",
-    "dnu_citation": "DNU N° {number}/{year}",
     "insertion_style": "bis_ter_quater",
     "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter, Artículo 8 quater."
   },
@@ -219,10 +212,6 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "Sustitúyese el artículo [N] de la Ley N° [X], por el siguiente:",
-    "phrasing_insertion": "Incorpórase como artículo [N bis] de la Ley N° [X], el siguiente:",
-    "phrasing_repeal": "Deróganse los artículos [N] y [M] de la Ley N° [X].",
-    "phrasing_inciso_substitution": "Sustitúyese el inciso [a)] del artículo [N] de la Ley N° [X] por el siguiente:",
     "cross_reference_format": "Ley N° [number_with_separator], artículo [N°]"
   },
   "core_tlcs": [
@@ -304,13 +293,10 @@
   ],
   "display": {
     "heading_type": "inline",
-    "heading_note": "Article headings appear inline after the article number and dash: 'Artículo 1°.– Objeto.' Not marginal notes.",
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "number_display": "degree_symbol",
-    "number_display_note": "Display article numbers with degree symbol: Artículo 1°. Strip for eId generation."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

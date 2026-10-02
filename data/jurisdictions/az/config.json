@@ -202,36 +202,18 @@
     },
     "date_calendar": "gregorian",
     "number_format": "sequential_digits_only",
-    "number_alias": "full_convocation_designation",
     "note": "FRBR URI uses sequential digits only (e.g. 736). Full law designation (e.g. 736-IQ) stored as <FRBRalias name='lawNumber'>. Codes use slugified names."
   },
   "numbering": {
-    "law_citation": "Law No. {number}-{convocation}Q of {date}",
-    "law_citation_alt": "Law of the Republic of Azerbaijan on {subject}",
-    "article_citation": "Article {N}",
-    "subdivision_citation": "Article {N}.{sub}",
     "insertion_style": "hyphenated_article",
     "insertion_example": "49-1",
     "note": "Convocation suffix: IQ (1st), IIQ (2nd), IIIQ (3rd), IVQ (4th), VQ (5th), VIQ (6th), VIIQ (7th). Constitutional laws add D suffix (e.g. IIIQD)."
   },
-  "enacting_formulae": [
-    {
-      "text": "Azərbaycan Respublikasının Milli Məclisi tərəfindən qəbul edilmişdir",
-      "translation": "Adopted by the Milli Majlis of the Republic of Azerbaijan",
-      "position": "conclusions",
-      "era": "post-independence",
-      "from": "1995-11-27",
-      "note": "Attestation block at end of document, not opening enacting formula. Followed by Presidential signature line.",
-      "document_class": "law"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Maddə X aşağıdakı redaksiyada verilsin (Article X shall be stated in the following wording)",
-    "deletion_phrasing": "Maddə X çıxarılsın (Article X shall be deleted)",
-    "addition_phrasing": "Maddə X.1-i aşağıdakı məzmunda əlavə edilsin (The following shall be added as Article X.1)",
-    "cross_reference_format": "full_title_and_law_number",
-    "unverified": true
+    "cross_reference_format": "full_title_and_law_number"
   },
   "core_tlcs": [
     {
@@ -293,8 +275,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Azerbaijani uses Latin script since 2001. Pre-2001 documents use Cyrillic Azerbaijani."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

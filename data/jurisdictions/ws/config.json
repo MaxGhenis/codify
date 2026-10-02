@@ -145,7 +145,6 @@
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "{short_title} {year}",
-    "sr_citation": "S.R. {year}/{number}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [

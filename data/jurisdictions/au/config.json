@@ -245,27 +245,12 @@
       "Criminal Code Act 1995 (No. 12, 1995)": "/akn/au/act/1995/12",
       "Commonwealth of Australia Constitution Act 1900": "/akn/au/act/1901/constitution"
     },
-    "date_calendar": "gregorian",
-    "uri_construction_notes": [
-      "Commonwealth Acts cited by short title and year: 'Income Tax Assessment Act 1997'.",
-      "Act number is the assent number within the year (e.g., No. 38 of 1997 → '38').",
-      "Legislative Instruments registered on Federal Register with F-number: F20XX/NNNNN. URI uses year and sequential number.",
-      "Bills cited by Parliament number, Session, and Bill number (e.g., 'Bill No. 123 of 2024').",
-      "The Constitution is a special case — Schedule 9 of Commonwealth of Australia Constitution Act 1900 (UK Act). Use canonical URI with 'constitution' slug."
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "{Short Title} {year}",
     "act_citation_alt": "No. {number} of {year}",
-    "li_citation": "F{year}/{number}",
     "insertion_style": "decimal",
-    "insertion_examples": [
-      "5A",
-      "5AA",
-      "100-1",
-      "(1A)",
-      "(aa)"
-    ],
     "insertion_note": "Modern Commonwealth drafting uses alphabetic insertion (5A, 5AA) for new sections and decimal (100-1) in some later Acts. Point-in-time versions tracked by legislation.gov.au."
   },
   "enacting_formulae": [
@@ -294,18 +279,7 @@
   ],
   "amendments": {
     "style": "textual_commonwealth",
-    "phrasing_patterns": [
-      "After section [N], insert:",
-      "Omit '[old text]', substitute '[new text]'.",
-      "Repeal section [N].",
-      "At the end of subsection [N]([x]), add:",
-      "The [Act] is amended as set out in Schedule [N].",
-      "In subsection ([N]), after '[phrase]', insert '[new text]'."
-    ],
-    "cross_reference_format": "short_title_and_year",
-    "cross_reference_example": "the Corporations Act 2001",
-    "schedule_amendments": "single_column_instructions",
-    "note": "Commonwealth amending Acts typically operate via Schedules (e.g. 'Schedule 1 — Amendments to the Corporations Act 2001'). Each Schedule item is a self-contained textual amendment instruction."
+    "cross_reference_format": "short_title_and_year"
   },
   "core_tlcs": [
     {
@@ -394,79 +368,6 @@
       "direct_effect": "none"
     }
   ],
-  "sub_national": {
-    "note": "Six states and two territories each have their own parliaments and legislation. State legislation follows the same general Westminster drafting tradition but with variations in hierarchy labelling. Sub-national profiles deferred.",
-    "jurisdictions": [
-      {
-        "code": "au-nsw",
-        "name": "New South Wales",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true,
-        "priority": "high",
-        "note": "Largest state by population. NSW Legislation website provides XML-format downloads."
-      },
-      {
-        "code": "au-vic",
-        "name": "Victoria",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true,
-        "priority": "high",
-        "note": "Second largest state. legislation.vic.gov.au provides structured access."
-      },
-      {
-        "code": "au-qld",
-        "name": "Queensland",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "au-wa",
-        "name": "Western Australia",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "au-sa",
-        "name": "South Australia",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "au-tas",
-        "name": "Tasmania",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "au-act",
-        "name": "Australian Capital Territory",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "au-nt",
-        "name": "Northern Territory",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      }
-    ]
-  },
   "display": {
     "heading_type": "heading",
     "heading_case": "title_case",

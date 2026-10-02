@@ -313,32 +313,16 @@
     },
     "number_format": "sequential_within_year",
     "number_note": "Sequential number within the year per instrument type. Supplementary acts in same DR issue use dash-letter suffix: Lei n.º 45-A/2024 → year=2024, number=45-A. DLs and Leis have independent number series. Older DLs (Estado Novo) use large sequential numbers/two-digit year: DL 47 344/66 → year=1966, number=47344.",
-    "eli_alias_pattern": "https://data.dre.pt/eli/{type}/{number}/{year}/{lang}/",
-    "eli_note": "ELI Pillar II implemented 2017-07-27. Store ELI URI as <FRBRalias> in metadata. All Série I acts from 2 January 1991 have ELI identifiers.",
     "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Lei n.º {number}/{year}",
-    "act_citation_example": "Lei n.º 7/2024",
-    "dl_citation": "Decreto-Lei n.º {number}/{year}",
-    "dl_citation_example": "Decreto-Lei n.º 32-A/2023",
-    "article_citation": "artigo {number}.º",
-    "article_citation_example": "artigo 5.º",
-    "article_symbol": ".º",
-    "numero_citation": "n.º {number}",
-    "numero_citation_example": "n.º 1",
-    "alinea_citation": "alínea {letter})",
-    "alinea_citation_example": "alínea a)",
-    "subalinea_citation": "subalínea {roman})",
-    "subalinea_citation_example": "subalínea i)",
     "insertion_style": "dash_alpha",
-    "insertion_example": "Artigo 5.º-A",
-    "insertion_eid": "art_5A"
+    "insertion_example": "Artigo 5.º-A"
   },
   "enacting_formulae": [
     {
       "text": "A Assembleia da República decreta, nos termos da alínea c) do artigo 161.º da Constituição, o seguinte:",
-      "translation": "The Assembly of the Republic enacts, pursuant to subparagraph c) of Article 161 of the Constitution, the following:",
       "position": "preamble",
       "era": "current",
       "note": "Constitutional reference varies: alínea c) for ordinary legislation; different subparagraphs for organic laws, authorisations, etc.",
@@ -346,14 +330,12 @@
     },
     {
       "text": "A Assembleia da República decreta, nos termos da alínea c) do artigo 161.º e do n.º 2 do artigo 166.º da Constituição, a seguinte lei orgânica:",
-      "translation": "The Assembly of the Republic enacts, pursuant to subparagraph c) of Article 161 and paragraph 2 of Article 166 of the Constitution, the following organic law:",
       "position": "preamble",
       "era": "current",
       "document_class": "lo"
     },
     {
       "text": "O Governo decreta, nos termos da alínea a) do n.º 1 do artigo 198.º da Constituição, o seguinte:",
-      "translation": "The Government enacts, pursuant to subparagraph a) of paragraph 1 of Article 198 of the Constitution, the following:",
       "position": "preamble",
       "era": "current",
       "note": "Constitutional reference varies by the legislative competence invoked. Article 198.º governs government legislative competence.",
@@ -361,7 +343,6 @@
     },
     {
       "text": "A Assembleia Constituinte, reunida na sessão plenária de 2 de Abril de 1976, aprova e decreta a seguinte Constituição da República Portuguesa:",
-      "translation": "The Constituent Assembly, meeting in plenary session of 2 April 1976, approves and enacts the following Constitution of the Portuguese Republic:",
       "position": "preamble",
       "era": "1976",
       "document_class": "constitution"
@@ -369,13 +350,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "substitution_phrasing": "passa a ter a seguinte redação:",
-    "addition_phrasing": "É aditado ... o artigo N.º-A, com a seguinte redação:",
-    "repeal_phrasing": "É revogado o artigo N.º do [citation].",
-    "multiple_amendment_phrasing": "Os artigos N.º, N.º e N.º do [citation] são alterados e passam a ter a seguinte redação:",
-    "cross_reference_format": "full_citation_with_date",
-    "cross_reference_example": "Lei n.º 7/2024, de 19 de Janeiro",
-    "code_cross_reference_example": "o artigo 483.º do Código Civil"
+    "cross_reference_format": "full_citation_with_date"
   },
   "core_tlcs": [
     {
@@ -451,8 +426,7 @@
         "food_safety",
         "public_procurement",
         "agricultural_policy"
-      ],
-      "profile_ref": "/akn/eu/"
+      ]
     },
     {
       "body": "council-of-europe",
@@ -478,11 +452,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "article_label": "Artigo",
-    "article_symbol": ".º",
-    "chapter_label": "Capítulo",
-    "citation_format": "artigo {number}.º"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

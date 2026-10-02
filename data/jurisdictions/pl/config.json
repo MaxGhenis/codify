@@ -187,7 +187,6 @@
       "constitution": "/akn/pl/act/constitution/1997/constitution"
     },
     "date_calendar": "gregorian",
-    "number_field": "Dz.U. pozycja (sequential annual item number)",
     "notes": [
       "Post-2012: year + sequential poz only (e.g., Dz.U. 2023 poz. 641 → /akn/pl/act/2023/641).",
       "Pre-2012: year + Nr + poz format (e.g., Dz.U. 1964 Nr 16 poz. 93). URI uses sequential poz if available from ISAP, else Nr-poz as fallback.",
@@ -198,17 +197,13 @@
   },
   "numbering": {
     "act_citation": "ustawa z dnia {date} r. {title} (Dz.U. {year} poz. {poz})",
-    "act_citation_pre2012": "ustawa z dnia {date} r. {title} (Dz.U. {year} Nr {Nr} poz. {poz})",
-    "act_citation_consolidated": "t.j. Dz.U. {year} poz. {poz}",
     "insertion_style": "alphanumeric",
     "insertion_example": "art. 5a, art. 5b",
-    "article_numbering": "continuous_arabic",
-    "article_numbering_note": "Continuous from Art. 1 throughout entire act regardless of higher divisions"
+    "article_numbering": "continuous_arabic"
   },
   "enacting_formulae": [
     {
       "text": "Sejm Rzeczypospolitej Polskiej uchwala, co następuje:",
-      "english": "The Sejm of the Republic of Poland enacts as follows:",
       "position": "preamble",
       "era": "current",
       "from": "1997-10-17",
@@ -216,7 +211,6 @@
     },
     {
       "text": "[Issuing body], działając na podstawie art. {N} [enabling act], zarządza, co następuje:",
-      "english": "[Issuing body], acting pursuant to Art. {N} of [enabling act], orders as follows:",
       "position": "preamble",
       "era": "current",
       "document_class": "rozp"
@@ -224,12 +218,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "Art. {N} otrzymuje brzmienie:",
-    "phrasing_deletion": "W art. {N} skreśla się ust. {M}.",
-    "phrasing_insertion": "Po art. {N} dodaje się art. {Na} w brzmieniu:",
-    "phrasing_repeal": "Art. {N} uchyla się.",
-    "cross_reference_format": "short_title_and_dzu_position",
-    "cross_reference_example": "ustawa z dnia 23 kwietnia 1964 r. — Kodeks cywilny (Dz.U. 2023 poz. 1610, z późn. zm.)"
+    "cross_reference_format": "short_title_and_dzu_position"
   },
   "core_tlcs": [
     {
@@ -345,7 +334,6 @@
         "directives"
       ],
       "superseded_subjects": [],
-      "notes": "EU Regulations apply directly. EU Directives require transposition by ustawa or rozporządzenie. EU instruments modelled under /akn/eu/ URIs per AKN4EU profile.",
       "status": "member",
       "excluded_subjects": [
         "charter_of_fundamental_rights"
@@ -358,8 +346,7 @@
     {
       "body": "council-of-europe",
       "direct_effect": "none",
-      "superseded_subjects": [],
-      "notes": "ECHR binding via ratified treaty. Judgments of European Court of Human Rights binding on Poland."
+      "superseded_subjects": []
     },
     {
       "body": "un",
@@ -379,31 +366,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "special_chars": [
-      "ą",
-      "ć",
-      "ę",
-      "ł",
-      "ń",
-      "ó",
-      "ś",
-      "ż",
-      "ź"
-    ]
-  },
-  "official_gazette": {
-    "name": "Dziennik Ustaw Rzeczypospolitej Polskiej",
-    "abbreviation": "Dz.U.",
-    "url": "https://dziennikustaw.gov.pl/DU",
-    "isap_url": "https://isap.sejm.gov.pl/",
-    "eli_url": "https://eli.gov.pl/",
-    "electronic_only_since": "2012-01-01",
-    "second_gazette": {
-      "name": "Monitor Polski",
-      "abbreviation": "M.P.",
-      "url": "https://monitorpolski.gov.pl/MP"
-    }
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

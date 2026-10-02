@@ -181,7 +181,6 @@
   "numbering": {
     "act_citation": "{year} No. {number}",
     "act_citation_alt": "Cap. {code} LFN 2004",
-    "act_citation_decree": "Decree No. {number} of {year}",
     "insertion_style": "alphanumeric",
     "note": "Dual system: gazette citation (post-1999) and Cap./LFN citation (LFN 2004 consolidation). Gazette citation is canonical for post-2004 acts."
   },
@@ -192,15 +191,6 @@
       "era": "democratic",
       "from": "1999-05-29",
       "document_class": "act"
-    },
-    {
-      "text": null,
-      "position": "preamble",
-      "era": "military",
-      "from": "1966-01-15",
-      "to": "1999-05-29",
-      "note": "Military Decrees have no conventional enacting formula. Enacting authority recorded in TLC lifecycle metadata only.",
-      "document_class": "decree"
     }
   ],
   "amendments": {

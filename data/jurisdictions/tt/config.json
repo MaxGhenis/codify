@@ -67,8 +67,7 @@
           "name": "division",
           "level": "higher",
           "position": "between_part_and_section",
-          "numbering": "arabic",
-          "bluebell_note": "No Bluebell keyword. Requires post-processing to inject hcontainer wrapper. Observed in Companies Act (Chap. 81:01) and Trade Marks Regulations 2020."
+          "numbering": "arabic"
         }
       ]
     },
@@ -113,8 +112,7 @@
           "name": "division",
           "level": "higher",
           "position": "between_part_and_section",
-          "numbering": "arabic",
-          "bluebell_note": "Observed in Trade Marks Regulations 2020 (PART II contains DIVISION 1 through DIVISION 7). Requires post-processing injection."
+          "numbering": "arabic"
         }
       ],
       "note": "SIs (Legal Notices, cited as L.N. NN/YYYY) use 'regulation' as the local basic unit term but map to AKN section. REGULATION is not a valid Bluebell keyword. Divisions within Parts are common in complex SIs."
@@ -182,9 +180,7 @@
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Chap. {chapter}",
-    "si_citation": "L.N. {number}/{year}",
     "insertion_style": "alphanumeric",
-    "insertion_style_verified": true,
     "insertion_example": "Firearms Amendment Act 2021 inserts sections 6A, 6B, 6C (after s.6) and 9B (after s.9A)"
   },
   "enacting_formulae": [
@@ -194,12 +190,6 @@
       "era": "post-republic",
       "from": "1976-08-01",
       "verified": true,
-      "observed_in": [
-        "Act No. 2 of 2000",
-        "Act No. 3 of 2010",
-        "Act No. 23 of 2019",
-        "Act No. 7 of 2021"
-      ],
       "note": "Gazette renders first word in small-caps. The em-dash variant ('as follows:—') also observed (Act No. 2 of 2000). Both forms are equivalent.",
       "document_class": "act"
     },
@@ -217,12 +207,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by deleting... and substituting... / is amended by inserting after section [N] the following section: / is deleted and the following is substituted:",
-    "cross_reference_format": "short_title_and_chapter_or_act_number",
-    "cross_reference_examples": [
-      "the Prisons Act, Chap. 13:01",
-      "the Firearms Act, Chap. 16:01",
-      "the Finance (No. 2) Act, 2021 (Act No. 16 of 2021)"
-    ]
+    "cross_reference_format": "short_title_and_chapter_or_act_number"
   },
   "core_tlcs": [
     {
@@ -383,14 +368,12 @@
     {
       "body": "caricom",
       "direct_effect": "none",
-      "superseded_subjects": [],
-      "notes": "CARICOM law requires domestic transposition (Article 240 Revised Treaty of Chaguaramas 2001). Trinidad and Tobago is a founding CARICOM member (Treaty of Chaguaramas, 1 August 1973). Implements CARICOM obligations via Acts of Parliament (e.g., Caribbean Community Act, Chap. 12:01)."
+      "superseded_subjects": []
     },
     {
       "body": "ccj",
       "direct_effect": "none",
-      "superseded_subjects": [],
-      "notes": "Trinidad and Tobago has NOT acceded to the CCJ's appellate jurisdiction. The Privy Council (London) remains the final appellate court. The CCJ has only original jurisdiction over CARICOM treaty disputes involving TT. This distinguishes TT from Barbados, which transitioned to the CCJ in 2005."
+      "superseded_subjects": []
     },
     {
       "body": "un",

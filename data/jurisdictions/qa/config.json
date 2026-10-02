@@ -228,8 +228,6 @@
   },
   "numbering": {
     "act_citation": "Law No. ({number}) of {year}",
-    "decree_citation": "Emiri Decree No. ({number}) of {year}",
-    "decision_citation": "Emiri Decision No. ({number}) of {year}",
     "insertion_style": "mkarrar",
     "insertion_note": "Civil law tradition uses wholesale article replacement. If insertion occurs, Arabic مكرر (mkarrar = repeated/bis) suffix expected, e.g., Article (5) mkarrar → art_5mkarrar."
   },
@@ -335,40 +333,12 @@
       "direct_effect": "none"
     }
   ],
-  "plural_legal_systems": [
-    {
-      "track": "state_civil_law",
-      "applies_to": "All persons in Qatar for most matters",
-      "language": "ara",
-      "basic_unit": "article",
-      "notes": "Egyptian-influenced civil law. Codes: Civil Code (Law 22/2004), Penal Code (Law 11/2004), Labour Law (Law 14/2004), Civil Procedure Code (Law 13/1990 as amended)."
-    },
-    {
-      "track": "islamic_personal_status",
-      "applies_to": "Muslims for marriage, divorce, inheritance, child custody",
-      "language": "ara",
-      "basic_unit": "article",
-      "school": "Hanbali (default); other Sunni schools on judge's discretion",
-      "primary_instrument": "Family Law No. (22) of 2006",
-      "notes": "Hanbali school is the default. Courts may apply Maliki, Shafi'i, or Hanafi schools when Hanbali has no applicable ruling. Non-Muslims governed by their own personal law."
-    },
-    {
-      "track": "qfc_common_law",
-      "applies_to": "Entities licensed in the Qatar Financial Centre",
-      "language": "eng",
-      "basic_unit": "section",
-      "jurisdiction_code": "qa-qfc",
-      "court": "Qatar International Court and Dispute Resolution Centre (QICDRC)",
-      "notes": "Established by Law No. (7) of 2005. Proceedings in English. Common law precedent applies. Separate FRBR locality code qa-qfc."
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "title_case",
     "script": "arabic",
     "rtl": true,
-    "font_preference": "serif",
-    "note": "Arabic source is RTL. English translations are LTR. Pipeline must handle both. Article headings (where present) are typically bold inline headings, not marginal notes."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

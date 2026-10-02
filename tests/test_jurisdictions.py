@@ -1048,10 +1048,9 @@ def test_formula_bounds_are_gregorian_dates(code: str) -> None:
             assert f.from_date < f.to_date, (code, f.era)
 
 
-def test_the_solar_and_lunar_hijri_formula_bounds_are_converted() -> None:
+def test_the_lunar_hijri_formula_bound_is_converted() -> None:
     from datetime import date
 
-    assert load_config("ir").enacting_formulae[0].from_date == date(1979, 3, 21)
     assert load_config("sa").enacting_formulae[0].from_date == date(1992, 3, 1)
 
 
@@ -1122,3 +1121,67 @@ def test_frbr_years_and_organisation_links_are_canonical(code: str) -> None:
     for tlc in raw["core_tlcs"]:
         if isinstance(tlc, dict) and tlc["eId"] == "codify":
             assert tlc["href"] == "/ontology/org/codify", (code, tlc["href"])
+
+
+def _unmodeled_keys(model, data, path: str = "") -> list[str]:
+    """Key paths in `data` that the pydantic models do not declare, by name or
+    alias: what `extra="forbid"` would reject at every level."""
+    import types
+    import typing
+
+    from pydantic import BaseModel
+
+    def walk(annotation, value, where: str) -> list[str]:
+        origin, args = typing.get_origin(annotation), typing.get_args(annotation)
+        if origin in (typing.Union, types.UnionType):
+            tries = [walk(a, value, where) for a in args if a is not type(None)]
+            return min(tries, key=len) if tries else []
+        if origin is list and isinstance(value, list):
+            return [k for i, v in enumerate(value) for k in walk(args[0], v, f"{where}[{i}]")]
+        if origin is dict and isinstance(value, dict) and len(args) == 2:
+            return [k for key, v in value.items() for k in walk(args[1], v, f"{where}/{key}")]
+        return _unmodeled_keys(annotation, value, where)
+
+    if not (isinstance(model, type) and issubclass(model, BaseModel)):
+        return []
+    if not isinstance(data, dict):
+        return []
+    declared: dict = {}
+    for name, field in model.model_fields.items():
+        declared[name] = field.annotation
+        if field.alias:
+            declared[field.alias] = field.annotation
+    found: list[str] = []
+    for key, value in data.items():
+        if key not in declared:
+            found.append(f"{path}/{key}")
+        else:
+            found += walk(declared[key], value, f"{path}/{key}")
+    return found
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_shipped_configs_carry_only_modeled_keys(code: str) -> None:
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    assert _unmodeled_keys(JurisdictionConfig, raw) == []
+
+
+def test_the_key_walk_names_an_unmodeled_key_at_depth() -> None:
+    raw = json.loads((JURISDICTIONS_DIR / "gb" / "config.json").read_text())
+    raw["enacting_formulae"][0]["text_fr"] = "x"
+    raw["display"] = {**(raw.get("display") or {}), "stray": 1}
+    assert _unmodeled_keys(JurisdictionConfig, raw) == [
+        "/enacting_formulae[0]/text_fr",
+        "/display/stray",
+    ]
+
+
+# The emitter writes one formula, into the preamble, and reads only `text`.
+_EMITTED_POSITIONS = {"preamble"}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_formula_has_text_and_an_emitted_position(code: str) -> None:
+    for i, f in enumerate(load_config(code).enacting_formulae):
+        assert (f.text or "").strip(), (code, i)
+        assert f.position in _EMITTED_POSITIONS, (code, i, f.position)

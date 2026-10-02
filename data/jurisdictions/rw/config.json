@@ -220,24 +220,16 @@
       "bill": "/akn/rw/bill/{year}/{number}",
       "constitution": "/akn/rw/act/constitution/2003/constitution"
     },
-    "date_calendar": "gregorian",
-    "multilingual_expressions": true,
-    "language_expression_note": "Three parallel FRBR expressions per work: kin (authoritative), eng, fra. All are co-originals, not translations. Use FRBRtranslation only if one demonstrably derives from another."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Law N° {number}/{year} of {date}",
-    "ol_citation": "Organic Law N° {number}/{year}.OL of {date}",
-    "po_citation": "Presidential Order N° {number}/{year} of {date}",
-    "pmo_citation": "Prime Minister's Order N° {number}/{year} of {date}",
-    "mo_citation": "Ministerial Order N° {number}/{year} of {date}",
     "insertion_style": "bis_ter",
     "insertion_note": "Francophone bis/ter convention: Article 5 bis, Article 12 ter. eIds: art_5bis, art_12ter."
   },
   "enacting_formulae": [
     {
-      "text": "THE PARLIAMENT HAS ADOPTED AND WE SANCTION, PROMULGATE THE FOLLOWING LAW AND ORDER IT BE PUBLISHED IN THE OFFICIAL GAZETTE OF THE REPUBLIC OF RWANDA.",
-      "text_kin": "INTEKO ISHINGA AMATEGEKO YEMEJE, NONE NATWE DUHAMIJE, DUTANGAJE ITEGEKO RITEYE RITYA KANDI DUTEGETSE KO RYANDIKWA MU IGAZETI YA LETA YA REPUBULIKA Y'U RWANDA.",
-      "text_fra": "LE PARLEMENT A ADOPTÉ ET NOUS SANCTIONNONS, PROMULGUONS LA LOI DONT LA TENEUR SUIT ET ORDONNONS QU'ELLE SOIT PUBLIÉE AU JOURNAL OFFICIEL DE LA RÉPUBLIQUE DU RWANDA.",
+      "text": "INTEKO ISHINGA AMATEGEKO YEMEJE, NONE NATWE DUHAMIJE, DUTANGAJE ITEGEKO RITEYE RITYA KANDI DUTEGETSE KO RYANDIKWA MU IGAZETI YA LETA YA REPUBULIKA Y'U RWANDA.",
       "position": "preamble",
       "document_class": [
         "law",
@@ -255,7 +247,6 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "is amended as follows",
-    "insertion_convention": "bis_ter",
     "cross_reference_format": "full_citation_then_principal_law"
   },
   "core_tlcs": [
@@ -342,8 +333,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "trilingual_display": true
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

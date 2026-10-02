@@ -118,9 +118,7 @@
   "numbering": {
     "act_citation": "No. {number} of {year}",
     "act_citation_alt": "The {title}, {year}",
-    "si_citation": "L.N. {number}/{year}",
     "insertion_style": "alphanumeric",
-    "insertion_style_verified": false,
     "note": "Act numbers are sequential within year. Older revised statutes have chapter references in the Revised Laws volumes; use short-title slug as URI fallback and record chapter as FRBRalias."
   },
   "enacting_formulae": [

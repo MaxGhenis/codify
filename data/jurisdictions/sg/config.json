@@ -173,13 +173,11 @@
       "bill": "/akn/sg/bill/{year}/{number}",
       "constitution": "/akn/sg/act/constitution/1963/constitution"
     },
-    "uri_construction_notes": "When Gazette Act number (No. N of YYYY) is known, use year+number. When only short title is known, use slugified abbreviation. When only Cap. number is available (pre-2021), use cap{NNN} as both segments and store Cap number as FRBRalias.",
     "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "sl_citation": "S {number}/{year}",
     "insertion_style": "alphanumeric",
     "insertion_example": "9A, 9AA, 9AB"
   },
@@ -296,8 +294,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Post-2014 Acts use inline section headings (plain-English drafting reform). Pre-2014 Acts may use classical marginal note style in PDF."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

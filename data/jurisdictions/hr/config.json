@@ -227,19 +227,14 @@
   },
   "numbering": {
     "act_citation": "NN {issue}/{year-short}",
-    "act_citation_full": "Narodne novine, br. {issue}/{year}",
-    "act_citation_eli": "https://narodne-novine.nn.hr/eli/sluzbeni/{year}/{issue}/{item}",
     "insertion_style": "alphanumeric",
     "insertion_example": "Članak 5.a, Članak 5.b",
-    "article_numbering": "continuous_throughout_act",
-    "subdivision_stavak": "arabic_parenthesized",
-    "subdivision_tocka": "arabic_stop_or_alpha_lower_parenthesized"
+    "article_numbering": "continuous_throughout_act"
   },
   "enacting_formulae": [
     {
       "text": "Hrvatski sabor na sjednici {date}, donio je {naziv zakona}",
       "position": "preamble",
-      "component": "parliamentary_enactment",
       "era": "post-independence",
       "from": "1991-06-25",
       "note": "Parliamentary adoption formula. Appears as opening of law text in Narodne novine.",
@@ -248,13 +243,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "mijenja se i glasi",
-    "phrasing_deletion": "briše se",
-    "phrasing_addition": "dodaje se ... koji glasi",
-    "amendment_act_naming": "Zakon o izmjenama i dopunama Zakona o [...]",
-    "cross_reference_format": "law_name_and_nn_citation",
-    "cross_reference_example": "Zakon o obveznim odnosima (Narodne novine, br. 35/05, 41/08, 125/11 i 78/15)",
-    "intra_act_reference": "u smislu članka X. stavka Y. ovoga Zakona"
+    "cross_reference_format": "law_name_and_nn_citation"
   },
   "core_tlcs": [
     {
@@ -300,7 +289,6 @@
   "supranational_memberships": [
     {
       "body": "eu",
-      "since": "2013-07-01",
       "direct_effect": "direct",
       "superseded_subjects": [
         "customs_union",
@@ -337,20 +325,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "special_characters": [
-      "č",
-      "ć",
-      "đ",
-      "š",
-      "ž",
-      "Č",
-      "Ć",
-      "Đ",
-      "Š",
-      "Ž"
-    ],
-    "note": "Croatian uses five diacritic characters (ČĆĐŠŽ). OCR must be tuned for these. Headings in Croatian legislation are typically in ALL CAPS."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

@@ -194,9 +194,7 @@
   "numbering": {
     "act_citation": "No. {number} of {year}",
     "act_citation_alt": "CH.{chapter}",
-    "si_citation": "No. {number}/{year}",
-    "insertion_style": "alphanumeric",
-    "notes": "Dual numbering system: annual No. N of YYYY for post-2000 Revised Edition acts; CH.NNN for consolidated statutes. Alphanumeric insertion numbering confirmed (5A, 38K, 47C, 56A)."
+    "insertion_style": "alphanumeric"
   },
   "enacting_formula_markers": [
     "WHEREAS",
@@ -240,8 +238,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by the deletion of... and the substitution of...",
-    "cross_reference_format": "short_title_with_no_and_year_or_chapter",
-    "notes": "Standard textual amendment style confirmed from multiple acts 2022-2025. Cross-references use 'the [Short Title] (No. N of YYYY)' for post-edition acts and 'the [Short Title] (CH.NNN)' for consolidated acts."
+    "cross_reference_format": "short_title_with_no_and_year_or_chapter"
   },
   "core_tlcs": [
     {
@@ -397,7 +394,6 @@
       "body": "caricom",
       "direct_effect": "none",
       "superseded_subjects": [],
-      "notes": "The Bahamas joined CARICOM in 1983 but is NOT a member of the CARICOM Single Market and Economy (CSME). CARICOM instruments have no direct effect and must be transposed by domestic legislation.",
       "excluded_subjects": [
         "csme"
       ],
@@ -409,8 +405,7 @@
     {
       "body": "commonwealth-of-nations",
       "direct_effect": "none",
-      "superseded_subjects": [],
-      "notes": "Commonwealth model laws are persuasive only."
+      "superseded_subjects": []
     },
     {
       "body": "un",

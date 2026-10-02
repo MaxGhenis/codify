@@ -238,16 +238,12 @@
   "numbering": {
     "act_citation": "zákon č. {number}/{year} Sb.",
     "act_citation_alt": "zákon č. {number}/{year} Sb., o [short descriptive title]",
-    "section_citation": "§ {number}",
-    "subsection_citation": "§ {section} odst. {odstavec}",
-    "full_citation": "§ {section} odst. {odstavec} písm. {pismeno}) bod {bod}.",
     "insertion_style": "alphanumeric_suffix",
     "insertion_example": "§ 2 → § 2a, § 2b, § 2c"
   },
   "enacting_formulae": [
     {
       "text": "Parlament se usnesl na tomto zákoně České republiky:",
-      "translation": "Parliament has resolved on this Act of the Czech Republic:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1993-01-01",
@@ -255,7 +251,6 @@
     },
     {
       "text": "Vláda nařizuje podle § {N} zákona č. {NN}/{YYYY} Sb., o {title}:",
-      "translation": "The Government hereby decrees pursuant to § {N} of Act No. {NN}/{YYYY} Sb., on {title}:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1993-01-01",
@@ -263,7 +258,6 @@
     },
     {
       "text": "{Ministry} stanoví podle § {N} zákona č. {NN}/{YYYY} Sb., o {title}:",
-      "translation": "{Ministry} provides pursuant to § {N} of Act No. {NN}/{YYYY} Sb., on {title}:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1993-01-01",
@@ -273,9 +267,7 @@
   "amendments": {
     "style": "textual_continental",
     "phrasing": "V zákoně č. NN/YYYY Sb. ... se mění takto: ... § X zní: ... Za § X se vkládá nový § Xa ... § X se zrušuje.",
-    "cross_reference_format": "sb_number_and_year",
-    "cross_reference_example": "zákon č. 89/2012 Sb., občanský zákoník",
-    "amendment_act_structure": "novelizace uses own Sb. number; internal modifications grouped under Čl. I, Čl. II (one per target statute)"
+    "cross_reference_format": "sb_number_and_year"
   },
   "core_tlcs": [
     {
@@ -386,8 +378,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Czech laws may have § headings in bold/italic within body, or as marginal notes, or no § headings at all (older acts). Pipeline must detect heading presence."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

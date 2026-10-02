@@ -181,15 +181,7 @@
   "numbering": {
     "insertion_style": "mokarer"
   },
-  "enacting_formulae": [
-    {
-      "text": "Qanun-e fawq mushtamel bar [N] maddeh va [M] tabsareh dar jalase-ye [date] Majles-e Shora-ye Eslami be tasvib resid.",
-      "position": "conclusions",
-      "era": "post-1979",
-      "from": "1979-03-21",
-      "document_class": "act"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_modification",
     "phrasing": "Maddeh-ye [N] be sharh-e zir eslah mishavad:",

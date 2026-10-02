@@ -78,7 +78,6 @@
         {
           "name": "subliteral",
           "description": "Sub-Litera subdivision (rare)",
-          "bluebell_note": "No Bluebell keyword; requires post-processing",
           "local_term": "Subliteral"
         }
       ]
@@ -245,14 +244,9 @@
       "bill": "/akn/at/bill/{year}/{number}",
       "constitution": "/akn/at/act/constitution/1920/bvg"
     },
-    "date_calendar": "gregorian",
-    "bgbl_note": "BGBl citation format is Nr./year (number-then-year). BGBl. I Nr. 165/1999 → year=1999, number=165. Pre-1997 undivided: BGBl. 210/1958 → year=1958, number=210."
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation_post1997": "BGBl. I Nr. {number}/{year}",
-    "act_citation_pre1997": "BGBl. {number}/{year}",
-    "vo_citation": "BGBl. II Nr. {number}/{year}",
-    "sv_citation": "BGBl. III Nr. {number}/{year}",
     "insertion_style": "alphanumeric",
     "insertion_example": "§ 14a, § 14b, § 22a"
   },
@@ -275,13 +269,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_replacement": "§ {N} {lautet|erhält folgende Fassung}:",
-    "phrasing_deletion": "§ {N} {entfällt|wird aufgehoben}.",
-    "phrasing_insertion": "Nach § {N} wird folgender § {Na} eingefügt:",
-    "phrasing_inline": "In § {N} Abs. {N} {Z N} wird das Wort '{old}' durch das Wort '{new}' ersetzt.",
-    "cross_reference_format": "short_title_and_bgbl",
-    "cross_reference_example": "das Datenschutzgesetz (DSG), BGBl. I Nr. 165/1999",
-    "consolidation": "RIS 'Bundesrecht konsolidiert' — informational only; authentic text is BGBl."
+    "cross_reference_format": "short_title_and_bgbl"
   },
   "core_tlcs": [
     {
@@ -401,10 +389,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "basic_unit_symbol": "§",
-    "constitutional_basic_unit_symbol": "Art.",
-    "note": "Austrian legislative text uses § symbol for paragraph citations. Headings appear inline after the § number on RIS, not as marginal notes. DSG-style heading format: '§ 4. Anwendungsbereich und Durchführungsbestimmung'."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

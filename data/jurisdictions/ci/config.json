@@ -274,16 +274,9 @@
     },
     "number_extraction": "From 'Loi n° YYYY-NNN du [date]': year = YYYY, number = NNN (drop leading zeros only if number < 100; preserve 3-digit numbers as-is e.g. 902, 886, 975)",
     "date_calendar": "gregorian",
-    "language_expression": "fra",
-    "existing_corpus": "agp.africanlii.org — adopt URIs from this corpus directly; do not create parallel identifiers",
     "note": "AfricanLII has established /akn/ci/ URI space."
   },
   "numbering": {
-    "loi_citation": "Loi n° {year}-{number} du {date}",
-    "ordonnance_citation": "Ordonnance n° {year}-{number} du {date}",
-    "decret_citation": "Décret n° {year}-{number} du {date}",
-    "article_first": "Article premier",
-    "article_subsequent": "Article {number}",
     "insertion_style": "bis_ter",
     "insertion_note": "French civil law tradition uses 'bis', 'ter', 'quater' suffixes for inserted articles. eIds: art_12bis, art_12ter."
   },
@@ -314,18 +307,8 @@
       "document_class": "loi"
     }
   ],
-  "promulgation_closing": "La présente loi sera publiée au Journal Officiel de la République de Côte d'Ivoire et exécutée comme loi de l'État.",
   "amendments": {
     "style": "textual_civil_law",
-    "verbs": {
-      "substitute": "modifié par",
-      "repeal": "abrogé par",
-      "insert": "ajouté par / inséré par",
-      "delete": "supprimé par"
-    },
-    "annotation_placement": "below_article_heading",
-    "annotation_parentheses": false,
-    "nouveau_marker": "(nouveau)",
     "cross_reference_format": "loi_n_year_number_date_title",
     "phrasing": "L'article X de la loi n° YYYY-NNN du [date] [long title] est modifié ainsi qu'il suit :"
   },
@@ -409,7 +392,6 @@
         "transport_goods_by_road",
         "commercial_leases"
       ],
-      "frbr_uri_prefix": "/akn/ohada/act/",
       "note": "CCJA (OHADA supreme court) is headquartered in Abidjan. OHADA Uniform Acts are directly applicable and mandatory; they supersede conflicting domestic commercial law. Do not present domestic provisions in these subject areas as current law without referencing OHADA."
     },
     {
@@ -423,7 +405,6 @@
         "public_finance_management",
         "public_procurement_standards"
       ],
-      "frbr_uri_prefix": "/akn/uemoa/act/",
       "note": "8-member Francophone West African monetary union. UEMOA Regulations have direct effect; Directives need domestic implementation."
     },
     {
@@ -431,7 +412,6 @@
       "direct_effect": "none",
       "direct_effect_note": "Most ECOWAS instruments (Protocols) require ratification and transposition.",
       "superseded_subjects": [],
-      "frbr_uri_prefix": "/akn/ecowas/act/",
       "note": "15-member West African regional body. Protocols require domestic implementation. Less direct legal impact than OHADA or UEMOA."
     },
     {
@@ -450,11 +430,9 @@
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "sentence_case",
-    "heading_conversion": "Convert ALL CAPS headings to sentence case (preserve French accents)",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "language_tag": "fr"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

@@ -155,9 +155,7 @@
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "act_citation_consolidated": "Chapter {number}",
     "insertion_style": "alphanumeric",
-    "insertion_style_verified": false,
     "note": "Post-1997 acts cited as 'Act No. NN of YYYY'. Pre-1997 consolidated statutes cited by Chapter number."
   },
   "enacting_formulae": [

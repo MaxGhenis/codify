@@ -158,7 +158,6 @@
   "numbering": {
     "act_citation": "Ley N.° {number}",
     "act_citation_alt": "Ley N.° {number}, de {date}",
-    "decreto_citation": "Decreto Ejecutivo N.° {number}",
     "insertion_style": "bis_ter",
     "insertion_note": "Inserted articles use 'bis', 'ter', 'quater', 'quinquies' suffixes (e.g., Artículo 3 bis). eId: art_3bis."
   },
@@ -180,10 +179,6 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "Refórmase el artículo [N] de la Ley [N.° NNNN], para que se lea de la siguiente manera:",
-    "phrasing_addition": "Adiciónase un artículo [N bis] a la Ley [N.° NNNN], para que se lea así:",
-    "phrasing_repeal": "Deróguese el artículo [N] de la Ley [N.° NNNN].",
-    "phrasing_inciso_substitution": "Refórmase el inciso [a)] del artículo [N] de la Ley [N.° NNNN], para que se lea:",
     "cross_reference_format": "ley_number_and_name"
   },
   "core_tlcs": [
@@ -254,9 +249,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "language_label": "Español",
-    "note": "Article headings in Costa Rican laws appear inline after the article number (e.g., 'Artículo 1.- Objeto y ámbito de aplicación.') using a dash separator, not as marginal notes."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

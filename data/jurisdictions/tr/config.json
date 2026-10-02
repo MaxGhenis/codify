@@ -288,28 +288,14 @@
   "numbering": {
     "act_citation": "Kanun No. {number}",
     "act_citation_alt": "{kanun_adi} (Kanun No. {number})",
-    "article_abbreviation": "md.",
-    "article_abbreviation_alt": "mad.",
-    "paragraph_abbreviation": "fık.",
-    "point_abbreviation": "bent",
     "insertion_style": "ek_madde_series",
     "insertion_note": "New articles appended at end of law as Ek Madde 1, Ek Madde 2 (rather than mid-text insertion). Insertions within the main body are rare and use fractional numbering in practice."
   },
-  "enacting_formulae": [
-    {
-      "text": "Türkiye Büyük Millet Meclisi'nce kabul edilmiştir.",
-      "position": "conclusions",
-      "era": "republic",
-      "from": "1920-04-23",
-      "document_class": "kanun"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "... değiştirilmiştir / ... aşağıdaki şekilde değiştirilmiştir / ... yürürlükten kaldırılmıştır",
-    "insertion_phrasing": "Kanunun ... maddesinden sonra gelmek üzere aşağıdaki madde eklenmiştir",
-    "cross_reference_format": "kanun_no_and_date",
-    "cross_reference_example": "4721 sayılı Türk Medeni Kanununun 2 nci maddesi"
+    "cross_reference_format": "kanun_no_and_date"
   },
   "core_tlcs": [
     {
@@ -447,8 +433,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "note": "Turkish uses Latin script since the 1928 Harf Devrimi (Script Reform under Atatürk). Pre-1928 documents used Ottoman Turkish in Arabic script (sülüs/nesih calligraphy) — these require separate OCR treatment and are outside the primary scope of this profile. Modern Resmî Gazete documents are Latin-script Turkish. Headings in Turkish legislation typically appear in ALL CAPS (BİRİNCİ KISIM, GENEL HÜKÜMLER, etc.)."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

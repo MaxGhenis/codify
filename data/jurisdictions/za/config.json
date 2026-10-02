@@ -181,9 +181,6 @@
   "numbering": {
     "act_citation": "Act {number} of {year}",
     "act_citation_alt": "Act No. {number} of {year}",
-    "regulation_citation": "GN R{number} of {year}",
-    "regulation_citation_plain": "GN {number} of {year}",
-    "gazette_citation": "Government Gazette No. {gazette-number} of {date}",
     "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
@@ -213,8 +210,6 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is hereby amended by the substitution for... of the following...",
-    "phrasing_insertion": "is hereby amended by the insertion after section [N] of the following section:",
-    "phrasing_repeal": "is hereby repealed",
     "cross_reference_format": "short_title_and_year_and_act_number"
   },
   "core_tlcs": [
@@ -326,57 +321,6 @@
     "script": "latin",
     "rtl": false,
     "font_preference": "serif"
-  },
-  "sub_national": {
-    "enabled": true,
-    "units": [
-      {
-        "name": "Western Cape",
-        "code": "za-wc",
-        "type": "province"
-      },
-      {
-        "name": "Eastern Cape",
-        "code": "za-ec",
-        "type": "province"
-      },
-      {
-        "name": "Northern Cape",
-        "code": "za-nc",
-        "type": "province"
-      },
-      {
-        "name": "KwaZulu-Natal",
-        "code": "za-kzn",
-        "type": "province"
-      },
-      {
-        "name": "Free State",
-        "code": "za-fs",
-        "type": "province"
-      },
-      {
-        "name": "Gauteng",
-        "code": "za-gp",
-        "type": "province"
-      },
-      {
-        "name": "Mpumalanga",
-        "code": "za-mp",
-        "type": "province"
-      },
-      {
-        "name": "Limpopo",
-        "code": "za-lp",
-        "type": "province"
-      },
-      {
-        "name": "North West",
-        "code": "za-nw",
-        "type": "province"
-      }
-    ],
-    "note": "Each province has its own legislature producing provincial acts. Municipal by-laws use za-{municipality-code} format (e.g., za-ec443 for Mbizana)."
   },
   "validation": {
     "status": "draft",

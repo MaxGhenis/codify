@@ -282,62 +282,30 @@
   },
   "numbering": {
     "act_citation": "Law No. {number}/{year}",
-    "act_citation_arabic": "قانون رقم {number} تاريخ {date}",
-    "act_citation_french": "Loi n° {number}/{year} du {date}",
-    "legislative_decree_citation": "Legislative Decree No. {number} of {date}",
-    "decree_citation": "Decree No. {number} of {date}",
-    "gazette_citation_french": "J.O. Liban n° {number} du {date}",
-    "gazette_citation_arabic": "الجريدة الرسمية عدد {number} تاريخ {date}",
-    "article_basic_unit": "مادة",
-    "article_basic_unit_french": "Article",
     "article_numbering": "continuous_throughout_law",
     "insertion_style": "mkarran_or_hyphen",
-    "insertion_arabic": "مكرراً",
-    "insertion_latin": "bis",
-    "insertion_example_arabic": "مادة 5 مكرراً → art_5mkarran",
-    "insertion_example_french": "Article 5-1 → art_5-1",
     "note": "Insertion style inconsistent across eras and drafters. Mandate-era and French-tradition instruments use hyphen suffix (-1, -2); Arabic-tradition instruments use mكرراً (mkarran/bis). Detect per document and record in metadata."
   },
   "enacting_formulae": [
     {
-      "arabic": "رئيس الجمهورية،\nبناءً على الدستور، لا سيما المواد 17 و51 منه،\nوبناءً على قرار مجلس النواب بتاريخ {date}،\nيصدر القانون الآتي نصه:",
-      "french": "Le Président de la République,\nVu la Constitution, et notamment ses articles 17 et 51,\nVu la décision de la Chambre des Députés en date du {date},\nPromulgue la loi dont la teneur suit :",
       "position": "preamble",
       "era": "post-independence",
       "from": "1943-11-22",
-      "formula_name": "promulgationFormula",
       "note": "Standard post-independence promulgation formula. Countersigned by Prime Minister and relevant minister(s). Arabic is authoritative; French text also appears in Official Gazette.",
-      "document_class": "law"
+      "document_class": "law",
+      "text": "رئيس الجمهورية،\nبناءً على الدستور، لا سيما المواد 17 و51 منه،\nوبناءً على قرار مجلس النواب بتاريخ {date}،\nيصدر القانون الآتي نصه:"
     },
     {
-      "french": "Le Gouvernement de la République libanaise,\nVu la Constitution,\n[VISA block]\nArrête :",
-      "arabic": "حكومة الجمهورية اللبنانية،\nbناءً على الدستور،\n[بلوك الإشارات]\nتقرر ما يأتي:",
       "position": "preamble",
       "era": "legislative_decree",
-      "formula_name": "legislativeDecreeFormula",
       "note": "Used for مراسيم تشريعية (legislative decrees) issued by Council of Ministers when Parliament is not in session. The VISA block references constitutional authorization. 'Arrête'/'تقرر' is the decision verb.",
-      "document_class": "legislative_decree"
-    },
-    {
-      "french": "Nous, [Name], Président de la République Libanaise,\nVu la Constitution,\n[VISA block]\nDécrétons :",
-      "position": "preamble",
-      "era": "french_mandate",
-      "to": "1943-11-22",
-      "formula_name": "mandateDecreeFormula",
-      "note": "French Mandate-era formula. French only; Arabic translation sometimes appended. 'Décrétons' is the enacting verb. These instruments are legislative decrees with French sole authorship.",
-      "document_class": "law"
+      "document_class": "legislative_decree",
+      "text": "حكومة الجمهورية اللبنانية،\nbناءً على الدستور،\n[بلوك الإشارات]\nتقرر ما يأتي:"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution_arabic": "يُعدَّل المادة {N} من القانون رقم {number} تاريخ {date} وفق ما يلي:",
-    "phrasing_repeal_arabic": "تُلغى المادة {N} من القانون رقم {number} تاريخ {date}",
-    "phrasing_addition_arabic": "يُضاف إلى القانون رقم {number} مادة جديدة رقمها {N مكرراً} تنص على ما يلي:",
-    "phrasing_substitution_french": "L'article {N} de la loi n° {number} est modifié comme suit :",
-    "phrasing_repeal_french": "L'article {N} de la loi n° {number} est abrogé.",
-    "cross_reference_format": "law_number_and_date",
-    "cross_reference_example_arabic": "القانون رقم 240 تاريخ 7/8/2000",
-    "cross_reference_example_french": "la loi n° 240/2000 du 7 août 2000"
+    "cross_reference_format": "law_number_and_date"
   },
   "core_tlcs": [
     {
@@ -456,9 +424,6 @@
     {
       "body": "un",
       "direct_effect": "none",
-      "direct_effect_exceptions": [
-        "Security Council Chapter VII resolutions — binding in international law"
-      ],
       "superseded_subjects": [],
       "note": "Lebanon hosts UNIFIL (UN Interim Force in Lebanon) under Chapter VI/VII mandates. Extensive UN Security Council engagement on Lebanon."
     },
@@ -474,8 +439,7 @@
     "heading_case": "sentence_case",
     "script": "arabic",
     "rtl": true,
-    "font_preference": "serif",
-    "note": "Arabic RTL primary display. French text may appear alongside Arabic in gazette publications; Arabic is authoritative. Article headings in Arabic legislation often appear as bold inline text at the start of the article or as a rubric above it. Review UI must support RTL (direction: rtl; unicode-bidi: embed) for Arabic content, with LTR override for structural keywords and numbering."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

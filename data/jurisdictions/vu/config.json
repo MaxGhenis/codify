@@ -125,11 +125,6 @@
       "constitution": "/akn/vu/act/constitution/1980/constitution"
     },
     "date_calendar": "gregorian",
-    "multilingual": true,
-    "language_expressions": [
-      "eng",
-      "fra"
-    ],
     "note": "English and French versions are parallel originals with equal authority (not translations). Each language gets a separate Expression-level URI. Use /eng@ and /fra@ suffixes. Do NOT use FRBRtranslation."
   },
   "numbering": {
@@ -150,8 +145,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "Delete '...' substitute '...' / After [provision] Insert '...'",
-    "cross_reference_format": "short_title_and_cap",
-    "omnibus_vehicle": "Statute Law (Miscellaneous Provisions) Act"
+    "cross_reference_format": "short_title_and_cap"
   },
   "core_tlcs": [
     {

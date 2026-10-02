@@ -293,14 +293,8 @@
     ]
   },
   "numbering": {
-    "ley_citation": "Ley N° {number}",
-    "dl_citation": "Decreto Legislativo N° {number}",
-    "ds_citation": "Decreto Supremo N° {number}-{year}-{ministry}",
-    "du_citation": "Decreto de Urgencia N° {number}-{year}",
-    "decreto_ley_citation": "Decreto Ley N° {number}",
     "insertion_style": "alphanumeric_hyphen",
-    "insertion_example": "Artículo 5-A, Artículo 5-B",
-    "article_heading_separator": ".-"
+    "insertion_example": "Artículo 5-A, Artículo 5-B"
   },
   "enacting_formulae": [
     {
@@ -325,12 +319,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_modify": "Modifícase el artículo {N} de la {citation}...",
-    "phrasing_insert": "Incorpórase el artículo {N}-A a la {citation}...",
-    "phrasing_repeal": "Deróganse el artículo {N} de la {citation}.",
-    "phrasing_substitute": "Sustitúyese el literal {a}) del numeral {N} del artículo {M} de la {citation}...",
-    "cross_reference_format": "law_type_and_number_and_article",
-    "tuo_pattern": "Decreto Supremo approves Texto Único Ordenado (TUO) — model as new FRBR expression of original work"
+    "cross_reference_format": "law_type_and_number_and_article"
   },
   "core_tlcs": [
     {
@@ -409,7 +398,6 @@
   "supranational_memberships": [
     {
       "body": "can",
-      "full_name": "Comunidad Andina",
       "direct_effect": "direct",
       "superseded_subjects": [
         "intellectual_property",
@@ -420,12 +408,6 @@
         "investment",
         "labour_migration"
       ],
-      "primary_instruments": [
-        "Decision 351 (copyright)",
-        "Decision 486 (industrial property)",
-        "Decision 291 (investment)"
-      ],
-      "uri_base": "/akn/can/",
       "note": "CAN Decisiones have direct applicability and supremacy over domestic law in covered subjects. Domestic IP and trade legislation must be cross-referenced against applicable Decisiones."
     },
     {
@@ -450,11 +432,9 @@
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",
-    "heading_separator": ".-",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "locale": "es-PE"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

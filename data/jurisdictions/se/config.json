@@ -152,41 +152,18 @@
   "frbr": {
     "country_code": "se",
     "uri_patterns": {},
-    "uri_note": "SFS number YYYY:NNN splits as year=YYYY, sfs-number=NNN (integer after colon). E.g. SFS 2003:460 → /akn/se/act/2003/460. Förordningar use fo/ subtype prefix. Bills use session in YYYY-YY format and the proposition number.",
-    "date_calendar": "gregorian",
-    "fixed_uris": {
-      "regeringsformen": "/akn/se/act/constitution/1974/regeringsformen",
-      "successionsordningen": "/akn/se/act/constitution/1810/successionsordningen",
-      "tryckfrihetsforordningen": "/akn/se/act/constitution/1949/tryckfrihetsforordningen",
-      "yttrandefrihetsgrundlagen": "/akn/se/act/constitution/1991/yttrandefrihetsgrundlagen"
-    }
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "({year}:{sfs-number})",
-    "act_citation_full": "[short-title] ({year}:{sfs-number})",
-    "sfs_format": "SFS {year}:{sfs-number}",
     "insertion_style": "alphanumeric_spaced",
-    "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Matches Danish convention.",
-    "section_symbol": "§",
-    "section_symbol_position": "pre_or_post",
-    "section_symbol_note": "Both '§ 5' (pre-positioned) and '5 §' (post-positioned) are used. Post-positioned is standard in running text. Pipeline normalises to pre-positioned in AKN <num>."
+    "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Matches Danish convention."
   },
-  "enacting_formulae": [
-    {
-      "text": null,
-      "position": "none",
-      "era": "current",
-      "from": "1974-01-01",
-      "note": "Swedish acts have no enacting formula within the document body. Legislative authority derives from constitutional order. The act text begins directly at § 1. The SFS publication header and government signature block appear in the gazette wrapper, not the act body.",
-      "document_class": "act"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_replacement",
     "phrasing": "I lagen ([year]:[number]) om [X] ska [N §] ha följande lydelse: ... / ska det införas en ny paragraf, [N §], av följande lydelse: ... / ska upphöra att gälla.",
-    "cross_reference_format": "short_title_and_sfs_number",
-    "amending_act_structure": "The amending act (ändringslag) is an ordinary SFS act. § 1 typically gives replacement text for each amended provision. Last § gives commencement date ('Denna lag träder i kraft den [date]'). Model as separate FRBR work with <activeModifications>.",
-    "note": "Consolidated HTML on riksdagen.se masks amendment chains."
+    "cross_reference_format": "short_title_and_sfs_number"
   },
   "core_tlcs": [
     {
@@ -279,10 +256,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "basic_unit_symbol": "§",
-    "basic_unit_plural_symbol": "§§",
-    "chapter_abbreviation": "kap."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

@@ -201,7 +201,6 @@
   "numbering": {
     "act_citation": "Lov nr. {number} af {date}",
     "act_citation_alt": "Lovbekendtgørelse nr. {number} af {date}",
-    "bekendtgorelse_citation": "Bekendtgørelse nr. {number} af {date}",
     "insertion_style": "alphanumeric_spaced",
     "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b."
   },
@@ -225,8 +224,7 @@
   "amendments": {
     "style": "textual_artikellov",
     "phrasing": "I [lov], foretages følgende ændringer: ... affattes således: ...",
-    "cross_reference_format": "short_title_and_law_number",
-    "note": "Amending acts (ændringslove) use the Artikellov format: each article of the amending act targets a specific existing act. Individual changes within each article are numbered 1., 2., 3. etc."
+    "cross_reference_format": "short_title_and_law_number"
   },
   "core_tlcs": [
     {
@@ -306,22 +304,12 @@
       "direct_effect": "none"
     }
   ],
-  "territorial_scope": {
-    "default": "metropolitan_denmark",
-    "excluded": [
-      "greenland",
-      "faroe_islands"
-    ],
-    "note": "Most acts explicitly state in a final § whether they apply to Greenland and/or the Faroe Islands. Default is exclusion unless the § states otherwise. Greenland and Faroe Islands have separate legal systems and require separate jurisdiction profiles (gl, fo)."
-  },
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "basic_unit_symbol": "§",
-    "basic_unit_plural_symbol": "§§"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

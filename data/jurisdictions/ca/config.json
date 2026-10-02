@@ -164,16 +164,6 @@
     }
   },
   "default_document_class": "act",
-  "bilingual": {
-    "enabled": true,
-    "languages": [
-      "eng",
-      "fra"
-    ],
-    "strategy": "parallel_originals",
-    "frbr_note": "Both English and French versions are co-equal originals (not translations). Each is a separate FRBR expression of the same Work. Do NOT use FRBRtranslation. Statutory authority: Interpretation Act RSC 1985 c. I-21 s. 8; Canadian Charter s. 18.",
-    "processing_note": "Pipeline must process both language versions as paired inputs, producing two AKN XML files linked by the same FRBR Work URI."
-  },
   "frbr": {
     "country_code": "ca",
     "uri_patterns": {
@@ -189,22 +179,9 @@
       "Constitution Act, 1982": "/akn/ca/act/constitution/1982/constitution-act",
       "Bill C-69, 44th Parliament 1st Session": "/akn/ca/bill/44-1/c-69"
     },
-    "date_calendar": "gregorian",
-    "uri_construction_notes": [
-      "RSC 1985 Acts: use lowercased alphanumeric chapter code as number segment (e.g. 'c-46' for c. C-46)",
-      "RSC 1985 Supplement Acts: use Justice Canada's URL slug as number segment (e.g. 'i-3.3' for ITA)",
-      "Annual Statutes (SC): use enactment year and chapter number (e.g. 2024/17 for SC 2024 c. 17)",
-      "SOR Regulations: use year and sequential number (e.g. sor/2013/82 for SOR/2013-82)",
-      "Bills: use parliament-session and bill identifier (e.g. 44-1/c-69 for Bill C-69, 44-1)"
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation_rsc": "RSC 1985, c. {letter}-{number}",
-    "act_citation_sc": "SC {year}, c. {chapter}",
-    "regulation_citation": "SOR/{year}-{number}",
-    "si_citation": "SI/{year}-{number}",
-    "pc_citation": "PC {year}-{number}",
-    "crc_citation": "CRC, c. {chapter}",
     "insertion_style": "decimal",
     "insertion_note": "Federal legislation uses decimal insertion (5.1, 5.2) between existing sections. Lettered insertion (5A) occasionally seen in older statutes."
   },
@@ -228,15 +205,7 @@
   ],
   "amendments": {
     "style": "textual_commonwealth",
-    "phrasing_patterns": [
-      "Section [N] of the [Act] is replaced by the following:",
-      "is amended by striking out '[old text]' and substituting '[new text]'",
-      "is amended by adding the following after [section N]:",
-      "Section [N] of the [Act] is repealed.",
-      "Paragraph [N](1)(a) of the [Act] is replaced by the following:"
-    ],
-    "cross_reference_format": "short_title_and_rsc_or_sc",
-    "cross_reference_note": "Acts cited by short title and RSC/SC citation in parentheses. Within an amendment act, the principal act is defined in s. 1 and then called 'the Act'."
+    "cross_reference_format": "short_title_and_rsc_or_sc"
   },
   "core_tlcs": [
     {
@@ -327,119 +296,6 @@
   "structuring": {
     "prompt_additions": "Canada federal legislation is BILINGUAL — both English and French versions are co-equal originals. Process each language version separately. Normalise Part numbers to Arabic numerals (PART 1, not PART I). Use SECTION as basic unit for both Acts and Regulations. Division and Subdivision elements (Income Tax Act) require post-processing — treat as PART level in Bluebell output and flag for renaming to hcontainer in post-processing step. Marginal notes are not part of the enactment (Interpretation Act s. 14) — map to heading elements."
   },
-  "sub_national": {
-    "note": "Canada has 10 provinces and 3 territories, each with their own legislature and legislation. Provincial profiles are deferred. Federal profile covers /akn/ca/ only.",
-    "jurisdictions": [
-      {
-        "code": "ca-on",
-        "name": "Ontario",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-qc",
-        "name": "Quebec",
-        "tradition": [
-          "civil_law",
-          "common_law"
-        ],
-        "deferred": true,
-        "note": "Civil law province. Civil Code uses article-based structure. Separate profile and structuring prompt required."
-      },
-      {
-        "code": "ca-bc",
-        "name": "British Columbia",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-ab",
-        "name": "Alberta",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-sk",
-        "name": "Saskatchewan",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-mb",
-        "name": "Manitoba",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-nb",
-        "name": "New Brunswick",
-        "tradition": [
-          "common_law",
-          "civil_law"
-        ],
-        "deferred": true,
-        "note": "Officially bilingual province"
-      },
-      {
-        "code": "ca-ns",
-        "name": "Nova Scotia",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-pe",
-        "name": "Prince Edward Island",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-nl",
-        "name": "Newfoundland and Labrador",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-nt",
-        "name": "Northwest Territories",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-nu",
-        "name": "Nunavut",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      },
-      {
-        "code": "ca-yt",
-        "name": "Yukon",
-        "tradition": [
-          "common_law"
-        ],
-        "deferred": true
-      }
-    ]
-  },
   "supranational_memberships": [
     {
       "body": "un",
@@ -465,9 +321,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "bilingual_display": "parallel_columns",
-    "bilingual_note": "Source documents display English and French in parallel columns. AKN output produces two separate expression XML files."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

@@ -249,38 +249,15 @@
       "constitution": "/akn/cm/act/constitution/1972/constitution"
     },
     "number_format": "YYYY/NNN",
-    "number_separator": "/",
-    "number_zero_padded": true,
-    "number_digits": 3,
-    "date_calendar": "gregorian",
-    "language_codes": [
-      "fra",
-      "eng"
-    ],
-    "expression_note": "Both fra and eng are co-equal parallel originals. Neither uses FRBRtranslation. Expression URI: /akn/cm/act/{year}/{number}/{lang}@{date}."
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "loi_citation": "Loi n° {year}/{number} du {day} {month} {year}",
-    "loi_citation_en": "Law No {year}/{number} of {day} {month} {year}",
-    "ordonnance_citation": "Ordonnance n° {year}/{number} du {day} {month} {year}",
-    "decret_citation": "Décret n° {year}/{number} du {day} {month} {year}",
-    "article_first": "Article 1er",
-    "article_first_en": "Section 1",
-    "article_subsequent": "Article {number}",
-    "article_subsequent_en": "Section {number}",
     "insertion_style": "hyphen_or_bis",
-    "insertion_examples": [
-      "Art. 5 bis",
-      "Art. 5 ter",
-      "Art. 5-1",
-      "Art. 5-2"
-    ],
     "note": "Year/number separator is forward slash (/) not hyphen. Numbers are zero-padded to 3 digits. Pre-1990 laws used two-digit years (YY/NNN); expand to YYYY in URIs."
   },
   "enacting_formulae": [
     {
       "text": "L'Assemblée nationale et le Sénat ont délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
-      "text_en": "The National Assembly and the Senate deliberated and adopted, the President of the Republic hereby promulgates the Law set out below:",
       "position": "preamble",
       "era": "bicameral_current",
       "from": "2013-01-01",
@@ -290,7 +267,6 @@
     },
     {
       "text": "L'Assemblée nationale a délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
-      "text_en": "The National Assembly deliberated and adopted, the President of the Republic hereby promulgates the Law set out below:",
       "position": "preamble",
       "era": "unicameral_transitional",
       "from": "1996-01-18",
@@ -316,11 +292,7 @@
   "amendments": {
     "style": "textual_french",
     "phrasing": "modifiant et complétant certaines dispositions de la loi n° {number} du {date}",
-    "repeal_replace": "les dispositions de l'article {N} ... sont modifiées et remplacées ainsi qu'il suit",
-    "insertion": "Il est inséré dans la loi n° ..., un article {N bis} ainsi rédigé",
-    "repeal": "Les dispositions de l'article {N} ... sont abrogées",
-    "cross_reference_format": "loi_number_and_date",
-    "cross_reference_example": "la loi n° 2016/007 du 12 juillet 2016 portant Code Pénal"
+    "cross_reference_format": "loi_number_and_date"
   },
   "core_tlcs": [
     {
@@ -479,9 +451,7 @@
     "heading_case": "upper_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "locale_fra": "fr-CM",
-    "locale_eng": "en-CM"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

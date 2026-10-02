@@ -23,7 +23,6 @@
       "hierarchy": [
         {
           "local_term": "Book",
-          "local_term_ara": "كتاب",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
@@ -32,7 +31,6 @@
         },
         {
           "local_term": "Part",
-          "local_term_ara": "باب",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
@@ -41,7 +39,6 @@
         },
         {
           "local_term": "Chapter",
-          "local_term_ara": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -50,7 +47,6 @@
         },
         {
           "local_term": "Article",
-          "local_term_ara": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -59,7 +55,6 @@
         },
         {
           "local_term": "Clause",
-          "local_term_ara": "بند",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
@@ -68,7 +63,6 @@
         },
         {
           "local_term": "Item",
-          "local_term_ara": "فقرة",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -87,7 +81,6 @@
       "hcontainers": [
         {
           "local_term": "Annex",
-          "local_term_ara": "ملحق",
           "akn_element": "attachment",
           "note": "Wrapped in <attachments><attachment>. Named: 'Annex', 'First Annex', 'Annex (1)'.",
           "name": "annex"
@@ -102,7 +95,6 @@
       "hierarchy": [
         {
           "local_term": "Part",
-          "local_term_ara": "باب",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
@@ -110,7 +102,6 @@
         },
         {
           "local_term": "Chapter",
-          "local_term_ara": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -118,7 +109,6 @@
         },
         {
           "local_term": "Article",
-          "local_term_ara": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -126,7 +116,6 @@
         },
         {
           "local_term": "Clause",
-          "local_term_ara": "بند",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
@@ -134,7 +123,6 @@
         },
         {
           "local_term": "Item",
-          "local_term_ara": "فقرة",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -151,7 +139,6 @@
       "hcontainers": [
         {
           "local_term": "Annex",
-          "local_term_ara": "ملحق",
           "akn_element": "attachment",
           "name": "annex"
         }
@@ -166,7 +153,6 @@
       "hierarchy": [
         {
           "local_term": "Chapter",
-          "local_term_ara": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -175,7 +161,6 @@
         },
         {
           "local_term": "Section",
-          "local_term_ara": "قسم",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
@@ -184,7 +169,6 @@
         },
         {
           "local_term": "Article",
-          "local_term_ara": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -203,7 +187,6 @@
       "hierarchy": [
         {
           "local_term": "Article",
-          "local_term_ara": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -225,13 +208,9 @@
       "constitution": "/akn/bh/act/constitution/2002/constitution"
     },
     "date_calendar": "gregorian",
-    "hijri_alias": true,
     "note": "Laws and Legislative Decrees share the same URI pattern and number sequence per year. Instrument type is recorded as FRBRsubtype in metadata. Hijri year stored as FRBRalias."
   },
   "numbering": {
-    "law_citation": "Law No. ({number}) of {year}",
-    "legislative_decree_citation": "Legislative Decree No. ({number}) of {year}",
-    "royal_decree_citation": "Royal Decree No. ({number}) of {year}",
     "insertion_style": "bis",
     "insertion_note": "Civil law bis/مكرر convention expected. Inserted Article 10 → 'Article 10 bis' / 'المادة 10 مكرر'."
   },
@@ -254,8 +233,7 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "Article (N) of [Law citation] shall be amended to read as follows: / shall be cancelled / The following Article shall be added after Article (N):",
-    "cross_reference_format": "type_number_year_subject",
-    "note": "Wholesale replacement (new law repealing predecessor) is also common for major legislation. Amendment laws cite predecessor by type, number, year, and subject title."
+    "cross_reference_format": "type_number_year_subject"
   },
   "core_tlcs": [
     {
@@ -380,8 +358,7 @@
     "heading_case": "title_case",
     "script": "arabic",
     "rtl": true,
-    "font_preference": "sans_serif",
-    "bilingual_note": "lloc.gov.bh and bahrainbusinesslaws.com publish English translations alongside Arabic originals. Arabic (ara) expression is primary/authoritative; English (eng) expression is a translation."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

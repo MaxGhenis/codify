@@ -256,18 +256,11 @@
     "number_note": "Law numbers are sequential integers assigned at promulgation across the full history of the Republic (not resetting per year). Early 1990s laws have low numbers; current laws are in the thousands."
   },
   "numbering": {
-    "law_citation": "Law of Georgia No. {number} of {date}",
-    "law_citation_alt": "No. {number}",
-    "insertion_style": "superscript",
-    "insertion_eid": "hyphen",
-    "insertion_eid_example": "Article 5¹ → art_5-1; Article 5² → art_5-2. Hyphen chosen over underscore (collides with hierarchy separator __) and 'sup' suffix (verbose). Decision: closed.",
-    "georgian_alpha_normalisation": "ISO 9984 (Georgian National Transliteration). ა→a, ბ→b, გ→g, დ→d, ე→e, ვ→v, ზ→z, თ→t, ი→i, კ→k, ლ→l, მ→m, ნ→n, ო→o, პ→p, ჟ→zh, რ→r, ს→s, ტ→t2, უ→u, ფ→p2, ქ→k2, ღ→gh, ყ→q, შ→sh, ჩ→ch, ც→ts, ძ→dz, წ→ts2, ჭ→ch2, ხ→kh, ჯ→j, ჰ→h. Rationale: (1) ISO 9984 is the official Georgian government standard used in passports and official transliteration; (2) each Mkhedruli letter maps to exactly one ASCII sequence, making eIds fully recoverable; (3) preferred over sequential integers (loses letter identity) and BGN/PCGN (geographic standard, less familiar to legal community). Decision: closed."
+    "insertion_style": "superscript"
   },
   "enacting_formulae": [
     {
       "text": "საქართველოს პარლამენტი ადგენს:",
-      "text_transliteration": "Sakartvelos Parlamenti adgens:",
-      "text_english": "The Parliament of Georgia resolves:",
       "position": "preamble",
       "era": "post-independence",
       "from": "1991-04-09",
@@ -275,15 +268,11 @@
     },
     {
       "text": "საქართველოს პრეზიდენტი ბრძანებს:",
-      "text_transliteration": "Sakartvelos Prezidenti brdzanebs:",
-      "text_english": "The President of Georgia decrees:",
       "position": "preamble",
       "document_class": "decree"
     },
     {
       "text": "საქართველოს მთავრობა ადგენს:",
-      "text_transliteration": "Sakartvelos Mtavrobsa adgens:",
-      "text_english": "The Government of Georgia resolves:",
       "position": "preamble",
       "document_class": "resolution"
     }
@@ -291,7 +280,6 @@
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "მუხლი [N] ჩამოყალიბდეს შემდეგი რედაქციით:",
-    "phrasing_english": "Article [N] shall be worded as follows:",
     "cross_reference_format": "law_title_and_number"
   },
   "core_tlcs": [
@@ -358,7 +346,6 @@
     {
       "body": "eu",
       "status": "candidate",
-      "candidate_since": "2023-12-14",
       "direct_effect": "none",
       "direct_effect_note": "No direct effect. Association Agreement (2014) and DCFTA require legislative harmonisation. Directives must be transposed.",
       "superseded_subjects": [],
@@ -380,8 +367,7 @@
     "heading_case": "title_case",
     "script": "georgian_mkhedruli",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Mkhedruli script requires UTF-8 throughout pipeline. Georgian is left-to-right."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

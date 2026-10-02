@@ -200,15 +200,12 @@
       "constitution": "/akn/bz/act/constitution/1981/constitution",
       "gazette": "/akn/bz/officialGazette/{year}/{number}"
     },
-    "act_number_format": "Act No. {number} of {year}",
-    "cap_number_format": "CAP. {NNN}",
     "date_calendar": "gregorian",
     "notes": "When Act No. NN of YYYY is known, use year+number. When only CAP number is known, use cap{NNN}/cap{NNN} pattern and record CAP as FRBRalias. Decimal CAP numbers (e.g., CAP. 17.05) use the decimal string directly in the URI."
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "CAP. {NNN}",
-    "si_citation": "S.I. No. {number} of {year}",
     "insertion_style": "alphanumeric",
     "insertion_note": "Letter suffix on preceding section number (25A, 60A, 68A, 68B, 68C). No renumbering on consolidation."
   },
@@ -225,8 +222,6 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by inserting immediately after section X the following... / is amended by deleting... and substituting...",
-    "insertion_numbering": "alphanumeric_suffix",
-    "multiple_amendment_acts": "distinguished by (No. 2), (No. 3) etc. in short title; each has its own Act number",
     "cross_reference_format": "short_title_and_cap_or_act_number"
   },
   "core_tlcs": [

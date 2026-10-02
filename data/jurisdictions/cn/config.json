@@ -164,15 +164,7 @@
   "numbering": {
     "insertion_style": "zhiyi_numeric"
   },
-  "enacting_formulae": [
-    {
-      "text": "(Adopted at the [Ordinal] Session of the [Ordinal] National People's Congress on [Date])",
-      "position": "preface",
-      "era": "npc",
-      "from": "1954-09-20",
-      "document_class": "act"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_decision",
     "phrasing": "Article [N] is amended to read...",

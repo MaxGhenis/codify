@@ -455,8 +455,6 @@
   "numbering": {
     "act_citation": "Pub.L. {congress}-{number}",
     "act_citation_alt": "{volume} Stat. {page}",
-    "usc_citation": "{title} U.S.C. § {section}",
-    "cfr_citation": "{title} C.F.R. § {section}",
     "insertion_style": "alphanumeric",
     "note": "USC insertion sections use lower-alpha suffix: § 1234a, § 1234b. eIds: sec_1234a, sec_1234b."
   },
@@ -464,15 +462,13 @@
     {
       "text": "Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled,",
       "position": "preamble",
-      "statutory_basis": "1 U.S.C. § 101",
       "document_class": "public_law"
     }
   ],
   "amendments": {
     "style": "textual_us",
     "phrasing": "is amended by striking... and inserting... / by adding at the end the following",
-    "cross_reference_format": "short_title_and_usc",
-    "note": "Cross-references include USC citation in parentheses: e.g. 'the Clean Air Act (42 U.S.C. 7401 et seq.)'. Redesignation (renumbering of subsections/paragraphs) is extremely common and requires wId tracking."
+    "cross_reference_format": "short_title_and_usc"
   },
   "core_tlcs": [
     {
@@ -552,20 +548,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "section_symbol": true,
-    "note": "US legislation typically uses inline section headings (bold, within the section body) rather than marginal notes. The § symbol is used widely in citations and within statutory text."
-  },
-  "uslm": {
-    "schema_relation": "derivative",
-    "transformation_path": "uslm_to_akn_xslt",
-    "element_mapping": {
-      "uslm:enum": "akn:num",
-      "uslm:chapeau": "akn:intro",
-      "uslm:content": "akn:content",
-      "uslm:continuation": "akn:wrapUp"
-    },
-    "note": "USLM (United States Legislative Markup) is the Office of Law Revision Counsel's AKN-derived schema, used at uscode.house.gov and congress.gov. Direct XSLT transformation to AKN is feasible and preferred over OCR/LLM for USC digitisation. See https://uscode.house.gov/about_uslm.xhtml"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

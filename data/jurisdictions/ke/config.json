@@ -205,13 +205,11 @@
       "constitution": "/akn/ke/act/2010/constitution",
       "eac_instrument": "/akn/aa-eac/act/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "county_codes": "ke-001 (Mombasa) through ke-047 — see AKN4Africa Recommendation for full mapping"
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "legal_notice_citation": "Legal Notice No. {number} of {year}",
     "insertion_style": "alphanumeric",
     "note": "Dual numbering system: Act No./year for post-independence legislation; Cap. number for consolidated revised edition. Both appear in cross-references."
   },
@@ -227,9 +225,7 @@
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended — (a) by deleting ... and substituting therefor ...",
-    "cross_reference_format": "short_title_and_act_number",
-    "omnibus_style": "schedule_table",
-    "omnibus_note": "Statute Law (Miscellaneous Amendments) Acts use a Schedule table format (principal act / provision / amendment) rather than conventional body sections."
+    "cross_reference_format": "short_title_and_act_number"
   },
   "core_tlcs": [
     {
@@ -293,7 +289,6 @@
   "supranational_memberships": [
     {
       "body": "eac",
-      "frbr_prefix": "aa-eac",
       "direct_effect": "none",
       "note": "EAC instruments lack direct applicability in Kenya. Must be transposed into domestic law. Kenya Law publishes EAC legislation separately.",
       "superseded_subjects": []
@@ -326,9 +321,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "part_separator": "em_dash",
-    "part_example": "PART I—PRELIMINARY"
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

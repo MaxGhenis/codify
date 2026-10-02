@@ -59,12 +59,10 @@
       "hcontainers": [
         {
           "name": "bolim",
-          "use_when": "bo'lim cannot be cleanly mapped to title due to structural conflict",
           "local_term": "Bolim"
         },
         {
           "name": "proviso",
-          "use_when": "shartlar (conditions/provisos) attached to an article",
           "local_term": "Proviso"
         }
       ]
@@ -133,7 +131,6 @@
       "hcontainers": [
         {
           "name": "paragraph",
-          "use_when": "decree uses numbered paragraph (band) structure without article headings",
           "local_term": "Paragraph"
         }
       ],
@@ -190,26 +187,14 @@
   },
   "numbering": {
     "act_citation": "O'RQ-{number}-son, {dd}.{mm}.{yyyy}",
-    "act_citation_russian": "ZRU-{number}",
     "insertion_style": "dash_suffix",
     "insertion_example": "48-1, 48-2 (Article 48-1 inserted after Article 48)"
   },
-  "enacting_formulae": [
-    {
-      "text": "O'zbekiston Respublikasi Qonuni",
-      "position": "preface",
-      "language": "uzb",
-      "note": "Appears as document type label in the identification block, not as a body enacting formula. The legislative process is recorded in metadata (adopted by Legislative Chamber on [date], approved by Senate on [date], signed by President on [date]).",
-      "document_class": "qonun"
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "[Act citation]ning [N]-moddasiga quyidagi o'zgartishlar kiritilsin: [N]-moddaning [N]-qismi quyidagi tahrirda bayon etilsin: [new text]",
-    "phrasing_english": "The following amendments shall be made to Article [N] of [Act citation]: Part [N] of Article [N] shall be stated in the following wording: [new text]",
-    "cross_reference_format": "short_title_plus_ORQ_number_and_date",
-    "omnibus_style": true,
-    "omnibus_note": "Uzbekistan frequently uses omnibus amendment laws modifying 10-30 acts simultaneously. Each amended act section uses <mod>/<quotedStructure> within a single parent <act> document."
+    "cross_reference_format": "short_title_plus_ORQ_number_and_date"
   },
   "core_tlcs": [
     {
@@ -296,8 +281,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "script_note": "Primary display in Latin-script Uzbek. Russian translation shown as secondary. Cyrillic Uzbek treated as alternate manifestation during transition period."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

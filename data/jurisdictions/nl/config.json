@@ -244,8 +244,6 @@
       "rijkswet": "/akn/nl/act/rijkswet/{year}/{number}",
       "constitution": "/akn/nl/act/constitution/1815/grondwet"
     },
-    "number_source": "staatsblad_sequential",
-    "number_source_note": "Acts: Staatsblad sequential number within calendar year (e.g., Stb. 2024, 45 → year=2024, number=45). Ministerial regulations: Staatscourant sequential number.",
     "date_calendar": "gregorian"
   },
   "numbering": {
@@ -253,8 +251,7 @@
     "act_citation_alt": "{citeertitel}",
     "insertion_style": "alphanumeric",
     "insertion_example": "artikel 5a, 5b inserted between artikel 5 and artikel 6",
-    "article_numbering": "arabic_continuous",
-    "code_article_prefix": "book-prefixed in Civil Code only (e.g., art. 3:84 BW)"
+    "article_numbering": "arabic_continuous"
   },
   "enacting_formulae": [
     {
@@ -273,20 +270,9 @@
       "document_class": "act"
     }
   ],
-  "closing_formula": {
-    "text": "Gegeven te [place], [date]. [MONARCH]. De Minister van [portfolio], [Name].",
-    "position": "conclusions",
-    "note": "Signed by monarch and countersigned by responsible minister(s). Maps to AKN conclusions/formula[@name='closingFormula']."
-  },
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_substitution": "wordt vervangen door",
-    "phrasing_deletion": "vervalt",
-    "phrasing_modification": "wordt als volgt gewijzigd",
-    "phrasing_insertion": "wordt ingevoegd, luidende",
-    "phrasing_addition": "wordt toegevoegd, luidende",
-    "cross_reference_format": "citeertitel",
-    "cross_reference_note": "Acts are referenced by citeertitel (short title) in amendment text. Stb. reference used when no citeertitel exists."
+    "cross_reference_format": "citeertitel"
   },
   "core_tlcs": [
     {
@@ -351,7 +337,6 @@
     {
       "body": "eu",
       "member_since": "1957-01-01",
-      "founding_member": true,
       "direct_effect": "direct",
       "direct_effect_note": "EU Regulations directly applicable. Directives require transposition. Netherlands has monist constitutional approach — Article 94 Grondwet gives directly effective treaty provisions supremacy over conflicting domestic law.",
       "superseded_subjects": [
@@ -363,13 +348,10 @@
         "financial_services",
         "consumer_protection",
         "free_movement"
-      ],
-      "akn_profile": "AKN4EU",
-      "eu_instruments_uri_space": "/akn/eu/"
+      ]
     },
     {
       "body": "council-of-europe",
-      "founding_member": true,
       "direct_effect": "indirect_transposition",
       "direct_effect_note": "ECHR has direct effect via Article 94 Grondwet. Dutch courts must set aside domestic law inconsistent with directly effective ECHR provisions.",
       "superseded_subjects": [
@@ -394,44 +376,12 @@
       "direct_effect": "none"
     }
   ],
-  "kingdom_structure": {
-    "note": "The Netherlands is one of four constituent countries of the Kingdom of the Netherlands. The others (Aruba, Curaçao, Sint Maarten) have separate legal systems and require separate jurisdiction profiles.",
-    "constituent_countries": [
-      {
-        "name": "Netherlands",
-        "iso": "nl",
-        "akn_code": "nl",
-        "profile": "this"
-      },
-      {
-        "name": "Aruba",
-        "iso": "aw",
-        "akn_code": "aw",
-        "profile": "pending"
-      },
-      {
-        "name": "Curaçao",
-        "iso": "cw",
-        "akn_code": "cw",
-        "profile": "pending"
-      },
-      {
-        "name": "Sint Maarten",
-        "iso": "sx",
-        "akn_code": "sx",
-        "profile": "pending"
-      }
-    ],
-    "kingdom_acts_uri_convention": "/akn/nl/act/rijkswet/{year}/{number}",
-    "kingdom_acts_convention_status": "UNRESOLVED — provisional, see profile ambiguities"
-  },
   "display": {
     "heading_type": "section_heading",
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Dutch legislative headings use sentence case. Section/article headings are inline in the act text, not marginal notes."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

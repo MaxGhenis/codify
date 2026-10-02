@@ -299,14 +299,7 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation": "Legea nr. {number}/{year}",
-    "act_citation_oug": "Ordonanța de urgență nr. {number}/{year}",
-    "act_citation_hg": "Hotărârea Guvernului nr. {number}/{year}",
-    "article_insertion_style": "superscript",
-    "article_insertion_example": "Art. 7^1",
-    "article_eid_insertion": "art_7-1",
-    "section_ordinal_style": "romanian_ordinal",
-    "section_ordinal_note": "Secțiunea 1, Secțiunea a 2-a, Secțiunea a 3-a (ordinal from 2nd onwards)"
+    "act_citation": "Legea nr. {number}/{year}"
   },
   "enacting_formulae": [
     {
@@ -330,12 +323,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_modification": "se modifică și va avea următorul cuprins:",
-    "phrasing_insertion": "se introduce un nou articol, articolul X, cu următorul cuprins:",
-    "phrasing_repeal": "se abrogă.",
-    "cross_reference_format": "type_number_year_title",
-    "cross_reference_example": "Legea nr. 287/2009 privind Codul civil",
-    "quoted_text_intro": "va avea următorul cuprins:"
+    "cross_reference_format": "type_number_year_title"
   },
   "core_tlcs": [
     {
@@ -437,15 +425,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "diacritics": [
-      "ă",
-      "â",
-      "î",
-      "ș",
-      "ț"
-    ],
-    "diacritics_note": "Romanian uses ș (s-comma) and ț (t-comma), NOT ş (s-cedilla) and ţ (t-cedilla). The cedilla variants are legacy encoding errors. Ensure correct Unicode: U+0219 (ș), U+021B (ț)."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",
