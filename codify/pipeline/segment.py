@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 from bisect import bisect_right
-from collections import Counter, deque
+from collections import deque
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from functools import lru_cache
@@ -281,8 +281,6 @@ def _contents(
     body = [m for m in markers if m.offset not in as_entries]
     # A quoted act line is cited text, never an entry.
     live = [h for h in headings if not _quoted(text, h.start, country)]
-    # An act named once in the whole text cannot be a listed act with a body.
-    named = Counter(h.key for h in live)
     for found in _live(keyword.finditer(text), text, country):
         if _within(found.start(), blocks):
             continue
@@ -300,7 +298,7 @@ def _contents(
                 nested = next((o for o in listed if o > current.match_end), stop)
                 page = _reference(text, current.match_end, min(stop, nested), pages, country)
                 near = stop - current.match_end <= _ENTRY_MAX_CHARS
-                wrapped = heading is not None and named[heading.key] == 1
+                wrapped = heading is not None and _continues(text, heading)
                 if (
                     page is None
                     and wrapped
@@ -332,6 +330,18 @@ def _contents(
         if keys or any(found.end() <= o < end for o in listed):
             blocks.append((found.start(), end))
     return blocks, entries
+
+
+# A line ending so is unfinished: the next line continues the same entry.
+_CONTINUES_RE = re.compile(r"(?:\b(?:and|or|of|to)|,)[ \t]*$", re.IGNORECASE)
+
+
+def _continues(text: str, heading: _Heading) -> bool:
+    """A heading line inside an entry is a wrapped citation, not the next entry,
+    only where it or the line before it ends on a connective."""
+    before = text[text.rfind("\n", 0, max(0, heading.start - 1)) + 1 : max(0, heading.start - 1)]
+    line = text[heading.start : heading.end]
+    return any(_CONTINUES_RE.search(part) for part in (line, before))
 
 
 def _leads_to_page(text: str, at: int, pages: _Pages, country: str) -> bool:

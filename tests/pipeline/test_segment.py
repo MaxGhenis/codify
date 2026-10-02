@@ -1429,3 +1429,23 @@ def test_the_heading_with_its_own_evidence_stands_for_its_issue(
         ("12", "ISSUE No. 12", 3),
     ]
     assert found[1].signals == ("restart", "closing")
+
+
+def test_an_unplaced_entry_does_not_take_a_page_without_a_connective(
+    config: JurisdictionConfig,
+) -> None:
+    """Act 3 is listed with no page and act 4's body heading is lost: act 4's page
+    stays act 4's, so act 3's heading there disagrees with the listing."""
+    pages = _three_act_issue()
+    pages[0].remove("of the Assembly ............ 2")
+    pages[1] = [line.replace("ACT No. 4", "ACT N0. 4") for line in pages[1]]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    rows = sorted((r.source, r.key, r.status) for r in result.reconciliation)
+    assert rows == [
+        ("contents", "act 4", "label_mismatch"),
+        ("contents", "act 5", "matched"),
+        ("heading", "act 3", "label_mismatch"),
+        ("heading", "act 5", "matched"),
+    ]
+    assert result.outcome == "abstained"
