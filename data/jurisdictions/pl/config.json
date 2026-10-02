@@ -22,8 +22,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_pl",
-          "note": "Used only in major codes (Civil Code, Criminal Code, etc.)"
+          "numbering": "ordinal_pl"
         },
         {
           "local_term": "Tytuł",
@@ -37,8 +36,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "No dedicated AKN element for dział; mapped to part"
+          "numbering": "roman"
         },
         {
           "local_term": "Rozdział",
@@ -52,16 +50,14 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Continuous across entire act, never restarts within higher divisions"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Ustęp",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_period",
-          "note": "Numbered with period: 1. 2. 3. — mapped to paragraph in AKN"
+          "numbering": "arabic_period"
         },
         {
           "local_term": "Punkt",
@@ -75,24 +71,21 @@
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower_rparen",
-          "note": "Excludes Polish-specific letters; see ambiguity 3 in profile"
+          "numbering": "alpha_lower_rparen"
         },
         {
           "local_term": "Tiret",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "none",
-          "note": "Unnumbered dash (–) enumeration"
+          "numbering": "none"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Oddział",
           "name": "oddział",
-          "level": "higher",
-          "note": "Sub-chapter grouping below Rozdział, above Artykuł; see ambiguity 2 in profile"
+          "level": "higher"
         }
       ]
     },
@@ -138,8 +131,7 @@
           "numbering": "alpha_lower_rparen"
         }
       ],
-      "hcontainers": [],
-      "note": "Rozporządzenia (regulations) issued by President, Council of Ministers, Prime Minister, and ministers. Same internal structure as ustawy. Published in Dz.U."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Konstytucja Rzeczypospolitej Polskiej",
@@ -176,8 +168,7 @@
           "numbering": "arabic_rparen"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Rozdział (Roman-numbered) as sole higher division. 13 Rozdziały, 243 Artykuły. No Księga/Tytuł/Dział."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -186,14 +177,7 @@
     "uri_patterns": {
       "constitution": "/akn/pl/act/constitution/1997/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": [
-      "Post-2012: year + sequential poz only (e.g., Dz.U. 2023 poz. 641 → /akn/pl/act/2023/641).",
-      "Pre-2012: year + Nr + poz format (e.g., Dz.U. 1964 Nr 16 poz. 93). URI uses sequential poz if available from ISAP, else Nr-poz as fallback.",
-      "Consolidated texts (tekst jednolity): canonical URI is the original enactment year/poz. Consolidation position stored as FRBRalias.",
-      "Bills: use Sejm druk sejmowy (printed matter number) before enactment. Update URI when poz assigned.",
-      "Monitor Polski instruments published under /akn/pl/act/mp/{year}/{poz}."
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "ustawa z dnia {date} r. {title} (Dz.U. {year} poz. {poz})",

@@ -32,8 +32,7 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_continuous",
-          "note": "Used in complex acts (e.g., Companies Act) to subdivide Parts. Apply name='division' in post-processing."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Section",
@@ -68,7 +67,6 @@
         {
           "name": "division",
           "bluebell_keyword": "DIVISION",
-          "note": "Sub-Part division used in complex statutes",
           "local_term": "Division"
         }
       ]
@@ -108,8 +106,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Legal Notices use 'regulation' or 'rule' as the basic unit term but map to AKN section. The local term is a display concern. Numbered as 'Legal Notice No. N of YYYY'."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Kenya",
@@ -160,8 +157,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapter > (Part) > Article hierarchy. Articles numbered continuously 1-264 across all Chapters. Requires a separate Bluebell structuring prompt variant."
+      "hcontainers": []
     },
     "bill": {
       "label": "Bill",
@@ -191,8 +187,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Bills use 'clause' as the basic unit term (becomes 'section' after enactment), but structurally identical to Acts. Map to SECTION in Bluebell."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -210,8 +205,7 @@
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "insertion_style": "alphanumeric",
-    "note": "Dual numbering system: Act No./year for post-independence legislation; Cap. number for consolidated revised edition. Both appear in cross-references."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

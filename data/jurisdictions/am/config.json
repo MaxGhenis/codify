@@ -22,16 +22,14 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic",
-          "note": "Codes only (Civil Code has 5 divisions). Not used in ordinary acts."
+          "numbering": "arabic"
         },
         {
           "local_term": "Part",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic",
-          "note": "Higher grouping in codes (Labour Code has 3 parts). Not used in simple acts."
+          "numbering": "arabic"
         },
         {
           "local_term": "Chapter (Գլուխ)",
@@ -72,8 +70,7 @@
       "hcontainers": [
         {
           "name": "transitionalProvisions",
-          "local_term": "Transitional and Final Provisions (Անցումային դրույթ)",
-          "note": "Final chapter of acts; may use hcontainer if not matching chapter pattern"
+          "local_term": "Transitional and Final Provisions (Անցումային դրույթ)"
         }
       ]
     },
@@ -112,8 +109,7 @@
           "numbering": "arabic_or_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Requires 3/5 supermajority in National Assembly. Same structural pattern as ordinary laws."
+      "hcontainers": []
     },
     "decision": {
       "label": "Government Decision",
@@ -143,8 +139,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Subsidiary legislation enacted by Government (Կառавartарության Voroshum). Citation format: N {number}-N."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of the Republic of Armenia",
@@ -167,8 +162,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "9 chapters, 117 articles. Adopted 5 July 1995, amended 2005 and 2015."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

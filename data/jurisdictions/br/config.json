@@ -147,8 +147,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Complementary laws require absolute majority in both chambers"
+      "hcontainers": []
     },
     "mp": {
       "label": "Medida Provisoria",
@@ -185,8 +184,7 @@
           "numbering": "roman_upper"
         }
       ],
-      "hcontainers": [],
-      "note": "Provisional measures with force of law, expire after 120 days if not converted"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constituicao Federal",

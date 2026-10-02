@@ -33,24 +33,21 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "ordinal_english",
-          "note": "Higher division grouping articles — NOT the basic unit. Present only in larger laws."
+          "numbering": "ordinal_english"
         },
         {
           "local_term": "Subsection",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "ordinal_english",
-          "note": "Higher division L3. Used in major codes only."
+          "numbering": "ordinal_english"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "First article uses ordinal label 'One/premier/mbere'; subsequent use Arabic numerals."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Paragraph",
@@ -67,8 +64,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Civil law article-based hierarchy. CHAPTER is highest division; ARTICLE is basic unit. Do not confuse SECTION (higher division) with Anglophone section (basic unit)."
+      "hcontainers": []
     },
     "ol": {
       "label": "Organic Law",
@@ -106,8 +102,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic Laws require two-thirds majority in each chamber. Citation includes .OL suffix (e.g., N° 002/2021.OL). Structure identical to ordinary laws. Store .OL citation as FRBRalias."
+      "hcontainers": []
     },
     "po": {
       "label": "Presidential Order",
@@ -172,8 +167,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial Orders are typically short; Chapter divisions rare."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -224,8 +218,7 @@
   },
   "numbering": {
     "act_citation": "Law N° {number}/{year} of {date}",
-    "insertion_style": "bis_ter",
-    "insertion_note": "Francophone bis/ter convention: Article 5 bis, Article 12 ter. eIds: art_5bis, art_12ter."
+    "insertion_style": "bis_ter"
   },
   "amendments": {
     "style": "textual_civil_law",

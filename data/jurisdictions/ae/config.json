@@ -13,7 +13,6 @@
     "eng"
   ],
   "authoritative_language": "ara",
-  "note": "Three distinct legal sub-systems require separate hierarchy profiles: (1) federal/emirate civil law — article-based; (2) DIFC (Dubai) — English common law, section-based; (3) ADGM (Abu Dhabi) — English common law, section-based. This config covers the federal/emirate tradition. DIFC and ADGM use document_class overrides.",
   "document_classes": {
     "federal_law": {
       "label": "Federal Law",
@@ -26,16 +25,14 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_words",
-          "note": "Codes only (e.g., Civil Code has 5 Books). Most laws do not use Book."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Part",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_words",
-          "note": "Primary higher division in most federal laws. English translations use 'Part', 'Title', or 'Chapter' for باب."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Chapter",
@@ -49,39 +46,34 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Basic citable unit throughout all UAE federal legislation. Continuous numbering regardless of chapter boundaries."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Clause",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized",
-          "note": "First subdivision of an article. Cited as 'Clause (1) of Article 5' or 'Article 5(1)'."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Sub-clause",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized",
-          "note": "Second subdivision. Some laws use uppercase (A), (B) instead of (a), (b)."
+          "numbering": "alpha_lower_parenthesized"
         },
         {
           "local_term": "Item",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "arabic_closing_paren",
-          "note": "Third subdivision. Rare. Format: 1), 2), 3)."
+          "numbering": "arabic_closing_paren"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Annex",
           "akn_element": "attachment",
-          "note": "Federal annexes. Wrapped in <attachments><attachment>.",
           "name": "annex"
         }
       ]
@@ -135,8 +127,7 @@
           "numbering": "arabic_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Most current UAE primary legislation since ~2020 is issued as Federal Decree-Laws. Structurally identical to Federal Laws. FRBRsubtype: 'decree-law'."
+      "hcontainers": []
     },
     "cabinet_resolution": {
       "label": "Cabinet Resolution",
@@ -173,8 +164,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive regulations implementing federal laws. Issued by the Cabinet. FRBRsubtype: 'cabinet-resolution'."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -187,8 +177,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_words",
-          "note": "Constitution has 10 Parts (باب)."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Chapter",
@@ -202,8 +191,7 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "152 articles, continuous."
+          "numbering": "arabic_continuous"
         }
       ],
       "hcontainers": []
@@ -226,8 +214,7 @@
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous",
-          "note": "Confirmed in DIFC Digital Assets Law No. 2/2024 and Law of Security No. 4/2024."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Subsection",
@@ -244,8 +231,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "DIFC uses English common law. Enacted by the Ruler of Dubai. Uses section as basic unit, not article. FRBR locality: ae-difc."
+      "hcontainers": []
     },
     "adgm_act": {
       "label": "ADGM Act / Regulation",
@@ -265,8 +251,7 @@
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous",
-          "note": "Confirmed: ADGM Interpretation Regulations s.12(1)."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Subsection",
@@ -283,8 +268,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "ADGM (Abu Dhabi Global Market) uses English common law. Has directly adopted ~50 English law statutes. FRBR locality: ae-adgm."
+      "hcontainers": []
     }
   },
   "default_document_class": "federal_decree_law",
@@ -299,12 +283,10 @@
       "constitution": "/akn/ae/act/constitution/1971/constitution",
       "difc_law": "/akn/ae-difc/act/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "Federal Law and Federal Decree-Law share the same URI pattern. Instrument type (federal-law vs decree-law) is recorded as FRBRsubtype in metadata."
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation": "Federal Law No. ({number}) of {year}",
-    "insertion_note": "Egyptian civil law tradition uses 'mukrar' (مكرر) for inserted articles (Article 5 مكرر = Article 5 bis). UAE may follow this convention."
+    "act_citation": "Federal Law No. ({number}) of {year}"
   },
   "amendments": {
     "style": "textual_civil_law",

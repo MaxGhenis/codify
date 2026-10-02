@@ -46,8 +46,7 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Higher division above articles — NOT the basic unit (French civil law convention)"
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
@@ -62,8 +61,7 @@
           "eid_abbrev": "al",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized",
-          "note": "Used when alinéas are explicitly numbered. Unnumbered alinéas use <alinea> element (no Bluebell keyword — requires post-processing)."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Paragraphe",
@@ -76,7 +74,6 @@
       "hcontainers": [
         {
           "name": "proviso",
-          "note": "Reservations within articles — use <hcontainer name='proviso'>",
           "local_term": "Proviso"
         }
       ]
@@ -147,8 +144,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Standalone dahirs (no accompanying loi). Dahirs that promulgate a loi are modelled under the loi document class, with the dahir preamble as <preamble>."
+      "hcontainers": []
     },
     "decret": {
       "label": "Décret",
@@ -178,8 +174,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive decrees (Décrets) issued by the Chef du Gouvernement. Numbered 2-YY-NNN."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -202,8 +197,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution du Maroc 2011. Titles group articles directly."
+      "hcontainers": []
     }
   },
   "default_document_class": "loi",
@@ -212,19 +206,10 @@
     "uri_patterns": {
       "constitution": "/akn/ma/act/constitution/2011/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": [
-      "Law number segment is the YY-NNN portion of the official Loi n° YY-NNN identifier (hyphens retained).",
-      "Dahir number segment drops the leading '1-' category prefix (e.g., Dahir n° 1-11-91 → URI segment '11-91').",
-      "Decree number segment drops the leading '2-' category prefix.",
-      "Hijri date stored as <FRBRalias showAs='hijriDate'> in document metadata.",
-      "Bilingual documents: Arabic expression /ara@{date}, French expression /fra@{date}. Both are authoritative originals; Arabic is constitutionally prevailing.",
-      "Inserted articles: bis/ter/quater suffix convention (e.g., art_4bis, art_4ter) or hyphenated decimal (art_4-1)."
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "bis_ter",
-    "note": "Two-digit year in law numbers refers to legislative session year, not calendar year of promulgation. Disambiguation: if number portion >99, it is the sequential number not the year."
+    "insertion_style": "bis_ter"
   },
   "amendments": {
     "style": "textual_civil_law",

@@ -26,56 +26,49 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman_or_arabic",
-          "note": "Highest structural division in large codes. DEO PRVI or I DEO — ordinal or Roman normalised to Arabic for eId (part_1, part_2). Uncommon except in large codes."
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Glava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_arabic",
-          "note": "Main structural division. GLAVA I, GLAVA II — Roman numerals normalised to Arabic (chp_1, chp_2). Most common higher division in primary legislation."
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Odjeljak",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic",
-          "note": "Mid-level division below Glava. Higher division only — NOT the basic unit. Odjeljak 1, Odjeljak 2. Montenegrin uses Ijekavian form 'Odjeljak', NOT the Serbian Ekavian 'Odsek'. The Montenegrin Constitution (2007) and post-independence legislation consistently use Ijekavian throughout."
+          "numbering": "arabic"
         },
         {
           "local_term": "Član",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "BASIC UNIT. Continuous Arabic numbering throughout entire act regardless of higher divisions. Written 'Član 1', 'Član 5'. Never resets per chapter or part. Cited as 'član X ovog zakona'."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Stav",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "(1), (2), (3). Numbered when two or more stavovi exist in an article. Single-stav articles typically have no (1) marker."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Tačka",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
-          "note": "1), 2), 3) or a), b), c) — lettered or numbered items within a stav. At least two required in practice."
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         },
         {
           "local_term": "Alineja",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "unnumbered",
-          "note": "Unnumbered sub-point within a tačka. Marked by dash or indent. Maps to AKN alinea. Less common in modern legislation."
+          "numbering": "unnumbered"
         }
       ],
       "hcontainers": [
@@ -86,8 +79,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Primary legislation enacted by Skupština Crne Gore. Article numbering continuous throughout act."
+      ]
     },
     "uredba": {
       "label": "Uredba (Government Decree/Ordinance)",
@@ -124,8 +116,7 @@
           "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Enacted by Vlada Crne Gore under delegating authority of primary legislation."
+      "hcontainers": []
     },
     "pravilnik": {
       "label": "Pravilnik (Regulation/Rulebook)",
@@ -138,8 +129,7 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic",
-          "note": "Less common in pravilnici; many are short and chapter-free."
+          "numbering": "arabic"
         },
         {
           "local_term": "Član",
@@ -163,8 +153,7 @@
           "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial rulebooks. Simpler structure, often chapter-free."
+      "hcontainers": []
     },
     "odluka": {
       "label": "Odluka (Decision)",
@@ -187,8 +176,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Decisions issued by Skupština, Vlada, or Predsjednik. Typically short, no higher divisions."
+      "hcontainers": []
     },
     "naredba": {
       "label": "Naredba (Order)",
@@ -211,8 +199,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive orders. Typically very short, issued by ministers or government."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Ustav Crne Gore (Constitution of Montenegro)",
@@ -225,16 +212,14 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Constitutional divisions. 2007 Constitution uses uppercase Roman headings: I. OSNOVNE ODREDBE, II. PRAVA I SLOBODE etc. Normalise to Arabic for eId."
+          "numbering": "roman"
         },
         {
           "local_term": "Član",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "2007 Constitution has 158 articles numbered continuously."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Stav",
@@ -244,8 +229,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of Montenegro, adopted 19 October 2007 at independence of state from union with Serbia. Codifies Montenegrin as the official language; recognises Cyrillic and Latin as co-official scripts."
+      "hcontainers": []
     }
   },
   "default_document_class": "zakon",
@@ -254,8 +238,7 @@
     "uri_patterns": {
       "constitution": "/akn/me/act/constitution/2007/ustav"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "item-number is the Službeni list item number within the gazette issue. Gazette citation format: Sl. list CG, br. {issue}/{year}. Work URI always uses initial enactment year; amendments create new expressions. When item-number unknown, use slugified short title as fallback (slug variant)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Sl. list CG, br. {issue}/{year-short}",
@@ -325,40 +308,35 @@
         "pattern": "^Zakon\\s+o\\s+",
         "pattern_flags": "i",
         "target_document_class": "zakon",
-        "priority": 60,
-        "note": "Primary legislation (Zakon) identifiable from title."
+        "priority": 60
       },
       {
         "signal": "title_regex",
         "pattern": "^Uredba\\s+o\\s+",
         "pattern_flags": "i",
         "target_document_class": "uredba",
-        "priority": 70,
-        "note": "Government decrees (Uredba) identifiable from title."
+        "priority": 70
       },
       {
         "signal": "title_regex",
         "pattern": "^Pravilnik\\s+o\\s+",
         "pattern_flags": "i",
         "target_document_class": "pravilnik",
-        "priority": 70,
-        "note": "Ministerial rulebooks (Pravilnik) identifiable from title."
+        "priority": 70
       },
       {
         "signal": "title_regex",
         "pattern": "^Odluka\\s+o\\s+",
         "pattern_flags": "i",
         "target_document_class": "odluka",
-        "priority": 70,
-        "note": "Decisions (Odluka) identifiable from title."
+        "priority": 70
       },
       {
         "signal": "title_regex",
         "pattern": "Ustav\\s+Crne\\s+Gore",
         "pattern_flags": "i",
         "target_document_class": "constitution",
-        "priority": 100,
-        "note": "Montenegrin Constitution uniquely identified by title."
+        "priority": 100
       }
     ]
   },

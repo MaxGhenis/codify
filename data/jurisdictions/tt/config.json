@@ -57,8 +57,7 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_upper_parenthesized",
-          "note": "Uppercase letters (A), (B) — observed in Schedule amendments in Finance Act 2019. Uncommon in act bodies."
+          "numbering": "alpha_upper_parenthesized"
         }
       ],
       "hcontainers": [
@@ -114,8 +113,7 @@
           "position": "between_part_and_section",
           "numbering": "arabic"
         }
-      ],
-      "note": "SIs (Legal Notices, cited as L.N. NN/YYYY) use 'regulation' as the local basic unit term but map to AKN section. REGULATION is not a valid Bluebell keyword. Divisions within Parts are common in complex SIs."
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -128,16 +126,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic",
-          "note": "Constitution uses Arabic numerals: CHAPTER 1, CHAPTER 2 (not Roman). Numbered 1–9."
+          "numbering": "arabic"
         },
         {
           "local_term": "Part",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Parts appear inside Chapters. Roman numeral: PART I, PART II."
+          "numbering": "roman"
         },
         {
           "local_term": "Section",
@@ -161,8 +157,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution (Chap. 1:01, Act 4 of 1976) uses a three-level hierarchy above section: CHAPTER (Arabic) > PART (Roman within Chapter) > SECTION. A PRELIMINARY section (ss. 1–3) precedes the first Chapter. This three-level nesting is unique to the Constitution — ordinary legislation uses only PART > SECTION."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -174,8 +169,7 @@
       "bill": "/akn/tt/bill/{year}/{number}",
       "constitution": "/akn/tt/act/constitution/1976/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "When only a Chapter number (Chap. NN:NN) is known, use 'chap{NN}-{NN}' as both year and number segments (e.g., Chap. 16:01 → chap16-01). Record Chapter number as FRBRalias. Update URI when original act number and year are recovered from laws.gov.tt amendment history. Act numbers appear on gazette PDF title pages as 'Act No. N of YYYY' and are reliably machine-readable."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",

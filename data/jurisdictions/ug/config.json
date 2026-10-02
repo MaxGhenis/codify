@@ -91,8 +91,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' as basic unit term but map to AKN section; REGULATION is not a Bluebell keyword"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -129,8 +128,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapters (19 total), not Parts"
+      "hcontainers": []
     },
     "ordinance": {
       "label": "Colonial-era Ordinance",
@@ -168,8 +166,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Pre-independence ordinances enacted under British Protectorate; FRBR subtype 'ord'"
+      "hcontainers": []
     },
     "statute": {
       "label": "Statute (early post-independence)",
@@ -207,8 +204,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "ULII uses 'statute' subtype for certain early post-independence and major statutes; follow ULII assignment"
+      "hcontainers": []
     },
     "decree": {
       "label": "Decree (military-era)",
@@ -232,8 +228,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Military-era decrees (1971-1986); no parliamentary enacting formula; FRBR subtype 'decree'"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -248,8 +243,7 @@
       "bill": "/akn/ug/bill/{year}/{number}",
       "constitution": "/akn/ug/act/statute/1995/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "Post-independence numbered acts use plain 'act' type. ULII assigns 'statute' subtype to some early post-independence and major acts — follow ULII's existing subtype where the act is already in their corpus. Cap numbers (6th and 7th Edition) stored as FRBRalias, not in the URI."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act {number} of {year}",

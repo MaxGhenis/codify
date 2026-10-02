@@ -24,60 +24,52 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman_or_ordinal_arabic",
-          "note": "Major codes only (Penal Code, Code of Obligations and Contracts). Rare in standalone laws."
+          "numbering": "roman_or_ordinal_arabic"
         },
         {
           "local_term": "باب (Bab) / Titre",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_ordinal_arabic",
-          "note": "Primary structural grouping. Maps to AKN title (not chapter). باب الأول, Titre I."
+          "numbering": "roman_or_ordinal_arabic"
         },
         {
           "local_term": "فصل (Fasl) / Chapitre",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_ordinal_arabic",
-          "note": "Sub-grouping below Bab/Titre. الفصل الأول, Chapitre I."
+          "numbering": "roman_or_ordinal_arabic"
         },
         {
           "local_term": "قسم (Qism) / Section",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic",
-          "note": "Section as HIGHER division above articles. Bluebell workaround: DIVISION keyword; post-process <division> → <section>. قسم is a higher division, not the basic unit."
+          "numbering": "arabic"
         },
         {
           "local_term": "مادة (Maddah) / Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "THE basic citable unit. Numbered continuously throughout the entire law regardless of higher division boundaries. Never restarts per Bab or Fasl."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "فقرة (Faqra) / Alinéa",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "implicit_sequential",
-          "note": "Paragraph break within an article. Usually unnumbered. Some modern laws use (1), (2). Post-process: <paragraph> → <alinea>."
+          "numbering": "implicit_sequential"
         },
         {
           "local_term": "بند (Band) / Point",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha",
-          "note": "Lettered or numbered list items within an alinéa: (أ), (ب), (ج) or (a), (b), (c) or 1., 2., 3."
+          "numbering": "arabic_or_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Standard parliamentary law (قانون). Article is always the basic unit. Most standalone laws use only Bab/Titre > Article; larger laws and codes add Fasl/Chapitre and Qism/Section. Article numbering is continuous throughout regardless of higher divisions."
+      "hcontainers": []
     },
     "legislative_decree": {
       "label": "Legislative Decree (مرسوم تشريعي / Décret législatif)",
@@ -128,8 +120,7 @@
           "numbering": "arabic_or_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive legislation enacted when Parliament is suspended or during Mandate period. Structurally identical to ordinary laws. Distinguished by enacting formula (President/Council of Ministers, not Chamber of Deputies) and FRBR subtype 'legislative-decree'. Includes major codes: Penal Code (No. 340/1943), Code of Criminal Procedure."
+      "hcontainers": []
     },
     "decree_law": {
       "label": "Decree-Law (مرسوم بقوة القانون)",
@@ -166,8 +157,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Emergency executive legislation issued by the President and Council of Ministers under special constitutional circumstances. Requires subsequent parliamentary ratification to remain in force. Structurally identical to ordinary laws."
+      "hcontainers": []
     },
     "decree": {
       "label": "Decree (مرسوم / Décret)",
@@ -190,8 +180,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Regulatory/administrative decrees (not primary legislation). Signed by President and countersigned by relevant minister(s). Very high sequential numbers (e.g., Decree No. 11230). Typically short — mostly just articles. Published in Al-Jarida Al-Rasmiyya."
+      "hcontainers": []
     },
     "personal_status": {
       "label": "Personal Status Law (قانون الأحوال الشخصية)",
@@ -236,8 +225,7 @@
           "bluebell_proxy": "PROVISO",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Applies to Parliament-ratified personal status instruments for Lebanon's 18 recognised religious communities. Structural terminology varies by community: Islamic courts use Arabic jurisprudential terms; Christian communities may use Latin canon law terms (Titulus, Canon) or their Arabic/French equivalents. Model each community's instruments using the closest AKN mapping. See profile.md for the full list of 18 communities and their court systems."
+      ]
     },
     "constitution": {
       "label": "Constitution (الدستور / Constitution)",
@@ -250,8 +238,7 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Articles 1–102 (as amended through 1990 Taif). No higher structural divisions in the constitution itself beyond the Preamble/Body distinction."
+          "numbering": "arabic_continuous"
         }
       ],
       "hcontainers": [
@@ -262,8 +249,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Constitution of 23 May 1926 (as amended through 1990 Taif Agreement). 102 articles, no higher structural divisions within the body. The 1990 preamble has full constitutional force per Constitutional Council jurisprudence. Each amendment round is a separate FRBR expression of the 1926 work."
+      ]
     }
   },
   "default_document_class": "law",
@@ -277,14 +263,12 @@
       "constitution": "/akn/lb/act/constitution/1926/constitution",
       "ottoman_era": "/akn/lb/act/ottoman/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "Law number taken from 'Law No. {number}/{year}' citation. Arabic-Indic numerals (١-٩) in source documents must be normalised to Western Arabic (1-9) for URI construction. For laws cited by date only (pre-numbering era), use slugified subject descriptor as number segment. Ottoman-era laws still in force receive URIs under lb/act/ottoman/ with metadata noting original Ottoman provenance."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Law No. {number}/{year}",
     "article_numbering": "continuous_throughout_law",
-    "insertion_style": "mkarran_or_hyphen",
-    "note": "Insertion style inconsistent across eras and drafters. Mandate-era and French-tradition instruments use hyphen suffix (-1, -2); Arabic-tradition instruments use mكرراً (mkarran/bis). Detect per document and record in metadata."
+    "insertion_style": "mkarran_or_hyphen"
   },
   "amendments": {
     "style": "textual_civil_law",

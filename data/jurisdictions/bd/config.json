@@ -76,8 +76,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Bangla is the sole authoritative text. English versions on bdlaws.minlaw.gov.bd are reference translations only."
+      ]
     },
     "ordinance": {
       "label": "Ordinance (Presidential)",
@@ -129,8 +128,7 @@
           "bluebell_proxy": "PROVISO",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Presidential ordinances issued when Parliament not in session. Subject to parliamentary ratification within 30 days of next session or lapse."
+      ]
     },
     "si": {
       "label": "Subordinate Legislation (Rules / SRO)",
@@ -175,8 +173,7 @@
           "bluebell_proxy": "PROVISO",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Statutory Rules and Orders (SROs) are the primary form of subordinate legislation; numbered as SRO No. {number}-Law/{year}."
+      ]
     },
     "constitution": {
       "label": "Constitution of Bangladesh",
@@ -213,8 +210,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of 1972 uses Part > Article structure (no intermediate chapters). Bangla text is the sole authoritative version (Article 153)."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

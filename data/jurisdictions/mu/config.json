@@ -78,8 +78,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "GNs use 'regulation' or 'rule' as the basic unit term but map to AKN section"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -102,8 +101,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapters, not Parts"
+      "hcontainers": []
     },
     "civil_code": {
       "label": "French Civil Code (Code Civil Mauricien / Code de Commerce)",
@@ -158,8 +156,7 @@
           "local_term": "Titre",
           "bluebell_proxy": "SUBSECTION"
         }
-      ],
-      "note": "French-language codes inherited from French colonial period. Require separate prompt variant structure_mu_civil.txt."
+      ]
     }
   },
   "default_document_class": "act",
@@ -172,8 +169,7 @@
       "constitution": "/akn/mu/act/constitution/1968/constitution",
       "act_cap": "/akn/mu/act/cap{number}/cap{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "URI patterns follow Laws.Africa/MauritiusLII conventions for interoperability. For Acts with known Act No.: use year/number. For older consolidated Acts (Cap. only): use cap{NNN}/cap{NNN} fallback; store Cap. as FRBRalias."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",

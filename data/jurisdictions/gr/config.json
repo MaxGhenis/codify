@@ -22,8 +22,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "greek_ordinal_to_arabic",
-          "note": "Used in codes only (Civil Code 5 Books). Not used in ordinary Nomoi."
+          "numbering": "greek_ordinal_to_arabic"
         },
         {
           "local_term": "Μέρος (Part)",
@@ -37,16 +36,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "greek_capital_letter",
-          "note": "Κεφάλαιο Α΄, Β΄, Γ΄ — normalise to Arabic for eId"
+          "numbering": "greek_capital_letter"
         },
         {
           "local_term": "Τμήμα (Section/Division)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "greek_capital_letter",
-          "note": "Higher division below Chapter. Maps to AKN section-as-container. Bluebell DIVISION used as proxy."
+          "numbering": "greek_capital_letter"
         },
         {
           "local_term": "Άρθρο (Article)",
@@ -60,16 +57,14 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic",
-          "note": "Older codes may use Roman numerals; normalise to Arabic for eId"
+          "numbering": "arabic"
         },
         {
           "local_term": "Εδάφιο / Περίπτωση (Sub-paragraph)",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "greek_lower_letter",
-          "note": "α), β), γ) — normalise to a, b, c for eId"
+          "numbering": "greek_lower_letter"
         },
         {
           "local_term": "Σημείο (Point)",
@@ -83,7 +78,6 @@
         {
           "local_term": "Παράρτημα (Annex/Schedule)",
           "akn_element": "attachment",
-          "note": "Παράρτημα Α΄, Β΄ etc. Use <attachments><attachment>.",
           "name": "παράρτημα_(annex/schedule)"
         }
       ]
@@ -123,8 +117,7 @@
           "numbering": "greek_lower_letter"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential Decrees (ΠΔ) published in ΦΕΚ Α΄. Require ministerial countersignature. Issued under specific legislative authorisation."
+      "hcontainers": []
     },
     "ministerial_decision": {
       "label": "Υπουργική Απόφαση / Κοινή Υπουργική Απόφαση (Ministerial / Joint Ministerial Decision)",
@@ -147,8 +140,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial Decisions (ΥΑ/ΚΥΑ) published in ΦΕΚ Β΄. Identified by protocol number + gazette citation, not sequential number. See FRBR URI section."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Σύνταγμα (Constitution)",
@@ -178,8 +170,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "The Constitution has 4 Parts and 120 Articles continuous throughout. Paragraphs within articles use Arabic numerals. No Schedules."
+      "hcontainers": []
     },
     "code": {
       "label": "Κώδικας (Code — Civil, Penal, Civil Procedure, etc.)",
@@ -213,8 +204,7 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "roman_or_arabic",
-          "note": "Older codes use Roman numerals (I, II, III); normalise to Arabic for eId."
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Εδάφιο (Clause)",
@@ -224,8 +214,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Civil Code: 5 Books, Articles 1–2035 continuous. Enacted 1940, entered force 1946. Penal Code: Articles continuous throughout. No ΦΕΚ-style numbering — identify by descriptive FRBR slug."
+      "hcontainers": []
     },
     "bill": {
       "label": "Σχέδιο Νόμου (Bill)",
@@ -262,8 +251,7 @@
           "numbering": "greek_lower_letter"
         }
       ],
-      "hcontainers": [],
-      "note": "Bills deposited in Vouli before vote. No act number assigned until enactment. Use slugified Greek title for FRBR URI."
+      "hcontainers": []
     }
   },
   "default_document_class": "nomos",
@@ -277,20 +265,13 @@
       "civil_code": "/akn/gr/act/1940/civil-code",
       "penal_code": "/akn/gr/act/1950/penal-code"
     },
-    "date_calendar": "gregorian",
-    "notes": [
-      "Law number is sequential integer assigned at enactment. Format: {number}/{year} in Greek citation, maps to /akn/gr/act/{year}/{number} in FRBR URI.",
-      "Presidential Decrees (ΠΔ) use subtype 'pd'.",
-      "Legislative Acts (ΠΝΠ) issued by executive under Art. 44 Constitution use subtype 'pnp'.",
-      "Codes pre-date the number/year system; use descriptive slugs."
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Ν. {number}/{year}",
     "act_citation_alt": "νόμος {number}/{year}",
     "insertion_style": "greek_letter_suffix",
-    "insertion_example": "Άρθρο 5Α, Άρθρο 5Β",
-    "note": "Inserted articles append a Greek capital letter (Α, Β, Γ); normalise to ASCII Latin capital for eId (5A, 5B, 5C)."
+    "insertion_example": "Άρθρο 5Α, Άρθρο 5Β"
   },
   "amendments": {
     "style": "textual_civil_law",

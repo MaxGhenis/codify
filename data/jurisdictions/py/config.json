@@ -68,8 +68,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Seccion is a HIGHER division above articles, not the basic unit"
+      "hcontainers": []
     },
     "decreto": {
       "label": "Decreto",
@@ -99,8 +98,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Decrees issued by the President"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitucion Nacional",
@@ -144,8 +142,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "291 articles numbered continuously across all divisions"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

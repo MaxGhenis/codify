@@ -30,8 +30,7 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "alpha_upper",
-          "note": "Some Acts use 'Division' at this level; map to chapter"
+          "numbering": "alpha_upper"
         },
         {
           "local_term": "Section",
@@ -75,16 +74,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_word",
-          "note": "Companies Act 2019 uses CHAPTER ONE, CHAPTER TWO; map ordinal words to arabic for eId"
+          "numbering": "ordinal_word"
         },
         {
           "local_term": "Part",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "alpha_upper",
-          "note": "Parts (A, B, C) appear within Chapters in complex acts"
+          "numbering": "alpha_upper"
         },
         {
           "local_term": "Section",
@@ -115,8 +112,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Used for complex codifying acts (Companies Act 2019, etc.) that use Chapter > Part > Section. Chapters use ordinal word numbering (ONE, TWO) which must be normalised to arabic for eIds."
+      "hcontainers": []
     },
     "li": {
       "label": "Legislative Instrument",
@@ -139,8 +135,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "LIs use 'regulation' as basic unit term; maps to AKN section. Numbered sequentially as L.I. NNNN."
+      "hcontainers": []
     },
     "ci": {
       "label": "Constitutional Instrument",
@@ -156,8 +151,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "CIs are made under powers conferred by the Constitution. Numbered sequentially as C.I. NN."
+      "hcontainers": []
     },
     "ei": {
       "label": "Executive Instrument",
@@ -173,8 +167,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "EIs are of executive (non-legislative) character per Interpretation Act 2009. Numbered as E.I. NN. Not subsidiary legislation per strict classification but included for completeness."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -204,8 +197,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "1992 Constitution has 26 Chapters with Articles as the basic unit. Articles are cited as 'Article 106' not 'section 106'. Map Article -> section in AKN for structural purposes; display layer renders as 'Article'."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -219,14 +211,12 @@
       "bill": "/akn/gh/bill/{year}/{number}",
       "constitution": "/akn/gh/act/{year}/constitution"
     },
-    "notes": "Acts use a single continuous sequential numbering run since First Republic (1960). Act 720 is the 720th act since 1960, not the 720th act of 2006. LIs use L.I. NNNN sequential numbers; CIs use C.I. NN sequential numbers; EIs use E.I. NN sequential numbers. GhaLII uses /akn/gh/act/li/, /akn/gh/act/ci/ subtypes confirmed.",
     "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act {number}",
     "act_citation_alt": "Act {number} of {year}",
-    "insertion_style": "alphanumeric",
-    "note": "Act numbers are continuous across all years since 1960 — the year in the citation is the enactment year, not the number's year. E.g., 'Whistleblower Act, 2006 (Act 720)' = the 720th act since 1960, enacted in 2006."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

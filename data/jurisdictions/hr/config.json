@@ -22,76 +22,66 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_word_croatian",
-          "note": "DIO PRVI, DIO DRUGI — ordinal words normalised to arabic for eId (part_1, part_2)"
+          "numbering": "ordinal_word_croatian"
         },
         {
           "local_term": "Glava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "GLAVA I, GLAVA II — Roman numerals normalised to arabic (chap_1, chap_2)"
+          "numbering": "roman"
         },
         {
           "local_term": "Odjeljak",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic",
-          "note": "Higher division only — NOT the basic unit. Odjeljak 1., Odjeljak 2."
+          "numbering": "arabic"
         },
         {
           "local_term": "Odsjek",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic",
-          "note": "Rare — used only in very large codes within an Odjeljak"
+          "numbering": "arabic"
         },
         {
           "local_term": "Članak",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "BASIC UNIT. Continuous Arabic numbering throughout entire act regardless of higher divisions. Never resets."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Stavak",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "(1), (2), (3). Only numbered when two or more stavci exist in an article."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Točka",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
-          "note": "1., 2., 3. or a), b), c). At least two required per Uniform Rules."
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         },
         {
           "local_term": "Podtočka",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower_or_roman_lower",
-          "note": "Sub-items within a točka. Rare."
+          "numbering": "alpha_lower_or_roman_lower"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Podstavak",
-          "name": "podstavak",
-          "note": "Unnumbered indented sub-paragraph within a stavak; maps to alinea in AKN. Used in older legislation."
+          "name": "podstavak"
         },
         {
           "local_term": "Prijelazne i završne odredbe",
-          "name": "transitional-final",
-          "note": "Transitional and Final Provisions block, typically final Glava or Odjeljak"
+          "name": "transitional-final"
         }
       ]
     },
@@ -137,8 +127,7 @@
           "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Enacted by the Government (Vlada). Same structural pattern as primary legislation."
+      "hcontainers": []
     },
     "pravilnik": {
       "label": "Pravilnik (Ministerial Rulebook/Regulation)",
@@ -175,8 +164,7 @@
           "numbering": "arabic_stop_or_alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Enacted by ministries. Simpler structure, rarely has higher divisions above Odjeljak."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Ustav (Constitution)",
@@ -189,8 +177,7 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_word",
-          "note": "Constitutional chapters use uppercase Roman or ordinal headings: I. POVIJESNE OSNOVE, II. TEMELJNE ODREDBE etc."
+          "numbering": "roman_word"
         },
         {
           "local_term": "Članak",
@@ -207,8 +194,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Glave as only higher division. Articles are numbered continuously (1–142 in current consolidated text)."
+      "hcontainers": []
     }
   },
   "default_document_class": "zakon",
@@ -217,13 +203,7 @@
     "uri_patterns": {
       "constitution": "/akn/hr/act/constitution/1990/ustav"
     },
-    "date_calendar": "gregorian",
-    "notes": [
-      "item-number is the ELI gazette item ID from narodne-novine.nn.hr/eli/sluzbeni/{year}/{issue}/{item-number}",
-      "When item-number unknown, use slugified Croatian short title as fallback (slug variant)",
-      "Record NN issue/year citation (e.g., NN 35/05) as FRBRalias in metadata",
-      "Work URI always uses initial enactment year; amendments create new expressions, not new works"
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "NN {issue}/{year-short}",

@@ -43,8 +43,7 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_sequential_assigned",
-          "note": "Unnumbered in source; pipeline assigns sequential integers from 2 (first stycke is direct article content)"
+          "numbering": "arabic_sequential_assigned"
         },
         {
           "local_term": "Punkt",
@@ -61,8 +60,7 @@
           "numbering": "sequential_assigned"
         }
       ],
-      "hcontainers": [],
-      "note": "Swedish Paragraf (§) maps to AKN article, consistent with DE/DK/EE/AT/CZ civil law convention. § numbers are continuous across all Kapitel."
+      "hcontainers": []
     },
     "fordning": {
       "label": "Förordning",
@@ -106,8 +104,7 @@
           "numbering": "sequential_assigned"
         }
       ],
-      "hcontainers": [],
-      "note": "Government ordinance (delegated secondary legislation). Same SFS numbering series as acts. Distinguished from lag by title prefix 'Förordning'. URI uses fo/ subtype."
+      "hcontainers": []
     },
     "grundlag": {
       "label": "Grundlag",
@@ -144,8 +141,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "One of four constitutional acts (Regeringsformen, Successionsordningen, Tryckfrihetsförordningen, Yttrandefrihetsgrundlagen). Same hierarchy as lag; requires two Riksdag decisions separated by an election to amend."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -156,8 +152,7 @@
   },
   "numbering": {
     "act_citation": "({year}:{sfs-number})",
-    "insertion_style": "alphanumeric_spaced",
-    "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Matches Danish convention."
+    "insertion_style": "alphanumeric_spaced"
   },
   "amendments": {
     "style": "textual_replacement",

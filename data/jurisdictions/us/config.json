@@ -23,8 +23,7 @@
           "akn_name": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "alpha_upper",
-          "note": "Omnibus/appropriations laws only. No Bluebell keyword — requires post-processing to emit hcontainer."
+          "numbering": "alpha_upper"
         },
         {
           "local_term": "Title",
@@ -75,16 +74,14 @@
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "alpha_lower_parenthesized",
-          "note": "US uses letters (a)(b)(c) at L1, NOT Arabic numerals. Inverted from Commonwealth tradition."
+          "numbering": "alpha_lower_parenthesized"
         },
         {
           "local_term": "Paragraph",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "US uses Arabic numerals (1)(2)(3) at L2, NOT letters. Inverted from Commonwealth tradition."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Subparagraph",
@@ -153,8 +150,7 @@
           "akn_name": "subchapter",
           "level": "higher",
           "bluebell_keyword": "SUBCHAPTER",
-          "numbering": "roman_upper",
-          "note": "Very common in USC. Roman numerals: Subchapter I, II. No Bluebell keyword — requires post-processing."
+          "numbering": "roman_upper"
         },
         {
           "local_term": "Part",
@@ -230,8 +226,7 @@
           "description": "Grouping within a Part.",
           "local_term": "Subpart"
         }
-      ],
-      "note": "USC Titles are compilations by the Office of Law Revision Counsel, not individually enacted laws. Positive-law titles (roughly half of 54 titles) are authoritative; others are prima facie evidence only."
+      ]
     },
     "cfr_title": {
       "label": "Code of Federal Regulations Title",
@@ -274,8 +269,7 @@
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "part_dot_sequential",
-          "note": "CFR sections cited as {Part}.{seq}, e.g. § 300.1. The decimal is NOT a hierarchy separator. eId uses underscore: sec_300_1."
+          "numbering": "part_dot_sequential"
         }
       ],
       "hcontainers": [
@@ -388,8 +382,7 @@
           "description": "Grouping within a Title.",
           "local_term": "Subtitle"
         }
-      ],
-      "note": "Bills lapse if not enacted within one Congress. FRBR URI uses bill number and chamber prefix (hr/s)."
+      ]
     },
     "constitution": {
       "label": "Constitution of the United States",
@@ -402,8 +395,7 @@
           "akn_element": "article",
           "level": "higher",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "roman_upper",
-          "note": "Seven Articles (I–VII) in the original Constitution. The Article is both higher division and container of basic units."
+          "numbering": "roman_upper"
         },
         {
           "local_term": "Section",
@@ -420,8 +412,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Amendments modelled as separate FRBR works linked to the Constitution."
+      "hcontainers": []
     },
     "executive_order": {
       "label": "Executive Order",
@@ -437,8 +428,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive Orders are presidential directives, not acts of Congress. Use AKN <doc> element. Bluebell produces <act> only — post-processing required to change root element. Published in Federal Register and codified in Title 3 of CFR."
+      "hcontainers": []
     }
   },
   "default_document_class": "public_law",
@@ -449,14 +439,12 @@
       "constitution_amendment": "/akn/us/act/constitution-amendment/{year}/{number}",
       "executive_order": "/akn/us/doc/executive-order/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "notes": "Congress number (not calendar year) is used as first path segment for Public Laws and Bills. Pre-1958 laws without Congress-number format should use /akn/us/act/stat/{volume}/{page}."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Pub.L. {congress}-{number}",
     "act_citation_alt": "{volume} Stat. {page}",
-    "insertion_style": "alphanumeric",
-    "note": "USC insertion sections use lower-alpha suffix: § 1234a, § 1234b. eIds: sec_1234a, sec_1234b."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_us",

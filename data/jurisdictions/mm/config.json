@@ -112,8 +112,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapter > Part > Section where Parts subdivide Chapters (inverse of typical usage)"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -125,8 +124,7 @@
       "constitution": "/akn/mm/act/constitution/2008/constitution",
       "bill": "/akn/mm/bill/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "Myanmar Era dates recorded as FRBRalias. Gregorian used in URIs."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Pyidaungsu Hluttaw Law No. {number}/{year}",

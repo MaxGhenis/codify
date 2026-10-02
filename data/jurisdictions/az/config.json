@@ -22,8 +22,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Top-level grouping in codes; absent in shorter laws"
+          "numbering": "roman"
         },
         {
           "local_term": "Fəsil",
@@ -44,34 +43,29 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "decimal_dot",
-          "note": "e.g. 5.1 — num element contains the full decimal string"
+          "numbering": "decimal_dot"
         },
         {
           "local_term": "N.1.1 (decimal L2)",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "decimal_dot",
-          "note": "e.g. 5.1.1"
+          "numbering": "decimal_dot"
         },
         {
           "local_term": "N.1.1.1 (decimal L3, rare)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "decimal_dot",
-          "note": "e.g. 5.1.1.1 — used sparingly in codes"
+          "numbering": "decimal_dot"
         }
       ],
       "hcontainers": [
         {
           "name": "transitionalProvisions",
-          "local_term": "Keçid müddəaları",
-          "note": "Transitional provisions section, typically at end of law"
+          "local_term": "Keçid müddəaları"
         }
-      ],
-      "note": "Enacting formula/attestation appears at end of document, not in preamble. Short laws may omit bölmə and/or fəsil levels."
+      ]
     },
     "code": {
       "label": "Code (Məcəllə)",
@@ -118,11 +112,9 @@
       "hcontainers": [
         {
           "name": "transitionalProvisions",
-          "local_term": "Keçid müddəaları",
-          "note": "Transitional provisions"
+          "local_term": "Keçid müddəaları"
         }
-      ],
-      "note": "Codes (Civil, Criminal, Labour, Tax, etc.) always use the full bölmə > fəsil > maddə hierarchy. Articles are numbered continuously across all parts and chapters."
+      ]
     },
     "constitution": {
       "label": "Constitution of the Republic of Azerbaijan",
@@ -152,8 +144,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "1995 Constitution: 5 bölmə, 12 fəsil, 158 articles (164 with amendments)"
+      "hcontainers": []
     },
     "decree": {
       "label": "Presidential Decree (Fərman)",
@@ -169,8 +160,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential decrees typically short; may use article or paragraph only. Numbered in sequential {seq}-F series."
+      "hcontainers": []
     },
     "resolution": {
       "label": "Cabinet Resolution (Qərar)",
@@ -186,8 +176,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Cabinet resolutions numbered sequentially per year. May be very short (2-5 articles)."
+      "hcontainers": []
     }
   },
   "default_document_class": "law",
@@ -201,13 +190,11 @@
       "resolution": "/akn/az/act/resolution/{year}/{number}"
     },
     "date_calendar": "gregorian",
-    "number_format": "sequential_digits_only",
-    "note": "FRBR URI uses sequential digits only (e.g. 736). Full law designation (e.g. 736-IQ) stored as <FRBRalias name='lawNumber'>. Codes use slugified names."
+    "number_format": "sequential_digits_only"
   },
   "numbering": {
     "insertion_style": "hyphenated_article",
-    "insertion_example": "49-1",
-    "note": "Convocation suffix: IQ (1st), IIQ (2nd), IIIQ (3rd), IVQ (4th), VQ (5th), VIQ (6th), VIIQ (7th). Constitutional laws add D suffix (e.g. IIIQD)."
+    "insertion_example": "49-1"
   },
   "amendments": {
     "style": "textual_civil_law",

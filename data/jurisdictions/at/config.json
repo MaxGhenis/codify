@@ -22,56 +22,49 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_german",
-          "note": "Highest division in large codes (e.g. ABGB). Erster/Zweiter/Dritter Teil → 1/2/3."
+          "numbering": "ordinal_german"
         },
         {
           "local_term": "Hauptstück",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_period",
-          "note": "Standard higher division in Bundesgesetze. '1. Hauptstück', '2. Hauptstück'."
+          "numbering": "arabic_period"
         },
         {
           "local_term": "Abschnitt",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_period",
-          "note": "Grouping level within Hauptstück. NOT the basic unit. '1. Abschnitt', '2. Abschnitt'."
+          "numbering": "arabic_period"
         },
         {
           "local_term": "§ (Paragraph)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Fundamental citable unit. Symbol § precedes number. Continuous throughout law."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Absatz",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "Subsection below §. Cited as 'Abs. 1', 'Abs. 2'. Displayed as (1), (2)."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Ziffer",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_period",
-          "note": "Numbered point within Absatz. '1.', '2.'. Cited as 'Z 1', 'Z 2'."
+          "numbering": "arabic_period"
         },
         {
           "local_term": "Litera",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower_parenthesized",
-          "note": "Lettered point within Ziffer. 'a)', 'b)'. Cited as 'lit. a', 'lit. b'."
+          "numbering": "alpha_lower_parenthesized"
         }
       ],
       "hcontainers": [
@@ -93,112 +86,7 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_alpha",
-          "note": "B-VG uses Roman or letter-prefixed Hauptstücke (e.g. 'A. Allgemeine Bestimmungen', 'I.')"
-        },
-        {
-          "local_term": "Artikel",
-          "akn_element": "article",
-          "level": "basic",
-          "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Basic unit in constitutional laws. 'Art. 1', 'Art. 2'. Same AKN element as § in ordinary laws."
-        },
-        {
-          "local_term": "Absatz",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Ziffer",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "arabic_period"
-        },
-        {
-          "local_term": "Litera",
-          "akn_element": "indent",
-          "level": "subdivision",
-          "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [],
-      "note": "Constitutional laws use Artikel as basic unit instead of §. Same hierarchy above and below. B-VG itself uses /akn/at/act/constitution/1920/bvg URI."
-    },
-    "vo": {
-      "label": "Verordnung",
-      "akn_element": "act",
-      "bluebell_compatible": true,
-      "basic_unit": "article",
-      "hierarchy": [
-        {
-          "local_term": "§ (Paragraph)",
-          "akn_element": "article",
-          "level": "basic",
-          "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Verordnungen use § as basic unit, same as Bundesgesetze. No higher divisions in most short ordinances."
-        },
-        {
-          "local_term": "Absatz",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Ziffer",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "arabic_period"
-        },
-        {
-          "local_term": "Litera",
-          "akn_element": "indent",
-          "level": "subdivision",
-          "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower_parenthesized"
-        }
-      ],
-      "hcontainers": [],
-      "note": "BGBl. II ordinances. Enable formula cites the parent Bundesgesetz § that grants ministerial authority."
-    },
-    "sv": {
-      "label": "Staatsvertrag",
-      "akn_element": "act",
-      "bluebell_compatible": false,
-      "basic_unit": "article",
-      "hierarchy": [
-        {
-          "local_term": "Artikel",
-          "akn_element": "article",
-          "level": "basic",
-          "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "International treaties use Artikel as basic unit. Published BGBl. III (post-1997) or undivided BGBl (pre-1997)."
-        }
-      ],
-      "hcontainers": [],
-      "note": "BGBl. III state treaties. Bluebell not compatible for full treaty structure (multi-language, international format). Requires custom pipeline handling."
-    },
-    "constitution": {
-      "label": "Bundes-Verfassungsgesetz (B-VG)",
-      "akn_element": "act",
-      "bluebell_compatible": true,
-      "basic_unit": "article",
-      "hierarchy": [
-        {
-          "local_term": "Hauptstück",
-          "akn_element": "chapter",
-          "level": "higher",
-          "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "B-VG Hauptstücke labelled with Roman numerals or letters (A., B., etc.)"
+          "numbering": "roman_or_alpha"
         },
         {
           "local_term": "Artikel",
@@ -229,8 +117,104 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "The B-VG is a special document: enacted 1920, amended 1929, republished BGBl. 1/1930, reinstated 1945. FRBR URI anchored to 1920 enactment year."
+      "hcontainers": []
+    },
+    "vo": {
+      "label": "Verordnung",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "§ (Paragraph)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
+    },
+    "sv": {
+      "label": "Staatsvertrag",
+      "akn_element": "act",
+      "bluebell_compatible": false,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ],
+      "hcontainers": []
+    },
+    "constitution": {
+      "label": "Bundes-Verfassungsgesetz (B-VG)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hauptstück",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Ziffer",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Litera",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ],
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

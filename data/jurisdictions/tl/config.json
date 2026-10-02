@@ -165,8 +165,7 @@
           "bluebell_keyword": "INDENT"
         }
       ],
-      "hcontainers": [],
-      "note": "Government-originated legislation with same hierarchy as Lei"
+      "hcontainers": []
     },
     "untaet_reg": {
       "label": "UNTAET Regulation (historical, 1999-2002)",
@@ -194,8 +193,7 @@
           "bluebell_keyword": "SUBSECTION"
         }
       ],
-      "hcontainers": [],
-      "note": "English-language, UN-style Section-based structure. Frozen historical corpus."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Timor-Leste",
@@ -238,8 +236,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "170 articles in 7 Parts"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

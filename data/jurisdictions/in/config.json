@@ -143,8 +143,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Subordinate legislation uses the same structure as Acts"
+      ]
     },
     "constitution": {
       "label": "Constitution of India",
@@ -188,8 +187,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses article-based hierarchy, not section-based"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

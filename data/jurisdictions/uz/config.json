@@ -24,8 +24,7 @@
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_arabic",
-          "note": "Highest grouping in codes; maps to AKN title. See ambiguity note on bo'lim mapping."
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Bob",
@@ -78,8 +77,7 @@
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_arabic",
-          "note": "Highest structural grouping in all major codes (Criminal, Civil, Civil Procedure)"
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Bob",
@@ -110,8 +108,7 @@
           "numbering": "alpha_lower"
         }
       ],
-      "hcontainers": [],
-      "note": "Codes use article numbering continuous throughout all bo'lims and bobs. Civil Code split across two enacted instruments (Part One 1995, Part Two 1996) with continuous article numbering — model as single work."
+      "hcontainers": []
     },
     "farmon": {
       "label": "Decree of the President of the Republic of Uzbekistan",
@@ -124,8 +121,7 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Shorter decrees may use numbered paragraphs (band) rather than articles; use ARTICLE keyword in Bluebell and note the local term"
+          "numbering": "arabic_continuous"
         }
       ],
       "hcontainers": [
@@ -133,8 +129,7 @@
           "name": "paragraph",
           "local_term": "Paragraph"
         }
-      ],
-      "note": "Presidential decrees (farmon) are normative acts with the same article hierarchy as laws. Simple decrees may lack chapter grouping and use only numbered articles or bands."
+      ]
     },
     "constitution": {
       "label": "Constitution of the Republic of Uzbekistan",
@@ -147,24 +142,21 @@
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman",
-          "note": "Constitution has 6 bo'lims (Parts)"
+          "numbering": "roman"
         },
         {
           "local_term": "Bob",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous",
-          "note": "Constitution has 27 bobs (Chapters)"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Modda",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Constitution has 155 moddas (Articles)"
+          "numbering": "arabic_continuous"
         }
       ],
       "hcontainers": []
@@ -182,7 +174,6 @@
       "constitution": "/akn/uz/act/constitution/{year}/constitution"
     },
     "number_format": "LRU-sequential",
-    "number_note": "Use the LRU sequential number (e.g., 682 from LRU-682) as the {number} segment. Record the O'RQ citation (e.g., O'RQ-682-son) as <FRBRalias>. For pre-LRU laws, use session number without suffix (e.g., 163 from No. 163-I).",
     "date_calendar": "gregorian"
   },
   "numbering": {

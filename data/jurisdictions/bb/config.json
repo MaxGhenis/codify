@@ -76,8 +76,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' as basic unit term but map to AKN section"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -100,8 +99,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapters, not Parts"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

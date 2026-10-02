@@ -82,8 +82,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Jo (Article) is the basic unit, numbered continuously throughout the act. First Hang of each Jo is marked with ① (circled numeral one); single-paragraph articles have no Hang marker. Buchik (Supplementary Provisions) appears at end of act. Gwan (Subsection) is rare in modern legislation."
+      ]
     },
     "daetongryeong-ryeong": {
       "label": "Daetongryeong-ryeong (대통령령, Presidential Decree)",
@@ -134,8 +133,7 @@
           "numbering": "hangul_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential Decrees issued under authority delegated by Acts. Same article-based structure as Acts; Pyeon (Part) rarely used."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Heonbeop (헌법, Constitution)",
@@ -172,8 +170,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1987 Constitution (9th revision) has 10 chapters and 130 articles. The Preamble (Jeonmun) precedes Chapter 1. Circled numerals ①②③ mark Hang within articles."
+      "hcontainers": []
     },
     "jorye": {
       "label": "Jorye (조례, Municipal Ordinance)",
@@ -210,8 +207,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by local autonomous bodies (Si, Do, Gun, Gu). Simpler structure than national Acts; Pyeon and Jeol rarely used."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -227,8 +223,7 @@
       "constitution": "/akn/kr/act/constitution/1948/constitution",
       "bill": "/akn/kr/bill/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "Korea uses the Gregorian calendar for all official legal dating since 1948. FRBR URIs use Gregorian year and act number (법률 제N호 / Act No. N)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "법률 제{number}호",

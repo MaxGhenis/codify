@@ -24,16 +24,14 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Codes only (Civil Code, Penal Code)"
+          "numbering": "roman"
         },
         {
           "local_term": "Sección",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Used in some codes above Título"
+          "numbering": "roman"
         },
         {
           "local_term": "Título",
@@ -75,38 +73,32 @@
         {
           "name": "subcapitulo",
           "local_term": "Subcapítulo",
-          "numbering": "roman",
-          "note": "Sub-level below Capítulo, no AKN equivalent"
+          "numbering": "roman"
         },
         {
           "name": "titulo-preliminar",
           "local_term": "Título Preliminar",
-          "numbering": "none",
-          "note": "Unnumbered preliminary title at start of codes"
+          "numbering": "none"
         },
         {
           "name": "disposicion-complementaria-final",
           "local_term": "Disposición Complementaria Final",
-          "numbering": "ordinal_word",
-          "note": "Numbered Primera, Segunda… — placed in <conclusions>"
+          "numbering": "ordinal_word"
         },
         {
           "name": "disposicion-complementaria-transitoria",
           "local_term": "Disposición Complementaria Transitoria",
-          "numbering": "ordinal_word",
-          "note": "Placed in <conclusions>"
+          "numbering": "ordinal_word"
         },
         {
           "name": "disposicion-complementaria-derogatoria",
           "local_term": "Disposición Complementaria Derogatoria",
-          "numbering": "ordinal_word",
-          "note": "Placed in <conclusions>"
+          "numbering": "ordinal_word"
         },
         {
           "name": "disposicion-complementaria-modificatoria",
           "local_term": "Disposición Complementaria Modificatoria",
-          "numbering": "ordinal_word",
-          "note": "Placed in <conclusions>"
+          "numbering": "ordinal_word"
         }
       ]
     },
@@ -152,8 +144,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Identical structure to ordinary Ley; distinction is subject matter and approval threshold (qualified majority)"
+      "hcontainers": []
     },
     "decreto_legislativo": {
       "label": "Decreto Legislativo",
@@ -197,8 +188,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive decree with force of law under congressional delegation. Numbered in own sequential series (D.Leg. NNN). URI subtype: 'dl'"
+      "hcontainers": []
     },
     "decreto_supremo": {
       "label": "Decreto Supremo",
@@ -228,8 +218,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive regulation. Numbered NNN-YYYY-MINISTRY. Subordinate legislation. URI subtype: 'ds'"
+      "hcontainers": []
     },
     "constitucion": {
       "label": "Constitución Política",
@@ -266,8 +255,7 @@
           "numbering": "arabic_dot"
         }
       ],
-      "hcontainers": [],
-      "note": "1993 Constitution: 6 Títulos, multiple Capítulos, 206 original articles (212 current). Continuous article numbering throughout."
+      "hcontainers": []
     }
   },
   "default_document_class": "ley",
@@ -283,14 +271,7 @@
       "bill": "/akn/pe/bill/{year}/{number}",
       "constitucion": "/akn/pe/act/constitution/1993/constitucion"
     },
-    "date_calendar": "gregorian",
-    "notes": [
-      "Ley numbers are sequential integers since 1904 with no year prefix in the number itself (e.g., Ley N° 27444 enacted 2001 → /akn/pe/act/2001/27444).",
-      "Decreto Legislativo numbers are in a separate sequential series (not year-based). Year in URI = El Peruano publication year.",
-      "Decreto Supremo numbers are year-based per ministry (e.g., D.S. 003-1997-TR → /akn/pe/act/ds/1997/3-tr).",
-      "Decreto Ley numbers are sequential from military-government era (1968-1980); no year in URI.",
-      "TUOs (Textos Únicos Ordenados): model as a new FRBR expression of the original work URI, not a new work."
-    ]
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "insertion_style": "alphanumeric_hyphen",
@@ -305,22 +286,19 @@
       "eId": "congreso",
       "class": "TLCOrganization",
       "href": "/ontology/org/pe/congreso",
-      "showAs": "Congreso de la República del Perú",
-      "note": "Current legislature (unicameral, until July 2026)"
+      "showAs": "Congreso de la República del Perú"
     },
     {
       "eId": "camara-diputados",
       "class": "TLCOrganization",
       "href": "/ontology/org/pe/camara-diputados",
-      "showAs": "Cámara de Diputados",
-      "note": "Lower house from July 2026 bicameral reform"
+      "showAs": "Cámara de Diputados"
     },
     {
       "eId": "senado",
       "class": "TLCOrganization",
       "href": "/ontology/org/pe/senado",
-      "showAs": "Senado de la República",
-      "note": "Upper house from July 2026 bicameral reform"
+      "showAs": "Senado de la República"
     },
     {
       "eId": "presidente",

@@ -22,70 +22,61 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_latvian",
-          "note": "Top-level Part in large codes (Civillikums, Komerclikums): 'Pirmā daļa', 'Otrā daļa'. Absent in ordinary acts. Not to be confused with pants-level daļa (paragraph)."
+          "numbering": "ordinal_latvian"
         },
         {
           "local_term": "Nodaļa",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_arabic_period",
-          "note": "Primary grouping in most acts. Roman (I, II) in older acts, Arabic (1., 2.) in newer. Normalise to Arabic for eId: chap_1, chap_2. Always titled."
+          "numbering": "roman_or_arabic_period"
         },
         {
           "local_term": "Iedaļa",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_period",
-          "note": "Sub-chapter grouping within nodaļa in large codes only. '1. iedaļa'. Maps to AKN section-as-higher-div, not basic unit."
+          "numbering": "arabic_period"
         },
         {
           "local_term": "Pants",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "The fundamental citable unit. Continuous Arabic throughout act, no restart per nodaļa. Cited '5. pants'. Maps to AKN article (Germanic tradition, same as Estonian paragrahv). Insertion: 5¹ → art_51, 5² → art_52."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Daļa (of pants)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "Subdivisions of pants. Numbered (1), (2). Cited formally 'pirmā daļa' (ordinal). CRITICAL: same word as top-level Part — distinguish by nesting depth and presence of titled heading."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Punkts",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_closing_paren",
-          "note": "Items within daļa. Numbered 1), 2), 3) (Arabic with closing paren). Cited '1. punkts'."
+          "numbering": "arabic_closing_paren"
         },
         {
           "local_term": "Apakšpunkts",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower_closing_paren",
-          "note": "Sub-items within punkts. Lettered a), b), c)."
+          "numbering": "alpha_lower_closing_paren"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Pārejas noteikumi",
           "name": "parejasNoteikumi",
-          "position": "terminal_body",
-          "note": "Transitional Provisions — always present, always at end of body before attachments. Contains numbered pants (continuing main body sequence). Detect by heading string 'Pārejas noteikumi'."
+          "position": "terminal_body"
         },
         {
           "local_term": "Informatīvā atsauce",
           "name": "informativaAtsauce",
-          "position": "terminal_body",
-          "note": "Informational Reference to EU Directives — mandatory in EU transposing acts, appears after Pārejas noteikumi. Contains list of Directives being transposed. Post-2004 only."
+          "position": "terminal_body"
         }
       ]
     },
@@ -100,16 +91,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Constitution uses Roman-numbered nodaļas (I–VIII). Map to chapter. chap_1 through chap_8."
+          "numbering": "roman"
         },
         {
           "local_term": "Pants",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "§ 1 through § 116, continuous across chapters. The preamble (Preambula) precedes Chapter I and maps to <preamble>."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Daļa (of pants)",
@@ -119,8 +108,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "The Satversme (1922) has a preamble recognised as constitutionally binding by the Satversmes tiesa judgment of 2007. Model as <preamble>. No top-level daļa divisions — chapters go directly to pants."
+      "hcontainers": []
     },
     "noteikumi": {
       "label": "Ministru kabineta noteikumi (Cabinet Regulation)",
@@ -175,8 +163,7 @@
           "name": "informativaAtsauce",
           "position": "terminal_body"
         }
-      ],
-      "note": "Cabinet Regulations follow the same pants/daļa/punkts pattern as acts. Issued under enabling powers of parent act. Cited by sequential MK number per year: 'Ministru kabineta noteikumi Nr. {N}'."
+      ]
     }
   },
   "default_document_class": "act",
@@ -193,8 +180,7 @@
   "numbering": {
     "act_citation": "LV, {year}, Nr. {number}",
     "act_citation_alt": "{short_title}",
-    "insertion_style": "superscript_numeric",
-    "note": "No sequential act numbers — gazette reference is the formal identifier. Pants insertion uses superscript: 5¹ → art_51, 5² → art_52. Cabinet regulations are numbered sequentially per year: MK noteikumi Nr. {N}."
+    "insertion_style": "superscript_numeric"
   },
   "amendments": {
     "style": "textual_civil_law",

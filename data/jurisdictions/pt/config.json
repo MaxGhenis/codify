@@ -23,16 +23,14 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Codes only (Código Civil, Código Penal, Código do Trabalho). Not used in ordinary leis."
+          "numbering": "roman"
         },
         {
           "local_term": "Parte",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Rare; appears in some codes as top-level grouping equivalent to Livro, or as a sub-Livro grouping."
+          "numbering": "roman"
         },
         {
           "local_term": "Título",
@@ -53,93 +51,14 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Higher division within Capítulo in codes. CAUTION: in Portuguese law, Secção is above Artigo, not the basic unit — opposite of Anglophone usage. Do not confuse with section-as-basic-unit."
+          "numbering": "roman"
         },
         {
           "local_term": "Subsecção",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "roman",
-          "note": "Higher division within Secção in codes. Rare outside large codes."
-        },
-        {
-          "local_term": "Artigo N.º",
-          "akn_element": "article",
-          "level": "basic",
-          "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_ordinal",
-          "note": "Ordinal with degree mark: Artigo 1.º, Artigo 2.º. Numbered continuously throughout the act regardless of chapter structure. Inserted articles use dash-letter suffix: Artigo 5.º-A → eid art_5A."
-        },
-        {
-          "local_term": "n.º N (Número)",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_full_stop",
-          "note": "Numbered subdivision within an artigo. Arabic cardinal with full stop: 1., 2., 3. Cited as 'n.º 1 do artigo 5.º'. Maps to AKN paragraph. See unresolved ambiguity #1 re paragraph vs subsection."
-        },
-        {
-          "local_term": "Alínea a)",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_closing_paren",
-          "note": "Lettered subdivision within n.º (or directly within artigo when no n.º). a), b), c). Cited as 'alínea a)'."
-        },
-        {
-          "local_term": "Subalínea i)",
-          "akn_element": "indent",
-          "level": "subdivision",
-          "bluebell_keyword": "INDENT",
-          "numbering": "roman_lower_closing_paren",
-          "note": "Roman numeral subdivision within alínea. i), ii), iii). Cited as 'subalínea i)'. eId normalises Roman to Arabic: indent_1, indent_2."
-        }
-      ],
-      "hcontainers": [
-        {
-          "name": "preambulo",
-          "note": "Explanatory preamble in Decretos-Lei. Lengthy rationale before the enacting formula. Published in the DR as part of the DL but not formally enacted. Model as hcontainer within <preamble> or as <preamble> body paragraphs.",
-          "local_term": "Preambulo"
-        }
-      ]
-    },
-    "dl": {
-      "label": "Decreto-Lei (Decree-Law of the Government)",
-      "akn_element": "act",
-      "bluebell_compatible": true,
-      "basic_unit": "article",
-      "hierarchy": [
-        {
-          "local_term": "Livro",
-          "akn_element": "book",
-          "level": "higher",
-          "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Codes only."
-        },
-        {
-          "local_term": "Título",
-          "akn_element": "title",
-          "level": "higher",
-          "bluebell_keyword": "TITLE",
           "numbering": "roman"
-        },
-        {
-          "local_term": "Capítulo",
-          "akn_element": "chapter",
-          "level": "higher",
-          "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
-        },
-        {
-          "local_term": "Secção",
-          "akn_element": "section",
-          "level": "higher",
-          "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Higher division within Capítulo. See note in 'lei' class."
         },
         {
           "local_term": "Artigo N.º",
@@ -170,8 +89,77 @@
           "numbering": "roman_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Decretos-Lei have constitutional force equal to Leis (CRP art. 112.º). Both are primary legislation. Distinguished from Leis by enacting authority (Government vs Assembleia) and FRBR URI subtype (/dl/). Typically preceded by a discursive explanatory preamble (preâmbulo) before the enacting formula."
+      "hcontainers": [
+        {
+          "name": "preambulo",
+          "local_term": "Preambulo"
+        }
+      ]
+    },
+    "dl": {
+      "label": "Decreto-Lei (Decree-Law of the Government)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo N.º",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "n.º N (Número)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_full_stop"
+        },
+        {
+          "local_term": "Alínea a)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Subalínea i)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "roman_lower_closing_paren"
+        }
+      ],
+      "hcontainers": []
     },
     "lo": {
       "label": "Lei Orgânica (Organic Law)",
@@ -208,8 +196,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic laws require absolute majority of Deputies in full plenary. Govern political parties, elections, referenda, military law, states of emergency, and other constitutionally designated matters. Same structure as Leis."
+      "hcontainers": []
     },
     "portaria": {
       "label": "Portaria (Ordinance — ministerial regulatory act)",
@@ -239,8 +226,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Portarias are signed by one or more Ministers. Published in Diário da República Série I. Subordinate to Leis and Decretos-Lei. Modern numbering includes Série: Portaria n.º NN/YYYY/1. No formal enacting formula — opens with enabling authority reference."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constituição da República Portuguesa",
@@ -253,8 +239,7 @@
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman",
-          "note": "The Constitution uses Títulos as the primary top-level division (e.g., Título I – Princípios Gerais)."
+          "numbering": "roman"
         },
         {
           "local_term": "Capítulo",
@@ -268,8 +253,7 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Used in some parts of the Constitution as subdivision of Capítulo."
+          "numbering": "roman"
         },
         {
           "local_term": "Artigo N.º",
@@ -293,8 +277,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of 1976 (7th revision 2005). Top-level divisions are Partes (Parte I–IV) and then Títulos within each Parte. 296 articles. Artigos numbered continuously 1–296 across all Partes and Títulos."
+      "hcontainers": []
     }
   },
   "default_document_class": "lei",
@@ -312,7 +295,6 @@
       "constitution": "/akn/pt/act/constitution/1976/crp"
     },
     "number_format": "sequential_within_year",
-    "number_note": "Sequential number within the year per instrument type. Supplementary acts in same DR issue use dash-letter suffix: Lei n.º 45-A/2024 → year=2024, number=45-A. DLs and Leis have independent number series. Older DLs (Estado Novo) use large sequential numbers/two-digit year: DL 47 344/66 → year=1966, number=47344.",
     "date_calendar": "gregorian"
   },
   "numbering": {

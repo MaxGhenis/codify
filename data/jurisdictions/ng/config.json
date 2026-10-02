@@ -55,8 +55,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Dominant pattern: PART > SECTION. A minority of large statutes (e.g. Nigerian Communications Act 2003) use CHAPTER > PART > SECTION — detected at ingestion time and handled by adding CHAPTER above PART in Bluebell."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -100,8 +99,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "1999 Constitution uses CHAPTER (8 chapters) > PART > SECTION. Schedules present (First through Fifth). Alteration Acts amend the Constitution directly."
+      "hcontainers": []
     },
     "si": {
       "label": "Subsidiary Legislation",
@@ -124,8 +122,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Regulations, Rules, and Orders use 'regulation' as the basic unit term but map to AKN section. Bluebell REGULATION keyword does not exist — use SECTION."
+      "hcontainers": []
     },
     "decree": {
       "label": "Decree (military era, 1966–1999)",
@@ -162,8 +159,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Military-era Decrees use the same structural hierarchy as Acts. No conventional enacting formula. Enacting authority (Supreme Military Council or Armed Forces Ruling Council) recorded in TLC lifecycle metadata. FRBR URI uses /akn/ng/act/{year}/decree-{number}."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -175,14 +171,12 @@
       "decree": "/akn/ng/act/{year}/decree-{number}",
       "constitution": "/akn/ng/act/constitution/1999/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Act year = gazette year (which may differ from signing year — e.g. Data Protection Act signed June 2023 but gazetted as 2022 No. 37, giving URI /akn/ng/act/2022/37). When gazette year and signing year differ, store signing year as FRBRalias."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "{year} No. {number}",
     "act_citation_alt": "Cap. {code} LFN 2004",
-    "insertion_style": "alphanumeric",
-    "note": "Dual system: gazette citation (post-1999) and Cap./LFN citation (LFN 2004 consolidation). Gazette citation is canonical for post-2004 acts."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

@@ -32,16 +32,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Used in Constitution and some complex acts; not the common consolidated-edition chapter reference"
+          "numbering": "roman"
         },
         {
           "local_term": "Division",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "alpha_upper",
-          "note": "Sub-Part grouping in large acts (e.g., Mining Act). No Bluebell keyword — requires post-processing. hcontainer name='division'."
+          "numbering": "alpha_upper"
         },
         {
           "local_term": "Section",
@@ -75,8 +73,7 @@
       "hcontainers": [
         {
           "name": "division",
-          "local_term": "Division",
-          "note": "Sub-Part grouping; lettered A, B, C. Requires post-processing — no Bluebell keyword."
+          "local_term": "Division"
         }
       ]
     },
@@ -116,8 +113,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Laws enacted by the colonial Legislative Council of Tanganyika before independence (9 December 1961). Cited by Ordinance number and year; now consolidated as Chapters of the Laws of Tanzania."
+      "hcontainers": []
     },
     "gn": {
       "label": "Government Notice (Subsidiary Legislation)",
@@ -155,8 +151,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Subsidiary legislation published as Government Notices (GN) in the Gazette Subsidiary Legislation Supplement. Basic unit is 'regulation' or 'rule' but maps to AKN section."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -201,8 +196,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of the United Republic of Tanzania (Cap. 2, 1977 as amended). Uses both Chapter and Part as higher divisions."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

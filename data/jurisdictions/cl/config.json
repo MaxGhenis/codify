@@ -22,87 +22,75 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_word_or_roman",
-          "note": "Codes only (Código Civil, Código del Trabajo, etc.). Format: 'LIBRO PRIMERO' or 'LIBRO I'. Not present in ordinary leyes."
+          "numbering": "ordinal_word_or_roman"
         },
         {
           "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman",
-          "note": "Present in codes and complex leyes. Format: 'TÍTULO I – DE LAS DISPOSICIONES GENERALES'. Roman numerals."
+          "numbering": "roman"
         },
         {
           "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_arabic",
-          "note": "Below Título in codes; directly below root in simpler complex laws. Format: 'CAPÍTULO I'."
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Párrafo",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_degree",
-          "note": "CRITICAL: Párrafo is a HIGHER DIVISION grouping artículos — NOT a subdivision below artículo. Format: 'Párrafo 1°'. Strip degree symbol for eId: sec_1. Confirmed in Código del Trabajo."
+          "numbering": "arabic_degree"
         },
         {
           "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_degree",
-          "note": "Fundamental citable unit. Numbered continuously throughout the law. Format: 'Artículo 1°'. Strip degree symbol for eId: art_1."
+          "numbering": "arabic_degree"
         },
         {
           "local_term": "Inciso",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": null,
-          "numbering": "positional_ordinal_word",
-          "note": "Unnumbered paragraph within artículo. Referenced as 'inciso primero', 'inciso segundo', 'inciso final'. No Bluebell keyword — pipeline must post-process unlabelled paragraphs within <article> into <alinea> elements sequentially."
+          "numbering": "positional_ordinal_word"
         },
         {
           "local_term": "Número",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_degree",
-          "note": "Numbered list items within artículo or inciso. Format: '1°', '2°'. Cited as 'N° 1°' or 'número 1°'."
+          "numbering": "arabic_degree"
         },
         {
           "local_term": "Letra",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_closing_paren",
-          "note": "Sub-items under números or directly under incisos. Format: 'a)', 'b)', 'c)'. Cited as 'letra a)'."
+          "numbering": "alpha_lower_closing_paren"
         },
         {
           "local_term": "Sub-letra",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "roman_lower_closing_paren",
-          "note": "Rare further subdivision under letras. Format: 'i)', 'ii)', 'iii)'."
+          "numbering": "roman_lower_closing_paren"
         }
       ],
       "hcontainers": [
         {
           "name": "tituloPreliminar",
-          "local_term": "Título Preliminar",
-          "note": "Preliminary title in codes (Código Civil: 53 articles). Precedes Libro structure. Model as hcontainer name='tituloPreliminar'."
+          "local_term": "Título Preliminar"
         },
         {
           "name": "disposicionTransitoria",
-          "local_term": "Disposición Transitoria",
-          "note": "Transitory provisions, typically at the end of codes and some complex leyes."
+          "local_term": "Disposición Transitoria"
         }
-      ],
-      "note": "Covers Ley ordinaria, Ley orgánica constitucional (LOC), and Ley de quórum calificado — all structurally identical, differentiated only by required voting quorum. LOCs and qualified-quorum laws may carry a metadata subtype marker."
+      ]
     },
     "dfl": {
       "label": "Decreto con Fuerza de Ley",
@@ -153,8 +141,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by President under delegated authority (Art. 64 Constitution). Requires Contraloría toma de razón. Numbered per ministry per year — disambiguate by appending slugified ministry when clashes occur (e.g., 'dfl/2000/1-justicia'). Structurally identical to ley."
+      "hcontainers": []
     },
     "dl": {
       "label": "Decreto Ley",
@@ -198,8 +185,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Junta de Gobierno instruments (1973–1990). Many remain in force. Politically neutral FRBR URIs: /akn/cl/act/dl/{year}/{number}. Enacting authority recorded as TLCOrganization in metadata ('Junta de Gobierno de la República de Chile'). Flag for human policy review per skill guidance on regime-change legitimacy."
+      "hcontainers": []
     },
     "constitucion": {
       "label": "Constitución Política de la República de Chile",
@@ -212,16 +198,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "15 chapters in current text. Format: 'CAPÍTULO I – BASES DE LA INSTITUCIONALIDAD'."
+          "numbering": "roman"
         },
         {
           "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Artículos 1° to 129°, numbered continuously across all chapters."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Inciso",
@@ -234,11 +218,9 @@
       "hcontainers": [
         {
           "name": "disposicionTransitoria",
-          "local_term": "Disposición Transitoria",
-          "note": "Numbered transitory provisions appended after the permanent articles."
+          "local_term": "Disposición Transitoria"
         }
-      ],
-      "note": "The 1980 Constitution promulgated as Decreto Supremo N° 100 (2005 consolidated text). Two constitutional referendums (2022, 2023) rejected replacement texts — 1980 Constitution remains in force. Work URI anchored to original 1980 promulgation."
+      ]
     }
   },
   "default_document_class": "ley",
@@ -252,12 +234,10 @@
       "constitucion": "/akn/cl/act/constitucion/1980/constitucion"
     },
     "number_format": "bare_integer",
-    "number_note": "Strip the thousands-separator period from Chilean citation format. 'Ley N° 21.719' → 21719 in URI. 'Decreto Ley N° 3.500' → 3500. Display layer re-adds separator. DFL numbers may need ministry suffix to disambiguate: '1-justicia', '1-trabajo'.",
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "bis_ter_quater",
-    "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter."
+    "insertion_style": "bis_ter_quater"
   },
   "amendments": {
     "style": "textual_civil_law",

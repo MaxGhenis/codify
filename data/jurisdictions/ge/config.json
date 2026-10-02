@@ -22,24 +22,21 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic",
-          "note": "Top-level division in major codes. Civil Code has 5 books (I–V); Criminal Code also uses Book level. Detect 'კოდექსი' in title to enable Book-level hierarchy."
+          "numbering": "arabic"
         },
         {
           "local_term": "ნაწილი (Part)",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic",
-          "note": "Optional intermediate division. Ordering: Book > Part > Chapter > Article where used. Confirmed standard continental convention."
+          "numbering": "arabic"
         },
         {
           "local_term": "თავი (Chapter)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic",
-          "note": "Most common higher division in ordinary legislation. Typical pattern: CHAPTER > ARTICLE."
+          "numbering": "arabic"
         },
         {
           "local_term": "მუხლი (Article)",
@@ -53,16 +50,14 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "Maps to AKN 'paragraph' (not 'subsection'). Civil law tradition confirmed by DE/AM precedent: first-level article subdivision is paragraph. Subsection carries Anglophone connotations not applicable here."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "ქვეპუნქტი (Sub-point)",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "georgian_alpha_parenthesized",
-          "note": "eId normalisation: ISO 9984 Georgian National Transliteration (ა→a, ბ→b, გ→g, დ→d, ე→e, ვ→v, ზ→z, თ→t, ი→i, კ→k, ლ→l, მ→m, ნ→n, ო→o, პ→p, ჟ→zh, რ→r, ს→s, ტ→t2, უ→u, ფ→p2, ქ→k2, ღ→gh, ყ→q, შ→sh, ჩ→ch, ც→ts, ძ→dz, წ→ts2, ჭ→ch2, ხ→kh, ჯ→j, ჰ→h). In practice subparagraph enumeration only uses ა–ჰ sequentially; the transliteration table covers all 33 letters. Decision: ISO 9984 preferred over sequential integers because it is traceable back to the Georgian letter and is the official Georgian government standard."
+          "numbering": "georgian_alpha_parenthesized"
         }
       ],
       "hcontainers": []
@@ -99,12 +94,10 @@
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "georgian_alpha_parenthesized",
-          "note": "eId: ISO 9984 transliteration — see law document class for full table."
+          "numbering": "georgian_alpha_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic laws require 3/5 parliamentary majority. Structurally identical to ordinary laws. Distinguished by subtype in FRBR URI: /akn/ge/act/organic/{year}/{number}."
+      "hcontainers": []
     },
     "code": {
       "label": "Code of Georgia",
@@ -117,16 +110,14 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic",
-          "note": "Top-level division in major codes. Civil Code (Law No. 786/1997) has 5 books: I General Provisions, II Family, III Property, IV Obligations, V Inheritance. Criminal Code (Law No. 2287/1999) also uses Book level."
+          "numbering": "arabic"
         },
         {
           "local_term": "ნაწილი (Part)",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic",
-          "note": "Optional intermediate division between Book and Chapter in some codes. Standard ordering: Book > Part > Chapter > Article where used."
+          "numbering": "arabic"
         },
         {
           "local_term": "თავი (Chapter)",
@@ -154,12 +145,10 @@
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "georgian_alpha_parenthesized",
-          "note": "eId: ISO 9984 transliteration — see law document class for full table."
+          "numbering": "georgian_alpha_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Codes are enacted as laws but use Book-level hierarchy. Detect 'კოდექსი' in title and use this document class. Prompt variant: structure_ge_code.txt (future)."
+      "hcontainers": []
     },
     "decree": {
       "label": "Presidential Decree",
@@ -182,8 +171,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Covers both ბრძანებულება (normative decree) and განკარგულება (administrative ordinance)."
+      "hcontainers": []
     },
     "resolution": {
       "label": "Government Resolution",
@@ -236,8 +224,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of Georgia (1995, as amended). Chapter > Article structure. Roman numeral chapter numbering."
+      "hcontainers": []
     }
   },
   "default_document_class": "law",
@@ -252,8 +239,7 @@
       "bill": "/akn/ge/bill/{year}/{number}",
       "constitution": "/akn/ge/act/constitution/1995/constitution"
     },
-    "date_calendar": "gregorian",
-    "number_note": "Law numbers are sequential integers assigned at promulgation across the full history of the Republic (not resetting per year). Early 1990s laws have low numbers; current laws are in the thousands."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "insertion_style": "superscript"

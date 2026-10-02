@@ -24,8 +24,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Used only in large codes (Code civil, Code pénal). Not present in ordinary laws."
+          "numbering": "roman"
         },
         {
           "local_term": "Titre",
@@ -46,24 +45,21 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "roman",
-          "note": "Section is a HIGHER division grouping articles — NOT the basic unit. Bluebell keyword DIVISION avoids collision with Anglophone section semantics."
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "First article header: 'Article 1er'; eId: art_1. Continuous numbering throughout entire law regardless of higher divisions."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Alinéa",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "sequential_implicit",
-          "note": "Unnumbered paragraph within an article. Arabic: فقرة (fiqra). Cited by count."
+          "numbering": "sequential_implicit"
         },
         {
           "local_term": "Point numéroté (1, 2… or 1°, 2°…)",
@@ -124,8 +120,7 @@
           "numbering": "sequential_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic laws require mandatory Cour constitutionnelle review before promulgation (Constitution 2020, Art. 134). Same structure as ordinary laws. Subtype: loi-organique in FRBR URI."
+      "hcontainers": []
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -138,8 +133,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Used only in ordonnances founding major codes (Code civil, Code pénal, Code de procédure civile)."
+          "numbering": "roman"
         },
         {
           "local_term": "Titre",
@@ -177,8 +171,7 @@
           "numbering": "sequential_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Ordonnances are issued by the President of the Republic during parliamentary recess (Constitution 2020, Art. 142) or, historically, during the 1962–1989 single-party era. They have the same structural form as ordinary laws. Two subtypes exist: modern ordonnances (parliamentary recess, post-1989) and historical ordonnances (1962–1989, founding legislation). Both use subtype 'ordonnance' in the FRBR URI."
+      "hcontainers": []
     },
     "decret_presidentiel": {
       "label": "Décret présidentiel",
@@ -208,8 +201,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential decrees signed by the Président de la République. Enabling clause uses Vu formula citing constitutional basis and parent legislation. Numbered YY-NNN (three-digit sequential). Subtype: decret-presidentiel in FRBR URI."
+      "hcontainers": []
     },
     "decret_executif": {
       "label": "Décret exécutif",
@@ -239,8 +231,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive decrees signed by the Premier ministre / Chef du gouvernement. Numbered YY-NNN. Subtype: decret-executif in FRBR URI."
+      "hcontainers": []
     },
     "code": {
       "label": "Code",
@@ -281,8 +272,7 @@
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
-          "numbering": "roman",
-          "note": "Rare; appears in Code de procédure civile. Arabic: فرع."
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
@@ -313,8 +303,7 @@
           "numbering": "sequential_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Codes are the primary vehicle for Algerian systematic legislation (Code civil 1975, Code pénal 1966, Code de la famille 1984, Code du travail 1990, etc.). Model the code as the FRBR work of the founding ordonnance or loi; amendments are expressions or modifications of that work. Article numbering is continuous throughout, not prefixed with L./R. as in France."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -344,8 +333,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Current constitution adopted by referendum 1 November 2020 (Loi n° 20-14 du 30 décembre 2020). Prior constitution 1996. Constitutional amendments are modelled as new expressions of the constitution work, not separate works."
+      "hcontainers": []
     }
   },
   "default_document_class": "loi",
@@ -360,8 +348,7 @@
       "bill": "/akn/dz/bill/{year}/{number}",
       "constitution": "/akn/dz/act/constitution/2020/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Arabic is the constitutionally authoritative language; French is the production language for the Bluebell pipeline. Each law has two FRBR expressions: ara@{date} (authoritative) and fra@{date} (parallel). Hijri dates in citations are stored as FRBRalias, not in the URI."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "insertion_style": "hyphen_suffix"

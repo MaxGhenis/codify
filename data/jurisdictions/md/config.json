@@ -22,79 +22,69 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman_ordinal",
-          "note": "Used in major codes only (Civil Code, Fiscal Code). E.g., 'Cartea întâi', 'Cartea a doua'."
+          "numbering": "roman_ordinal"
         },
         {
           "local_term": "Partea",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman_ordinal",
-          "note": "Used in codes alongside or instead of Books. E.g., 'Partea I', 'Partea a II-a'."
+          "numbering": "roman_ordinal"
         },
         {
           "local_term": "Titlul",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman",
-          "note": "Standard in codes and complex statutes. E.g., 'Titlul I – Dispoziţii generale'."
+          "numbering": "roman"
         },
         {
           "local_term": "Capitolul",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Most common grouping in ordinary legislation. E.g., 'Capitolul I'."
+          "numbering": "roman"
         },
         {
           "local_term": "Secțiunea",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "CRITICAL: Secțiunea is a higher grouping ABOVE articles, NOT the basic unit. Use DIVISION keyword to avoid confusion with Anglophone section-as-basic-unit. Verify with Bluebell parser. Ordinal style: Secțiunea 1, Secțiunea a 2-a."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "Articolul",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Basic unit. Numbered continuously throughout the entire act regardless of higher divisions above."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Alineatul",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized",
-          "note": "Subdivision (1), (2), (3). Cited as alin.(1)."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Litera",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_closing_paren",
-          "note": "Subdivision a), b), c). Cited as lit.a)."
+          "numbering": "alpha_lower_closing_paren"
         },
         {
           "local_term": "Punctul",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "arabic_fullstop",
-          "note": "Subdivision 1., 2., 3. Sub-division of litere."
+          "numbering": "arabic_fullstop"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Liniuța (dash item)",
-          "name": "liniuta",
-          "note": "Dash-introduced items, last resort when other structural elements are exhausted (per Law 100/2017). Cannot be reliably cross-referenced. Pipeline should flag for review."
+          "name": "liniuta"
         }
       ]
     },
@@ -133,8 +123,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Government decision implementing laws. Functional equivalent of statutory instruments. Typically shorter; chapters optional. May include Anexe (annexes)."
+      "hcontainers": []
     },
     "og": {
       "label": "Ordonanță de Guvern (Government Ordinance)",
@@ -171,8 +160,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Government ordinance enacted under parliamentary delegation (Art. 106² Constitution). Structure mirrors HG. Enacting body TLC must be Guvernul, not Parlamentul."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constituția Republicii Moldova",
@@ -206,12 +194,10 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Articles numbered continuously Art. 1–142 in current Constitution."
+          "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Title/Chapter/Section above articles. Some chapters have Sections (Secțiunea); most go directly Title > Chapter > Article."
+      "hcontainers": []
     }
   },
   "default_document_class": "lege",

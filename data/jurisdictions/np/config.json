@@ -77,8 +77,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Primary document class. Parichched (chapter) is the main grouping unit; Daphaa is the basic citable section. English translations use 'Section' for Daphaa."
+      ]
     },
     "samhita": {
       "label": "Samhita (Code)",
@@ -144,8 +143,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Used for comprehensive codes such as the Muluki Samhita (Country Code, 2017). May use Bhaag (Part) as top-level grouping above Parichched."
+      ]
     },
     "constitution": {
       "label": "Constitution of Nepal",
@@ -182,8 +180,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of Nepal 2072 (2015 CE). Bhaag (Part) groups Dhaaraa (Articles). 35 Parts, 308 Articles. Uses article as basic unit, not section."
+      "hcontainers": []
     },
     "niyamavali": {
       "label": "Niyamavali (Rules/Regulations)",
@@ -220,8 +217,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Subsidiary legislation made under an Ain. Uses Rule as basic unit."
+      "hcontainers": []
     },
     "adhyadesh": {
       "label": "Adhyadesh (Ordinance)",
@@ -258,8 +254,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential ordinance issued under Article 114 of the 2015 Constitution when Parliament is not in session. Same structure as Ain."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -274,13 +269,11 @@
       "samhita": "/akn/np/act/samhita/{year}/{number}"
     },
     "date_calendar": "gregorian",
-    "date_calendar_note": "Nepal uses Bikram Samvat (B.S.) as official calendar — B.S. 2072 = 2015 CE. FRBR URIs always use Gregorian year. B.S. date stored as FRBRalias. Conversion: B.S. year - 56 or 57 = CE year (month-dependent; Nepali New Year falls in mid-April CE). Pipeline must convert B.S. dates at ingestion time.",
     "calendar_conversion": {
       "kind": "bikram_samvat",
       "offset": 57,
       "new_year_month": 4,
-      "new_year_day": 14,
-      "note": "Bikram Samvat (BS). Nepali New Year falls ~14 April. BS year is 56-57 years ahead of Gregorian. Before mid-April, subtract 57; after, subtract 57 then add 1. FRBR URIs always use Gregorian; BS date stored as FRBRalias."
+      "new_year_day": 14
     }
   },
   "numbering": {

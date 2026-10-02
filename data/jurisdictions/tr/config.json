@@ -22,56 +22,49 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Highest structural division. Used in large codes (e.g., Türk Medeni Kanunu, Türk Ceza Kanunu). Roman numerals typical: BİRİNCİ KISIM, İKİNCİ KISIM. Often absent in shorter laws."
+          "numbering": "roman"
         },
         {
           "local_term": "Bölüm",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Chapter-level division within a Kısım, or top-level in laws lacking Kısım. Numbered in Turkish ordinals: BİRİNCİ BÖLÜM, İKİNCİ BÖLÜM."
+          "numbering": "roman"
         },
         {
           "local_term": "Ayrım",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Section-level grouping within a Bölüm. Used in codes but not universally. NOT the basic unit — Madde is always the basic citable unit."
+          "numbering": "roman"
         },
         {
           "local_term": "Madde",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "The fundamental citable unit in all Turkish legislation. Abbreviated 'md.' or 'mad.' in citations. Written as 'Madde 1', 'Madde 2' — continuous throughout the act regardless of Kısım/Bölüm. Inserted articles use alphabetic suffix: Ek Madde 1, Ek Madde 2 (appended articles) or Madde N/A (interpolation, rare)."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Fıkra",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_numbered",
-          "note": "Numbered paragraph within a Madde. Displayed as plain Arabic numerals: '(1)', '(2)', '(3)' or simply '1.', '2.'. Cited as 'madde N, fıkra M' or 'md. N/M'. Central subdivision — most Turkish legislation is structured at Madde/Fıkra level."
+          "numbering": "arabic_numbered"
         },
         {
           "local_term": "Bent",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_paren",
-          "note": "Lettered sub-items within a Fıkra. Format: a), b), c) with lowercase letters and closing parenthesis. Cited as 'madde N, fıkra M, bent (a)'."
+          "numbering": "alpha_lower_paren"
         },
         {
           "local_term": "Alt bent",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "numeric_paren",
-          "note": "Numbered sub-items within a Bent. Format: 1), 2), 3). Less common; appears primarily in large codes and tax legislation."
+          "numbering": "numeric_paren"
         }
       ],
       "hcontainers": [
@@ -89,8 +82,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Kanun is the standard primary legislation passed by the TBMM (Türkiye Büyük Millet Meclisi). Numbered sequentially since the republic (Law No. 1 = 1920). Published in Resmî Gazete. Amendment laws (değişiklik kanunları) amend by article text substitution."
+      ]
     },
     "anayasa": {
       "label": "Anayasa (Constitution)",
@@ -103,24 +95,21 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "The 1982 Constitution has a Başlangıç (Preamble) followed by structural divisions. Top-level: BİRİNCİ KISIM (Genel Esaslar), İKİNCİ KISIM (Temel Haklar ve Ödevler), etc."
+          "numbering": "roman"
         },
         {
           "local_term": "Bölüm",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Chapter within a Kısım. E.g., BİRİNCİ BÖLÜM (Kişinin Hakları ve Ödevleri)."
+          "numbering": "roman"
         },
         {
           "local_term": "Madde",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Constitutional articles. The 1982 Constitution has 177 articles (including amendments). Cited as 'Anayasa madde N' or 'Any. md. N'."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Fıkra",
@@ -130,8 +119,7 @@
           "numbering": "arabic_numbered"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1982 Constitution (Türkiye Cumhuriyeti Anayasası) replaced the 1961 Constitution. Significantly amended multiple times, most recently by the 2017 constitutional referendum (Law No. 6771) which transitioned Turkey from parliamentary to presidential system — entered into force following the June 2018 elections. The Başlangıç (preamble) is legally binding under Art. 176."
+      "hcontainers": []
     },
     "cumhurbaskanligi-kararnamesi": {
       "label": "Cumhurbaşkanlığı Kararnamesi (Presidential Decree)",
@@ -168,8 +156,7 @@
           "numbering": "alpha_lower_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Post-2017 presidential decree instrument (Anayasa Art. 104). Constitutional scope is limited: cannot regulate fundamental rights, cannot contradict laws passed by TBMM, and cannot legislate in areas expressly reserved to statute. Used for executive organisation (e.g., ministries established by Cumhurbaşkanlığı Kararnamesi No. 1). Published in Resmî Gazete. Numbered sequentially from No. 1 (2018). DISTINCT from Kanun Hükmünde Kararname (KHK) which was the pre-2017 emergency decree instrument."
+      "hcontainers": []
     },
     "khk": {
       "label": "Kanun Hükmünde Kararname (Decree with Force of Law)",
@@ -199,8 +186,7 @@
           "numbering": "alpha_lower_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Pre-2017 instrument: decree with force of law issued by the Council of Ministers under delegation from TBMM (Anayasa Art. 91, now repealed). Large numbers of KHKs were issued under the 2016 state of emergency following the July coup attempt (KHK No. 667-702), making significant legal changes. Post-2018 constitutional system replaced KHK with Cumhurbaşkanlığı Kararnamesi. Existing KHKs remain in force unless repealed. Flag documents as 'khk' subtype in FRBR URI."
+      "hcontainers": []
     },
     "yonetmelik": {
       "label": "Yönetmelik (Regulation)",
@@ -244,8 +230,7 @@
           "numbering": "alpha_lower_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Subordinate regulation. Issued by the President, ministries, or other competent authorities as authorised by a Kanun. Published in Resmî Gazete. Same hierarchical structure as Kanun at lower scale."
+      "hcontainers": []
     },
     "teblig": {
       "label": "Tebliğ (Communiqué)",
@@ -268,8 +253,7 @@
           "numbering": "arabic_numbered"
         }
       ],
-      "hcontainers": [],
-      "note": "Administrative communiqué issued by ministries (esp. Treasury, Finance, Trade). Binding in technical regulatory areas. Published in Resmî Gazete. Generally short — few higher divisions."
+      "hcontainers": []
     }
   },
   "default_document_class": "kanun",
@@ -282,14 +266,12 @@
       "khk": "/akn/tr/act/khk/{year}/{number}",
       "teblig": "/akn/tr/act/tbl/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "Turkey uses Gregorian calendar exclusively since the 1926 calendar reform. No dual-calendar complexity. Law numbers are sequential integers assigned at enactment (e.g., Kanun No. 4721 = Türk Medeni Kanunu, Kanun No. 5237 = Türk Ceza Kanunu). Use year+number pattern for FRBR URIs."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Kanun No. {number}",
     "act_citation_alt": "{kanun_adi} (Kanun No. {number})",
-    "insertion_style": "ek_madde_series",
-    "insertion_note": "New articles appended at end of law as Ek Madde 1, Ek Madde 2 (rather than mid-text insertion). Insertions within the main body are rare and use fractional numbering in practice."
+    "insertion_style": "ek_madde_series"
   },
   "amendments": {
     "style": "textual_civil_law",
@@ -352,15 +334,13 @@
         "signal": "title_regex",
         "pattern": "Cumhurbaşkanlığı Kararnamesi",
         "target_document_class": "cumhurbaskanligi-kararnamesi",
-        "priority": 100,
-        "note": "Post-2018 presidential decree (constitutional basis shifted from KHK to CBK after the 2017 referendum)."
+        "priority": 100
       },
       {
         "signal": "title_regex",
         "pattern": "Kanun Hükmünde Kararname|^KHK",
         "target_document_class": "khk",
-        "priority": 90,
-        "note": "Pre-2018 decree with force of law. Largely obsolete post-2017 reform but many pre-2018 KHKs remain in force."
+        "priority": 90
       },
       {
         "signal": "title_regex",

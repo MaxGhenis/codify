@@ -25,44 +25,38 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous",
-          "note": "Chapter (Бүлэг). Numbered with Arabic numerals (1, 2, 3...). Major thematic grouping above article. Not all laws use chapters; simple laws begin directly at зүйл."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Зүйл",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Article (Зүйл). The primary structural unit. Numbered continuously throughout the law (not restarting per chapter). Article heading appears inline: '1 дүгээр зүйл. [Title]'."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Заалт",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "decimal_dotted",
-          "note": "Paragraph (Заалт). Numbered with dotted Arabic decimals within the article: 1.1, 1.2, 1.3 (where first digit is the article number). Per Law on Legislation Art. 28."
+          "numbering": "decimal_dotted"
         },
         {
           "local_term": "Дэд заалт",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "decimal_dotted_deep",
-          "note": "Sub-paragraph (Дэд заалт). Numbered with deeper dotted decimal: 1.1.1, 1.1.2. Per Law on Legislation Art. 28."
+          "numbering": "decimal_dotted_deep"
         },
         {
           "local_term": "Үе",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "alpha_lower",
-          "note": "Clause (Үе). Smallest subdivision; lettered a, b, c. Per Law on Legislation Art. 28."
+          "numbering": "alpha_lower"
         }
       ],
-      "hcontainers": [],
-      "note": "The basic unit is Зүйл (article), not section. Article numbering is continuous across the whole law. Inserted articles use alphanumeric suffix convention (needs confirmation from a 2020+ act). Some laws have an optional Хэсэг (part) grouping above Бүлэг — present in the Civil Code and other large codes, absent from simple laws."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Mongolia (Монгол Улсын Үндсэн хууль)",
@@ -76,28 +70,24 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous",
-          "note": "Six chapters (бүлэг) in the 1992 Constitution."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Зүйл",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Articles numbered 1–70 continuously across chapters."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Заалт",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "decimal_dotted",
-          "note": "Sub-divisions within constitutional articles."
+          "numbering": "decimal_dotted"
         }
       ],
-      "hcontainers": [],
-      "note": "1992 Constitution, as amended 1999, 2000, 2019, 2022, 2023. Six chapters, 70 articles. Adopted by People's Great Khural on 13 January 1992; entered into force 12 February 1992. The 2023 amendment (May 31 2023, effective January 1 2024) expanded the State Great Khural from 76 to 126 members and adopted a mixed electoral system."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -108,13 +98,11 @@
       "bill": "/akn/mn/bill/{year}/{number}",
       "constitution": "/akn/mn/act/constitution/1992/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Mongolia uses Gregorian dates. Act numbers are sequential integers within the year. Laws are cited as 'Монгол Улсын хууль {year} оны {number}-р дугаар' — exact citation pattern needs confirmation from official source."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Монгол Улсын хууль {year} оны {number} дүгээр",
-    "insertion_style": "superscript_arabic",
-    "insertion_note": "Inserted articles use superscript Arabic numerals per Law on Legislation Art. 28.10: 'Article 5¹', 'Article 5²', etc. Neither letter suffix ('5а') nor hyphen-decimal ('5-1') is the prescribed style."
+    "insertion_style": "superscript_arabic"
   },
   "amendments": {
     "style": "textual_civilian",

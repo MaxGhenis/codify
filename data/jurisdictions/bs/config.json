@@ -92,8 +92,7 @@
           "marker_form": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' as basic unit term but map to AKN section. REGULATION is not a valid Bluebell keyword."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -130,8 +129,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Articles (not Sections) as the basic unit, grouped under Chapters. Use ARTICLE keyword in Bluebell."
+      "hcontainers": []
     },
     "penal_code": {
       "label": "Penal Code (colonial-era code structure)",
@@ -175,8 +173,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Used only for the Penal Code (CH.84, enacted 1873). BOOK > TITLE > SECTION hierarchy. Not applicable to any modern Bahamian legislation."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -188,8 +185,7 @@
       "bill": "/akn/bs/bill/{year}/{number}",
       "constitution": "/akn/bs/act/constitution/1973/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "When only a CH.NNN chapter number is known (no original enactment year), use act_chapter_only pattern and store CH.NNN as FRBRalias. Update to act pattern when enactment year is determined."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "No. {number} of {year}",

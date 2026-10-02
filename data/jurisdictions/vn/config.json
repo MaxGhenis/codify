@@ -24,62 +24,54 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Used only in large codes; absent from most laws"
+          "numbering": "roman"
         },
         {
           "local_term": "Chương",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_arabic",
-          "note": "Primary higher division; present in almost all laws above ~10 articles"
+          "numbering": "roman_or_arabic"
         },
         {
           "local_term": "Mục",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous",
-          "note": "Optional mid-level division between Chương and Điều; verify per document"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Tiểu mục",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_continuous",
-          "note": "Rare; observed in Civil Code 2015 between Mục and Điều"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Điều",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Fundamental citation unit. Continuous numbering throughout entire document, never restarting per chapter."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Khoản",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic",
-          "note": "Primary subdivision of Điều. Cited as 'khoản 2 Điều 5'."
+          "numbering": "arabic"
         },
         {
           "local_term": "Điểm",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "vietnamese_alpha",
-          "note": "Secondary subdivision. Vietnamese letter sequence: a, b, c, d, đ, e, g, h, i, k. The letter đ is transliterated as 'dd' in eId values."
+          "numbering": "vietnamese_alpha"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Phụ lục",
-          "note": "Annex/Schedule — use <attachments><attachment> not hcontainer",
           "name": "phuluc"
         }
       ]
@@ -140,8 +132,7 @@
           "numbering": "vietnamese_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Bộ luật (comprehensive codes) use the same hierarchy as Luật but commonly include Phần and Tiểu mục levels absent in shorter laws"
+      "hcontainers": []
     },
     "phaplenhh": {
       "label": "Pháp lệnh (Ordinance)",
@@ -178,8 +169,7 @@
           "numbering": "vietnamese_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by Standing Committee of National Assembly between sessions. Shorter than Luật; rarely uses Phần or Tiểu mục."
+      "hcontainers": []
     },
     "nghi_dinh": {
       "label": "Nghị định (Decree)",
@@ -223,8 +213,7 @@
           "numbering": "vietnamese_alpha"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by the Government (Cabinet). Subsidiary legislation implementing Luật. Most voluminous instrument class."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Hiến pháp (Constitution)",
@@ -254,8 +243,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution 2013 (current). Chapters numbered in Roman numerals. No Phần or Mục level. No Điểm level used in the Constitution."
+      "hcontainers": []
     }
   },
   "default_document_class": "luat",

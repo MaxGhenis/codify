@@ -54,8 +54,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Article numbering is continuous throughout the law — does not restart per Chapter or Part."
+      "hcontainers": []
     },
     "decree": {
       "label": "Presidential or Government Decree",
@@ -71,8 +70,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Decrees are typically short instruments; often no higher divisions above Article level."
+      "hcontainers": []
     },
     "ordinance": {
       "label": "Ordinance (National Assembly Standing Committee)",
@@ -95,8 +93,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Ordinances enacted by the NA Standing Committee between sessions. Similar structure to laws but typically shorter."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -119,8 +116,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1991 Constitution uses Chapters (no Parts). Revised 2003 and 2015 — each revision is a new FRBR expression of the same work."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -133,8 +129,7 @@
       "bill": "/akn/la/bill/{year}/{number}",
       "constitution": "/akn/la/act/constitution/1991/constitution"
     },
-    "date_calendar": "gregorian",
-    "number_note": "Laws numbered as No. NN/NA; use the numeric part only as {number}. When number is ambiguous, use slugified short title."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Law No. {number}/NA of {date}"

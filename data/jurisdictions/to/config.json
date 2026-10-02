@@ -31,8 +31,7 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic",
-          "note": "Present in complex Acts only (e.g., Income Tax Act). Many Acts go directly Part > Section."
+          "numbering": "arabic"
         },
         {
           "local_term": "Section",
@@ -100,8 +99,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Regulations use 'regulation' as basic unit term but map to AKN section. REGULATION is not a Bluebell keyword — use SECTION."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Tonga",
@@ -131,8 +129,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses 'Clause' as basic unit (not 'Section'), but maps to AKN section element for Bluebell compatibility. Three Parts: I (Rights), II (Government), III (Land)."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -147,8 +144,7 @@
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Cap. {decimal}",
-    "insertion_style": "alphanumeric",
-    "note": "Dual numbering: sessional (Act No. N of YYYY) and consolidated decimal chapter (Cap. X.YY or X.YY.ZZ for SI). Chapter numbers changed between 1988 and 2020 revised editions — use 2020 edition numbers as canonical."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

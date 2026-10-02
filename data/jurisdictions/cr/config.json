@@ -43,8 +43,7 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Higher-division grouping only, NOT the basic unit — distinct from Anglophone 'section'"
+          "numbering": "roman"
         },
         {
           "local_term": "Artículo",
@@ -58,24 +57,21 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_closing_paren_or_arabic_closing_paren",
-          "note": "Two styles: 'a)', 'b)' (alphabetic, common in ordinary laws) or '1)', '2)' (numeric, common in codes). Both map to paragraph."
+          "numbering": "alpha_lower_closing_paren_or_arabic_closing_paren"
         },
         {
           "local_term": "Párrafo",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "unnumbered",
-          "note": "Unnumbered prose paragraph; SUBSECTION used as Bluebell proxy. Post-processing may rename to alinea."
+          "numbering": "unnumbered"
         }
       ],
       "hcontainers": [
         {
           "name": "transitorio",
           "local_term": "Transitorio",
-          "numbering": "roman",
-          "note": "Transitional provisions at end of law. No Bluebell keyword; use SECTION as proxy then rename in post-processing."
+          "numbering": "roman"
         }
       ]
     },
@@ -107,8 +103,7 @@
           "numbering": "arabic_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive decrees issued by the President and relevant Minister(s). Often reglamentos to a parent law."
+      "hcontainers": []
     },
     "constitucion": {
       "label": "Constitución Política",
@@ -138,8 +133,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1949 Constitution uses TÍTULO > CAPÍTULO > ARTÍCULO. 18 Títulos, articles 1–197 continuous throughout."
+      "hcontainers": []
     }
   },
   "default_document_class": "ley",
@@ -152,14 +146,12 @@
       "constitucion": "/akn/cr/act/constitution/1949/constitucion",
       "tratado": "/akn/cr/act/tratado/{year}/{number}"
     },
-    "number_note": "Ley numbers are a single continuous sequence since 1821 (no year prefix). Store bare Ley N.° as FRBRalias. URI uses enactment year from La Gaceta publication date.",
     "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Ley N.° {number}",
     "act_citation_alt": "Ley N.° {number}, de {date}",
-    "insertion_style": "bis_ter",
-    "insertion_note": "Inserted articles use 'bis', 'ter', 'quater', 'quinquies' suffixes (e.g., Artículo 3 bis). eId: art_3bis."
+    "insertion_style": "bis_ter"
   },
   "amendments": {
     "style": "textual_civil_law",

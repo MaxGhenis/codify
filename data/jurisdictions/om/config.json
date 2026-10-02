@@ -23,8 +23,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic",
-          "note": "Used only in the largest codes (Civil Transactions Law). Rare."
+          "numbering": "arabic"
         },
         {
           "local_term": "Juz' (Part)",
@@ -45,8 +44,7 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic",
-          "note": "Higher division above the article, NOT the basic unit. Civil law usage of 'section'."
+          "numbering": "arabic"
         },
         {
           "local_term": "Maddah (Article)",
@@ -70,8 +68,7 @@
           "numbering": "alpha_lower_arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Enacted by Royal Decree (RD No. number/year). Article numbering is continuous throughout the entire law."
+      "hcontainers": []
     },
     "basic_law": {
       "label": "Al-Nizam al-Asasi (Basic Law of the State)",
@@ -94,8 +91,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "The Basic Law functions as Oman's constitution. Enacted by Royal Decree. Current: RD 6/2021. Previous: RD 101/1996."
+      "hcontainers": []
     },
     "implementing_regulation": {
       "label": "La'iha Tanfidhiyya (Implementing Regulation / Ministerial Decision)",
@@ -132,8 +128,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by ministerial decision to implement a parent nizam. Uses 'si' subtype in FRBR URI."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -146,13 +141,11 @@
       "bill": "/akn/om/bill/{year}/{number}",
       "royal_order": "/akn/om/doc/royal-order/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "Oman uses Gregorian calendar as primary dating system for legislation. Royal Decrees are cited as No. {number}/{year} with Gregorian year. Differs from Saudi Arabia which uses Hijri."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Royal Decree No. {number}/{year}",
-    "insertion_style": "bis",
-    "insertion_note": "Inserted articles use 'bis' suffix (مكرر): Article 5 bis. eId: art_5bis. Inconsistently applied — many amendments use wholesale replacement by new Royal Decree instead."
+    "insertion_style": "bis"
   },
   "amendments": {
     "style": "wholesale_replacement_or_textual",

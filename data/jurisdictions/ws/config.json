@@ -78,8 +78,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "SRs use 'regulation' as basic unit term but map to AKN section"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -102,8 +101,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses 'Article' (not 'Section') as basic unit and Roman numerals for Parts. Article maps to AKN section; add name='article' attribute in post-processing. Parts use Roman numerals (PART I–XII)."
+      "hcontainers": []
     },
     "ordinance": {
       "label": "Ordinance (pre-independence)",
@@ -126,8 +124,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Ordinances enacted by the NZ Administrator (pre-1962) remain in force. Same structure as Acts. FRBR URI uses slugified short title as number segment."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -139,8 +136,7 @@
       "bill": "/akn/ws/bill/{year}/{number}",
       "constitution": "/akn/ws/act/constitution/1960/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "When act number is known (No. NN of YYYY) use numeric {number}. When only short title and year are available, use slugified short title as {number} and record act number as FRBRalias once confirmed. No chapter/cap numbering system — Samoa does not renumber on consolidation."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",

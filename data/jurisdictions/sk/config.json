@@ -22,32 +22,28 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_word_slovak",
-          "note": "PRVÁ ČASŤ, DRUHÁ ČASŤ — Slovak ordinal words, normalised to Arabic integer for eId"
+          "numbering": "ordinal_word_slovak"
         },
         {
           "local_term": "Hlava (Chapter/Head)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_word_slovak_or_roman",
-          "note": "PRVÁ HLAVA or Hlava I — normalised to Arabic integer for eId"
+          "numbering": "ordinal_word_slovak_or_roman"
         },
         {
           "local_term": "Diel (Division)",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "ordinal_word_slovak",
-          "note": "Prvý diel, Druhý diel — used within Hlavy in major codes"
+          "numbering": "ordinal_word_slovak"
         },
         {
           "local_term": "Oddiel (Section/grouping)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "ordinal_word_slovak",
-          "note": "Higher-division grouper above § — NOT the basic unit. Prvý oddiel, Druhý oddiel."
+          "numbering": "ordinal_word_slovak"
         },
         {
           "local_term": "§ (Paragraf)",
@@ -68,16 +64,14 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_closing_paren",
-          "note": "a), b), c)... — Slovak alphabet; ch, dz, dž are typically skipped in legal numbering sequences"
+          "numbering": "alpha_lower_closing_paren"
         },
         {
           "local_term": "Bod (Point)",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "arabic_period",
-          "note": "1., 2., 3. — sub-lists within písmená"
+          "numbering": "arabic_period"
         }
       ],
       "hcontainers": [
@@ -88,8 +82,7 @@
           "bluebell_proxy": "PART",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Slovak § (paragraf) maps to AKN article, following civil law convention identical to Czech §, German §, Austrian §. Higher divisions (Časť > Hlava > Diel > Oddiel) are groupers above the § basic unit. All four levels are optional — simple acts may have only §."
+      ]
     },
     "ustavny_zakon": {
       "label": "Ústavný zákon (Constitutional Act)",
@@ -102,24 +95,21 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_word_slovak",
-          "note": "Constitution has 9 Hlavy. Slovak ordinal words normalised to Arabic for eId."
+          "numbering": "ordinal_word_slovak"
         },
         {
           "local_term": "Oddiel (Section)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "ordinal_word_slovak",
-          "note": "Sections within Hlavy of the Constitution. e.g., Prvý oddiel, Druhý oddiel."
+          "numbering": "ordinal_word_slovak"
         },
         {
           "local_term": "Čl. / Článok (Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Constitutional acts use Čl. (článok) as basic unit, not § (paragraf). Constitution has 156 articles."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Odsek",
@@ -136,8 +126,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitutional acts use Čl. (článok) as basic unit. Same ARTICLE Bluebell keyword as §. Constitution 460/1992 Zb. has 9 Hlavy and 156 Čl."
+      "hcontainers": []
     },
     "nariadenie": {
       "label": "Nariadenie vlády (Government Regulation)",
@@ -181,8 +170,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Government regulations use identical § structure to ordinary zákony. Enabling formula references the empowering statute."
+      "hcontainers": []
     },
     "vyhlaska": {
       "label": "Vyhláška (Ministerial Decree)",
@@ -219,8 +207,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial decrees use same § structure. Higher divisions are rarer; simple vyhlášky may have only §."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -234,8 +221,7 @@
       "constitution": "/akn/sk/act/ustavn/1992/460",
       "judgment_us": "/akn/sk/judgment/us/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "Number = sequential Z.z. number within calendar year (no leading zeros). Year = calendar year of Zbierka zákonov publication. Pre-1993 Czechoslovak-era laws cited as Zb. use the same pattern with the original year and number, under /akn/sk/. The Z.z. sequential series is shared across all document types (statutes, regulations, decrees)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "zákon č. {number}/{year} Z.z.",

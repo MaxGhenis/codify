@@ -65,11 +65,9 @@
       "hcontainers": [
         {
           "name": "proviso",
-          "local_term": "Proviso",
-          "note": "Provided that... clauses. Roman-Dutch drafting heritage."
+          "local_term": "Proviso"
         }
-      ],
-      "note": "Chapters used in major statutes. Parts used within chapters or directly in shorter acts. Sections numbered continuously throughout act — do NOT restart per chapter or part. Inherited SWA-era acts follow the same structural pattern."
+      ]
     },
     "constitution": {
       "label": "Constitution of the Republic of Namibia",
@@ -113,8 +111,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses 'Article' as basic unit (not 'Section'), 26 chapters in Arabic numerals, 148 articles numbered continuously across all chapters. No Parts within the Constitution. 3 Schedules. No enacting formula — opens with constitutional preamble."
+      "hcontainers": []
     },
     "regulation": {
       "label": "Government Notice Regulation",
@@ -158,8 +155,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "GN Regulations use 'regulation N' as basic unit term but map to AKN section. eIds will be sec_N. FRBR URI uses 'gn' subtype: /akn/na/act/gn/{year}/{number}."
+      "hcontainers": []
     },
     "proclamation": {
       "label": "Presidential Proclamation",
@@ -175,8 +171,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential proclamations for commencement dates, appointments, and constitutional instruments. FRBR URI uses 'proclamation' subtype: /akn/na/act/proclamation/{year}/{number}."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -189,8 +184,7 @@
       "bill": "/akn/na/bill/{year}/{number}",
       "constitution": "/akn/na/act/constitution/1990/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "Expression date = gazette publication date (not presidential assent date), matching Laws.Africa convention for Namibia. Primary expression language: eng."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act {number} of {year}",

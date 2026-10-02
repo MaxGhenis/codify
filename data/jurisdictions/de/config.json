@@ -96,8 +96,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "German Paragraph (§) maps to AKN article per LegalDocML.de convention"
+      ]
     },
     "grundgesetz": {
       "label": "Grundgesetz",
@@ -149,8 +148,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Grundgesetz and Artikelgesetze use Artikel instead of Paragraph"
+      ]
     },
     "verordnung": {
       "label": "Rechtsverordnung",
@@ -194,8 +192,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Ordinances issued by executive, same structural conventions as Gesetze"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

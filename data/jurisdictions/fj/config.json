@@ -61,8 +61,7 @@
           "local_term": "Division",
           "name": "division",
           "level": "between_part_and_section",
-          "bluebell_keyword": null,
-          "note": "Used in larger acts (e.g., Employment Relations Act 2007). Sits between Part and Section. Not a Bluebell keyword — requires post-processing to insert hcontainer. Numbered within each Part: Division 1, Division 2."
+          "bluebell_keyword": null
         }
       ]
     },
@@ -87,8 +86,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Legal Notices use 'regulation' or 'rule' as basic unit term but map to AKN section. REGULATION is not a Bluebell keyword; use SECTION."
+      "hcontainers": []
     },
     "decree": {
       "label": "Decree (Military Era 2006–2013)",
@@ -132,8 +130,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Decrees issued by the Commander / President 2006-2013. Identical structural hierarchy to Acts. Enacting formula differs — use promulgatingFormula. FRBR subtype: decree."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -170,8 +167,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "2013 Constitution: 12 Chapters, sections numbered continuously 1-186 across all chapters. Chapters (not Parts) are the higher division."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -185,8 +181,7 @@
       "bill": "/akn/fj/bill/{year}/{number}",
       "constitution": "/akn/fj/act/constitution/{year}/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "Cap-numbered legislation: use cap{NNN} as both year and number segments. Decrees and Promulgations use subtype segments to distinguish from parliamentary acts without embedding legitimacy judgments. Enacting authority recorded in TLC metadata."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act {number} of {year}",

@@ -23,54 +23,47 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic_ordinal",
-          "note": "Used only in major codes (Civil, Penal, Commercial). الكتاب الأول, الكتاب الثاني."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "باب (Bab/Chapter)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_ordinal",
-          "note": "Primary structural grouping in all structured legislation. الباب الأول, الباب الثاني. May appear at top level (without Book) or within a Book."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "فصل (Fasl/Section-higher-div)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "Section as higher division ABOVE the article basic unit — not as basic unit. Bluebell workaround: use DIVISION keyword; post-process to rename <division> → <section> in output XML. الفصل الأول, الفصل الثاني."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "مادة (Maddah/Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "THE basic unit of all Egyptian legislation. Numbered continuously throughout the entire law regardless of Book or Bab boundaries. مادة [N]. Insertion: مكرراً (bis) suffix → art_5bis, art_5bis-2."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "فقرة (Faqra/Paragraph)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "positional_implicit",
-          "note": "Unlabelled paragraph breaks within an article. Cited positionally. Some modern laws use explicit numbers (1)، (2)."
+          "numbering": "positional_implicit"
         },
         {
           "local_term": "بند (Band/Item)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha",
-          "note": "Numbered list items: (1)، (2)، (3) or (أ)، (ب)، (ج). Normalise to Western Arabic numerals or lowercase letters for eId."
+          "numbering": "arabic_or_alpha"
         }
       ],
       "hcontainers": [
         {
           "name": "proviso",
-          "note": "Conditional proviso attached to an article with independent legal force. Rare in Egyptian civil law; more common in personal status instruments.",
           "local_term": "proviso"
         }
       ]
@@ -103,8 +96,7 @@
           "numbering": "positional_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential Legislative Decrees issued between parliamentary sessions (Constitution Art. 156). Structurally identical to ordinary laws. Distinguished by enacting formula and FRBR subtype 'decree-law'."
+      "hcontainers": []
     },
     "regulation": {
       "label": "Executive Regulation (لائحة تنفيذية)",
@@ -134,8 +126,7 @@
           "numbering": "positional_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial and prime-ministerial executive regulations subsidiary to a parent law. Published in Al-Waqa'i Al-Misriyya (supplement gazette) or Al-Jarida Al-Rasmiyya."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution (الدستور)",
@@ -148,24 +139,21 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_ordinal",
-          "note": "2014 Constitution has 6 Chapters (Abwab)."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "فصل (Fasl/Section)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "Sub-grouping within a Bab; same Fasl workaround as for acts."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "مادة (Maddah/Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Articles 1-247 (2014 Constitution, as amended 2019)."
+          "numbering": "arabic_continuous"
         }
       ],
       "hcontainers": []
@@ -179,8 +167,7 @@
       "decree_law": "/akn/eg/act/decree-law/{year}/{number}",
       "constitution": "/akn/eg/act/constitution/{year}/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Law number and year taken directly from the citation قانون رقم [N] لسنة [YYYY]. Arabic script numerals (٠-٩) must be normalised to Western Arabic (0-9) for URI construction."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "قانون رقم {number} لسنة {year}",

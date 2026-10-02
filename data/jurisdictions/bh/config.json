@@ -13,7 +13,6 @@
     "eng"
   ],
   "authoritative_language": "ara",
-  "note": "Arabic is the sole authoritative language. English translations are produced for commercial laws but are not authoritative. Hijri dates appear alongside Gregorian in official publications; FRBR URIs use Gregorian year only, with Hijri stored as FRBRalias.",
   "document_classes": {
     "law": {
       "label": "Law",
@@ -26,63 +25,55 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_words",
-          "note": "Codes only (Civil Code, Commercial Code). Most laws do not use Book."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Part",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_words",
-          "note": "Primary higher division. Arabic 'Bab'. English translations inconsistently render as 'Part', 'Chapter', or 'Book' — always map to AKN part. Ordinal numbering: 'Part One' / الباب الأول."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Chapter",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_words",
-          "note": "Secondary higher division within a Part. Arabic 'Fasl'. English may render as 'Chapter' or 'Section' — always map to AKN chapter."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Basic citable unit. Continuous Arabic numeral numbering throughout, never restarting per Part or Chapter. Format in text: 'Article (5)' with parentheses."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Clause",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized",
-          "note": "First subdivision of an article. Arabic numerals in parentheses: (1), (2), (3). English translations sometimes call these 'paragraphs'."
+          "numbering": "arabic_parenthesized"
         },
         {
           "local_term": "Item",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized",
-          "note": "Second subdivision. Lowercase letters in parentheses in English: (a), (b), (c). Arabic original may use Arabic-script letters or continuing numerals."
+          "numbering": "alpha_lower_parenthesized"
         },
         {
           "local_term": "Sub-item",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "arabic",
-          "note": "Third subdivision. Present in complex codes. Exact numbering format (Roman, Arabic, sub-letters) not confirmed from direct document inspection."
+          "numbering": "arabic"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Annex",
           "akn_element": "attachment",
-          "note": "Wrapped in <attachments><attachment>. Named: 'Annex', 'First Annex', 'Annex (1)'.",
           "name": "annex"
         }
       ]
@@ -142,8 +133,7 @@
           "akn_element": "attachment",
           "name": "annex"
         }
-      ],
-      "note": "Issued by the King between parliamentary sessions or during dissolution. Structurally identical to primary Laws. FRBRsubtype: 'legislative-decree'. Share the same article number sequence per year as Laws."
+      ]
     },
     "constitution": {
       "label": "Constitution",
@@ -156,28 +146,24 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_words",
-          "note": "Primary division. E.g., 'Chapter I. The State', 'Chapter IV. Public Authorities'."
+          "numbering": "ordinal_words"
         },
         {
           "local_term": "Section",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic",
-          "note": "Secondary division within some Chapters. E.g., 'Section 1. The King', 'Section 2. The Executive Authority'."
+          "numbering": "arabic"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "125 articles (2002 Constitution). Continuous numbering throughout."
+          "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of the Kingdom of Bahrain, issued February 14 2002, with amendments through 2017."
+      "hcontainers": []
     },
     "royal_decree": {
       "label": "Royal Decree",
@@ -193,8 +179,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Non-legislative royal acts: appointments, treaty ratifications, establishment of bodies. Typically short (2-5 articles). FRBRsubtype: 'royal-decree'. Use only when digitising such decrees explicitly."
+      "hcontainers": []
     }
   },
   "default_document_class": "law",
@@ -207,12 +192,10 @@
       "bill": "/akn/bh/bill/{year}/{number}",
       "constitution": "/akn/bh/act/constitution/2002/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Laws and Legislative Decrees share the same URI pattern and number sequence per year. Instrument type is recorded as FRBRsubtype in metadata. Hijri year stored as FRBRalias."
+    "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "bis",
-    "insertion_note": "Civil law bis/مكرر convention expected. Inserted Article 10 → 'Article 10 bis' / 'المادة 10 مكرر'."
+    "insertion_style": "bis"
   },
   "amendments": {
     "style": "textual_civil_law",

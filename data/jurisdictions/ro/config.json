@@ -50,8 +50,7 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "CRITICAL: Secțiune is a higher grouping ABOVE articles, not the basic unit. Use DIVISION keyword to avoid confusion with Anglophone section-as-basic-unit. Verify keyword mapping with Bluebell parser."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "Articolul",
@@ -85,8 +84,7 @@
       "hcontainers": [
         {
           "local_term": "Paragraful (§)",
-          "name": "paragraf",
-          "note": "Structural paragraph (§1, §2) within a Secțiune; rare outside codes. Requires post-processing — not producible directly by Bluebell."
+          "name": "paragraf"
         }
       ]
     },
@@ -153,8 +151,7 @@
           "numbering": "arabic_fullstop"
         }
       ],
-      "hcontainers": [],
-      "note": "OUG structure mirrors Lege; enacted by Government under Art. 115 Constitution, not Parliament. Enacting body TLC must be Guvernul, not Parlamentul."
+      "hcontainers": []
     },
     "og": {
       "label": "Ordonanță (Government Ordinance)",
@@ -191,8 +188,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Simple government ordinance (not emergency). Similar structure to OUG but typically shorter."
+      "hcontainers": []
     },
     "hg": {
       "label": "Hotărâre de Guvern (Government Decision)",
@@ -229,8 +225,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Government decisions implementing laws. Typically shorter, article-based. May include annexes (Anexe)."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constituția României",
@@ -281,8 +276,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Title/Chapter/Section above articles. Articles numbered continuously (Art. 1–156 in current Constitution)."
+      "hcontainers": []
     }
   },
   "default_document_class": "lege",

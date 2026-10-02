@@ -99,8 +99,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Same hierarchy as proclamations"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of the FDRE",
@@ -137,8 +136,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "11 chapters, no Parts"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -152,10 +150,8 @@
       "bill": "/akn/et/bill/{year}/{number}"
     },
     "date_calendar": "gregorian",
-    "date_calendar_note": "Gregorian year used in FRBR URIs for international interoperability. Ethiopian calendar date stored as FRBRalias.",
     "calendar_conversion": {
-      "kind": "ethiopian",
-      "note": "Ethiopian calendar. ~7-8 years behind Gregorian; 13 months (12 × 30 days + Pagumē). New Year falls ~11 September. Conversion is non-trivial. FRBR URIs use Gregorian."
+      "kind": "ethiopian"
     }
   },
   "numbering": {

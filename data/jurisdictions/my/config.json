@@ -32,8 +32,7 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous",
-          "note": "Division subdivides Part in complex Acts like Companies Act 2016. Maps to AKN chapter. Not all Acts use this level."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Section (Seksyen)",
@@ -67,8 +66,7 @@
       "hcontainers": [
         {
           "local_term": "Proviso (Syarat)",
-          "name": "proviso",
-          "note": "'Provided that...' clauses within sections"
+          "name": "proviso"
         }
       ]
     },
@@ -107,8 +105,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Regulations use 'regulation' as basic unit term but structural role is identical to 'section'. Maps to AKN section. Cited as P.U.(A) YYYY/NN."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Federal Constitution",
@@ -152,8 +149,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Federal Constitution uses 'Article' (Perkara) as basic unit, not 'section'. Unique to the Constitution; all ordinary legislation uses 'section'."
+      "hcontainers": []
     },
     "state_enactment": {
       "label": "State Enactment (Enakmen Negeri)",
@@ -197,8 +193,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Laws enacted by State Legislative Assemblies (Dewan Undangan Negeri) of 13 states. Called Enactments (Enakmen) in Peninsular Malaysia and Sabah; Ordinances (Ordinan) in Sarawak. Structurally identical to Federal Acts. FRBR URI uses ISO 3166-2 state sub-national code."
+      "hcontainers": []
     },
     "syariah_enactment": {
       "label": "Syariah Enactment / Islamic Law Legislation",
@@ -242,8 +237,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Islamic law legislation enacted by State Legislative Assemblies under the State List (Federal Constitution, Ninth Schedule). Applies to Muslims only. FRBR URI uses my-{state-code}/act/syariah/{year}/{number}. Federal Territory Islamic legislation is Federal Acts, not State Enactments."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -261,8 +255,7 @@
   "numbering": {
     "act_citation": "{Short Title} {Year} [Act {number}]",
     "act_citation_alt": "Cap. {number}",
-    "insertion_style": "alphanumeric",
-    "insertion_note": "Inserted sections: 3A, 3B. Inserted subsections: (1A), (1B). No renumbering on amendment."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

@@ -75,8 +75,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "First paragraph of each article is implicit (unnumbered). Supplementary provisions (Fusoku) map to attachment."
+      ]
     },
     "cabinetorder": {
       "label": "Cabinet Order (Seirei)",
@@ -113,8 +112,7 @@
           "numbering": "implicit_first"
         }
       ],
-      "hcontainers": [],
-      "note": "Cabinet Orders have similar structure to acts but issued by the Cabinet"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution (Nihonkoku Kenpo)",
@@ -144,8 +142,7 @@
           "numbering": "implicit_first"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1947 Constitution has 11 chapters, 103 articles, has never been amended"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -158,7 +155,6 @@
       "constitution": "/akn/jp/act/constitution/1947/constitution"
     },
     "date_calendar": "gregorian",
-    "date_calendar_note": "Laws are officially numbered with imperial era year but FRBR URIs use Gregorian year for interoperability. Era designation stored as FRBRalias.",
     "calendar_conversion": {
       "kind": "era_table",
       "eras": [
@@ -187,8 +183,7 @@
           "start": "1868-10-23",
           "abbrev": "明治"
         }
-      ],
-      "note": "Japanese imperial era system (Nengo). Each emperor's reign defines an era (Reiwa from 2019-05-01). Conversion requires era-table lookup. FRBR URIs use Gregorian; original era date stored as FRBRalias."
+      ]
     }
   },
   "numbering": {

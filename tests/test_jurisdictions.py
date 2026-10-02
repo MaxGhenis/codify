@@ -1321,22 +1321,8 @@ _LANGUAGE_SCRIPTS = {
     **{k: {"ARABIC"} for k in "ara fas urd pus kur snd uig prs".split()},
     **{k: {"CJK", "HIRAGANA", "KATAKANA", "HANGUL"} for k in "zho cmn jpn kor yue".split()},
 }
-# Free text and URI/citation patterns are prose, not match vocabulary.
-_PROSE_PATHS = (
-    "/note",
-    "/notes",
-    "/label",
-    "/description",
-    "/validation",
-    "_note",
-    "/frbr",
-    "/display",
-    "/amendments",
-    "/numbering",
-    "/name",
-    "/example",
-    "citation",
-)
+# URIs, citation patterns and examples are not human-readable names or terms.
+_NON_TEXT_PATHS = ("/uri", "/url", "href", "citation", "pattern", "example", "/validation")
 
 
 def _scripts_of(token: str) -> set[str]:
@@ -1358,8 +1344,9 @@ def _paths(node, where: str = ""):
 
 @pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
 def test_match_vocabulary_uses_one_script_consistent_with_the_languages(code: str) -> None:
-    """A term mixing scripts (an Armenian word with a Cyrillic or Latin
-    homoglyph) never matches the source, so its anchor silently never fires."""
+    """A term or name mixing scripts (an Armenian word with a Cyrillic or Latin
+    homoglyph) never matches the source, so its anchor silently never fires.
+    Covers every human-readable string: terms, labels, names, display names."""
     import re
 
     raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
@@ -1367,10 +1354,32 @@ def test_match_vocabulary_uses_one_script_consistent_with_the_languages(code: st
     allowed = {"LATIN"}.union(*(_LANGUAGE_SCRIPTS[lang] for lang in native))
     bad = []
     for where, text in _paths(raw):
-        if any(part in where for part in _PROSE_PATHS):
+        if any(part in where.lower() for part in _NON_TEXT_PATHS):
             continue
         for token in re.findall(r"\w+", text):
-            scripts = _scripts_of(token)
+            # A bare N, M or X is a number placeholder, not a Latin letter of the term.
+            scripts = _scripts_of(re.sub(r"(?<![A-Za-z])[NMX](?![A-Za-z])", "", token))
             if len(scripts) > 1 or (native and scripts - allowed):
                 bad.append((where, token, sorted(scripts)))
     assert not bad, (code, bad)
+
+
+_ORIGINAL_PROFILES = {"ee", "fi", "gb", "ie", "it", "nz"}
+
+
+@pytest.mark.parametrize(
+    "code", [c for c in _SHIPPED if c not in _ORIGINAL_PROFILES], ids=lambda c: c
+)
+def test_minimal_profiles_carry_no_free_text_notes(code: str) -> None:
+    """Notes drift from the structured fields beside them; the validation block
+    is the one standard statement."""
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    found = [
+        where
+        for where, _ in _paths(raw)
+        if not where.startswith("/validation")
+        and re.search(r"/(note|notes|[a-z_]+_notes?)$", where)
+    ]
+    assert not found, (code, found)

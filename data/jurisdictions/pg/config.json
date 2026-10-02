@@ -114,8 +114,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic Laws require prescribed majority; structurally identical to ordinary acts"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -173,8 +172,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uniquely uses Part > Division > Subdivision > Section (four-level hierarchy)"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

@@ -43,8 +43,7 @@
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_sequential_assigned",
-          "note": "Unnumbered prose paragraph within a grein. First málsgrein is direct article content; subsequent ones become PARAGRAPH 2, 3, etc."
+          "numbering": "arabic_sequential_assigned"
         },
         {
           "local_term": "Stafliður",
@@ -54,8 +53,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Icelandic § (grein) is the basic statutory unit, mapping to AKN article and consistent with DK/SE/NO/DE civil law convention. § numbers are continuous across all kaflar. Most acts have no hluti — short acts may have no kaflar either, just a flat sequence of greinar."
+      "hcontainers": []
     },
     "reglugjord": {
       "label": "Reglugerð",
@@ -92,8 +90,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive regulation issued by minister under statutory authority (heimild). Numbered in the Stjórnartíðindi series with its own sequential number per year. Separate FRBR work. URI uses rgj/ subtype."
+      "hcontainers": []
     },
     "stjornarskra": {
       "label": "Stjórnarskrá lýðveldisins Íslands",
@@ -116,8 +113,7 @@
           "numbering": "arabic_sequential_assigned"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1944 Constitution. §§ 1–80, no higher divisions. Amended by constitutional acts (stjórnarskrárlög) requiring two Althingi votes with an intervening general election. The 1944 constitution replaced the 1920 constitution (itself a revision of the 1874 Danish-era constitution). A new constitution was drafted 2011–2013 but not enacted."
+      "hcontainers": []
     },
     "thingsalyktun": {
       "label": "Þingsályktun",
@@ -133,8 +129,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Parliamentary resolution (Þingsályktun). Non-binding formal expression of will of Althingi — used for government authorisations, ratification of international agreements, and parliamentary directions. Numbered separately from lög."
+      "hcontainers": []
     },
     "tilskipun": {
       "label": "Tilskipun",
@@ -157,8 +152,7 @@
           "numbering": "arabic_sequential_assigned"
         }
       ],
-      "hcontainers": [],
-      "note": "Historical royal ordinance from the Danish-crown era (pre-1944). Some tilskipanir remain in force in the Lagasafn. Enacted by the Danish crown, now treated as Icelandic law. URI uses tsk/ subtype. Enacting authority in metadata indicates Danish-era origin."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -177,8 +171,7 @@
   "numbering": {
     "act_citation": "lög nr. {number}/{year}",
     "act_citation_alt": "{short-title}, nr. {number}/{year}",
-    "insertion_style": "alphanumeric_spaced",
-    "insertion_note": "Inserted §§ use a letter suffix with a space: § 5 a, § 5 b. eId omits the space: art_5a, art_5b. Consistent with DK/SE convention."
+    "insertion_style": "alphanumeric_spaced"
   },
   "amendments": {
     "style": "textual_replacement",

@@ -32,8 +32,7 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_continuous",
-          "note": "Division sits between Part and Section in complex Acts. No Bluebell keyword — requires post-processing to wrap in hcontainer name='division'. Not present in all Acts."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Section",
@@ -68,8 +67,7 @@
         {
           "name": "division",
           "local_term": "Division",
-          "level": "intermediate",
-          "note": "Used in complex Acts between Part and Section. No AKN native element; use hcontainer."
+          "level": "intermediate"
         }
       ]
     },
@@ -115,8 +113,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' or 'rule' as basic unit term but map to AKN section. Cited as 'S N/YYYY' in Government Gazette Subsidiary Legislation Supplement."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -160,8 +157,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Parts > Chapters > Articles (not Sections). Requires Constitution-specific structuring prompt variant. Do not process through standard act pipeline."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

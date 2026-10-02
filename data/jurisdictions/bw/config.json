@@ -78,8 +78,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' as basic unit term but map to AKN section. Numbering format: 'Statutory Instrument No. NN of YYYY'."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -109,8 +108,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapter > (Part) > Section. Sections numbered continuously throughout (not restarting per Chapter). Parts appear only within some Chapters (e.g., Chapter IV The Executive)."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

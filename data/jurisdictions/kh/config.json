@@ -22,8 +22,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic",
-          "note": "Civil Code only; rare in ordinary legislation"
+          "numbering": "arabic"
         },
         {
           "local_term": "Part",
@@ -44,16 +43,14 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Higher division above article — NOT the basic unit"
+          "numbering": "roman"
         },
         {
           "local_term": "Sub-section (higher div)",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "roman",
-          "note": "Civil Code / Labor Law only"
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
@@ -114,8 +111,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Sub-decrees signed by Prime Minister after cabinet adoption. Same article-based structure as Krams."
+      "hcontainers": []
     },
     "prakas": {
       "label": "Prakas (Ministerial Proclamation)",
@@ -138,8 +134,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by individual ministers. Typically shorter; may have no higher divisions."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of the Kingdom of Cambodia",
@@ -162,8 +157,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "16 chapters, 158 articles (as of 9th amendment 2021). Continuous article numbering."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

@@ -78,16 +78,13 @@
       "hcontainers": [
         {
           "name": "additionalProvisions",
-          "local_term": "Допълнителни разпоредби",
-          "note": "Additional Provisions block. Contains § items (mapped to section internally). Mandatory structural block per Decree 883."
+          "local_term": "Допълнителни разпоредби"
         },
         {
           "name": "transitionalProvisions",
-          "local_term": "Преходни и заключителни разпоредби",
-          "note": "Transitional and Final Provisions block. Contains § items (mapped to section internally). Mandatory structural block per Decree 883."
+          "local_term": "Преходни и заключителни разпоредби"
         }
-      ],
-      "note": "Higher divisions (Дял, Книга, Глава, Раздел) are optional — simple short acts consist of articles only. All acts must include Transitional and Final Provisions block."
+      ]
     },
     "code": {
       "label": "Code",
@@ -156,16 +153,13 @@
       "hcontainers": [
         {
           "name": "additionalProvisions",
-          "local_term": "Допълнителни разпоредби",
-          "note": "Additional Provisions block with § items."
+          "local_term": "Допълнителни разпоредби"
         },
         {
           "name": "transitionalProvisions",
-          "local_term": "Преходни и заключителни разпоредби",
-          "note": "Transitional and Final Provisions block with § items."
+          "local_term": "Преходни и заключителни разпоредби"
         }
-      ],
-      "note": "Codes have the same legal force as acts. Major codes: Criminal Code (1968), Code of Civil Procedure (2007), Criminal Procedure Code (2005), Commercial Act (1991). Use descriptive subtype slug in FRBR URI."
+      ]
     },
     "si": {
       "label": "Council of Ministers Decree / Ministerial Regulation",
@@ -217,8 +211,7 @@
           "numbering": "cyrillic_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Subsidiary legislation enacted by the Council of Ministers (Постановления) or individual ministries (Наредби, Правилници). Same article-based structure as primary legislation."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -256,8 +249,7 @@
           "numbering": "arabic_fullstop"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1991 Constitution uses Глави (chapters) as the only higher division above articles. Nine chapters total. Articles numbered continuously 1–169."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -300,8 +292,7 @@
   },
   "numbering": {
     "act_citation": "Promulgated SG No. {issue}/{year}",
-    "insertion_style": "alphanumeric_cyrillic",
-    "insertion_note": "Inserted articles receive a Cyrillic letter suffix: Чл. 5а, Чл. 5б. Maps to art_5a, art_5b in eIds."
+    "insertion_style": "alphanumeric_cyrillic"
   },
   "amendments": {
     "style": "textual_continental",

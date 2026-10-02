@@ -22,76 +22,66 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Highest division; used only in large codes (e.g., Burgerlijk Wetboek). Rare in ordinary acts."
+          "numbering": "roman"
         },
         {
           "local_term": "Hoofdstuk",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous",
-          "note": "Most common top-level division in ordinary acts. Numbered Arabic: Hoofdstuk 1, 2, 3."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Titel",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "arabic_continuous",
-          "note": "Used in codes between Hoofdstuk and Afdeling."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Afdeling",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous",
-          "note": "Groups artikelen within a Hoofdstuk or Titel. NOTE: AKN section used here as a higher division container, not as the basic unit."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Paragraaf",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_with_symbol",
-          "note": "Structural Paragraaf (§ 1, § 2) is a higher division below Afdeling. NOT a subdivision of artikel. Post-processing may be needed to correctly represent in AKN."
+          "numbering": "arabic_with_symbol"
         },
         {
           "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "The fundamental citable provision. Basic unit of Dutch legislation."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Lid",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic",
-          "note": "Subdivision of artikel. Cited as 'artikel 5, eerste lid'. Arabic numerals (1, 2, 3)."
+          "numbering": "arabic"
         },
         {
           "local_term": "Onderdeel",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower",
-          "note": "List item within a lid. Lowercase letters (a, b, c). Cited as 'onderdeel a' or 'onder a'."
+          "numbering": "alpha_lower"
         },
         {
           "local_term": "Sub-onderdeel",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "numeric_degree",
-          "note": "Further subdivision of onderdeel (1°, 2°). Rare."
+          "numbering": "numeric_degree"
         }
       ],
-      "hcontainers": [],
-      "note": "Jurisdiction-specific Bluebell prompt required (structure_nl.txt). ARTICLE is the basic unit, not SECTION."
+      "hcontainers": []
     },
     "amvb": {
       "label": "Algemene Maatregel van Bestuur (AMvB)",
@@ -128,8 +118,7 @@
           "numbering": "alpha_lower"
         }
       ],
-      "hcontainers": [],
-      "note": "AMvBs (general administrative orders) are issued by royal decree and published in Staatsblad. Same article-based structure as acts."
+      "hcontainers": []
     },
     "minreg": {
       "label": "Ministeriële Regeling (Ministerial Regulation)",
@@ -166,8 +155,7 @@
           "numbering": "alpha_lower"
         }
       ],
-      "hcontainers": [],
-      "note": "Published in Staatscourant (Stcrt.), not Staatsblad. FRBR URI uses Stcrt. year and number."
+      "hcontainers": []
     },
     "rijkswet": {
       "label": "Rijkswet (Kingdom Act)",
@@ -197,8 +185,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Kingdom Acts apply across all four constituent countries. Published in Staatsblad. UNRESOLVED: URI convention under /akn/nl/act/rijkswet/ is provisional — see profile ambiguities."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Grondwet (Constitution)",
@@ -211,16 +198,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Constitution uses Roman numeral chapters (Hoofdstuk I through IX)."
+          "numbering": "roman"
         },
         {
           "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Articles numbered continuously across all chapters (1 through 142)."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Lid",
@@ -230,8 +215,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "The Grondwet has 9 chapters with articles numbered continuously 1–142. Constitutional amendments are enacted by a two-reading procedure (dissolution + re-election between readings)."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",

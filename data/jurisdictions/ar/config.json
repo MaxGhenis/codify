@@ -22,63 +22,55 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_word",
-          "note": "Codes only (Código Civil y Comercial, etc.). Format: LIBRO PRIMERO."
+          "numbering": "ordinal_word"
         },
         {
           "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_ordinal_word",
-          "note": "Present in codes and complex laws. Format: TÍTULO I, TÍTULO PRELIMINAR."
+          "numbering": "roman_or_ordinal_word"
         },
         {
           "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Most common higher division in ordinary laws. Format: CAPÍTULO I."
+          "numbering": "roman"
         },
         {
           "local_term": "Sección",
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
-          "numbering": "ordinal_word",
-          "note": "Grouping above artículos in codes only. Always a higher division, never the basic unit. Format: Sección 1ª."
+          "numbering": "ordinal_word"
         },
         {
           "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_degree",
-          "note": "Basic citable unit. Format: Art. 1°.– or Artículo 1°.– Numbered continuously throughout law."
+          "numbering": "arabic_degree"
         },
         {
           "local_term": "Inciso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized",
-          "note": "First-level subdivision within artículo. Format: a), b), c). Cited as 'inciso a)'."
+          "numbering": "alpha_lower_parenthesized"
         },
         {
           "local_term": "Punto / Sub-inciso",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_period",
-          "note": "Second-level subdivision within inciso. Format: 1., 2., 3. Used in technical and commercial legislation."
+          "numbering": "arabic_period"
         }
       ],
       "hcontainers": [
         {
           "name": "tituloPreliminar",
-          "local_term": "Título Preliminar",
-          "note": "Preliminary Title in codes; precedes main Book/Title hierarchy. eId: hcontainer_1."
+          "local_term": "Título Preliminar"
         }
       ]
     },
@@ -103,8 +95,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "DNUs have the force of law but are issued by the Executive under Art. 99(3) CN. Use subtype 'dnu' in FRBR URI."
+      "hcontainers": []
     },
     "decreto": {
       "label": "Decreto Reglamentario",
@@ -127,8 +118,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Regulatory decrees implementing laws. Numbered annually: Decreto N° 984/2024."
+      "hcontainers": []
     },
     "constitucion": {
       "label": "Constitución de la Nación Argentina",
@@ -141,8 +131,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_word",
-          "note": "Primera Parte, Segunda Parte."
+          "numbering": "ordinal_word"
         },
         {
           "local_term": "Título",
@@ -156,16 +145,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_word",
-          "note": "The Constitution uses 'Sección' where other laws use 'Capítulo'. Maps to chapter for AKN purposes."
+          "numbering": "ordinal_word"
         },
         {
           "local_term": "Capítulo",
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
-          "numbering": "ordinal_word",
-          "note": "Within a constitutional Sección, Capítulos group articles."
+          "numbering": "ordinal_word"
         },
         {
           "local_term": "Artículo",
@@ -175,8 +162,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1853 Constitution reinstated 1983, amended 1994. Work URI uses 1853 date. Articles numbered continuously 1–129."
+      "hcontainers": []
     }
   },
   "default_document_class": "ley",
@@ -189,12 +175,10 @@
       "constitucion": "/akn/ar/act/constitucion/1853/constitucion"
     },
     "number_format": "bare_integer",
-    "number_note": "Strip thousands-separator periods from Argentine citation format (Ley 26.994 → 26994 in URI). Display layer re-adds separator.",
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "bis_ter_quater",
-    "insertion_note": "Inserted articles use Latin ordinal suffixes: Artículo 5° bis, Artículo 12 ter, Artículo 8 quater."
+    "insertion_style": "bis_ter_quater"
   },
   "amendments": {
     "style": "textual_civil_law",

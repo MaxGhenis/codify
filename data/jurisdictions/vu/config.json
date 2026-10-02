@@ -61,8 +61,7 @@
         {
           "name": "division",
           "local_term": "Division",
-          "bluebell_keyword": "SUBSECTION",
-          "note": "Intermediate level between Part and Section, rare in Vanuatu legislation. Use hcontainer name='division' if observed."
+          "bluebell_keyword": "SUBSECTION"
         }
       ]
     },
@@ -87,8 +86,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Orders and Regulations use 'regulation' or 'rule' as basic unit term but map to AKN section. eId uses 'sec_N'."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of the Republic of Vanuatu",
@@ -111,8 +109,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Chapters (not Parts) as higher division. Sections are the basic unit throughout."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -124,14 +121,12 @@
       "bill": "/akn/vu/bill/{year}/{number}",
       "constitution": "/akn/vu/act/constitution/1980/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "English and French versions are parallel originals with equal authority (not translations). Each language gets a separate Expression-level URI. Use /eng@ and /fra@ suffixes. Do NOT use FRBRtranslation."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "No. {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "insertion_style": "alphanumeric",
-    "note": "Dual numbering system: post-consolidation acts cited as 'No. N of YYYY'; consolidated acts cited as 'Cap. NNN'. Cap number is canonical for consolidated legislation."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

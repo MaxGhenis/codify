@@ -56,8 +56,7 @@
       "hcontainers": [
         {
           "local_term": "Division",
-          "name": "division",
-          "note": "Rare; seen in constitutional provisions (PART VI, Division 1). Use hcontainer name='division'."
+          "name": "division"
         }
       ]
     },
@@ -96,8 +95,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' as basic unit term but map to AKN section. SI arrangement heading is 'ARRANGEMENT OF REGULATIONS'."
+      "hcontainers": []
     },
     "criminal_code": {
       "label": "Criminal Code (CAP. 101)",
@@ -117,8 +115,7 @@
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman",
-          "note": "Mid-level between Part and Section; unique to Criminal Code"
+          "numbering": "roman"
         },
         {
           "local_term": "Section",
@@ -149,8 +146,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Criminal Code (CAP. 101) uses PART > TITLE > SECTION — a three-level higher hierarchy unique among Belize statutes. TITLE element supported in Bluebell. Requires prompt addition to handle TITLE keyword."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Belize",
@@ -170,8 +166,7 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic",
-          "note": "hcontainer name='division'; no direct Bluebell keyword — requires post-processing"
+          "numbering": "arabic"
         },
         {
           "local_term": "Section",
@@ -184,11 +179,9 @@
       "hcontainers": [
         {
           "local_term": "Division",
-          "name": "division",
-          "note": "Used in PART VI (Legislature) and other parts of the Constitution. No Bluebell keyword — manual AKN authoring recommended."
+          "name": "division"
         }
-      ],
-      "note": "Constitution uses PART > DIVISION > SECTION. Division is not a Bluebell keyword. Manual AKN authoring or post-processing required. bluebell_compatible set to false."
+      ]
     }
   },
   "default_document_class": "act",
@@ -200,14 +193,12 @@
       "constitution": "/akn/bz/act/constitution/1981/constitution",
       "gazette": "/akn/bz/officialGazette/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "notes": "When Act No. NN of YYYY is known, use year+number. When only CAP number is known, use cap{NNN}/cap{NNN} pattern and record CAP as FRBRalias. Decimal CAP numbers (e.g., CAP. 17.05) use the decimal string directly in the URI."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "CAP. {NNN}",
-    "insertion_style": "alphanumeric",
-    "insertion_note": "Letter suffix on preceding section number (25A, 60A, 68A, 68B, 68C). No renumbering on consolidation."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

@@ -39,24 +39,21 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "Higher division above article, NOT the basic unit"
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "First article is 'Article premier'; normalise to ARTICLE 1 for Bluebell"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Alinéa",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered",
-          "note": "Unnumbered sub-paragraphs within article; Bluebell PARAGRAPH is proxy — may need post-processing to rename to alinea"
+          "numbering": "positional_unnumbered"
         },
         {
           "local_term": "Point / item",
@@ -69,7 +66,6 @@
       "hcontainers": [
         {
           "name": "livre",
-          "note": "Book-level division used in major codes (Code civil, Code des sociétés). Above Titre.",
           "local_term": "Livre"
         }
       ]
@@ -160,8 +156,7 @@
           "numbering": "positional_unnumbered"
         }
       ],
-      "hcontainers": [],
-      "note": "Enacted by presidential decree during exceptional period 2021-2022; structurally identical to ordinary laws but different institutional metadata"
+      "hcontainers": []
     },
     "decret-presidentiel": {
       "label": "Décret présidentiel",
@@ -244,8 +239,7 @@
           "numbering": "positional_unnumbered"
         }
       ],
-      "hcontainers": [],
-      "note": "2022 Constitution: 142 articles in 11 chapters. 2014 Constitution: 149 articles. 1959 Constitution: amended many times. Each version is a separate FRBR work."
+      "hcontainers": []
     }
   },
   "default_document_class": "loi",
@@ -265,8 +259,7 @@
   "numbering": {
     "act_citation": "Loi n° {year}-{number} du {date}",
     "act_citation_alt": null,
-    "insertion_style": "bis_ter",
-    "note": "First article normalised to ARTICLE 1 in Bluebell pre-processing"
+    "insertion_style": "bis_ter"
   },
   "amendments": {
     "style": "textual_francophone",

@@ -61,8 +61,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Standard British colonial-derived hierarchy. Division appears in larger acts between Part and Section; both Part and Division are native Bluebell keywords. Part numbering is typically roman (Part I, Part II) in older Cap-era legislation and arabic in more recent acts — verify per document."
+      "hcontainers": []
     },
     "ln": {
       "label": "Legal Notice (Subsidiary Legislation)",
@@ -92,8 +91,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Legal Notices are the primary form of subsidiary legislation. 'Regulation' or 'rule' is used as the basic unit term but maps to AKN section. REGULATION is not a Bluebell keyword — use SECTION."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Solomon Islands",
@@ -130,8 +128,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "The 1978 Constitution uses Chapters (not Parts) as the higher division. 10 Chapters with sections numbered continuously throughout. Schedule provisions appended separately."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -143,8 +140,7 @@
       "bill": "/akn/sb/bill/{year}/{number}",
       "constitution": "/akn/sb/act/constitution/1978/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Cap-numbered consolidated legislation uses cap{NNN} as both year and number segments. Acts since independence typically cited as 'No. N of YYYY'. Legal Notices cited as 'L.N. No. N of YYYY'."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "No. {number} of {year}",

@@ -38,24 +38,21 @@
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman",
-          "note": "HIGHER DIVISION — not the basic unit. Civil law: Section groups Articles, does not replace them."
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "First article styled 'Article premier'; subsequent articles use Arabic numerals. eId normalised to art_1."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Alinéa",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "sequential_implicit",
-          "note": "Unnumbered in source text. eId assigned sequentially by Bluebell (al_1, al_2, ...)."
+          "numbering": "sequential_implicit"
         },
         {
           "local_term": "Point / tiret",
@@ -132,8 +129,7 @@
           "numbering": "sequential_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Ordonnances issued by the President during parliamentary recess. Older ordonnances (pre-1975) may lack Titres."
+      "hcontainers": []
     },
     "decret": {
       "label": "Décret",
@@ -207,8 +203,7 @@
       "bill": "/akn/mg/bill/{year}/{number}",
       "constitution": "/akn/mg/act/constitution/2010/constitution"
     },
-    "date_calendar": "gregorian",
-    "number_note": "Year segment is the parliamentary session year from the loi number (YYYY in 'Loi n° YYYY-NNN'), not the promulgation year. Number segment preserves zero-padding as printed (e.g., '038', '007')."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Loi n° {year}-{number}",

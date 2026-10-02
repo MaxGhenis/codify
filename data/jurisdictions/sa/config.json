@@ -60,8 +60,7 @@
           "numbering": "alpha_lower"
         }
       ],
-      "hcontainers": [],
-      "note": "Enacted by Royal Decree (M/ prefix). Fasl is a higher division, not the basic unit."
+      "hcontainers": []
     },
     "basic_law": {
       "label": "Basic Law (Nizam Asasi)",
@@ -91,8 +90,7 @@
           "numbering": "alpha_lower"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitutional instruments enacted by Royal Order (A/ prefix)"
+      "hcontainers": []
     },
     "implementing_regulation": {
       "label": "La'iha Tanfidhiyya (Implementing Regulation)",
@@ -129,8 +127,7 @@
           "numbering": "arabic"
         }
       ],
-      "hcontainers": [],
-      "note": "Issued by ministerial decision to implement a parent nizam"
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -143,10 +140,8 @@
       "implementing_regulation": "/akn/sa/act/si/{year}/{number}"
     },
     "date_calendar": "gregorian",
-    "date_calendar_note": "Gregorian year used in FRBR URIs. Hijri date, which is the authoritative dating, stored as FRBRalias.",
     "calendar_conversion": {
-      "kind": "hijri_lunar",
-      "note": "Lunar Hijri to Gregorian. 1443 AH ≈ 2021-2022 CE."
+      "kind": "hijri_lunar"
     }
   },
   "numbering": {

@@ -74,8 +74,7 @@
           "numbering": "alpha_or_numeric"
         }
       ],
-      "hcontainers": [],
-      "note": "Ordinary laws may omit Розділ (Section) for short acts. Article numbering is always continuous throughout entire law, never restarting per Section."
+      "hcontainers": []
     },
     "code": {
       "label": "Code of Ukraine",
@@ -150,16 +149,13 @@
       "hcontainers": [
         {
           "name": "generalPart",
-          "local_term": "Загальна частина",
-          "note": "Highest division in Criminal Code — above Sections. No Bluebell keyword; use BOOK as proxy and rename via post-processing."
+          "local_term": "Загальна частина"
         },
         {
           "name": "specialPart",
-          "local_term": "Особлива частина",
-          "note": "Highest division in Criminal Code alongside General Part."
+          "local_term": "Особлива частина"
         }
-      ],
-      "note": "Full Book > Section > Chapter > Article hierarchy used in Civil Code. Criminal Code uses General Part / Special Part above Sections (model as hcontainer). Article numbering always continuous throughout entire code."
+      ]
     },
     "constitution": {
       "label": "Constitution of Ukraine",
@@ -172,8 +168,7 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Constitution has no Book level; Розділ is the sole higher division so maps to 'chapter' not 'section'"
+          "numbering": "roman"
         },
         {
           "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
@@ -183,8 +178,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "15 Розділи (I–XV), 161 articles continuous. Розділ maps to chapter (not section) because it is the sole higher division with nothing above it."
+      "hcontainers": []
     },
     "resolution": {
       "label": "Resolution of the Cabinet of Ministers",
@@ -207,8 +201,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Cabinet resolutions (Постанови) follow similar structure to ordinary laws."
+      "hcontainers": []
     }
   },
   "default_document_class": "law",
@@ -223,12 +216,10 @@
       "decree": "/akn/ua/act/decree/{year}/{number}"
     },
     "number_extraction": "full_seq_convocation",
-    "number_note": "Law numbers are formatted as '№ {seq}-{convocation_roman}'. Keep the FULL '{seq}-{convocation}' form as {number} (e.g. № 2341-III → number=2341-III): sequences restart per convocation and convocations change mid-year, so the bare sequence can collide in transition years. Year is the year of adoption.",
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "superscript_numeric",
-    "insertion_note": "Inserted articles use superscript numeral suffix: Article 96¹ (plain: 96-1, eId: art_96-1). No renumbering of existing articles."
+    "insertion_style": "superscript_numeric"
   },
   "amendments": {
     "style": "textual_civil_law",

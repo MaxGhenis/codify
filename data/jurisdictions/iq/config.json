@@ -24,56 +24,49 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic_ordinal",
-          "note": "Used only in major codes (Civil Code, Penal Code, Commercial Code). الكتاب الأول, الكتاب الثاني."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "قسم (Qism/Part)",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic_ordinal",
-          "note": "Intermediate level found in the Penal Code between Kitab and Fasl. Not present in all codes. القسم الأول, القسم الثاني."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "باب (Bab/Chapter)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_ordinal",
-          "note": "Primary structural grouping in most laws. الباب الأول, الباب الثاني. May appear at top level (without Kitab) or within a Kitab/Qism."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "فصل (Fasl/Section-div)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "Higher division ABOVE the article basic unit. الفصل الأول, الفصل الثاني. Bluebell workaround: use DIVISION keyword; post-process to rename <division> → <section> in AKN output. Same pattern as Egyptian profile."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "مادة (Maddah/Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "THE basic unit. Numbered continuously throughout the entire law regardless of Kitab/Bab/Fasl boundaries. مادة (N). Insertion: مكرراً (bis) suffix → art_5bis."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "فقرة (Faqra/Paragraph)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "positional_implicit_or_arabic",
-          "note": "Paragraph break within an article. May be unlabelled (cited positionally) or explicitly numbered (1)(2)(3) or (أولاً)(ثانياً). Detect numbering style from document."
+          "numbering": "positional_implicit_or_arabic"
         },
         {
           "local_term": "بند (Band/Item)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha_abjad",
-          "note": "Numbered list items: (1)(2)(3) or (أ)(ب)(ج). Normalise Arabic-script numerals and Abjad letters to Western Arabic/Latin for eId construction."
+          "numbering": "arabic_or_alpha_abjad"
         }
       ],
       "hcontainers": []
@@ -106,8 +99,7 @@
           "numbering": "positional_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential decrees and Revolutionary Command Council (RCC) decree-laws from the pre-2003 era. Structurally identical to ordinary laws. Distinguished by enacting formula and FRBR subtype 'decree-law'. RCC-era decrees (1968–2003) use revolutionaryCommandCouncil TLC."
+      "hcontainers": []
     },
     "regulation": {
       "label": "Executive Regulation (نظام / تعليمات)",
@@ -137,8 +129,7 @@
           "numbering": "positional_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive regulations (نظام) and ministerial instructions (تعليمات) subsidiary to a parent law. Published in Al-Waqā'i' al-'Irāqiyah."
+      "hcontainers": []
     },
     "cpa_order": {
       "label": "CPA Order (أمر السلطة المؤقتة)",
@@ -151,8 +142,7 @@
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous",
-          "note": "CPA Orders are in English and use Anglophone section-based structure, not Arabic article structure."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Subsection",
@@ -169,8 +159,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Coalition Provisional Authority Orders, Regulations, Memoranda (May 2003 – June 2004). English-language documents. Anglophone section-based hierarchy. Many remain in force per TAL Art. 26 unless expressly repealed."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution (الدستور)",
@@ -183,24 +172,21 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_ordinal",
-          "note": "2005 Constitution has 6 Chapters (Abwab). الباب الأول: المبادئ الأساسية, الباب الثاني: الحقوق والحريات, etc."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "فصل (Fasl/Section)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "Same DIVISION workaround as for acts."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "مادة (Maddah/Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "144 Articles in the 2005 Constitution, numbered continuously."
+          "numbering": "arabic_continuous"
         }
       ],
       "hcontainers": []
@@ -218,8 +204,7 @@
       "tal": "/akn/iq/act/constitution/2004/tal",
       "krg_act": "/akn/iq-ku/act/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "Law number and year taken from citation رقم [N] لسنة [YYYY]. Arabic-script numerals (٠-٩) must be normalised to Western Arabic (0-9) for URI construction. CPA Orders have no year in the URI — numbered sequentially from 1. KRG legislation uses iq-ku sub-national code."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "قانون رقم {number} لسنة {year}",

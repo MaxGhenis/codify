@@ -150,8 +150,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Decrees issued by the President. Subtypes: decreto reglamentario, decreto ley, decreto legislativo, decreto ordinario. All use artículo as basic unit."
+      "hcontainers": []
     },
     "acto_legislativo": {
       "label": "Acto Legislativo",
@@ -174,8 +173,7 @@
           "numbering": "arabic_or_transitorio"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitutional amendment acts. Require absolute majority of both chambers in two consecutive legislatures. Few higher divisions; typically short."
+      "hcontainers": []
     },
     "constitucion": {
       "label": "Constitución Política",
@@ -212,8 +210,7 @@
           "numbering": "arabic_or_transitorio"
         }
       ],
-      "hcontainers": [],
-      "note": "1991 Constitution has 13 Títulos, 380 artículos + 67 Disposiciones Transitorias. Títulos contain Capítulos which contain Artículos."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -228,8 +225,7 @@
       "bill": "/akn/co/bill/{year}/{number}",
       "constitucion": "/akn/co/act/constitucion/1991/constitucion"
     },
-    "date_calendar": "gregorian",
-    "notes": "Law number is sequential within each calendar year, resetting to 1 on 1 January. Format: Ley {N} de {YYYY}. FRBR number segment uses the sequential integer without leading zeros."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Ley {number} de {year}",

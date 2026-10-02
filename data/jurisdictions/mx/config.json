@@ -37,16 +37,14 @@
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
-          "numbering": "roman_upper",
-          "note": "Higher division above artículo; use SUBDIVISION as Bluebell proxy. See ambiguity #2 in profile."
+          "numbering": "roman_upper"
         },
         {
           "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Constitutional articles 1–9 use ordinal suffix (1o.) in source; eId always uses Arabic art_1 through art_9."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Fracción",
@@ -67,20 +65,17 @@
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": null,
-          "numbering": "ordinal_position",
-          "note": "Unnumbered prose paragraphs. Cited ordinally. Bluebell treats as body content; post-processing needed for alinea wrapping."
+          "numbering": "ordinal_position"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Artículo Transitorio",
-          "name": "transitorios",
-          "note": "Transitional provisions. Numbered artículos within a wrapper hcontainer. Appear at end of every instrument. Post-processing required after Bluebell parse."
+          "name": "transitorios"
         },
         {
           "local_term": "Apartado",
-          "name": "apartado",
-          "note": "Sub-article compartment (Apartado A, Apartado B). Used in Constitution Arts 2 and 123 and some codes. May contain fracciones."
+          "name": "apartado"
         }
       ]
     },
@@ -102,8 +97,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_word_spanish",
-          "note": "Optional level. Present in Código Civil Federal Libro Cuarto (Primera Parte / Segunda Parte). Not all codes use this."
+          "numbering": "ordinal_word_spanish"
         },
         {
           "local_term": "Título",
@@ -158,13 +152,11 @@
       "hcontainers": [
         {
           "local_term": "Artículo Transitorio",
-          "name": "transitorios",
-          "note": "As per ley class."
+          "name": "transitorios"
         },
         {
           "local_term": "Apartado",
-          "name": "apartado",
-          "note": "As per ley class."
+          "name": "apartado"
         }
       ]
     },
@@ -200,8 +192,7 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Arts 1-9 use ordinal suffix in source (1o.). eId always arabic: art_1 through art_9."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Fracción",
@@ -221,8 +212,7 @@
       "hcontainers": [
         {
           "local_term": "Apartado",
-          "name": "apartado",
-          "note": "Apartado A, Apartado B. Used in Arts 2 and 123. Uppercase letter suffix: hcontainer_a, hcontainer_b."
+          "name": "apartado"
         }
       ]
     },
@@ -271,11 +261,9 @@
       "hcontainers": [
         {
           "local_term": "Artículo Transitorio",
-          "name": "transitorios",
-          "note": "As per ley class."
+          "name": "transitorios"
         }
-      ],
-      "note": "Presidential decree under Art. 89 CPEUM. Identified by parent law: 'Reglamento de la Ley X'."
+      ]
     }
   },
   "default_document_class": "ley",
@@ -284,13 +272,11 @@
     "uri_patterns": {
       "constitution": "/akn/mx/act/constitution/1917/cpeum"
     },
-    "date_calendar": "gregorian",
-    "note": "No sequential act numbering. Year = original DOF enactment year. Slug = slugified short title (no accents, lowercase, spaces to hyphens). Amendment decrees use year of their own DOF publication under subtype 'reforma' or 'const-reforma'."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "[Short title] (D.O. {date})",
-    "insertion_style": "bis_ter",
-    "note": "No sequential act number assigned. Laws cited by short title + DOF date. Insertion uses Bis/Ter/Quáter suffixes, not alphanumeric. eIds: art_5bis, art_5ter."
+    "insertion_style": "bis_ter"
   },
   "amendments": {
     "style": "textual_civil_law",

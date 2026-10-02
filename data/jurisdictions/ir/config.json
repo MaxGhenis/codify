@@ -83,8 +83,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Tabsareh is unique to Iranian law -- not a note/comment but a legally binding provision"
+      ]
     },
     "constitution": {
       "label": "Qanun-e Asasi (Constitution)",
@@ -122,8 +121,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Constitution uses Asl (Principle) instead of Maddeh (Article); 14 chapters, 177 principles"
+      ]
     },
     "ayin_nameh": {
       "label": "Ayin-nameh (Executive Regulation)",
@@ -161,8 +159,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Executive regulations approved by the Cabinet"
+      ]
     }
   },
   "default_document_class": "act",
@@ -172,10 +169,8 @@
       "constitution": "/akn/ir/act/constitution/1979/qanun-e-asasi"
     },
     "date_calendar": "gregorian",
-    "date_calendar_note": "Gregorian year used in FRBR URIs. Solar Hijri date, which is the authoritative Iranian dating, stored as FRBRalias.",
     "calendar_conversion": {
-      "kind": "hijri_solar",
-      "note": "Solar Hijri (Jalali) calendar. Iranian official. Year 1 = 622 CE Hegira. Month/day conversion is non-trivial (the calendar is astronomically observed, not algorithmic in the same way as Gregorian). Use a dedicated library when implementing. FRBR URIs use Gregorian."
+      "kind": "hijri_solar"
     }
   },
   "numbering": {

@@ -23,54 +23,47 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic_ordinal",
-          "note": "Used only in major codes (Civil Code, Commercial Code). الكتاب الأول, الكتاب الثاني."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "باب (Bab/Chapter)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_ordinal",
-          "note": "Primary structural grouping in all laws of moderate length. الباب الأول, الباب الثاني. May appear at top level or within a Book."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "فصل (Fasl/Division)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_ordinal",
-          "note": "Higher division ABOVE the article — not the basic unit. Bluebell workaround: use DIVISION keyword; post-process <division> → <section> in output XML. الفصل الأول, الفصل الثاني."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "مادة (Maddah/Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "THE basic citable unit of all Kuwaiti legislation. Numbered continuously throughout the entire law regardless of Book/Chapter/Division boundaries. مادة 1, مادة 2. Insertion: مكرراً (bis) suffix → art_5bis."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "فقرة (Faqra/Paragraph)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "positional_or_labelled",
-          "note": "Unlabelled paragraph breaks within an article (cited positionally), or labelled with أولاً/ثانياً (ordinals) or (أ)/(ب)/(ج) (Arabic letters). Some modern laws use (1)/(2)/(3)."
+          "numbering": "positional_or_labelled"
         },
         {
           "local_term": "بند (Band/Item)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha",
-          "note": "Numbered list items within a paragraph: (1)،(2)،(3) or (أ)،(ب)،(ج). Normalise Arabic letters to Latin for eIds: أ→a, ب→b, ج→c, etc."
+          "numbering": "arabic_or_alpha"
         }
       ],
       "hcontainers": [
         {
           "name": "proviso",
-          "note": "Conditional proviso appended to an article with independent legal effect. Rare in civil law tradition but occasionally found in Sharia-influenced personal status provisions.",
           "local_term": "مع مراعاة"
         }
       ]
@@ -110,8 +103,7 @@
           "numbering": "positional_or_labelled"
         }
       ],
-      "hcontainers": [],
-      "note": "Amiri Decree-Laws issued under Constitution Art. 71 when National Assembly is not in session. Structurally identical to ordinary laws. Distinguished by enacting formula (Amiri rather than parliamentary). Must be presented to Assembly at its next session. FRBR subtype: decree-law."
+      "hcontainers": []
     },
     "emiri_decree": {
       "label": "Emiri Decree (مرسوم أميري)",
@@ -134,8 +126,7 @@
           "numbering": "positional_or_labelled"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive decrees issued by the Amir for administrative matters (appointments, organisation of ministries, etc.). Typically short (5-20 articles). Does not require National Assembly approval. FRBR subtype: emiri-decree."
+      "hcontainers": []
     },
     "ministerial_decision": {
       "label": "Ministerial Decision (قرار وزاري)",
@@ -158,8 +149,7 @@
           "numbering": "positional_or_labelled"
         }
       ],
-      "hcontainers": [],
-      "note": "Subsidiary legislation issued by a minister to implement a parent law. Published in Al-Kuwait Al-Yawm. Short title typically identifies the parent law: 'Ministerial Decision No. X of YYYY Regarding the Implementing Regulations of Law No. Y of YYYY'. FRBR subtype: ministerial-decision."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution (الدستور)",
@@ -172,20 +162,17 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_ordinal",
-          "note": "The 1962 Constitution has 5 Chapters (Abwab): State and System of Government; Basic Constituents of Kuwaiti Society; Public Rights and Duties; Legislative Power; Executive Power; Judicial Power; General and Transitional Provisions."
+          "numbering": "arabic_ordinal"
         },
         {
           "local_term": "مادة (Maddah/Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Articles 1-183 (1962 Constitution as amended). Continuous numbering throughout."
+          "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "The Constitution of the State of Kuwait, promulgated 11 November 1962. Amended by Decree-Law No. 1 of 1963. Still in force. Fasl is not used in the Constitution — only Bab > Article."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -198,8 +185,7 @@
       "ministerial_decision": "/akn/kw/act/ministerial-decision/{year}/{number}",
       "constitution": "/akn/kw/act/constitution/1962/constitution"
     },
-    "date_calendar": "gregorian",
-    "note": "Kuwait uses Gregorian dates in all official legal publications. Hijri dates may appear alongside Gregorian in prefaces as a cultural convention but are not the official date for URI construction. Law number and year taken directly from the citation قانون رقم [N] لسنة [YYYY]. Arabic-script numerals (٠-٩) in scanned PDFs must be normalised to Western Arabic (0-9) for URI construction."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "قانون رقم {number} لسنة {year}",

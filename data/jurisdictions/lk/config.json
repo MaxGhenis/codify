@@ -79,8 +79,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Section numbering is typically continuous throughout the Act. In some modern Acts (post-2000) sections restart per Chapter — LLM must detect both patterns and flag uncertainty. Marginal notes (shoulder notes) appear in colonial-era acts; post-independence acts use centred section headings."
+      ]
     },
     "bill": {
       "label": "Bill",
@@ -132,8 +131,7 @@
           "bluebell_proxy": "PROVISO",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Bills use 'clause' as the basic unit term; maps to AKN section. On enactment, clauses become sections."
+      ]
     },
     "regulation": {
       "label": "Regulations (Statutory Instrument)",
@@ -178,8 +176,7 @@
           "bluebell_proxy": "PROVISO",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Made under enabling Acts; published in the Gazette. 'Regulation' as basic unit maps to AKN section. Extraordinary Gazette publications common for urgent SIs."
+      ]
     },
     "order": {
       "label": "Order (Gazette Notification)",
@@ -202,8 +199,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential Orders and Ministerial Orders made under constitutional or statutory authority. Short documents; sometimes use numbered paragraphs rather than labelled sections."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution of Sri Lanka",
@@ -248,8 +244,7 @@
           "bluebell_proxy": "PROVISO",
           "requires_postprocessing": false
         }
-      ],
-      "note": "1978 Constitution (7th Republican Constitution), as amended (21st Amendment 2022 most recent significant). 22 chapters, articles numbered continuously 1-172+. Uses Article/Clause not Section/Sub-section."
+      ]
     }
   },
   "default_document_class": "act",

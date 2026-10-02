@@ -67,8 +67,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Standard statute. Section and Sous-section act as higher divisions, not basic units. Article is the basic citable unit throughout. Alinéa (unnumbered paragraph) is the primary subdivision within articles."
+      "hcontainers": []
     },
     "loi_organique": {
       "label": "Loi organique",
@@ -105,8 +104,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic laws fill in constitutional details. Same structure as loi ordinaire but with constitutional status. Must be validated by Conseil constitutionnel before promulgation. Simpler hierarchy (no Livre/Section typically)."
+      "hcontainers": []
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -143,8 +141,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive ordinances issued under Article 38 delegation from Parliament, or Article 92/74 in overseas territories. Must be ratified by Parliament within stipulated period. Numbered in same sequence as decrets."
+      "hcontainers": []
     },
     "decret": {
       "label": "Décret",
@@ -181,8 +178,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Decrets en Conseil d'Etat (signed after mandatory Conseil d'Etat opinion) and decrets simples. Presidential decrets (Article 13) signed by President and countersigned by PM. Simpler hierarchy than primary legislation — often just articles."
+      "hcontainers": []
     },
     "arrete": {
       "label": "Arrêté",
@@ -205,8 +201,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial or prefectoral orders implementing decrets. Typically short — mostly just articles. Arretes interministeriels signed by multiple ministers. Rarely codified."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -236,8 +231,7 @@
           "numbering": "implicit_sequential"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of 4 October 1958. 16 Titres, 89 Articles. Articles numbered continuously through all Titres. No Chapitres at constitutional level. Preamble references the 1946 Constitution preamble and 1789 Declaration."
+      "hcontainers": []
     },
     "code": {
       "label": "Code",
@@ -303,8 +297,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "French codes (Code civil, Code penal, Code du travail, etc.) use a distinctive article numbering scheme: L.xxx-x (legislative part), R.xxx-x (regulatory/decret en CE), D.xxx-x (decret simple). Article numbers encode their position in the hierarchy (e.g., L.1234-5 = Livre 1, Titre 2, Chapitre 3, Art. 4 no. 5). Codification performed by DILA. Codes are maintained at legifrance.gouv.fr as consolidated versions."
+      ]
     }
   },
   "default_document_class": "loi",
@@ -318,14 +311,12 @@
       "constitution": "/akn/fr/act/constitution/1958/constitution",
       "bill": "/akn/fr/bill/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "French law numbers follow the pattern YYYY-NNN (e.g., loi n° 2023-270). The JORF number is the canonical publication reference. Codes are identified by their conventional short name slug (code-civil, code-penal, code-du-travail)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Loi n° {year}-{number} du {day} {month} {year}",
     "act_citation_alt": "JORF n° {jorf_number} du {day} {month} {year}",
-    "insertion_style": "hyphen_suffix",
-    "note": "Laws are cited by their number and publication date: 'Loi n° 2023-270 du 14 avril 2023'. In codes, inserted articles use hyphen notation: after art. L.123-4 comes L.123-4-1, L.123-4-2. Article numbering in codes encodes hierarchical position."
+    "insertion_style": "hyphen_suffix"
   },
   "amendments": {
     "style": "textual_civil_law",

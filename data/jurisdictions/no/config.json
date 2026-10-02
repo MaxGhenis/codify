@@ -61,8 +61,7 @@
           "numbering": "arabic_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Norwegian Paragraf (§) is the basic statutory unit and maps to AKN article. Ledd are unnumbered prose paragraphs within a §; pipeline assigns sequential integers (first ledd is direct article content). Del appears only in the largest codes. § numbers are continuous across all Kapittler."
+      "hcontainers": []
     },
     "forskrift": {
       "label": "Forskrift",
@@ -99,8 +98,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Regulation issued by the King-in-Council or a Ministry under delegation from Stortinget. Same structural hierarchy as lov. Published in Norsk Lovtidend del II. FRBR URI uses fo/ subtype."
+      "hcontainers": []
     },
     "grunnloven": {
       "label": "Kongeriket Norges Grunnlov",
@@ -130,8 +128,7 @@
           "numbering": "arabic_sequential_assigned"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of 1814 (with modern amendments). §§ 1-121. Divided into lettered Parts (A–G). The oldest written constitution in Europe still in force. All amendments preserve original § numbering; inserted §§ use letter suffix (e.g., § 57a). Ratification of amendments requires two-thirds Stortinget majority after intervening election."
+      "hcontainers": []
     },
     "stortingsvedtak": {
       "label": "Stortingsvedtak",
@@ -154,8 +151,7 @@
           "numbering": "arabic_sequential_assigned"
         }
       ],
-      "hcontainers": [],
-      "note": "Parliamentary decision (not a lov): used for annual tax resolutions, appropriations, and Stortinget procedural decisions. Enacted by Stortinget without Royal Assent. Typically short with few §§."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -172,8 +168,7 @@
   "numbering": {
     "act_citation": "Lov {date} nr. {number}",
     "act_citation_alt": "Lov av {date} nr. {number}",
-    "insertion_style": "alphanumeric_no_space",
-    "insertion_note": "Inserted §§ use a letter suffix without space: § 5a, § 5b. eId: art_5a, art_5b. This differs from the Swedish/Danish convention of a space before the suffix."
+    "insertion_style": "alphanumeric_no_space"
   },
   "amendments": {
     "style": "textual_replacement",

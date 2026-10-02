@@ -14,7 +14,6 @@
     "eng"
   ],
   "authoritative_language": "heb",
-  "note": "Mixed jurisdiction: common-law procedural base (British Mandate 1917-1948), Ottoman civil-law residual (Mejelle land law), Jewish religious law (halakha — personal status for Jews), Islamic Sharia (personal status for Muslims), Christian canon law (personal status for Christians), and Druze religious law. No single written constitution — 13 Basic Laws (Chukei Yesod) collectively form the constitutional order following the 1995 Mizrahi Bank 'constitutional revolution'. Arabic retains special status under the 2018 Basic Law: Israel as the Nation State of the Jewish People (downgraded from co-official but still used for legislation). English widely used in legal practice, some international instruments drafted in English.",
   "document_classes": {
     "basic_law": {
       "label": "Chok Yesod (Basic Law)",
@@ -58,8 +57,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitutional-level instrument. Israel has 13 Basic Laws (as of 2026) collectively forming the constitutional order. Enacted by the Knesset acting as a Constituent Assembly; some require absolute majority (61 votes) or special procedure. The 1995 United Mizrahi Bank case (CA 6821/93) established that Basic Laws are supreme over ordinary legislation. Basic Laws are typically short (10-40 sections) and may be amended by ordinary legislation unless they contain an entrenchment clause."
+      "hcontainers": []
     },
     "act": {
       "label": "Chok (Law/Act)",
@@ -111,8 +109,7 @@
           "bluebell_proxy": "SECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Ordinary legislation passed by the Knesset. Published in Sefer HaChukim (Book of Laws), part of Reshumot (Official Gazette). Numbered sequentially without year component in official citation (e.g., Sefer HaChukim 2500). Enacted with presidential signature (largely ceremonial — President of Israel has 2 weeks to sign or send back once)."
+      ]
     },
     "regulation": {
       "label": "Takana (Regulation)",
@@ -149,8 +146,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Subordinate legislation issued by ministers under delegated authority. Published in Kovetz HaTakanot (Collection of Regulations), a separate part of Reshumot from Sefer HaChukim."
+      "hcontainers": []
     },
     "order": {
       "label": "Tsav (Order)",
@@ -173,8 +169,7 @@
           "numbering": "hebrew_letter_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive orders issued by the Government or individual ministers. Short instruments. Published in Kovetz HaTakanot or Yalkut HaPirsumim depending on type."
+      "hcontainers": []
     },
     "emergency_regulation": {
       "label": "Takanot Sha'at Cherum (Emergency Regulations)",
@@ -197,8 +192,7 @@
           "numbering": "hebrew_letter_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Unique Israeli instrument issued by the Government under Basic Law: The Government s.39. May override ordinary legislation (but NOT Basic Laws). Valid for 3 months unless extended by Knesset. Israel has been in a formal state of emergency continuously since 1948 — this power has been used extensively. Emergency Regulations lapse automatically unless Knesset approves. Published in Reshumot as a special supplement (Tospet Meyuchedet). PIPELINE CAUTION: Emergency Regulations may contain classified annexes not available in Reshumot; ingest only the public version."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -210,8 +204,7 @@
       "order": "/akn/il/act/order/{year}/{number}",
       "emergency_regulation": "/akn/il/act/emergency/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "Israel uses Gregorian calendar for legislation numbering and dates in Reshumot. The Hebrew calendar (anno mundi) may appear in ceremonial contexts but is not used for official legal citations."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "S.H. {number} (Sefer HaChukim {number})",
@@ -297,8 +290,7 @@
         "signal": "title_regex",
         "pattern": "^חוק יסוד[:-]|^חוק-יסוד[:-]",
         "target_document_class": "basic_law",
-        "priority": 100,
-        "note": "Hebrew: Chok Yesod (Basic Law) — constitutional-level instrument."
+        "priority": 100
       },
       {
         "signal": "title_regex",

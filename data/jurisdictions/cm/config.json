@@ -26,8 +26,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Used only in large codes (Code pénal has Livre I, Livre II); absent from most ordinary laws."
+          "numbering": "roman"
         },
         {
           "local_term": "Titre / Title",
@@ -48,24 +47,21 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "roman",
-          "note": "Higher division grouping articles — NOT the basic unit. DIVISION keyword avoids collision. Absent in short laws."
+          "numbering": "roman"
         },
         {
           "local_term": "Article / Section (basic)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "French: 'Article 1er', 'Article 2'. English parallel: 'Section 1', 'Section 2'. Both map to AKN article. Continuous throughout the entire law regardless of higher divisions."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Alinéa / Subsection",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": null,
-          "numbering": "sequential_implicit",
-          "note": "Unnumbered paragraph within article. No Bluebell keyword; requires post-processing."
+          "numbering": "sequential_implicit"
         },
         {
           "local_term": "Point (1°, 2°…)",
@@ -147,8 +143,7 @@
           "numbering": "sequential_implicit"
         }
       ],
-      "hcontainers": [],
-      "note": "Codes receive a stable 'code-{slug}' subtype in the FRBR URI so they maintain identity across amendments. English text uses 'Section N' for the basic unit (Article N in French)."
+      "hcontainers": []
     },
     "ordonnance": {
       "label": "Ordonnance",
@@ -178,8 +173,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential ordinances under Constitution Art. 28. Numbered Ordonnance n° YYYY/NNN. FRBR subtype: ordonnance."
+      "hcontainers": []
     },
     "decret": {
       "label": "Décret",
@@ -209,8 +203,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential decrees implementing legislation. Numbered Décret n° YYYY/NNN. FRBR subtype: decret."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -223,8 +216,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Constitution uses PARTIE (French) / PART (English) — Anglophone term adopted into bilingual constitution. 13 Parts."
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
@@ -234,8 +226,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of 1972, as revised. Uses PARTIE/PART (not TITRE/TITLE) as highest division — unique to the constitution. Articles numbered continuously (Art. 1 through Art. 68 approx)."
+      "hcontainers": []
     }
   },
   "default_document_class": "loi",
@@ -252,8 +243,7 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "hyphen_or_bis",
-    "note": "Year/number separator is forward slash (/) not hyphen. Numbers are zero-padded to 3 digits. Pre-1990 laws used two-digit years (YY/NNN); expand to YYYY in URIs."
+    "insertion_style": "hyphen_or_bis"
   },
   "amendments": {
     "style": "textual_french",

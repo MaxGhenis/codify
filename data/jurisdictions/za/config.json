@@ -72,8 +72,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Chapters used in major statutes and the Constitution. Parts used within chapters or directly. Sections numbered continuously throughout act, not restarting per chapter/part."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -117,8 +116,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "14 chapters (arabic numerals), 244 sections numbered continuously 1-244 across all chapters, 8 schedules. No enacting formula — preamble is constitutional declaration. No Parts in the Constitution."
+      "hcontainers": []
     },
     "regulation": {
       "label": "Regulation (Government Notice)",
@@ -162,8 +160,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "GN Regulations use 'regulation N' as basic unit term but map to AKN section. eIds will be sec_N. FRBR URI uses 'gn' subtype: /akn/za/act/gn/{year}/{number}. GN R numbers get lowercase 'r' prefix in number segment (e.g., GN R740 → r740)."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -175,8 +172,7 @@
       "bill": "/akn/za/bill/{year}/{number}",
       "constitution": "/akn/za/act/constitution/1996/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "Expression date = gazette publication date (not presidential assent date). Primary expression language: eng. FRBR URI conventions match Laws.Africa reference implementation exactly — do not deviate."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act {number} of {year}",
@@ -285,8 +281,7 @@
       "name": "laws_africa",
       "url_template": "https://api.laws.africa/v3{frbr_uri}.xml",
       "auth_scheme": "token",
-      "auth_env_var": "LAWS_AFRICA_API_KEY",
-      "notes": "Laws.Africa Content API, AKN XML for South African legislation."
+      "auth_env_var": "LAWS_AFRICA_API_KEY"
     }
   ],
   "public_reference": true

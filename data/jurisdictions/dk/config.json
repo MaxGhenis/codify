@@ -60,8 +60,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Danish § (Paragraf) maps to AKN article, following civil law convention. Higher divisions (Kapitel, Afsnit) used only in larger acts. Short acts may have no higher divisions at all."
+      "hcontainers": []
     },
     "lovbekendtgorelse": {
       "label": "Lovbekendtgørelse",
@@ -112,8 +111,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Consolidated text (lovbekendtgørelse) supersedes the original act as citation authority. Same structure as act. Model as a separate FRBR work with activeModifications linking to original. URI uses the bekendtgørelse number and year."
+      "hcontainers": []
     },
     "bekendtgorelse": {
       "label": "Bekendtgørelse",
@@ -157,8 +155,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Executive order (secondary legislation) issued by ministry under statutory authority. Often more detailed than the parent lov. Separate FRBR work. URI prefix bkg."
+      "hcontainers": []
     },
     "grundloven": {
       "label": "Danmarks Riges Grundlov",
@@ -181,8 +178,7 @@
           "numbering": "arabic_inline"
         }
       ],
-      "hcontainers": [],
-      "note": "The Constitution (1953). No Afsnit or Kapitel — only §§ grouped loosely by thematic clusters without formal structural markers. §§ numbered 1–89."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -201,8 +197,7 @@
   "numbering": {
     "act_citation": "Lov nr. {number} af {date}",
     "act_citation_alt": "Lovbekendtgørelse nr. {number} af {date}",
-    "insertion_style": "alphanumeric_spaced",
-    "insertion_note": "Inserted §§ use a space before the letter suffix: § 5 a, § 5 b. eId omits the space: art_5a, art_5b."
+    "insertion_style": "alphanumeric_spaced"
   },
   "amendments": {
     "style": "textual_artikellov",

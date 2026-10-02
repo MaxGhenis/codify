@@ -50,8 +50,7 @@
           "local_terms": {
             "kaz": "Параграф",
             "rus": "Параграф"
-          },
-          "note": "Paragraf is a sub-division of Glava, above the article. Use section element (as higher div). Present only in the Civil Code and a few other large codes; absent from simple laws."
+          }
         },
         {
           "local_term": "Stat'ya",
@@ -73,8 +72,7 @@
           "local_terms": {
             "kaz": "Тармақ",
             "rus": "Пункт"
-          },
-          "note": "Numbered with Arabic numeral followed by period: 1. 2. 3."
+          }
         },
         {
           "local_term": "Podpunkt",
@@ -85,8 +83,7 @@
           "local_terms": {
             "kaz": "Тармақша",
             "rus": "Подпункт"
-          },
-          "note": "Numbered with Arabic numeral and closing parenthesis: 1) 2) 3). Some laws use letters: a) b) c)."
+          }
         },
         {
           "local_term": "Abzac",
@@ -97,12 +94,10 @@
           "local_terms": {
             "kaz": "Абзац",
             "rus": "Абзац"
-          },
-          "note": "Unnumbered indent/paragraph within a punkt. Cited by sequential position."
+          }
         }
       ],
-      "hcontainers": [],
-      "note": "Simple laws (Zakon) typically begin directly at Glava or Stat'ya level without Razdel. Razdel appears mainly in large codes. Article numbering is continuous throughout the act, not restarting per chapter. Inserted articles use decimal notation: 5-1, 5-2."
+      "hcontainers": []
     },
     "konstitutsionny_zakon": {
       "label": "Konstitutsionny zakon (Constitutional Law)",
@@ -155,8 +150,7 @@
           }
         }
       ],
-      "hcontainers": [],
-      "note": "Constitutional laws have higher legal force than ordinary laws. Adopted by two-thirds majority of both chambers. Structure mirrors ordinary laws. Governs status of Parliament, President, Constitutional Court, elections, and referendum."
+      "hcontainers": []
     },
     "kodeks": {
       "label": "Kodeks (Code)",
@@ -173,8 +167,7 @@
           "local_terms": {
             "kaz": "Жалпы/Ерекше бөлім",
             "rus": "Общая/Особенная часть"
-          },
-          "note": "Named macro-divisions: Obshchaya chast' (General Part) and Osobennaya chast' (Special Part). Present in Criminal Code, Civil Code, etc."
+          }
         },
         {
           "local_term": "Razdel",
@@ -207,8 +200,7 @@
           "local_terms": {
             "kaz": "Параграф",
             "rus": "Параграф"
-          },
-          "note": "Sub-chapter subdivision; present in the Civil Code only."
+          }
         },
         {
           "local_term": "Stat'ya",
@@ -263,8 +255,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Codes use continuous article numbering across the entire code (not restarting per chapter). Criminal Code General Part uses Razdel (I-VII); Special Part uses Glava. Inserted articles use hyphen-decimal notation: Stat'ya 5-1. Razdel in a kodeks maps to book (below the named Chast') rather than part."
+      ]
     },
     "ukaz": {
       "label": "Ukaz Prezidenta (Presidential Decree / Decree having force of law)",
@@ -295,8 +286,7 @@
           }
         }
       ],
-      "hcontainers": [],
-      "note": "Presidential decrees with force of law (normative Ukazы) were widely used in 1993-1995 to fill legislative gaps before the Parliament was constituted. Ongoing normative decrees exist but are subordinate to laws. Structured as flat numbered punkty; map to article."
+      "hcontainers": []
     },
     "postanovleniye": {
       "label": "Postanovleniye Pravitel'stva (Government Resolution)",
@@ -327,8 +317,7 @@
           }
         }
       ],
-      "hcontainers": [],
-      "note": "Government resolutions use numbered punkty as the basic unit. Normative resolutions have regulatory legal force below laws and decrees."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Konstitutsiya (Constitution)",
@@ -381,8 +370,7 @@
           }
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution is divided into 9 Razdel (Sections). Articles are numbered continuously 1-99. Adopted by referendum 30 August 1995; amended 1998, 2007, 2011, 2017, 2019, 2022."
+      "hcontainers": []
     }
   },
   "default_document_class": "zakon",
@@ -396,8 +384,7 @@
       "postanovleniye": "/akn/kz/act/resolution/{year}/{number}",
       "constitution": "/akn/kz/act/constitution/1995/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "The number segment uses the official registration number. Laws cite as: Zakon RK ot {date} № {number}. Roman numeral suffix (e.g. -V, -VI) indicates the convocation of Parliament in which the law was adopted — include in the number segment for disambiguation: e.g. № 480-V → number = '480-v'. No sub-national URI variants needed (Kazakhstan is a unitary state)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Zakon Respubliki Kazakhstan ot {date} № {number}",
@@ -445,22 +432,19 @@
       "eId": "konstitutsionnyySud",
       "class": "TLCOrganization",
       "href": "/ontology/org/kz/konstitutsionny-sud",
-      "showAs": "Konstitutsionny Sud Respubliki Kazakhstan",
-      "note": "Restored as Constitutional Court in 2022 reform, replacing the former Constitutional Council (1995-2022)."
+      "showAs": "Konstitutsionny Sud Respubliki Kazakhstan"
     },
     {
       "eId": "egemenkKazakhstan",
       "class": "TLCObject",
       "href": "/ontology/obj/kz/egemen-kazakhstan",
-      "showAs": "Egemen Kazakhstan",
-      "note": "Official publication organ for Kazakh-language laws."
+      "showAs": "Egemen Kazakhstan"
     },
     {
       "eId": "kazakhstanskayaPravda",
       "class": "TLCObject",
       "href": "/ontology/obj/kz/kazakhstanskaya-pravda",
-      "showAs": "Kazakhstanskaya Pravda",
-      "note": "Official publication organ for Russian-language laws."
+      "showAs": "Kazakhstanskaya Pravda"
     },
     {
       "eId": "adiletLIS",

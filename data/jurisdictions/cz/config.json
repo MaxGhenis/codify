@@ -22,8 +22,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_word_czech",
-          "note": "ČÁST PRVNÍ, ČÁST DRUHÁ — ordinal words in Czech, normalised to Arabic integer for eId"
+          "numbering": "ordinal_word_czech"
         },
         {
           "local_term": "Hlava (Chapter/Head)",
@@ -44,16 +43,14 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic",
-          "note": "Used as higher-division grouper above §, not as basic unit"
+          "numbering": "arabic"
         },
         {
           "local_term": "Pododdíl (Sub-section/grouping)",
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
-          "numbering": "arabic",
-          "note": "Very rare; used only in the most extensive acts"
+          "numbering": "arabic"
         },
         {
           "local_term": "§ (Paragraf)",
@@ -74,16 +71,14 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_closing_paren",
-          "note": "a), b), c)... — Czech alphabet; ch) follows h) in Czech but is typically skipped in legal numbering"
+          "numbering": "alpha_lower_closing_paren"
         },
         {
           "local_term": "Bod (Point)",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
-          "numbering": "arabic_period",
-          "note": "1., 2., 3. — sub-lists within písmena"
+          "numbering": "arabic_period"
         }
       ],
       "hcontainers": [
@@ -94,8 +89,7 @@
           "bluebell_proxy": "PART",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Czech § (paragraf) maps to AKN article, following civil law convention (same as German §). Higher divisions (Část > Hlava > Díl > Oddíl) are groupers above the § basic unit."
+      ]
     },
     "ustavni_zakon": {
       "label": "Ústavní zákon (Constitutional Act)",
@@ -108,16 +102,14 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman",
-          "note": "Constitution has 8 Hlavy (Chapters). Roman numerals normalised to Arabic for eId."
+          "numbering": "roman"
         },
         {
           "local_term": "Čl. / Článek (Article)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Constitutional acts use Čl. (článek) as basic unit, not § (paragraf)"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Odstavec",
@@ -134,8 +126,7 @@
           "numbering": "alpha_lower_closing_paren"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitutional acts use Čl. (článek) as basic unit, same Bluebell ARTICLE keyword. Constitution 1/1993 Sb. has 8 Hlavy and 113 Čl."
+      "hcontainers": []
     },
     "narizeni": {
       "label": "Nařízení vlády (Government Regulation)",
@@ -179,8 +170,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Government regulations use identical § structure to ordinary zákony. Enabling formula references the empowering statute."
+      "hcontainers": []
     },
     "vyhlaska": {
       "label": "Vyhláška (Ministerial Decree)",
@@ -217,8 +207,7 @@
           "numbering": "arabic_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Ministerial decrees (vyhlášky) use same § structure. May be simpler than nařízení; higher divisions are rarer."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -232,8 +221,7 @@
       "constitution": "/akn/cz/act/ustavn/1993/1",
       "judgment_us": "/akn/cz/judgment/us/{year}/{number}"
     },
-    "date_calendar": "gregorian",
-    "note": "Number = sequential Sb. number within calendar year (no leading zeros). Year = calendar year of Sbírka zákonů publication."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "zákon č. {number}/{year} Sb.",

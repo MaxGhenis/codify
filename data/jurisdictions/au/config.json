@@ -10,7 +10,6 @@
     "eng"
   ],
   "authoritative_language": "eng",
-  "note": "Federal common-law jurisdiction. Commonwealth Parliament enacts Acts, Legislative Instruments, and Regulations. Six states (NSW, Vic, Qld, WA, SA, Tas) and two territories (ACT, NT) each have their own parliaments. Commonwealth legislation is published on legislation.gov.au via an OData v4 API that serves JSON metadata plus PDF and DOCX downloads; there is no XML or structured full-text representation, so modern Acts are ingested from the style-tagged DOCX without OCR.",
   "document_classes": {
     "act": {
       "label": "Act of Parliament (Commonwealth)",
@@ -37,16 +36,14 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic_dotted",
-          "note": "Division is a native AKN element with Bluebell keyword DIVISION. In Commonwealth Acts, Divisions are numbered within their Part (e.g. Division 2 of Part 3 → '3.2'). Numbering style is dotted Arabic in modern drafting practice."
+          "numbering": "arabic_dotted"
         },
         {
           "local_term": "Subdivision",
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
-          "numbering": "alpha_upper_dotted",
-          "note": "Subdivisions appear below Divisions in complex Acts (e.g. Corporations Act 2001). Numbered as alphanumeric within Division (e.g. Subdivision A, B, C)."
+          "numbering": "alpha_upper_dotted"
         },
         {
           "local_term": "Section",
@@ -77,8 +74,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Full Commonwealth hierarchy: Chapter > Part > Division > Subdivision > Section > Subsection > Paragraph > Subparagraph. Not all levels present in every Act. Sections are numbered continuously throughout the Act (not reset per Part). Division and Subdivision are native Bluebell keywords — no hcontainer post-processing required."
+      "hcontainers": []
     },
     "legislative_instrument": {
       "label": "Legislative Instrument (Commonwealth)",
@@ -129,8 +125,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Legislative Instruments (formerly Statutory Rules) are subordinate legislation made under Acts. Registered on the Federal Register of Legislation (legislation.gov.au). Simpler hierarchy than Acts — Chapter and Subdivision levels rare. Cited as F20XX/NNNNN."
+      "hcontainers": []
     },
     "bill": {
       "label": "Bill (Commonwealth Parliament)",
@@ -171,8 +166,7 @@
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous",
-          "note": "Bills use 'clause' as the local term for the basic unit, mapping to AKN section. Becomes 'section' upon enactment."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Subclause",
@@ -196,8 +190,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Bills use 'clause'/'subclause' terminology; maps to section/subsection in AKN. Same structural hierarchy as Acts. Bills before Senate use schedule amendments drafted as separate documents."
+      "hcontainers": []
     },
     "explanatory_memorandum": {
       "label": "Explanatory Memorandum",
@@ -227,8 +220,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Explanatory Memoranda accompany Bills through Parliament. Published on legislation.gov.au alongside the enrolled Act. Use AKN doc element (not act). Clause-by-clause commentary; structure mirrors the Bill."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -250,8 +242,7 @@
   "numbering": {
     "act_citation": "{Short Title} {year}",
     "act_citation_alt": "No. {number} of {year}",
-    "insertion_style": "decimal",
-    "insertion_note": "Modern Commonwealth drafting uses alphabetic insertion (5A, 5AA) for new sections and decimal (100-1) in some later Acts. Point-in-time versions tracked by legislation.gov.au."
+    "insertion_style": "decimal"
   },
   "amendments": {
     "style": "textual_commonwealth",

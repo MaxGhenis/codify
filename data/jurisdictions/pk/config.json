@@ -84,8 +84,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Inherited British Indian drafting conventions. Heavy use of Proviso and Explanation within sections."
+      ]
     },
     "ordinance": {
       "label": "Ordinance (Presidential)",
@@ -144,8 +143,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Promulgated by the President under Article 89 of the Constitution. Lapses after 120 days unless approved by Parliament. Same drafting style as Acts."
+      ]
     },
     "constitution": {
       "label": "Constitution of Pakistan",
@@ -204,8 +202,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "The 1973 Constitution uses Article as the basic unit. Amended 26 times; notably the 18th Amendment (2010) devolved significant federal powers to provinces."
+      ]
     },
     "si": {
       "label": "Subordinate Legislation (Rules/Regulations/SRO)",
@@ -264,8 +261,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "SROs (Statutory Regulatory Orders) and Rules are numerically distinct from Acts. Rule is the local term for the basic unit but maps to AKN section for structural consistency."
+      ]
     },
     "provincial_act": {
       "label": "Provincial Act",
@@ -324,8 +320,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": true
         }
-      ],
-      "note": "Post-18th Amendment, provinces (Punjab, Sindh, KPK, Balochistan) have extensive legislative authority. Same drafting structure as federal acts. FRBR URI uses province subcode (pk-pb, pk-sd, pk-kp, pk-bl)."
+      ]
     }
   },
   "default_document_class": "act",

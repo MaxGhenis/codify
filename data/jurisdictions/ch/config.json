@@ -25,64 +25,56 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman",
-          "note": "Highest division in large federal codes (e.g. ZGB). 'Erster Teil', 'Premiere partie', etc. Not all acts use Parts."
+          "numbering": "roman"
         },
         {
           "local_term": "Titel / Titre / Titolo",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "arabic",
-          "note": "Second-level division. Arabic numerals in the SR text. Common in the ZGB and OR."
+          "numbering": "arabic"
         },
         {
           "local_term": "Kapitel / Chapitre / Capitolo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic",
-          "note": "Third-level division. May be omitted in shorter acts."
+          "numbering": "arabic"
         },
         {
           "local_term": "Abschnitt / Section / Sezione",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic",
-          "note": "Grouping below chapter. Distinct from 'Article' — never the basic unit in Swiss federal law."
+          "numbering": "arabic"
         },
         {
           "local_term": "Artikel / Article / Articolo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "The fundamental citable unit. Written as 'Art. 1', 'Art. 2' — continuous throughout the act regardless of Part/Title. This is NOT the German § convention — Swiss acts use Artikel/Article/Articolo with explicit 'Art.' prefix."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Absatz / Alinéa / Capoverso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_superscript",
-          "note": "Numbered subdivision of an article. Displayed as superscript in printed SR (¹ ² ³) but cited as 'Abs. 1' (DE), 'al. 1' (FR), 'cpv. 1' (IT). Structuring prompt should output as PARAGRAPH 1, PARAGRAPH 2."
+          "numbering": "arabic_superscript"
         },
         {
           "local_term": "Buchstabe / Lettre / Lettera",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_period",
-          "note": "Lettered sub-items: a., b., c. (with period in Swiss convention, not parenthesis). Cited as 'Bst. a' (DE), 'let. a' (FR), 'lett. a' (IT)."
+          "numbering": "alpha_lower_period"
         },
         {
           "local_term": "Ziffer / Chiffre / Cifra",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_period",
-          "note": "Numbered sub-items under a Buchstabe: 1., 2., 3. Structuring prompt should output as nested POINT under the lettered POINT. Rare — appears primarily in the ZGB and OR for complex enumeration."
+          "numbering": "arabic_period"
         }
       ],
       "hcontainers": [
@@ -93,8 +85,7 @@
           "bluebell_proxy": "SUBSECTION",
           "requires_postprocessing": false
         }
-      ],
-      "note": "Article numbering is continuous throughout the act regardless of Part/Title/Chapter divisions. 'Art. N' prefix always appears. The German Paragraph (§) convention is NOT used in Swiss federal legislation — Artikel/Article/Articolo is used instead."
+      ]
     },
     "bundesverfassung": {
       "label": "Bundesverfassung / Constitution fédérale / Costituzione federale (SR 101)",
@@ -107,32 +98,28 @@
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "arabic",
-          "note": "Top-level division. BV 1999 has 6 Titles."
+          "numbering": "arabic"
         },
         {
           "local_term": "Kapitel / Chapitre / Capitolo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic",
-          "note": "Chapters within Titles."
+          "numbering": "arabic"
         },
         {
           "local_term": "Abschnitt / Section / Sezione",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic",
-          "note": "Sections within Chapters. Present in some but not all chapters."
+          "numbering": "arabic"
         },
         {
           "local_term": "Artikel / Article / Articolo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Continuous from Art. 1 to Art. 196 (main body) + transitional provisions. Cited as 'Art. N BV' (DE), 'art. N Cst.' (FR), 'art. N Cost.' (IT)."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Absatz / Alinéa / Capoverso",
@@ -149,8 +136,7 @@
           "numbering": "alpha_lower_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Federal Constitution of 18 April 1999 (SR 101), in force since 1 January 2000. Replaced the 1874 Constitution. Three equally authoritative versions: DE (Bundesverfassung, BV), FR (Constitution fédérale, Cst.), IT (Costituzione federale, Cost.)."
+      "hcontainers": []
     },
     "verordnung": {
       "label": "Verordnung / Ordonnance / Ordinanza (Ordinance)",
@@ -194,8 +180,7 @@
           "numbering": "alpha_lower_period"
         }
       ],
-      "hcontainers": [],
-      "note": "Subordinate legislation issued by the Federal Council (Bundesrat). Same article-based structure as primary legislation. Identified by SR number."
+      "hcontainers": []
     },
     "bundesbeschluss": {
       "label": "Bundesbeschluss / Arrêté fédéral / Decreto federale (Federal Decree)",
@@ -218,8 +203,7 @@
           "numbering": "arabic_superscript"
         }
       ],
-      "hcontainers": [],
-      "note": "Federal decrees enacted by the Federal Assembly (Bundesversammlung). Two types: Bundesbeschluss (subject to referendum) and einfacher Bundesbeschluss (not subject to referendum). Typically short — articles without higher divisions."
+      "hcontainers": []
     },
     "staatsvertrag": {
       "label": "Staatsvertrag / Traité international / Trattato internazionale (International Treaty)",
@@ -256,8 +240,7 @@
           "numbering": "arabic_superscript"
         }
       ],
-      "hcontainers": [],
-      "note": "International treaties ratified by Switzerland and published in the SR. Structure varies by treaty. The Bilateral Agreements with the EU (Bilaterale I, 1999; Bilaterale II, 2004) are key examples — some have direct-effect provisions analogous to EU law."
+      "hcontainers": []
     }
   },
   "default_document_class": "bundesgesetz",
@@ -266,9 +249,7 @@
     "uri_patterns": {
       "bundesverfassung": "/akn/ch/act/101"
     },
-    "date_calendar": "gregorian",
-    "date_calendar_note": "Switzerland uses Gregorian calendar exclusively. SR numbers are the primary identifier — include as the URI number segment where available (e.g. /akn/ch/act/210 for ZGB, /akn/ch/act/101 for BV). FRBR expressions for each language version use ISO 639-3 codes: deu, fra, ita, roh.",
-    "note": "The SR (Systematische Rechtssammlung) number is the stable identifier for federal acts. It takes the form of a decimal number (e.g. 101, 210, 220, 311.0). For acts without an SR number (e.g. temporary legislation), use year/slug pattern. Each language version is a separate FRBR Expression of the same Work — use /deu@date, /fra@date, /ita@date, /roh@date suffixes."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "SR {sr_number}",

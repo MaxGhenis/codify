@@ -65,7 +65,6 @@
         {
           "name": "mukrrar",
           "label": "Bis article (mada mukrrar)",
-          "note": "Inserted article designated with mukrrar (مكرر) suffix",
           "local_term": "Bis article (mada mukrrar)"
         }
       ]
@@ -105,8 +104,7 @@
           "numbering": "arabic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Temporary laws (qanun mu'aqqat) issued by Royal Decree when Parliament not in session. Structurally identical to ordinary laws. Distinguished by subtype metadata only."
+      "hcontainers": []
     },
     "regulation": {
       "label": "Regulation (Nizam)",
@@ -129,8 +127,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Council of Ministers regulations issued under parent law authority. Numbered separately from laws."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",

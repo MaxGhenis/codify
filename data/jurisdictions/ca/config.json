@@ -24,8 +24,7 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic_continuous",
-          "note": "Some older Acts use Roman numerals; normalise to Arabic in eId"
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Section",
@@ -60,22 +59,19 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_upper_parenthesized",
-          "note": "Uppercase letters (A),(B),(C). Rare; used in Income Tax Act and complex fiscal legislation."
+          "numbering": "alpha_upper_parenthesized"
         }
       ],
       "hcontainers": [
         {
           "local_term": "Division",
           "name": "division",
-          "level": "higher",
-          "note": "Used in Income Tax Act only. No Bluebell keyword — requires post-processing. PART > DIVISION > SUBDIVISION > SECTION."
+          "level": "higher"
         },
         {
           "local_term": "Subdivision",
           "name": "subdivision",
-          "level": "higher",
-          "note": "Used in Income Tax Act only. Nested under Division. Requires post-processing."
+          "level": "higher"
         }
       ]
     },
@@ -121,8 +117,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Federal regulations use 'section' as basic unit, not 'regulation'. SOR/YYYY-NNN citation format."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution Act",
@@ -159,8 +154,7 @@
           "numbering": "alpha_lower_italic_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution Acts 1867 and 1982 use PART > SECTION. Charter sections are numbered continuously within Part I."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -182,8 +176,7 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "insertion_style": "decimal",
-    "insertion_note": "Federal legislation uses decimal insertion (5.1, 5.2) between existing sections. Lettered insertion (5A) occasionally seen in older statutes."
+    "insertion_style": "decimal"
   },
   "amendments": {
     "style": "textual_commonwealth",

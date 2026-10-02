@@ -91,8 +91,7 @@
           "numbering": "alpha_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "SIs use 'regulation' and 'subregulation' as basic unit terms but map to AKN section and subsection"
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -136,8 +135,7 @@
           "numbering": "roman_lower_parenthesized"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution uses Parts containing Articles (not Sections). Clause = level-1 subdivision of an Article, maps to AKN subsection."
+      "hcontainers": []
     }
   },
   "default_document_class": "act",
@@ -149,14 +147,12 @@
       "bill": "/akn/zm/bill/{year}/{number}",
       "constitution": "/akn/zm/act/constitution/1991/constitution"
     },
-    "date_calendar": "gregorian",
-    "notes": "ZambiaLII has established canonical URIs for zm jurisdiction. Use ZambiaLII URIs where they exist. For pre-1997 consolidated statutes where original enactment year is unknown, use cap{NNN}/cap{NNN} pattern and record Cap. number as FRBRalias."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Act No. {number} of {year}",
     "act_citation_alt": "Cap. {number}",
-    "insertion_style": "alphanumeric",
-    "note": "Post-1997 acts cited as 'Act No. NN of YYYY'. Pre-1997 consolidated statutes cited by Chapter number."
+    "insertion_style": "alphanumeric"
   },
   "amendments": {
     "style": "textual_commonwealth",

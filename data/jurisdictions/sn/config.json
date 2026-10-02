@@ -23,8 +23,7 @@
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman",
-          "note": "Used only in large codes (Code pénal etc.); not present in most ordinary laws"
+          "numbering": "roman"
         },
         {
           "local_term": "Titre",
@@ -45,24 +44,21 @@
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "roman",
-          "note": "Section is a HIGHER division grouping articles — NOT the basic unit. Bluebell keyword DIVISION avoids collision with Anglophone section semantics; post-processing may be needed."
+          "numbering": "roman"
         },
         {
           "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "First article header: 'Article premier'; eId: art_1. Continuous numbering throughout entire law regardless of higher divisions."
+          "numbering": "arabic_continuous"
         },
         {
           "local_term": "Alinéa",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": null,
-          "numbering": "sequential_implicit",
-          "note": "Unnumbered paragraph within an article. No Bluebell keyword; requires post-processing from paragraph content."
+          "numbering": "sequential_implicit"
         },
         {
           "local_term": "Point (1°, 2°…)",
@@ -116,8 +112,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Organic laws follow identical structure to ordinary laws. Require Conseil constitutionnel review before promulgation. Subtype: loi-organique in FRBR URI."
+      "hcontainers": []
     },
     "decret": {
       "label": "Décret",
@@ -147,8 +142,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Décrets are promulgated by the President of the Republic. Enabling clause: 'Le Président de la République... Décrète :'. Numbered YYYY-NNNN (four-digit sequential)."
+      "hcontainers": []
     },
     "code": {
       "label": "Code",
@@ -189,12 +183,10 @@
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous",
-          "note": "Some codes use L. / R. article prefix (e.g., Art. L.37). eId includes prefix: art_L37. See dual-part code ambiguity."
+          "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Codes may use L./R. prefix on article numbers (partie législative / partie réglementaire). Partie réglementaire is technically a separate décret — model as separate FRBR work linked by cross-reference. See profile ambiguity 4."
+      "hcontainers": []
     },
     "constitution": {
       "label": "Constitution",
@@ -224,8 +216,7 @@
           "numbering": "arabic_continuous"
         }
       ],
-      "hcontainers": [],
-      "note": "Constitution of 22 January 2001, as amended. Amendments modelled as expressions of the same work, not separate works."
+      "hcontainers": []
     }
   },
   "default_document_class": "loi",
@@ -290,8 +281,7 @@
       "eId": "senat",
       "class": "TLCOrganization",
       "href": "/ontology/org/sn/senat",
-      "showAs": "Sénat",
-      "note": "2007–2012 only; abolished by 2012 constitutional revision"
+      "showAs": "Sénat"
     },
     {
       "eId": "presidentAssemblee",
