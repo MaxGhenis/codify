@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import re
 import uuid
+from collections.abc import Container
 from dataclasses import dataclass, field
 from functools import lru_cache
 
@@ -43,6 +44,10 @@ class ResolveStats:
     resolved_section: int = 0
     unknown_law: int = 0
     missing_same_doc: int = 0  # '#eid' target in the document's AKN but carrying no row
+    # '#eid' naming a container stored only as its parts: its first stored part.
+    resolved_container: int = 0
+    # '#eid' inside a stored row, such as quoted amending text: that row.
+    resolved_enclosing: int = 0
     # '#eid' the document never carried under any name: an anchor from a
     # publisher's rendering, which no later acquisition makes resolvable.
     anchor_not_in_document: int = 0
@@ -666,34 +671,112 @@ async def _registry_target(
     return True, (row[0] if row is not None else None)
 
 
-async def _document_ids(
-    session: AsyncSession, version_id: uuid.UUID, cache: dict[str, set[str] | None]
-) -> set[str] | None:
-    """Every id the version's stored AKN carries, read once per version.
+_QUOTING = frozenset({"quotedStructure", "embeddedStructure"})
 
-    None where no AKN is stored: the document cannot then say whether it ever
-    carried the anchor, and an unanswered question is not a finding.
+
+@dataclass
+class _Anchors:
+    """A version's elements by eId and wId, and its rows by eId."""
+
+    index: dict[str, etree._Element]
+    rows: dict[str, tuple[str, uuid.UUID]]  # eId -> ("provision" | "section", id)
+    placeholders: set[str]
+
+
+def element_index(root: etree._Element) -> dict[str, etree._Element]:
+    """Elements by eId and wId: the names a document answers an anchor by."""
+    out: dict[str, etree._Element] = {}
+    for e in root.iter():
+        if isinstance(e.tag, str):
+            for name in (e.get("eId"), e.get("wId")):
+                if name:
+                    out.setdefault(name, e)
+    return out
+
+
+def nearest_stored_row(
+    index: dict[str, etree._Element],
+    eid: str,
+    rows: Container[str],
+    placeholders: Container[str] = frozenset(),
+) -> tuple[str, str] | None:
+    """The stored row an anchor with no row of its own lands on, and how.
+
+    A container stored only as its parts lands on its first stored part
+    ("container"); an element inside a stored row, quoted amending text above
+    all, lands on that row ("enclosing"), never on a part of the quoted text.
+    An element's rows are its eId and the mapper's `__intro` and `__content`.
     """
-    from codify.akn._parser import carried_ids
+    el = index.get(eid)
+    if el is None:
+        return None
+
+    def row(e: etree._Element) -> str | None:
+        name = e.get("eId")
+        if not name:
+            return None
+        return next((c for c in (name, f"{name}__intro", f"{name}__content") if c in rows), None)
+
+    name = el.get("eId") or eid
+    # A placeholder is not an answer, and neither is a part of one.
+    if any(c in placeholders for c in (name, f"{name}__intro", f"{name}__content")):
+        return None
+    ancestors = [a for a in el.iterancestors() if isinstance(a.tag, str)]
+    if not any(etree.QName(a).localname in _QUOTING for a in ancestors):
+        # Its own lead-in or text first, then its first stored part.
+        if own := row(el):
+            return own, "container"
+        for d in el.iterdescendants():
+            if isinstance(d.tag, str) and (hit := row(d)):
+                return hit, "container"
+    for a in ancestors:
+        if hit := row(a):
+            return hit, "enclosing"
+    return None
+
+
+async def _anchors(
+    session: AsyncSession, version_id: uuid.UUID, cache: dict[str, _Anchors | None]
+) -> _Anchors | None:
+    """Read once per version. None where no AKN is stored or it does not parse:
+    the document cannot then say whether it ever carried the anchor."""
     from codify.akn._schema import parse_xml
 
     key = str(version_id)
-    if key not in cache:
-        xml = (
-            await session.execute(
-                text_clause("SELECT akn_xml FROM versions WHERE id = :v"),
-                {"v": str(version_id)},
+    if key in cache:
+        return cache[key]
+    xml = (
+        await session.execute(
+            text_clause("SELECT akn_xml FROM versions WHERE id = :v"), {"v": str(version_id)}
+        )
+    ).scalar_one_or_none()
+    try:
+        root = parse_xml(xml) if xml else None
+    except (ValueError, etree.XMLSyntaxError):
+        root = None
+    if root is None:
+        cache[key] = None
+        return None
+    provisions = (
+        await session.execute(
+            select(Provision.akn_eid, Provision.id, Provision.excluded_from_pool).where(
+                Provision.version_id == version_id
             )
-        ).scalar_one_or_none()
-        if not xml:
-            cache[key] = None
-        else:
-            try:
-                # The same rule the mapper applies, over the same parse: a second
-                # reading of the raw XML would disagree with it on quoting alone.
-                cache[key] = carried_ids(parse_xml(xml))
-            except (ValueError, etree.XMLSyntaxError):
-                cache[key] = None
+        )
+    ).all()
+    sections = (
+        await session.execute(
+            select(Section.akn_eid, Section.id).where(Section.version_id == version_id)
+        )
+    ).all()
+    rows: dict[str, tuple[str, uuid.UUID]] = {e: ("section", i) for e, i in sections}
+    rows.update({e: ("provision", i) for e, i, excluded in provisions if excluded is not True})
+    cache[key] = _Anchors(
+        # The same names the mapper reads, over the same parse.
+        index=element_index(root),
+        rows=rows,
+        placeholders={e for e, _, excluded in provisions if excluded is True},
+    )
     return cache[key]
 
 
@@ -704,7 +787,7 @@ async def resolve_references_for_version(
     provisions. Idempotent; caller commits."""
     stats = ResolveStats()
     cache = _LawCache()
-    ids: dict[str, set[str] | None] = {}
+    anchors: dict[str, _Anchors | None] = {}
     rows = (
         await session.execute(
             select(CrossReference, Provision.text)
@@ -758,12 +841,28 @@ async def resolve_references_for_version(
             if sid is not None:
                 ref.target_section_id = sid
                 stats.resolved_section += 1
-            else:
-                known = await _document_ids(session, version_id, ids)
-                if known is not None and uri[1:] not in known:
-                    stats.anchor_not_in_document += 1
+                continue
+            doc = await _anchors(session, version_id, anchors)
+            near = (
+                nearest_stored_row(doc.index, uri[1:], doc.rows, doc.placeholders)
+                if doc is not None
+                else None
+            )
+            if doc is not None and near is not None:
+                kind, row_id = doc.rows[near[0]]
+                if kind == "section":
+                    ref.target_section_id = row_id
                 else:
-                    stats.missing_same_doc += 1
+                    ref.target_provision_id = row_id
+                if near[1] == "container":
+                    stats.resolved_container += 1
+                else:
+                    stats.resolved_enclosing += 1
+                continue
+            if doc is not None and uri[1:] not in doc.index:
+                stats.anchor_not_in_document += 1
+            else:
+                stats.missing_same_doc += 1
             continue
         is_registry, registry_law = await _registry_target(session, version_id, uri)
         if is_registry:
