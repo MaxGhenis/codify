@@ -544,13 +544,35 @@ def _decide(
     markers: list[_Marker],
     rules: _Rules,
 ) -> Segmentation:
-    # Where a contents listing exists, only a heading it lists can open the source.
+    """Reconcile to a fixpoint: a claimant the pass vetoes is excluded from the
+    claims and the pass runs again, at most once per heading."""
+    excluded: set[int] = set()
+    while True:
+        eligible = [c for c in candidates if id(c) not in excluded]
+        claims = _claims(text, eligible, entries, pages)
+        result, vetoed = _decide_pass(text, pages, candidates, entries, markers, rules, claims)
+        newly = {id(h) for h in vetoed if claims.get(h.key) is h} - excluded
+        if not newly:
+            return result
+        excluded |= newly
+
+
+def _decide_pass(
+    text: str,
+    pages: _Pages,
+    candidates: list[_Heading],
+    entries: list[_Entry],
+    markers: list[_Marker],
+    rules: _Rules,
+    claims: dict[str, _Heading],
+) -> tuple[Segmentation, list[_Heading]]:
+    # Where a contents listing exists, only the heading claiming an entry can open.
     listed = {e.key for e in entries}
     first = next(
         (
             c
             for c in candidates
-            if (not entries or c.key in listed)
+            if (not entries or claims.get(c.key) is c)
             and not _veto(text, c, None, len(text), markers, rules)
         ),
         None,
@@ -564,7 +586,7 @@ def _decide(
     unmatched = list(entries)
     # An entry another heading names is that heading's, never a mismatch for this one.
     named = {c.key for c in candidates}
-    claims = _claims(text, candidates, entries, pages)
+    vetoed: list[_Heading] = []
     open_heading: _Heading | None = None
     previous = 0
     for index, heading in enumerate(candidates):
@@ -573,12 +595,7 @@ def _decide(
         veto = "" if is_opening else _veto(text, heading, open_heading, following, markers, rules)
         if veto:
             rows.append(_row(heading, "vetoed", veto=veto))
-            if claims.get(heading.key) is heading:
-                # A vetoed heading claims nothing: the next one naming the act may.
-                rest = [c for c in candidates[index + 1 :] if c.key == heading.key]
-                claims.update(_claims(text, rest, entries, pages))
-                if not rest:
-                    del claims[heading.key]
+            vetoed.append(heading)
             continue
         signals = (
             ()
@@ -617,8 +634,8 @@ def _decide(
         begins = pages.start_of(entry.pdf_page) if entry.pdf_page is not None else None
         doubts.append(((begins, begins) if begins is not None else None, row.describe()))
     if not decided and not doubts:
-        return _single(text, pages.spans, tuple(rows))
-    return _assemble(text, pages, opening, decided, doubts, tuple(rows))
+        return _single(text, pages.spans, tuple(rows)), vetoed
+    return _assemble(text, pages, opening, decided, doubts, tuple(rows)), vetoed
 
 
 def _bound(

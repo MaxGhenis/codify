@@ -1575,3 +1575,50 @@ def test_a_mention_without_the_formula_claims_nothing(
     assert [s.key for s in result.segments] == ["act 3", "act 4"]
     vetoed = [r.veto for r in result.reconciliation if r.status == "vetoed"]
     assert vetoed == ["carries no enacting formula where the act before it does"]
+
+
+def test_an_earlier_heading_takes_the_claim_a_vetoed_mention_leaves(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Act 4 stands on page 3 but is listed at page 5, where only a formula-less
+    mention names it: act 4 claims the entry, so pages 3 to 5 are in doubt."""
+    fields = _config(enacting_formula_markers=["BE IT ENACTED"])
+    contents = _contents_page(
+        [("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 5), ("ACT No. 5 OF 2020", 4)]
+    )
+    pages = [
+        contents,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+        ["- 4 -", "", *_act(5, "THE BUOYS ACT", 3), *_signed()],
+        ["- 5 -", "", "ACT No. 4 OF 2020 follows.", "", "The keeper shall keep the light."],
+    ]
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        cfg = load_config(COUNTRY)
+        text, spans = _join(pages)
+        result = segment(text, spans, config=cfg)
+    rows = [(r.source, r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [
+        ("contents", "page_mismatch", 5),
+        ("heading", "page_mismatch", 3),
+        ("heading", "vetoed", 5),
+    ]
+    assert all(s.last_page is not None and s.last_page < 3 for s in result.segments)
+    assert max(h.last_page or 0 for h in result.held) == 5
+
+
+def test_a_mention_before_the_first_act_does_not_open_the_source(
+    config: JurisdictionConfig,
+) -> None:
+    """A notice naming act 4 above act 3 on page 2 claims no entry, so act 3 opens."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    notice = ["Notice.", "ACT No. 4 OF 2020 follows below.", ""]
+    pages = [
+        contents,
+        ["- 2 -", "", *notice, *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
