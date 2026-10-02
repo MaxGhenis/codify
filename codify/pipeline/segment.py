@@ -904,9 +904,10 @@ def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -
 def _issue_headings(
     text: str, patterns: Sequence[re.Pattern[str]], open_key: str | None
 ) -> list[re.Match[str]]:
-    """The page's issue headings in order, less the open issue's running head."""
+    """The page's issue headings in order, less the open issue's running head; callers
+    read them through `_live`, which drops a match of whitespace alone."""
     found = sorted((m for p in patterns for m in p.finditer(text)), key=lambda m: m.start())
-    return [m for m in found if _text_start(m) is not None and _key(m) != open_key]
+    return [m for m in found if _key(m) != open_key]
 
 
 def _closes(
