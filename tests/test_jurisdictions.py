@@ -929,7 +929,7 @@ def test_extends_refuses_a_chain() -> None:
         )
 
 
-@pytest.mark.parametrize("name", ["", "   "])
+@pytest.mark.parametrize("name", ["", "   ", "(?:)", "a*"])
 def test_an_empty_series_citation_name_is_refused(name: str) -> None:
     from pydantic import ValidationError
 
