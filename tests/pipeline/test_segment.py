@@ -1333,3 +1333,46 @@ def test_a_stray_opener_is_dropped_once_read_past(config: JurisdictionConfig) ->
     assert (second.key, second.first_page, second.last_page) == ("12", 3, 6)
     # Issue 13 settles on one page read ahead, not the cap.
     assert max(read) == 8
+
+
+def test_an_issue_heading_quoted_in_mojibake_glyphs_is_not_a_boundary(
+    config: JurisdictionConfig,
+) -> None:
+    """cp1252 curly quotes decoded as Latin-1 (0x93, 0x94) quote as the curlies do."""
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "The notice reads: \x93"]
+    issue.append(["ISSUE No. 12", "is withdrawn.\x94"])
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 3)]
+
+
+def test_a_lone_right_curly_opens_nothing_once_the_text_reads_left_to_right(
+    config: JurisdictionConfig,
+) -> None:
+    """After a closed left-to-right pair, a stray right curly is a dropped opener's
+    closer, so a later left curly cannot pair with it around a heading."""
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "It cites “the old rule”.", "as the rule said”"]
+    issue += [["ISSUE No. 12", "THE ATLANTIS GAZETTE"], ["It cites “another rule”."]]
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page) for i in found] == [("11", 1), ("12", 3)]
+
+
+def test_a_left_curly_inside_its_own_span_settles_the_heading_at_once(
+    config: JurisdictionConfig,
+) -> None:
+    """A second left curly says the first never closed: stray, so no waiting."""
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "It reads “"]
+    issue += [["ISSUE No. 12", "THE ATLANTIS GAZETTE"], ["“A new quote”."]]
+    issue += [["More text."]] * 4
+    read: list[int] = []
+
+    def pages() -> Iterator[SourcePage]:
+        for page in _pages([issue]):
+            read.append(page.page)
+            yield page
+
+    first = next(segment_volume(pages(), config=config))
+    assert (first.key, first.last_page) == ("11", 2)
+    assert max(read) == 4

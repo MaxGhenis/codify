@@ -29,6 +29,7 @@ from codify.pipeline.enrich.adoption import _pattern as _adoption_pattern
 from codify.pipeline.enrich.anchors import (
     _CLOSERS_FOR_OPENER,
     _closed_quote_mask,
+    _fold_mojibake_quotes,
     _is_prose_reference,
     _kind_from_match,
     _normalise_number,
@@ -861,7 +862,7 @@ def segment_volume(
     buffer: deque[SourcePage] = deque()
     exhausted = False
     # Quotation glyphs open after every page consumed so far, each page read once.
-    quotes: tuple[str, ...] = ()
+    quotes = _Quotes()
     while not exhausted or buffer:
         if not exhausted:
             page = next(source, None)
@@ -872,7 +873,7 @@ def segment_volume(
             head = buffer[0]
             found = _issue_headings(head.text, patterns, issue.key if issue.pages else None)
             if not found:
-                quotes = _walk_quotes(quotes, head.text)
+                quotes = _read_quotes(quotes, [head.text])[0]
                 issue.pages.append(buffer.popleft())
                 continue
             ahead = list(islice(buffer, 1, None))
@@ -882,11 +883,11 @@ def segment_volume(
             if (not ahead or pending) and not exhausted:
                 break
             buffer.popleft()
-            if match is not None and _walk_quotes(quotes, head.text[: match.start()]):
-                # Read live at the cap: the openers around it are stray, and dropped.
-                quotes = _walk_quotes((), head.text[match.start() :])
+            if match is not None and _read_quotes(quotes, [head.text[: match.start()]])[0].open:
+                # Read live past open quotes: the openers around it are stray, and dropped.
+                quotes = _read_quotes(_Quotes(ltr=quotes.ltr), [head.text[match.start() :]])[0]
             else:
-                quotes = _walk_quotes(quotes, head.text)
+                quotes = _read_quotes(quotes, [head.text])[0]
             issue = yield from _settle(issue, head, match, ahead, printed, closing, config, doctype)
     if issue.pages:
         yield _close(issue, config, doctype)
@@ -948,35 +949,40 @@ _QUOTE_GLYPHS = re.compile(
 )
 
 
-def _step_quote(stack: list[str], ch: str) -> None:
-    """Read one quotation glyph, pairing openers and closers as the anchor scan does."""
-    if stack and ch in _CLOSERS_FOR_OPENER[stack[-1]]:
-        stack.pop()
-    elif ch in _CLOSERS_FOR_OPENER:
-        stack.append(ch)
+@dataclass(frozen=True)
+class _Quotes:
+    """Quotation glyphs open so far, and whether the text has closed a left curly
+    with a right one, after which a lone right curly opens nothing."""
+
+    open: tuple[str, ...] = ()
+    ltr: bool = False
 
 
-def _walk_quotes(open_: tuple[str, ...], text: str) -> tuple[str, ...]:
-    """The quotation glyphs still open after `text`, read on from `open_`."""
-    stack = list(open_)
-    for glyph in _QUOTE_GLYPHS.finditer(text):
-        _step_quote(stack, glyph.group(0))
-    return tuple(stack)
-
-
-def _closes_around(open_: tuple[str, ...], texts: Iterable[str]) -> bool:
-    """Whether a quotation open in `open_` closes within `texts`."""
-    stack = list(open_)
+def _read_quotes(
+    state: _Quotes, texts: Iterable[str], around: int = 0
+) -> tuple[_Quotes, Literal["closed", "stray", "open"]]:
+    """Read on from `state` with the anchor scan's pairing and glyph folding. With
+    `around`, stop once the quotation open at that depth closes, or proves stray."""
+    stack, ltr = list(state.open), state.ltr
     for text in texts:
-        for glyph in _QUOTE_GLYPHS.finditer(text):
-            _step_quote(stack, glyph.group(0))
-            if len(stack) < len(open_):
-                return True
-    return False
+        for glyph in _QUOTE_GLYPHS.finditer(_fold_mojibake_quotes(text)):
+            ch = glyph.group(0)
+            if stack and ch in _CLOSERS_FOR_OPENER[stack[-1]]:
+                ltr = ltr or (stack[-1], ch) == ("\u201c", "\u201d")
+                stack.pop()
+                if len(stack) < around:
+                    return _Quotes(tuple(stack), ltr), "closed"
+            elif ch == "\u201c" and stack and stack[-1] == ch:
+                # A left curly inside its own span: the earlier one never closed.
+                if len(stack) == around:
+                    return _Quotes(tuple(stack), ltr), "stray"
+            elif ch in _CLOSERS_FOR_OPENER and not (ltr and ch == "\u201d"):
+                stack.append(ch)
+    return _Quotes(tuple(stack), ltr), "open"
 
 
 def _issue_heading(
-    open_: tuple[str, ...],
+    state: _Quotes,
     page: SourcePage,
     found: list[re.Match[str]],
     ahead: list[SourcePage],
@@ -987,13 +993,16 @@ def _issue_heading(
     for match in found:
         if _text_start(match) is None:
             continue
-        here = _walk_quotes(open_, page.text[: match.start()])
-        if not here:
+        here, _ = _read_quotes(state, [page.text[: match.start()]])
+        if not here.open:
             return match, False
         rest = [page.text[match.start() :], *(p.text for p in ahead)]
-        if _closes_around(here, rest):
+        _, verdict = _read_quotes(here, rest, around=len(here.open))
+        if verdict == "closed":
             continue
-        return (match, False) if final else (None, True)
+        if verdict == "stray" or final:
+            return match, False
+        return None, True
     return None, False
 
 
