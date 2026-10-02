@@ -1540,3 +1540,38 @@ def test_off_its_listed_page_the_heading_opening_a_page_claims_the_entry(
     result = segment(text, spans, config=config)
     rows = [(r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
     assert sorted(rows) == [("heading_only", 2), ("page_mismatch", 3), ("page_mismatch", 4)]
+
+
+def _listed_act_with_page_three(lead: list[str]) -> list[list[str]]:
+    """Act 3 then act 4, both listed; `lead` stands above act 4's heading on page 3."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    return [
+        contents,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *lead, *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+
+
+def test_a_quoted_heading_on_the_listed_page_claims_nothing(config: JurisdictionConfig) -> None:
+    lead = ["The form reads: \u201c", "ACT No. 4 OF 2020", "\u201d", ""]
+    text, spans = _join(_listed_act_with_page_three(lead))
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    rows = [(r.source, r.status) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [("contents", "matched"), ("heading", "matched"), ("heading", "vetoed")]
+
+
+def test_a_mention_without_the_formula_claims_nothing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Vetoed for lacking the enacting formula, the mention leaves the entry to the act."""
+    fields = _config(enacting_formula_markers=["BE IT ENACTED"])
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        cfg = load_config(COUNTRY)
+        text, spans = _join(_listed_act_with_page_three(["ACT No. 4 OF 2020 follows.", ""]))
+        result = segment(text, spans, config=cfg)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    vetoed = [r.veto for r in result.reconciliation if r.status == "vetoed"]
+    assert vetoed == ["carries no enacting formula where the act before it does"]

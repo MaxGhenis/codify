@@ -573,6 +573,12 @@ def _decide(
         veto = "" if is_opening else _veto(text, heading, open_heading, following, markers, rules)
         if veto:
             rows.append(_row(heading, "vetoed", veto=veto))
+            if claims.get(heading.key) is heading:
+                # A vetoed heading claims nothing: the next one naming the act may.
+                rest = [c for c in candidates[index + 1 :] if c.key == heading.key]
+                claims.update(_claims(text, rest, entries, pages))
+                if not rest:
+                    del claims[heading.key]
             continue
         signals = (
             ()
