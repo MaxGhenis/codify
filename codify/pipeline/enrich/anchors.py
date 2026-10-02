@@ -3886,8 +3886,8 @@ def _declare_orphaned_drops(
 
 
 def _past_indent(match: re.Match[str]) -> int:
-    """Offset of a line-start match's first character after indentation."""
-    return match.start() + len(match.group(0)) - len(match.group(0).lstrip(" \t"))
+    """Offset of a match's first non-whitespace character; its end if it has none."""
+    return match.start() + len(match.group(0)) - len(match.group(0).lstrip())
 
 
 def _drop_boundaries(anchors: list[StructuralAnchor], dropped: list[AmbiguitySpan]) -> list[int]:
@@ -3932,7 +3932,7 @@ def _declare_act_boundary_suspected(
         )
         # Judged at the heading's first character: a whole-line match may end in a quote.
         opened = min(
-            # A match of indentation alone names no heading.
+            # A match of whitespace alone, a blank line included, names no heading.
             (m for m in candidates if _past_indent(m) < m.end() and not mask[_past_indent(m)]),
             key=lambda m: m.start(),
             default=None,

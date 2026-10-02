@@ -286,6 +286,18 @@ def test_a_heading_match_of_indentation_alone_declares_nothing(
         assert not _suspected(text)
 
 
+def test_a_heading_match_of_a_blank_line_declares_nothing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A validated pattern that can match only a line break after the closing is no
+    act heading: a repeated run under one title stays a single act."""
+    headings = [HEADING, r"(?:BILL)?\s+"]
+    configs = {COUNTRY: _config(segmentation={"act_heading_patterns": headings})}
+    text = _two_acts().replace("ACT No. 4 OF 2020", "SCHEDULE OF DUES")
+    with isolated_configs(monkeypatch, tmp_path / "jurisdictions", configs):
+        assert not _suspected(text)
+
+
 @pytest.mark.usefixtures("unarmed")
 def test_no_declared_heading_declares_nothing() -> None:
     """Silence, not a finding: the closing alone cannot say a second act began."""
