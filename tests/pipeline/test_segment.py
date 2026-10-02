@@ -1312,3 +1312,24 @@ def test_an_issue_heading_waits_for_a_quote_closing_on_the_third_page_ahead(
     issue += [["ISSUE No. 12", "is withdrawn"], ["and"], ["replaced"], [f"as announced.{closer}"]]
     found = list(segment_volume(_pages([issue]), config=config))
     assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 6)]
+
+
+def test_a_stray_opener_is_dropped_once_read_past(config: JurisdictionConfig) -> None:
+    """After the cap reads a heading live, later headings do not wait on the same stray."""
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "The notice reads: «"]
+    issue += [["ISSUE No. 12", "THE ATLANTIS GAZETTE"], *[["More text."]] * 3]
+    issue += [["ISSUE No. 13", "THE ATLANTIS GAZETTE"], *[["More text."]] * 3]
+    read: list[int] = []
+
+    def pages() -> Iterator[SourcePage]:
+        for page in _pages([issue]):
+            read.append(page.page)
+            yield page
+
+    stream = segment_volume(pages(), config=config)
+    next(stream)
+    second = next(stream)
+    assert (second.key, second.first_page, second.last_page) == ("12", 3, 6)
+    # Issue 13 settles on one page read ahead, not the cap.
+    assert max(read) == 8
