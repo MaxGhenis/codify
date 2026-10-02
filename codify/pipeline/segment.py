@@ -16,10 +16,11 @@ from __future__ import annotations
 
 import re
 from bisect import bisect_right
+from collections import deque
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from functools import lru_cache
-from itertools import pairwise
+from itertools import islice, pairwise
 from typing import Literal
 
 from codify.jurisdictions import JurisdictionConfig, SegmentationConfig, heading_line_pattern
@@ -34,6 +35,7 @@ from codify.pipeline.enrich.anchors import (
     _partial_decimal_number,
     _repair_damaged_num,
     _roman_or_digit,
+    _stray_quote_mask,
     _text_start,
     build_anchor_regex,
 )
@@ -61,6 +63,9 @@ RESTART_FROM = 3
 _EDGE_LINES = 3
 # Separates pages when a volume's pages are joined into one issue text.
 PAGE_SEPARATOR = "\n\n"
+# Pages an issue heading waits for a quotation open before it to close; past this
+# the opener reads as stray. Ceiling: bounds the pages held beyond the open issue.
+QUOTE_LOOKAHEAD = 3
 
 _LINE_END_NUMBER_RE = re.compile(r"(?m)(\d+)[ \t]*$")
 # Longer than this between an entry's heading and its page, and it is body text.
@@ -579,10 +584,13 @@ def _bound(
     listed: set[str],
 ) -> int:
     """Where a candidate's evidence ends: at the next candidate that would be
-    accepted after it, so a citation line between them takes nothing."""
+    accepted after it, so a citation line between them takes nothing. A later
+    heading naming the same act ends it too: a mention gives way to the heading."""
     heading = candidates[index]
     for later in range(index + 1, len(candidates)):
         nxt = candidates[later]
+        if nxt.key == heading.key:
+            return nxt.start
         raw = candidates[later + 1].start if later + 1 < len(candidates) else len(text)
         if _veto(text, nxt, heading, raw, markers, rules):
             continue
@@ -833,19 +841,30 @@ def segment_volume(
     )
     closing = _closing_regex(config)
     issue = _OpenIssue()
-    waiting: tuple[SourcePage, list[re.Match[str]]] | None = None
-    for page in pages:
-        if waiting is not None:
-            issue = yield from _settle(issue, *waiting, page, printed, closing, config, doctype)
-            waiting = None
-        found = _issue_headings(page.text, patterns, issue.key if issue.pages else None)
-        if found:
-            # Decided once the next page is read: a restart or a closing quote may show there.
-            waiting = (page, found)
-            continue
-        issue.pages.append(page)
-    if waiting is not None:
-        issue = yield from _settle(issue, *waiting, None, printed, closing, config, doctype)
+    source = iter(pages)
+    buffer: deque[SourcePage] = deque()
+    exhausted = False
+    while not exhausted or buffer:
+        if not exhausted:
+            page = next(source, None)
+            exhausted = page is None
+            if page is not None:
+                buffer.append(page)
+        while buffer:
+            head = buffer[0]
+            found = _issue_headings(head.text, patterns, issue.key if issue.pages else None)
+            if not found:
+                issue.pages.append(buffer.popleft())
+                continue
+            ahead = list(islice(buffer, 1, None))
+            # Decided once a later page is read: a restart or a closing quote may show there.
+            waits = not ahead or (
+                len(ahead) < QUOTE_LOOKAHEAD and _quote_open(issue, head, found[0], ahead, config)
+            )
+            if waits and not exhausted:
+                break
+            buffer.popleft()
+            issue = yield from _settle(issue, head, found, ahead, printed, closing, config, doctype)
     if issue.pages:
         yield _close(issue, config, doctype)
 
@@ -854,16 +873,16 @@ def _settle(
     issue: _OpenIssue,
     page: SourcePage,
     found: list[re.Match[str]],
-    after: SourcePage | None,
+    ahead: list[SourcePage],
     printed: re.Pattern[str] | None,
     closing: re.Pattern[str] | None,
     config: JurisdictionConfig,
     doctype: str | None,
 ) -> Generator[Issue, None, _OpenIssue]:
     """Close the open issue at `page` if its first unquoted heading is agreed, else
-    absorb it. Quote state reads the whole open issue and the page after."""
+    absorb it. Quote state reads the whole open issue and the pages read ahead."""
     prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
-    context = prefix + page.text + (PAGE_SEPARATOR + after.text if after else "")
+    context = PAGE_SEPARATOR.join([prefix + page.text, *(p.text for p in ahead)])
     match = next(_live(found, context, config.code, len(prefix)), None)
     if match is None or not issue.pages:
         if match is not None:
@@ -885,8 +904,8 @@ def _settle(
     ]
     fresh = [
         n
-        for p in (page, after)
-        if p is not None and (n := _printed_number(p.text, p.furniture, printed)) is not None
+        for p in (page, *ahead[:1])
+        if (n := _printed_number(p.text, p.furniture, printed)) is not None
     ]
     # Any fall across the window: the new issue's numbers may start a page late.
     if seen and any(b < a for a, b in pairwise([seen[-1], *fresh])):
@@ -900,6 +919,20 @@ def _settle(
         )
     issue.pages.append(page)
     return issue
+
+
+def _quote_open(
+    issue: _OpenIssue,
+    page: SourcePage,
+    match: re.Match[str],
+    ahead: list[SourcePage],
+    config: JurisdictionConfig,
+) -> bool:
+    """A quotation opened within the last pages before `match` and not closed yet."""
+    recent = issue.pages[-QUOTE_LOOKAHEAD:]
+    prefix = "".join(p.text + PAGE_SEPARATOR for p in recent)
+    context = PAGE_SEPARATOR.join([prefix + page.text, *(p.text for p in ahead)])
+    return any(_stray_quote_mask(context, config.code)[: len(prefix) + match.start()])
 
 
 def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -> Issue:

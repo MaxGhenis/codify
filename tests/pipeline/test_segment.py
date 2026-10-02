@@ -19,6 +19,7 @@ from codify.jurisdictions import JurisdictionConfig, load_config
 from codify.pipeline.enrich.ocr import PageSpan
 from codify.pipeline.segment import (
     PAGE_SEPARATOR,
+    QUOTE_LOOKAHEAD,
     Issue,
     Segmentation,
     SourcePage,
@@ -1195,3 +1196,51 @@ def test_a_quoted_leader_does_not_make_a_provision_an_entry(
     text, spans = _join(pages)
     result = segment(text, spans, config=config)
     assert [r for r in result.reconciliation if r.source == "contents"] == []
+
+
+def test_a_mention_gives_way_to_the_heading_of_the_same_act(
+    config: JurisdictionConfig,
+) -> None:
+    """A prose line naming the next act does not take its restart, nor veto its
+    real heading as a repeat."""
+    lines = _act(3, "THE HARBOUR DUES ACT", 3)
+    lines += ["ACT No. 4 OF 2020 follows below.", ""]
+    lines += ["ACT No. 4 OF 2020", "THE LIGHTHOUSE ACT", "", "Section 1. Duty 1", ""]
+    text, spans = _join([lines])
+    result = segment(text, spans, config=config)
+    real = text.index("ACT No. 4 OF 2020\nTHE LIGHTHOUSE ACT")
+    assert [(s.key, s.start) for s in result.segments] == [("act 3", 0), ("act 4", real)]
+    rows = [(r.offset, r.status, r.signals) for r in result.reconciliation if r.key == "act 4"]
+    assert rows == [
+        (text.index("ACT No. 4 OF 2020 follows"), "citation", ()),
+        (real, "corroborated", ("restart",)),
+    ]
+
+
+def test_an_issue_heading_waits_for_a_quote_closing_pages_later(
+    config: JurisdictionConfig,
+) -> None:
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "The notice reads: “"]
+    issue += [["ISSUE No. 12", "is withdrawn"], ["and replaced"], ["as announced.”"]]
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 5)]
+
+
+def test_an_opener_unclosed_past_the_look_ahead_is_stray(config: JurisdictionConfig) -> None:
+    """Never closed: after the cap the heading is read live, and pages held stay bounded."""
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "The notice reads: “"]
+    issue += [["ISSUE No. 12", "THE ATLANTIS GAZETTE"], *[["More text."]] * 5]
+    read: list[int] = []
+
+    def pages() -> Iterator[SourcePage]:
+        for page in _pages([issue]):
+            read.append(page.page)
+            yield page
+
+    stream = segment_volume(pages(), config=config)
+    first = next(stream)
+    assert (first.key, first.last_page) == ("11", 2)
+    assert max(read) == 3 + QUOTE_LOOKAHEAD
+    assert [(i.key, i.first_page) for i in stream] == [("12", 3)]
