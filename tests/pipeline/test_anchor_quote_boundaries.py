@@ -52,16 +52,39 @@ def test_balanced_amendment_stays_masked_across_blank_lines(
 
 @pytest.mark.parametrize("kind", ["article", "section"])
 def test_unclosed_curly_span_still_reports_hidden_text_and_resets(kind: str) -> None:
+    """A quote opening on a heading may quote several, so it masks to the blank line."""
     marker = kind.upper()
     text = (
-        f"{marker} 1. A “quotation with no closer.\n"
-        f"{marker} 9. Hidden text.\n\n"
+        f"{marker} 1. Replace the provision with:\n"
+        f"“{marker} 9. Replacement with no closer.\n"
+        f"{marker} 10. Hidden text.\n\n"
         f"{marker} 2. Commencement.\n"
     )
     assert _numbers(text, kind) == ["1", "2"]
     stray = _stray_quote_mask(text, "xu")
-    assert stray[text.index(f"{marker} 9")]
+    assert stray[text.index(f"{marker} 10")]
     assert not stray[text.index(f"{marker} 2")]
+
+
+def test_a_prose_quote_nothing_closes_stops_at_the_next_heading() -> None:
+    """A dropped closer on a quoted name must not take the chapter and article below it."""
+    text = (
+        "The authority founds the “Harbour Board, which keeps the moorings.\n"
+        "It therefore enacts the following:\n"
+        "CHAPTER I\nGeneral\n"
+        "ARTICLE 1. This creates the “Harbour Board”.\n"
+        "ARTICLE 2. Commencement.\n"
+    )
+    config = load_config("xu")
+    anchors = scan_anchors(text, build_anchor_regex(config, "act"), country="xu", doctype="act")
+    assert [(a.kind, a.number) for a in anchors] == [
+        ("chapter", "I"),
+        ("article", "1"),
+        ("article", "2"),
+    ]
+    stray = _stray_quote_mask(text, "xu")
+    assert stray[text.index("Harbour Board, which")]
+    assert not stray[text.index("CHAPTER I")]
 
 
 # cp1252 bytes 0x93/0x94 decoded as Latin-1: the curly quotes a text extractor

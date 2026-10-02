@@ -576,7 +576,7 @@ _QUOTE_SHAPES = [
         # it and its closer open a fresh one, hiding the stray from the count.
         "a stray quote, then a balanced amendment, in a document that scores well",
         "".join(f"Pasal {i}\n(1) Ketentuan nomor {i}.\n" for i in range(1, 21))
-        + "Pasal 21\n(1) Dengan “kutip.\n"
+        + "Pasal 21\n(1) Dengan “kutip.\n(2) Dua.\n"
         + "Pasal 22\n(1) Berikutnya.\n"
         + "Pasal I\nDiubah:\n“Pasal 9\n(1) Satu.\n(2) Dua.”\nPasal II\nBerlaku.\n",
         True,

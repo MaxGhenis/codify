@@ -2823,7 +2823,17 @@ def _walk_quotes(raw: str, country: str = "") -> tuple[tuple[bool, ...], tuple[b
 
     mask = [False] * (len(text) + 1)
     stray = [False] * (len(text) + 1)
+    headings = _heading_line_re(country)
     for start, end, closed in spans:
+        # A quote opening on prose quotes no heading, so if nothing closes it, it
+        # stops at the next one. One opening on a heading may quote several.
+        if (
+            not closed
+            and headings is not None
+            and not headings.match(text[start + 1 : start + 80])
+            and (h := headings.search(text, start + 1, end))
+        ):
+            end = h.start() - 1
         for k in range(start, min(end + 1, len(text))):
             mask[k] = True
             if not closed:
@@ -2871,27 +2881,50 @@ def _basic_unit_line_re(country: str) -> re.Pattern[str] | None:
         for entry in doc_class.hierarchy
         if entry.akn_element in {"article", "section", "rule"}
     ]
-    terms = {form for entry in entries for form in _alias_terms_for(entry)}
-    branches: list[str] = []
-    if terms:
-        alts = "|".join(re.escape(t) for t in sorted(terms, key=lambda t: (-len(t), t)))
-        # The scanner's own separator and number grammar: what it would anchor is a
-        # provision heading here, and a keyword opening prose is not.
-        tolerances = set(config.structuring.marker_tolerances if config.structuring else ())
-        number = _num_pattern_with(
-            config.structuring.ordinal_words if config.structuring else {},
-            digit_glyphs="digit_glyph" in tolerances,
-            split_numbers="split_number" in tolerances,
-        )
-        branches.append(
-            rf"^[^\S\n]{{0,8}}(?:{alts}){_separator_for(tolerances)}{number}{_MARKER_NUM_END}"
-        )
+    keyword = _keyword_line_branch(config, entries)
+    branches = [keyword] if keyword else []
     # A keyword-less unit ("2. …") is a heading by its declared marker form.
     for form in sorted({e.marker_form for e in entries if e.marker_form in _OUTLINE_RES}):
         branches.append(_OUTLINE_RES[form].pattern.removeprefix("(?m)").replace("(?P<num>", "(?:"))
     if not branches:
         return None
     return re.compile("(?m)" + "|".join(f"(?:{b})" for b in branches))
+
+
+def _keyword_line_branch(config: JurisdictionConfig, entries: Sequence[HierarchyEntry]) -> str:
+    """A line opening with one of these levels' keywords and a number, or ""."""
+    terms = {form for entry in entries for form in _alias_terms_for(entry)}
+    if not terms:
+        return ""
+    alts = "|".join(re.escape(t) for t in sorted(terms, key=lambda t: (-len(t), t)))
+    # The scanner's own separator and number grammar: what it would anchor is a
+    # provision heading here, and a keyword opening prose is not.
+    tolerances = set(config.structuring.marker_tolerances if config.structuring else ())
+    number = _num_pattern_with(
+        config.structuring.ordinal_words if config.structuring else {},
+        digit_glyphs="digit_glyph" in tolerances,
+        split_numbers="split_number" in tolerances,
+    )
+    return rf"^[^\S\n]{{0,8}}(?:{alts}){_separator_for(tolerances)}{number}{_MARKER_NUM_END}"
+
+
+@lru_cache(maxsize=32)
+def _heading_line_re(country: str) -> re.Pattern[str] | None:
+    """A line opening a keyword-led container or basic unit in any class, or None.
+
+    Bounds a quote nothing closes. Keyword-led only: a bare "1." is as often a list.
+    """
+    if not country:
+        return None
+    config = load_config(country)
+    entries = [
+        entry
+        for doc_class in (config.document_classes or {}).values()
+        for entry in doc_class.hierarchy
+        if entry.level in {"higher", "basic"}
+    ]
+    branch = _keyword_line_branch(config, entries)
+    return re.compile("(?m)" + branch) if branch else None
 
 
 def _quote_mask(text: str, country: str = "") -> tuple[bool, ...]:

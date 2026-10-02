@@ -46,6 +46,11 @@ Breaks, in that the structurer's output changes for documents it already read:
    `identity_year_implausible` and `identity_year_unconverted_hijri`: a
    publisher's own date is not a misparse.
    Callers that do not pass `provenance` see the previous checks.
+4. A quotation that opens on prose and that nothing closes now ends before the
+   next keyword-led container or basic-unit heading, blank line or not. A
+   dropped closer on a quoted name in a preamble no longer masks the first
+   chapter and article below it. A quotation opening on a heading still masks
+   to the blank line, since an amendment may quote several provisions.
 
 New, additive:
 
