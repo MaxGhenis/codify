@@ -1170,3 +1170,28 @@ def test_the_first_issue_heading_reads_a_quote_closing_on_the_next_page(
     pages.append(_act(1, "THE FERRIES ACT", 3) + _signed())
     found = list(segment_volume(_pages([pages]), config=config))
     assert [(i.key, i.first_page, i.last_page) for i in found] == [("", 1, 3)]
+
+
+def test_a_quoted_page_reference_lends_no_entry_its_page(config: JurisdictionConfig) -> None:
+    """A quoted act line after the last entry carries a page the live entry must not take."""
+    pages = _three_act_issue()
+    pages[0] += ["\u201c", "ACT No. 9 OF 2019 The ... Act", "of the Assembly ............ 2"]
+    pages[0] += ["\u201d", ""]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    listed = [(r.key, r.printed_page) for r in result.reconciliation if r.source == "contents"]
+    assert listed == [("act 3", 2), ("act 4", 2), ("act 5", 3)]
+
+
+def test_a_quoted_leader_does_not_make_a_provision_an_entry(
+    config: JurisdictionConfig,
+) -> None:
+    """A live section whose leader and page sit inside a quotation is body text, so it
+    ends the listing before the act entry above it is read."""
+    pages = _three_act_issue()
+    at = pages[0].index("of the Assembly ............ 2") + 1
+    pages[0][at:at] = ["Section 1. Duty 1 \u201c............ 2", "\u201d"]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert [r for r in result.reconciliation if r.source == "contents"] == []

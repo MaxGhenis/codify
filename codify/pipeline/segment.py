@@ -201,7 +201,8 @@ class _Pages:
 
 
 def _printed_number(page_text: str, furniture: str, pattern: re.Pattern[str] | None) -> int | None:
-    """The page number the publisher printed: furniture first, then the page's edges."""
+    """The page number the publisher printed: furniture first, then the page's edges.
+    Not quote-filtered: a quotation across a page break would mask the real number."""
     if pattern is None:
         return None
     lines = [line.strip() for line in page_text.splitlines() if line.strip()]
@@ -269,7 +270,7 @@ def _contents(
     blocks: list[tuple[int, int]] = []
     entries: list[_Entry] = []
     # Provisions listed under an act's entry: entries themselves, not its body.
-    listed = [m.offset for m in markers if _leads_to_page(text, m.offset, pages)]
+    listed = [m.offset for m in markers if _leads_to_page(text, m.offset, pages, country)]
     as_entries = set(listed)
     body = [m for m in markers if m.offset not in as_entries]
     # A quoted act line is cited text, never an entry.
@@ -289,7 +290,7 @@ def _contents(
                 break
             if current is not None:
                 nested = next((o for o in listed if o > current.match_end), stop)
-                page = _reference(text, current.match_end, min(stop, nested), pages)
+                page = _reference(text, current.match_end, min(stop, nested), pages, country)
                 near = stop - current.match_end <= _ENTRY_MAX_CHARS
                 if page is None and heading is not None and heading.start < end and near:
                     # A citation wrapped onto its own line, inside the entry.
@@ -314,18 +315,22 @@ def _contents(
     return blocks, entries
 
 
-def _leads_to_page(text: str, at: int, pages: _Pages) -> bool:
-    """The line at `at` ends in a leader and the number of a page of this source."""
+def _leads_to_page(text: str, at: int, pages: _Pages, country: str) -> bool:
+    """The line at `at` ends in a live leader and the number of a page of this source."""
     end = text.find("\n", at)
-    found = _LEADER_RE.search(text, at, len(text) if end < 0 else end)
+    hits = _LEADER_RE.finditer(text, at, len(text) if end < 0 else end)
+    found = next(_live(hits, text, country), None)
     return found is not None and pages.pdf_page(int(normalise_digits(found.group(1)))) is not None
 
 
-def _reference(text: str, start: int, stop: int, pages: _Pages) -> tuple[int, int] | None:
-    """The printed and PDF page an entry names: its last line-end number that is a
-    page of this source."""
+def _reference(
+    text: str, start: int, stop: int, pages: _Pages, country: str
+) -> tuple[int, int] | None:
+    """The printed and PDF page an entry names: its last live line-end number that
+    is a page of this source."""
     stop = min(stop, start + _ENTRY_MAX_CHARS)
-    for number in reversed(list(_LINE_END_NUMBER_RE.finditer(text, start, stop))):
+    hits = _LINE_END_NUMBER_RE.finditer(text, start, stop)
+    for number in reversed(list(_live(hits, text, country))):
         printed = int(normalise_digits(number.group(1)))
         pdf_page = pages.pdf_page(printed)
         if pdf_page is not None:
@@ -946,6 +951,8 @@ def _closes(
     `context[start:end]`, as for acts."""
     if closing is None:
         return False
+    # Page-local quotes suffice: a marker only wider context quotes shares that
+    # quotation with any closing before it, which is already dropped.
     markers = _markers(context[start:end], config, doctype or config.default_document_class)
     lo = start + (markers[-1].offset if markers else 0)
     return _found(closing, context, config.code, lo, end)
