@@ -19,53 +19,74 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Kitab",
+          "local_term": "كتاب",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Kitab"
+          }
         },
         {
-          "local_term": "Juz'",
+          "local_term": "قسم",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Juz'"
+          }
         },
         {
-          "local_term": "Bab",
+          "local_term": "باب",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
         },
         {
-          "local_term": "Fasl",
+          "local_term": "فصل",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
         },
         {
-          "local_term": "Maddah",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddah"
+          }
         },
         {
-          "local_term": "Faqrah",
+          "local_term": "فقرة",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Faqrah"
+          }
         },
         {
-          "local_term": "Band",
+          "local_term": "بند",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_arabic"
+          "numbering": "alpha_lower_arabic",
+          "local_terms": {
+            "alt1": "Band"
+          }
         }
       ]
     },
@@ -76,18 +97,24 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Bab",
+          "local_term": "باب",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
         },
         {
-          "local_term": "Maddah",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddah"
+          }
         }
       ]
     },
@@ -98,32 +125,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Bab",
+          "local_term": "باب",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
         },
         {
-          "local_term": "Fasl",
+          "local_term": "فصل",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
         },
         {
-          "local_term": "Maddah",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddah"
+          }
         },
         {
-          "local_term": "Faqrah",
+          "local_term": "فقرة",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Faqrah"
+          }
         }
       ]
     }

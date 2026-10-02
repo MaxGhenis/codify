@@ -25,13 +25,6 @@
           "numbering": "arabic"
         },
         {
-          "local_term": "Part",
-          "akn_element": "part",
-          "level": "higher",
-          "bluebell_keyword": "PART",
-          "numbering": "arabic"
-        },
-        {
           "local_term": "Գլուխ",
           "akn_element": "chapter",
           "level": "higher",

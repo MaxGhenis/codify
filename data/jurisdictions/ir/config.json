@@ -19,60 +19,84 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Jeld (Volume)",
+          "local_term": "جلد",
           "akn_element": "tome",
           "level": "higher",
           "bluebell_keyword": "TOME",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Jeld"
+          }
         },
         {
-          "local_term": "Ketab",
+          "local_term": "کتاب",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Ketab"
+          }
         },
         {
-          "local_term": "Bab",
+          "local_term": "باب",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Bab"
+          }
         },
         {
-          "local_term": "Fasl",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
         },
         {
-          "local_term": "Mabhas",
+          "local_term": "مبحث",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Mabhas"
+          }
         },
         {
-          "local_term": "Maddeh",
+          "local_term": "ماده",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddeh"
+          }
         },
         {
-          "local_term": "Band",
+          "local_term": "بند",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "persian_alpha"
+          "numbering": "persian_alpha",
+          "local_terms": {
+            "alt1": "Band"
+          }
         },
         {
-          "local_term": "Joz' (Sub-clause)",
+          "local_term": "جزء",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Joz'"
+          }
         }
       ]
     },
@@ -83,25 +107,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Fasl",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
         },
         {
-          "local_term": "Asl (Principle)",
+          "local_term": "اصل",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Asl"
+          }
         },
         {
-          "local_term": "Band",
+          "local_term": "بند",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Band"
+          }
         }
       ]
     },
@@ -112,25 +145,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Fasl",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Fasl"
+          }
         },
         {
-          "local_term": "Maddeh",
+          "local_term": "ماده",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Maddeh"
+          }
         },
         {
-          "local_term": "Band",
+          "local_term": "بند",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "persian_alpha"
+          "numbering": "persian_alpha",
+          "local_terms": {
+            "alt1": "Band"
+          }
         }
       ]
     }

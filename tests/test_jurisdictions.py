@@ -565,7 +565,7 @@ def test_the_flagged_set_is_deliberate() -> None:
         if json.loads(p.read_text()).get("public_reference")
     )
     assert flagged == on_disk
-    assert len(flagged) == 106
+    assert len(flagged) == 103
     assert {"ee", "fi", "gb", "ie", "it", "nz"} <= set(flagged)
 
 
@@ -1571,3 +1571,31 @@ def test_a_declared_frbr_subtype_is_the_segment_the_work_uri_mints(code: str) ->
         if doc_class.frbr_subtype:
             uri = build_frbr_work_uri(code, doctype, 2020, "5")
             assert f"/act/{doc_class.frbr_subtype}/" in uri, (code, doctype, uri)
+
+
+# Languages with one script of their own. The scanner matches aliases literally,
+# so a level with no alias in that script anchors nothing in an authoritative text.
+_REQUIRED_SCRIPT = {
+    lang: next(iter(scripts))
+    for lang, scripts in _LANGUAGE_SCRIPTS.items()
+    if len(scripts) == 1 and lang not in {"uzb", "tuk", "srp"}
+}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_level_has_an_alias_in_the_authoritative_script(code: str) -> None:
+    from codify.pipeline.enrich.anchors import _alias_terms_for
+
+    cfg = load_config(code)
+    missing = []
+    for doctype, doc_class in cfg.document_classes.items():
+        authoritative = doc_class.authoritative_language or cfg.authoritative_language
+        languages = [authoritative] if authoritative else cfg.languages
+        needed = {_REQUIRED_SCRIPT[lang] for lang in languages if lang in _REQUIRED_SCRIPT}
+        for entry in doc_class.hierarchy:
+            if not any(ch.isalpha() for ch in entry.local_term):
+                continue  # a bare symbol such as § has no script
+            have = set().union(*(_scripts_of(alias) for alias in _alias_terms_for(entry)))
+            if needed - have:
+                missing.append((doctype, entry.local_term, sorted(needed - have)))
+    assert not missing, (code, missing)

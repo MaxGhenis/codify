@@ -383,25 +383,6 @@
       "public_reference": true
     },
     {
-      "code": "cn",
-      "name": "China",
-      "type": "national",
-      "tradition": [
-        "socialist",
-        "civil_law"
-      ],
-      "languages": [
-        "zho"
-      ],
-      "calendar": "gregorian",
-      "tier": 3,
-      "status": "draft",
-      "effective_tier": 3,
-      "coverage_status": "in_scope",
-      "subsumed_by": null,
-      "public_reference": true
-    },
-    {
       "code": "co",
       "name": "Colombia",
       "type": "national",
@@ -909,24 +890,6 @@
       "public_reference": true
     },
     {
-      "code": "jp",
-      "name": "Japan",
-      "type": "national",
-      "tradition": [
-        "civil_law"
-      ],
-      "languages": [
-        "jpn"
-      ],
-      "calendar": "japanese_era",
-      "tier": 2,
-      "status": "draft",
-      "effective_tier": 2,
-      "coverage_status": "in_scope",
-      "subsumed_by": null,
-      "public_reference": true
-    },
-    {
       "code": "ke",
       "name": "Kenya",
       "type": "national",
@@ -961,24 +924,6 @@
       "tier": 3,
       "status": "draft",
       "effective_tier": 3,
-      "coverage_status": "in_scope",
-      "subsumed_by": null,
-      "public_reference": true
-    },
-    {
-      "code": "kr",
-      "name": "Republic of Korea",
-      "type": "national",
-      "tradition": [
-        "civil_law"
-      ],
-      "languages": [
-        "kor"
-      ],
-      "calendar": "gregorian",
-      "tier": 2,
-      "status": "draft",
-      "effective_tier": 2,
       "coverage_status": "in_scope",
       "subsumed_by": null,
       "public_reference": true

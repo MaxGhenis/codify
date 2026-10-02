@@ -21,53 +21,64 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Book",
+          "local_term": "كتاب",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "ordinal_words"
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Book"
+          }
         },
         {
-          "local_term": "Part",
+          "local_term": "قسم",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_words"
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter",
+          "local_term": "باب",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_words"
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Clause",
+          "local_term": "فقرة",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
         },
         {
-          "local_term": "Item",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
-        },
-        {
-          "local_term": "Sub-item",
+          "local_term": "بند",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Sub-item"
+          }
         }
       ]
     },
@@ -78,46 +89,54 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "قسم",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_words"
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter",
+          "local_term": "باب",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_words"
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Clause",
+          "local_term": "فقرة",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
         },
         {
-          "local_term": "Item",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
-        },
-        {
-          "local_term": "Sub-item",
+          "local_term": "بند",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Sub-item"
+          }
         }
       ]
     },
@@ -128,25 +147,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter",
+          "local_term": "باب",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_words"
+          "numbering": "ordinal_words",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "فصل",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         }
       ]
     },
@@ -157,11 +185,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         }
       ]
     }

@@ -22,39 +22,54 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Perek (Chapter)",
+          "local_term": "פרק",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Perek"
+          }
         },
         {
-          "local_term": "Siman (Sub-chapter)",
+          "local_term": "סימן",
           "akn_element": "subchapter",
           "level": "higher",
           "bluebell_keyword": "SUBCHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Siman"
+          }
         },
         {
-          "local_term": "Se'if (Section)",
+          "local_term": "סעיף",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Se'if"
+          }
         },
         {
-          "local_term": "Se'if Katan (Sub-section)",
+          "local_term": "סעיף קטן",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "hebrew_letter_parenthesized"
+          "numbering": "hebrew_letter_parenthesized",
+          "local_terms": {
+            "alt1": "Se'if Katan"
+          }
         },
         {
-          "local_term": "Piska (Paragraph)",
+          "local_term": "פסקה",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Piska"
+          }
         }
       ]
     },
@@ -65,39 +80,54 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Perek (Chapter)",
+          "local_term": "פרק",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Perek"
+          }
         },
         {
-          "local_term": "Siman (Sub-chapter)",
+          "local_term": "סימן",
           "akn_element": "subchapter",
           "level": "higher",
           "bluebell_keyword": "SUBCHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Siman"
+          }
         },
         {
-          "local_term": "Se'if (Section)",
+          "local_term": "סעיף",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Se'if"
+          }
         },
         {
-          "local_term": "Se'if Katan (Sub-section)",
+          "local_term": "סעיף קטן",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "hebrew_letter_parenthesized"
+          "numbering": "hebrew_letter_parenthesized",
+          "local_terms": {
+            "alt1": "Se'if Katan"
+          }
         },
         {
-          "local_term": "Piska (Paragraph)",
+          "local_term": "פסקה",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Piska"
+          }
         }
       ]
     },
@@ -108,32 +138,44 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Perek (Chapter)",
+          "local_term": "פרק",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Perek"
+          }
         },
         {
-          "local_term": "Takana (Regulation)",
+          "local_term": "תקנה",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Takana"
+          }
         },
         {
-          "local_term": "Se'if Katan (Sub-section)",
+          "local_term": "סעיף קטן",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "hebrew_letter_parenthesized"
+          "numbering": "hebrew_letter_parenthesized",
+          "local_terms": {
+            "alt1": "Se'if Katan"
+          }
         },
         {
-          "local_term": "Piska (Paragraph)",
+          "local_term": "פסקה",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Piska"
+          }
         }
       ]
     },
@@ -144,18 +186,24 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Se'if (Section)",
+          "local_term": "סעיף",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Se'if"
+          }
         },
         {
-          "local_term": "Se'if Katan (Sub-section)",
+          "local_term": "סעיף קטן",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "hebrew_letter_parenthesized"
+          "numbering": "hebrew_letter_parenthesized",
+          "local_terms": {
+            "alt1": "Se'if Katan"
+          }
         }
       ]
     },
@@ -166,18 +214,24 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Takana (Regulation)",
+          "local_term": "תקנה",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Takana"
+          }
         },
         {
-          "local_term": "Se'if Katan (Sub-section)",
+          "local_term": "סעיף קטן",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "hebrew_letter_parenthesized"
+          "numbering": "hebrew_letter_parenthesized",
+          "local_terms": {
+            "alt1": "Se'if Katan"
+          }
         }
       ]
     }

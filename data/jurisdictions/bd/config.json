@@ -19,46 +19,64 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "ভাগ",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter",
+          "local_term": "অধ্যায়",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "ধারা",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Sub-section",
+          "local_term": "উপ-ধারা",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-section"
+          }
         },
         {
-          "local_term": "Clause",
+          "local_term": "দফা",
           "akn_element": "clause",
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
         },
         {
-          "local_term": "Sub-clause",
+          "local_term": "উপ-দফা",
           "akn_element": "subclause",
           "level": "subdivision",
           "bluebell_keyword": "SUBCLAUSE",
-          "numbering": "roman_lower_parenthesized"
+          "numbering": "roman_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-clause"
+          }
         }
       ]
     },
@@ -69,39 +87,54 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "ভাগ",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter",
+          "local_term": "অধ্যায়",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "ধারা",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Sub-section",
+          "local_term": "উপ-ধারা",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-section"
+          }
         },
         {
-          "local_term": "Clause",
+          "local_term": "দফা",
           "akn_element": "clause",
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
         }
       ]
     },
@@ -112,32 +145,44 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "ভাগ",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "ধারা",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Sub-section",
+          "local_term": "উপ-ধারা",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-section"
+          }
         },
         {
-          "local_term": "Clause",
+          "local_term": "দফা",
           "akn_element": "clause",
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
         }
       ]
     },
@@ -148,32 +193,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "ভাগ",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "অনুচ্ছেদ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Clause",
+          "local_term": "দফা",
           "akn_element": "clause",
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Clause"
+          }
         },
         {
-          "local_term": "Sub-clause",
+          "local_term": "উপ-দফা",
           "akn_element": "subclause",
           "level": "subdivision",
           "bluebell_keyword": "SUBCLAUSE",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-clause"
+          }
         }
       ]
     }

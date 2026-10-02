@@ -26,21 +26,30 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "fra": "Partie"
+          }
         },
         {
           "local_term": "Section",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "fra": "Article"
+          }
         },
         {
           "local_term": "Subsection",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "fra": "Alinéa"
+          }
         },
         {
           "local_term": "Paragraph",
@@ -69,7 +78,10 @@
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "fra": "Partie"
+          }
         },
         {
           "local_term": "Regulation",
@@ -78,7 +90,9 @@
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous",
           "local_terms": {
-            "alt1": "Rule"
+            "alt1": "Rule",
+            "fra": "Règlement",
+            "fra_alt": "Règle"
           }
         }
       ]
@@ -94,14 +108,20 @@
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "fra": "Chapitre"
+          }
         },
         {
           "local_term": "Section",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "fra": "Article"
+          }
         }
       ]
     }

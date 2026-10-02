@@ -20,39 +20,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "ክፍል",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_english"
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter",
+          "local_term": "ምዕራፍ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_english"
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "አንቀጽ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Sub-Article",
+          "local_term": "ንዑስ አንቀጽ",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Paragraph (lettered)",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-Article"
+          }
         }
       ]
     },
@@ -63,39 +68,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Part",
+          "local_term": "ክፍል",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "ordinal_english"
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter",
+          "local_term": "ምዕራፍ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_english"
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "አንቀጽ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Sub-Article",
+          "local_term": "ንዑስ አንቀጽ",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Paragraph (lettered)",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-Article"
+          }
         }
       ]
     },
@@ -106,32 +116,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter",
+          "local_term": "ምዕራፍ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "ordinal_english"
+          "numbering": "ordinal_english",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "አንቀጽ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Sub-Article",
+          "local_term": "ንዑስ አንቀጽ",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Paragraph (lettered)",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Sub-Article"
+          }
         }
       ]
     }

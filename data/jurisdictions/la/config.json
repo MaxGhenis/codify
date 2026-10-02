@@ -19,39 +19,54 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Part (ພາກ)",
+          "local_term": "ພາກ",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
-          "local_term": "Chapter (ໝວດ)",
+          "local_term": "ໝວດ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article (ມາດຕາ)",
+          "local_term": "ມາດຕາ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Paragraph",
+          "local_term": "ວັກ",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Paragraph"
+          }
         },
         {
-          "local_term": "Point",
+          "local_term": "ຂໍ້",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Point"
+          }
         }
       ]
     },
@@ -62,11 +77,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Article (ມາດຕາ)",
+          "local_term": "ມາດຕາ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         }
       ]
     },
@@ -77,18 +95,24 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter (ໝວດ)",
+          "local_term": "ໝວດ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article (ມາດຕາ)",
+          "local_term": "ມາດຕາ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         }
       ]
     },
@@ -99,18 +123,24 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter (ໝວດ)",
+          "local_term": "ໝວດ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Article (ມາດຕາ)",
+          "local_term": "ມາດຕາ",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         }
       ]
     }

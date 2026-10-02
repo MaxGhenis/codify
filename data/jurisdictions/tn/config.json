@@ -21,46 +21,64 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Titre",
+          "local_term": "باب",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
         },
         {
-          "local_term": "Chapitre",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "قسم",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Alinéa",
+          "local_term": "فقرة",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered"
+          "numbering": "positional_unnumbered",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         },
         {
-          "local_term": "Point",
+          "local_term": "بند",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha"
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "Point"
+          }
         }
       ]
     },
@@ -71,46 +89,64 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Titre",
+          "local_term": "باب",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Titre"
+          }
         },
         {
-          "local_term": "Chapitre",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "قسم",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Alinéa",
+          "local_term": "فقرة",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered"
+          "numbering": "positional_unnumbered",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         },
         {
-          "local_term": "Point",
+          "local_term": "بند",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha"
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "Point"
+          }
         }
       ]
     },
@@ -121,32 +157,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapitre",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "Section",
+          "local_term": "قسم",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Alinéa",
+          "local_term": "فقرة",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered"
+          "numbering": "positional_unnumbered",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ]
     },
@@ -157,18 +205,24 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Alinéa",
+          "local_term": "فقرة",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered"
+          "numbering": "positional_unnumbered",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ]
     },
@@ -179,25 +233,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapitre",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Alinéa",
+          "local_term": "فقرة",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered"
+          "numbering": "positional_unnumbered",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ]
     },
@@ -208,25 +271,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapitre",
+          "local_term": "فصل",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "Article",
+          "local_term": "مادة",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "Alinéa",
+          "local_term": "فقرة",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "positional_unnumbered"
+          "numbering": "positional_unnumbered",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ]
     }

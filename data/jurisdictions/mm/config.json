@@ -20,52 +20,24 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Part",
-          "akn_element": "part",
-          "level": "higher",
-          "bluebell_keyword": "PART"
-        },
-        {
-          "local_term": "Chapter",
+          "local_term": "အခန်း",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Division",
-          "akn_element": "division",
-          "level": "higher",
-          "bluebell_keyword": "DIVISION",
-          "numbering": "arabic"
-        },
-        {
-          "local_term": "Section",
+          "local_term": "ပုဒ်မ",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
-        },
-        {
-          "local_term": "Sub-section",
-          "akn_element": "subsection",
-          "level": "subdivision",
-          "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Clause",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
-        },
-        {
-          "local_term": "Sub-clause",
-          "akn_element": "subparagraph",
-          "level": "subdivision",
-          "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "roman_lower_parenthesized"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         }
       ]
     },
@@ -76,39 +48,24 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Chapter",
+          "local_term": "အခန်း",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Part",
-          "akn_element": "part",
-          "level": "higher",
-          "bluebell_keyword": "PART",
-          "numbering": "arabic"
-        },
-        {
-          "local_term": "Section",
+          "local_term": "ပုဒ်မ",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
-        },
-        {
-          "local_term": "Sub-section",
-          "akn_element": "subsection",
-          "level": "subdivision",
-          "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Clause",
-          "akn_element": "paragraph",
-          "level": "subdivision",
-          "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         }
       ]
     }

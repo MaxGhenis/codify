@@ -20,39 +20,54 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Parichched",
+          "local_term": "परिच्छेद",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
         },
         {
-          "local_term": "Daphaa",
+          "local_term": "दफा",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Daphaa"
+          }
         },
         {
-          "local_term": "Upadaphaa",
+          "local_term": "उपदफा",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadaphaa"
+          }
         },
         {
-          "local_term": "Khanda",
+          "local_term": "खण्ड",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
         },
         {
-          "local_term": "Upakhanda",
+          "local_term": "उपखण्ड",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "roman_lower_parenthesized"
+          "numbering": "roman_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Upakhanda"
+          }
         }
       ]
     },
@@ -63,46 +78,64 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Bhaag",
+          "local_term": "भाग",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Bhaag"
+          }
         },
         {
-          "local_term": "Parichched",
+          "local_term": "परिच्छेद",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
         },
         {
-          "local_term": "Daphaa",
+          "local_term": "दफा",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Daphaa"
+          }
         },
         {
-          "local_term": "Upadaphaa",
+          "local_term": "उपदफा",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadaphaa"
+          }
         },
         {
-          "local_term": "Khanda",
+          "local_term": "खण्ड",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
         },
         {
-          "local_term": "Upakhanda",
+          "local_term": "उपखण्ड",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "roman_lower_parenthesized"
+          "numbering": "roman_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Upakhanda"
+          }
         }
       ]
     },
@@ -113,32 +146,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Bhaag",
+          "local_term": "भाग",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Bhaag"
+          }
         },
         {
-          "local_term": "Dhaaraa",
+          "local_term": "धारा",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Dhaaraa"
+          }
         },
         {
-          "local_term": "Upadhaaraa",
+          "local_term": "उपधारा",
           "akn_element": "clause",
           "level": "subdivision",
           "bluebell_keyword": "CLAUSE",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadhaaraa"
+          }
         },
         {
-          "local_term": "Khanda",
+          "local_term": "खण्ड",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
         }
       ]
     },
@@ -149,32 +194,44 @@
       "basic_unit": "rule",
       "hierarchy": [
         {
-          "local_term": "Parichched",
+          "local_term": "परिच्छेद",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
         },
         {
-          "local_term": "Niyam",
+          "local_term": "नियम",
           "akn_element": "rule",
           "level": "basic",
           "bluebell_keyword": "RULE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Niyam"
+          }
         },
         {
-          "local_term": "Upaniyam",
+          "local_term": "उपनियम",
           "akn_element": "subrule",
           "level": "subdivision",
           "bluebell_keyword": "SUBRULE",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upaniyam"
+          }
         },
         {
-          "local_term": "Khanda",
+          "local_term": "खण्ड",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
         }
       ]
     },
@@ -185,32 +242,44 @@
       "basic_unit": "section",
       "hierarchy": [
         {
-          "local_term": "Parichched",
+          "local_term": "परिच्छेद",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Parichched"
+          }
         },
         {
-          "local_term": "Daphaa",
+          "local_term": "दफा",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Daphaa"
+          }
         },
         {
-          "local_term": "Upadaphaa",
+          "local_term": "उपदफा",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Upadaphaa"
+          }
         },
         {
-          "local_term": "Khanda",
+          "local_term": "खण्ड",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Khanda"
+          }
         }
       ]
     }
