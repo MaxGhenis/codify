@@ -3885,6 +3885,11 @@ def _declare_orphaned_drops(
         )
 
 
+def _past_indent(match: re.Match[str]) -> int:
+    """Offset of a line-start match's first character after indentation."""
+    return match.start() + len(match.group(0)) - len(match.group(0).lstrip(" \t"))
+
+
 def _drop_boundaries(anchors: list[StructuralAnchor], dropped: list[AmbiguitySpan]) -> list[int]:
     """Offsets that end a dropped marker's run: survivors and other drops alike."""
     return sorted({*(a.char_offset for a in anchors), *(s.start for s in dropped)})
@@ -3925,8 +3930,11 @@ def _declare_act_boundary_suspected(
         candidates = (
             m for p in patterns for m in p.finditer(text, shut.end() if shut else end, end)
         )
+        # Judged at the heading's first character: a whole-line match may end in a quote.
         opened = min(
-            (m for m in candidates if not mask[m.end() - 1]), key=lambda m: m.start(), default=None
+            (m for m in candidates if not mask[_past_indent(m)]),
+            key=lambda m: m.start(),
+            default=None,
         )
         if shut is None or opened is None:
             continue

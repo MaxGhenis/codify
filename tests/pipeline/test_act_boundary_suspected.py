@@ -238,6 +238,35 @@ def test_a_flagged_heading_pattern_is_refused_or_scoped(
     assert [s.detail["heading"] for s in found] == ["Act No. 4 of 2020"]
 
 
+@pytest.mark.parametrize(
+    ("old", "new", "declared"),
+    [
+        pytest.param(
+            "ACT No. 4 OF 2020\nTHE LIGHTHOUSE ACT",
+            "ACT No. 4 OF 2020 \u201cTHE LIGHTHOUSE ACT\u201d",
+            True,
+            id="heading-ending-in-a-quoted-title",
+        ),
+        pytest.param(
+            "ACT No. 4 OF 2020\nTHE LIGHTHOUSE ACT",
+            "The schedule reads: \u201c\nACT No. 9 OF 2019\u201d.\nTHE LIGHTHOUSE ACT",
+            False,
+            id="quoted-heading-then-a-full-stop",
+        ),
+        pytest.param("ACT No. 4 OF 2020", "    ACT No. 4 OF 2020", True, id="indented-heading"),
+    ],
+)
+def test_a_whole_line_heading_is_judged_by_its_first_character(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, old: str, new: str, declared: bool
+) -> None:
+    """Quoted or not is read where the heading starts, not where its match ends."""
+    configs = {COUNTRY: _config(segmentation={"act_heading_patterns": [HEADING + ".*$"]})}
+    text = _two_acts().replace(old, new, 1)
+    with isolated_configs(monkeypatch, tmp_path / "jurisdictions", configs):
+        found = _suspected(text)
+    assert bool(found) is declared, [s.detail for s in found]
+
+
 @pytest.mark.usefixtures("unarmed")
 def test_no_declared_heading_declares_nothing() -> None:
     """Silence, not a finding: the closing alone cannot say a second act began."""
