@@ -1135,3 +1135,38 @@ def test_a_heading_match_of_whitespace_alone_is_no_heading(
     assert [r.key for r in result.reconciliation] == ["act 3", "act 4"]
     assert [(i.key, i.first_page) for i in found] == [("11", 1), ("12", 3)]
     assert all(r.key for i in found for r in i.segmentation.reconciliation)
+
+
+def test_a_contents_line_that_lists_nothing_hides_no_heading(
+    config: JurisdictionConfig,
+) -> None:
+    """Unnumbered acts after a bare contents line: no entry, so no listing."""
+    notice = ["ACT No. 3 OF 2020", "THE HARBOUR NOTICE", "", "Dues are abolished.", ""]
+    second = ["ACT No. 4 OF 2020", "THE LIGHT NOTICE", "", "Lights are kept.", ""]
+    text, spans = _join([["Contents", "", *notice, *_signed()], second + _signed()])
+    result = segment(text, spans, config=config)
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_a_citation_line_does_not_take_the_next_acts_restart(
+    config: JurisdictionConfig,
+) -> None:
+    """Evidence runs to the next boundary that would be accepted, past a citation."""
+    lines = _act(3, "THE HARBOUR DUES ACT", 3)
+    lines += ["ACT No. 4 OF 2020", "THE LIGHTHOUSE ACT", ""]
+    lines += ["ACT No. 9 OF 2019 is repealed.", "", "Section 1. Duty 1", ""]
+    text, spans = _join([lines])
+    result = segment(text, spans, config=config)
+    rows = {r.key: (r.status, r.signals) for r in result.reconciliation}
+    assert rows["act 4"] == ("corroborated", ("restart",))
+    assert rows["act 9"] == ("citation", ())
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_the_first_issue_heading_reads_a_quote_closing_on_the_next_page(
+    config: JurisdictionConfig,
+) -> None:
+    pages = [["It replaces “", "ISSUE No. 9", "as cited"], ["in the old gazette.”"]]
+    pages.append(_act(1, "THE FERRIES ACT", 3) + _signed())
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("", 1, 3)]

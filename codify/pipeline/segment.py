@@ -308,7 +308,9 @@ def _contents(
                 end = heading.start
                 break
             current = last = heading
-        blocks.append((found.start(), end))
+        # A keyword line that placed no entry hides nothing.
+        if keys:
+            blocks.append((found.start(), end))
     return blocks, entries
 
 
@@ -521,7 +523,7 @@ def _decide(
     open_heading: _Heading | None = None
     previous = 0
     for index, heading in enumerate(candidates):
-        following = candidates[index + 1].start if index + 1 < len(candidates) else len(text)
+        following = _bound(text, candidates, index, markers, pages, rules, listed)
         is_opening = heading is opening
         veto = "" if is_opening else _veto(text, heading, open_heading, following, markers, rules)
         if veto:
@@ -560,6 +562,28 @@ def _decide(
     if not decided and not doubts:
         return _single(text, pages.spans, tuple(rows))
     return _assemble(text, pages, opening, decided, doubts, tuple(rows))
+
+
+def _bound(
+    text: str,
+    candidates: list[_Heading],
+    index: int,
+    markers: list[_Marker],
+    pages: _Pages,
+    rules: _Rules,
+    listed: set[str],
+) -> int:
+    """Where a candidate's evidence ends: at the next candidate that would be
+    accepted after it, so a citation line between them takes nothing."""
+    heading = candidates[index]
+    for later in range(index + 1, len(candidates)):
+        nxt = candidates[later]
+        raw = candidates[later + 1].start if later + 1 < len(candidates) else len(text)
+        if _veto(text, nxt, heading, raw, markers, rules):
+            continue
+        if nxt.key in listed or _signals(text, nxt, heading.start, raw, markers, pages, rules):
+            return nxt.start
+    return len(text)
 
 
 def _veto(
@@ -810,13 +834,10 @@ def segment_volume(
             issue = yield from _settle(issue, *waiting, page, printed, closing, config, doctype)
             waiting = None
         found = _issue_headings(page.text, patterns, issue.key if issue.pages else None)
-        if found and issue.pages:
+        if found:
             # Decided once the next page is read: a restart or a closing quote may show there.
             waiting = (page, found)
             continue
-        match = next(_live(found, page.text, config.code), None)
-        if match is not None:
-            issue.heading, issue.key = _line(page.text, match), _key(match)
         issue.pages.append(page)
     if waiting is not None:
         issue = yield from _settle(issue, *waiting, None, printed, closing, config, doctype)
@@ -839,7 +860,10 @@ def _settle(
     prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
     context = prefix + page.text + (PAGE_SEPARATOR + after.text if after else "")
     match = next(_live(found, context, config.code, len(prefix)), None)
-    if match is None:
+    if match is None or not issue.pages:
+        if match is not None:
+            # The volume's first issue: its heading names it, nothing to close.
+            issue.heading, issue.key = _line(page.text, match), _key(match)
         issue.pages.append(page)
         return issue
     heading, key = _line(page.text, match), _key(match)
