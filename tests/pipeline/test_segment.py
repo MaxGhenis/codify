@@ -1051,3 +1051,31 @@ def test_an_issue_closing_in_a_quote_opened_pages_before_is_not_a_closing(
     found = list(segment_volume(_pages([pages]), config=config))
     assert [i.key for i in found] == ["11"]
     assert _issue_citations(found[0]) == [("ISSUE No. 12", 4)]
+
+
+@pytest.mark.parametrize(
+    "quoted",
+    [
+        pytest.param(["It cites “the charter is hereby ratified”."], id="adoption"),
+        pytest.param(["The form reads: “", "ANNEX", "”"], id="caption"),
+    ],
+)
+def test_a_quoted_veto_marker_does_not_veto(config: JurisdictionConfig, quoted: list[str]) -> None:
+    first = _act(3, "THE HARBOUR DUES ACT", 4) + quoted + _signed()
+    text, spans = _join([first, _act(4, "THE LIGHTHOUSE ACT", 3) + _signed()])
+    result = segment(text, spans, config=config)
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_a_quoted_enacting_formula_is_not_the_open_acts(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Only a live formula makes its absence from the next act a veto."""
+    fields = _config(enacting_formula_markers=["BE IT ENACTED"])
+    first = [line for line in _act(3, "A", 3) if not line.startswith("BE IT ENACTED")]
+    first[2:2] = ["It recites “BE IT ENACTED by the Council”.", ""]
+    second = [line for line in _act(4, "B", 3) if not line.startswith("BE IT ENACTED")]
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        text, spans = _join([first + _signed(), second + _signed()])
+        result = segment(text, spans, config=load_config(COUNTRY))
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
