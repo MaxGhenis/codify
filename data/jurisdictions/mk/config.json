@@ -341,55 +341,6 @@
       }
     ]
   },
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "CoE member since 1995-11-09. ECHR ratified 1997. ECtHR judgments binding. Macedonian courts apply ECHR standards particularly in criminal procedure and property rights."
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "NATO member since 2020-03-27, following resolution of name dispute via Prespa Agreement (2018) and accession protocol ratification. 30th NATO member state. Defence and security legislation aligned with NATO standards post-accession."
-    },
-    {
-      "body": "osce",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "OSCE member. High Commissioner on National Minorities played key role in Ohrid Framework Agreement 2001 mediation. OSCE Mission to Skopje (established 1992) monitors minority rights implementation."
-    },
-    {
-      "body": "cefta",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "CEFTA 2006 member. Regional free trade framework with Western Balkans states. Some customs and trade regulations aligned with CEFTA commitments."
-    },
-    {
-      "body": "eu-candidate",
-      "status": "candidate",
-      "member_since": "2005-12-17",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "EU candidate since 2005-12-17 — one of the longest-standing Western Balkans candidates. Accession negotiations formally opened March 2020 after Prespa Agreement resolved name dispute with Greece. SAA (Stabilisation and Association Agreement) in force since 2004. Does NOT yet have direct-effect EU law. Substantial acquis harmonisation already completed, particularly in trade, competition, and justice."
-    },
-    {
-      "body": "francophonie",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Observer member of the Organisation internationale de la Francophonie (OIF). No legal obligations."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "upper_case",

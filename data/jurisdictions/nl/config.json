@@ -314,49 +314,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "member_since": "1957-01-01",
-      "direct_effect": "direct",
-      "direct_effect_note": "EU Regulations directly applicable. Directives require transposition. Netherlands has monist constitutional approach — Article 94 Grondwet gives directly effective treaty provisions supremacy over conflicting domestic law.",
-      "superseded_subjects": [
-        "trade",
-        "competition",
-        "agriculture",
-        "environment",
-        "data_protection",
-        "financial_services",
-        "consumer_protection",
-        "free_movement"
-      ]
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "indirect_transposition",
-      "direct_effect_note": "ECHR has direct effect via Article 94 Grondwet. Dutch courts must set aside domestic law inconsistent with directly effective ECHR provisions.",
-      "superseded_subjects": [
-        "human_rights",
-        "criminal_procedure",
-        "privacy",
-        "fair_trial"
-      ]
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "direct_effect_note": "Security Council Chapter VII resolutions binding; GA resolutions non-binding.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "sentence_case",

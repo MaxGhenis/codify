@@ -318,23 +318,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "gcc",
-      "direct_effect": "none",
-      "note": "GCC Unified Laws require transposition into domestic legislation via Law or Legislative Decree — no direct effect. Bahraini implementation appears as a distinct domestic instrument. GCC instruments may be referenced at /akn/gcc/act/{year}/{number} (proposed — no established AKN precedent).",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "note": "UN Security Council Chapter VII resolutions are binding on Bahrain as a member state but require domestic implementation legislation."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "article_title",
     "heading_case": "title_case",

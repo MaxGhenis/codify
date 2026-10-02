@@ -311,31 +311,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eac",
-      "direct_effect": "none",
-      "note": "EAC Partner State (founding member). EAC instruments available on ULII at /en/legislation/aa-eac/. Model under /akn/eac/ not /akn/ug/. Common Market Protocol provisions have direct applicability; other EAC Acts require domestic implementation.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

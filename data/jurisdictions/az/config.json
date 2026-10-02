@@ -247,26 +247,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "council-of-europe",
-      "direct_effect": "indirect_transposition",
-      "superseded_subjects": [],
-      "note": "Azerbaijan joined CoE 2001, ratified ECHR. ECtHR judgments are binding."
-    },
-    {
-      "body": "cis",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "CIS model laws influenced post-Soviet codification but are not directly effective."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Standard UN treaty obligations. SC Chapter VII resolutions binding."
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "title_case",

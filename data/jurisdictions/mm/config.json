@@ -182,29 +182,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "asean",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "status": "suspended",
-      "suspension_periods": [
-        {
-          "suspended_from": "2021-10-15",
-          "reason": "ASEAN excluded Myanmar's military leadership from ASEAN leaders' summits and high-level meetings starting October 2021 after the February 2021 coup and the Five-Point Consensus was ignored. Myanmar remains a formal ASEAN member — only the meeting-level participation is affected.",
-          "scope": "meetings"
-        }
-      ]
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

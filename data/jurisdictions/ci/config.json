@@ -348,56 +348,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "ohada",
-      "direct_effect": "override",
-      "superseded_subjects": [
-        "company_law",
-        "general_commercial_law",
-        "insolvency",
-        "securities_and_guarantees",
-        "arbitration",
-        "accounting",
-        "cooperative_companies",
-        "transport_goods_by_road",
-        "commercial_leases"
-      ],
-      "note": "CCJA (OHADA supreme court) is headquartered in Abidjan. OHADA Uniform Acts are directly applicable and mandatory; they supersede conflicting domestic commercial law. Do not present domestic provisions in these subject areas as current law without referencing OHADA."
-    },
-    {
-      "body": "uemoa",
-      "direct_effect": "direct",
-      "direct_effect_note": "Regulations only (Art. 43 UEMOA Treaty). Directives require transposition into domestic law.",
-      "superseded_subjects": [
-        "banking_regulation",
-        "monetary_policy",
-        "customs_union",
-        "public_finance_management",
-        "public_procurement_standards"
-      ],
-      "note": "8-member Francophone West African monetary union. UEMOA Regulations have direct effect; Directives need domestic implementation."
-    },
-    {
-      "body": "ecowas",
-      "direct_effect": "none",
-      "direct_effect_note": "Most ECOWAS instruments (Protocols) require ratification and transposition.",
-      "superseded_subjects": [],
-      "note": "15-member West African regional body. Protocols require domestic implementation. Less direct legal impact than OHADA or UEMOA."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "sentence_case",

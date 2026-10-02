@@ -12,7 +12,7 @@
     "eng",
     "fra"
   ],
-  "authoritative_language": "kin",
+  "authoritative_language": null,
   "document_classes": {
     "law": {
       "label": "Law",
@@ -283,32 +283,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eac",
-      "direct_effect": "none",
-      "member_since": "2007-07-01",
-      "superseded_subjects": [],
-      "note": "EAC instruments require parliamentary transposition. Rwanda Constitution does not confer direct effect on international treaties."
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "title_case",

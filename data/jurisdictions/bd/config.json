@@ -290,32 +290,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "saarc",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "oic",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

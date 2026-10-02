@@ -395,26 +395,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "arab-league",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Lebanon is a founding Arab League member (1945). League conventions require domestic ratification; no direct effect comparable to EU Regulations."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Lebanon hosts UNIFIL (UN Interim Force in Lebanon) under Chapter VI/VII mandates. Extensive UN Security Council engagement on Lebanon."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Lebanon acceded to WTO 1999. TRIPS obligations incorporated into domestic IP law (Laws No. 75/1999, No. 240/2000)."
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",

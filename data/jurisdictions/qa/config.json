@@ -281,24 +281,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "gcc",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "GCC Unified Laws require domestic transposition by Emiri Decree or Law to take effect. No automatic direct effect. Qatar has transposed GCC Trademark Law (Decree No. 7/2014), GCC Customs Law, and other GCC instruments."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN Security Council Chapter VII resolutions are binding; implementation requires domestic legislation."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "title_case",

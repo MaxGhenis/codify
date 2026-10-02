@@ -279,37 +279,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eac",
-      "direct_effect": "none",
-      "note": "Tanzania domesticated the EAC Treaty via Act of 2001. EAC law lacks consistent direct effect or supremacy in Tanzanian domestic courts — instruments require explicit domestication.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "sadc",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Southern African Development Community. Limited direct effect; most instruments require domestic transposition. SADC Tribunal weakened after 2014 Protocol."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

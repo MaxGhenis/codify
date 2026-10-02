@@ -303,30 +303,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "council-of-europe",
-      "member_since": "1995-07-13",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ECHR ratified. ECtHR judgments binding. Does not directly supersede Moldovan legislation but requires compliance."
-    },
-    {
-      "body": "eu",
-      "status": "candidate",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "EU candidate since June 2022; accession negotiations formally opened June 2024. EU Regulations do not yet have direct effect. Moldova is progressively transposing EU directives under the Association Agreement (in force 2016) and as an accession condition. Many recent laws explicitly reference the EU directive being transposed."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_bold",
     "heading_case": "title_case",

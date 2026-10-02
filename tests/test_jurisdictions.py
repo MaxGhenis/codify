@@ -1219,3 +1219,53 @@ def test_scaffolded_hierarchy_keywords_are_in_the_bluebell_vocabulary(code: str)
                 if kind_to_kw(entry.akn_element) not in BLUEBELL_HIER_KEYWORDS:
                     unsupported.add((doctype, entry.akn_element))
     assert not unsupported, (code, sorted(unsupported))
+
+
+# Namespace segment each TLC class lives under, as the AKN convention and the
+# existing profiles spell it.
+_TLC_NAMESPACE = {
+    "TLCPerson": "person",
+    "TLCOrganization": "org",
+    "TLCRole": "role",
+    "TLCObject": "obj",
+    "TLCLocation": "place",
+    "TLCEvent": "event",
+    "TLCProcess": "process",
+    "TLCConcept": "concept",
+    "TLCTerm": "term",
+    "TLCReference": "ref",
+}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_tlc_hrefs_use_the_namespace_of_their_class(code: str) -> None:
+    for tlc in load_config(code).core_tlcs:
+        segment = _TLC_NAMESPACE[tlc.tlc_class]
+        assert tlc.href.startswith(f"/ontology/{segment}/"), (code, tlc.eId, tlc.href)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_equal_authority_languages_do_not_name_one_authoritative(code: str) -> None:
+    import re
+
+    equal = re.compile(r"equal authority|co-equal|parallel originals", re.I)
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    stated = [s for s in _strings(raw) if equal.search(s)]
+    if stated and len(raw["languages"]) > 1:
+        assert raw.get("authoritative_language") is None, (code, stated[0][:80])
+
+
+def _strings(node):
+    if isinstance(node, str):
+        yield node
+    elif isinstance(node, dict):
+        for value in node.values():
+            yield from _strings(value)
+    elif isinstance(node, list):
+        for value in node:
+            yield from _strings(value)
+
+
+@pytest.mark.parametrize("code", ["be", "ca", "ch", "fi", "vu", "cm", "rw", "no"])
+def test_co_authoritative_configs_leave_the_language_unset(code: str) -> None:
+    assert load_config(code).authoritative_language is None

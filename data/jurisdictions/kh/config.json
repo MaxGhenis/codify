@@ -280,24 +280,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "asean",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ASEAN follows sovereignty-centred approach. No direct effect. All ASEAN commitments require domestic transposition by Kram or Anukret."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Acceded 2004. WTO obligations require domestic implementation."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "chapter_title_then_article",
     "heading_case": "upper_case",

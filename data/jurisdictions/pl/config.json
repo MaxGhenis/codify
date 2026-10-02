@@ -304,46 +304,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "member_since": "2004-05-01",
-      "direct_effect": "direct",
-      "direct_effect_instruments": [
-        "regulations",
-        "decisions"
-      ],
-      "transposition_required": [
-        "directives"
-      ],
-      "superseded_subjects": [],
-      "status": "member",
-      "excluded_subjects": [
-        "charter_of_fundamental_rights"
-      ],
-      "protocol_references": [
-        "Protocol 30 TFEU (UK/Poland on Charter of Fundamental Rights)"
-      ],
-      "note": "Poland has, since the Treaty of Lisbon, a Protocol 30 opt-out limiting the justiciability of the EU Charter of Fundamental Rights in its courts. The protocol was shared with the UK until Brexit. Polish courts treat Charter rights as interpretive aids rather than directly enforceable rights in the scope covered by the Protocol."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",

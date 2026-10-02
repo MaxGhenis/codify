@@ -248,43 +248,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "direct_effect": "direct",
-      "superseded_subjects": [],
-      "note": "Denmark has two EU opt-outs in force as of 2026: (1) Economic and Monetary Union stage 3 — Denmark retains the krone and is not part of the euro area (Edinburgh Agreement 1992, Protocol 16 TFEU); (2) Area of Freedom, Security and Justice — Denmark does not participate in EU decisions on justice and home affairs, with a limited opt-in mechanism since 2015 (Protocol 22 TFEU). A third opt-out — Common Security and Defence Policy — was abolished by the 1 June 2022 referendum (effective 1 July 2022), so CSDP is NOT in the current excluded_subjects list. Citizenship of the Union opt-out has been functionally lapsed since the Treaty of Amsterdam.",
-      "status": "member",
-      "member_since": "1973-01-01",
-      "excluded_subjects": [
-        "emu",
-        "afsj"
-      ],
-      "protocol_references": [
-        "Edinburgh Agreement 1992",
-        "Protocol 22 TFEU (Area of Freedom, Security and Justice)",
-        "Protocol 16 TFEU (on certain provisions relating to Denmark)"
-      ]
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "indirect_transposition",
-      "superseded_subjects": [],
-      "note": "ECHR incorporated via European Convention Act (lov nr. 285 af 1992)."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",

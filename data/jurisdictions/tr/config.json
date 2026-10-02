@@ -370,62 +370,6 @@
       }
     ]
   },
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN founding member (1945). UN Security Council Chapter VII resolutions are binding. General Assembly resolutions non-binding. Turkey is a permanent member of no Council — P5 only."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey is a founding member of the Council of Europe (1949). ECHR ratified. ECtHR judgments binding. Turkey has a substantial body of ECtHR case law — among the highest number of applications. Right to individual petition recognised since 1987. The Constitutional Court has developed an internal individual complaint procedure (bireysel başvuru) since 2012 as a domestic remedy."
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey joined NATO in 1952. NATO obligations are treaty-based; domestic legislative implementation required for most measures. SOFA agreements govern allied forces on Turkish territory."
-    },
-    {
-      "body": "osce",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey is a participating state in the OSCE. OSCE commitments are politically binding but not legally binding in domestic law."
-    },
-    {
-      "body": "oecd",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey is a founding OECD member (1961). OECD instruments adopted by Turkey require domestic legislative implementation."
-    },
-    {
-      "body": "d8",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey is a founding member of D-8 (Developing 8 Countries). Agreements require domestic ratification."
-    },
-    {
-      "body": "organisation-of-turkic-states",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey is a founding member of the Organisation of Turkic States (formerly Türk Konseyi). Treaties require domestic ratification."
-    },
-    {
-      "body": "eu-candidate",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Turkey was granted EU candidate status at the Helsinki European Council on 10-11 December 1999. Accession negotiations opened 3 October 2005. Negotiations have been effectively frozen since 2018 — no new chapters have been opened and several have been blocked by Council decisions. The European Commission 2023 report explicitly described the accession process as at a standstill. Turkey remains a candidate in formal status but the dynamic is closer to that of a long-term association.",
-      "status": "candidate",
-      "member_since": "1999-12-10"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "upper_case",

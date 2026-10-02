@@ -252,27 +252,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "cis",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "CIS instruments require domestic ratification before taking effect"
-    },
-    {
-      "body": "sco",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_title",
     "heading_case": "title_case",

@@ -13,7 +13,7 @@
     "fra",
     "bis"
   ],
-  "authoritative_language": "eng",
+  "authoritative_language": null,
   "document_classes": {
     "act": {
       "label": "Act of Parliament",
@@ -201,29 +201,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "pacific-islands-forum",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Pacific Islands Forum — intergovernmental only, no direct-effect instruments"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Acceded 2012; WTO obligations require domestic implementation"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

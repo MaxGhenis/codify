@@ -13,7 +13,7 @@
     "fra",
     "eng"
   ],
-  "authoritative_language": "fra",
+  "authoritative_language": null,
   "document_classes": {
     "loi": {
       "label": "Loi / Law",
@@ -359,57 +359,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "ohada",
-      "direct_effect": "override",
-      "member_since": "1993-10-17",
-      "superseded_subjects": [
-        "company_law",
-        "commercial_law",
-        "insolvency",
-        "arbitration",
-        "security_interests",
-        "transport_law",
-        "accounting",
-        "collective_procedures",
-        "electronic_commerce"
-      ],
-      "note": "OHADA founding member. Uniform Acts supersede conflicting domestic law automatically under OHADA Treaty Art. 10. 11 Uniform Acts in force. FRBR URI space: /akn/ohada/act/..."
-    },
-    {
-      "body": "cemac",
-      "direct_effect": "direct",
-      "member_since": "1994-03-16",
-      "superseded_subjects": [
-        "banking_regulation",
-        "monetary_policy",
-        "customs_union",
-        "capital_markets",
-        "financial_markets",
-        "insurance_regulation"
-      ],
-      "note": "CEMAC founding member. Regulations directly applicable; incompatible national laws null and void (CEMAC Treaty Additive Art. 21). BEAC (central bank) and COSUMAF (capital markets) issue binding instruments. FRBR URI space: /akn/cemac/act/..."
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "AU member. Banjul Charter binding in principle; AU instruments generally require domestic transposition."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "upper_case",

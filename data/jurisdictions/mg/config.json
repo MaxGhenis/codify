@@ -265,31 +265,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "sadc",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "comesa",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "article_heading",
     "heading_case": "title_case",

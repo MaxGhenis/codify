@@ -314,34 +314,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN treaty obligations require domestic implementation legislation. Human Rights instruments implemented piecemeal — no single Bill of Rights Act."
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Australia Act 1986 ended UK Parliament's power to legislate for Australia. No direct effect of Commonwealth resolutions."
-    },
-    {
-      "body": "apec",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "pacific-islands-forum",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "heading",
     "heading_case": "title_case",

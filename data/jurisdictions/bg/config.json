@@ -346,41 +346,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "member_since": "2007-01-01",
-      "direct_effect": "direct",
-      "direct_effect_note": "EU Regulations apply directly and override conflicting Bulgarian domestic law. EU Directives require transposition by the National Assembly.",
-      "superseded_subjects": [
-        "customs",
-        "competition",
-        "state_aid",
-        "financial_services",
-        "product_safety",
-        "data_protection",
-        "intellectual_property"
-      ]
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "direct_effect_note": "ECHR judgments are binding on Bulgaria. Convention requires domestic incorporation. Bulgaria has been a CoE member since 1992.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "sentence_case",

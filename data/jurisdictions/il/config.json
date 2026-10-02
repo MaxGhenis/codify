@@ -315,34 +315,6 @@
       }
     ]
   },
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "oecd",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Israel is an observer state to the Council of Europe, not a full member. The European Convention on Human Rights does not apply directly in Israeli law. Israel has a separate observer relationship with the Parliamentary Assembly of the Council of Europe (PACE)."
-    },
-    {
-      "body": "eu",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Israel is NOT an EU member. The EU-Israel Association Agreement (in force 2000) covers trade and cooperation but creates no direct effect in Israeli domestic law. Israel participates in some EU research and innovation programmes (Horizon Europe)."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

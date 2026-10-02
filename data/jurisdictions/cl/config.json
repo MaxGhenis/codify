@@ -314,24 +314,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN and ILO conventions incorporated as ordinary leyes after ratification. No direct effect."
-    },
-    {
-      "body": "mercosur",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Chile is an associate member of MERCOSUR only. No supranational direct-effect obligations."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_or_marginal",
     "heading_case": "sentence_case_or_upper",

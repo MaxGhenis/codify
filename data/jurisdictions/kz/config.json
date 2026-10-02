@@ -476,38 +476,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eaeu",
-      "direct_effect": "direct",
-      "superseded_subjects": [
-        "customs",
-        "technical_regulations",
-        "sanitary_phytosanitary",
-        "competition",
-        "financial_markets"
-      ],
-      "note": "Eurasian Economic Union (founded 2015). Kazakhstan is a founding member. EAEU regulations issued by the Eurasian Economic Commission (EEC) are directly applicable in member states without transposition — confirmed by the EAEU Court. Key areas: customs law (EAEU Customs Code 2017), technical regulations, sanitary/phytosanitary standards, competition policy. Use /akn/eaeu/ URI space for EAEU instruments. Kazakhstan's Constitutional Court has asserted constitutional primacy, so true supremacy remains contested for constitutional matters."
-    },
-    {
-      "body": "cis",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Commonwealth of Independent States. CIS model laws require domestic transposition; no direct effect."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN member state. UN SC Chapter VII resolutions binding in international law but require domestic implementation."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "WTO member since 30 November 2015. WTO agreements require domestic legislative conformity but do not have direct effect in domestic courts."
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",

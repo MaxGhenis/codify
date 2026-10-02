@@ -318,31 +318,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "arab-maghreb-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "arab-league",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "upper_case",

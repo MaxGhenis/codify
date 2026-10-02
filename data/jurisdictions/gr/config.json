@@ -378,32 +378,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "member_since": "1981-01-01",
-      "direct_effect": "direct",
-      "superseded_subjects": [],
-      "note": "EU Regulations apply directly. EU Directives require transposition via Nomos. Large proportion of recent Greek legislation is directive transposition. AKN4EU profile covers the EU instrument layer."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "note": "ECHR binding via ECtHR judgments. Greece ratified ECHR in 1974."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "article_rubric",
     "heading_case": "mixed",

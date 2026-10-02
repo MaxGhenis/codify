@@ -268,40 +268,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "direct_effect": "direct",
-      "transposition_required": [
-        "directive"
-      ],
-      "superseded_subjects": [],
-      "note": "Belgium is a founding EU member (1957). EU Regulations apply directly. Directives require transposition via federal or sub-national legislation depending on competence distribution."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "transposition_required": [
-        "convention"
-      ],
-      "superseded_subjects": [],
-      "note": "Belgium has ratified ECHR. ECHR judgments are binding on Belgium but require legislative action to implement."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN Security Council Chapter VII resolutions are binding. General multilateral treaty obligations apply."
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "mixed",

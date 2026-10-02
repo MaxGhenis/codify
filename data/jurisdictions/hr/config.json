@@ -274,40 +274,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "direct_effect": "direct",
-      "superseded_subjects": [
-        "customs_union",
-        "product_safety",
-        "data_protection",
-        "financial_services_passporting"
-      ],
-      "transposition_required": [
-        "eu_directives"
-      ],
-      "note": "EU Regulations apply directly and override conflicting Croatian law. Directives require transposition into Croatian law (zakoni or uredbe). Acts transposing Directives often cite the Directive in preamble or Annex — pipeline should extract these references."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ECHR binding via Croatian ratification. European Convention on Human Rights applied by courts."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "upper_case",

@@ -336,58 +336,6 @@
       "showAs": "Codify"
     }
   ],
-  "supranational_memberships": [
-    {
-      "body": "ohada",
-      "direct_effect": "override",
-      "member_since": "1993-10-17",
-      "superseded_subjects": [
-        "company_law",
-        "commercial_law",
-        "insolvency",
-        "arbitration",
-        "security_interests",
-        "transport_law",
-        "accounting",
-        "collective_procedures",
-        "electronic_commerce"
-      ],
-      "note": "OHADA Uniform Acts supersede conflicting domestic law without transposition. 11 Uniform Acts in force. The domestic Code des obligations civiles et commerciales (COCC, 1976) is largely superseded in commercial matters. FRBR URI space: /akn/ohada/act/..."
-    },
-    {
-      "body": "uemoa",
-      "direct_effect": "direct",
-      "member_since": "1994-01-10",
-      "superseded_subjects": [
-        "banking_regulation",
-        "monetary_policy",
-        "customs_union",
-        "public_finance",
-        "financial_markets",
-        "investment_law"
-      ],
-      "note": "UEMOA Regulations apply directly; Directives require transposition via loi or décret. Particularly significant for banking, insurance, and fiscal law."
-    },
-    {
-      "body": "ecowas",
-      "direct_effect": "none",
-      "member_since": "1975-05-28",
-      "superseded_subjects": [],
-      "note": "ECOWAS Supplementary Acts have direct effect; Protocols require ratification. Less pervasive than OHADA/UEMOA in day-to-day Senegalese legislation."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "structuring": {},
   "display": {
     "heading_type": "section_heading",

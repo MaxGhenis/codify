@@ -189,24 +189,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "asean",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ASEAN is intergovernmental only. All ASEAN instruments require domestic transposition. No automatic direct effect in Lao PDR."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "WTO member since January 2013. Obligations implemented via domestic legislation (IP Law, Investment Law, etc.)."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "article_heading",
     "heading_case": "sentence_case",

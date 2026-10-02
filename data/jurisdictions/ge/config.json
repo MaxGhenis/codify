@@ -314,33 +314,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "council-of-europe",
-      "member_since": "1999",
-      "direct_effect": "indirect_transposition",
-      "direct_effect_note": "ECHR binding via ECtHR judgments. Convention has direct effect in Georgian courts following ratification.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "eu",
-      "status": "candidate",
-      "direct_effect": "none",
-      "direct_effect_note": "No direct effect. Association Agreement (2014) and DCFTA require legislative harmonisation. Directives must be transposed.",
-      "superseded_subjects": [],
-      "note": "Growing body of EU-harmonisation legislation. Cross-reference transposing laws against EUR-Lex source directives in metadata."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "direct_effect_note": "SC Chapter VII resolutions binding. GA resolutions non-binding.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_title",
     "heading_case": "title_case",

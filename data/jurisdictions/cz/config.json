@@ -321,33 +321,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "direct_effect": "direct",
-      "member_since": "2004-05-01",
-      "superseded_subjects": [],
-      "note": "EU Regulations directly applicable; Directives transposed via zákon or delegated legislation. Large volume of post-2004 Czech law is EU-derived."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "member_since": "1993-06-30",
-      "note": "ECHR binding via Constitutional Court jurisprudence"
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note_or_inline",
     "heading_case": "sentence_case",

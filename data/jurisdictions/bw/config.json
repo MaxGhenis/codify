@@ -185,31 +185,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "sadc",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Botswana is a founding SADC member (1992). Dualist legal system — SADC Protocols require domestic ratification and implementing legislation. No direct effect."
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

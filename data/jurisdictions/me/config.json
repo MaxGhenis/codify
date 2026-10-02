@@ -362,48 +362,6 @@
       }
     ]
   },
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Member since 2007-05-11. ECHR binding via ratification. European Court of Human Rights judgments applied by Ustavni sud."
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "NATO member since 2017-06-05. Smallest NATO member by population (~620,000). Defence legislation aligns with NATO standards."
-    },
-    {
-      "body": "eu-candidate",
-      "status": "candidate",
-      "member_since": "2010-12-17",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "EU candidate since 2010-12-17; accession negotiations opened 2012-06-29 — most advanced Western Balkans candidate. Chapters 23 (Judiciary) and 24 (Justice) opened first per new methodology. Does NOT yet have direct-effect EU law. Harmonisation obligations exist under SAA (Stabilisation and Association Agreement, in force 2010-04-01)."
-    },
-    {
-      "body": "osce",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "cefta",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Central European Free Trade Agreement member. Regional trade framework with other Western Balkans states."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "upper_case",
@@ -418,14 +376,6 @@
     "unresolved_ambiguities": 0,
     "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
   },
-  "binding_regimes": [
-    {
-      "code": "eurozone-informal",
-      "kind": "bilateral_regime",
-      "direct_effect": "none",
-      "note": "Montenegro unilaterally adopted the euro (EUR) in 2002 — prior to EU candidacy and without ECB/eurozone membership. Not a formal eurozone member; no seat on ECB Governing Council. This is a unilateral arrangement, not an EU instrument. Euro use is domestic policy, not a supranational direct-effect obligation. Pipeline note: monetary legislation may reference EUR without implying EU membership."
-    }
-  ],
   "tier": 4,
   "status": "draft",
   "public_reference": true

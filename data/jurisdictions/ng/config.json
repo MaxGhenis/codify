@@ -240,33 +240,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "ecowas",
-      "direct_effect": "none",
-      "note": "Section 12 of the 1999 Constitution requires National Assembly ratification for treaties to have domestic legal force. ECOWAS Community Acts have limited practical direct effect in Nigerian courts despite Treaty provisions. Model ECOWAS instruments under /akn/ecowas/... not /akn/ng/...",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "note": "UN Security Council Chapter VII resolutions are binding on Nigeria under international law. UN treaties require domestic ratification legislation to have domestic force.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

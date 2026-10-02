@@ -236,42 +236,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "efta",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Iceland is an EFTA member state. EFTA as an organisation does not produce directly effective legislation; the EEA mechanism is the operative channel for Single Market law."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "indirect_transposition",
-      "superseded_subjects": [],
-      "note": "Iceland is a founding member of the Council of Europe (1949). The European Convention on Human Rights applies. Iceland accepts the compulsory jurisdiction of the European Court of Human Rights."
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Iceland is a founding NATO member (1949) but has no standing army. Defence responsibilities shared with NATO allies, primarily the United States under the Keflavik Agreement (terminated 2006 as US base, but NATO commitment remains)."
-    },
-    {
-      "body": "nordic-council",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Member of the Nordic Council and Nordic Council of Ministers. Nordic conventions (labour market, social security, passport-free travel) have domestic legal effect via implementing legislation."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN Security Council binding resolutions implemented via lög or reglugerðir as needed. Iceland implements UN sanctions regimes."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",
@@ -286,24 +250,6 @@
     "unresolved_ambiguities": 0,
     "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
   },
-  "binding_regimes": [
-    {
-      "code": "eea",
-      "kind": "treaty_framework",
-      "direct_effect": "direct",
-      "superseded_subjects": [
-        "single_market_goods",
-        "single_market_services",
-        "single_market_capital",
-        "single_market_persons",
-        "competition_law",
-        "state_aid",
-        "product_safety",
-        "financial_services"
-      ],
-      "note": "Iceland is a founding EEA member (1994) but NOT an EU member. EEA Agreement incorporates the EU Single Market acquis with direct effect via the EEA Joint Committee decision mechanism. Decisions require transposition into Icelandic law within agreed deadlines. Agriculture, fisheries, customs union, and monetary union are excluded from the EEA Agreement. EFTA Surveillance Authority (ESA) monitors compliance instead of the European Commission. EFTA Court acts as the EEA-parallel to the CJEU for Iceland."
-    }
-  ],
   "tier": 2,
   "status": "draft",
   "public_reference": true

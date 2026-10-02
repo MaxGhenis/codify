@@ -255,31 +255,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "pacific-community",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "pacific-islands-forum",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "legal_eras": [
     {
       "id": "colonial",

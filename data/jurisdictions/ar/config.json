@@ -257,24 +257,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "mercosur",
-      "direct_effect": "none",
-      "note": "MERCOSUR is explicitly non-supranational. All instruments require domestic incorporation. Incorporated instruments are modelled as ordinary leyes.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "note": "UN SC Chapter VII resolutions are binding obligations but require domestic implementation. Human rights treaties listed in Art. 75(22) CN have constitutional rank above ordinary laws.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",

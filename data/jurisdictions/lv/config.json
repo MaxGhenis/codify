@@ -258,37 +258,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "member_since": "2004-05-01",
-      "direct_effect": "direct",
-      "superseded_subjects": [],
-      "note": "EU member since 1 May 2004. Regulations directly effective. Directives require Latvian transposing legislation. Transposing acts include mandatory 'Informatīvā atsauce uz Eiropas Savienības direktīvām' block. Use eu/ profile for EU instruments; link transposing lv/ acts to their Directive via <references>."
-    },
-    {
-      "body": "council-of-europe",
-      "member_since": "1995-02-10",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Council of Europe member since 10 February 1995. ECHR ratified 1997-06-27. ECtHR judgments binding. No direct AKN scope impact on domestic legislation."
-    },
-    {
-      "body": "nato",
-      "member_since": "2004-03-29",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "NATO member since 29 March 2004. No direct AKN scope impact."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",

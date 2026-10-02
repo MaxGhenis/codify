@@ -204,28 +204,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "sica",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Sistema de la Integración Centroamericana. SICA instruments require domestic ratification and publication in La Gaceta."
-    },
-    {
-      "body": "oas",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "OAS conventions ratified by the Asamblea Legislativa. Inter-American Court of Human Rights (Corte IDH) is based in San José; binding judgments operate through constitutional deference."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",

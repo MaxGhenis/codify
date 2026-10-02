@@ -392,23 +392,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "gcc",
-      "direct_effect": "none",
-      "note": "GCC Unified Laws require adoption by domestic decree/law before taking effect. E.g., Common Customs Law adopted by UAE Federal Decree 85/2007.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "note": "UN Security Council Chapter VII resolutions are binding on the UAE government but require domestic implementation."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "article_title",
     "heading_case": "title_case",

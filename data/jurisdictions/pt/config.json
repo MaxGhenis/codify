@@ -381,42 +381,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "direct_effect": "direct",
-      "member_since": "1986-01-01",
-      "superseded_subjects": [
-        "product_safety",
-        "competition",
-        "data_protection_gdpr",
-        "customs",
-        "financial_services",
-        "consumer_protection",
-        "food_safety",
-        "public_procurement",
-        "agricultural_policy"
-      ]
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "sentence_case",

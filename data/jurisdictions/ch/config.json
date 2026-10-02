@@ -337,32 +337,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Switzerland joined the UN on 10 September 2002 via popular referendum (approved by 54.6% of voters). Prior to 2002, Switzerland participated as an observer. UN Security Council Chapter VII resolutions are binding; General Assembly resolutions are non-binding. Switzerland is a permanent neutral state."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Switzerland is a member of the Council of Europe (joined 1963). ECHR ratified. Swiss courts take ECHR case law into account but the Convention does not have the automatic supremacy it enjoys in some member states."
-    },
-    {
-      "body": "efta",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Switzerland is a founding member of EFTA (1960) and remains a member. Switzerland is NOT a member of the European Economic Area (EEA) — it rejected EEA membership in a referendum on 6 December 1992 by a margin of 50.3% No. Instead, Switzerland has concluded approximately 120 bilateral agreements with the EU (Bilaterale Abkommen). Key agreements: (1) Seven Bilateral Agreements I (1999/2002): free movement of persons, land and air transport, technical barriers to trade, public procurement, agriculture, research, satellite navigation — some provisions have quasi-direct effect. (2) Nine Bilateral Agreements II (2004): Schengen/Dublin association, savings taxation, processed agricultural products, statistics, MEDIA, environment, pensions fraud, combating fraud. The Schengen/Dublin association (in force 2008) has direct-effect characteristics: Switzerland implements and applies the Schengen acquis including relevant EU border/asylum rules as they evolve. This Swiss Sonderweg (special path) means EU law must be monitored for Schengen-adjacent legislation even though Switzerland is not an EU or EEA member."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Switzerland is an original WTO member (1995). WTO agreements are applied in Swiss domestic law. Switzerland is an independent WTO member — unlike EU member states, it represents itself in WTO negotiations."
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",
@@ -377,19 +351,6 @@
     "unresolved_ambiguities": 0,
     "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
   },
-  "binding_regimes": [
-    {
-      "code": "schengen",
-      "kind": "treaty_framework",
-      "direct_effect": "procedural",
-      "superseded_subjects": [
-        "border_controls",
-        "visa_policy",
-        "police_cooperation"
-      ],
-      "note": "Switzerland is associated to the Schengen Area and Dublin Regulation via bilateral agreement (in force March 2008). Schengen acquis developments are adopted by Switzerland through a dynamic reference mechanism — relevant EU regulations and directives in the Schengen/Dublin domain apply or must be implemented within a set period. Model Schengen-related Swiss legislation as having a supranational overlay."
-    }
-  ],
   "tier": 1,
   "status": "draft",
   "public_reference": true

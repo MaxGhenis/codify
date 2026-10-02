@@ -362,42 +362,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "member_since": "2007-01-01",
-      "direct_effect": "direct",
-      "superseded_subjects": [
-        "customs_union",
-        "single_market",
-        "competition",
-        "agriculture_cap",
-        "data_protection_gdpr",
-        "financial_services",
-        "environment_eu",
-        "consumer_protection_eu"
-      ],
-      "note": "EU Regulations apply directly. EU Directives require transposition into Romanian law. EUR-Lex/Cellar is the authoritative source for EU instruments. AKN4EU profile applies."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ECHR ratified 1994. ECtHR judgments binding. Does not directly supersede Romanian legislation but requires compliance."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_bold",
     "heading_case": "title_case",

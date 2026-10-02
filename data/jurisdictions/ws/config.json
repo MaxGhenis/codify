@@ -156,7 +156,7 @@
     {
       "eId": "fono",
       "class": "TLCOrganization",
-      "href": "/ontology/organization/ws/fono",
+      "href": "/ontology/org/ws/fono",
       "showAs": "Legislative Assembly of Samoa"
     },
     {
@@ -174,7 +174,7 @@
     {
       "eId": "cabinet",
       "class": "TLCOrganization",
-      "href": "/ontology/organization/ws/cabinet",
+      "href": "/ontology/org/ws/cabinet",
       "showAs": "Cabinet of Samoa"
     },
     {
@@ -186,13 +186,13 @@
     {
       "eId": "officialGazette",
       "class": "TLCObject",
-      "href": "/ontology/object/ws/official-gazette",
+      "href": "/ontology/obj/ws/official-gazette",
       "showAs": "Samoa Gazette"
     },
     {
       "eId": "landTitlesCourt",
       "class": "TLCOrganization",
-      "href": "/ontology/organization/ws/land-titles-court",
+      "href": "/ontology/org/ws/land-titles-court",
       "showAs": "Land and Titles Court"
     },
     {
@@ -203,32 +203,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "pacific-islands-forum",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "pacer-plus",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Ratified 2020; requires domestic implementing legislation, no direct effect"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

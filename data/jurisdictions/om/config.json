@@ -198,24 +198,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "gcc",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "GCC Unified Laws require domestic transposition by Royal Decree. GCC instruments are not directly effective in Oman."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

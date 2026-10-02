@@ -239,43 +239,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eaeu",
-      "member_since": "2015-01-02",
-      "direct_effect": "direct",
-      "direct_effect_note": "EAEU Regulations have direct effect per EAEU Court ruling of April 2017. EAEU Customs Code directly applicable. Domestic law in customs, technical regulations, and sanitary/phytosanitary standards may be superseded.",
-      "superseded_subjects": [
-        "customs",
-        "trade_regulation",
-        "technical_standards",
-        "sanitary_standards",
-        "cross_border_competition"
-      ]
-    },
-    {
-      "body": "council-of-europe",
-      "member_since": "2001-01-25",
-      "direct_effect": "none",
-      "direct_effect_note": "ECHR judgments are binding on Armenia. Convention rights must be applied by domestic courts. Requires no transposition but has constitutional-level effect.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "cis",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "direct_effect_note": "UN Security Council Chapter VII resolutions are binding. General Assembly resolutions are non-binding.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "integrated",
     "heading_case": "title_case",

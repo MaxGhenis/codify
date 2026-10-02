@@ -280,33 +280,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "council-of-europe",
-      "member_since": "1995",
-      "direct_effect": "indirect_transposition",
-      "direct_effect_note": "ECHR ratified 1997; ECtHR judgments binding. Convention rights must be respected in domestic legislation.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "eu",
-      "status": "candidate",
-      "direct_effect": "none",
-      "direct_effect_note": "EU law requires transposition under Association Agreement. No direct effect — EU instruments are targets for legislative alignment, not applicable law.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "direct_effect_note": "UN Security Council Chapter VII resolutions are binding but implemented via domestic acts."
-    },
-    {
-      "body": "wto",
-      "member_since": "2008",
-      "direct_effect": "none",
-      "direct_effect_note": "WTO obligations incorporated via domestic legislation."
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "title_case",

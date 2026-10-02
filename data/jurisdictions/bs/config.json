@@ -365,29 +365,6 @@
       }
     ]
   },
-  "supranational_memberships": [
-    {
-      "body": "caricom",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "excluded_subjects": [
-        "csme"
-      ],
-      "protocol_references": [
-        "Revised Treaty of Chaguaramas 2001 Chapter Two (CSME)"
-      ],
-      "note": "The Bahamas is a member of CARICOM since 4 July 1983 but is NOT part of the CARICOM Single Market and Economy (CSME). Bahamian law does not implement CSME obligations."
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

@@ -273,33 +273,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "arab-league",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "brics",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Full member since January 2024. No direct legal effect on domestic law currently."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_title",
     "heading_case": "natural",

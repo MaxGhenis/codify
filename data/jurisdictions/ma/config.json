@@ -299,32 +299,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "member_since": "1963-05-25",
-      "rejoined_on": "2017-01-30",
-      "note": "Morocco was a founding member of the Organisation of African Unity (OAU) in 1963. It left the OAU on 12 November 1984 in protest at the admission of the Sahrawi Arab Democratic Republic (SADR / Western Sahara). Morocco remained outside the pan-African body for 33 years and rejoined the African Union on 30 January 2017 at the 28th AU Summit in Addis Ababa. SADR also remains an AU member; Morocco's rejoining was conditional on the existing AU framework, not on any change in SADR's status."
-    },
-    {
-      "body": "eu-association",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "EU-Morocco Association Agreement 2000. Creates approximation obligations but not direct effect."
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "title_case",

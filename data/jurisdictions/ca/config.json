@@ -276,26 +276,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN obligations require domestic implementation legislation"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",
@@ -310,14 +290,6 @@
     "unresolved_ambiguities": 0,
     "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
   },
-  "binding_regimes": [
-    {
-      "code": "usmca",
-      "kind": "treaty_framework",
-      "direct_effect": "none",
-      "note": "CUSMA/USMCA implemented via SC 2020, c. 1"
-    }
-  ],
   "tier": 2,
   "status": "draft",
   "public_reference": true

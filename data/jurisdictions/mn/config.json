@@ -148,20 +148,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "member_since": "1961-10-27",
-      "note": "UN member since 27 October 1961. UN instruments require domestic transposition; no direct effect in Mongolian courts."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "member_since": "1997-01-29",
-      "note": "WTO member since 29 January 1997. WTO agreements require domestic legislative conformity but do not have direct effect."
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",

@@ -221,33 +221,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eu",
-      "direct_effect": "direct",
-      "member_since": "1995-01-01",
-      "superseded_subjects": [],
-      "note": "EU Regulations directly applicable without SFS publication. Directives require transposition via ordinary SFS lag or förordning. Sweden is not in the Eurozone (retains Swedish krona, SEK). EU accession act: Lag (1994:1500)."
-    },
-    {
-      "body": "council-of-europe",
-      "direct_effect": "indirect_transposition",
-      "superseded_subjects": [],
-      "note": "ECHR incorporated via Lag (1994:1219) om den europeiska konventionen angående skydd för de mänskliga rättigheterna och de grundläggande friheterna."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "nato",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline_heading",
     "heading_case": "sentence_case",

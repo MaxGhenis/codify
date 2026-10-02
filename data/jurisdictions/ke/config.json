@@ -275,36 +275,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "eac",
-      "direct_effect": "none",
-      "note": "EAC instruments lack direct applicability in Kenya. Must be transposed into domestic law. Kenya Law publishes EAC legislation separately.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "comesa",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "african-union",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

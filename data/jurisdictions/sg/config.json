@@ -249,28 +249,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "asean",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ASEAN has no supranational authority. All ASEAN instruments require domestic transposition by Parliament."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN Security Council Chapter VII resolutions are binding on Singapore but require domestic implementation. UN profile at /akn/un/."
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_heading",
     "heading_case": "title_case",

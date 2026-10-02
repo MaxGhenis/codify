@@ -177,26 +177,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "caricom",
-      "direct_effect": "none",
-      "note": "CARICOM instruments require domestic legislative transformation. Jamaica has enacted the Caribbean Community Act and the Caribbean Community (CSME) Act to give domestic effect to Revised Treaty obligations. No automatic override of domestic law.",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none"
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

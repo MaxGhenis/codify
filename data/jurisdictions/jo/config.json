@@ -243,24 +243,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "arab-league",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Jordan is a founding member of the Arab League. League resolutions and conventions require national ratification — no automatic direct effect."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN Security Council Chapter VII resolutions are binding but require domestic implementation. UNCITRAL model laws adopted selectively via ordinary law."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "title_case",

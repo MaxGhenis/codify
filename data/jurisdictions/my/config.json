@@ -344,36 +344,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "asean",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ASEAN founding member (1967). No supranational direct effect; sovereignty-based intergovernmental model. ASEAN commitments require domestic transposition."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "UN Security Council Chapter VII resolutions are binding on Malaysia as a UN member; implemented through domestic Acts."
-    },
-    {
-      "body": "oic",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Organisation of Islamic Cooperation member. No binding supranational law."
-    },
-    {
-      "body": "commonwealth-of-nations",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Commonwealth member. No binding supranational law."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "marginal_note",
     "heading_case": "title_case",

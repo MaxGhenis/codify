@@ -372,40 +372,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "can",
-      "direct_effect": "direct",
-      "superseded_subjects": [
-        "intellectual_property",
-        "industrial_property",
-        "customs",
-        "competition",
-        "services",
-        "investment",
-        "labour_migration"
-      ],
-      "note": "CAN Decisiones have direct applicability and supremacy over domestic law in covered subjects. Domestic IP and trade legislation must be cross-referenced against applicable Decisiones."
-    },
-    {
-      "body": "mercosur",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Peru is an associate member only. No direct effect."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": [
-        "security_council_chapter_vii"
-      ],
-      "note": "Standard UN membership. SC Chapter VII resolutions are binding."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",

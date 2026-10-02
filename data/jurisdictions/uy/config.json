@@ -339,37 +339,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "mercosur",
-      "direct_effect": "indirect_transposition",
-      "superseded_subjects": [
-        "customs_union",
-        "trade_in_goods",
-        "common_external_tariff",
-        "free_movement_persons_mercosur"
-      ]
-    },
-    {
-      "body": "unasur",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "oas",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "sentence_case",

@@ -365,23 +365,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "un",
-      "direct_effect": "none",
-      "superseded_subjects": []
-    },
-    {
-      "body": "oas",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Inter-American Court of Human Rights judgments binding on Mexico but require domestic implementation."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "section_title",
     "heading_case": "sentence_case",
@@ -396,14 +379,6 @@
     "unresolved_ambiguities": 0,
     "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
   },
-  "binding_regimes": [
-    {
-      "code": "usmca",
-      "kind": "treaty_framework",
-      "direct_effect": "none",
-      "note": "USMCA (T-MEC) treaty obligations require domestic transposition. No direct effect."
-    }
-  ],
   "tier": 2,
   "status": "draft",
   "public_reference": true

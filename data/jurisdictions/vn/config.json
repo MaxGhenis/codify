@@ -366,30 +366,6 @@
     }
   ],
   "structuring": {},
-  "supranational_memberships": [
-    {
-      "body": "asean",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "ASEAN instruments require domestic transposition. No direct effect."
-    },
-    {
-      "body": "wto",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "WTO agreements transposed into domestic trade, IP, and customs legislation."
-    },
-    {
-      "body": "rcep",
-      "direct_effect": "none",
-      "superseded_subjects": [],
-      "note": "Regional Comprehensive Economic Partnership. In force for Vietnam from January 2022."
-    },
-    {
-      "body": "un",
-      "direct_effect": "none"
-    }
-  ],
   "display": {
     "heading_type": "inline",
     "heading_case": "mixed",
