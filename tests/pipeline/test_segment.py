@@ -1449,3 +1449,16 @@ def test_an_unplaced_entry_does_not_take_a_page_without_a_connective(
         ("heading", "act 5", "matched"),
     ]
     assert result.outcome == "abstained"
+
+
+def test_a_citation_after_a_line_ending_on_a_connective_is_not_an_entry(
+    config: JurisdictionConfig,
+) -> None:
+    pages = _three_act_issue()
+    at = pages[0].index("of the Assembly ............ 2")
+    pages[0][at:at] = ["amending the provisions of", "ACT No. 1 OF 2019"]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    listed = [(r.key, r.printed_page) for r in result.reconciliation if r.source == "contents"]
+    assert listed == [("act 3", 2), ("act 4", 2), ("act 5", 3)]
