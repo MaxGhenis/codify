@@ -257,8 +257,8 @@ def _contents(
     country: str,
 ) -> tuple[list[tuple[int, int]], list[_Entry]]:
     """Contents listings and their entries. A listing ends at the first heading a
-    numbered provision follows, the body's own, or where the earliest page it names
-    begins. An entry whose page cannot be found is ignored."""
+    numbered provision follows, a heading repeating one it lists, or where the
+    earliest page it names begins. An entry whose page cannot be found is ignored."""
     words = [w for w in rules.contents_keywords if w.strip()]
     if not words:
         return [], []
@@ -271,6 +271,8 @@ def _contents(
     listed = [m.offset for m in markers if _leads_to_page(text, m.offset, pages)]
     as_entries = set(listed)
     body = [m for m in markers if m.offset not in as_entries]
+    # A quoted act line is cited text, never an entry.
+    live = [h for h in headings if not _quoted(text, h.start, country)]
     for found in _live(keyword.finditer(text), text, country):
         if _within(found.start(), blocks):
             continue
@@ -278,7 +280,8 @@ def _contents(
         # The entry being read, and the last heading inside it.
         current: _Heading | None = None
         last: _Heading | None = None
-        for heading in [*(h for h in headings if h.start > found.end()), None]:
+        keys: set[str] = set()
+        for heading in [*(h for h in live if h.start > found.end()), None]:
             stop = end if heading is None else min(heading.start, end)
             if last is not None and any(last.match_end <= m.offset < stop for m in body):
                 end = last.start
@@ -293,10 +296,15 @@ def _contents(
                     continue
                 if page is not None:
                     entries.append(_Entry(current.label, current.key, current.start, *page))
+                    keys.add(current.key)
                     begins = pages.start_of(page[1])
                     if begins is not None and begins > found.end():
                         end = min(end, begins)
             if heading is None or heading.start >= end:
+                break
+            if heading.key in keys:
+                # The body's own heading for an act this listing names.
+                end = heading.start
                 break
             current = last = heading
         blocks.append((found.start(), end))

@@ -1079,3 +1079,37 @@ def test_a_quoted_enacting_formula_is_not_the_open_acts(
         text, spans = _join([first + _signed(), second + _signed()])
         result = segment(text, spans, config=load_config(COUNTRY))
     assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_a_quoted_act_line_in_a_listing_is_not_an_entry(config: JurisdictionConfig) -> None:
+    pages = _three_act_issue()
+    pages[0] += ["\u201c", "ACT No. 8 OF 2019 The ... Act", "of the Assembly ............ 3"]
+    pages[0] += ["\u201d", ""]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    listed = [r.key for r in result.reconciliation if r.source == "contents"]
+    assert listed == ["act 3", "act 4", "act 5"]
+
+
+def test_an_unnumbered_act_starting_on_its_contents_page_segments(
+    config: JurisdictionConfig,
+) -> None:
+    """The listing names its own page, and the act has no numbered provision to end
+    it: the body's repeat of a listed heading ends it instead."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 1), ("ACT No. 4 OF 2020", 2)])
+    notice = ["ACT No. 3 OF 2020", "THE HARBOUR NOTICE", "", "Dues are abolished.", ""]
+    pages = [
+        ["- 1 -", *contents, *notice, *_signed()],
+        ["- 2 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    assert sorted((r.source, r.key, r.status) for r in result.reconciliation) == [
+        ("contents", "act 3", "matched"),
+        ("contents", "act 4", "matched"),
+        ("heading", "act 3", "matched"),
+        ("heading", "act 4", "matched"),
+    ]
