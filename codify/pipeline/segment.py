@@ -253,7 +253,7 @@ def _contents(
 ) -> tuple[list[tuple[int, int]], list[_Entry]]:
     """Contents listings and their entries. A listing ends at the first heading a
     numbered provision follows, the body's own, or where the earliest page it names
-    begins. An entry whose page cannot be found stays in the listing, unplaced."""
+    begins. An entry whose page cannot be found is ignored."""
     words = [w for w in rules.contents_keywords if w.strip()]
     if not words:
         return [], []
