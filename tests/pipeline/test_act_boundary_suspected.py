@@ -18,6 +18,7 @@ import pytest
 from pydantic import ValidationError
 
 import codify.jurisdictions as jurisdictions
+from codify.pipeline.enrich import anchors as anchors_mod
 from codify.pipeline.enrich import structure as structure_mod
 from codify.pipeline.enrich.anchors import (
     _declare_act_boundary_suspected,
@@ -271,11 +272,17 @@ def test_a_heading_match_of_indentation_alone_declares_nothing(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A repeated run under one title, signed: a pattern consuming nothing before the
-    signature block is no act heading."""
+    signature block is no act heading. Load refuses such a pattern, so the guard is
+    reached past validation."""
     headings = [HEADING, r"(?:BILL No\. \d+)?(?=Speaker)"]
-    configs = {COUNTRY: _config(segmentation={"act_heading_patterns": headings})}
     text = _two_acts().replace("ACT No. 4 OF 2020", "SCHEDULE OF DUES")
+    configs = {COUNTRY: _config(segmentation={"act_heading_patterns": [HEADING]})}
     with isolated_configs(monkeypatch, tmp_path / "jurisdictions", configs):
+        unchecked = jurisdictions.SegmentationConfig.model_construct(act_heading_patterns=headings)
+        config = jurisdictions.load_config(COUNTRY)
+        assert config is not None
+        patched = config.model_copy(update={"segmentation": unchecked})
+        monkeypatch.setattr(anchors_mod, "load_config", lambda _code: patched)
         assert not _suspected(text)
 
 
