@@ -652,7 +652,7 @@ def heading_line_pattern(pattern: str) -> re.Pattern[str]:
 
 def _min_width(pattern: str) -> int:
     """Fewest characters a match can take; zero means it can match nothing anywhere."""
-    return int(re._parser.parse(pattern).getwidth()[0])
+    return int(re._parser.parse(pattern).getwidth()[0])  # type: ignore[attr-defined]
 
 
 def _refuse_empty_match(pattern: str, what: str) -> re.Pattern[str]:
