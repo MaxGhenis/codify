@@ -33,6 +33,7 @@ from codify.pipeline.enrich.anchors import (
     _opens_citation_run,
     _partial_decimal_number,
     _repair_damaged_num,
+    _roman_or_digit,
     build_anchor_regex,
 )
 from codify.pipeline.enrich.closing import _phrase_pattern
@@ -436,10 +437,6 @@ def _within(offset: int, blocks: Sequence[tuple[int, int]]) -> bool:
     return any(start <= offset < end for start, end in blocks)
 
 
-def _number(value: str) -> int | None:
-    return int(value) if value.isdigit() else None
-
-
 def segment(
     text: str,
     spans: Sequence[PageSpan],
@@ -590,8 +587,9 @@ def _signals(
                 signals.append("closing")
                 break
     after = next((m for m in markers if heading.start <= m.offset < following), None)
-    reached = [n for m in before if (n := _number(m.number)) is not None]
-    if after is not None and after.number == "1" and reached and max(reached) >= RESTART_FROM:
+    reached = [n for m in before if (n := _roman_or_digit(m.number)) is not None]
+    restarts = after is not None and _roman_or_digit(after.number) == 1
+    if restarts and reached and max(reached) >= RESTART_FROM:
         signals.append("restart")
     if _page_start(text, heading, pages):
         signals.append("page_start")
@@ -655,7 +653,9 @@ def _assemble(
     doubts: list[tuple[int | None, str]],
     rows: tuple[ReconciliationRow, ...],
 ) -> Segmentation:
-    first = opening.start if opening is not None else 0
+    # The opening takes its page's furniture as later boundaries do.
+    lead = ("page_start",) if opening is not None and _page_start(text, opening, pages) else ()
+    first = _cut(pages, opening, lead) if opening is not None else 0
     cuts: list[tuple[int, _Heading | None, tuple[str, ...]]] = [(first, opening, ())]
     # An act opening a page takes the page's furniture with it.
     cuts += [(_cut(pages, h, signals), h, signals) for h, signals in decided]

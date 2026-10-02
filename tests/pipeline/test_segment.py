@@ -407,7 +407,7 @@ def test_an_unlisted_heading_a_signal_supports_holds_the_region(
     row = next(r for r in result.reconciliation if r.key == "act 9")
     assert (row.status, row.signals) == ("heading_only", ("closing",))
     assert [s.key for s in result.segments] == ["act 4", "act 5"]
-    assert text[result.held[0].start :].startswith("ACT No. 3 OF 2020")
+    assert text[result.held[0].start :].startswith("- 2 -\n\nACT No. 3 OF 2020")
 
 
 def test_a_citation_wrapped_inside_a_contents_entry_is_not_an_entry(
@@ -706,8 +706,8 @@ def test_a_doubt_before_the_opening_is_held_not_front_matter(
     result = segment(text, spans, config=config)
     assert result.outcome == "abstained"
     assert result.front_matter is None
-    opening = text.index("ACT No. 3 OF 2020\nA")
-    assert [(h.start, h.end) for h in result.held] == [(0, opening)]
+    # The opening act's page starts with its furniture.
+    assert [(h.start, h.end) for h in result.held] == [(0, spans[2].start)]
     assert "listed in the contents but no heading found" in result.held[0].reason
     assert [s.key for s in result.segments] == ["act 3"]
     _conserved(result, text)
@@ -926,3 +926,21 @@ def test_a_quotation_opened_far_up_the_page_before_still_vetoes(
     issue.append(["ISSUE No. 12", "is withdrawn.\u201d"])
     found = list(segment_volume(_pages([issue]), config=config))
     assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 3)]
+
+
+def test_a_restart_reads_roman_section_numbers(config: JurisdictionConfig) -> None:
+    first = _act(3, "THE HARBOUR DUES ACT", 0)
+    first += ["Section I. Duty 1", "Section II. Duty 2", "Section III. Duty 3", ""]
+    second = [*_act(4, "THE LIGHTHOUSE ACT", 0), "Section I. Duty 1", ""]
+    text, spans = _join([first + second])
+    row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
+    assert row.signals == ("restart",)
+
+
+def test_the_first_act_takes_its_page_furniture(config: JurisdictionConfig) -> None:
+    """The printed page number above the first act is the act's page, not front matter."""
+    text, spans = _join(_three_act_issue())
+    result = segment(text, spans, config=config)
+    assert result.front_matter == (0, spans[1].start)
+    assert result.segments[0].text.startswith("- 2 -")
+    _conserved(result, text)
