@@ -209,7 +209,7 @@ def _printed_number(page_text: str, furniture: str, pattern: re.Pattern[str] | N
         match = pattern.search(line.strip())
         # Alternatives may each carry a group; the one that took part holds the number.
         number = next((g for g in match.groups() if g), "") if match else ""
-        if normalise_digits(number).isdigit():
+        if normalise_digits(number).isdecimal():
             return int(normalise_digits(number))
     return None
 
@@ -428,7 +428,7 @@ def _quoted(text: str, at: int, country: str) -> bool:
     return at < len(text) and _quote_mask(text, country)[at]
 
 
-@lru_cache(maxsize=4)
+@lru_cache(maxsize=1)
 def _quote_mask(text: str, country: str) -> tuple[bool, ...]:
     return _closed_quote_mask(text, country)
 
@@ -779,19 +779,17 @@ def segment_volume(
     )
     closing = _closing_regex(config)
     issue = _OpenIssue()
-    waiting: tuple[SourcePage, re.Match[str]] | None = None
-    before = ""
+    waiting: tuple[SourcePage, list[re.Match[str]]] | None = None
     for page in pages:
         if waiting is not None:
             issue = yield from _settle(issue, *waiting, page, printed, closing, config, doctype)
             waiting = None
-        open_key = issue.key if issue.pages else None
-        match = _issue_heading(page.text, patterns, open_key, before, config.code)
-        before = page.text
-        if match is not None and issue.pages:
-            # Decided once the next page is read: a restart may first show there.
-            waiting = (page, match)
+        found = _issue_headings(page.text, patterns, issue.key if issue.pages else None)
+        if found and issue.pages:
+            # Decided once the next page is read: a restart or a closing quote may show there.
+            waiting = (page, found)
             continue
+        match = next((m for m in found if not _quoted(page.text, m.start(), config.code)), None)
         if match is not None:
             issue.heading, issue.key = _line(page.text, match), _key(match)
         issue.pages.append(page)
@@ -804,14 +802,23 @@ def segment_volume(
 def _settle(
     issue: _OpenIssue,
     page: SourcePage,
-    match: re.Match[str],
+    found: list[re.Match[str]],
     after: SourcePage | None,
     printed: re.Pattern[str] | None,
     closing: re.Pattern[str] | None,
     config: JurisdictionConfig,
     doctype: str | None,
 ) -> Generator[Issue, None, _OpenIssue]:
-    """Close the open issue at `page` if its heading is agreed, else absorb it."""
+    """Close the open issue at `page` if its first unquoted heading is agreed, else
+    absorb it. Quote state reads the whole open issue and the page after."""
+    prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
+    context = prefix + page.text + (PAGE_SEPARATOR + after.text if after else "")
+    match = next(
+        (m for m in found if not _quoted(context, len(prefix) + m.start(), config.code)), None
+    )
+    if match is None:
+        issue.pages.append(page)
+        return issue
     heading, key = _line(page.text, match), _key(match)
     issue_pages = issue.pages
     signals: list[str] = []
@@ -828,7 +835,7 @@ def _settle(
         if p is not None and (n := _printed_number(p.text, p.furniture, printed)) is not None
     ]
     # Any fall across the window: the new issue's numbers may start a page late.
-    if seen and any(b < a for a, b in pairwise([max(seen), *fresh])):
+    if seen and any(b < a for a, b in pairwise([seen[-1], *fresh])):
         signals.append("restart")
     if signals:
         yield _close(issue, config, doctype)
@@ -869,26 +876,12 @@ def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -
     )
 
 
-def _issue_heading(
-    text: str,
-    patterns: Sequence[re.Pattern[str]],
-    open_key: str | None,
-    before: str,
-    country: str,
-) -> re.Match[str] | None:
-    """The page's first issue heading that is neither the open issue's running head
-    nor quoted, a quotation opened on the page before included."""
-    carried = before + PAGE_SEPARATOR
-    joined = carried + text
+def _issue_headings(
+    text: str, patterns: Sequence[re.Pattern[str]], open_key: str | None
+) -> list[re.Match[str]]:
+    """The page's issue headings in order, less the open issue's running head."""
     found = sorted((m for p in patterns for m in p.finditer(text)), key=lambda m: m.start())
-    return next(
-        (
-            m
-            for m in found
-            if _key(m) != open_key and not _quoted(joined, len(carried) + m.start(), country)
-        ),
-        None,
-    )
+    return [m for m in found if _key(m) != open_key]
 
 
 def _closes(

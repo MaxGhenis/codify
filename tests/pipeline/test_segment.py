@@ -944,3 +944,58 @@ def test_the_first_act_takes_its_page_furniture(config: JurisdictionConfig) -> N
     assert result.front_matter == (0, spans[1].start)
     assert result.segments[0].text.startswith("- 2 -")
     _conserved(result, text)
+
+
+def test_an_old_high_page_number_is_not_a_restart(config: JurisdictionConfig) -> None:
+    """Printed 4, 6, 5, then 5 on the heading page: no fall from the last page read."""
+    pages = [
+        ["- 4 -", "ISSUE No. 11", "", *_act(1, "THE FERRIES ACT", 3)],
+        ["- 6 -", "", "The keeper shall keep the light."],
+        ["- 5 -", "", "The keeper shall keep the light."],
+        ["- 5 -", "Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"],
+    ]
+    found = list(segment_volume(_pages([pages]), config=config))
+    assert [(i.key, i.last_page) for i in found] == [("11", 4)]
+    assert _issue_citations(found[0]) == [("ISSUE No. 12", 4)]
+
+
+def test_an_unreadable_printed_number_is_skipped(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A superscript is a digit to `isdigit` but no number to `int`."""
+    rules = {**SEGMENTATION, "printed_page_pattern": r"^- (\S+) -$"}
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: _config(segmentation=rules)}):
+        text, spans = _join([["- ² -", "", *_act(3, "A", 3), *_signed()]])
+        result = segment(text, spans, config=load_config(COUNTRY))
+    assert result.outcome == "single"
+
+
+@pytest.mark.parametrize(
+    "pages",
+    [
+        pytest.param(
+            [
+                ["The notice reads: “"],
+                ["The keeper shall keep the light."],
+                ["ISSUE No. 12", "is withdrawn.”"],
+            ],
+            id="opened-two-pages-back",
+        ),
+        pytest.param(
+            [
+                ["The notice reads: “"],
+                ["ISSUE No. 12", "is withdrawn"],
+                ["as announced.”"],
+            ],
+            id="closed-on-the-page-after",
+        ),
+    ],
+)
+def test_an_issue_heading_quoted_across_pages_is_not_a_boundary(
+    config: JurisdictionConfig, pages: list[list[str]]
+) -> None:
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], *pages[0]]
+    issue += pages[1:]
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, len(issue))]
