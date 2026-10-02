@@ -1,0 +1,334 @@
+{
+  "code": "pk",
+  "name": "Pakistan",
+  "type": "national",
+  "tradition": [
+    "common_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng",
+    "urd"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament (Majlis-e-Shoora)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "ordinance": {
+      "label": "Ordinance (Presidential)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Pakistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Sub-clause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "si": {
+      "label": "Subordinate Legislation (Rules/Regulations/SRO)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Rule",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-rule",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "provincial_act": {
+      "label": "Provincial Act",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Sub-section",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "pk",
+    "uri_patterns": {
+      "act": "/akn/pk/act/{year}/{number}",
+      "ordinance": "/akn/pk/act/ord/{year}/{number}",
+      "constitution": "/akn/pk/act/constitution/1973/constitution",
+      "si": "/akn/pk/act/si/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Act No. {number} of {year}",
+    "act_citation_alt": "{short title}, {year}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "in section [N], for the words '...' the words '...' shall be substituted / after section [N] the following new section shall be inserted",
+    "cross_reference_format": "short_title_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pk/national-assembly",
+      "showAs": "National Assembly of Pakistan"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pk/senate",
+      "showAs": "Senate of Pakistan"
+    },
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pk/parliament",
+      "showAs": "Parliament of Pakistan (Majlis-e-Shoora)"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/pk/president",
+      "showAs": "President of Pakistan"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/pk/prime-minister",
+      "showAs": "Prime Minister of Pakistan"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pk/supreme-court",
+      "showAs": "Supreme Court of Pakistan"
+    },
+    {
+      "eId": "federalShariatCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pk/federal-shariat-court",
+      "showAs": "Federal Shariat Court of Pakistan"
+    },
+    {
+      "eId": "gazetteOfPakistan",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pk/gazette-of-pakistan",
+      "showAs": "The Gazette of Pakistan"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,243 @@
+{
+  "code": "is",
+  "name": "Iceland",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "isl"
+  ],
+  "authoritative_language": "isl",
+  "document_classes": {
+    "act": {
+      "label": "Lög",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hluti",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Kafli",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Stafliður",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "reglugjord": {
+      "label": "Reglugerð",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kafli",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        },
+        {
+          "local_term": "Stafliður",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "stjornarskra": {
+      "label": "Stjórnarskrá lýðveldisins Íslands",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ]
+    },
+    "thingsalyktun": {
+      "label": "Þingsályktun",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "tilskipun": {
+      "label": "Tilskipun",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Grein (§)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Málsgrein",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_sequential_assigned"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "is",
+    "uri_patterns": {
+      "act": "/akn/is/act/{year}/{number}",
+      "reglugjord": "/akn/is/act/rgj/{year}/{number}",
+      "stjornarskra": "/akn/is/act/constitution/1944/stjornarskra",
+      "thingsalyktun": "/akn/is/act/tsa/{year}/{number}",
+      "tilskipun": "/akn/is/act/tsk/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "lög nr. {number}/{year}",
+    "act_citation_alt": "{short-title}, nr. {number}/{year}",
+    "insertion_style": "alphanumeric_spaced"
+  },
+  "amendments": {
+    "style": "textual_replacement",
+    "phrasing": "Á eftir {N}. gr. laganna kemur ný grein, {N+1}. gr., svohljóðandi: ... / Orðin '...' í {N}. gr. falla brott. / {N}. gr. laganna orðast svo: ...",
+    "cross_reference_format": "short_title_and_law_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "althingi",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/is/althingi",
+      "showAs": "Alþingi"
+    },
+    {
+      "eId": "forseti",
+      "class": "TLCRole",
+      "href": "/ontology/role/is/forseti",
+      "showAs": "Forseti Íslands"
+    },
+    {
+      "eId": "forsaetisradherra",
+      "class": "TLCRole",
+      "href": "/ontology/role/is/forsaetisradherra",
+      "showAs": "Forsætisráðherra"
+    },
+    {
+      "eId": "radherra",
+      "class": "TLCRole",
+      "href": "/ontology/role/is/radherra",
+      "showAs": "Ráðherra"
+    },
+    {
+      "eId": "haestrettur",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/is/haestrettur",
+      "showAs": "Hæstiréttur Íslands"
+    },
+    {
+      "eId": "landsrettur",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/is/landsrettur",
+      "showAs": "Landsréttur"
+    },
+    {
+      "eId": "stjornartidindi",
+      "class": "TLCObject",
+      "href": "/ontology/obj/is/stjornartidindi",
+      "showAs": "Stjórnartíðindi"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

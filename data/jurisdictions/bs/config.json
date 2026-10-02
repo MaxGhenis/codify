@@ -1,0 +1,376 @@
+{
+  "code": "bs",
+  "name": "Bahamas",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "act": {
+      "label": "Act of Parliament",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "marker_form": "arabic_period"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "roman_lower_parenthesized"
+        }
+      ]
+    },
+    "si": {
+      "label": "Statutory Instrument",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Regulation (Order/Rule/Section/Paragraph)",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous",
+          "marker_form": "arabic_period"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "penal_code": {
+      "label": "Penal Code (colonial-era code structure)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Book",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_lower"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "bs",
+    "uri_patterns": {
+      "act": "/akn/bs/act/{year}/{number}",
+      "si": "/akn/bs/act/si/{year}/{number}",
+      "constitution": "/akn/bs/act/constitution/1973/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "No. {number} of {year}",
+    "act_citation_alt": "CH.{chapter}",
+    "insertion_style": "alphanumeric"
+  },
+  "enacting_formula_markers": [
+    "WHEREAS",
+    "NOW THEREFORE",
+    "BE IT ENACTED",
+    "Enacted by the Parliament",
+    "in exercise of the powers conferred",
+    "makes the following Order",
+    "makes the following Regulations",
+    "makes the following Rules"
+  ],
+  "attachments": [
+    {
+      "caption": "SCHEDULE",
+      "normative": true
+    }
+  ],
+  "amendments": {
+    "style": "textual_commonwealth",
+    "phrasing": "is amended by the deletion of... and the substitution of...",
+    "cross_reference_format": "short_title_with_no_and_year_or_chapter"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parliament",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/parliament",
+      "showAs": "Parliament of The Bahamas"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/senate",
+      "showAs": "Senate"
+    },
+    {
+      "eId": "houseOfAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/house-of-assembly",
+      "showAs": "House of Assembly"
+    },
+    {
+      "eId": "governorGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/governor-general",
+      "showAs": "Governor-General"
+    },
+    {
+      "eId": "monarch",
+      "class": "TLCRole",
+      "href": "/ontology/role/gb/monarch",
+      "showAs": "His Majesty the King"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "attorneyGeneral",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/attorney-general",
+      "showAs": "Attorney General"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/speaker",
+      "showAs": "Speaker"
+    },
+    {
+      "eId": "presidentOfSenate",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/president-of-senate",
+      "showAs": "President of the Senate"
+    },
+    {
+      "eId": "leaderOfOpposition",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/leader-of-opposition",
+      "showAs": "Leader of the Opposition"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "supremeCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/supreme-court",
+      "showAs": "Supreme Court"
+    },
+    {
+      "eId": "courtOfAppeal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/court-of-appeal",
+      "showAs": "Court of Appeal"
+    },
+    {
+      "eId": "privyCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gb/privy-council",
+      "showAs": "Judicial Committee of the Privy Council"
+    },
+    {
+      "eId": "cabinetOffice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/cabinet-office",
+      "showAs": "Cabinet Office"
+    },
+    {
+      "eId": "lawRevisionOfficer",
+      "class": "TLCRole",
+      "href": "/ontology/role/bs/law-revision-officer",
+      "showAs": "Law Revision Officer"
+    },
+    {
+      "eId": "lawReformCommission",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bs/law-reform-commission",
+      "showAs": "Law Reform Commission"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bs/official-gazette",
+      "showAs": "Official Gazette of The Bahamas"
+    },
+    {
+      "eId": "bahamas",
+      "class": "TLCLocation",
+      "href": "/ontology/place/bs",
+      "showAs": "The Bahamas"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "marker_boundary": "line_anchored",
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^(?!.*\\bAct\\b).*\\b(?:Order|Regulations?|Rules?)\\b",
+        "pattern_flags": "i",
+        "target_document_class": "si",
+        "priority": 50
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "\\bConstitution\\b",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 100
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Penal Code\\b",
+        "pattern_flags": "i",
+        "target_document_class": "penal_code",
+        "priority": 100
+      }
+    ]
+  },
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

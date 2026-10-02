@@ -1,0 +1,245 @@
+{
+  "code": "uz",
+  "name": "Uzbekistan",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "socialist"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "uzb",
+    "rus"
+  ],
+  "authoritative_language": "uzb",
+  "document_classes": {
+    "qonun": {
+      "label": "Law of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bo'lim",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Bob",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Qism",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_inline"
+        },
+        {
+          "local_term": "Band",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "kodeks": {
+      "label": "Code of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bo'lim",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Bob",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous_throughout_all_parts"
+        },
+        {
+          "local_term": "Qism",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_inline"
+        },
+        {
+          "local_term": "Band",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "farmon": {
+      "label": "Decree of the President of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Band"
+          }
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Uzbekistan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bo'lim",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Bob",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Modda",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "qonun",
+  "frbr": {
+    "country_code": "uz",
+    "uri_patterns": {
+      "qonun": "/akn/uz/act/{year}/{number}",
+      "farmon": "/akn/uz/act/decree/{year}/{number}",
+      "constitution": "/akn/uz/act/constitution/{year}/constitution"
+    },
+    "number_format": "LRU-sequential",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "O'RQ-{number}-son, {dd}.{mm}.{yyyy}",
+    "insertion_style": "dash_suffix",
+    "insertion_example": "48-1, 48-2 (Article 48-1 inserted after Article 48)"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "[Act citation]ning [N]-moddasiga quyidagi o'zgartishlar kiritilsin: [N]-moddaning [N]-qismi quyidagi tahrirda bayon etilsin: [new text]",
+    "cross_reference_format": "short_title_plus_ORQ_number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "oliyMajlis",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/oliy-majlis",
+      "showAs": "Oliy Majlis of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "legislativeChamber",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/legislative-chamber",
+      "showAs": "Legislative Chamber of the Oliy Majlis"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/senate",
+      "showAs": "Senate of the Oliy Majlis"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/uz/president",
+      "showAs": "President of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "ministryOfJustice",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/ministry-of-justice",
+      "showAs": "Ministry of Justice of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uz/constitutional-court",
+      "showAs": "Constitutional Court of the Republic of Uzbekistan"
+    },
+    {
+      "eId": "khalqSozi",
+      "class": "TLCObject",
+      "href": "/ontology/obj/uz/khalq-sozi",
+      "showAs": "Khalq so'zi"
+    },
+    {
+      "eId": "lexUz",
+      "class": "TLCObject",
+      "href": "/ontology/obj/uz/lex-uz",
+      "showAs": "National Legislation Database of Uzbekistan (lex.uz)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

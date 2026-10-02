@@ -1,0 +1,346 @@
+{
+  "code": "me",
+  "name": "Montenegro",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "cnr",
+    "srp",
+    "bos",
+    "sqi",
+    "hrv"
+  ],
+  "authoritative_language": "cnr",
+  "document_classes": {
+    "zakon": {
+      "label": "Zakon (Act/Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Deo",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Odjeljak",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tačka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Alineja",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "unnumbered"
+        }
+      ]
+    },
+    "uredba": {
+      "label": "Uredba (Government Decree/Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tačka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "pravilnik": {
+      "label": "Pravilnik (Regulation/Rulebook)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Glava",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Tačka",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "odluka": {
+      "label": "Odluka (Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "naredba": {
+      "label": "Naredba (Order)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Ustav Crne Gore (Constitution of Montenegro)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Dio",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Član",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Stav",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "zakon",
+  "frbr": {
+    "country_code": "me",
+    "uri_patterns": {
+      "constitution": "/akn/me/act/constitution/2007/ustav"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Sl. list CG, br. {issue}/{year-short}",
+    "act_citation_alt": "\"Sl. list CG\", br. {issue}/{year}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "Član 5a, Član 5b",
+    "article_numbering": "continuous_throughout_act"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_name_and_gazette_citation"
+  },
+  "core_tlcs": [
+    {
+      "eId": "skupstina",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/skupstina",
+      "showAs": "Skupština Crne Gore"
+    },
+    {
+      "eId": "predsjednikSkupstine",
+      "class": "TLCRole",
+      "href": "/ontology/role/me/predsjednik-skupstine",
+      "showAs": "Predsjednik Skupštine Crne Gore"
+    },
+    {
+      "eId": "predsjednikCrneGore",
+      "class": "TLCRole",
+      "href": "/ontology/role/me/predsjednik-crne-gore",
+      "showAs": "Predsjednik Crne Gore"
+    },
+    {
+      "eId": "vlada",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/vlada",
+      "showAs": "Vlada Crne Gore"
+    },
+    {
+      "eId": "ustavniSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/ustavni-sud",
+      "showAs": "Ustavni sud Crne Gore"
+    },
+    {
+      "eId": "vrhovniSud",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/me/vrhovni-sud",
+      "showAs": "Vrhovni sud Crne Gore"
+    },
+    {
+      "eId": "sluzbeniList",
+      "class": "TLCObject",
+      "href": "/ontology/obj/me/sluzbeni-list",
+      "showAs": "Službeni list Crne Gore"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {
+    "classification_rules": [
+      {
+        "signal": "title_regex",
+        "pattern": "^Zakon\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "zakon",
+        "priority": 60
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Uredba\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "uredba",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Pravilnik\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "pravilnik",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "^Odluka\\s+o\\s+",
+        "pattern_flags": "i",
+        "target_document_class": "odluka",
+        "priority": 70
+      },
+      {
+        "signal": "title_regex",
+        "pattern": "Ustav\\s+Crne\\s+Gore",
+        "pattern_flags": "i",
+        "target_document_class": "constitution",
+        "priority": 100
+      }
+    ]
+  },
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

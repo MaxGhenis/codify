@@ -3,9 +3,14 @@
   "name": "Finland",
   "name_local": "Suomi / Finland",
   "type": "national",
-  "tradition": ["civil_law"],
+  "tradition": [
+    "civil_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["fin", "swe"],
+  "languages": [
+    "fin",
+    "swe"
+  ],
   "authoritative_language": null,
   "document_classes": {
     "act": {
@@ -15,61 +20,67 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Osa / Del",
-          "local_term_fi": "Osa",
-          "local_term_sv": "Del",
+          "local_term": "Osa",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "arabic",
-          "note": "Rare; used only in largest codes such as the Criminal Code"
+          "note": "Rare; used only in largest codes such as the Criminal Code",
+          "local_terms": {
+            "alt1": "Del"
+          }
         },
         {
-          "local_term": "Luku / Kapitel",
-          "local_term_fi": "Luku",
-          "local_term_sv": "Kapitel",
+          "local_term": "Luku",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Kapitel"
+          }
         },
         {
-          "local_term": "§ / Pykälä / Paragraf",
-          "local_term_fi": "Pykälä",
-          "local_term_sv": "Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous",
-          "symbol": "§"
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
-          "local_term_fi": "Momentti",
-          "local_term_sv": "Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         },
         {
-          "local_term": "Kohta / Punkt",
-          "local_term_fi": "Kohta",
-          "local_term_sv": "Punkt",
+          "local_term": "Kohta",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_closing_paren_or_alpha_closing_paren",
-          "note": "May be numeric (1), 2)) or alphabetic (a), b)) — detect per document. See unresolved ambiguity #1."
+          "note": "May be numeric (1), 2)) or alphabetic (a), b)) — detect per document. See unresolved ambiguity #1.",
+          "local_terms": {
+            "alt1": "Punkt"
+          }
         },
         {
-          "local_term": "Alakohta / Underpunkt",
-          "local_term_fi": "Alakohta",
-          "local_term_sv": "Underpunkt",
+          "local_term": "Alakohta",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "alpha_closing_paren"
+          "numbering": "alpha_closing_paren",
+          "local_terms": {
+            "alt1": "Underpunkt"
+          }
         }
       ],
       "hcontainers": []
@@ -81,41 +92,45 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Luku / Kapitel",
-          "local_term_fi": "Luku",
-          "local_term_sv": "Kapitel",
+          "local_term": "Luku",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Kapitel"
+          }
         },
         {
-          "local_term": "§ / Pykälä / Paragraf",
-          "local_term_fi": "Pykälä",
-          "local_term_sv": "Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous",
-          "symbol": "§"
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
-          "local_term_fi": "Momentti",
-          "local_term_sv": "Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         },
         {
-          "local_term": "Kohta / Punkt",
-          "local_term_fi": "Kohta",
-          "local_term_sv": "Punkt",
+          "local_term": "Kohta",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_closing_paren_or_alpha_closing_paren"
+          "numbering": "arabic_closing_paren_or_alpha_closing_paren",
+          "local_terms": {
+            "alt1": "Punkt"
+          }
         }
       ],
       "hcontainers": [],
@@ -128,23 +143,25 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "§ / Pykälä / Paragraf",
-          "local_term_fi": "Pykälä",
-          "local_term_sv": "Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous",
-          "symbol": "§"
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
-          "local_term_fi": "Momentti",
-          "local_term_sv": "Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         }
       ],
       "hcontainers": [],
@@ -157,32 +174,35 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Luku / Kapitel",
-          "local_term_fi": "Luku",
-          "local_term_sv": "Kapitel",
+          "local_term": "Luku",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Kapitel"
+          }
         },
         {
-          "local_term": "§ / Pykälä / Paragraf",
-          "local_term_fi": "Pykälä",
-          "local_term_sv": "Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous",
-          "symbol": "§"
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
-          "local_term_fi": "Momentti",
-          "local_term_sv": "Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         }
       ],
       "hcontainers": [],
@@ -196,24 +216,23 @@
       "hierarchy": [
         {
           "local_term": "Kapitel",
-          "local_term_sv": "Kapitel",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "§ / Paragraf",
-          "local_term_sv": "Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous",
-          "symbol": "§"
+          "local_terms": {
+            "alt1": "Paragraf"
+          }
         },
         {
           "local_term": "Moment",
-          "local_term_sv": "Moment",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
@@ -231,7 +250,6 @@
       "act": "/akn/fi/act/{year}/{number}",
       "vna": "/akn/fi/act/vna/{year}/{number}",
       "tpa": "/akn/fi/act/tpa/{year}/{number}",
-      "bill": "/akn/fi/bill/{year}/{number}",
       "constitution": "/akn/fi/act/constitution/1999/731",
       "ax_act": "/akn/fi-ax/act/{year}/{number}"
     },
@@ -241,51 +259,28 @@
   },
   "numbering": {
     "act_citation": "{number}/{year}",
-    "act_citation_example": "731/1999",
-    "section_symbol": "§",
-    "section_citation": "{number} §",
-    "section_citation_example": "5 §",
     "insertion_style": "alphanumeric_spaced",
-    "insertion_example": "5 a §",
-    "insertion_eid": "sec_5a",
-    "chapter_citation": "{number} luku",
-    "chapter_insertion_example": "1 a luku",
-    "chapter_insertion_eid": "chap_1a"
+    "insertion_example": "5 a §"
   },
   "enacting_formulae": [
     {
       "text": "Eduskunnan päätöksen mukaisesti säädetään:",
       "language": "fin",
-      "translation": "In accordance with the decision of the Parliament, it is enacted:",
       "position": "preamble",
-      "instrument_type": "act",
-      "era": "current"
-    },
-    {
-      "text": "I enlighet med riksdagens beslut föreskrivs:",
-      "language": "swe",
-      "translation": "In accordance with the decision of the Parliament, it is enacted:",
-      "position": "preamble",
-      "instrument_type": "act",
+      "document_class": "act",
       "era": "current"
     },
     {
       "text": "Valtioneuvoston päätöksen mukaisesti, joka on tehty oikeusministeriön esittelystä, säädetään:",
       "language": "fin",
-      "translation": "By decision of the Government, upon presentation by the Ministry of Justice, it is provided:",
       "position": "preamble",
-      "instrument_type": "vna",
+      "document_class": "vna",
       "era": "current"
     }
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "phrasing_fi": "muutetaan ... seuraavasti",
-    "phrasing_sv": "ändras ... som följer",
-    "addition_phrasing_fi": "lisätään ... uusi ... seuraavasti",
-    "repeal_phrasing_fi": "kumotaan",
-    "cross_reference_format": "number_slash_year",
-    "cross_reference_example": "sairausvakuutuslakia (1224/2004)"
+    "cross_reference_format": "number_slash_year"
   },
   "core_tlcs": [
     {
@@ -332,28 +327,8 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Finland uses CHAPTER (luku) as the primary higher division, not PART. The basic unit is § (pykälä), rendered as SECTION. Many short acts have no chapter divisions at all — do not force a chapter wrapper. The enacting formula in Finnish is 'Eduskunnan päätöksen mukaisesti säädetään:' and in Swedish 'I enlighet med riksdagens beslut föreskrivs:'. Sections are numbered N § (number before symbol). Subsections (momentti) are numbered (1), (2), (3). Points (kohta) within subsections may be numbered 1), 2), 3) or a), b), c) — detect from context. Inserted sections use alphanumeric suffixing with a space: '5 a §' — normalise to SECTION 5a in Bluebell."
   },
-  "bilingual": {
-    "model": "parallel_originals",
-    "languages": ["fin", "swe"],
-    "note": "Finnish and Swedish versions are equally authoritative originals, not translations. Model as separate FRBR expressions of the same work. Use FRBRtranslation only for unofficial English translations.",
-    "unofficial_translations": ["eng"],
-    "unofficial_translation_note": "English translations on Finlex are unofficial and not legally authoritative."
-  },
-  "sub_jurisdictions": [
-    {
-      "code": "fi-ax",
-      "name": "Åland Islands",
-      "name_local": "Åland / Ahvenanmaa",
-      "type": "autonomous_region",
-      "legislature": "Lagting (Ålands lagting)",
-      "gazette": "Ålands författningssamling (ÅFS)",
-      "language": ["swe"],
-      "note": "Constitutionally autonomous; own legislature and gazette. ISO 3166-1 alpha-2 for Åland: AX. See unresolved ambiguity #6 — consider whether to model as 'ax' rather than 'fi-ax'."
-    }
-  ],
   "supranational_memberships": [
     {
       "body": "eu",
@@ -365,8 +340,7 @@
         "data_protection_gdpr",
         "customs",
         "financial_services"
-      ],
-      "profile_ref": "/akn/eu/"
+      ]
     },
     {
       "body": "council-of-europe",
@@ -396,11 +370,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "section_symbol": "§",
-    "citation_format": "{number} §",
-    "chapter_label_fi": "luku",
-    "chapter_label_sv": "kapitel"
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

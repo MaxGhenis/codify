@@ -2,15 +2,18 @@
   "code": "ie",
   "name": "Ireland",
   "type": "national",
-  "tradition": ["common_law"],
+  "tradition": [
+    "common_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["eng", "gle"],
+  "languages": [
+    "eng",
+    "gle"
+  ],
   "authoritative_language": "eng",
-  "language_note": "Irish (Gaeilge) is the first official language under Article 8 of Bunreacht na hÉireann, but English is the dominant language of enacted legislation. Under the Official Languages Act 2003 (as amended 2021), an official Irish translation must be published simultaneously with each Act. The Irish text is not a parallel co-equal original (unlike Macau) — English is the drafting language. For FRBR purposes, the English expression is primary; the Irish version is modelled as a translation expression using ISO 639-3 code 'gle'.",
   "document_classes": {
     "act": {
       "label": "Act of the Oireachtas",
-      "label_irish": "Acht den Oireachtas",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
@@ -71,7 +74,6 @@
     },
     "si": {
       "label": "Statutory Instrument",
-      "label_irish": "Ionstraim Reachtúil",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
@@ -111,7 +113,6 @@
     },
     "constitution": {
       "label": "Constitution of Ireland",
-      "label_irish": "Bunreacht na hÉireann",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
@@ -143,25 +144,13 @@
     "uri_patterns": {
       "act": "/akn/ie/act/{year}/{number}",
       "si": "/akn/ie/act/si/{year}/{number}",
-      "bill": "/akn/ie/bill/{year}/{number}",
-      "constitution": "/akn/ie/act/constitution/1937/bunreacht-na-heireann",
-      "pre_1922": "/akn/ie/act/{year}/{number}"
+      "constitution": "/akn/ie/act/constitution/1937/bunreacht-na-heireann"
     },
-    "date_calendar": "gregorian",
-    "act_number_note": "Acts of the Oireachtas are numbered sequentially within each calendar year: Number 1 of 2024, Number 2 of 2024, etc. The {number} segment uses the sequential number as an integer. ELI URI on irishstatutebook.ie uses the same year/number pattern: /eli/{year}/act/{number}/enacted/{lang}.",
-    "pre_1922_note": "Pre-1922 Acts still in force (those retained by the Statute Law Revision Act 2007) are filed under their original year and number on irishstatutebook.ie. FRBR URIs for these use the ie country code as they form part of the current Irish legal corpus, with metadata indicating the original enacting authority (UK Parliament, Parliament of Ireland, etc.)."
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "Number {number} of {year}",
     "act_citation_alt": "{Short Title} {year}",
-    "act_citation_note": "Acts are formally identified as 'Number N of YYYY' but universally cited by short title and year, e.g., 'Companies Act 2014'. The short title is assigned by section 1 of the Act itself.",
-    "si_citation": "S.I. No. {number} of {year}",
-    "si_citation_alt": "S.I. No. {number}/{year}",
-    "section_numbering": "arabic_continuous",
-    "section_numbering_note": "Sections are numbered continuously throughout the Act with Arabic numerals, not restarting per Part or Chapter. Section 1 = short title and commencement; Section 2 = interpretation (in most modern Acts).",
-    "subsection_numbering": "arabic_parenthesized",
-    "paragraph_numbering": "alpha_lower_parenthesized",
-    "subparagraph_numbering": "roman_lower_parenthesized",
     "insertion_style": "alphanumeric",
     "insertion_note": "Inserted sections use alphanumeric suffixes: 12A, 12B, 12C. Full renumbering does not occur on amendment — the Law Reform Commission produces Revised Acts (via revisedacts.lawreform.ie) preserving original numbering with F-note annotations."
   },
@@ -171,32 +160,22 @@
       "position": "preamble",
       "era": "current",
       "from": "1937-01-01",
+      "document_class": "act",
       "note": "Standard formula for Acts without a preamble. The em-dash after the colon is part of the formula."
-    },
-    {
-      "text": "Be it therefore enacted by the Oireachtas as follows:—",
-      "position": "preamble",
-      "era": "current",
-      "from": "1937-01-01",
-      "note": "Formula for Acts that have a preamble ('therefore' links to the whereas clauses)."
     },
     {
       "text": "The Minister for [Portfolio], in exercise of the powers conferred on [him/her/them] by [section N] of the [Parent Act], [year], hereby makes the following [Regulations/Orders]:",
       "position": "preamble",
       "era": "current",
       "from": "1948-01-01",
-      "instrument_type": "si",
+      "document_class": "si",
       "note": "Enabling recital used in Statutory Instruments. Gender-neutral 'them' increasingly used."
     }
   ],
   "amendments": {
     "style": "textual_commonwealth",
     "phrasing": "is amended by substituting... / is amended by inserting... / is amended by deleting...",
-    "amendment_act_title": "Amendment Acts use short title pattern: '[Parent Act Title] (Amendment) Act {year}'",
-    "cross_reference_format": "short_title_year",
-    "cross_reference_example": "the Companies Act 2014",
-    "revised_acts_note": "The Law Reform Commission publishes Revised Acts at revisedacts.lawreform.ie showing current consolidated text with F-note (amendment), C-note (commencement), and E-note (editorial) annotations. These are not officially enacted consolidations — the enacted texts remain authoritative.",
-    "consolidation_note": "Ireland does not regularly consolidate legislation by re-enactment. Revised Acts are unofficial editorial consolidations. Original Act numbers and section numbers are preserved; inserted provisions use alphanumeric insertion."
+    "cross_reference_format": "short_title_year"
   },
   "core_tlcs": [
     {
@@ -249,7 +228,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Ireland uses PART > CHAPTER (optional) > SECTION as hierarchy. SECTION is the basic unit. Sections numbered continuously throughout Act (do not restart per Part). Section 1 = short title, Section 2 = interpretation in most modern Acts. Subsections use (1), (2) Arabic; paragraphs use (a), (b) lowercase; subparagraphs use (i), (ii) Roman. Provisos beginning 'Provided that' map to SUBSECTION as proxy (requires post-processing to hcontainer). Constitutional Articles map to SECTION; constitutional subsections use degree notation (1°, 2°) which should be normalised to (1), (2) for Bluebell."
   },
   "supranational_memberships": [
@@ -257,13 +235,20 @@
       "body": "eu",
       "member_since": "1973-01-01",
       "direct_effect": "direct",
-      "direct_effect_instruments": ["regulations", "decisions"],
-      "transposition_required": ["directives"],
+      "direct_effect_instruments": [
+        "regulations",
+        "decisions"
+      ],
+      "transposition_required": [
+        "directives"
+      ],
       "superseded_subjects": [],
-      "profile_reference": "/akn/eu",
       "note": "Ireland is an EU member since 1973 with two structured carve-outs: (1) Schengen — Ireland does not participate in the Schengen Area, maintaining instead the Common Travel Area with the UK (Protocol 20 TFEU). (2) Area of Freedom, Security and Justice — Protocol 21 TFEU gives Ireland an opt-in mechanism: measures do not automatically apply, but Ireland can choose to opt in on a case-by-case basis (and has done so for most). This is a subject-matter carve-out structurally, even though in practice Ireland opts in to most measures.",
       "status": "member",
-      "excluded_subjects": ["schengen", "afsj_default"],
+      "excluded_subjects": [
+        "schengen",
+        "afsj_default"
+      ],
       "protocol_references": [
         "Protocol 19 TFEU (Schengen acquis integrated into EU framework)",
         "Protocol 20 TFEU (UK/Ireland on border controls)",
@@ -275,7 +260,9 @@
       "member_since": "1949-08-05",
       "direct_effect": "none",
       "direct_effect_instruments": [],
-      "transposition_required": ["echr"],
+      "transposition_required": [
+        "echr"
+      ],
       "superseded_subjects": [],
       "note": "ECHR incorporated at sub-constitutional level by European Convention on Human Rights Act 2003. Courts may declare legislation 'incompatible' but cannot strike it down. Constitution retains primacy."
     },
@@ -294,8 +281,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "special_chars_note": "Irish (Gaeilge) uses fada (acute accent) over vowels: á, é, í, ó, ú (and capitals Á, É, Í, Ó, Ú). Official Irish-language titles must preserve fada. No other non-ASCII characters in standard legislative text."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

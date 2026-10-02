@@ -1,0 +1,345 @@
+{
+  "code": "pe",
+  "name": "Peru",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa",
+    "que",
+    "aym"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "ley_organica": {
+      "label": "Ley Orgánica",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "decreto_legislativo": {
+      "label": "Decreto Legislativo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "decreto_supremo": {
+      "label": "Decreto Supremo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "constitucion": {
+      "label": "Constitución Política",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "pe",
+    "uri_patterns": {
+      "ley": "/akn/pe/act/{year}/{number}",
+      "ley_organica": "/akn/pe/act/{year}/{number}",
+      "decreto_legislativo": "/akn/pe/act/dl/{year}/{number}",
+      "constitucion": "/akn/pe/act/constitution/1993/constitucion"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "alphanumeric_hyphen",
+    "insertion_example": "Artículo 5-A, Artículo 5-B"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_type_and_number_and_article"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/congreso",
+      "showAs": "Congreso de la República del Perú"
+    },
+    {
+      "eId": "camara-diputados",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/camara-diputados",
+      "showAs": "Cámara de Diputados"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/senado",
+      "showAs": "Senado de la República"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/pe/presidente",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "premier",
+      "class": "TLCRole",
+      "href": "/ontology/role/pe/premier",
+      "showAs": "Presidente del Consejo de Ministros"
+    },
+    {
+      "eId": "consejo-ministros",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/consejo-ministros",
+      "showAs": "Consejo de Ministros"
+    },
+    {
+      "eId": "tribunal-constitucional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/tribunal-constitucional",
+      "showAs": "Tribunal Constitucional del Perú"
+    },
+    {
+      "eId": "minjus",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pe/minjus",
+      "showAs": "Ministerio de Justicia y Derechos Humanos"
+    },
+    {
+      "eId": "el-peruano",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pe/el-peruano",
+      "showAs": "Diario Oficial El Peruano"
+    },
+    {
+      "eId": "spij",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pe/spij",
+      "showAs": "Sistema Peruano de Información Jurídica"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

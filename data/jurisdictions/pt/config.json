@@ -1,0 +1,384 @@
+{
+  "code": "pt",
+  "name": "Portugal",
+  "name_local": "República Portuguesa",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "por"
+  ],
+  "authoritative_language": "por",
+  "document_classes": {
+    "lei": {
+      "label": "Lei (Act of the Assembleia da República)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Subsecção",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo N.º",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "n.º",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
+        },
+        {
+          "local_term": "Alínea a)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Subalínea i)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "roman_lower_closing_paren"
+        }
+      ]
+    },
+    "dl": {
+      "label": "Decreto-Lei (Decree-Law of the Government)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo N.º",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "n.º",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
+        },
+        {
+          "local_term": "Alínea a)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        },
+        {
+          "local_term": "Subalínea i)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "roman_lower_closing_paren"
+        }
+      ]
+    },
+    "lo": {
+      "label": "Lei Orgânica (Organic Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo N.º",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "n.º",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
+        },
+        {
+          "local_term": "Alínea a)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "portaria": {
+      "label": "Portaria (Ordinance — ministerial regulatory act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artigo N.º",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "n.º",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
+        },
+        {
+          "local_term": "Alínea a)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constituição da República Portuguesa",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo N.º",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "n.º",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_full_stop",
+          "local_terms": {
+            "alt1": "Número"
+          }
+        },
+        {
+          "local_term": "Alínea a)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    }
+  },
+  "default_document_class": "lei",
+  "frbr": {
+    "country_code": "pt",
+    "uri_patterns": {
+      "lei": "/akn/pt/act/{year}/{number}",
+      "dl": "/akn/pt/act/dl/{year}/{number}",
+      "lo": "/akn/pt/act/lo/{year}/{number}",
+      "portaria": "/akn/pt/act/portaria/{year}/{number}",
+      "constitution": "/akn/pt/act/constitution/1976/crp"
+    },
+    "number_format": "sequential_within_year",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lei n.º {number}/{year}",
+    "insertion_style": "dash_alpha",
+    "insertion_example": "Artigo 5.º-A"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "full_citation_with_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "assembleia",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pt/assembleia",
+      "showAs": "Assembleia da República"
+    },
+    {
+      "eId": "governo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pt/governo",
+      "showAs": "Governo"
+    },
+    {
+      "eId": "conselhoMinistros",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pt/conselho-ministros",
+      "showAs": "Conselho de Ministros"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/pt/presidente",
+      "showAs": "Presidente da República"
+    },
+    {
+      "eId": "primeirMinistro",
+      "class": "TLCRole",
+      "href": "/ontology/role/pt/primeiro-ministro",
+      "showAs": "Primeiro-Ministro"
+    },
+    {
+      "eId": "ministro",
+      "class": "TLCRole",
+      "href": "/ontology/role/pt/ministro",
+      "showAs": "Ministro"
+    },
+    {
+      "eId": "tribunalConstitucional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/pt/tribunal-constitucional",
+      "showAs": "Tribunal Constitucional"
+    },
+    {
+      "eId": "diarioRepublica",
+      "class": "TLCObject",
+      "href": "/ontology/obj/pt/diario-republica",
+      "showAs": "Diário da República"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

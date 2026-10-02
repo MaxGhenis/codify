@@ -1,0 +1,417 @@
+{
+  "code": "ch",
+  "name": "Switzerland",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "deu",
+    "fra",
+    "ita",
+    "roh"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "bundesgesetz": {
+      "label": "Bundesgesetz / Loi fédérale / Legge federale (Federal Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Teil",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Partie",
+            "alt2": "Parte"
+          }
+        },
+        {
+          "local_term": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Titre",
+            "alt2": "Titolo"
+          }
+        },
+        {
+          "local_term": "Kapitel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
+        },
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section",
+            "alt2": "Sezione"
+          }
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
+        },
+        {
+          "local_term": "Buchstabe",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period",
+          "local_terms": {
+            "alt1": "Lettre",
+            "alt2": "Lettera",
+            "alt3": "Ziffer",
+            "alt4": "Chiffre",
+            "alt5": "Cifra"
+          }
+        }
+      ]
+    },
+    "bundesverfassung": {
+      "label": "Bundesverfassung / Constitution fédérale / Costituzione federale (SR 101)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Titre",
+            "alt2": "Titolo"
+          }
+        },
+        {
+          "local_term": "Kapitel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
+        },
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section",
+            "alt2": "Sezione"
+          }
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
+        },
+        {
+          "local_term": "Buchstabe",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period",
+          "local_terms": {
+            "alt1": "Lettre",
+            "alt2": "Lettera"
+          }
+        }
+      ]
+    },
+    "verordnung": {
+      "label": "Verordnung / Ordonnance / Ordinanza (Ordinance)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Kapitel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
+        },
+        {
+          "local_term": "Abschnitt",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section",
+            "alt2": "Sezione"
+          }
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
+        },
+        {
+          "local_term": "Buchstabe",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_period",
+          "local_terms": {
+            "alt1": "Lettre",
+            "alt2": "Lettera"
+          }
+        }
+      ]
+    },
+    "bundesbeschluss": {
+      "label": "Bundesbeschluss / Arrêté fédéral / Decreto federale (Federal Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
+        }
+      ]
+    },
+    "staatsvertrag": {
+      "label": "Staatsvertrag / Traité international / Trattato internazionale (International Treaty)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Teil",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Partie",
+            "alt2": "Parte"
+          }
+        },
+        {
+          "local_term": "Kapitel",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
+        },
+        {
+          "local_term": "Absatz",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "bundesgesetz",
+  "frbr": {
+    "country_code": "ch",
+    "uri_patterns": {
+      "bundesverfassung": "/akn/ch/act/101"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "SR {sr_number}",
+    "insertion_style": "arabic_suffix",
+    "insertion_example": "Art. 10a (inserted by amendment act)"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "... wird wie folgt geaendert / ... est modifié(e) comme suit / ... è modificato come segue",
+    "cross_reference_format": "sr_number_and_abbreviation"
+  },
+  "core_tlcs": [
+    {
+      "eId": "bundesversammlung",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesversammlung",
+      "showAs": "Bundesversammlung / Assemblée fédérale / Assemblea federale"
+    },
+    {
+      "eId": "nationalrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/nationalrat",
+      "showAs": "Nationalrat / Conseil national / Consiglio nazionale"
+    },
+    {
+      "eId": "staenderat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/staenderat",
+      "showAs": "Ständerat / Conseil des États / Consiglio degli Stati"
+    },
+    {
+      "eId": "bundesrat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesrat",
+      "showAs": "Bundesrat / Conseil fédéral / Consiglio federale"
+    },
+    {
+      "eId": "bundesgericht",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesgericht",
+      "showAs": "Bundesgericht / Tribunal fédéral / Tribunale federale"
+    },
+    {
+      "eId": "bundesverwaltungsgericht",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/bundesverwaltungsgericht",
+      "showAs": "Bundesverwaltungsgericht / Tribunal administratif fédéral / Tribunale amministrativo federale"
+    },
+    {
+      "eId": "fedlex",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ch/fedlex",
+      "showAs": "Fedlex — fedlex.admin.ch"
+    },
+    {
+      "eId": "schweizerischeEidgenossenschaft",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ch/eidgenossenschaft",
+      "showAs": "Schweizerische Eidgenossenschaft / Confédération suisse / Confederazione Svizzera"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 1,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,467 @@
+{
+  "code": "us",
+  "name": "United States",
+  "type": "national",
+  "tradition": [
+    "common_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "eng"
+  ],
+  "authoritative_language": "eng",
+  "document_classes": {
+    "public_law": {
+      "label": "Public Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "akn_name": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subtitle",
+          "akn_element": "subtitle",
+          "akn_name": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subpart",
+          "akn_element": "subpart",
+          "akn_name": "subpart",
+          "level": "higher",
+          "bluebell_keyword": "SUBPART",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_upper_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_upper_parenthesized"
+        }
+      ]
+    },
+    "usc_title": {
+      "label": "United States Code Title",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Subtitle",
+          "akn_element": "subtitle",
+          "akn_name": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subchapter",
+          "akn_element": "subchapter",
+          "akn_name": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subpart",
+          "akn_element": "subpart",
+          "akn_name": "subpart",
+          "level": "higher",
+          "bluebell_keyword": "SUBPART",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous_with_alpha_suffix"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_upper_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_upper_parenthesized"
+        }
+      ]
+    },
+    "cfr_title": {
+      "label": "Code of Federal Regulations Title",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Subchapter",
+          "akn_element": "subchapter",
+          "akn_name": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subpart",
+          "akn_element": "subpart",
+          "akn_name": "subpart",
+          "level": "higher",
+          "bluebell_keyword": "SUBPART",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "part_dot_sequential"
+        }
+      ]
+    },
+    "bill": {
+      "label": "Bill",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Division",
+          "akn_element": "division",
+          "akn_name": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Title",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Subtitle",
+          "akn_element": "subtitle",
+          "akn_name": "subtitle",
+          "level": "higher",
+          "bluebell_keyword": "SUBTITLE",
+          "numbering": "alpha_upper"
+        },
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Chapter",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Paragraph",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Subparagraph",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_upper_parenthesized"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "roman_lower_parenthesized"
+        },
+        {
+          "local_term": "Subclause",
+          "akn_element": "subclause",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBCLAUSE",
+          "numbering": "roman_upper_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the United States",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "higher",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Clause",
+          "akn_element": "clause",
+          "level": "subdivision",
+          "bluebell_keyword": "CLAUSE",
+          "numbering": "arabic"
+        }
+      ]
+    },
+    "executive_order": {
+      "label": "Executive Order",
+      "akn_element": "doc",
+      "bluebell_compatible": false,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "public_law",
+  "frbr": {
+    "country_code": "us",
+    "uri_patterns": {
+      "constitution": "/akn/us/act/constitution/1788/constitution",
+      "executive_order": "/akn/us/doc/executive-order/{year}/{number}"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Pub.L. {congress}-{number}",
+    "act_citation_alt": "{volume} Stat. {page}",
+    "insertion_style": "alphanumeric"
+  },
+  "amendments": {
+    "style": "textual_us",
+    "phrasing": "is amended by striking... and inserting... / by adding at the end the following",
+    "cross_reference_format": "short_title_and_usc"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congress",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/us/congress",
+      "showAs": "United States Congress"
+    },
+    {
+      "eId": "senate",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/us/senate",
+      "showAs": "United States Senate"
+    },
+    {
+      "eId": "houseOfRepresentatives",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/us/house-of-representatives",
+      "showAs": "House of Representatives"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/us/president",
+      "showAs": "President of the United States"
+    },
+    {
+      "eId": "speakerOfHouse",
+      "class": "TLCRole",
+      "href": "/ontology/role/us/speaker-of-the-house",
+      "showAs": "Speaker of the House"
+    },
+    {
+      "eId": "federalRegister",
+      "class": "TLCObject",
+      "href": "/ontology/obj/us/federal-register",
+      "showAs": "Federal Register"
+    },
+    {
+      "eId": "statutesAtLarge",
+      "class": "TLCObject",
+      "href": "/ontology/obj/us/statutes-at-large",
+      "showAs": "United States Statutes at Large"
+    },
+    {
+      "eId": "unitedStatesCode",
+      "class": "TLCObject",
+      "href": "/ontology/obj/us/united-states-code",
+      "showAs": "United States Code"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

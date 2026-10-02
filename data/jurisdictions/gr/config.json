@@ -1,0 +1,370 @@
+{
+  "code": "gr",
+  "name": "Greece",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ell"
+  ],
+  "authoritative_language": "ell",
+  "document_classes": {
+    "nomos": {
+      "label": "Nomos (Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Βιβλίο",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "greek_ordinal_to_arabic"
+        },
+        {
+          "local_term": "Μέρος",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "greek_ordinal_word"
+        },
+        {
+          "local_term": "Κεφάλαιο",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "greek_capital_letter"
+        },
+        {
+          "local_term": "Τμήμα",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "greek_capital_letter"
+        },
+        {
+          "local_term": "Άρθρο",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Εδάφιο",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "greek_lower_letter",
+          "local_terms": {
+            "alt1": "Περίπτωση"
+          }
+        },
+        {
+          "local_term": "Σημείο",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_or_double_greek"
+        }
+      ]
+    },
+    "presidential_decree": {
+      "label": "Προεδρικό Διάταγμα (Presidential Decree)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Κεφάλαιο",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "greek_capital_letter"
+        },
+        {
+          "local_term": "Άρθρο",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Εδάφιο",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "greek_lower_letter",
+          "local_terms": {
+            "alt1": "Περίπτωση"
+          }
+        }
+      ]
+    },
+    "ministerial_decision": {
+      "label": "Υπουργική Απόφαση / Κοινή Υπουργική Απόφαση (Ministerial / Joint Ministerial Decision)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Άρθρο",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Σύνταγμα (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Μέρος",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Άρθρο",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ]
+    },
+    "code": {
+      "label": "Κώδικας (Code — Civil, Penal, Civil Procedure, etc.)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Βιβλίο",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Κεφάλαιο",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_or_greek_letter"
+        },
+        {
+          "local_term": "Άρθρο",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_or_arabic"
+        },
+        {
+          "local_term": "Εδάφιο",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "arabic"
+        }
+      ]
+    },
+    "bill": {
+      "label": "Σχέδιο Νόμου (Bill)",
+      "akn_element": "bill",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Κεφάλαιο",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "greek_capital_letter"
+        },
+        {
+          "local_term": "Άρθρο",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Παράγραφος",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Εδάφιο",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "greek_lower_letter"
+        }
+      ]
+    }
+  },
+  "default_document_class": "nomos",
+  "frbr": {
+    "country_code": "gr",
+    "uri_patterns": {
+      "nomos": "/akn/gr/act/{year}/{number}",
+      "presidential_decree": "/akn/gr/act/pd/{year}/{number}",
+      "constitution": "/akn/gr/act/constitution/1975/syntagma"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Ν. {number}/{year}",
+    "act_citation_alt": "νόμος {number}/{year}",
+    "insertion_style": "greek_letter_suffix",
+    "insertion_example": "Άρθρο 5Α, Άρθρο 5Β"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "η παράγραφος X του άρθρου Y αντικαθίσταται ως εξής: «...»",
+    "cross_reference_format": "ν. {number}/{year}"
+  },
+  "core_tlcs": [
+    {
+      "eId": "vouli",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/vouli",
+      "showAs": "Βουλή των Ελλήνων"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/president",
+      "showAs": "Πρόεδρος της Δημοκρατίας"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/prime-minister",
+      "showAs": "Πρωθυπουργός"
+    },
+    {
+      "eId": "ministerOfJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/minister-of-justice",
+      "showAs": "Υπουργός Δικαιοσύνης"
+    },
+    {
+      "eId": "ministerialCouncil",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/ministerial-council",
+      "showAs": "Υπουργικό Συμβούλιο"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/gr/minister",
+      "showAs": "Υπουργός"
+    },
+    {
+      "eId": "stE",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/council-of-state",
+      "showAs": "Συμβούλιο της Επικρατείας"
+    },
+    {
+      "eId": "areosPagos",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/areos-pagos",
+      "showAs": "Άρειος Πάγος"
+    },
+    {
+      "eId": "elegktiko",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/elegktiko-synedrio",
+      "showAs": "Ελεγκτικό Συνέδριο"
+    },
+    {
+      "eId": "ethnTyp",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/gr/ethniko-typografeio",
+      "showAs": "Εθνικό Τυπογραφείο"
+    },
+    {
+      "eId": "fek",
+      "class": "TLCObject",
+      "href": "/ontology/obj/gr/fek",
+      "showAs": "Εφημερίδα της Κυβερνήσεως (ΦΕΚ)"
+    },
+    {
+      "eId": "greece",
+      "class": "TLCLocation",
+      "href": "/ontology/place/gr",
+      "showAs": "Ελληνική Δημοκρατία"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "article_rubric",
+    "heading_case": "mixed",
+    "script": "greek",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

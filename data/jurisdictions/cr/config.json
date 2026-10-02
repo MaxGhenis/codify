@@ -1,0 +1,205 @@
+{
+  "code": "cr",
+  "name": "Costa Rica",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_es"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "alpha_lower_closing_paren_or_arabic_closing_paren"
+        },
+        {
+          "local_term": "Párrafo",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "unnumbered"
+        }
+      ]
+    },
+    "decreto_ejecutivo": {
+      "label": "Decreto Ejecutivo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_closing_paren"
+        }
+      ]
+    },
+    "constitucion": {
+      "label": "Constitución Política",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "cr",
+    "uri_patterns": {
+      "ley": "/akn/cr/act/{year}/{number}",
+      "decreto_ejecutivo": "/akn/cr/act/decreto/{year}/{number}",
+      "constitucion": "/akn/cr/act/constitution/1949/constitucion"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Ley N.° {number}",
+    "act_citation_alt": "Ley N.° {number}, de {date}",
+    "insertion_style": "bis_ter"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "ley_number_and_name"
+  },
+  "core_tlcs": [
+    {
+      "eId": "asambleaLegislativa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cr/asamblea-legislativa",
+      "showAs": "Asamblea Legislativa"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/cr/presidente",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "procuraduria",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cr/procuraduria-general",
+      "showAs": "Procuraduría General de la República"
+    },
+    {
+      "eId": "salaConstitucional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cr/sala-constitucional",
+      "showAs": "Sala Constitucional"
+    },
+    {
+      "eId": "laGaceta",
+      "class": "TLCObject",
+      "href": "/ontology/obj/cr/la-gaceta",
+      "showAs": "Diario Oficial La Gaceta"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

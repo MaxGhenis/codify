@@ -1,0 +1,307 @@
+{
+  "code": "br",
+  "name": "Brazil",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "por"
+  ],
+  "authoritative_language": "por",
+  "document_classes": {
+    "act": {
+      "label": "Lei Ordinária",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "named"
+        },
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Subseção",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Alínea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "lc": {
+      "label": "Lei Complementar",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Alínea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    },
+    "mp": {
+      "label": "Medida Provisória",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constituição Federal",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Seção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Subseção",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Parágrafo",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Alínea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_parenthesized"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "br",
+    "uri_patterns": {
+      "act": "/akn/br/act/{year}/{number}",
+      "lc": "/akn/br/act/lc/{year}/{number}",
+      "mp": "/akn/br/act/mp/{year}/{number}",
+      "constitution": "/akn/br/act/constituicao/1988/1"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lei nº {number}, de {year}",
+    "insertion_style": "alphanumeric_hyphenated"
+  },
+  "amendments": {
+    "style": "textual_substitution",
+    "phrasing": "passa a vigorar com a seguinte redação... (NR)",
+    "cross_reference_format": "lei_number_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congressoNacional",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/br/congresso-nacional",
+      "showAs": "Congresso Nacional"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/br/presidente",
+      "showAs": "Presidente da República"
+    },
+    {
+      "eId": "dou",
+      "class": "TLCObject",
+      "href": "/ontology/obj/br/dou",
+      "showAs": "Diário Oficial da União"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "marginal_note",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,339 @@
+{
+  "code": "mx",
+  "name": "Mexico",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley Federal / Ley General",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        },
+        {
+          "local_term": "Párrafo",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "ordinal_position"
+        }
+      ]
+    },
+    "codigo": {
+      "label": "Código Federal",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        },
+        {
+          "local_term": "Párrafo",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "ordinal_position"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitución Política de los Estados Unidos Mexicanos",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "reglamento": {
+      "label": "Reglamento",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "ordinal_word_spanish"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_upper"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Fracción",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "roman_upper_to_arabic_eid"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "mx",
+    "uri_patterns": {
+      "constitution": "/akn/mx/act/constitution/1917/cpeum"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "[Short title] (D.O. {date})",
+    "insertion_style": "bis_ter"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "short_title_only"
+  },
+  "core_tlcs": [
+    {
+      "eId": "congreso",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/congreso-union",
+      "showAs": "Congreso de la Unión"
+    },
+    {
+      "eId": "camaraDeputados",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/camara-diputados",
+      "showAs": "Cámara de Diputados"
+    },
+    {
+      "eId": "senado",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/senado-republica",
+      "showAs": "Senado de la República"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/mx/presidente",
+      "showAs": "Presidente de la República"
+    },
+    {
+      "eId": "segob",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/segob",
+      "showAs": "Secretaría de Gobernación"
+    },
+    {
+      "eId": "secretarioGobernacion",
+      "class": "TLCRole",
+      "href": "/ontology/role/mx/secretario-gobernacion",
+      "showAs": "Secretario de Gobernación"
+    },
+    {
+      "eId": "secretarioEstado",
+      "class": "TLCRole",
+      "href": "/ontology/role/mx/secretario-estado",
+      "showAs": "Secretario de Estado"
+    },
+    {
+      "eId": "scjn",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/mx/scjn",
+      "showAs": "Suprema Corte de Justicia de la Nación"
+    },
+    {
+      "eId": "dof",
+      "class": "TLCObject",
+      "href": "/ontology/obj/mx/dof",
+      "showAs": "Diario Oficial de la Federación"
+    },
+    {
+      "eId": "mexico",
+      "class": "TLCLocation",
+      "href": "/ontology/place/mx",
+      "showAs": "Estados Unidos Mexicanos"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_title",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

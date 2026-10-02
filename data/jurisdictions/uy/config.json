@@ -1,0 +1,306 @@
+{
+  "code": "uy",
+  "name": "Uruguay",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "spa"
+  ],
+  "authoritative_language": "spa",
+  "document_classes": {
+    "ley": {
+      "label": "Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Libro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word"
+        },
+        {
+          "local_term": "Sección",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_closing_paren"
+        }
+      ]
+    },
+    "decreto_ley": {
+      "label": "Decreto-Ley",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_degree"
+        },
+        {
+          "local_term": "Literal",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_upper_closing_paren"
+        }
+      ]
+    },
+    "decreto": {
+      "label": "Decreto del Poder Ejecutivo",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        },
+        {
+          "local_term": "Numeral",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_degree"
+        }
+      ]
+    },
+    "resolucion": {
+      "label": "Resolución",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "constitucion": {
+      "label": "Constitución de la República Oriental del Uruguay",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Sección",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artículo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Inciso",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "positional_ordinal_word"
+        }
+      ]
+    }
+  },
+  "default_document_class": "ley",
+  "frbr": {
+    "country_code": "uy",
+    "uri_patterns": {
+      "ley": "/akn/uy/act/{year}/{number}",
+      "decreto_ley": "/akn/uy/act/decreto-ley/{year}/{number}",
+      "decreto": "/akn/uy/act/decreto/{year}/{number}",
+      "resolucion": "/akn/uy/act/resolucion/{year}/{number}",
+      "constitucion": "/akn/uy/act/constitucion/1967/constitucion"
+    },
+    "number_format": "bare_integer",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Ley N° {number_with_separator}",
+    "act_citation_alt": "Ley Nro. {number_with_separator}",
+    "insertion_style": "bis_ter_quater"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Sustitúyese el artículo [N°] de la Ley N° [XX.XXX] por el siguiente:",
+    "cross_reference_format": "el artículo [N°] de la Ley N° [XX.XXX]"
+  },
+  "core_tlcs": [
+    {
+      "eId": "asambleaGeneral",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/asamblea-general",
+      "showAs": "Asamblea General"
+    },
+    {
+      "eId": "camaraRepresentantes",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/camara-representantes",
+      "showAs": "Cámara de Representantes"
+    },
+    {
+      "eId": "camaraSenadores",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/camara-senadores",
+      "showAs": "Cámara de Senadores"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/uy/presidente",
+      "showAs": "Presidente de la República Oriental del Uruguay"
+    },
+    {
+      "eId": "supremaCorteJusticia",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/suprema-corte-justicia",
+      "showAs": "Suprema Corte de Justicia"
+    },
+    {
+      "eId": "impo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/uy/impo",
+      "showAs": "Dirección Nacional de Impresiones y Publicaciones Oficiales (IMPO)"
+    },
+    {
+      "eId": "diarioOficial",
+      "class": "TLCObject",
+      "href": "/ontology/obj/uy/diario-oficial",
+      "showAs": "Diario Oficial de la República Oriental del Uruguay"
+    },
+    {
+      "eId": "uruguay",
+      "class": "TLCLocation",
+      "href": "/ontology/place/uy",
+      "showAs": "República Oriental del Uruguay"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

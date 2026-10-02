@@ -1,0 +1,396 @@
+{
+  "code": "fr",
+  "name": "France",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra"
+  ],
+  "authoritative_language": "fra",
+  "document_classes": {
+    "loi": {
+      "label": "Loi ordinaire",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Sous-section",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    },
+    "loi_organique": {
+      "label": "Loi organique",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    },
+    "arrete": {
+      "label": "Arrêté",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Sous-section",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "code_hyphen"
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": "ALINEA",
+          "numbering": "implicit_sequential"
+        }
+      ]
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "fr",
+    "uri_patterns": {
+      "loi": "/akn/fr/act/{year}/{number}",
+      "loi_organique": "/akn/fr/act/lo/{year}/{number}",
+      "ordonnance": "/akn/fr/act/ord/{year}/{number}",
+      "decret": "/akn/fr/act/decret/{year}/{number}",
+      "constitution": "/akn/fr/act/constitution/1958/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Loi n° {year}-{number} du {day} {month} {year}",
+    "act_citation_alt": "JORF n° {jorf_number} du {day} {month} {year}",
+    "insertion_style": "hyphen_suffix"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "est ainsi rédigé... est complété par... est abrogé... est remplacé par...",
+    "cross_reference_format": "number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "assembleeNationale",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/assemblee-nationale",
+      "showAs": "Assemblée nationale"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/senat",
+      "showAs": "Sénat"
+    },
+    {
+      "eId": "parlement",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/parlement",
+      "showAs": "Parlement"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/fr/president-de-la-republique",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/fr/premier-ministre",
+      "showAs": "Premier ministre"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/conseil-constitutionnel",
+      "showAs": "Conseil constitutionnel"
+    },
+    {
+      "eId": "conseilDEtat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/conseil-d-etat",
+      "showAs": "Conseil d'État"
+    },
+    {
+      "eId": "conseilDesMinistres",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/conseil-des-ministres",
+      "showAs": "Conseil des ministres"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/fr/journal-officiel",
+      "showAs": "Journal officiel de la République française"
+    },
+    {
+      "eId": "dila",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/fr/dila",
+      "showAs": "Direction de l'information légale et administrative"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

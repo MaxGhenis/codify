@@ -1,0 +1,313 @@
+{
+  "code": "nl",
+  "name": "Netherlands",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "nld"
+  ],
+  "authoritative_language": "nld",
+  "document_classes": {
+    "act": {
+      "label": "Wet (Act of Parliament)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Deel",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Titel",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Afdeling",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Paragraaf",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic_with_symbol"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Onderdeel",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        },
+        {
+          "local_term": "Sub-onderdeel",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "numeric_degree"
+        }
+      ]
+    },
+    "amvb": {
+      "label": "Algemene Maatregel van Bestuur (AMvB)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Onderdeel",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "minreg": {
+      "label": "Ministeriële Regeling (Ministerial Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Onderdeel",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower"
+        }
+      ]
+    },
+    "rijkswet": {
+      "label": "Rijkswet (Kingdom Act)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Grondwet (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Hoofdstuk",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Artikel",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Lid",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "nl",
+    "uri_patterns": {
+      "act": "/akn/nl/act/{year}/{number}",
+      "amvb": "/akn/nl/act/amvb/{year}/{number}",
+      "minreg": "/akn/nl/act/minreg/{year}/{number}",
+      "rijkswet": "/akn/nl/act/rijkswet/{year}/{number}",
+      "constitution": "/akn/nl/act/constitution/1815/grondwet"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Stb. {year}, {number}",
+    "act_citation_alt": "{citeertitel}",
+    "insertion_style": "alphanumeric",
+    "insertion_example": "artikel 5a, 5b inserted between artikel 5 and artikel 6",
+    "article_numbering": "arabic_continuous"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "citeertitel"
+  },
+  "core_tlcs": [
+    {
+      "eId": "statenGeneraal",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/staten-generaal",
+      "showAs": "Staten-Generaal"
+    },
+    {
+      "eId": "tweedeKamer",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/tweede-kamer",
+      "showAs": "Tweede Kamer der Staten-Generaal"
+    },
+    {
+      "eId": "eersteKamer",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/eerste-kamer",
+      "showAs": "Eerste Kamer der Staten-Generaal"
+    },
+    {
+      "eId": "monarch",
+      "class": "TLCRole",
+      "href": "/ontology/role/nl/monarch",
+      "showAs": "Monarch der Nederlanden"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/nl/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "raadVanState",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/nl/raad-van-state",
+      "showAs": "Raad van State"
+    },
+    {
+      "eId": "staatsblad",
+      "class": "TLCObject",
+      "href": "/ontology/obj/nl/staatsblad",
+      "showAs": "Staatsblad van het Koninkrijk der Nederlanden"
+    },
+    {
+      "eId": "staatscourant",
+      "class": "TLCObject",
+      "href": "/ontology/obj/nl/staatscourant",
+      "showAs": "Staatscourant"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

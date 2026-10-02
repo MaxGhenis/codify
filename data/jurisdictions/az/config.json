@@ -1,0 +1,203 @@
+{
+  "code": "az",
+  "name": "Azerbaijan",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "aze"
+  ],
+  "authoritative_language": "aze",
+  "document_classes": {
+    "law": {
+      "label": "Law of the Republic of Azerbaijan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bölmə",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Fəsil",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code (Məcəllə)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bölmə",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Fəsil",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of the Republic of Azerbaijan",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Bölmə",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Fəsil",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "decree": {
+      "label": "Presidential Decree (Fərman)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "resolution": {
+      "label": "Cabinet Resolution (Qərar)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Maddə",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "az",
+    "uri_patterns": {
+      "law": "/akn/az/act/{year}/{number}",
+      "constitution": "/akn/az/act/constitution/1995/constitution",
+      "decree": "/akn/az/act/decree/{year}/{number}",
+      "resolution": "/akn/az/act/resolution/{year}/{number}"
+    },
+    "date_calendar": "gregorian",
+    "number_format": "sequential_digits_only"
+  },
+  "numbering": {
+    "insertion_style": "hyphenated_article",
+    "insertion_example": "49-1"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Maddə X aşağıdakı redaksiyada verilsin (Article X shall be stated in the following wording)",
+    "cross_reference_format": "full_title_and_law_number"
+  },
+  "core_tlcs": [
+    {
+      "eId": "milliMajlis",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/az/milli-majlis",
+      "showAs": "Milli Majlis"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/az/president",
+      "showAs": "President of the Republic of Azerbaijan"
+    },
+    {
+      "eId": "cabinetOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/az/cabinet-of-ministers",
+      "showAs": "Cabinet of Ministers"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/az/azerbaycan-newspaper",
+      "showAs": "Azərbaycan (official gazette)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_heading",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

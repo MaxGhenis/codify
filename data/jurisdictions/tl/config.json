@@ -1,0 +1,314 @@
+{
+  "code": "tl",
+  "name": "Timor-Leste",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "customary"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "por",
+    "tet"
+  ],
+  "authoritative_language": "por",
+  "document_classes": {
+    "act": {
+      "label": "Lei (Parliamentary Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sub-Secção",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Número (n.º)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Alínea",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-alínea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT"
+        }
+      ]
+    },
+    "decreto_lei": {
+      "label": "Decreto-Lei (Government Decree-Law)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Livro",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Sub-Secção",
+          "akn_element": "subsection",
+          "level": "higher",
+          "bluebell_keyword": "SUBSECTION"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "Número (n.º)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Alínea",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "alpha_lower_parenthesized"
+        },
+        {
+          "local_term": "Sub-alínea",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT"
+        }
+      ]
+    },
+    "untaet_reg": {
+      "label": "UNTAET Regulation (historical, 1999-2002)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "section",
+      "hierarchy": [
+        {
+          "local_term": "Part",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART"
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "section",
+          "level": "basic",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_decimal"
+        },
+        {
+          "local_term": "Subsection",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Timor-Leste",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Parte",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Título",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Capítulo",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Secção",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION"
+        },
+        {
+          "local_term": "Artigo",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "tl",
+    "uri_patterns": {
+      "act": "/akn/tl/act/{year}/{number}",
+      "decreto_lei": "/akn/tl/act/decreto-lei/{year}/{number}",
+      "untaet_reg": "/akn/tl/act/untaet-reg/{year}/{number}",
+      "constitution": "/akn/tl/act/constitution/2002/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "Lei n.º {number}/{year}",
+    "insertion_style": "hyphenated_alpha"
+  },
+  "amendments": {
+    "style": "textual_civil",
+    "phrasing": "O artigo X.º da Lei n.º Y/YYYY passa a ter a seguinte redação:",
+    "cross_reference_format": "type_number_year_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlamento",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tl/parlamento-nacional",
+      "showAs": "Parlamento Nacional"
+    },
+    {
+      "eId": "presidente",
+      "class": "TLCRole",
+      "href": "/ontology/role/tl/presidente-da-republica",
+      "showAs": "Presidente da República"
+    },
+    {
+      "eId": "governo",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/tl/governo",
+      "showAs": "Governo"
+    },
+    {
+      "eId": "jornalDaRepublica",
+      "class": "TLCObject",
+      "href": "/ontology/obj/tl/jornal-da-republica",
+      "showAs": "Jornal da República"
+    },
+    {
+      "eId": "untaet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/un/untaet",
+      "showAs": "United Nations Transitional Administration in East Timor"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "centered",
+    "heading_case": "title_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

@@ -2,9 +2,13 @@
   "code": "it",
   "name": "Italy",
   "type": "national",
-  "tradition": ["civil_law"],
+  "tradition": [
+    "civil_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["ita"],
+  "languages": [
+    "ita"
+  ],
   "authoritative_language": "ita",
   "document_classes": {
     "legge": {
@@ -408,14 +412,10 @@
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "named",
-          "note": "Opening 12 articles before the two main parts."
-        },
-        {
-          "local_term": "Parte",
-          "akn_element": "part",
-          "level": "higher",
-          "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "note": "Opening 12 articles before the two main parts.",
+          "local_terms": {
+            "alt1": "Parte"
+          }
         },
         {
           "local_term": "Titolo",
@@ -452,43 +452,16 @@
       "decreto_legislativo": "/akn/it/act/dlgs/{year}/{number}",
       "decreto_legge": "/akn/it/act/dl/{year}/{number}",
       "dpr": "/akn/it/act/dpr/{year}/{number}",
-      "codice": "/akn/it/act/{subtype}/{year}/{number}",
       "regio_decreto": "/akn/it/act/rd/{year}/{number}",
-      "costituzione": "/akn/it/act/constitution/1948/constitution",
-      "bill": "/akn/it/bill/{year}/{number}",
-      "legge_regionale": "/akn/it-{region}/act/{year}/{number}"
+      "costituzione": "/akn/it/act/constitution/1948/constitution"
     },
     "date_calendar": "gregorian",
     "note": "Number is the sequential number within the calendar year (e.g., n. 241 of year 1990 → /akn/it/act/1990/241). Subtypes: 'dlgs' for Decreto Legislativo, 'dl' for Decreto Legge, 'dpr' for D.P.R., 'rd' for Regio Decreto, 'cost' for Legge Costituzionale."
   },
   "numbering": {
     "act_citation": "Legge {day} {month_name} {year}, n. {number}",
-    "act_citation_short": "L. {number}/{year}",
-    "dlgs_citation": "D.Lgs. {day} {month_name} {year}, n. {number}",
-    "dlgs_citation_short": "D.Lgs. {number}/{year}",
-    "dl_citation": "D.L. {day} {month_name} {year}, n. {number}",
-    "dl_citation_short": "D.L. {number}/{year}",
-    "dpr_citation": "D.P.R. {day} {month_name} {year}, n. {number}",
     "insertion_style": "latin_ordinal",
-    "insertion_suffixes": [
-      "bis",
-      "ter",
-      "quater",
-      "quinquies",
-      "sexies",
-      "septies",
-      "octies",
-      "novies",
-      "decies"
-    ],
-    "insertion_separator": "-",
-    "insertion_example": "Art. 2-bis",
-    "comma_format": "arabic_period",
-    "comma_example": "1. Testo del comma.",
-    "lettera_format": "alpha_lower_closeparen",
-    "lettera_example": "a) Testo della lettera.",
-    "numero_format": "arabic_closeparen",
-    "numero_example": "1) Testo del numero."
+    "insertion_example": "Art. 2-bis"
   },
   "enacting_formulae": [
     {
@@ -522,20 +495,7 @@
   ],
   "amendments": {
     "style": "textual_civil_law",
-    "quote_marks": "guillemets",
-    "quote_open": "«",
-    "quote_close": "»",
-    "typical_phrasings": [
-      "Il comma {N} dell'articolo {N} della legge {reference} è sostituito dal seguente: «{text}»",
-      "Dopo il comma {N} dell'articolo {N} è inserito il seguente: «{text}»",
-      "Dopo l'articolo {N} è inserito il seguente: «Art. {N}-bis. {heading} - {text}»",
-      "La lettera {x}) del comma {N} dell'articolo {N} è sostituita dalla seguente: «{x}) {text}»",
-      "Le parole: «{old}» sono sostituite dalle seguenti: «{new}»",
-      "L'articolo {N} è abrogato.",
-      "Il comma {N} dell'articolo {N} è soppresso."
-    ],
-    "cross_reference_format": "articolo_year_number",
-    "cross_reference_example": "articolo 3 della legge 7 agosto 1990, n. 241"
+    "cross_reference_format": "articolo_year_number"
   },
   "core_tlcs": [
     {
@@ -624,7 +584,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Italian legislation uses ARTICLE (not SECTION) as the basic unit. SECTION (Sezione) is a higher division above articles — do not use it as a basic unit. Comma notation is '1. Testo...' (Arabic numeral + period at the start of the line), not parenthesised. Lettera notation is 'a) Testo...' (lowercase letter + closing paren). Numero notation is '1) Testo...' within lettere. Large codes use BOOK as the top level. Inserted articles use Latin ordinal suffixes hyphenated: Art. 2-bis, Art. 12-quater."
   },
   "supranational_memberships": [
@@ -633,8 +592,13 @@
       "member_since": "1957-01-01",
       "note": "Founding member (Treaty of Rome 1957). EU Regulations directly applicable. Directives transposed via D.Lgs. under annual legge di delegazione europea. Full AKN4EU profile at /akn/eu/.",
       "direct_effect": "direct",
-      "direct_effect_instruments": ["regulation", "decision"],
-      "transposition_required": ["directive"],
+      "direct_effect_instruments": [
+        "regulation",
+        "decision"
+      ],
+      "transposition_required": [
+        "directive"
+      ],
       "superseded_subjects": []
     },
     {
@@ -661,10 +625,7 @@
     "heading_case": "title_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "serif",
-    "quote_style": "guillemets",
-    "comma_display": "arabic_period",
-    "note": "Rubriche (article headings) present in codes and many statutes; absent in shorter acts. When present, display above article number."
+    "font_preference": "serif"
   },
   "validation": {
     "status": "draft",

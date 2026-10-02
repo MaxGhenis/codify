@@ -42,12 +42,15 @@
           "note": "Division below peatükk; '1. jagu'. Used in complex codes only. Maps to AKN section-as-higher-div."
         },
         {
-          "local_term": "Alljaotus / Alajagu",
+          "local_term": "Alljaotus",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
           "numbering": "arabic_period",
-          "note": "Rare; subdivision of jagu in the most complex codes."
+          "note": "Rare; subdivision of jagu in the most complex codes.",
+          "local_terms": {
+            "alt1": "Alajagu"
+          }
         },
         {
           "local_term": "§ (Paragrahv)",
@@ -177,49 +180,21 @@
     "uri_patterns": {
       "act": "/akn/ee/act/{year}/{number}",
       "maarrus": "/akn/ee/act/maarrus/{year}/{number}",
-      "bill": "/akn/ee/bill/{year}/{number}",
       "constitution": "/akn/ee/act/1992/pohiseadus"
     },
-    "slug_convention": "estonian_short_title_romanised",
-    "romanisation": {
-      "ä": "a",
-      "ö": "o",
-      "ü": "u",
-      "õ": "o"
-    },
-    "date_calendar": "gregorian",
-    "rt_citation_format": "RT I, {DD.MM.YYYY}, {N}"
+    "date_calendar": "gregorian"
   },
   "numbering": {
     "act_citation": "RT I, {date}, {number}",
     "act_citation_alt": "{abbreviation}",
     "insertion_style": "superscript_numeric",
-    "insertion_eid_style": "suffix_numeric",
     "note": "No sequential act numbers. RT publication date + number is the formal identifier. Official abbreviations (TsÜS, KarS, TLS) used for practical citation."
   },
-  "enacting_formulae": [
-    {
-      "text": "Vastu võetud {date}",
-      "position": "header_metadata",
-      "era": "current",
-      "from": "1992-06-28",
-      "note": "Adoption notice appears in Riigi Teataja header, not in body text. No body-text enacting formula in Estonian acts."
-    },
-    {
-      "text": "Vabariigi President kuulutab välja järgmise Riigikogu poolt vastu võetud seaduse:",
-      "position": "preamble",
-      "era": "current",
-      "from": "1992-06-28",
-      "note": "Presidential proclamation formula; may appear in formal document header but not in body. Omit from AKN body unless explicitly present in source."
-    }
-  ],
+  "enacting_formulae": [],
   "amendments": {
     "style": "textual_civil_law",
     "phrasing": "muudetakse ja sõnastatakse järgmiselt... täiendatakse §-ga... tunnistatakse kehtetuks",
-    "cross_reference_format": "short_title_and_rt",
-    "consolidation": "riigi_teataja_realtime",
-    "consolidation_url": "https://www.riigiteataja.ee/akt/{identifier}",
-    "note": "Riigi Teataja provides real-time consolidated versions. Each consolidation date maps to a FRBR Expression version. Amendment phrasing follows German model: replace text quoted in full."
+    "cross_reference_format": "short_title_and_rt"
   },
   "core_tlcs": [
     {
@@ -278,7 +253,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Estonian § (paragrahv) maps to AKN article (same as German tradition). Lõige maps to AKN paragraph. Punkt maps to AKN point. Alapunkt maps to AKN indent. Peatükk maps to AKN chapter. Jagu maps to AKN section used as higher division. Estonian acts have NO body-text enacting formula — do not invent one. Begin the BODY directly with the first CHAPTER or ARTICLE. Insertion numbering for §§ uses plain numeric suffix: § 51 renders as art_51 in eIds."
   },
   "supranational_memberships": [
@@ -312,8 +286,7 @@
     "heading_case": "sentence_case",
     "script": "latin",
     "rtl": false,
-    "font_preference": "sans_serif",
-    "note": "Estonian headings use sentence case (first word capitalised only). Riigi Teataja renders headings inline with the § number. § symbol must be preserved in display."
+    "font_preference": "sans_serif"
   },
   "validation": {
     "status": "draft",

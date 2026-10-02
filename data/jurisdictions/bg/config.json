@@ -1,0 +1,335 @@
+{
+  "code": "bg",
+  "name": "Bulgaria",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "bul"
+  ],
+  "authoritative_language": "bul",
+  "document_classes": {
+    "act": {
+      "label": "Act of the National Assembly",
+      "local_label": "Закон",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Дял",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Книга",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Раздел",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_restarting_per_chapter"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        },
+        {
+          "local_term": "Буква (б.)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "cyrillic_lower_parenthesized"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code",
+      "local_label": "Кодекс",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Дял",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Книга",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Раздел",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_restarting_per_chapter"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        },
+        {
+          "local_term": "Буква (б.)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "cyrillic_lower_parenthesized"
+        }
+      ]
+    },
+    "si": {
+      "label": "Council of Ministers Decree / Ministerial Regulation",
+      "local_label": "Постановление / Наредба / Правилник",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Раздел",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman_restarting_per_chapter"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        },
+        {
+          "local_term": "Буква (б.)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "cyrillic_lower_parenthesized"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "local_label": "Конституция",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Глава",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "ordinal_word_cyrillic"
+        },
+        {
+          "local_term": "Член (Чл.)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Алинея (ал.)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Точка (т.)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_fullstop"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "bg",
+    "uri_patterns": {
+      "constitution": "/akn/bg/act/constitution/1991/constitution"
+    },
+    "date_calendar": "gregorian",
+    "sample_uris": [
+      {
+        "document": "Constitution of the Republic of Bulgaria",
+        "uri": "/akn/bg/act/constitution/1991/constitution"
+      },
+      {
+        "document": "Civil Registration Act (SG No. 67/1999)",
+        "uri": "/akn/bg/act/1999/67"
+      },
+      {
+        "document": "Bulgarian Citizenship Act (SG No. 136/1998)",
+        "uri": "/akn/bg/act/1998/136"
+      },
+      {
+        "document": "Criminal Code (SG No. 26/1968)",
+        "uri": "/akn/bg/act/penal-code/1968/26"
+      },
+      {
+        "document": "Criminal Procedure Code (SG No. 86/2005)",
+        "uri": "/akn/bg/act/criminal-procedure-code/2005/86"
+      },
+      {
+        "document": "Code of Civil Procedure (SG No. 59/2007)",
+        "uri": "/akn/bg/act/civil-procedure-code/2007/59"
+      },
+      {
+        "document": "Judiciary System Act (SG No. 64/2007)",
+        "uri": "/akn/bg/act/judiciary-system/2007/64"
+      }
+    ]
+  },
+  "numbering": {
+    "act_citation": "Promulgated SG No. {issue}/{year}",
+    "insertion_style": "alphanumeric_cyrillic"
+  },
+  "amendments": {
+    "style": "textual_continental",
+    "cross_reference_format": "short_title_and_sg_citation"
+  },
+  "core_tlcs": [
+    {
+      "eId": "narodno-sabranie",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bg/narodno-sabranie",
+      "showAs": "National Assembly of the Republic of Bulgaria"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/bg/president",
+      "showAs": "President of the Republic of Bulgaria"
+    },
+    {
+      "eId": "council-of-ministers",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bg/council-of-ministers",
+      "showAs": "Council of Ministers of the Republic of Bulgaria"
+    },
+    {
+      "eId": "darzhaven-vestnik",
+      "class": "TLCObject",
+      "href": "/ontology/obj/bg/darzhaven-vestnik",
+      "showAs": "Държавен вестник (State Gazette)"
+    },
+    {
+      "eId": "constitutional-court",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/bg/constitutional-court",
+      "showAs": "Constitutional Court of the Republic of Bulgaria"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "sentence_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 4,
+  "status": "draft",
+  "public_reference": true
+}

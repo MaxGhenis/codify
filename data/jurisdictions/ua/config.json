@@ -1,0 +1,279 @@
+{
+  "code": "ua",
+  "name": "Ukraine",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ukr"
+  ],
+  "authoritative_language": "ukr",
+  "document_classes": {
+    "law": {
+      "label": "Law of Ukraine",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Глава (глави, главі, главу, главою, главах)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "§",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Підпараграф (підпараграфа, підпараграфу, підпараграфі)",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "частина (частини, частині, частину, частиною, частинах)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "пункт (пункту, пункті, пунктом, пунктів, пунктах)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_alpha_cyrillic"
+        },
+        {
+          "local_term": "підпункт (підпункту, підпункті, підпунктом, підпунктах)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_or_numeric"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code of Ukraine",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Книга (книги, книзі, книгу, книгою, книгах)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "ordinal"
+        },
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Глава (глави, главі, главу, главою, главах)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "§",
+          "akn_element": "subchapter",
+          "level": "higher",
+          "bluebell_keyword": "SUBCHAPTER",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Підпараграф (підпараграфа, підпараграфу, підпараграфі)",
+          "akn_element": "subdivision",
+          "level": "higher",
+          "bluebell_keyword": "SUBDIVISION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "частина (частини, частині, частину, частиною, частинах)",
+          "akn_element": "subsection",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBSECTION",
+          "numbering": "arabic"
+        },
+        {
+          "local_term": "пункт (пункту, пункті, пунктом, пунктів, пунктах)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_or_alpha_cyrillic"
+        },
+        {
+          "local_term": "підпункт (підпункту, підпункті, підпунктом, підпунктах)",
+          "akn_element": "subparagraph",
+          "level": "subdivision",
+          "bluebell_keyword": "SUBPARAGRAPH",
+          "numbering": "alpha_or_numeric"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution of Ukraine",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Стаття (статті, статтю, статтею, статей, статтях)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "resolution": {
+      "label": "Resolution of the Cabinet of Ministers",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Розділ (розділу, розділі, розділом, розділах)",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Стаття",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "пункт (статті, пункту)"
+          }
+        }
+      ]
+    }
+  },
+  "default_document_class": "law",
+  "frbr": {
+    "country_code": "ua",
+    "uri_patterns": {
+      "law": "/akn/ua/act/{year}/{number}",
+      "code": "/akn/ua/act/{year}/{number}",
+      "constitution": "/akn/ua/act/constitution/1996/254k-96-vr",
+      "resolution": "/akn/ua/act/resolution/{year}/{number}"
+    },
+    "number_extraction": "full_seq_convocation",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "superscript_numeric"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "Article N of the Law of Ukraine [...] (VVR, YYYY, No. NN, Art. NNN) shall be amended as follows:",
+    "cross_reference_format": "title_and_vvr_citation"
+  },
+  "core_tlcs": [
+    {
+      "eId": "vr",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ua/verkhovna-rada",
+      "showAs": "Verkhovna Rada of Ukraine"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/ua/president",
+      "showAs": "President of Ukraine"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/ua/speaker-verkhovna-rada",
+      "showAs": "Speaker of the Verkhovna Rada"
+    },
+    {
+      "eId": "cabinet",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ua/cabinet-ministers",
+      "showAs": "Cabinet of Ministers of Ukraine"
+    },
+    {
+      "eId": "vvr",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ua/vidomosti-vr",
+      "showAs": "Відомості Верховної Ради України"
+    },
+    {
+      "eId": "ovu",
+      "class": "TLCObject",
+      "href": "/ontology/obj/ua/ofitsiynyi-visnyk",
+      "showAs": "Офіційний вісник України"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "title_case",
+    "script": "cyrillic",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 2,
+  "status": "draft",
+  "public_reference": true
+}

@@ -1,0 +1,393 @@
+{
+  "code": "cm",
+  "name": "Cameroon",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "common_law",
+    "customary",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "fra",
+    "eng"
+  ],
+  "authoritative_language": null,
+  "document_classes": {
+    "loi": {
+      "label": "Loi / Law",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Book"
+          }
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Title"
+          }
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "sequential_implicit",
+          "local_terms": {
+            "alt1": "Subsection"
+          }
+        },
+        {
+          "local_term": "Point (1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ]
+    },
+    "code": {
+      "label": "Code",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Livre",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Book"
+          }
+        },
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Title"
+          }
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
+        },
+        {
+          "local_term": "Section",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
+        },
+        {
+          "local_term": "Alinéa",
+          "akn_element": "alinea",
+          "level": "subdivision",
+          "bluebell_keyword": null,
+          "numbering": "sequential_implicit"
+        },
+        {
+          "local_term": "Point (1°, 2°…)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "ordinal_degree"
+        },
+        {
+          "local_term": "Tiret (–)",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "sequential_implicit"
+        }
+      ]
+    },
+    "ordonnance": {
+      "label": "Ordonnance",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "decret": {
+      "label": "Décret",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Titre",
+          "akn_element": "title",
+          "level": "higher",
+          "bluebell_keyword": "TITLE",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Chapitre",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Partie",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
+        },
+        {
+          "local_term": "Article",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "loi",
+  "frbr": {
+    "country_code": "cm",
+    "uri_patterns": {
+      "loi": "/akn/cm/act/{year}/{number}",
+      "ordonnance": "/akn/cm/act/ordonnance/{year}/{number}",
+      "decret": "/akn/cm/act/decret/{year}/{number}",
+      "constitution": "/akn/cm/act/constitution/1972/constitution"
+    },
+    "number_format": "YYYY/NNN",
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "insertion_style": "hyphen_or_bis"
+  },
+  "amendments": {
+    "style": "textual_french",
+    "phrasing": "modifiant et complétant certaines dispositions de la loi n° {number} du {date}",
+    "cross_reference_format": "loi_number_and_date"
+  },
+  "core_tlcs": [
+    {
+      "eId": "parlement",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/parlement",
+      "showAs": "Parlement du Cameroun"
+    },
+    {
+      "eId": "assemblee",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/assemblee-nationale",
+      "showAs": "Assemblée nationale"
+    },
+    {
+      "eId": "senat",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/senat",
+      "showAs": "Sénat"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/president",
+      "showAs": "Président de la République"
+    },
+    {
+      "eId": "presidentAssemblee",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/president-assemblee-nationale",
+      "showAs": "Président de l'Assemblée nationale"
+    },
+    {
+      "eId": "presidentSenat",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/president-senat",
+      "showAs": "Président du Sénat"
+    },
+    {
+      "eId": "premierMinistre",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/premier-ministre",
+      "showAs": "Premier Ministre"
+    },
+    {
+      "eId": "ministreJustice",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/ministre-justice",
+      "showAs": "Ministre de la Justice, Garde des Sceaux"
+    },
+    {
+      "eId": "ministre",
+      "class": "TLCRole",
+      "href": "/ontology/role/cm/ministre",
+      "showAs": "Ministre"
+    },
+    {
+      "eId": "conseilConstitutionnel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/conseil-constitutionnel",
+      "showAs": "Conseil Constitutionnel"
+    },
+    {
+      "eId": "courSupreme",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/cour-supreme",
+      "showAs": "Cour Suprême"
+    },
+    {
+      "eId": "courAppel",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/cm/cour-appel",
+      "showAs": "Cour d'Appel"
+    },
+    {
+      "eId": "ccja",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/ohada/ccja",
+      "showAs": "Cour Commune de Justice et d'Arbitrage (OHADA)"
+    },
+    {
+      "eId": "journalOfficiel",
+      "class": "TLCObject",
+      "href": "/ontology/obj/cm/journal-officiel",
+      "showAs": "Journal Officiel de la République du Cameroun"
+    },
+    {
+      "eId": "cameroun",
+      "class": "TLCLocation",
+      "href": "/ontology/place/cm",
+      "showAs": "République du Cameroun"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "section_heading",
+    "heading_case": "upper_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

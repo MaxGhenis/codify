@@ -1,0 +1,264 @@
+{
+  "code": "kw",
+  "name": "State of Kuwait",
+  "type": "national",
+  "tradition": [
+    "civil_law",
+    "islamic"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "ara"
+  ],
+  "authoritative_language": "ara",
+  "document_classes": {
+    "act": {
+      "label": "Law (قانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "كتاب (Kitab)",
+          "akn_element": "book",
+          "level": "higher",
+          "bluebell_keyword": "BOOK",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        },
+        {
+          "local_term": "بند (Band)",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_or_alpha"
+        }
+      ]
+    },
+    "decree_law": {
+      "label": "Decree-Law (مرسوم بقانون)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "فصل (Fasl)",
+          "akn_element": "division",
+          "level": "higher",
+          "bluebell_keyword": "DIVISION",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        }
+      ]
+    },
+    "emiri_decree": {
+      "label": "Emiri Decree (مرسوم أميري)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        }
+      ]
+    },
+    "ministerial_decision": {
+      "label": "Ministerial Decision (قرار وزاري)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "فقرة (Faqra)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "positional_or_labelled"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Constitution (الدستور)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "باب (Bab)",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "arabic_ordinal"
+        },
+        {
+          "local_term": "مادة (Maddah)",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "kw",
+    "uri_patterns": {
+      "act": "/akn/kw/act/{year}/{number}",
+      "decree_law": "/akn/kw/act/decree-law/{year}/{number}",
+      "emiri_decree": "/akn/kw/act/emiri-decree/{year}/{number}",
+      "ministerial_decision": "/akn/kw/act/ministerial-decision/{year}/{number}",
+      "constitution": "/akn/kw/act/constitution/1962/constitution"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "قانون رقم {number} لسنة {year}",
+    "insertion_style": "bis_suffix",
+    "insertion_example": "مادة 5 مكرراً → art_5bis",
+    "article_numbering": "continuous_throughout_law"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "cross_reference_format": "law_number_and_year"
+  },
+  "core_tlcs": [
+    {
+      "eId": "nationalAssembly",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kw/national-assembly",
+      "showAs": "National Assembly of Kuwait"
+    },
+    {
+      "eId": "amir",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/amir",
+      "showAs": "Amir of the State of Kuwait"
+    },
+    {
+      "eId": "primeMinister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/prime-minister",
+      "showAs": "Prime Minister"
+    },
+    {
+      "eId": "councilOfMinisters",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kw/council-of-ministers",
+      "showAs": "Council of Ministers"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/minister",
+      "showAs": "Minister"
+    },
+    {
+      "eId": "speaker",
+      "class": "TLCRole",
+      "href": "/ontology/role/kw/speaker",
+      "showAs": "Speaker of the National Assembly"
+    },
+    {
+      "eId": "constitutionalCourt",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/kw/constitutional-court",
+      "showAs": "Constitutional Court"
+    },
+    {
+      "eId": "officialGazette",
+      "class": "TLCObject",
+      "href": "/ontology/obj/kw/al-kuwait-al-yawm",
+      "showAs": "Al-Kuwait Al-Yawm (Kuwait Official Gazette)"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline_title",
+    "heading_case": "natural",
+    "script": "arabic",
+    "rtl": true,
+    "font_preference": "serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}

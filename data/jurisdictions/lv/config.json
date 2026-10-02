@@ -1,0 +1,237 @@
+{
+  "code": "lv",
+  "name": "Latvia",
+  "type": "national",
+  "tradition": [
+    "civil_law"
+  ],
+  "calendar": "gregorian",
+  "languages": [
+    "lav"
+  ],
+  "authoritative_language": "lav",
+  "document_classes": {
+    "act": {
+      "label": "Likums (Act of the Saeima)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Daļa (top-level)",
+          "akn_element": "part",
+          "level": "higher",
+          "bluebell_keyword": "PART",
+          "numbering": "ordinal_latvian"
+        },
+        {
+          "local_term": "Nodaļa",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic_period"
+        },
+        {
+          "local_term": "Iedaļa",
+          "akn_element": "section",
+          "level": "higher",
+          "bluebell_keyword": "SECTION",
+          "numbering": "arabic_period"
+        },
+        {
+          "local_term": "Pants",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daļa (of pants)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Punkts",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_closing_paren"
+        },
+        {
+          "local_term": "Apakšpunkts",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    },
+    "constitution": {
+      "label": "Satversme (Constitution)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Nodaļa",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman"
+        },
+        {
+          "local_term": "Pants",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daļa (of pants)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        }
+      ]
+    },
+    "noteikumi": {
+      "label": "Ministru kabineta noteikumi (Cabinet Regulation)",
+      "akn_element": "act",
+      "bluebell_compatible": true,
+      "basic_unit": "article",
+      "hierarchy": [
+        {
+          "local_term": "Nodaļa",
+          "akn_element": "chapter",
+          "level": "higher",
+          "bluebell_keyword": "CHAPTER",
+          "numbering": "roman_or_arabic_period"
+        },
+        {
+          "local_term": "Pants",
+          "akn_element": "article",
+          "level": "basic",
+          "bluebell_keyword": "ARTICLE",
+          "numbering": "arabic_continuous"
+        },
+        {
+          "local_term": "Daļa (of pants)",
+          "akn_element": "paragraph",
+          "level": "subdivision",
+          "bluebell_keyword": "PARAGRAPH",
+          "numbering": "arabic_parenthesized"
+        },
+        {
+          "local_term": "Punkts",
+          "akn_element": "point",
+          "level": "subdivision",
+          "bluebell_keyword": "POINT",
+          "numbering": "arabic_closing_paren"
+        },
+        {
+          "local_term": "Apakšpunkts",
+          "akn_element": "indent",
+          "level": "subdivision",
+          "bluebell_keyword": "INDENT",
+          "numbering": "alpha_lower_closing_paren"
+        }
+      ]
+    }
+  },
+  "default_document_class": "act",
+  "frbr": {
+    "country_code": "lv",
+    "uri_patterns": {
+      "noteikumi": "/akn/lv/act/mk/{year}/{number}",
+      "constitution": "/akn/lv/act/1922/satversme"
+    },
+    "date_calendar": "gregorian"
+  },
+  "numbering": {
+    "act_citation": "LV, {year}, Nr. {number}",
+    "act_citation_alt": "{short_title}",
+    "insertion_style": "superscript_numeric"
+  },
+  "amendments": {
+    "style": "textual_civil_law",
+    "phrasing": "papildināt... izteikt... šādā redakcijā... izslēgt...",
+    "cross_reference_format": "short_title_and_pants"
+  },
+  "core_tlcs": [
+    {
+      "eId": "saeima",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/saeima",
+      "showAs": "Saeima"
+    },
+    {
+      "eId": "ministrkabinets",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/ministru-kabinets",
+      "showAs": "Ministru kabinets"
+    },
+    {
+      "eId": "president",
+      "class": "TLCRole",
+      "href": "/ontology/role/lv/valsts-prezidents",
+      "showAs": "Valsts prezidents"
+    },
+    {
+      "eId": "ministruprezidents",
+      "class": "TLCRole",
+      "href": "/ontology/role/lv/ministru-prezidents",
+      "showAs": "Ministru prezidents"
+    },
+    {
+      "eId": "minister",
+      "class": "TLCRole",
+      "href": "/ontology/role/lv/minister",
+      "showAs": "Ministers"
+    },
+    {
+      "eId": "satversmesTiesa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/satversmes-tiesa",
+      "showAs": "Satversmes tiesa"
+    },
+    {
+      "eId": "augstakaTiesa",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/lv/augstaka-tiesa",
+      "showAs": "Augstākā tiesa"
+    },
+    {
+      "eId": "latvijasVestnesis",
+      "class": "TLCObject",
+      "href": "/ontology/obj/lv/latvijas-vestnesis",
+      "showAs": "Latvijas Vēstnesis"
+    },
+    {
+      "eId": "codify",
+      "class": "TLCOrganization",
+      "href": "/ontology/org/codify",
+      "showAs": "Codify"
+    }
+  ],
+  "structuring": {},
+  "display": {
+    "heading_type": "inline",
+    "heading_case": "sentence_case",
+    "script": "latin",
+    "rtl": false,
+    "font_preference": "sans_serif"
+  },
+  "validation": {
+    "status": "draft",
+    "documents_examined": 0,
+    "bluebell_tested": false,
+    "unresolved_ambiguities": 0,
+    "note": "Public reference profile; synthetic XML controls do not certify corpus coverage."
+  },
+  "tier": 3,
+  "status": "draft",
+  "public_reference": true
+}
