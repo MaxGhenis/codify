@@ -63,6 +63,8 @@ PAGE_SEPARATOR = "\n\n"
 _LINE_END_NUMBER_RE = re.compile(r"(?m)(\d+)[ \t]*$")
 # Longer than this between an entry's heading and its page, and it is body text.
 _ENTRY_MAX_CHARS = 1000
+# A leader run then a page number, ending a line: a contents entry, not body text.
+_LEADER_RE = re.compile(r"(?:\.{3,}|\u2026+)[ \t]*(\d+)[ \t]*$", re.MULTILINE)
 _NOT_WORD_RE = re.compile(r"[\W_]+")
 
 
@@ -263,6 +265,10 @@ def _contents(
     )
     blocks: list[tuple[int, int]] = []
     entries: list[_Entry] = []
+    # Provisions listed under an act's entry: entries themselves, not its body.
+    listed = [m.offset for m in markers if _leads_to_page(text, m.offset, pages)]
+    as_entries = set(listed)
+    body = [m for m in markers if m.offset not in as_entries]
     for found in keyword.finditer(text):
         if _within(found.start(), blocks):
             continue
@@ -272,11 +278,12 @@ def _contents(
         last: _Heading | None = None
         for heading in [*(h for h in headings if h.start > found.end()), None]:
             stop = end if heading is None else min(heading.start, end)
-            if last is not None and any(last.match_end <= m.offset < stop for m in markers):
+            if last is not None and any(last.match_end <= m.offset < stop for m in body):
                 end = last.start
                 break
             if current is not None:
-                page = _reference(text, current.match_end, stop, pages)
+                nested = next((o for o in listed if o > current.match_end), stop)
+                page = _reference(text, current.match_end, min(stop, nested), pages)
                 near = stop - current.match_end <= _ENTRY_MAX_CHARS
                 if page is None and heading is not None and heading.start < end and near:
                     # A citation wrapped onto its own line, inside the entry.
@@ -292,6 +299,13 @@ def _contents(
             current = last = heading
         blocks.append((found.start(), end))
     return blocks, entries
+
+
+def _leads_to_page(text: str, at: int, pages: _Pages) -> bool:
+    """The line at `at` ends in a leader and the number of a page of this source."""
+    end = text.find("\n", at)
+    found = _LEADER_RE.search(text, at, len(text) if end < 0 else end)
+    return found is not None and pages.pdf_page(int(normalise_digits(found.group(1)))) is not None
 
 
 def _reference(text: str, start: int, stop: int, pages: _Pages) -> tuple[int, int] | None:
@@ -448,6 +462,8 @@ def segment(
     markers = _markers(text, config, doctype or config.default_document_class)
     blocks, entries = _contents(text, rules, headings, markers, pages)
     candidates = [h for h in headings if not _within(h.start, blocks)]
+    # A provision a listing names is an entry: it neither opens nor numbers the body.
+    markers = [m for m in markers if not _within(m.offset, blocks)]
     if not candidates and not entries:
         return _single(text, spans)
     return _decide(text, pages, candidates, entries, markers, _Rules(config))
@@ -862,7 +878,7 @@ def _issue_heading(
 ) -> re.Match[str] | None:
     """The page's first issue heading that is neither the open issue's running head
     nor quoted, a quotation opened on the page before included."""
-    carried = before[-VETO_WINDOW:] + PAGE_SEPARATOR
+    carried = before + PAGE_SEPARATOR
     joined = carried + text
     found = sorted((m for p in patterns for m in p.finditer(text)), key=lambda m: m.start())
     return next(

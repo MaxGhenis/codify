@@ -875,3 +875,54 @@ def test_a_heading_after_a_closed_low_nine_quotation_is_not_vetoed(
     text, spans = _join([first + _signed(), _act(4, "THE LIGHTHOUSE ACT", 3) + _signed()])
     result = segment(text, spans, config=config)
     assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def _nested_contents(third_section_page: int) -> list[list[str]]:
+    """The three-act issue, its contents also listing the first act's sections."""
+    pages = _three_act_issue()
+    at = pages[0].index("of the Assembly ............ 2") + 1
+    pages[0][at:at] = [
+        "Section 1. Duty 1 ............ 2",
+        "Section 2. Duty 2 ............ 2",
+        f"Section 3. Duty 3 ............ {third_section_page}",
+    ]
+    return pages
+
+
+def test_provisions_listed_in_the_contents_are_entries_not_body(
+    config: JurisdictionConfig,
+) -> None:
+    """A leader and a page number make a listed section an entry, so the listing
+    runs on to the acts after it."""
+    text, spans = _join(_nested_contents(2))
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4", "act 5"]
+    listed = [(r.key, r.printed_page) for r in result.reconciliation if r.source == "contents"]
+    assert listed == [("act 3", 2), ("act 4", 2), ("act 5", 3)]
+    _conserved(result, text)
+
+
+def test_an_entry_takes_its_own_page_not_a_listed_provision_page(
+    config: JurisdictionConfig,
+) -> None:
+    text, spans = _join(_nested_contents(3))
+    result = segment(text, spans, config=config)
+    assert [(r.key, r.status) for r in result.reconciliation if r.source == "contents"] == [
+        ("act 3", "matched"),
+        ("act 4", "matched"),
+        ("act 5", "matched"),
+    ]
+
+
+def test_a_quotation_opened_far_up_the_page_before_still_vetoes(
+    config: JurisdictionConfig,
+) -> None:
+    """Quote state comes from the whole page before, not only its last lines."""
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], "The notice reads: \u201c"]
+    issue[-1] += ["The keeper shall keep the light burning at night."] * 12
+    assert len("\n".join(issue[-1][-13:])) > 400
+    issue.append(["ISSUE No. 12", "is withdrawn.\u201d"])
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 3)]
