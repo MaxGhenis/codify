@@ -55,11 +55,14 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Inciso/Numeral",
+          "local_term": "Inciso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_dot"
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
         },
         {
           "local_term": "Literal",
@@ -130,11 +133,14 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Inciso/Numeral",
+          "local_term": "Inciso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_dot"
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
         },
         {
           "local_term": "Literal",
@@ -174,11 +180,14 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Inciso/Numeral",
+          "local_term": "Inciso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_dot"
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
         },
         {
           "local_term": "Literal",
@@ -204,11 +213,14 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Inciso/Numeral",
+          "local_term": "Inciso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_dot"
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
         },
         {
           "local_term": "Literal",
@@ -248,11 +260,14 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Inciso/Numeral",
+          "local_term": "Inciso",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_dot"
+          "numbering": "arabic_dot",
+          "local_terms": {
+            "alt1": "Numeral"
+          }
         }
       ],
       "hcontainers": []

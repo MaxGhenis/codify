@@ -18,42 +18,42 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Hen (Part)",
+          "local_term": "Hen",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Sho (Chapter)",
+          "local_term": "Sho",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Setsu (Section)",
+          "local_term": "Setsu",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Kan (Subsection)",
+          "local_term": "Kan",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (Article)",
+          "local_term": "Jo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Ko (Paragraph)",
+          "local_term": "Ko",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -69,7 +69,7 @@
       ],
       "hcontainers": [
         {
-          "local_term": "Moku (Division)",
+          "local_term": "Moku",
           "name": "division",
           "description": "Lowest grouping level above articles, very rare",
           "bluebell_proxy": "SUBSECTION",
@@ -84,28 +84,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Sho (Chapter)",
+          "local_term": "Sho",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Setsu (Section)",
+          "local_term": "Setsu",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (Article)",
+          "local_term": "Jo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Ko (Paragraph)",
+          "local_term": "Ko",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -121,21 +121,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Sho (Chapter)",
+          "local_term": "Sho",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (Article)",
+          "local_term": "Jo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Ko (Paragraph)",
+          "local_term": "Ko",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",

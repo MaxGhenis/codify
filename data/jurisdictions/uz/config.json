@@ -117,11 +117,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Modda / Band",
+          "local_term": "Modda",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Band"
+          }
         }
       ],
       "hcontainers": [

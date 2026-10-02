@@ -19,49 +19,49 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Kitab (Book)",
+          "local_term": "Kitab",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
           "numbering": "arabic"
         },
         {
-          "local_term": "Juz' (Part)",
+          "local_term": "Juz'",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "arabic"
         },
         {
-          "local_term": "Bab (Chapter)",
+          "local_term": "Bab",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Fasl (Section)",
+          "local_term": "Fasl",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "arabic"
         },
         {
-          "local_term": "Maddah (Article)",
+          "local_term": "Maddah",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Faqrah (Paragraph)",
+          "local_term": "Faqrah",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         },
         {
-          "local_term": "Band (Item)",
+          "local_term": "Band",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -77,14 +77,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Bab (Chapter)",
+          "local_term": "Bab",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Maddah (Article)",
+          "local_term": "Maddah",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -100,28 +100,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Bab (Chapter)",
+          "local_term": "Bab",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Fasl (Section)",
+          "local_term": "Fasl",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "arabic"
         },
         {
-          "local_term": "Maddah (Article)",
+          "local_term": "Maddah",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Faqrah (Paragraph)",
+          "local_term": "Faqrah",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",

@@ -22,46 +22,61 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Livre / Book",
+          "local_term": "Livre",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Book"
+          }
         },
         {
-          "local_term": "Titre / Title",
+          "local_term": "Titre",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Title"
+          }
         },
         {
-          "local_term": "Chapitre / Chapter",
+          "local_term": "Chapitre",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Section (higher) / Section",
+          "local_term": "Section",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman"
         },
         {
-          "local_term": "Article / Section (basic)",
+          "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "Alinéa / Subsection",
+          "local_term": "Alinéa",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": null,
-          "numbering": "sequential_implicit"
+          "numbering": "sequential_implicit",
+          "local_terms": {
+            "alt1": "Subsection"
+          }
         },
         {
           "local_term": "Point (1°, 2°…)",
@@ -87,39 +102,51 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Livre / Book",
+          "local_term": "Livre",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Book"
+          }
         },
         {
-          "local_term": "Titre / Title",
+          "local_term": "Titre",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Title"
+          }
         },
         {
-          "local_term": "Chapitre / Chapter",
+          "local_term": "Chapitre",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Chapter"
+          }
         },
         {
-          "local_term": "Section (higher)",
+          "local_term": "Section",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman"
         },
         {
-          "local_term": "Article / Section (basic)",
+          "local_term": "Article",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
           "local_term": "Alinéa",
@@ -212,11 +239,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Partie / Part",
+          "local_term": "Partie",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Part"
+          }
         },
         {
           "local_term": "Article",

@@ -47,7 +47,7 @@
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "Point / Sub-item",
+          "local_term": "Point",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",

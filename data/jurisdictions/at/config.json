@@ -39,7 +39,7 @@
           "numbering": "arabic_period"
         },
         {
-          "local_term": "§ (Paragraph)",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -126,7 +126,7 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "§ (Paragraph)",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",

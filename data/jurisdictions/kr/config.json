@@ -18,56 +18,56 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Pyeon (편, Part)",
+          "local_term": "Pyeon (편)",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jang (장, Chapter)",
+          "local_term": "Jang (장)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jeol (절, Section)",
+          "local_term": "Jeol (절)",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Gwan (관, Subsection)",
+          "local_term": "Gwan (관)",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (조, Article)",
+          "local_term": "Jo (조)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Hang (항, Paragraph)",
+          "local_term": "Hang (항)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "circled_numeral"
         },
         {
-          "local_term": "Ho (호, Item)",
+          "local_term": "Ho (호)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
           "numbering": "arabic_period"
         },
         {
-          "local_term": "Mok (목, Sub-item)",
+          "local_term": "Mok (목)",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -91,42 +91,42 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Jang (장, Chapter)",
+          "local_term": "Jang (장)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jeol (절, Section)",
+          "local_term": "Jeol (절)",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (조, Article)",
+          "local_term": "Jo (조)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Hang (항, Paragraph)",
+          "local_term": "Hang (항)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "circled_numeral"
         },
         {
-          "local_term": "Ho (호, Item)",
+          "local_term": "Ho (호)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
           "numbering": "arabic_period"
         },
         {
-          "local_term": "Mok (목, Sub-item)",
+          "local_term": "Mok (목)",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -142,28 +142,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Jang (장, Chapter)",
+          "local_term": "Jang (장)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (조, Article)",
+          "local_term": "Jo (조)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Hang (항, Paragraph)",
+          "local_term": "Hang (항)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "circled_numeral"
         },
         {
-          "local_term": "Ho (호, Item)",
+          "local_term": "Ho (호)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -179,28 +179,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Jang (장, Chapter)",
+          "local_term": "Jang (장)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "chinese_numeral"
         },
         {
-          "local_term": "Jo (조, Article)",
+          "local_term": "Jo (조)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Hang (항, Paragraph)",
+          "local_term": "Hang (항)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "circled_numeral"
         },
         {
-          "local_term": "Ho (호, Item)",
+          "local_term": "Ho (호)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",

@@ -19,58 +19,79 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Del / Дел",
+          "local_term": "Del",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman_or_arabic"
+          "numbering": "roman_or_arabic",
+          "local_terms": {
+            "alt1": "Дел"
+          }
         },
         {
-          "local_term": "Glava / Глава",
+          "local_term": "Glava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_arabic"
+          "numbering": "roman_or_arabic",
+          "local_terms": {
+            "alt1": "Глава"
+          }
         },
         {
-          "local_term": "Oddel / Оддел",
+          "local_term": "Oddel",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Оддел"
+          }
         },
         {
-          "local_term": "Člen / Член",
+          "local_term": "Člen",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
         },
         {
-          "local_term": "Stav / Став",
+          "local_term": "Stav",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
         },
         {
-          "local_term": "Tochka / Точка",
+          "local_term": "Tochka",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Точка"
+          }
         },
         {
-          "local_term": "Alineja / Алинеа",
+          "local_term": "Alineja",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "unnumbered"
+          "numbering": "unnumbered",
+          "local_terms": {
+            "alt1": "Алинеа"
+          }
         }
       ],
       "hcontainers": [
         {
-          "local_term": "Preodni i zavrsni odredbi / Преодни и завршни одредби",
+          "local_term": "Preodni i zavrsni odredbi",
           "name": "transitional-final",
           "description": "Transitional and Final Provisions block at end of act. Typically a final Glava or unnumbered heading block.",
           "bluebell_proxy": "SUBSECTION",
@@ -85,32 +106,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Glava / Глава",
+          "local_term": "Glava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_arabic"
+          "numbering": "roman_or_arabic",
+          "local_terms": {
+            "alt1": "Глава"
+          }
         },
         {
-          "local_term": "Člen / Член",
+          "local_term": "Člen",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
         },
         {
-          "local_term": "Stav / Став",
+          "local_term": "Stav",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
         },
         {
-          "local_term": "Tochka / Точка",
+          "local_term": "Tochka",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Точка"
+          }
         }
       ],
       "hcontainers": []
@@ -122,32 +155,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Glava / Глава",
+          "local_term": "Glava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Глава"
+          }
         },
         {
-          "local_term": "Člen / Член",
+          "local_term": "Člen",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
         },
         {
-          "local_term": "Stav / Став",
+          "local_term": "Stav",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
         },
         {
-          "local_term": "Tochka / Точка",
+          "local_term": "Tochka",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_stop_or_alpha_lower_parenthesized"
+          "numbering": "arabic_stop_or_alpha_lower_parenthesized",
+          "local_terms": {
+            "alt1": "Точка"
+          }
         }
       ],
       "hcontainers": []
@@ -159,18 +204,24 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Člen / Член",
+          "local_term": "Člen",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
         },
         {
-          "local_term": "Stav / Став",
+          "local_term": "Stav",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
         }
       ],
       "hcontainers": []
@@ -182,25 +233,34 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Del / Дел",
+          "local_term": "Del",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Дел"
+          }
         },
         {
-          "local_term": "Člen / Член",
+          "local_term": "Člen",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Член"
+          }
         },
         {
-          "local_term": "Stav / Став",
+          "local_term": "Stav",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Став"
+          }
         }
       ],
       "hcontainers": []

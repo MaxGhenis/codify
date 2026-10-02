@@ -21,65 +21,89 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Teil / Partie / Parte",
+          "local_term": "Teil",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Partie",
+            "alt2": "Parte"
+          }
         },
         {
-          "local_term": "Titel / Titre / Titolo",
+          "local_term": "Titel",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Titre",
+            "alt2": "Titolo"
+          }
         },
         {
-          "local_term": "Kapitel / Chapitre / Capitolo",
+          "local_term": "Kapitel",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
         },
         {
-          "local_term": "Abschnitt / Section / Sezione",
+          "local_term": "Abschnitt",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section",
+            "alt2": "Sezione"
+          }
         },
         {
-          "local_term": "Artikel / Article / Articolo",
+          "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
         },
         {
-          "local_term": "Absatz / Alinéa / Capoverso",
+          "local_term": "Absatz",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_superscript"
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
         },
         {
-          "local_term": "Buchstabe / Lettre / Lettera",
+          "local_term": "Buchstabe",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_period"
-        },
-        {
-          "local_term": "Ziffer / Chiffre / Cifra",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "arabic_period"
+          "numbering": "alpha_lower_period",
+          "local_terms": {
+            "alt1": "Lettre",
+            "alt2": "Lettera",
+            "alt3": "Ziffer",
+            "alt4": "Chiffre",
+            "alt5": "Cifra"
+          }
         }
       ],
       "hcontainers": [
         {
-          "local_term": "Übergangsbestimmungen / Dispositions transitoires / Disposizioni transitorie",
+          "local_term": "Übergangsbestimmungen",
           "name": "transitional-provisions",
           "description": "Final/transitional provisions block at the end of many federal acts. May be structured as a section or as standalone articles.",
           "bluebell_proxy": "SUBSECTION",
@@ -94,46 +118,70 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Titel / Titre / Titolo",
+          "local_term": "Titel",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Titre",
+            "alt2": "Titolo"
+          }
         },
         {
-          "local_term": "Kapitel / Chapitre / Capitolo",
+          "local_term": "Kapitel",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
         },
         {
-          "local_term": "Abschnitt / Section / Sezione",
+          "local_term": "Abschnitt",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section",
+            "alt2": "Sezione"
+          }
         },
         {
-          "local_term": "Artikel / Article / Articolo",
+          "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
         },
         {
-          "local_term": "Absatz / Alinéa / Capoverso",
+          "local_term": "Absatz",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_superscript"
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
         },
         {
-          "local_term": "Buchstabe / Lettre / Lettera",
+          "local_term": "Buchstabe",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_period"
+          "numbering": "alpha_lower_period",
+          "local_terms": {
+            "alt1": "Lettre",
+            "alt2": "Lettera"
+          }
         }
       ],
       "hcontainers": []
@@ -145,39 +193,59 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Kapitel / Chapitre / Capitolo",
+          "local_term": "Kapitel",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
         },
         {
-          "local_term": "Abschnitt / Section / Sezione",
+          "local_term": "Abschnitt",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section",
+            "alt2": "Sezione"
+          }
         },
         {
-          "local_term": "Artikel / Article / Articolo",
+          "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
         },
         {
-          "local_term": "Absatz / Alinéa / Capoverso",
+          "local_term": "Absatz",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_superscript"
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
         },
         {
-          "local_term": "Buchstabe / Lettre / Lettera",
+          "local_term": "Buchstabe",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_period"
+          "numbering": "alpha_lower_period",
+          "local_terms": {
+            "alt1": "Lettre",
+            "alt2": "Lettera"
+          }
         }
       ],
       "hcontainers": []
@@ -189,18 +257,26 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Artikel / Article / Articolo",
+          "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
         },
         {
-          "local_term": "Absatz / Alinéa / Capoverso",
+          "local_term": "Absatz",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_superscript"
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
         }
       ],
       "hcontainers": []
@@ -212,32 +288,48 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Teil / Partie / Parte",
+          "local_term": "Teil",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "numbering": "roman",
+          "local_terms": {
+            "alt1": "Partie",
+            "alt2": "Parte"
+          }
         },
         {
-          "local_term": "Kapitel / Chapitre / Capitolo",
+          "local_term": "Kapitel",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Capitolo"
+          }
         },
         {
-          "local_term": "Artikel / Article / Articolo",
+          "local_term": "Artikel",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Articolo"
+          }
         },
         {
-          "local_term": "Absatz / Alinéa / Capoverso",
+          "local_term": "Absatz",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_superscript"
+          "numbering": "arabic_superscript",
+          "local_terms": {
+            "alt1": "Alinéa",
+            "alt2": "Capoverso"
+          }
         }
       ],
       "hcontainers": []

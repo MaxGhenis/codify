@@ -20,53 +20,74 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "كتاب (Kitab) / Livre",
+          "local_term": "كتاب (Kitab)",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Livre"
+          }
         },
         {
-          "local_term": "باب (Bab) / Titre",
+          "local_term": "باب (Bab)",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre"
+          }
         },
         {
-          "local_term": "فصل (Fasl) / Chapitre",
+          "local_term": "فصل (Fasl)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "قسم (Qism) / Section",
+          "local_term": "قسم (Qism)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "arabic"
+          "numbering": "arabic",
+          "local_terms": {
+            "alt1": "Section"
+          }
         },
         {
-          "local_term": "مادة (Maddah) / Article",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "فقرة (Faqra) / Alinéa",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "implicit_sequential"
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         },
         {
-          "local_term": "بند (Band) / Point",
+          "local_term": "بند (Band)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha"
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "Point"
+          }
         }
       ],
       "hcontainers": []
@@ -78,46 +99,64 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "كتاب (Kitab) / Livre",
+          "local_term": "كتاب (Kitab)",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Livre"
+          }
         },
         {
-          "local_term": "باب (Bab) / Titre",
+          "local_term": "باب (Bab)",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre"
+          }
         },
         {
-          "local_term": "فصل (Fasl) / Chapitre",
+          "local_term": "فصل (Fasl)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "مادة (Maddah) / Article",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "فقرة (Faqra) / Alinéa",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "implicit_sequential"
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         },
         {
-          "local_term": "بند (Band) / Point",
+          "local_term": "بند (Band)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha"
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "Point"
+          }
         }
       ],
       "hcontainers": []
@@ -129,32 +168,44 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "باب (Bab) / Titre",
+          "local_term": "باب (Bab)",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre"
+          }
         },
         {
-          "local_term": "فصل (Fasl) / Chapitre",
+          "local_term": "فصل (Fasl)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre"
+          }
         },
         {
-          "local_term": "مادة (Maddah) / Article",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "فقرة (Faqra) / Alinéa",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "implicit_sequential"
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ],
       "hcontainers": []
@@ -166,18 +217,24 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "مادة (Maddah) / Article",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         },
         {
-          "local_term": "فقرة (Faqra) / Alinéa",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "implicit_sequential"
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ],
       "hcontainers": []
@@ -189,37 +246,52 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "باب (Bab) / Titre / Titulus",
+          "local_term": "باب (Bab)",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Titre",
+            "alt2": "Titulus"
+          }
         },
         {
-          "local_term": "فصل (Fasl) / Chapitre / Caput",
+          "local_term": "فصل (Fasl)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "roman_or_ordinal_arabic"
+          "numbering": "roman_or_ordinal_arabic",
+          "local_terms": {
+            "alt1": "Chapitre",
+            "alt2": "Caput"
+          }
         },
         {
-          "local_term": "مادة (Maddah) / Article / Canon",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article",
+            "alt2": "Canon"
+          }
         },
         {
-          "local_term": "فقرة (Faqra) / Alinéa",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "alinea",
           "level": "subdivision",
           "bluebell_keyword": "ALINEA",
-          "numbering": "implicit_sequential"
+          "numbering": "implicit_sequential",
+          "local_terms": {
+            "alt1": "Alinéa"
+          }
         }
       ],
       "hcontainers": [
         {
-          "local_term": "Note / تنبيه",
+          "local_term": "Note",
           "name": "proviso",
           "description": "Proviso or conditional note attached to an article, sometimes with independent legal force in confessional court practice",
           "bluebell_proxy": "PROVISO",
@@ -234,16 +306,19 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "مادة (Maddah) / Article",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Article"
+          }
         }
       ],
       "hcontainers": [
         {
-          "local_term": "Preamble / المقدمة",
+          "local_term": "Preamble",
           "name": "preamble",
           "description": "Constitutional Preamble added by Taif Agreement amendments (1990). Distinct constitutional status — part of the constitutional bloc (bloc de constitutionnalité). Not a simple introductory paragraph. Model as hcontainer within preface.",
           "bluebell_proxy": "SUBSECTION",

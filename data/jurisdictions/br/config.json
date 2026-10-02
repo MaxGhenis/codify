@@ -32,14 +32,14 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -67,7 +67,7 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Paragrafo",
+          "local_term": "Parágrafo",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -81,7 +81,7 @@
           "numbering": "roman_upper"
         },
         {
-          "local_term": "Alinea",
+          "local_term": "Alínea",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -105,7 +105,7 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -126,7 +126,7 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Paragrafo",
+          "local_term": "Parágrafo",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -140,7 +140,7 @@
           "numbering": "roman_upper"
         },
         {
-          "local_term": "Alinea",
+          "local_term": "Alínea",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -156,7 +156,7 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -170,7 +170,7 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Paragrafo",
+          "local_term": "Parágrafo",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -193,14 +193,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -228,7 +228,7 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Paragrafo",
+          "local_term": "Parágrafo",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -242,7 +242,7 @@
           "numbering": "roman_upper"
         },
         {
-          "local_term": "Alinea",
+          "local_term": "Alínea",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",

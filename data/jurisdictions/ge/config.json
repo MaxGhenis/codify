@@ -18,42 +18,42 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "წიგნი (Book)",
+          "local_term": "წიგნი",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
           "numbering": "arabic"
         },
         {
-          "local_term": "ნაწილი (Part)",
+          "local_term": "ნაწილი",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "arabic"
         },
         {
-          "local_term": "თავი (Chapter)",
+          "local_term": "თავი",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "მუხლი (Article)",
+          "local_term": "მუხლი",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "პუნქტი (Paragraph/Point)",
+          "local_term": "პუნქტი",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "ქვეპუნქტი (Sub-point)",
+          "local_term": "ქვეპუნქტი",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
@@ -69,28 +69,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "თავი (Chapter)",
+          "local_term": "თავი",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "მუხლი (Article)",
+          "local_term": "მუხლი",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "პუნქტი (Paragraph/Point)",
+          "local_term": "პუნქტი",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "ქვეპუნქტი (Sub-point)",
+          "local_term": "ქვეპუნქტი",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
@@ -106,42 +106,42 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "წიგნი (Book)",
+          "local_term": "წიგნი",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
           "numbering": "arabic"
         },
         {
-          "local_term": "ნაწილი (Part)",
+          "local_term": "ნაწილი",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "arabic"
         },
         {
-          "local_term": "თავი (Chapter)",
+          "local_term": "თავი",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "მუხლი (Article)",
+          "local_term": "მუხლი",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "პუნქტი (Paragraph/Point)",
+          "local_term": "პუნქტი",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "ქვეპუნქტი (Sub-point)",
+          "local_term": "ქვეპუნქტი",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
@@ -157,14 +157,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "მუხლი (Article)",
+          "local_term": "მუხლი",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "პუნქტი (Paragraph/Point)",
+          "local_term": "პუნქტი",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -180,14 +180,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "მუხლი (Article)",
+          "local_term": "მუხლი",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "პუნქტი (Paragraph/Point)",
+          "local_term": "პუნქტი",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -203,21 +203,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "თავი (Chapter)",
+          "local_term": "თავი",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "მუხლი (Article)",
+          "local_term": "მუხლი",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "პუნქტი (Paragraph/Point)",
+          "local_term": "პუნქტი",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",

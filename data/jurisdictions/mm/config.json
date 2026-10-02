@@ -54,7 +54,7 @@
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "Clause / Paragraph",
+          "local_term": "Clause",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -105,7 +105,7 @@
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "Clause / Paragraph",
+          "local_term": "Clause",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",

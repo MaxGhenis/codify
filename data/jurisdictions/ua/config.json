@@ -194,11 +194,14 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Стаття/пункт (статті, пункту)",
+          "local_term": "Стаття",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "пункт (статті, пункту)"
+          }
         }
       ],
       "hcontainers": []

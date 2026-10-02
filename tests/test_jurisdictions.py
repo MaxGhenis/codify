@@ -1417,3 +1417,85 @@ def test_uri_pattern_keys_name_declared_classes(code: str) -> None:
         code,
         sorted(set(patterns) - set(cfg.document_classes)),
     )
+
+
+def _terms_of(entry) -> list[str]:
+    return [entry.local_term, *(entry.local_terms or {}).values()]
+
+
+def _outside_parentheses(text: str) -> str:
+    import re
+
+    return re.sub(r"\(.*?\)", "", text)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_term_is_an_unsplit_list_of_alternatives(code: str) -> None:
+    """`_heading_forms` splits only a parenthesised abbreviation, so alternatives
+    joined by a separator register as one literal heading nobody writes."""
+    import re
+
+    found = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        terms = [t for e in doc_class.hierarchy for t in _terms_of(e)]
+        terms += [h.local_term for h in doc_class.hcontainers]
+        found += [(doctype, t) for t in terms if re.search(r"[/;,]| or ", _outside_parentheses(t))]
+    assert not found, (code, found)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_class_declares_an_element_twice(code: str) -> None:
+    """Aliases are keyed by element, so a second level of the same element
+    replaces the first one's aliases."""
+    import collections
+
+    twice = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        counts = collections.Counter(e.akn_element for e in doc_class.hierarchy)
+        twice += [(doctype, k) for k, n in counts.items() if n > 1]
+    assert not twice, (code, twice)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_heading_form_is_a_plausible_single_heading(code: str) -> None:
+    import re
+
+    from codify.pipeline.enrich.anchors import _heading_forms
+
+    implausible = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        for entry in doc_class.hierarchy:
+            for term in _terms_of(entry):
+                for form in _heading_forms(term):
+                    if re.search(r"[/;,]| or ", form) or not form.strip() or len(form.split()) > 4:
+                        implausible.append((doctype, term, form))
+    assert not implausible, (code, implausible)
+
+
+# Accentless spellings of Portuguese and Spanish headings; matching does not
+# fold diacritics, so these never match a gazette that prints the accent.
+_ACCENTLESS = {
+    "Titulo",
+    "Capitulo",
+    "Seccion",
+    "Articulo",
+    "Paragrafo",
+    "Seccao",
+    "Numero",
+    "Alinea",
+}
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_portuguese_and_spanish_terms_carry_their_accents(code: str) -> None:
+    import re
+
+    cfg = load_config(code)
+    if not {"por", "spa"} & set(cfg.languages):
+        return
+    found = []
+    for doctype, doc_class in cfg.document_classes.items():
+        for entry in doc_class.hierarchy:
+            for term in _terms_of(entry):
+                found += [(doctype, w) for w in re.findall(r"[^\W\d_]+", term) if w in _ACCENTLESS]
+    assert not found, (code, found)

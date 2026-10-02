@@ -159,14 +159,17 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Obshchaya/Osobennaya Chast'",
+          "local_term": "Obshchaya Chast'",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "named",
           "local_terms": {
-            "kaz": "Жалпы/Ерекше бөлім",
-            "rus": "Общая/Особенная часть"
+            "alt1": "Osobennaya Chast'",
+            "kaz": "Жалпы бөлім",
+            "alt2": "Ерекше бөлім",
+            "rus": "Общая часть",
+            "alt3": "Особенная часть"
           }
         },
         {
@@ -264,14 +267,17 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Punkt / Stat'ya",
+          "local_term": "Punkt",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous",
           "local_terms": {
-            "kaz": "Тармақ / Бап",
-            "rus": "Пункт / Статья"
+            "kaz": "Тармақ",
+            "alt1": "Бап",
+            "rus": "Пункт",
+            "alt2": "Статья",
+            "alt3": "Stat'ya"
           }
         },
         {

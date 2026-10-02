@@ -18,35 +18,35 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Část (Part)",
+          "local_term": "Část",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "ordinal_word_czech"
         },
         {
-          "local_term": "Hlava (Chapter/Head)",
+          "local_term": "Hlava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Díl (Division)",
+          "local_term": "Díl",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "arabic"
         },
         {
-          "local_term": "Oddíl (Section/grouping)",
+          "local_term": "Oddíl",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic"
         },
         {
-          "local_term": "Pododdíl (Sub-section/grouping)",
+          "local_term": "Pododdíl",
           "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
@@ -60,21 +60,21 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Odstavec (Subsection)",
+          "local_term": "Odstavec",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "Písmeno (Letter)",
+          "local_term": "Písmeno",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
           "numbering": "alpha_lower_closing_paren"
         },
         {
-          "local_term": "Bod (Point)",
+          "local_term": "Bod",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -83,7 +83,7 @@
       ],
       "hcontainers": [
         {
-          "local_term": "Čl. I / Čl. II (amending article in novelizace)",
+          "local_term": "Čl. I",
           "name": "amendingArticle",
           "description": "In amendment acts (novelizace), Čl. I, Čl. II label which target statute is being amended. These are structural groupers within an otherwise §-based act.",
           "bluebell_proxy": "PART",
@@ -98,18 +98,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Hlava (Chapter)",
+          "local_term": "Hlava",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Čl. / Článek (Article)",
+          "local_term": "Čl.",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Článek"
+          }
         },
         {
           "local_term": "Odstavec",
@@ -135,7 +138,7 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Část (Part)",
+          "local_term": "Část",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",

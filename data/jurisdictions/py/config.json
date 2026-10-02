@@ -26,28 +26,28 @@
           "numbering": "ordinal"
         },
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Seccion",
+          "local_term": "Sección",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "roman"
         },
         {
-          "local_term": "Articulo",
+          "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -77,14 +77,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Articulo",
+          "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
@@ -114,28 +114,28 @@
           "numbering": "ordinal"
         },
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Seccion",
+          "local_term": "Sección",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "roman"
         },
         {
-          "local_term": "Articulo",
+          "local_term": "Artículo",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",

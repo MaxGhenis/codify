@@ -56,7 +56,7 @@
           "numbering": "positional_unnumbered"
         },
         {
-          "local_term": "Point / item",
+          "local_term": "Point",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -112,7 +112,7 @@
           "numbering": "positional_unnumbered"
         },
         {
-          "local_term": "Point / item",
+          "local_term": "Point",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",

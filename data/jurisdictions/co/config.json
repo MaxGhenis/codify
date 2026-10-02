@@ -77,14 +77,10 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Literal",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Literal"
+          }
         }
       ],
       "hcontainers": [
@@ -140,14 +136,10 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_parenthesized"
-        },
-        {
-          "local_term": "Literal",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Literal"
+          }
         }
       ],
       "hcontainers": []

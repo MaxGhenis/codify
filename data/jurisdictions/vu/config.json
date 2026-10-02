@@ -79,11 +79,14 @@
           "numbering": "arabic"
         },
         {
-          "local_term": "Regulation/Rule",
+          "local_term": "Regulation",
           "akn_element": "section",
           "level": "basic",
           "bluebell_keyword": "SECTION",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Rule"
+          }
         }
       ],
       "hcontainers": []

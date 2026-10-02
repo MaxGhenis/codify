@@ -20,48 +20,67 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Osa / Del",
+          "local_term": "Osa",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "arabic",
-          "note": "Rare; used only in largest codes such as the Criminal Code"
+          "note": "Rare; used only in largest codes such as the Criminal Code",
+          "local_terms": {
+            "alt1": "Del"
+          }
         },
         {
-          "local_term": "Luku / Kapitel",
+          "local_term": "Luku",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Kapitel"
+          }
         },
         {
-          "local_term": "§ / Pykälä / Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         },
         {
-          "local_term": "Kohta / Punkt",
+          "local_term": "Kohta",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_closing_paren_or_alpha_closing_paren",
-          "note": "May be numeric (1), 2)) or alphabetic (a), b)) — detect per document. See unresolved ambiguity #1."
+          "note": "May be numeric (1), 2)) or alphabetic (a), b)) — detect per document. See unresolved ambiguity #1.",
+          "local_terms": {
+            "alt1": "Punkt"
+          }
         },
         {
-          "local_term": "Alakohta / Underpunkt",
+          "local_term": "Alakohta",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "alpha_closing_paren"
+          "numbering": "alpha_closing_paren",
+          "local_terms": {
+            "alt1": "Underpunkt"
+          }
         }
       ],
       "hcontainers": []
@@ -73,32 +92,45 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Luku / Kapitel",
+          "local_term": "Luku",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Kapitel"
+          }
         },
         {
-          "local_term": "§ / Pykälä / Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         },
         {
-          "local_term": "Kohta / Punkt",
+          "local_term": "Kohta",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
-          "numbering": "arabic_closing_paren_or_alpha_closing_paren"
+          "numbering": "arabic_closing_paren_or_alpha_closing_paren",
+          "local_terms": {
+            "alt1": "Punkt"
+          }
         }
       ],
       "hcontainers": [],
@@ -111,18 +143,25 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "§ / Pykälä / Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         }
       ],
       "hcontainers": [],
@@ -135,25 +174,35 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Luku / Kapitel",
+          "local_term": "Luku",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Kapitel"
+          }
         },
         {
-          "local_term": "§ / Pykälä / Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Pykälä",
+            "alt2": "Paragraf"
+          }
         },
         {
-          "local_term": "Momentti / Moment",
+          "local_term": "Momentti",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Moment"
+          }
         }
       ],
       "hcontainers": [],
@@ -173,11 +222,14 @@
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "§ / Paragraf",
+          "local_term": "§",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
-          "numbering": "arabic_continuous"
+          "numbering": "arabic_continuous",
+          "local_terms": {
+            "alt1": "Paragraf"
+          }
         },
         {
           "local_term": "Moment",

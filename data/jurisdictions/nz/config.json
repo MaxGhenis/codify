@@ -111,11 +111,14 @@
           "note": "Legislative instruments (regulations, orders in council) use 'regulation' or 'clause' as the basic unit term; maps to AKN section."
         },
         {
-          "local_term": "Subclause / Subsection",
+          "local_term": "Subclause",
           "akn_element": "subsection",
           "level": "subdivision",
           "bluebell_keyword": "SUBSECTION",
-          "numbering": "arabic_parenthesized"
+          "numbering": "arabic_parenthesized",
+          "local_terms": {
+            "alt1": "Subsection"
+          }
         },
         {
           "local_term": "Paragraph",

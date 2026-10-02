@@ -60,11 +60,14 @@
           "numbering": "alpha_lower_parenthesized"
         },
         {
-          "local_term": "Punto / Sub-inciso",
+          "local_term": "Punto",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_period"
+          "numbering": "arabic_period",
+          "local_terms": {
+            "alt1": "Sub-inciso"
+          }
         }
       ],
       "hcontainers": [

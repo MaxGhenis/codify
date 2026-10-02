@@ -20,21 +20,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "كتاب (Kitab/Book)",
+          "local_term": "كتاب (Kitab)",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "قسم (Qism/Part)",
+          "local_term": "قسم (Qism)",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "باب (Bab/Chapter)",
+          "local_term": "باب (Bab)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
@@ -48,21 +48,21 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "مادة (Maddah/Article)",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "فقرة (Faqra/Paragraph)",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "positional_implicit_or_arabic"
         },
         {
-          "local_term": "بند (Band/Item)",
+          "local_term": "بند (Band)",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -78,21 +78,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "باب (Bab/Chapter)",
+          "local_term": "باب (Bab)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "مادة (Maddah/Article)",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "فقرة (Faqra/Paragraph)",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -108,21 +108,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "باب (Bab/Chapter)",
+          "local_term": "باب (Bab)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "مادة (Maddah/Article)",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "فقرة (Faqra/Paragraph)",
+          "local_term": "فقرة (Faqra)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -168,21 +168,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "باب (Bab/Chapter)",
+          "local_term": "باب (Bab)",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "فصل (Fasl/Section)",
+          "local_term": "فصل (Fasl)",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "مادة (Maddah/Article)",
+          "local_term": "مادة (Maddah)",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",

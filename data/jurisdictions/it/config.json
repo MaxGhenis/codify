@@ -412,14 +412,10 @@
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "named",
-          "note": "Opening 12 articles before the two main parts."
-        },
-        {
-          "local_term": "Parte",
-          "akn_element": "part",
-          "level": "higher",
-          "bluebell_keyword": "PART",
-          "numbering": "roman"
+          "note": "Opening 12 articles before the two main parts.",
+          "local_terms": {
+            "alt1": "Parte"
+          }
         },
         {
           "local_term": "Titolo",

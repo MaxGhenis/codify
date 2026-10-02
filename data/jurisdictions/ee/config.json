@@ -42,12 +42,15 @@
           "note": "Division below peatükk; '1. jagu'. Used in complex codes only. Maps to AKN section-as-higher-div."
         },
         {
-          "local_term": "Alljaotus / Alajagu",
+          "local_term": "Alljaotus",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
           "numbering": "arabic_period",
-          "note": "Rare; subdivision of jagu in the most complex codes."
+          "note": "Rare; subdivision of jagu in the most complex codes.",
+          "local_terms": {
+            "alt1": "Alajagu"
+          }
         },
         {
           "local_term": "§ (Paragrahv)",

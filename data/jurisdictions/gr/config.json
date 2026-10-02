@@ -18,56 +18,59 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Βιβλίο (Book)",
+          "local_term": "Βιβλίο",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
           "numbering": "greek_ordinal_to_arabic"
         },
         {
-          "local_term": "Μέρος (Part)",
+          "local_term": "Μέρος",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "greek_ordinal_word"
         },
         {
-          "local_term": "Κεφάλαιο (Chapter)",
+          "local_term": "Κεφάλαιο",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "greek_capital_letter"
         },
         {
-          "local_term": "Τμήμα (Section/Division)",
+          "local_term": "Τμήμα",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "greek_capital_letter"
         },
         {
-          "local_term": "Άρθρο (Article)",
+          "local_term": "Άρθρο",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Παράγραφος (Paragraph)",
+          "local_term": "Παράγραφος",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         },
         {
-          "local_term": "Εδάφιο / Περίπτωση (Sub-paragraph)",
+          "local_term": "Εδάφιο",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "greek_lower_letter"
+          "numbering": "greek_lower_letter",
+          "local_terms": {
+            "alt1": "Περίπτωση"
+          }
         },
         {
-          "local_term": "Σημείο (Point)",
+          "local_term": "Σημείο",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -89,32 +92,35 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Κεφάλαιο (Chapter)",
+          "local_term": "Κεφάλαιο",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "greek_capital_letter"
         },
         {
-          "local_term": "Άρθρο (Article)",
+          "local_term": "Άρθρο",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Παράγραφος (Paragraph)",
+          "local_term": "Παράγραφος",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         },
         {
-          "local_term": "Εδάφιο / Περίπτωση (Sub-paragraph)",
+          "local_term": "Εδάφιο",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
-          "numbering": "greek_lower_letter"
+          "numbering": "greek_lower_letter",
+          "local_terms": {
+            "alt1": "Περίπτωση"
+          }
         }
       ],
       "hcontainers": []
@@ -126,14 +132,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Άρθρο (Article)",
+          "local_term": "Άρθρο",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Παράγραφος (Paragraph)",
+          "local_term": "Παράγραφος",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -149,21 +155,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Μέρος (Part)",
+          "local_term": "Μέρος",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
           "numbering": "roman"
         },
         {
-          "local_term": "Άρθρο (Article)",
+          "local_term": "Άρθρο",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Παράγραφος (Paragraph)",
+          "local_term": "Παράγραφος",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -179,35 +185,35 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Βιβλίο (Book)",
+          "local_term": "Βιβλίο",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
           "numbering": "roman"
         },
         {
-          "local_term": "Κεφάλαιο (Chapter)",
+          "local_term": "Κεφάλαιο",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic_or_greek_letter"
         },
         {
-          "local_term": "Άρθρο (Article)",
+          "local_term": "Άρθρο",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Παράγραφος (Paragraph)",
+          "local_term": "Παράγραφος",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "roman_or_arabic"
         },
         {
-          "local_term": "Εδάφιο (Clause)",
+          "local_term": "Εδάφιο",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",
@@ -223,28 +229,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Κεφάλαιο (Chapter)",
+          "local_term": "Κεφάλαιο",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "greek_capital_letter"
         },
         {
-          "local_term": "Άρθρο (Article)",
+          "local_term": "Άρθρο",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Παράγραφος (Paragraph)",
+          "local_term": "Παράγραφος",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic"
         },
         {
-          "local_term": "Εδάφιο (Sub-paragraph)",
+          "local_term": "Εδάφιο",
           "akn_element": "subparagraph",
           "level": "subdivision",
           "bluebell_keyword": "SUBPARAGRAPH",

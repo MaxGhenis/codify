@@ -34,28 +34,28 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Seccao",
+          "local_term": "Secção",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "roman"
         },
         {
-          "local_term": "Sub-Seccao",
+          "local_term": "Sub-Secção",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION"
@@ -68,14 +68,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Numero (n.o)",
+          "local_term": "Número (n.o)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_period"
         },
         {
-          "local_term": "Alinea",
+          "local_term": "Alínea",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -111,28 +111,28 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Seccao",
+          "local_term": "Secção",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "roman"
         },
         {
-          "local_term": "Sub-Seccao",
+          "local_term": "Sub-Secção",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION"
@@ -145,14 +145,14 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Numero (n.o)",
+          "local_term": "Número (n.o)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_period"
         },
         {
-          "local_term": "Alinea",
+          "local_term": "Alínea",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -209,21 +209,21 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Titulo",
+          "local_term": "Título",
           "akn_element": "title",
           "level": "higher",
           "bluebell_keyword": "TITLE",
           "numbering": "roman"
         },
         {
-          "local_term": "Capitulo",
+          "local_term": "Capítulo",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "roman"
         },
         {
-          "local_term": "Seccao",
+          "local_term": "Secção",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION"

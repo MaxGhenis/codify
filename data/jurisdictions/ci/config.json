@@ -79,14 +79,10 @@
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_degree"
-        },
-        {
-          "local_term": "Lettre (a), b))",
-          "akn_element": "point",
-          "level": "subdivision",
-          "bluebell_keyword": "POINT",
-          "numbering": "alpha_lower"
+          "numbering": "arabic_degree",
+          "local_terms": {
+            "alt1": "Lettre"
+          }
         },
         {
           "local_term": "Tiret (—)",

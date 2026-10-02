@@ -18,7 +18,7 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Division (Բաժին)",
+          "local_term": "Բաժին",
           "akn_element": "book",
           "level": "higher",
           "bluebell_keyword": "BOOK",
@@ -32,35 +32,35 @@
           "numbering": "arabic"
         },
         {
-          "local_term": "Chapter (Գլուխ)",
+          "local_term": "Գլուխ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Article (Հոդված)",
+          "local_term": "Հոդված",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Part within Article (մաս)",
+          "local_term": "մաս",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "Point (կետ)",
+          "local_term": "կետ",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
           "numbering": "arabic_or_alpha"
         },
         {
-          "local_term": "Sub-point (ենթակետ)",
+          "local_term": "ենթակետ",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT",
@@ -81,28 +81,28 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter (Գլուխ)",
+          "local_term": "Գլուխ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Article (Հոդված)",
+          "local_term": "Հոդված",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Part within Article (մաս)",
+          "local_term": "մաս",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_parenthesized"
         },
         {
-          "local_term": "Point (կետ)",
+          "local_term": "կետ",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
@@ -118,21 +118,21 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter (Գլուխ)",
+          "local_term": "Գլուխ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Article (Հոդված)",
+          "local_term": "Հոդված",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",
           "numbering": "arabic_continuous"
         },
         {
-          "local_term": "Part within Article (մաս)",
+          "local_term": "մաս",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -148,14 +148,14 @@
       "basic_unit": "article",
       "hierarchy": [
         {
-          "local_term": "Chapter (Գլուխ)",
+          "local_term": "Գլուխ",
           "akn_element": "chapter",
           "level": "higher",
           "bluebell_keyword": "CHAPTER",
           "numbering": "arabic"
         },
         {
-          "local_term": "Article (Հոդված)",
+          "local_term": "Հոդված",
           "akn_element": "article",
           "level": "basic",
           "bluebell_keyword": "ARTICLE",

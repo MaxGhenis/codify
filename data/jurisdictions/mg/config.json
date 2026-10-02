@@ -55,11 +55,14 @@
           "numbering": "sequential_implicit"
         },
         {
-          "local_term": "Point / tiret",
+          "local_term": "Point",
           "akn_element": "point",
           "level": "subdivision",
           "bluebell_keyword": "POINT",
-          "numbering": "arabic_or_alpha"
+          "numbering": "arabic_or_alpha",
+          "local_terms": {
+            "alt1": "tiret"
+          }
         }
       ],
       "hcontainers": []
