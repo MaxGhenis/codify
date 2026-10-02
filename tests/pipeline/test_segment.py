@@ -761,3 +761,44 @@ def test_an_issue_closing_on_the_page_before_agrees(config: JurisdictionConfig) 
     pages.append(["Notice", "ISSUE No. 12", "THE ATLANTIS GAZETTE"])
     found = list(segment_volume(_pages([pages]), config=config))
     assert [(i.key, i.signals) for i in found] == [("11", ()), ("12", ("closing",))]
+
+
+@pytest.mark.parametrize(
+    "reference",
+    [
+        pytest.param("Words defined under Section 99 apply.", id="prose-reference"),
+        pytest.param("Section 4.5 of the Code applies.", id="partial-decimal"),
+    ],
+)
+def test_a_cited_section_is_not_a_numbering_run(config: JurisdictionConfig, reference: str) -> None:
+    """Sections 1 and 2 and a citation are too short a run for a restart to leave."""
+    first = _act(3, "THE HARBOUR DUES ACT", 2) + [reference, ""]
+    text, spans = _mid_page_second_act(first)
+    row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
+    assert (row.status, row.signals) == ("uncorroborated", ())
+
+
+def test_a_closing_phrase_inside_the_last_provision_is_not_a_closing(
+    config: JurisdictionConfig,
+) -> None:
+    first = _act(3, "THE HARBOUR DUES ACT", 3) + [f"Section 4. Done as if {CLOSING}.", ""]
+    second = _act(4, "THE LIGHTHOUSE ACT", 3)
+    second[second.index("Section 1. Duty 1")] = "Section 5. Duty 5"
+    text, spans = _join([first + second])
+    row = next(r for r in segment(text, spans, config=config).reconciliation if r.key == "act 4")
+    assert (row.status, row.signals) == ("uncorroborated", ())
+
+
+def test_a_quoted_heading_cannot_open_the_source(config: JurisdictionConfig) -> None:
+    lines = ["The schedule reads: \u201c", "ACT No. 9 OF 2019", "THE OLD ACT\u201d", ""]
+    pages = [lines + _act(3, "THE HARBOUR DUES ACT", 4) + _signed()]
+    pages.append(["__________", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()])
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    assert result.front_matter == (0, text.index("ACT No. 3"))
+    assert [(r.key, r.veto) for r in result.reconciliation if r.status == "vetoed"] == [
+        ("act 9", "inside a quotation")
+    ]
+    _conserved(result, text)

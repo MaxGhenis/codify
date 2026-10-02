@@ -23,8 +23,12 @@ from codify.jurisdictions import JurisdictionConfig, SegmentationConfig, heading
 from codify.lang import normalise_digits
 from codify.pipeline.enrich.adoption import _pattern as _adoption_pattern
 from codify.pipeline.enrich.anchors import (
+    _is_prose_reference,
     _kind_from_match,
     _normalise_number,
+    _opens_citation_run,
+    _partial_decimal_number,
+    _repair_damaged_num,
     build_anchor_regex,
 )
 from codify.pipeline.enrich.closing import _phrase_pattern
@@ -317,10 +321,20 @@ def _markers(text: str, config: JurisdictionConfig, doctype: str) -> list[_Marke
     markers: list[_Marker] = []
     for match in regex.finditer(text):
         at = match.start() + len(match.group(0)) - len(match.group(0).lstrip())
-        if _kind_from_match(match) != kind or _quoted(text, at):
+        if _kind_from_match(match) != kind or _quoted(text, at) or _cited(text, match, config):
             continue
-        markers.append(_Marker(at, _normalise_number(match.groupdict().get("num"))))
+        num = _repair_damaged_num(match) if "num" in match.groupdict() else None
+        markers.append(_Marker(at, _normalise_number(num)))
     return markers
+
+
+def _cited(text: str, match: re.Match[str], config: JurisdictionConfig) -> bool:
+    """The anchor scan's own tests for a marker that is a reference, not a provision."""
+    return (
+        _partial_decimal_number(text, match)
+        or _is_prose_reference(text, match.start(), config.code)
+        or _opens_citation_run(text, match.end(), config.code)
+    )
 
 
 def _closing_regex(config: JurisdictionConfig) -> re.Pattern[str] | None:
@@ -329,7 +343,10 @@ def _closing_regex(config: JurisdictionConfig) -> re.Pattern[str] | None:
         *(p for era in config.legal_eras for p in era.closing_phrases),
     ]
     words = [p for p in phrases if p.strip()]
-    return re.compile("|".join(map(_phrase_pattern, words))) if words else None
+    if not words:
+        return None
+    # Opening its line, as the body is bounded: mid-line it is a provision's text.
+    return re.compile(r"(?m)^[ \t]*(?:" + "|".join(map(_phrase_pattern, words)) + ")")
 
 
 def _phrases_regex(phrases: Iterable[str]) -> re.Pattern[str] | None:
@@ -439,7 +456,14 @@ def _decide(
 ) -> Segmentation:
     # Where a contents listing exists, only a heading it lists can open the source.
     listed = {e.key for e in entries}
-    first = next((c for c in candidates if not entries or c.key in listed), None)
+    first = next(
+        (
+            c
+            for c in candidates
+            if (not entries or c.key in listed) and not _veto(text, c, None, markers, rules)
+        ),
+        None,
+    )
     opening = first if first and not any(m.offset < first.start for m in markers) else None
     rows: list[ReconciliationRow] = []
     decided: list[tuple[_Heading, tuple[str, ...]]] = []
