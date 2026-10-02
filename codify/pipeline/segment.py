@@ -20,13 +20,14 @@ from collections import deque
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from functools import lru_cache
-from itertools import islice, pairwise
+from itertools import chain, islice, pairwise
 from typing import Literal
 
 from codify.jurisdictions import JurisdictionConfig, SegmentationConfig, heading_line_pattern
 from codify.lang import normalise_digits
 from codify.pipeline.enrich.adoption import _pattern as _adoption_pattern
 from codify.pipeline.enrich.anchors import (
+    _CLOSERS_FOR_OPENER,
     _closed_quote_mask,
     _is_prose_reference,
     _kind_from_match,
@@ -35,7 +36,6 @@ from codify.pipeline.enrich.anchors import (
     _partial_decimal_number,
     _repair_damaged_num,
     _roman_or_digit,
-    _stray_quote_mask,
     _text_start,
     build_anchor_regex,
 )
@@ -419,8 +419,12 @@ def _caption_regex(config: JurisdictionConfig) -> re.Pattern[str] | None:
 class _Rules:
     """The jurisdiction's vocabularies, compiled once per call."""
 
-    def __init__(self, config: JurisdictionConfig) -> None:
+    def __init__(
+        self, config: JurisdictionConfig, contents: Sequence[tuple[int, int]] = ()
+    ) -> None:
         self.country = config.code
+        # Contents listings: their lines name acts and annexes, never precede one.
+        self.contents = contents
         self.closing = _closing_regex(config)
         self.adoption = _adoption_pattern(tuple(config.adoption_markers))
         self.caption = _caption_regex(config)
@@ -462,11 +466,16 @@ def _live(
 
 
 def _found(
-    pattern: re.Pattern[str], text: str, country: str, start: int = 0, stop: int | None = None
+    pattern: re.Pattern[str],
+    text: str,
+    country: str,
+    start: int = 0,
+    stop: int | None = None,
+    skip: Sequence[tuple[int, int]] = (),
 ) -> bool:
-    """Whether `pattern` matches live text in `text[start:stop]`."""
+    """Whether `pattern` matches live text in `text[start:stop]`, outside `skip`."""
     hits = pattern.finditer(text, start, len(text) if stop is None else stop)
-    return next(_live(hits, text, country), None) is not None
+    return any(not _within(m.start(), skip) for m in _live(hits, text, country))
 
 
 @lru_cache(maxsize=1)
@@ -504,7 +513,7 @@ def segment(
     markers = [m for m in markers if not _within(m.offset, blocks)]
     if not candidates and not entries:
         return _single(text, spans)
-    return _decide(text, pages, candidates, entries, markers, _Rules(config))
+    return _decide(text, pages, candidates, entries, markers, _Rules(config, blocks))
 
 
 def _decide(
@@ -616,9 +625,12 @@ def _veto(
     if open_heading is not None and heading.key == open_heading.key:
         return "repeats the open act's own heading"
     lo, country = max(0, heading.start - VETO_WINDOW), rules.country
-    if rules.adoption is not None and _found(rules.adoption, text, country, lo, heading.start):
+    skip = rules.contents
+    if rules.adoption is not None and _found(
+        rules.adoption, text, country, lo, heading.start, skip
+    ):
         return "follows a declaration adopting another text"
-    if rules.caption is not None and _found(rules.caption, text, country, lo, heading.start):
+    if rules.caption is not None and _found(rules.caption, text, country, lo, heading.start, skip):
         return "follows an attachment caption"
     if rules.enacting is not None and open_heading is not None:
         # Each bounded by the heading after it, or one act's formula stands in for another's.
@@ -848,6 +860,8 @@ def segment_volume(
     source = iter(pages)
     buffer: deque[SourcePage] = deque()
     exhausted = False
+    # Quotation glyphs open after every page consumed so far, each page read once.
+    quotes: tuple[str, ...] = ()
     while not exhausted or buffer:
         if not exhausted:
             page = next(source, None)
@@ -858,17 +872,22 @@ def segment_volume(
             head = buffer[0]
             found = _issue_headings(head.text, patterns, issue.key if issue.pages else None)
             if not found:
+                quotes = _walk_quotes(quotes, head.text)
                 issue.pages.append(buffer.popleft())
                 continue
             ahead = list(islice(buffer, 1, None))
+            final = exhausted or len(ahead) >= QUOTE_LOOKAHEAD
+            match, pending = _issue_heading(quotes, head, found, ahead, final)
             # Decided once a later page is read: a restart or a closing quote may show there.
-            waits = not ahead or (
-                len(ahead) < QUOTE_LOOKAHEAD and _quote_open(issue, head, found[0], ahead, config)
-            )
-            if waits and not exhausted:
+            if (not ahead or pending) and not exhausted:
                 break
             buffer.popleft()
-            issue = yield from _settle(issue, head, found, ahead, printed, closing, config, doctype)
+            if match is not None and _walk_quotes(quotes, head.text[: match.start()]):
+                # Read live at the cap: the openers around it are stray, and dropped.
+                quotes = _walk_quotes((), head.text[match.start() :])
+            else:
+                quotes = _walk_quotes(quotes, head.text)
+            issue = yield from _settle(issue, head, match, ahead, printed, closing, config, doctype)
     if issue.pages:
         yield _close(issue, config, doctype)
 
@@ -876,18 +895,17 @@ def segment_volume(
 def _settle(
     issue: _OpenIssue,
     page: SourcePage,
-    found: list[re.Match[str]],
+    match: re.Match[str] | None,
     ahead: list[SourcePage],
     printed: re.Pattern[str] | None,
     closing: re.Pattern[str] | None,
     config: JurisdictionConfig,
     doctype: str | None,
 ) -> Generator[Issue, None, _OpenIssue]:
-    """Close the open issue at `page` if its first unquoted heading is agreed, else
-    absorb it. Quote state reads the whole open issue and the pages read ahead."""
+    """Close the open issue at `page` if its unquoted heading `match` is agreed, else
+    absorb the page."""
     prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
     context = PAGE_SEPARATOR.join([prefix + page.text, *(p.text for p in ahead)])
-    match = next(_live(found, context, config.code, len(prefix)), None)
     if match is None or not issue.pages:
         if match is not None:
             # The volume's first issue: its heading names it, nothing to close.
@@ -925,18 +943,58 @@ def _settle(
     return issue
 
 
-def _quote_open(
-    issue: _OpenIssue,
+_QUOTE_GLYPHS = re.compile(
+    "[" + re.escape("".join({*_CLOSERS_FOR_OPENER, *chain(*_CLOSERS_FOR_OPENER.values())})) + "]"
+)
+
+
+def _step_quote(stack: list[str], ch: str) -> None:
+    """Read one quotation glyph, pairing openers and closers as the anchor scan does."""
+    if stack and ch in _CLOSERS_FOR_OPENER[stack[-1]]:
+        stack.pop()
+    elif ch in _CLOSERS_FOR_OPENER:
+        stack.append(ch)
+
+
+def _walk_quotes(open_: tuple[str, ...], text: str) -> tuple[str, ...]:
+    """The quotation glyphs still open after `text`, read on from `open_`."""
+    stack = list(open_)
+    for glyph in _QUOTE_GLYPHS.finditer(text):
+        _step_quote(stack, glyph.group(0))
+    return tuple(stack)
+
+
+def _closes_around(open_: tuple[str, ...], texts: Iterable[str]) -> bool:
+    """Whether a quotation open in `open_` closes within `texts`."""
+    stack = list(open_)
+    for text in texts:
+        for glyph in _QUOTE_GLYPHS.finditer(text):
+            _step_quote(stack, glyph.group(0))
+            if len(stack) < len(open_):
+                return True
+    return False
+
+
+def _issue_heading(
+    open_: tuple[str, ...],
     page: SourcePage,
-    match: re.Match[str],
+    found: list[re.Match[str]],
     ahead: list[SourcePage],
-    config: JurisdictionConfig,
-) -> bool:
-    """A quotation opened within the last pages before `match` and not closed yet."""
-    recent = issue.pages[-QUOTE_LOOKAHEAD:]
-    prefix = "".join(p.text + PAGE_SEPARATOR for p in recent)
-    context = PAGE_SEPARATOR.join([prefix + page.text, *(p.text for p in ahead)])
-    return any(_stray_quote_mask(context, config.code)[: len(prefix) + match.start()])
+    final: bool,
+) -> tuple[re.Match[str] | None, bool]:
+    """The page's first heading outside a quotation, and whether one still waits on a
+    quotation that has not closed in the pages read; when `final`, it reads as stray."""
+    for match in found:
+        if _text_start(match) is None:
+            continue
+        here = _walk_quotes(open_, page.text[: match.start()])
+        if not here:
+            return match, False
+        rest = [page.text[match.start() :], *(p.text for p in ahead)]
+        if _closes_around(here, rest):
+            continue
+        return (match, False) if final else (None, True)
+    return None, False
 
 
 def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -> Issue:

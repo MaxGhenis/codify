@@ -1278,3 +1278,37 @@ def test_a_provision_listing_ends_at_the_bodys_first_provision(
     result = segment(text, spans, config=config)
     assert [s.key for s in result.segments] == ["", "act 4"]
     assert "restart" in result.segments[1].signals
+
+
+def test_a_contents_annex_entry_does_not_veto_the_first_act(
+    config: JurisdictionConfig,
+) -> None:
+    """A caption line inside a contents listing names an annex; it precedes none."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    contents += ["ANNEX", "Schedule of dues ............ 3"]
+    pages = [
+        contents,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+@pytest.mark.parametrize(
+    ("opener", "closer"),
+    [
+        pytest.param("\u00ab", "\u00bb", id="guillemets"),
+        pytest.param("\u201e", "\u201c", id="low-nine"),
+    ],
+)
+def test_an_issue_heading_waits_for_a_quote_closing_on_the_third_page_ahead(
+    config: JurisdictionConfig, opener: str, closer: str
+) -> None:
+    issue = _issue(11, [(1, "THE FERRIES ACT")])
+    issue[-1] = [*issue[-1], f"The notice reads: {opener}"]
+    issue += [["ISSUE No. 12", "is withdrawn"], ["and"], ["replaced"], [f"as announced.{closer}"]]
+    found = list(segment_volume(_pages([issue]), config=config))
+    assert [(i.key, i.first_page, i.last_page) for i in found] == [("11", 1, 6)]
