@@ -54,6 +54,7 @@ _READERS: list[tuple[str, Callable[[str], Any]]] = [
     ("designation_rule", titles._designation_rule),
     ("long_title_lead_ins", titles.long_title_lead_ins),
     ("closing_phrases", lambda c: dossier._closing_phrases(c, "2001")),
+    ("heading_line_re", anchors._heading_line_re),
 ]
 
 
