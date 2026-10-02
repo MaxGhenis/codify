@@ -1244,3 +1244,22 @@ def test_an_opener_unclosed_past_the_look_ahead_is_stray(config: JurisdictionCon
     assert (first.key, first.last_page) == ("11", 2)
     assert max(read) == 3 + QUOTE_LOOKAHEAD
     assert [(i.key, i.first_page) for i in stream] == [("12", 3)]
+
+
+def test_a_contents_page_listing_only_provisions_is_front_matter(
+    config: JurisdictionConfig,
+) -> None:
+    """Listed sections neither open the source mid-act nor restart the numbering."""
+    listing = ["- 1 -", "Contents", ""]
+    listing += [f"Section {i}. Duty {i} ............ 2" for i in range(1, 4)]
+    pages = [
+        listing,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 4), *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.front_matter == (0, spans[1].start)
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    assert [(r.key, r.status) for r in result.reconciliation][0] == ("act 3", "opening")
+    _conserved(result, text)

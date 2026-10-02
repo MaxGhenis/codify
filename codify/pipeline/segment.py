@@ -314,8 +314,12 @@ def _contents(
                 end = heading.start
                 break
             current = last = heading
-        # A keyword line that placed no entry hides nothing.
-        if keys:
+        # A listing of provisions alone ends at the body's first provision.
+        first_body = next((m.offset for m in body if found.end() < m.offset < end), None)
+        if first_body is not None:
+            end = text.rfind("\n", 0, first_body) + 1
+        # A keyword line that placed no entry, act or provision, hides nothing.
+        if keys or any(found.end() <= o < end for o in listed):
             blocks.append((found.start(), end))
     return blocks, entries
 
