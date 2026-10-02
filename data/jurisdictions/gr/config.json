@@ -404,7 +404,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
   },
   "gazette": {

@@ -353,7 +353,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Montenegrin legislation uses ARTICLE (Član) as the basic unit — NOT SECTION. SECTION is only a higher division (Odjeljak — Ijekavian form; NOT 'Odsek' which is Serbian Ekavian). Article numbering is continuous throughout the entire act and never resets per chapter or part. Articles are written 'Član 1', 'Član 5'. Stav (paragraph) is numbered (1), (2), (3) only when two or more stavovi exist; single-stav articles have no (1) marker. Tačka (point) within stavovi are numbered 1), 2) or a), b) with closing parenthesis — NOT period-stop. Alineja (unnumbered sub-point) maps to ALINEA keyword. Montenegrin uses Ijekavian forms throughout: 'donijeti' (not 'doneti'), 'izmjene' (not 'izmene'), 'odjeljak' (not 'odeljak'). Montenegrin text uses Latin script as primary; Cyrillic may appear in older texts — treat both as the same language (cnr). The gazette promulgation header is NOT part of the enacted law — begin digitisation from the act title (ZAKON O...). Cross-references cite 'Sl. list CG' with issue and year. Amendment acts are named 'Zakon o izmjenama i dopunama Zakona o ...'.",
     "classification_rules": [
       {

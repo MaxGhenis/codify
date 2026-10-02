@@ -313,27 +313,20 @@
     {
       "text": "Parlamentul României adoptă prezenta lege.",
       "position": "preamble",
-      "type": "lege",
-      "era": "current"
+      "era": "current",
+      "document_class": "lege"
     },
     {
       "text": "În temeiul art. 115 alin. (4) din Constituția României, republicată, Guvernul României adoptă prezenta ordonanță de urgență.",
       "position": "preamble",
-      "type": "oug",
-      "era": "current"
+      "era": "current",
+      "document_class": "oug"
     },
     {
       "text": "În temeiul art. 108 din Constituția României, republicată, Guvernul României adoptă prezenta hotărâre.",
       "position": "preamble",
-      "type": "hg",
-      "era": "current"
-    },
-    {
-      "text": "În temeiul art. 77 alin. (1) din Constituție, promulgăm [titlul legii] și dispunem publicarea ei în Monitorul Oficial al României, Partea I.",
-      "position": "conclusions",
-      "type": "lege_promulgation",
       "era": "current",
-      "note": "Presidential promulgation decree — appears AFTER body in Monitorul Oficial. Model as <conclusions><formula name='promulgationFormula'>."
+      "document_class": "hg"
     }
   ],
   "amendments": {
@@ -402,7 +395,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
   },
   "supranational_memberships": [

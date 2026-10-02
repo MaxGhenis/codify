@@ -956,3 +956,102 @@ def test_a_connector_that_clashes_with_the_number_group_is_refused() -> None:
             series_citations=[{"name": "Act", "doctype": "act"}],
             series_citation_connectors=[r"(?P<num>No)\.?"],
         )
+
+
+_SHIPPED = [
+    c for c in _CODES if (cfg := load_config(c)) is not None and cfg.public_reference
+]
+# Keys the loader keeps as loose extras and no code reads.
+_DEAD_STRUCTURING_KEYS = {
+    "prompt_variant",
+    "prompt_file",
+    "special_variants",
+    "constitution_prompt_variant",
+    "civil_code_prompt_variant",
+    "rtl_script",
+    "rtl_note",
+    "eid_special_rules",
+}
+_DEAD_CLASS_KEYS = {
+    "prompt_variant",
+    "frbr_locality",
+    "enacting_formula_position",
+    "label_en",
+}
+# Scope spellings `_doctype_matches` ignores, which make a formula a wildcard.
+_IGNORED_SCOPE_KEYS = {
+    "applies_to",
+    "instrument_type",
+    "document_type",
+    "document_types",
+    "type",
+    "instrument",
+    "instrument_types",
+}
+
+
+def _inside(formula):
+    from datetime import timedelta
+
+    if formula.from_date:
+        return formula.from_date
+    return formula.to_date - timedelta(days=1) if formula.to_date else None
+
+
+def _scope(formula) -> list[str]:
+    dc = formula.document_class
+    return [] if dc is None else [dc] if isinstance(dc, str) else list(dc)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_shipped_configs_carry_no_unread_keys(code: str) -> None:
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    dead = _DEAD_STRUCTURING_KEYS & set(raw.get("structuring", {}))
+    dead |= {
+        f"{name}.{k}"
+        for name, cls in raw["document_classes"].items()
+        for k in _DEAD_CLASS_KEYS & set(cls)
+    }
+    dead |= {
+        f"formula[{i}].{k}"
+        for i, f in enumerate(raw.get("enacting_formulae", []))
+        for k in _IGNORED_SCOPE_KEYS & set(f)
+    }
+    assert not dead, dead
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_formula_scope_is_respected_by_selection(code: str) -> None:
+    from codify.pipeline.enrich.enacting import select_formula
+
+    cfg = load_config(code)
+    classes = set(cfg.document_classes)
+    scoped = [f for f in cfg.enacting_formulae if _scope(f)]
+    for f in scoped:
+        assert set(_scope(f)) <= classes, (code, _scope(f))
+        for doctype in _scope(f):
+            chosen = select_formula(code, doctype, _inside(f))
+            assert chosen is not None and doctype in _scope(chosen), (code, doctype)
+        for other in classes - set(_scope(f)):
+            chosen = select_formula(code, other, _inside(f))
+            assert chosen is not f, (code, other)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_formula_bounds_are_gregorian_dates(code: str) -> None:
+    """Bounds are compared as Gregorian dates, so a Hijri or Solar Hijri year
+    written as a date would sit centuries before any instrument."""
+    cfg = load_config(code)
+    for f in cfg.enacting_formulae:
+        for bound in (f.from_date, f.to_date):
+            if bound is not None:
+                assert 1700 <= bound.year <= 2100, (code, bound)
+        if f.from_date and f.to_date:
+            assert f.from_date < f.to_date, (code, f.era)
+
+
+def test_the_solar_and_lunar_hijri_formula_bounds_are_converted() -> None:
+    from datetime import date
+
+    assert load_config("ir").enacting_formulae[0].from_date == date(1979, 3, 21)
+    assert load_config("sa").enacting_formulae[0].from_date == date(1992, 3, 1)

@@ -226,7 +226,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Costa Rica uses ARTICLE (not SECTION) as the basic unit. CHAPTER, TITLE, and BOOK are higher divisions above ARTICLE. SECTION is also a higher division (never the basic unit). Inciso subdivisions within articles use PARAGRAPH keyword. Two inciso numbering styles exist: alphabetic (a), b), c)) and numeric (1), 2), 3)) — detect from document. Transitorios at the end of laws use SECTION as a proxy keyword with heading 'Transitorio N'. The enacting formula is 'LA ASAMBLEA LEGISLATIVA DE LA REPÚBLICA DE COSTA RICA DECRETA:' and goes in the PREAMBLE block."
   },
   "supranational_memberships": [

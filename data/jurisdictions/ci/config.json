@@ -395,7 +395,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Côte d'Ivoire uses civil law French hierarchy: BOOK (rare) > TITLE > CHAPTER > SECTION (higher grouping) > ARTICLE (basic unit). ARTICLE is the fundamental citable provision, not SECTION. 'Article premier' for the first article. All headings in French. 'TITRE PREMIER', 'CHAPITRE PREMIER', 'ART premier' for first elements. Alinéas are implicit paragraph breaks within ARTICLE blocks. Internal enumeration uses 1°, 2°, 3° or a), b), c) styles."
   },
   "supranational_memberships": [

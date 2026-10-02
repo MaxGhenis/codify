@@ -253,25 +253,25 @@
       "text": "Národná rada Slovenskej republiky sa uzniesla na tomto zákone:",
       "translation": "The National Council of the Slovak Republic has resolved on this Act:",
       "position": "preamble",
-      "applies_to": "act",
       "era": "post-independence",
-      "from": "1993-01-01"
+      "from": "1993-01-01",
+      "document_class": "act"
     },
     {
       "text": "Vláda Slovenskej republiky podľa § {N} zákona č. {NN}/{YYYY} Z.z. o {title} nariaďuje:",
       "translation": "The Government of the Slovak Republic, pursuant to § {N} of Act No. {NN}/{YYYY} Z.z. on {title}, hereby decrees:",
       "position": "preamble",
-      "applies_to": "nariadenie",
       "era": "post-independence",
-      "from": "1993-01-01"
+      "from": "1993-01-01",
+      "document_class": "nariadenie"
     },
     {
       "text": "{Ministry} podľa § {N} zákona č. {NN}/{YYYY} Z.z. o {title} ustanovuje:",
       "translation": "{Ministry}, pursuant to § {N} of Act No. {NN}/{YYYY} Z.z. on {title}, hereby provides:",
       "position": "preamble",
-      "applies_to": "vyhlaska",
       "era": "post-independence",
-      "from": "1993-01-01"
+      "from": "1993-01-01",
+      "document_class": "vyhlaska"
     }
   ],
   "amendments": {
@@ -345,7 +345,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Slovak § (paragraf) maps to AKN article — use ARTICLE keyword. Constitutional laws use Čl. (článok) as basic unit — also ARTICLE. Higher divisions: Časť (PART), Hlava (CHAPTER), Diel (TITLE), Oddiel (DIVISION). All higher divisions use Slovak ordinal words (PRVÁ ČASŤ = Part 1, normalise to Arabic integer for eId). Subdivisions: Odsek (PARAGRAPH) with (1)(2) numbering, Písmeno (POINT) with a)b) closing-paren lettering, Bod (INDENT) with 1.2. numbering. Enacting formula for statutes: 'Národná rada Slovenskej republiky sa uzniesla na tomto zákone:'. Amendment acts (novelizácie) detected by title containing 'mení a dopĺňa' — their Čl. I, Čl. II are amendment groupers, not constitutional articles."
   },
   "supranational_memberships": [

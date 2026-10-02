@@ -330,7 +330,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Uganda uses 'BE IT ENACTED by Parliament as follows:' as its enacting formula. Higher divisions are Parts (roman numeral). Basic unit is Section (arabic, continuous). Subdivisions: Subsection (1)(2), Paragraph (a)(b), Subparagraph (i)(ii). SIs use 'Regulation' as the basic unit term but map to SECTION keyword. Constitution uses Chapters, not Parts."
   },
   "supranational_memberships": [

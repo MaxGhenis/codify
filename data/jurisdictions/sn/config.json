@@ -433,7 +433,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Basic unit is ARTICLE (not SECTION). Hierarchy above articles: TITLE > CHAPTER > DIVISION (for Section). Use BOOK only for the largest codes with Livre divisions. Article numbering is continuous throughout the entire document regardless of higher divisions. The first article header is 'Article premier'; all subsequent articles are 'Art. N'. Subdivisions within articles are alinéas (unnumbered paragraphs), which may contain POINT (1°, 2°…) or INDENT (tiret –) lists. French-language legislation only."
   },
   "display": {

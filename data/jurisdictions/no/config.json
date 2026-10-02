@@ -254,7 +254,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Norwegian Paragraf (§) is the basic statutory unit and maps to ARTICLE in Bluebell and AKN article element. Do NOT use SECTION for §. Kapittel (Chapter) maps to CHAPTER. Del (Part) maps to PART — used only in the largest codes. Ledd (plural ledd) are unnumbered alinea-style prose paragraphs within a §: the first ledd is the direct content of the ARTICLE; subsequent ledd become PARAGRAPH 2, PARAGRAPH 3 etc. Bokstav (letters: a), b), c)) maps to POINT. Nummer (numbers: 1), 2), 3)) appearing below bokstav maps to INDENT. The § symbol should NOT appear in the ARTICLE number field in Bluebell input — write 'ARTICLE 5', not 'ARTICLE § 5'. Norway has two official written standards: Bokmål (nob) and Nynorsk (nno). Most legislation is in Bokmål; some acts are enacted in Nynorsk only (treat as authoritative, not a translation). Inserted §§ use a letter suffix without space: § 5a (not § 5 a as in Sweden/Denmark). Grunnloven (Constitution 1814): uses lettered Avdelinger (A–G) mapped to PART; §§ numbered 1–121. Forarbeider (preparatory works — Ot.prop./Prop.) are co-equal legal sources in Norwegian law alongside statute and case law; flag cross-references to forarbeider as significant metadata. Enacting formula: 'Stortinget har vedtatt følgende lov:' — model in <preamble>. Final § is always the ikrafttredelses-§ (commencement provision)."
   },
   "supranational_memberships": [

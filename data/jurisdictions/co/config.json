@@ -253,20 +253,20 @@
     {
       "text": "EL CONGRESO DE COLOMBIA\n\nDECRETA:",
       "position": "preamble",
-      "instrument": "ley",
-      "era": "current"
+      "era": "current",
+      "document_class": "act"
     },
     {
       "text": "EL PRESIDENTE DE LA REPÚBLICA DE COLOMBIA\n\nEn ejercicio de sus facultades constitucionales y legales, en especial las conferidas por el artículo [N] de la Constitución Política, y\n\nCONSIDERANDO:\n\n[considerandos]\n\nDECRETA:",
       "position": "preamble",
-      "instrument": "decreto_reglamentario",
-      "era": "current"
+      "era": "current",
+      "document_class": "decreto"
     },
     {
       "text": "EL CONGRESO DE COLOMBIA\n\nACTUANDO COMO PODER CONSTITUYENTE\n\nDECRETA:",
       "position": "preamble",
-      "instrument": "acto_legislativo",
-      "era": "current"
+      "era": "current",
+      "document_class": "acto_legislativo"
     }
   ],
   "amendments": {
@@ -368,7 +368,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Colombia uses ARTICLE (artículo) as the basic unit, not SECTION. Higher divisions are TITLE (título) and CHAPTER (capítulo). BOOK (libro) is used only in major codes. Below articles: PARAGRAPH (parágrafo) for numbered supplementary provisions; inciso (unnumbered paragraph) requires post-processing. POINT maps to both numeral (arabic) and literal (alpha). Article numbers are continuous throughout the entire document and do not restart per chapter."
   },
   "supranational_memberships": [

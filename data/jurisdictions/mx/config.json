@@ -313,10 +313,9 @@
       "position": "preamble",
       "era": "current",
       "actor": "Congreso de la Unión",
-      "instrument_types": [
+      "document_class": [
         "ley",
-        "codigo",
-        "reforma_constitucional"
+        "codigo"
       ]
     },
     {
@@ -324,18 +323,14 @@
       "position": "preamble",
       "era": "current",
       "actor": "Presidente de la República",
-      "instrument_types": [
-        "reglamento"
-      ]
+      "document_class": "reglamento"
     },
     {
       "text": "El Congreso General de los Estados Unidos Mexicanos, en uso de la facultad que le confiere el artículo 135 de la Constitución General de la República y previa aprobación de la mayoría de las Legislaturas de los estados, declara reformados los artículos [N] de la Constitución Política de los Estados Unidos Mexicanos, en los siguientes términos:",
       "position": "preamble",
       "era": "current",
       "actor": "Congreso de la Unión + Legislaturas de los estados",
-      "instrument_types": [
-        "reforma_constitucional"
-      ]
+      "document_class": "constitution"
     }
   ],
   "amendments": {
@@ -419,7 +414,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Basic unit is ARTICLE not SECTION. Hierarchy: BOOK (codes only) > PART (codes, optional) > TITLE > CHAPTER > SUBDIVISION (Sección, optional) > ARTICLE. Fracciones use Roman numerals (I, II, III) mapped to PARAGRAPH. Incisos use lowercase letters a), b), c) mapped to POINT. Artículos Transitorios appear at end of every instrument — parse as ARTICLE elements; post-processing wraps in hcontainer[transitorios]. Apartados (Apartado A, Apartado B) within articles require post-processing to wrap in hcontainer[apartado]."
   },
   "supranational_memberships": [

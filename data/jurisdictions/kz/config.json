@@ -504,7 +504,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Kazakhstan laws use Stat'ya / Бап (Article) as the basic unit — map to ARTICLE keyword. Higher divisions: Razdel (Раздел/Бөлім, Section/Part) maps to PART; Glava (Глава/Тарау, Chapter) maps to CHAPTER; Paragraf (Параграф, sub-chapter group) maps to SECTION. Subdivisions within an article: Punkt (Пункт/Тармақ, numbered paragraph e.g. '1.', '2.') maps to PARAGRAPH; Podpunkt (Подпункт/Тармақша, numbered sub-item e.g. '1)', '2)' or 'a)', 'b)') maps to POINT. Abzac (unnumbered indent) maps to INDENT. Article headings appear on the same line as the article number in Cyrillic: 'Статья 1. Основные понятия'. Codes have a deeper structure: named General/Special Part (PART) > Razdel (BOOK) > Glava (CHAPTER) > optional Paragraf (SECTION) > Stat'ya (ARTICLE). Article numbering is always continuous across the whole document. Inserted articles use hyphen notation: Stat'ya 5-1."
   },
   "supranational_memberships": [

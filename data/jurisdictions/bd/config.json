@@ -304,7 +304,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Bangladesh legislation: Bangla (Bengali script) is the SOLE AUTHORITATIVE language per the Bangladesh Official Language Act 1987 and Constitutional practice. English text on bdlaws.minlaw.gov.bd is a reference translation only — if both are present, treat Bangla as the source of truth. The Proviso ('Provided that') and Explanation drafting convention is inherited from British India and is widespread; output Proviso as PROVISO keyword, Explanation as SUBSECTION for post-processing. Hierarchy for Acts: PART (Roman) > CHAPTER (Roman) > SECTION (Arabic, continuous) > SUBSECTION (Arabic, parenthesized) > CLAUSE (lowercase alpha, parenthesized). Sub-clauses use lowercase Roman. The Constitution uses PART > ARTICLE (not Section). SROs are cited as 'SRO No. {number}-Law/{year}'. Personal law (Muslim, Hindu, Christian) applies to personal status matters per community but does not alter the documentary structure of Acts."
   },
   "supranational_memberships": [

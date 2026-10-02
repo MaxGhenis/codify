@@ -219,7 +219,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Chinese law uses ARTICLE as basic unit. Kuan (paragraphs) are UNNUMBERED in source text -- pipeline must assign sequential numbers. Chinese structural markers must be converted to Latin Bluebell keywords. Jie (Section) is a HIGHER division, not the basic unit."
   },
   "supranational_memberships": [

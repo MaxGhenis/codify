@@ -341,7 +341,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Canada federal legislation is BILINGUAL — both English and French versions are co-equal originals. Process each language version separately. Normalise Part numbers to Arabic numerals (PART 1, not PART I). Use SECTION as basic unit for both Acts and Regulations. Division and Subdivision elements (Income Tax Act) require post-processing — treat as PART level in Bluebell output and flag for renaming to hcontainer in post-processing step. Marginal notes are not part of the enactment (Interpretation Act s. 14) — map to heading elements."
   },
   "sub_national": {

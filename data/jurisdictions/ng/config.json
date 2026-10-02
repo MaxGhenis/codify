@@ -259,7 +259,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Nigeria uses PART > SECTION as the default hierarchy. A minority of large statutes use CHAPTER > PART > SECTION (detectable if both CHAPTER and PART headings appear). The Constitution uses CHAPTER > PART > SECTION. All subdivisions follow Commonwealth Anglophone convention: subsections (1)(2), paragraphs (a)(b), subparagraphs (i)(ii). Enacting formula is: 'ENACTED by the National Assembly of the Federal Republic of Nigeria—'. Section 1 = short title (and commencement). Section 2 = Interpretation."
   },
   "supranational_memberships": [

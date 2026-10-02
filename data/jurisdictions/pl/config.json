@@ -214,16 +214,16 @@
       "text": "Sejm Rzeczypospolitej Polskiej uchwala, co następuje:",
       "english": "The Sejm of the Republic of Poland enacts as follows:",
       "position": "preamble",
-      "type": "act",
       "era": "current",
-      "from": "1997-10-17"
+      "from": "1997-10-17",
+      "document_class": "act"
     },
     {
       "text": "[Issuing body], działając na podstawie art. {N} [enabling act], zarządza, co następuje:",
       "english": "[Issuing body], acting pursuant to Art. {N} of [enabling act], orders as follows:",
       "position": "preamble",
-      "type": "rozp",
-      "era": "current"
+      "era": "current",
+      "document_class": "rozp"
     }
   ],
   "amendments": {
@@ -334,7 +334,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Poland uses civil law structure. Basic unit is ARTICLE (artykuł), not SECTION. Higher divisions: BOOK (księga), TITLE (tytuł), PART (dział), CHAPTER (rozdział). Subdivisions: SUBSECTION (ustęp, numbered with period: 1. 2.), POINT (punkt, numbered with right parenthesis: 1) 2)), INDENT (litera, lettered: a) b)), INDENT (tiret, unnumbered dash). Article numbering is ALWAYS continuous throughout the entire act — do not restart at each chapter. Enacting formula: 'Sejm Rzeczypospolitej Polskiej uchwala, co następuje:'"
   },
   "supranational_memberships": [

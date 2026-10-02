@@ -240,20 +240,16 @@
     {
       "text": "We, [King's name], King of the Kingdom of Bahrain, having reviewed the Constitution and [list of laws reviewed], and pursuant to what was approved by the Shura Council and Council of Representatives, have promulgated the following law:",
       "position": "preamble",
-      "document_types": [
-        "law"
-      ],
       "language": "eng",
-      "note": "Exact Arabic text not read verbatim from official PDF — verify before production use."
+      "note": "Exact Arabic text not read verbatim from official PDF — verify before production use.",
+      "document_class": "law"
     },
     {
       "text": "We, [King's name], King of the Kingdom of Bahrain, having reviewed the Constitution and [list of laws reviewed], and given urgent necessity requiring action that cannot be delayed, and pursuant to the submission of the Minister of [...], have issued the following Legislative Decree:",
       "position": "preamble",
-      "document_types": [
-        "legislative_decree"
-      ],
       "language": "eng",
-      "note": "The preamble typically lists all laws and decrees reviewed, often spanning a full page."
+      "note": "The preamble typically lists all laws and decrees reviewed, often spanning a full page.",
+      "document_class": "legislative_decree"
     }
   ],
   "amendments": {
@@ -361,10 +357,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "Bahrain uses ARTICLE as the basic unit (مادة, maddah), not SECTION. The hierarchy is: BOOK (codes only) > PART (Bab, باب) > CHAPTER (Fasl, فصل) > ARTICLE > SUBSECTION (numbered clauses, بند) > PARAGRAPH (lettered items, فقرة). Article numbering is continuous throughout the law regardless of Part/Chapter boundaries. Article numbers appear in parentheses in text: 'Article (5)'. English translations may inconsistently render Bab as 'Chapter' and Fasl as 'Section' — normalise to PART/CHAPTER in all cases. The Constitution uses CHAPTER > SECTION (as higher div) > ARTICLE.",
-    "rtl_script": true,
-    "rtl_note": "Arabic source documents are right-to-left. OCR pipeline must handle Arabic bidi text. Structural keywords in Arabic source will be in Arabic script. English translations are processed LTR using the English keyword list above."
+    "prompt_additions": "Bahrain uses ARTICLE as the basic unit (مادة, maddah), not SECTION. The hierarchy is: BOOK (codes only) > PART (Bab, باب) > CHAPTER (Fasl, فصل) > ARTICLE > SUBSECTION (numbered clauses, بند) > PARAGRAPH (lettered items, فقرة). Article numbering is continuous throughout the law regardless of Part/Chapter boundaries. Article numbers appear in parentheses in text: 'Article (5)'. English translations may inconsistently render Bab as 'Chapter' and Fasl as 'Section' — normalise to PART/CHAPTER in all cases. The Constitution uses CHAPTER > SECTION (as higher div) > ARTICLE."
   },
   "supranational_memberships": [
     {

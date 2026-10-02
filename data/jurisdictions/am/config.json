@@ -258,7 +258,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Hierarchy is CHAPTER > ARTICLE > PARAGRAPH > POINT. Articles are numbered continuously throughout the entire act — they do not restart per chapter. Parts within articles (Armenian: մաس, 'mas') map to PARAGRAPH. Points within parts (Armenian: կetq) map to POINT. There is no SUBSECTION level in Armenian legislation. The document heading block ('LAW OF THE REPUBLIC OF ARMENIA / [Title] / Adopted by the National Assembly on [date]') maps to PREFACE, not PREAMBLE. Only include PREAMBLE if the act has substantive recitals. The President's signature block at the end maps to CONCLUSIONS."
   },
   "supranational_memberships": [

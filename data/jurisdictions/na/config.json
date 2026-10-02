@@ -330,7 +330,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Namibian legislation uses 'CHAPTER' as the highest division in major statutes and 'PART' within chapters or directly in shorter acts. Sections are numbered continuously throughout the entire act — they do NOT restart per chapter or part. The enacting formula is 'BE IT ENACTED by the Parliament of the Republic of Namibia, as follows:'. Government Notice Regulations use 'regulation N' as the basic unit term but should be structured using the SECTION keyword. Part numbering may be Arabic (Part 1), Roman (Part I), or alphabetic (Part A) — all are valid; use the numbering as it appears in the source document. EXCEPTION: The Namibia Constitution uses 'Article' (ARTICLE keyword) as its basic unit instead of 'Section'. Apply the ARTICLE keyword when processing the Constitution."
   },
   "supranational_memberships": [

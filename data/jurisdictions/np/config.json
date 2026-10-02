@@ -365,7 +365,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Nepal legislation is written in Devanagari script in the Nepali language. Key hierarchy terms: Parichched = Chapter, Daphaa = Section (basic citable unit), Upadaphaa = Sub-section, Khanda = Paragraph/Clause (lettered), Upakhanda = Sub-paragraph. For the Constitution: Bhaag = Part, Dhaaraa = Article, Upadhaaraa = sub-clause. For Codes (Samhita), Bhaag may appear above Parichched. Nepal Gazette citations use Bikram Samvat (B.S.) dates — convert to Gregorian for FRBR URIs (subtract 56 or 57 years depending on month; Nepali New Year is mid-April). Store the original B.S. date as FRBRalias. English translations of Nepali laws exist on lawcommission.gov.np but the Nepali text is authoritative. Watch for Proviso-style clauses ('Tara' = 'Provided that') and Spashtikaran (Explanation) blocks."
   },
   "supranational_memberships": [

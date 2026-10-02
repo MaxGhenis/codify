@@ -278,7 +278,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Estonian § (paragrahv) maps to AKN article (same as German tradition). Lõige maps to AKN paragraph. Punkt maps to AKN point. Alapunkt maps to AKN indent. Peatükk maps to AKN chapter. Jagu maps to AKN section used as higher division. Estonian acts have NO body-text enacting formula — do not invent one. Begin the BODY directly with the first CHAPTER or ARTICLE. Insertion numbering for §§ uses plain numeric suffix: § 51 renders as art_51 in eIds."
   },
   "supranational_memberships": [

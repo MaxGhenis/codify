@@ -258,7 +258,7 @@
       "language": "fin",
       "translation": "In accordance with the decision of the Parliament, it is enacted:",
       "position": "preamble",
-      "instrument_type": "act",
+      "document_class": "act",
       "era": "current"
     },
     {
@@ -266,7 +266,7 @@
       "language": "swe",
       "translation": "In accordance with the decision of the Parliament, it is enacted:",
       "position": "preamble",
-      "instrument_type": "act",
+      "document_class": "act",
       "era": "current"
     },
     {
@@ -274,7 +274,7 @@
       "language": "fin",
       "translation": "By decision of the Government, upon presentation by the Ministry of Justice, it is provided:",
       "position": "preamble",
-      "instrument_type": "vna",
+      "document_class": "vna",
       "era": "current"
     }
   ],
@@ -332,7 +332,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Finland uses CHAPTER (luku) as the primary higher division, not PART. The basic unit is § (pykälä), rendered as SECTION. Many short acts have no chapter divisions at all — do not force a chapter wrapper. The enacting formula in Finnish is 'Eduskunnan päätöksen mukaisesti säädetään:' and in Swedish 'I enlighet med riksdagens beslut föreskrivs:'. Sections are numbered N § (number before symbol). Subsections (momentti) are numbered (1), (2), (3). Points (kohta) within subsections may be numbered 1), 2), 3) or a), b), c) — detect from context. Inserted sections use alphanumeric suffixing with a space: '5 a §' — normalise to SECTION 5a in Bluebell."
   },
   "bilingual": {

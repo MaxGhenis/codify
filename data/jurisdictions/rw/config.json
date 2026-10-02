@@ -239,20 +239,17 @@
       "text_kin": "INTEKO ISHINGA AMATEGEKO YEMEJE, NONE NATWE DUHAMIJE, DUTANGAJE ITEGEKO RITEYE RITYA KANDI DUTEGETSE KO RYANDIKWA MU IGAZETI YA LETA YA REPUBULIKA Y'U RWANDA.",
       "text_fra": "LE PARLEMENT A ADOPTÉ ET NOUS SANCTIONNONS, PROMULGUONS LA LOI DONT LA TENEUR SUIT ET ORDONNONS QU'ELLE SOIT PUBLIÉE AU JOURNAL OFFICIEL DE LA RÉPUBLIQUE DU RWANDA.",
       "position": "preamble",
-      "applies_to": [
+      "document_class": [
         "law",
         "po",
         "pmo",
-        "mo",
-        "reg"
+        "mo"
       ]
     },
     {
       "text": "THE PARLIAMENT HAS ADOPTED AND WE SANCTION, PROMULGATE THE FOLLOWING ORGANIC LAW AND ORDER IT BE PUBLISHED IN THE OFFICIAL GAZETTE OF THE REPUBLIC OF RWANDA.",
       "position": "preamble",
-      "applies_to": [
-        "ol"
-      ]
+      "document_class": "ol"
     }
   ],
   "amendments": {
@@ -312,7 +309,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Rwanda uses ARTICLE as the basic unit (civil law tradition). CHAPTER is the highest division; SECTION groups articles within chapters (not a basic unit). First article is numbered 'Article One' / 'Article premier' / 'Ingingo ya mbere' — treat as Article 1. Subsequent articles use Arabic numerals. Law numbers follow format 'Law N° NN/YYYY of DD/MM/YYYY'. Organic Laws have '.OL' suffix in citation."
   },
   "supranational_memberships": [

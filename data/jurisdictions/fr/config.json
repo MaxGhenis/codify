@@ -427,7 +427,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "French law uses Article as the basic unit (ARTICLE keyword). Higher divisions are Livre (BOOK), Titre (TITLE), Chapitre (CHAPTER), Section (SECTION), Sous-section (SUBSECTION) — all higher divisions, not basic units. Alinéa is an unnumbered paragraph subdivision within an article; use PARAGRAPH keyword. In codes, article numbers encode hierarchy position (L.xxx-x, R.xxx-x, D.xxx-x) — preserve these exactly as the article number. Do not confuse Section (a higher division) with section in the Anglophone sense."
   },
   "supranational_memberships": [

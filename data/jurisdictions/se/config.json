@@ -257,7 +257,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Swedish Paragraf (§) maps to ARTICLE keyword and AKN article element. Kapitel (kap.) maps to CHAPTER. Avdelning maps to PART. Stycke (unnamed prose paragraph within a §) maps to PARAGRAPH — the first stycke is the direct content of the ARTICLE, second and subsequent stycken become PARAGRAPH 2, PARAGRAPH 3 etc. Punkt (1., 2., 3.) maps to POINT. Strecksats (em-dash bullet) maps to INDENT. The § symbol should NOT appear in the ARTICLE number field in Bluebell input — write 'ARTICLE 5', not 'ARTICLE § 5'. Kapitel numbers remain Arabic in Bluebell ('CHAPTER 3'). Many Swedish acts have no CHAPTER — just a flat sequence of ARTICLEs. Swedish acts have no enacting formula body text; there is no PREAMBLE block. Short acts: typically 5-15 ARTICLEs, last ARTICLE is commencement provision ('Denna lag träder i kraft den ...'). Amending acts (ändringslagen): typically 2-5 ARTICLEs."
   },
   "supranational_memberships": [

@@ -293,7 +293,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "For Criminal Code (CAP. 101) only: add TITLE as a hierarchy level between PART and SECTION. For Constitution: disable Bluebell pipeline and use manual AKN authoring or post-processing for Division elements."
   },
   "supranational_memberships": [

@@ -20,7 +20,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
-      "prompt_variant": "ae",
       "hierarchy": [
         {
           "local_term": "Book",
@@ -98,7 +97,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
-      "prompt_variant": "ae",
       "hierarchy": [
         {
           "local_term": "Part",
@@ -155,7 +153,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
-      "prompt_variant": "ae",
       "hierarchy": [
         {
           "local_term": "Chapter",
@@ -196,7 +193,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
-      "prompt_variant": "ae",
       "hierarchy": [
         {
           "local_term": "Part",
@@ -232,8 +228,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": null,
-      "frbr_locality": "ae-difc",
       "hierarchy": [
         {
           "local_term": "Part",
@@ -273,8 +267,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": null,
-      "frbr_locality": "ae-adgm",
       "hierarchy": [
         {
           "local_term": "Part",
@@ -338,29 +330,23 @@
     {
       "text": "We, [President's name], President of the United Arab Emirates, Having reviewed the Constitution, [list of reviewed laws], Based on the proposal of [Minister] and the approval of the Cabinet, Have issued the following Decree-Law:",
       "position": "preamble",
-      "document_types": [
-        "federal_decree_law"
-      ],
       "language": "eng",
-      "note": "[PARTIALLY VERIFIED] Pattern confirmed from legal publications. Exact Arabic text not read verbatim from official PDF — verify before production use."
+      "note": "[PARTIALLY VERIFIED] Pattern confirmed from legal publications. Exact Arabic text not read verbatim from official PDF — verify before production use.",
+      "document_class": "federal_decree_law"
     },
     {
       "text": "We, [President's name], President of the United Arab Emirates, Having reviewed the Constitution, [list of reviewed laws], Based on the proposal of [Minister], After the approval of the Cabinet, And the ratification of the Federal Supreme Council, Have issued the following Law:",
       "position": "preamble",
-      "document_types": [
-        "federal_law"
-      ],
       "language": "eng",
-      "note": "[PARTIALLY VERIFIED] Standard legislative process formula."
+      "note": "[PARTIALLY VERIFIED] Standard legislative process formula.",
+      "document_class": "federal_law"
     },
     {
       "text": "This Law is made by the Ruler of Dubai.",
       "position": "preamble",
-      "document_types": [
-        "difc_law"
-      ],
       "language": "eng",
-      "note": "Confirmed from DIFC law publications. Short single-sentence formula."
+      "note": "Confirmed from DIFC law publications. Short single-sentence formula.",
+      "document_class": "difc_law"
     }
   ],
   "amendments": {
@@ -450,10 +436,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "UAE federal legislation uses ARTICLE as the basic unit (مادة, maddah), not SECTION. The hierarchy is: BOOK (codes only) > PART > CHAPTER > ARTICLE > SUBSECTION (numbered clauses) > PARAGRAPH (lettered sub-clauses). Article numbering is continuous throughout the law regardless of Chapter/Part boundaries. Headings after the ARTICLE number are the article title. DIFC and ADGM laws use SECTION as the basic unit and follow Anglophone structure.",
-    "rtl_script": true,
-    "rtl_note": "Arabic source documents are right-to-left. The OCR pipeline must handle Arabic bidi text. Structural keywords in the Arabic source will be in Arabic script; English translations use the English keywords listed above."
+    "prompt_additions": "UAE federal legislation uses ARTICLE as the basic unit (مادة, maddah), not SECTION. The hierarchy is: BOOK (codes only) > PART > CHAPTER > ARTICLE > SUBSECTION (numbered clauses) > PARAGRAPH (lettered sub-clauses). Article numbering is continuous throughout the law regardless of Chapter/Part boundaries. Headings after the ARTICLE number are the article title. DIFC and ADGM laws use SECTION as the basic unit and follow Anglophone structure."
   },
   "supranational_memberships": [
     {

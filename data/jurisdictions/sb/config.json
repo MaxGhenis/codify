@@ -223,7 +223,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Solomon Islands uses a British-derived common law structure. Acts are enacted by the National Parliament and assented to by the Governor-General. Parts are the primary higher division (Part I, Part II in older Cap-era legislation; Part 1, Part 2 in more recent acts). Larger acts may contain a Division level between Part and Section — use DIVISION keyword. Sections are numbered continuously throughout the act. Subsidiary legislation (Legal Notices) uses 'regulation' or 'rule' as the basic unit but map to SECTION. The Constitution uses Chapters not Parts. Customary law is recognised by the Constitution (s. 75) and applied by Local Courts and the Customary Land Appeal Court — flag any provisions referring to kastom for TLC annotation."
   },
   "supranational_memberships": [

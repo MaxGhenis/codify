@@ -316,7 +316,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": "structure_civil.txt",
     "prompt_additions": "Timor-Leste uses Lusophone civil law structure: ARTICLE as basic unit, PARAGRAPH for numbered items (1., 2.), POINT for lettered items (a), b)). SECTION and SUBSECTION are higher divisions above ARTICLE (civil law usage). UNTAET regulations (1999-2002) use Anglophone SECTION as basic unit -- detect and switch hierarchy."
   },
   "supranational_memberships": [

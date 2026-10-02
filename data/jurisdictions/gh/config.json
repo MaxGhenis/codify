@@ -292,7 +292,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Ghana Acts use continuous arabic section numbering that does not restart per Part. Complex codifying acts (e.g., Companies Act) may use Chapter > Part > Section with chapters named by ordinal words (CHAPTER ONE). Sections are always cited as 'section N', never 'article N', except in the Constitution where 'Article N' is used."
   },
   "supranational_memberships": [

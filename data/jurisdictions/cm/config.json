@@ -418,7 +418,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Basic unit is ARTICLE (not SECTION). In the French text: 'Article 1er', 'Article 2'… In the English bilingual text: 'Section 1', 'Section 2'… — both map to Bluebell ARTICLE keyword and AKN article element. Hierarchy above articles: TITLE (Titre) > CHAPTER (Chapitre) > DIVISION (Section as higher grouping). Use BOOK (Livre) only for the largest codes. Article numbering is continuous throughout the entire document regardless of higher divisions. Subdivisions within articles: unnumbered alinéas, then POINT (1°, 2°…), then INDENT (tiret –). The Constitution uses PART (Partie) not TITLE as its highest division."
   },
   "supranational_memberships": [

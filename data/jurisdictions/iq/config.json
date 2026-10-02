@@ -370,7 +370,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Arabic and Kurdish RTL text. Basic unit is ARTICLE (مادة/Maddah), not SECTION. Hierarchy for major codes: BOOK > [PART >] CHAPTER > [DIVISION for فصل/Fasl] > ARTICLE. Simple laws: [CHAPTER >] ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة/Faqra and POINT for بند/Band. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, PART, CHAPTER, DIVISION, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic-script numerals ٠-٩ should be normalised to 0-9 in structural position markers only. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis. CPA Orders use English section-based structure — use SECTION/SUBSECTION/PARAGRAPH hierarchy instead, with structure_iq_cpa.txt variant."
   },
   "supranational_memberships": [

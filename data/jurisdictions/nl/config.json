@@ -344,7 +344,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Dutch legislation uses ARTICLE as the basic unit (not SECTION). Hierarchy: CHAPTER > SECTION (Afdeling) > ARTICLE > PARAGRAPH (lid) > POINT (onderdeel). SECTION here is a higher division container, not the basic unit. All acts open with a royal enacting formula (aanhef) in the PREAMBLE and close with a royal signature block in CONCLUSIONS."
   },
   "supranational_memberships": [

@@ -187,16 +187,16 @@
     {
       "text": "Be it enacted by the President with the advice and consent of the Parliament of Singapore, as follows:",
       "position": "preamble",
-      "applies_to": "act",
       "era": "republic",
-      "from": "1965-08-09"
+      "from": "1965-08-09",
+      "document_class": "act"
     },
     {
       "text": "[Minister], in exercise of the powers conferred by section [N] of the [Parent Act], hereby makes the following Regulations:",
       "position": "preamble",
-      "applies_to": "sl",
       "era": "current",
-      "note": "Enabling power section and parent Act always cited. Instrument type varies: Regulations, Rules, Order, Notification."
+      "note": "Enabling power section and parent Act always cited. Instrument type varies: Regulations, Rules, Order, Notification.",
+      "document_class": "sl"
     }
   ],
   "amendments": {
@@ -267,9 +267,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "Singapore enacting formula: 'Be it enacted by the President with the advice and consent of the Parliament of Singapore, as follows:'. Standard hierarchy is PART (roman numerals) > SECTION (arabic, continuous). Division level (arabic, within Parts) is present in complex Acts — flatten to Part > Section for pipeline; flag for post-processing. Constitution requires separate prompt variant (structure_sg_constitution.txt) using PART > CHAPTER > ARTICLE.",
-    "constitution_prompt_variant": "structure_sg_constitution.txt"
+    "prompt_additions": "Singapore enacting formula: 'Be it enacted by the President with the advice and consent of the Parliament of Singapore, as follows:'. Standard hierarchy is PART (roman numerals) > SECTION (arabic, continuous). Division level (arabic, within Parts) is present in complex Acts — flatten to Part > Section for pipeline; flag for post-processing. Constitution requires separate prompt variant (structure_sg_constitution.txt) using PART > CHAPTER > ARTICLE."
   },
   "supranational_memberships": [
     {

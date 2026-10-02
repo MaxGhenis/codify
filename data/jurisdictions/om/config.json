@@ -218,7 +218,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Oman uses ARTICLE as the basic unit (Maddah / مادة). CHAPTER (Bab / باب) and SECTION (Fasl / فصل) are higher divisions above the article, not the basic unit. PART (Juz' / جزء) and BOOK (Kitab / كتاب) appear in large codes. Paragraphs within articles use PARAGRAPH (Faqrah / فقرة). Items use POINT (Band / بند). Arabic is RTL; article numbering is continuous throughout the entire law, never restarting per chapter. The enacting formula appears in the preamble as the Sultan's decree."
   },
   "supranational_memberships": [

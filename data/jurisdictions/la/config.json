@@ -199,7 +199,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Hierarchy is PART > CHAPTER > ARTICLE > PARAGRAPH > POINT. Article numbering is continuous throughout the law and does not restart per Chapter or Part. Lao PDR follows the French civil law tradition inherited from the colonial period."
   },
   "supranational_memberships": [

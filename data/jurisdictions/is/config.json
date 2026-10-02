@@ -256,7 +256,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Icelandic § (grein) is the basic statutory unit — map to ARTICLE keyword and AKN article element, consistent with the DK/SE/NO civil law convention. Kafli (chapter) maps to CHAPTER. Hluti (part) maps to PART — rare, used only in the largest codes. Málsgrein is an unnumbered prose paragraph within a grein: the first málsgrein is the direct ARTICLE content; subsequent málsgreinar become PARAGRAPH 2, PARAGRAPH 3, etc. Stafliður is a lettered list item (a), b), c)) — map to POINT. The § symbol precedes the number: '§ 5' or '5. gr.' — do NOT include '§' or 'gr.' in the ARTICLE number field; write 'ARTICLE 5'. § numbers are continuous across all kaflar. Icelandic contains accented characters that must be preserved exactly: á é í ó ú ý Á É Í Ó Ú Ý þ Þ æ Æ ö Ö. The thorn (þ/Þ) and eth are not present in most European scripts — do not substitute 'th' or 'd'. Most acts have no hluti — medium acts have kaflar, short acts are a flat sequence of greinar. The final grein of every lög is the commencement provision (gildistaka). Amending acts (breytingarlög) typically modify named greinar of the principal act."
   },
   "supranational_memberships": [

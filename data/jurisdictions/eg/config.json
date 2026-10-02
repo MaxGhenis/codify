@@ -313,7 +313,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Arabic RTL text. Basic unit is ARTICLE (مادة/Maddah), not SECTION. Hierarchy for major codes: BOOK > CHAPTER > [DIVISION for فصل] > ARTICLE. Simple laws: [CHAPTER >] ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة and POINT for بند. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, CHAPTER, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic numerals ٠-٩ should be normalised to 0-9 in structural position markers. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis."
   },
   "supranational_memberships": [

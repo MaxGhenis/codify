@@ -307,7 +307,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "New Zealand legislation uses PART > SUBPART (optional) > SECTION as the primary structural hierarchy. SUBPART is a distinctive NZ mid-level grouping within a Part; it is fully supported by the Bluebell SUBPART keyword (maps to AKN subpart). Not all Acts use Subparts — check whether the document has Subpart headings; if absent, structure is PART > SECTION directly. SECTION is the basic citable unit, numbered continuously in Arabic numerals throughout the Act (not restarting per Part or Subpart). Subsections use (1), (2); paragraphs use (a), (b); subparagraphs use (i), (ii). Bills use 'clause'/'subclause' terminology — map to SECTION/SUBSECTION. Acts drafted under the PCO's plain-language 'Purpose and principles' approach typically open with a purpose section (section 3 or 4) and an outline section before the substantive provisions. Treaty of Waitangi preambles and purpose sections are common in legislation affecting Māori rights — preserve these carefully as they carry significant interpretive weight and are frequently cited in courts. Some Acts have bilingual Māori/English titles (e.g., Te Ture mō te Reo Māori 2016 / Māori Language Act 2016) — capture the Māori title as an FRBRalias. The Waitangi Tribunal (established by Treaty of Waitangi Act 1975) is a permanent commission of inquiry with quasi-judicial status — it is distinct from the courts but its recommendations carry significant legal and political weight."
   },
   "supranational_memberships": [

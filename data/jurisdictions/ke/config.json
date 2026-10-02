@@ -116,7 +116,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
-      "prompt_variant": "structure_ke_constitution",
       "hierarchy": [
         {
           "local_term": "Chapter",
@@ -289,9 +288,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "Kenya uses 'PART I—PRELIMINARY' heading style (em-dash separator). Sections numbered continuously throughout the act. Amendment phrasing: 'is amended — (a) by deleting ... and substituting therefor'. Marginal notes appear as section headings.",
-    "constitution_prompt_variant": "structure_ke_constitution"
+    "prompt_additions": "Kenya uses 'PART I—PRELIMINARY' heading style (em-dash separator). Sections numbered continuously throughout the act. Amendment phrasing: 'is amended — (a) by deleting ... and substituting therefor'. Marginal notes appear as section headings."
   },
   "supranational_memberships": [
     {

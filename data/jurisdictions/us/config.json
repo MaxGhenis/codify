@@ -16,7 +16,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": "us",
       "hierarchy": [
         {
           "local_term": "Division",
@@ -132,7 +131,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": "us",
       "hierarchy": [
         {
           "local_term": "Subtitle",
@@ -240,7 +238,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": "us",
       "hierarchy": [
         {
           "local_term": "Chapter",
@@ -299,7 +296,6 @@
       "akn_element": "bill",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": "us",
       "hierarchy": [
         {
           "local_term": "Division",
@@ -400,7 +396,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "prompt_variant": "us",
       "hierarchy": [
         {
           "local_term": "Article",
@@ -475,18 +470,8 @@
     {
       "text": "Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled,",
       "position": "preamble",
-      "applies_to": [
-        "public_law"
-      ],
-      "statutory_basis": "1 U.S.C. § 101"
-    },
-    {
-      "text": "Resolved by the Senate and House of Representatives of the United States of America in Congress assembled,",
-      "position": "preamble",
-      "applies_to": [
-        "joint_resolution"
-      ],
-      "note": "Used for constitutional amendments, declarations of war, and some appropriations/continuing resolutions."
+      "statutory_basis": "1 U.S.C. § 101",
+      "document_class": "public_law"
     }
   ],
   "amendments": {
@@ -552,8 +537,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_file": "structure_us.txt",
     "prompt_additions": "CRITICAL: US subdivision numbering is INVERTED from Commonwealth. L1 subdivision uses letters: SUBSECTION (a), (b), (c). L2 uses Arabic numerals: PARAGRAPH (1), (2), (3). L3 uses uppercase letters: SUBPARAGRAPH (A), (B), (C). L4 uses lowercase Roman: CLAUSE (i), (ii), (iii). L5 uses uppercase Roman: SUBCLAUSE (I), (II), (III). Do NOT apply Commonwealth subsection-as-numeral conventions. Division and Subchapter levels have no Bluebell keyword — flag these for post-processing."
   },
   "supranational_memberships": [

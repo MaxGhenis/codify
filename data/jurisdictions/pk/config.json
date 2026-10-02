@@ -426,7 +426,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Pakistani legislation uses British Indian drafting conventions inherited through the Government of India Act 1935 and subsequent codification. Key patterns: (1) Proviso: begins 'Provided that' — output as PROVISO. Multiple provisos in a section are common ('Provided further that'). Each is a separate PROVISO block. (2) Explanation: begins 'Explanation.--' or 'Explanation I.--' — output as SUBSECTION (post-processing renames). Clarificatory only. (3) Exception: begins 'Exception' — mainly in Penal Code tradition; output as SUBSECTION. (4) Section numbering is Arabic and continuous across the entire Act. Sub-sections use (1), (2), (3). Clauses use (a), (b), (c). Sub-clauses use (i), (ii), (iii). (5) Constitution uses Article as the basic unit, not Section. (6) Ordinances have same drafting style as Acts. (7) Federal Shariat Court may declare a law repugnant to Islamic injunctions — such declarations appear in lifecycle metadata, not document body."
   },
   "supranational_memberships": [

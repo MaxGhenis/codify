@@ -181,13 +181,14 @@
       "text": "Az Országgyűlés [purpose clause] a következő törvényt alkotja:",
       "translation": "The National Assembly, [purpose clause], adopts the following act:",
       "position": "preamble",
-      "note": "Present in acts with a purpose preamble. Simple amending acts omit this formula and begin directly with the body."
+      "note": "Present in acts with a purpose preamble. Simple amending acts omit this formula and begin directly with the body.",
+      "document_class": "act"
     },
     {
       "text": "A Kormány [enabling clause] a következő rendeletet alkotja:",
       "translation": "The Government, [enabling clause], adopts the following decree:",
       "position": "preamble",
-      "applies_to": "rendelet_korm"
+      "document_class": "rendelet"
     }
   ],
   "amendments": {
@@ -234,17 +235,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_file": "structure_hu.txt",
-    "prompt_additions": "Hungarian acts use CHAPTER (fejezet, Roman numeral) > SECTION (szakasz, Arabic with § sign) > SUBSECTION (bekezdés, Arabic parenthesized) > PARAGRAPH (pont, lowercase letter+closeparen a), b)) > SUBPARAGRAPH (alpont, double-letter aa), ab)). Large codes additionally use BOOK (könyv) and PART (rész) above CHAPTER. The alcím (subtitle) grouping element has no Bluebell keyword and must be handled by post-processing. Section numbers appear as '1. §', '15. §' — strip '§' and '.' for Bluebell SECTION number. Subsections appear as '(1)', '(2)'. Points appear as 'a)', 'b)' without parentheses on the left. Subpoints appear as 'aa)', 'ab)'. For the Fundamental Law only, use ARTICLE keyword and letter identifiers.",
-    "special_variants": [
-      {
-        "name": "alaptorvenye",
-        "prompt_file": "structure_hu_alaptorvenye.txt",
-        "trigger": "document_class == 'alaptorvenye'",
-        "note": "Fundamental Law uses ARTICLE (Cikk) as basic unit with letter identifiers, not SECTION."
-      }
-    ]
+    "prompt_additions": "Hungarian acts use CHAPTER (fejezet, Roman numeral) > SECTION (szakasz, Arabic with § sign) > SUBSECTION (bekezdés, Arabic parenthesized) > PARAGRAPH (pont, lowercase letter+closeparen a), b)) > SUBPARAGRAPH (alpont, double-letter aa), ab)). Large codes additionally use BOOK (könyv) and PART (rész) above CHAPTER. The alcím (subtitle) grouping element has no Bluebell keyword and must be handled by post-processing. Section numbers appear as '1. §', '15. §' — strip '§' and '.' for Bluebell SECTION number. Subsections appear as '(1)', '(2)'. Points appear as 'a)', 'b)' without parentheses on the left. Subpoints appear as 'aa)', 'ab)'. For the Fundamental Law only, use ARTICLE keyword and letter identifiers."
   },
   "supranational_memberships": [
     {

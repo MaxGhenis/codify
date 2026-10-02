@@ -362,7 +362,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Australian Commonwealth legislation uses a distinctive five-level hierarchy above the basic unit: CHAPTER > PART > DIVISION > SUBDIVISION > SECTION. Division and Subdivision are native AKN/Bluebell elements (DIVISION keyword → dvs, SUBDIVISION keyword → subdvs) — use them directly, no hcontainer post-processing required. Not every Act uses all levels; skip levels that are absent. Sections are numbered continuously throughout the Act (not reset within each Part or Division). Division numbers are typically dotted within their Part (e.g. 'Division 2.3' = Division 3 of Part 2); Subdivision labels are alphabetical (Subdivision A, B, C). Below Section: Subsection (arabic in parentheses), Paragraph (lowercase alpha in parentheses), Subparagraph (roman lower in parentheses). Bills use 'clause'/'subclause' terminology — treat as SECTION/SUBSECTION. Constitution s 51 uses bracketed Roman numerals for paragraphs (e.g. s 51(xxxi)) — treat as PARAGRAPH level numbered with roman_lower_parenthesized. Australian plain-language drafting style: note headings ('Note:') and examples ('Example:') appear inline in sections and are not structural hierarchy — treat as block content within the section. Amending Acts operate via numbered Schedules; each Schedule item contains explicit textual instructions. Defined terms are capitalised in body text and collected in a Dictionary section."
   },
   "supranational_memberships": [

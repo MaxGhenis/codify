@@ -443,7 +443,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Lebanon uses Arabic (authoritative) and French (working language). Basic unit is ARTICLE (مادة/Maddah) — never SECTION. Hierarchy for major codes and laws: [BOOK >] TITLE > CHAPTER > [DIVISION >] ARTICLE. Simple laws: [TITLE >] [CHAPTER >] ARTICLE only. DIVISION keyword maps to قسم/Section (a higher division above articles, NOT the basic unit); post-process <division> → <section> in output. PARAGRAPH maps to فقرة/Alinéa (paragraph break within an article, usually unnumbered); post-process <paragraph> → <alinea>. POINT maps to بند/point (lettered or numbered list item). Article numbering is continuous throughout the entire law regardless of TITLE or CHAPTER boundaries — never restart the count. Arabic-Indic numerals (١-٩) must be normalised to Western Arabic (1-9) in structural positions. Use ASCII Bluebell keywords (ARTICLE, TITLE, CHAPTER, etc.) but preserve Arabic and French article body text verbatim. Insertion articles: مادة 5 مكرراً → ARTICLE 5mkarran; Article 5-1 → ARTICLE 5-1. RTL text direction required for Arabic content."
   },
   "supranational_memberships": [

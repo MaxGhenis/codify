@@ -221,7 +221,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": "structure_civil.txt",
     "prompt_additions": "Ethiopia uses ARTICLE as basic unit. Sub-Article (1), (2) maps to PARAGRAPH. Lettered items (a), (b) map to POINT. WHEREAS preamble clauses precede the enacting formula. Parts use ordinal English words: PART ONE, PART TWO. Ethiopian calendar year differs from Gregorian by 7-8 years."
   },
   "supranational_memberships": [

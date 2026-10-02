@@ -407,7 +407,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Belgium uses ARTICLE as the basic unit (civil law tradition). Hierarchy: TITLE > CHAPTER > DIVISION > ARTICLE > PARAGRAPH > SUBSECTION (proxy for alinea). Belgian 'section' (afdeling) is a higher division above articles — map to DIVISION keyword. List items use degree notation (1°, 2°, 3°) — convert to POINT 1, POINT 2, POINT 3. Sub-items (a), b)) map to INDENT a, INDENT b. Process one language version (French or Dutch) per run. Alineas are unnumbered paragraph blocks within articles or paragraphs."
   },
   "supranational_memberships": [

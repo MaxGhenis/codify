@@ -244,9 +244,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "Mauritius uses PART (Roman numerals) > SECTION (Arabic continuous) hierarchy for all English-language Acts. Section 1 = Short title, Section 2 = Interpretation. Enacting formula: 'ENACTED by the Parliament of Mauritius, as follows —'. Presidential assent block appears at document head before the preface ('I assent — [Name], President of the Republic of Mauritius'). Omit the 'Arrangement of Sections' table of contents from AKN body. If document is in French (Code Civil Mauricien, Code de Commerce), do NOT use this prompt — route to specialist review.",
-    "civil_code_prompt_variant": "structure_mu_civil.txt"
+    "prompt_additions": "Mauritius uses PART (Roman numerals) > SECTION (Arabic continuous) hierarchy for all English-language Acts. Section 1 = Short title, Section 2 = Interpretation. Enacting formula: 'ENACTED by the Parliament of Mauritius, as follows —'. Presidential assent block appears at document head before the preface ('I assent — [Name], President of the Republic of Mauritius'). Omit the 'Arrangement of Sections' table of contents from AKN body. If document is in French (Code Civil Mauricien, Code de Commerce), do NOT use this prompt — route to specialist review."
   },
   "supranational_memberships": [
     {

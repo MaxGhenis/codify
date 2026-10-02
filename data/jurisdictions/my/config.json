@@ -288,19 +288,13 @@
       "text": "BE IT ENACTED by the Seri Paduka Baginda Yang di-Pertuan Agong with the advice and consent of the Dewan Negara and Dewan Rakyat in Parliament assembled, and by the authority of the same, as follows:",
       "language": "eng",
       "position": "preamble",
-      "type": "federal_act_english"
-    },
-    {
-      "text": "DIPERBUAT oleh Seri Paduka Baginda Yang di-Pertuan Agong dengan nasihat dan persetujuan Dewan Negara dan Dewan Rakyat dalam Parlimen bersidang, dan dengan kuasa daripadanya, seperti yang berikut:",
-      "language": "msa",
-      "position": "preamble",
-      "type": "federal_act_bm"
+      "document_class": "act"
     },
     {
       "text": "In exercise of the powers conferred by section {N} of the {Parent Act}, the {Minister} makes the following regulations:",
       "language": "eng",
       "position": "preamble",
-      "type": "subsidiary_legislation_english"
+      "document_class": "subsidiary"
     }
   ],
   "amendments": {
@@ -384,7 +378,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Malaysia post-1967 Acts are bilingual (BM + English). BM text is authoritative. The Act number in square brackets (e.g., [Act 777]) is the canonical identifier — always record this in FRBRalias metadata. Federal Constitution uses 'Article' (Perkara) as basic unit, not 'section' — detect and switch hierarchy accordingly. Some large Acts use 'Division' within Parts; map Division to AKN chapter element using CHAPTER keyword. Proviso clauses ('Provided that...') map to hcontainer name='proviso'."
   },
   "supranational_memberships": [

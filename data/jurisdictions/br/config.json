@@ -311,7 +311,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Brazil uses ARTICLE as basic unit. Secao/Subsecao are HIGHER divisions above articles, NOT the basic unit. Inciso uses Roman numerals (I, II, III). Paragrafo unico is a special sole-paragraph designation."
   },
   "supranational_memberships": [

@@ -213,9 +213,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "Samoa Acts open with an 'Arrangement of Provisions' (table of contents) — skip this block entirely and do not include it in the Bluebell output. Begin output with PREFACE (long title) or PREAMBLE (enacting formula). Parts use Arabic numerals (PART 1, PART 2). Constitution variant: Parts use Roman numerals (PART I, PART II); basic unit is 'Article' — output as SECTION. Assent/commencement date line at top of act is metadata, not body content — omit from Bluebell body.",
-    "constitution_prompt_variant": "structure_ws_constitution"
+    "prompt_additions": "Samoa Acts open with an 'Arrangement of Provisions' (table of contents) — skip this block entirely and do not include it in the Bluebell output. Begin output with PREFACE (long title) or PREAMBLE (enacting formula). Parts use Arabic numerals (PART 1, PART 2). Constitution variant: Parts use Roman numerals (PART I, PART II); basic unit is 'Article' — output as SECTION. Assent/commencement date line at top of act is metadata, not body content — omit from Bluebell body."
   },
   "supranational_memberships": [
     {

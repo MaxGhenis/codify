@@ -342,7 +342,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Chile uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions: BOOK (libro, codes only), TITLE (título), CHAPTER (capítulo), SECTION (párrafo — a grouping level ABOVE artículos, NOT a subdivision below them). Subdivisions within artículos: incisos are unnumbered paragraphs with no Bluebell keyword — leave as bare paragraph blocks and note them for post-processing. PARAGRAPH for numbered items (N° 1°, N° 2°). POINT for letras (a), b), c)). INDENT for sub-letras (i), ii)). Article numbers use degree symbols (Artículo 1°) — strip for eId: art_1. Law numbers use thousands-separator periods (Ley N° 21.719) — strip for URIs: 21719. Insertion numbering: bis/ter suffixes (Artículo 5° bis → art_5bis). No embedded enacting formula in body — law begins directly with articles."
   },
   "supranational_memberships": [

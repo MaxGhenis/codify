@@ -350,7 +350,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "German Paragraph (§) maps to AKN article. Abschnitt maps to chapter. Satz (sentence) is independently citable but has no direct Bluebell keyword -- use post-processing. Both § and Artikel map to ARTICLE keyword."
   },
   "supranational_memberships": [

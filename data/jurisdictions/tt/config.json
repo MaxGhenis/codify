@@ -376,7 +376,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Trinidad and Tobago uses PART (Roman) > SECTION (continuous Arabic) as the standard structure for Acts. The Constitution uses CHAPTER (Arabic) > PART (Roman) > SECTION — handle with the constitution document class. Some complex acts and SIs add DIVISION (Arabic) between PART and SECTION — flag division headings for post-processing injection of hcontainer wrappers. Basic unit is always SECTION. Subsection (1), Paragraph (a) in italics, Subparagraph (i). Inserted sections carry alphanumeric suffix: 6A, 6B, 6C. Constitutional special-majority acts begin with WHEREAS recitals before the enacting formula — model each as a recital element. Paragraph labels in amendment acts are italicised: (a), (b), (c)."
   },
   "supranational_memberships": [

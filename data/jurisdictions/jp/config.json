@@ -248,7 +248,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Japan uses ARTICLE as basic unit. First paragraph (Ko) of each article is implicit/unnumbered. Items (Go) use kanji numerals. Setsu (Section) is a HIGHER division. Supplementary provisions (Fusoku) map to SCHEDULE. e-Gov JLS XML is the primary source."
   },
   "supranational_memberships": [

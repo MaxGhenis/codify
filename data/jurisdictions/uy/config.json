@@ -363,7 +363,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Uruguay uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions in codes: BOOK (libro), PART (sección as top grouping in Constitution and some codes), TITLE (título), CHAPTER (capítulo). In ordinary leyes the most common higher division is CHAPTER. Subdivisions within artículos: incisos are unnumbered paragraphs with no Bluebell keyword — leave as bare paragraph blocks and note for post-processing into <alinea> elements. PARAGRAPH for numerales (numbered items, e.g., '1°'). POINT for literales (uppercase lettered items, e.g., 'A)', 'B)'). Article numbers use degree symbols (Artículo 1°) — strip for eId: art_1. Law numbers use thousands-separator periods (Ley N° 19.889) — strip for URIs: 19889. Decreto numbers use two-digit year historically (Decreto N° 326/996 = 1996) — normalise to four digits in URIs. Uppercase letters for literales (A), B)) distinguish Uruguay from Argentina (lowercase) and Chile (lowercase). Constitutional structure: PART (sección) > CHAPTER (capítulo) > ARTICLE (artículo). Decreto-Ley instruments from 1973–1985 dictatorship are structurally identical to ordinary leyes but use decreto-ley subtype in FRBR URI."
   },
   "supranational_memberships": [

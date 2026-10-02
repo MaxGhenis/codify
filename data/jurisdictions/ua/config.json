@@ -328,7 +328,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase. Civil-law numbering: inline points like '1.' or '(1)' under an article are body content, not structural anchors — keep them as text."
   },
   "supranational_memberships": [

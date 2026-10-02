@@ -225,7 +225,8 @@
       "position": "none",
       "era": "current",
       "from": "1991-08-21",
-      "note": "Latvian acts have no body-text enacting formula. Adoption/promulgation metadata appears in the document header on Latvijas Vēstnesis / likumi.lv. The body begins directly with the first nodaļa or pants. Do not invent an enacting formula."
+      "note": "Latvian acts have no body-text enacting formula. Adoption/promulgation metadata appears in the document header on Latvijas Vēstnesis / likumi.lv. The body begins directly with the first nodaļa or pants. Do not invent an enacting formula.",
+      "document_class": "act"
     },
     {
       "text": "Izdoti saskaņā ar {enabling_act_reference}",
@@ -307,7 +308,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Latvian 'pants' maps to AKN article (Germanic tradition, same as German § and Estonian paragrahv). 'Daļa' (of a pants) maps to AKN paragraph — numbered (1), (2). 'Punkts' maps to AKN point — numbered 1), 2). 'Apakšpunkts' maps to AKN indent — lettered a), b). 'Nodaļa' maps to AKN chapter. 'Iedaļa' maps to AKN section (as higher division). Top-level 'Daļa' (Part) in large codes maps to AKN part. CRITICAL: Latvian acts have NO body-text enacting formula — do not invent one. Begin BODY with first CHAPTER or ARTICLE. Terminal block 'Pārejas noteikumi' (Transitional Provisions) must be detected by heading string and wrapped in hcontainer, not treated as a nodaļa. Terminal block 'Informatīvā atsauce' similarly. Pants numbering is continuous throughout and does NOT restart per nodaļa. Insertion numbering: 5¹ → art_51, 5² → art_52."
   },
   "supranational_memberships": [

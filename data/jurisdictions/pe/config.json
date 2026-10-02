@@ -307,28 +307,28 @@
     {
       "text": "EL CONGRESO DE LA REPÚBLICA;\nHa dado la Ley siguiente:",
       "position": "preamble",
-      "instrument_type": "ley",
       "era": "unicameral",
-      "note": "Current formula (unicameral Congress, until July 2026). Formula appears at top of enacted law in El Peruano."
+      "note": "Current formula (unicameral Congress, until July 2026). Formula appears at top of enacted law in El Peruano.",
+      "document_class": "ley"
     },
     {
       "text": "EL PRESIDENTE DE LA REPÚBLICA\nCONSIDERANDO:\n[recitals]\nCon el voto aprobatorio del Consejo de Ministros;\nHa dado el Decreto Legislativo siguiente:",
       "position": "preamble",
-      "instrument_type": "decreto_legislativo",
-      "era": "current"
+      "era": "current",
+      "document_class": "decreto_legislativo"
     },
     {
       "text": "EL PRESIDENTE DE LA REPÚBLICA\nCONSIDERANDO:\n[recitals]\nDECRETA:",
       "position": "preamble",
-      "instrument_type": "decreto_supremo",
-      "era": "current"
+      "era": "current",
+      "document_class": "decreto_supremo"
     },
     {
       "text": "Mando se publique y cumpla.\nDado en la Casa de Gobierno, en Lima, a los {day} días del mes de {month} del año {year}.",
       "position": "conclusions",
-      "instrument_type": "ley",
       "era": "current",
-      "note": "Presidential promulgation block. Closes with President and minister signatures."
+      "note": "Presidential promulgation block. Closes with President and minister signatures.",
+      "document_class": "ley"
     }
   ],
   "amendments": {
@@ -412,7 +412,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Basic unit is ARTICLE (Artículo), not SECTION. Hierarchy: BOOK (codes only) > PART > TITLE > CHAPTER > ARTICLE > PARAGRAPH (incisos/numerales, numbered '1.', '2.') > POINT (literales, lettered 'a)', 'b)'). Disposiciones Complementarias (Final, Transitoria, Derogatoria, Modificatoria) appear after the body and are numbered with ordinal words (Primera, Segunda). These are not Artículos; they belong in conclusions. Article headings follow the number separated by '.-' (e.g., 'Artículo 5.- Definiciones'). Enacting formula: 'EL CONGRESO DE LA REPÚBLICA; Ha dado la Ley siguiente:'. All text is in Spanish."
   },
   "supranational_memberships": [

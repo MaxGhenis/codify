@@ -215,7 +215,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Note: Zambia uses 'regulation' and 'subregulation' as basic unit terms in statutory instruments (map to SECTION/SUBSECTION). The Constitution uses 'Article' as basic unit and 'clause' for subdivisions. Section numbering is continuous throughout each Act, not resetting per Part."
   },
   "supranational_memberships": [

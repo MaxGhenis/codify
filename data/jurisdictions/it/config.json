@@ -624,7 +624,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Italian legislation uses ARTICLE (not SECTION) as the basic unit. SECTION (Sezione) is a higher division above articles — do not use it as a basic unit. Comma notation is '1. Testo...' (Arabic numeral + period at the start of the line), not parenthesised. Lettera notation is 'a) Testo...' (lowercase letter + closing paren). Numero notation is '1) Testo...' within lettere. Large codes use BOOK as the top level. Inserted articles use Latin ordinal suffixes hyphenated: Art. 2-bis, Art. 12-quater."
   },
   "supranational_memberships": [

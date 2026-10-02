@@ -283,7 +283,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Argentina uses ARTICLE (not SECTION) as the basic unit. Use ARTICLE for every artículo. Higher divisions: BOOK (libro, codes only), TITLE (título), CHAPTER (capítulo), SUBDIVISION (sección as grouping in codes). First-level subdivisions within articles are PARAGRAPH for incisos (a), b), c)). Second-level subdivisions are POINT for sub-incisos. No marginal notes — article headings are inline after the article number and dash. Insertion numbering uses bis/ter/quater (Artículo 5° bis). Law numbers are continuous integers without year component (Ley 27742). Strip degree symbols from article numbers in eIds (Artículo 1° → art_1)."
   },
   "supranational_memberships": [

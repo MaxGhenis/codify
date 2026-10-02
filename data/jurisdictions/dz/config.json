@@ -512,7 +512,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Basic unit is ARTICLE (not SECTION). Arabic text is authoritative; process the French column for Bluebell structuring. Hierarchy above articles: TITLE > CHAPTER > DIVISION (for Section). Use BOOK only for large codes with Livre divisions. Article numbering is continuous throughout the entire document regardless of higher divisions. The first article header is 'Article 1er'; all subsequent articles are 'Art. N'. Subdivisions within articles are alinéas (ALINEA — unnumbered paragraphs), which may contain POINT (numbered items: 1, 2… or 1°, 2°) or INDENT (tiret –) lists. Transitional provisions block uses TRANSITIONAL. French-language processing; bilingual PDF — extract French column only (left column, LTR). Enacting clause appears before Article 1er as part of the preamble. Entry-into-force clause appears after the last article as part of conclusions."
   },
   "supranational_memberships": [

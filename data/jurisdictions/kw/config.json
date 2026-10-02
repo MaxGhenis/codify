@@ -319,7 +319,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Kuwaiti legislation uses ARTICLE (مادة/Maddah) as basic unit — never SECTION. Hierarchy for major codes: BOOK > CHAPTER > [DIVISION for فصل] > ARTICLE. Ordinary laws: [CHAPTER >] [DIVISION >] ARTICLE. Short laws: ARTICLE only. No SUBSECTION level — use PARAGRAPH for فقرة and POINT for بند. Article numbers are continuous throughout the entire law regardless of higher divisions. Use ASCII Bluebell keywords (BOOK, CHAPTER, DIVISION, ARTICLE, PARAGRAPH, POINT) but preserve Arabic article content verbatim. Arabic numerals ٠-٩ should be normalised to 0-9 in structural position markers. Insertion articles: مادة 5 مكرراً → ARTICLE 5bis. Arabic letter labels (أ،ب،ج) in paragraphs/points → (a),(b),(c). Ordinal paragraph labels (أولاً، ثانياً) → PARAGRAPH 1, PARAGRAPH 2. The Basmalah (بسم الله الرحمن الرحيم) opens nearly all documents — treat as preamble intro, not enacted text. RTL Arabic script throughout."
   },
   "supranational_memberships": [

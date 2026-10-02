@@ -250,25 +250,25 @@
       "text": "Parlament se usnesl na tomto zákoně České republiky:",
       "translation": "Parliament has resolved on this Act of the Czech Republic:",
       "position": "preamble",
-      "applies_to": "zakon",
       "era": "post-independence",
-      "from": "1993-01-01"
+      "from": "1993-01-01",
+      "document_class": "act"
     },
     {
       "text": "Vláda nařizuje podle § {N} zákona č. {NN}/{YYYY} Sb., o {title}:",
       "translation": "The Government hereby decrees pursuant to § {N} of Act No. {NN}/{YYYY} Sb., on {title}:",
       "position": "preamble",
-      "applies_to": "narizeni",
       "era": "post-independence",
-      "from": "1993-01-01"
+      "from": "1993-01-01",
+      "document_class": "narizeni"
     },
     {
       "text": "{Ministry} stanoví podle § {N} zákona č. {NN}/{YYYY} Sb., o {title}:",
       "translation": "{Ministry} provides pursuant to § {N} of Act No. {NN}/{YYYY} Sb., on {title}:",
       "position": "preamble",
-      "applies_to": "vyhlaska",
       "era": "post-independence",
-      "from": "1993-01-01"
+      "from": "1993-01-01",
+      "document_class": "vyhlaska"
     }
   ],
   "amendments": {
@@ -353,7 +353,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Czech § (paragraf) maps to AKN article — use ARTICLE keyword. Constitutional laws use Čl. (článek) as basic unit — also ARTICLE. Higher divisions: Část (PART), Hlava (CHAPTER), Díl (TITLE), Oddíl (DIVISION), Pododdíl (SUBDIVISION). Subdivisions: Odstavec (PARAGRAPH) with (1)(2) numbering, Písmeno (POINT) with a)b) lettering, Bod (INDENT) with 1.2. numbering. Enacting formula: 'Parlament se usnesl na tomto zákoně České republiky:'. Higher divisions use ordinal words in Czech (ČÁST PRVNÍ = Part 1, normalise to Arabic integer for eId)."
   },
   "supranational_memberships": [

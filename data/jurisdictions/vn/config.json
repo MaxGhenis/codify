@@ -402,12 +402,7 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword for Điều. The hierarchy is: PART (Phần, optional) > CHAPTER (Chương) > SECTION (Mục, optional) > ARTICLE (Điều) > PARAGRAPH (Khoản) > POINT (Điểm). The letter sequence for POINT labels is a, b, c, d, đ, e, g, h, i, k — note that đ appears between d and e. When outputting eId-relevant labels, romanise đ as 'dd'. Chapter headings are in Vietnamese and should be preserved. Article headings follow the article number on the same or next line.",
-    "eid_special_rules": {
-      "diem_dd": "The Vietnamese letter đ (d-with-stroke) in Điểm labels is transliterated to 'dd' in eId values. điểm đ of khoản 2 Điều 5 → art_5__para_2__point_dd",
-      "inserted_articles": "Inserted articles use lowercase suffix: Điều 5a → art_5a (not art_5A)"
-    }
+    "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword for Điều. The hierarchy is: PART (Phần, optional) > CHAPTER (Chương) > SECTION (Mục, optional) > ARTICLE (Điều) > PARAGRAPH (Khoản) > POINT (Điểm). The letter sequence for POINT labels is a, b, c, d, đ, e, g, h, i, k — note that đ appears between d and e. When outputting eId-relevant labels, romanise đ as 'dd'. Chapter headings are in Vietnamese and should be preserved. Article headings follow the article number on the same or next line."
   },
   "supranational_memberships": [
     {

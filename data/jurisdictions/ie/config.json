@@ -171,6 +171,7 @@
       "position": "preamble",
       "era": "current",
       "from": "1937-01-01",
+      "document_class": "act",
       "note": "Standard formula for Acts without a preamble. The em-dash after the colon is part of the formula."
     },
     {
@@ -178,6 +179,7 @@
       "position": "preamble",
       "era": "current",
       "from": "1937-01-01",
+      "document_class": "act",
       "note": "Formula for Acts that have a preamble ('therefore' links to the whereas clauses)."
     },
     {
@@ -185,7 +187,7 @@
       "position": "preamble",
       "era": "current",
       "from": "1948-01-01",
-      "instrument_type": "si",
+      "document_class": "si",
       "note": "Enabling recital used in Statutory Instruments. Gender-neutral 'them' increasingly used."
     }
   ],
@@ -249,7 +251,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Ireland uses PART > CHAPTER (optional) > SECTION as hierarchy. SECTION is the basic unit. Sections numbered continuously throughout Act (do not restart per Part). Section 1 = short title, Section 2 = interpretation in most modern Acts. Subsections use (1), (2) Arabic; paragraphs use (a), (b) lowercase; subparagraphs use (i), (ii) Roman. Provisos beginning 'Provided that' map to SUBSECTION as proxy (requires post-processing to hcontainer). Constitutional Articles map to SECTION; constitutional subsections use degree notation (1°, 2°) which should be normalised to (1), (2) for Bluebell."
   },
   "supranational_memberships": [

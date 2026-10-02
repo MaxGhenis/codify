@@ -292,7 +292,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Fiji uses arabic numerals for Part numbering (Part 1, Part 2) in post-1990 acts, and roman numerals (Part I, Part II) in older Cap-era legislation. Section numbering is continuous throughout the act. Some large acts use a Division level between Part and Section — flag these for post-processing rather than attempting to model in Bluebell. Decree-era documents (2006-2013) use a promulgating formula rather than an enacting formula — record verbatim text of the formula block."
   },
   "supranational_memberships": [

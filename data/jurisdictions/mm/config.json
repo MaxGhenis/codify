@@ -205,7 +205,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Myanmar uses Chapter > Section as primary hierarchy. Companies Law 2017 is an outlier with Part > Division > Section. Constitution uses Chapter > Part > Section (inverted). Multiple political eras with different enacting authorities -- detect from document date and law number prefix."
   },
   "supranational_memberships": [

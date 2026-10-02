@@ -216,7 +216,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Vanuatu uses 'Be it enacted by the President and Parliament as follows:' as the enacting formula. Parts are the primary higher division (PART 1, PART 2). The Constitution uses Chapters instead of Parts. English and French versions are parallel originals — process each language separately. Acts are numbered 'No. N of YYYY' or 'Cap. NNN' for consolidated legislation."
   },
   "supranational_memberships": [

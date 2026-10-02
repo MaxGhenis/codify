@@ -307,7 +307,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Cambodia uses ARTICLE (not SECTION) as the basic unit. Hierarchy for most laws: CHAPTER > ARTICLE. For codes (Civil Code, Labor Code): BOOK or PART > CHAPTER > [SECTION >] ARTICLE. Subdivisions within articles: PARAGRAPH (1)(2)(3) > POINT (a)(b)(c) > INDENT (i)(ii)(iii). SECTION is reserved for higher-division use only. Article numbering is continuous throughout the whole instrument, not restarting per chapter."
   },
   "supranational_memberships": [

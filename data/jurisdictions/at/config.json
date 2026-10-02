@@ -364,8 +364,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
-    "prompt_file": "structure_at.txt",
     "prompt_additions": "Austrian civil law: § (Paragraph) is the basic unit mapped to ARTICLE in Bluebell. Hauptstück maps to CHAPTER. Abschnitt maps to SECTION (higher division, not basic unit). Absatz maps to PARAGRAPH. Ziffer maps to POINT. Litera maps to INDENT. Constitutional laws use Artikel instead of §, same Bluebell mapping."
   },
   "supranational_memberships": [

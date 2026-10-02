@@ -71,7 +71,6 @@
           "note": "Transitional provisions section, typically at end of law"
         }
       ],
-      "enacting_formula_position": "conclusions",
       "note": "Enacting formula/attestation appears at end of document, not in preamble. Short laws may omit bölmə and/or fəsil levels."
     },
     "code": {
@@ -267,7 +266,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Use ARTICLE (not SECTION) as the basic unit keyword. Hierarchy is PART > CHAPTER > ARTICLE. Subdivisions use decimal dot notation (5.1, 5.1.1) — output as PARAGRAPH and SUBPARAGRAPH with decimal num values. Not all laws use PART; detect the highest division present. The attestation block (adopted by/signed by) appears at the END of the document — model as CONCLUSIONS, not PREAMBLE."
   },
   "supranational_memberships": [

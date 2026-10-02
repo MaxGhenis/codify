@@ -274,7 +274,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Use ARTICLE as the basic unit (not SECTION). Higher divisions are TITLE (bo'lim) and CHAPTER (bob). Article subdivisions use PARAGRAPH (qism, numbered 1 2 3) and POINT (band, lettered a b v). Articles are numbered continuously throughout the entire act regardless of chapter. Do not use SECTION or PART keywords."
   },
   "supranational_memberships": [

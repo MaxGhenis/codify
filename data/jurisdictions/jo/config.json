@@ -187,12 +187,12 @@
     {
       "text": "We, [King's name], King of the Hashemite Kingdom of Jordan, in accordance with the provisions of the Constitution, and by virtue of the decision of the Senate and the House of Representatives, do hereby decree the following Law:",
       "position": "preamble",
-      "type": "ordinary_law"
+      "document_class": "law"
     },
     {
       "text": "We, [King's name], King of the Hashemite Kingdom of Jordan, pursuant to Article (94) of the Constitution, do hereby decree the following Temporary Law:",
       "position": "preamble",
-      "type": "temporary_law"
+      "document_class": "temp_law"
     }
   ],
   "amendments": {
@@ -259,7 +259,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Jordan uses ARTICLE as the basic unit (not SECTION). The hierarchy is CHAPTER (bab) > ARTICLE (madda). Paragraphs within articles are lettered (a), (b), (c). Items within paragraphs are numbered (1), (2), (3). Many short laws have no chapters — articles only. The Bluebell keyword ARTICLE maps to AKN <article> element. All content is in Arabic (right-to-left)."
   },
   "supranational_memberships": [

@@ -267,7 +267,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Indian legislation uses Proviso ('Provided that'), Explanation ('Explanation.--'), and Illustration as hcontainers within sections. These have full legal force and must be preserved. Output as SUBSECTION for Bluebell; post-processing renames to hcontainer. Clause uses (a), (b), (c) not (1), (2), (3). Constitution uses Article as basic unit, not Section."
   },
   "supranational_memberships": [

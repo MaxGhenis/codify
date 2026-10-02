@@ -306,7 +306,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Tanzania uses PART > SECTION as the standard hierarchy (Commonwealth/East African pattern). Some large acts (e.g., Mining Act) have a Division level within Parts (Division A, Division B, Division C) — treat these as hcontainer groupings, not as standard hierarchy elements. Section numbering is continuous throughout the act, not restarting per Part. Subsidiary legislation (Government Notices) uses 'regulation' or 'rule' as the basic unit term — map to SECTION keyword."
   },
   "supranational_memberships": [

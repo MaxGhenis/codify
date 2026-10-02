@@ -242,45 +242,18 @@
   },
   "enacting_formulae": [
     {
-      "text": "Parlamentul adoptă prezenta lege organică.",
-      "position": "preamble",
-      "type": "lege_organica",
-      "era": "current",
-      "note": "Most common form — used for organic laws. Observed in LP321/2023, LP195/2024, LP131/2007, LP220/2007, LP299/2022, LP225/2023, LP2/2023."
-    },
-    {
       "text": "Parlamentul adoptă prezenta lege.",
       "position": "preamble",
-      "type": "lege_ordinara",
       "era": "current",
-      "note": "Ordinary law (lege ordinară). Identical structure; classified by voting threshold not formula."
-    },
-    {
-      "text": "Parlamentul adoptă prezenta lege constituțională.",
-      "position": "preamble",
-      "type": "lege_constitutionala",
-      "era": "current"
-    },
-    {
-      "text": "Parlamentul Republicii Moldova adoptă prezenta lege.",
-      "position": "preamble",
-      "type": "lege_ordinara",
-      "era": "transitional",
-      "note": "Earlier formulation including full country name. Observed in LP39/1994. Largely superseded by shorter form."
+      "note": "Ordinary law (lege ordinară). Identical structure; classified by voting threshold not formula.",
+      "document_class": "lege"
     },
     {
       "text": "Guvernul Republicii Moldova HOTĂRĂŞTE:",
       "position": "preamble",
-      "type": "hg",
       "era": "current",
-      "note": "Government Decision enacting formula."
-    },
-    {
-      "text": "În temeiul art. 93 din Constituţia Republicii Moldova, promulg prezenta lege.",
-      "position": "conclusions",
-      "type": "promulgation",
-      "era": "current",
-      "note": "Presidential promulgation formula. Appears AFTER body in Monitorul Oficial. Model as <conclusions><formula name='promulgationFormula'>. Omit when digitising law text alone."
+      "note": "Government Decision enacting formula.",
+      "document_class": "hg"
     }
   ],
   "amendments": {
@@ -364,7 +337,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Use ARTICLE (not SECTION) as the basic legislative unit. DIVISION maps to Secțiunea (higher grouping above articles — NOT the basic unit). Article numbering is continuous throughout the entire act. Alineate (paragraphs) are numbered (1), (2) in parentheses: cite as alin.(1). Litere (letters) are a), b), c) with closing parenthesis only: cite as lit.a). Puncte are 1., 2., 3. with full stop. Base this prompt on structure_ro.txt — Moldova shares the same civil law drafting tradition as Romania. Key Moldova-specific differences: (1) unicameral Parliament; (2) enacting formula 'Parlamentul adoptă prezenta lege organică.' (organic) or 'Parlamentul adoptă prezenta lege.' (ordinary); (3) amendment acts use Roman-numeral top-level articles (Art. I, Art. II) each targeting a different principal act."
   },
   "supranational_memberships": [

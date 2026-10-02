@@ -203,7 +203,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Paraguay uses ARTICLE as basic unit. Seccion is a HIGHER division (not the basic unit). Inciso uses Arabic numerals with closing parenthesis."
   },
   "supranational_memberships": [

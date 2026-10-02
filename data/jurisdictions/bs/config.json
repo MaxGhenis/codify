@@ -217,9 +217,7 @@
       "from": "1973-07-10",
       "verified": false,
       "note": "Reconstructed from constitutional structure and Commonwealth Caribbean pattern. Requires verbatim confirmation from a gazetted principal act PDF.",
-      "document_class": [
-        "act"
-      ]
+      "document_class": "act"
     },
     {
       "text": "Enacted by the Parliament of The Bahamas",
@@ -228,9 +226,7 @@
       "from": "1973-07-10",
       "verified": true,
       "note": "Standard short-form enacting formula confirmed from gazetted primary legislation.",
-      "document_class": [
-        "act"
-      ]
+      "document_class": "act"
     },
     {
       "text": "NOW THEREFORE, in exercise of the powers conferred by subsection (1) of section 3 of the Protection of Revenue Act, the Governor-General makes the following Order —",
@@ -247,14 +243,11 @@
     {
       "text": "The Minister, in exercise of the powers conferred on him by section [N] of the [Parent Act], makes the following Regulations:",
       "position": "preamble",
-      "type": "si",
       "era": "post-independence",
       "from": "1973-07-10",
       "verified": false,
       "note": "Inferred from Commonwealth Caribbean SI practice. Requires verbatim confirmation from a gazetted Bahamian SI PDF.",
-      "document_class": [
-        "si"
-      ]
+      "document_class": "si"
     }
   ],
   "attachments": [
@@ -392,7 +385,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "The Bahamas uses PART > SECTION (not CHAPTER > SECTION) in ordinary legislation. The Constitution uses CHAPTER > ARTICLE. The Penal Code (CH.84 only) uses BOOK > TITLE > SECTION. Sections are numbered continuously (not restarting per Part). Section 1 = short title; Section 2 = interpretation. The enacting formula begins 'BE IT ENACTED by the Senate and House of Assembly of the Commonwealth of The Bahamas...' or 'Enacted by the Parliament of The Bahamas'.",
     "marker_boundary": "line_anchored",
     "classification_rules": [

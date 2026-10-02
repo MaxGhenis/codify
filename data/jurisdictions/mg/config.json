@@ -285,7 +285,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Madagascar uses ARTICLE as the basic unit (civil law / Francophone tradition). SECTION is a higher division above ARTICLE, not the basic unit — this is the inverse of Anglophone usage. The hierarchy is: TITLE > CHAPTER > SECTION (optional) > ARTICLE > ALINEA > POINT. Use ALINEA (not SUBSECTION) for unnumbered paragraphs within an Article. The first article is styled 'Article premier' in source text but must be rendered as 'ARTICLE 1' in Bluebell for consistent eId generation. SECTION is only present in complex codes; simpler lois use CHAPTER > ARTICLE or ARTICLE directly."
   },
   "supranational_memberships": [

@@ -241,27 +241,30 @@
       "position": "preamble",
       "era": "post-2013",
       "from": "2013-06-25",
-      "note": "Tamim succeeded Hamad bin Khalifa on 25 June 2013."
+      "note": "Tamim succeeded Hamad bin Khalifa on 25 June 2013.",
+      "document_class": "act"
     },
     {
       "text": "We, Hamad bin Khalifa Al-Thani, Emir of the State of Qatar, After perusal of the Constitution, [recitals], And pursuant to the proposal of the Council of Ministers, Have promulgated the following law:",
       "position": "preamble",
       "era": "post-constitution",
       "from": "2004-06-09",
-      "to": "2013-06-25"
+      "to": "2013-06-25",
+      "document_class": "act"
     },
     {
       "text": "We, Hamad bin Khalifa Al-Thani, Emir of the State of Qatar, After perusal of [prior law or basic law], Have decided the following:",
       "position": "preamble",
       "era": "pre-constitution",
       "to": "2004-06-09",
-      "note": "Pre-Constitution laws issued by Emiri Decree without Shura Council involvement."
+      "note": "Pre-Constitution laws issued by Emiri Decree without Shura Council involvement.",
+      "document_class": "act"
     },
     {
       "text": "[Emir's name and title], After perusal of the Constitution, [recitals], Have decided the following:",
       "position": "preamble",
-      "type": "emiri_decision",
-      "note": "Formula for Emiri Decisions (executive instruments). Signature block at conclusions."
+      "note": "Formula for Emiri Decisions (executive instruments). Signature block at conclusions.",
+      "document_class": "emiri_decree"
     }
   ],
   "amendments": {
@@ -314,7 +317,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Qatar uses ARTICLE (مادة, maddah) as the basic unit — numbered continuously throughout the law. Chapter (باب, bab) and Section (فصل, fasl) are higher divisions ABOVE articles, not below them. Section is NOT the basic unit. Article numbers appear in parentheses in Qatari convention: 'Article (5)'. Source documents are in Arabic (RTL); English translations may exist but Arabic is authoritative. Paragraph subdivisions within articles use (1), (2) numbering; lettered items use (a), (b). Most short laws have no subdivisions within articles. The signature block (Emir's name, date) appears at the END of the document — model as <conclusions>, not <preamble>."
   },
   "supranational_memberships": [
