@@ -633,7 +633,9 @@ def test_an_act_nested_inside_an_unclosed_paragraph_still_segments() -> None:
     assert wrapped != _HTML
     _, flat_provenance, flat = _convert()
     _, nested_provenance, nested = _convert(wrapped)
-    assert nested_provenance.get("body_discarded_text") == flat_provenance.get("body_discarded_text")
+    assert nested_provenance.get("body_discarded_text") == flat_provenance.get(
+        "body_discarded_text"
+    )
     numbers = [n.text for n in nested.iterfind(".//a:article/a:num", NS)]
     assert numbers == [n.text for n in flat.iterfind(".//a:article/a:num", NS)]
     assert len(numbers) == 4
