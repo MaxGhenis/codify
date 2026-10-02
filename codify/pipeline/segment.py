@@ -34,6 +34,7 @@ from codify.pipeline.enrich.anchors import (
     _partial_decimal_number,
     _repair_damaged_num,
     _roman_or_digit,
+    _text_start,
     build_anchor_regex,
 )
 from codify.pipeline.enrich.closing import _phrase_pattern
@@ -232,7 +233,7 @@ def _headings(text: str, patterns: Sequence[re.Pattern[str]], pages: _Pages) -> 
     for pattern in patterns:
         for match in pattern.finditer(text):
             start = text.rfind("\n", 0, match.start()) + 1
-            if start in found:
+            if start in found or _text_start(match) is None:
                 continue
             end = text.find("\n", match.end())
             end = len(text) if end < 0 else end
@@ -439,8 +440,8 @@ def _live(
     """Matches outside a closed quotation, judged at their first non-space character;
     `shift` places the searched string inside `text`, the quote context."""
     for match in matches:
-        at = match.start() + len(match.group(0)) - len(match.group(0).lstrip())
-        if not _quoted(text, shift + at, country):
+        at = _text_start(match)
+        if at is not None and not _quoted(text, shift + at, country):
             yield match
 
 
@@ -905,7 +906,7 @@ def _issue_headings(
 ) -> list[re.Match[str]]:
     """The page's issue headings in order, less the open issue's running head."""
     found = sorted((m for p in patterns for m in p.finditer(text)), key=lambda m: m.start())
-    return [m for m in found if _key(m) != open_key]
+    return [m for m in found if _text_start(m) is not None and _key(m) != open_key]
 
 
 def _closes(

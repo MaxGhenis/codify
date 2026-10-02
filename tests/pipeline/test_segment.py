@@ -1113,3 +1113,25 @@ def test_an_unnumbered_act_starting_on_its_contents_page_segments(
         ("heading", "act 3", "matched"),
         ("heading", "act 4", "matched"),
     ]
+
+
+def test_a_heading_match_of_whitespace_alone_is_no_heading(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A validated pattern that can match a blank line names no act or issue."""
+    rules = {
+        **SEGMENTATION,
+        "act_heading_patterns": [*SEGMENTATION["act_heading_patterns"], r"(?:BILL)?\s+"],
+        "issue_heading_patterns": [*SEGMENTATION["issue_heading_patterns"], r"(?:BULLETIN)?\s+"],
+    }
+    acts = [_act(3, "THE HARBOUR DUES ACT", 4) + _signed(), _act(4, "THE LIGHTHOUSE ACT", 3)]
+    issues = [_issue(11, [(1, "THE FERRIES ACT")]), _issue(12, [(2, "THE TOLLS ACT")])]
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: _config(segmentation=rules)}):
+        cfg = load_config(COUNTRY)
+        text, spans = _join(acts)
+        result = segment(text, spans, config=cfg)
+        found = list(segment_volume(_pages(issues), config=cfg))
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    assert [r.key for r in result.reconciliation] == ["act 3", "act 4"]
+    assert [(i.key, i.first_page) for i in found] == [("11", 1), ("12", 3)]
+    assert all(r.key for i in found for r in i.segmentation.reconciliation)

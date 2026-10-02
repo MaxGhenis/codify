@@ -3885,9 +3885,12 @@ def _declare_orphaned_drops(
         )
 
 
-def _past_indent(match: re.Match[str]) -> int:
-    """Offset of a match's first non-whitespace character; its end if it has none."""
-    return match.start() + len(match.group(0)) - len(match.group(0).lstrip())
+def _text_start(match: re.Match[str]) -> int | None:
+    """Offset of a match's first non-whitespace character; None for whitespace alone,
+    a blank line included, which names no heading."""
+    text = match.group(0)
+    at = match.start() + len(text) - len(text.lstrip())
+    return at if at < match.end() else None
 
 
 def _drop_boundaries(anchors: list[StructuralAnchor], dropped: list[AmbiguitySpan]) -> list[int]:
@@ -3932,8 +3935,7 @@ def _declare_act_boundary_suspected(
         )
         # Judged at the heading's first character: a whole-line match may end in a quote.
         opened = min(
-            # A match of whitespace alone, a blank line included, names no heading.
-            (m for m in candidates if _past_indent(m) < m.end() and not mask[_past_indent(m)]),
+            (m for m in candidates if (at := _text_start(m)) is not None and not mask[at]),
             key=lambda m: m.start(),
             default=None,
         )
