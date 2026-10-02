@@ -164,10 +164,8 @@
     "uri_patterns": {
       "act": "/akn/no/act/{year}/{number}",
       "forskrift": "/akn/no/act/fo/{year}/{number}",
-      "bill": "/akn/no/bill/{session}/{prop-number}",
       "grunnloven": "/akn/no/act/constitution/1814/grunnloven",
-      "stortingsvedtak": "/akn/no/act/vedtak/{year}/{number}",
-      "officialGazette": "/akn/no/officialGazette/{year}/{issue}"
+      "stortingsvedtak": "/akn/no/act/vedtak/{year}/{number}"
     },
     "uri_note": "Norwegian acts cited as 'Lov {date} nr {number}' — e.g., Lov 15. mai 2008 nr. 35. FRBR URI uses year of enactment and sequential number: /akn/no/act/2008/35. Forarbeider (Ot.prop./Prop.) cited by session and proposal number.",
     "date_calendar": "gregorian"
@@ -187,14 +185,16 @@
       "position": "preamble",
       "era": "current",
       "from": "1814-05-17",
-      "note": "Standard enacting formula for lov enacted by Stortinget. Appears in the Lovtidend publication header, not always in the act body itself."
+      "note": "Standard enacting formula for lov enacted by Stortinget. Appears in the Lovtidend publication header, not always in the act body itself.",
+      "document_class": "act"
     },
     {
       "text": "I medfør av § {N} i lov {date} nr. {number} om {X} fastsetter {Kongen/departementet}:",
       "position": "preamble",
       "era": "current",
       "from": "1814-05-17",
-      "note": "Enabling formula for forskrift, citing the parent lov provision and delegating authority."
+      "note": "Enabling formula for forskrift, citing the parent lov provision and delegating authority.",
+      "document_class": "forskrift"
     }
   ],
   "amendments": {

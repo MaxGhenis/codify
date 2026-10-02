@@ -169,10 +169,7 @@
   "frbr": {
     "country_code": "ir",
     "uri_patterns": {
-      "act": "/akn/ir/act/{year}/{slugified-title}",
-      "ayin_nameh": "/akn/ir/act/ayin-nameh/{year}/{slugified-title}",
-      "farman": "/akn/ir/act/farman/{year}/{slugified-title}",
-      "constitution": "/akn/ir/act/constitution/1358/qanun-e-asasi"
+      "constitution": "/akn/ir/act/constitution/1979/qanun-e-asasi"
     },
     "date_calendar": "gregorian",
     "date_calendar_note": "Gregorian year used in FRBR URIs. Solar Hijri date, which is the authoritative Iranian dating, stored as FRBRalias.",
@@ -189,7 +186,8 @@
       "text": "Qanun-e fawq mushtamel bar [N] maddeh va [M] tabsareh dar jalase-ye [date] Majles-e Shora-ye Eslami be tasvib resid.",
       "position": "conclusions",
       "era": "post-1979",
-      "from": "1979-03-21"
+      "from": "1979-03-21",
+      "document_class": "act"
     }
   ],
   "amendments": {

@@ -221,9 +221,7 @@
       "cabinet_decision": "/akn/qa/act/cabinet/{year}/{number}",
       "ministerial_decision": "/akn/qa/act/ministerial/{year}/{number}",
       "bill": "/akn/qa/bill/{year}/{number}",
-      "constitution": "/akn/qa/act/constitution/2004/constitution",
-      "official_gazette": "/akn/qa/officialGazette/{year}/{issue}",
-      "qfc_regulation": "/akn/qa-qfc/act/{year}/{identifier}"
+      "constitution": "/akn/qa/act/constitution/2004/constitution"
     },
     "date_calendar": "gregorian",
     "date_calendar_note": "Gregorian year in FRBR URI (internationally conventional, matches Al Meezan English index and WIPO Lex). Hijri date stored as FRBRalias. [REQUIRES HUMAN SIGN-OFF — see unresolved ambiguity 1]"

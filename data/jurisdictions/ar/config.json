@@ -186,7 +186,6 @@
       "ley": "/akn/ar/act/{year}/{number}",
       "dnu": "/akn/ar/act/dnu/{year}/{number}",
       "decreto": "/akn/ar/act/decreto/{year}/{number}",
-      "bill": "/akn/ar/bill/{year}/{slugified-title}",
       "constitucion": "/akn/ar/act/constitucion/1853/constitucion"
     },
     "number_format": "bare_integer",

@@ -187,8 +187,7 @@
       "regulation": "/akn/na/act/gn/{year}/{number}",
       "proclamation": "/akn/na/act/proclamation/{year}/{number}",
       "bill": "/akn/na/bill/{year}/{number}",
-      "constitution": "/akn/na/act/constitution/1990/constitution",
-      "officialGazette": "/akn/na/officialGazette/{year}/{gazette-number}"
+      "constitution": "/akn/na/act/constitution/1990/constitution"
     },
     "date_calendar": "gregorian",
     "notes": "Expression date = gazette publication date (not presidential assent date), matching Laws.Africa convention for Namibia. Primary expression language: eng."

@@ -312,8 +312,7 @@
       "ministerial_resolution": "/akn/ae/act/ministerial-resolution/{year}/{number}",
       "bill": "/akn/ae/bill/{year}/{number}",
       "constitution": "/akn/ae/act/constitution/1971/constitution",
-      "difc_law": "/akn/ae-difc/act/{year}/{number}",
-      "adgm_act": "/akn/ae-adgm/act/{year}/{short-title-slug}"
+      "difc_law": "/akn/ae-difc/act/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "hijri_alias": true,

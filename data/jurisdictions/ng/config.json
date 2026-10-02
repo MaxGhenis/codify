@@ -171,10 +171,8 @@
     "country_code": "ng",
     "uri_patterns": {
       "act": "/akn/ng/act/{year}/{number}",
-      "act_consolidated": "/akn/ng/act/cap-{cap_code}/cap-{cap_code}",
       "si": "/akn/ng/act/si/{year}/{number}",
       "decree": "/akn/ng/act/{year}/decree-{number}",
-      "bill": "/akn/ng/bill/{year}/{slug}",
       "constitution": "/akn/ng/act/constitution/1999/constitution"
     },
     "date_calendar": "gregorian",
@@ -192,7 +190,8 @@
       "text": "ENACTED by the National Assembly of the Federal Republic of Nigeria—",
       "position": "preamble",
       "era": "democratic",
-      "from": "1999-05-29"
+      "from": "1999-05-29",
+      "document_class": "act"
     },
     {
       "text": null,
@@ -200,7 +199,8 @@
       "era": "military",
       "from": "1966-01-15",
       "to": "1999-05-29",
-      "note": "Military Decrees have no conventional enacting formula. Enacting authority recorded in TLC lifecycle metadata only."
+      "note": "Military Decrees have no conventional enacting formula. Enacting authority recorded in TLC lifecycle metadata only.",
+      "document_class": "decree"
     }
   ],
   "amendments": {

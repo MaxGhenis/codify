@@ -225,14 +225,16 @@
       "position": "preamble",
       "era": "fourth_republic",
       "from": "2010-12-11",
-      "note": "Preceded by presidential promulgation block citing the Constitution and HCC decision. The adoption clause is the enacting formula; the presidential block is preamble metadata."
+      "note": "Preceded by presidential promulgation block citing the Constitution and HCC decision. The adoption clause is the enacting formula; the presidential block is preamble metadata.",
+      "document_class": "loi"
     },
     {
       "text": "PROMULGUE LA LOI DONT LA TENEUR SUIT",
       "position": "preamble",
       "era": "third_republic",
       "from": "1992-08-19",
-      "to": "2010-12-11"
+      "to": "2010-12-11",
+      "document_class": "loi"
     }
   ],
   "amendments": {

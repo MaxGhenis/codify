@@ -225,12 +225,6 @@
   "frbr": {
     "country_code": "mk",
     "uri_patterns": {
-      "zakon": "/akn/mk/act/{year}/{item-number}",
-      "zakon_slug": "/akn/mk/act/{year}/{slug}",
-      "uredba": "/akn/mk/act/uredba/{year}/{item-number}",
-      "pravilnik": "/akn/mk/act/pravilnik/{year}/{item-number}",
-      "odluka": "/akn/mk/act/odluka/{year}/{item-number}",
-      "bill": "/akn/mk/bill/{year}/{slug}",
       "constitution": "/akn/mk/act/constitution/1991/ustav"
     },
     "date_calendar": "gregorian",
@@ -257,20 +251,23 @@
       "text": "Sobranieto na Republika Severna Makedonija, na sednicata odrzana na {date}, donese",
       "position": "preamble",
       "era": "post-2019",
-      "from": "2019-02-12"
+      "from": "2019-02-12",
+      "document_class": "zakon"
     },
     {
       "text": "Sobranieto na Republika Makedonija, na sednicata odrzana na {date}, donese",
       "position": "preamble",
       "era": "post-independence-pre-2019",
       "from": "1991-11-17",
-      "to": "2019-02-12"
+      "to": "2019-02-12",
+      "document_class": "zakon"
     },
     {
       "text": "Vrz osnova na членот {delegating_article} od Zakonot za {subject}, Vladata na Republika Severna Makedonija, na sednicata odrzana na {date}, donese",
       "position": "preamble",
       "era": "post-2019",
-      "from": "2019-02-12"
+      "from": "2019-02-12",
+      "document_class": "uredba"
     }
   ],
   "amendments": {

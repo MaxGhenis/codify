@@ -182,7 +182,6 @@
     "country_code": "pg",
     "uri_patterns": {
       "act": "/akn/pg/act/{year}/{number}",
-      "organic_law": "/akn/pg/act/organic/{year}/{slug}",
       "bill": "/akn/pg/bill/{year}/{number}",
       "constitution": "/akn/pg/act/constitution/1975/constitution"
     },
@@ -198,13 +197,8 @@
       "text": "MADE by the National Parliament.",
       "position": "preamble",
       "era": "current",
-      "from": "1975-09-16"
-    },
-    {
-      "text": "MADE by the National Parliament to come into operation in accordance with a notice in the National Gazette by the Head of State, acting with, and in accordance with, the advice of the Minister.",
-      "position": "preamble",
-      "era": "current_extended",
-      "from": "1975-09-16"
+      "from": "1975-09-16",
+      "document_class": "act"
     }
   ],
   "amendments": {

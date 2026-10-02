@@ -294,7 +294,6 @@
       "og": "/akn/ro/act/og/{year}/{number}",
       "hg": "/akn/ro/act/hg/{year}/{number}",
       "ordin": "/akn/ro/act/ordin/{year}/{number}",
-      "bill": "/akn/ro/bill/{year}/{slug}",
       "constitution": "/akn/ro/act/constitution/1991/constitution"
     },
     "date_calendar": "gregorian"

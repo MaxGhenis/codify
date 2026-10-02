@@ -2,9 +2,14 @@
   "code": "ie",
   "name": "Ireland",
   "type": "national",
-  "tradition": ["common_law"],
+  "tradition": [
+    "common_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["eng", "gle"],
+  "languages": [
+    "eng",
+    "gle"
+  ],
   "authoritative_language": "eng",
   "language_note": "Irish (Gaeilge) is the first official language under Article 8 of Bunreacht na hÉireann, but English is the dominant language of enacted legislation. Under the Official Languages Act 2003 (as amended 2021), an official Irish translation must be published simultaneously with each Act. The Irish text is not a parallel co-equal original (unlike Macau) — English is the drafting language. For FRBR purposes, the English expression is primary; the Irish version is modelled as a translation expression using ISO 639-3 code 'gle'.",
   "document_classes": {
@@ -175,14 +180,6 @@
       "note": "Standard formula for Acts without a preamble. The em-dash after the colon is part of the formula."
     },
     {
-      "text": "Be it therefore enacted by the Oireachtas as follows:—",
-      "position": "preamble",
-      "era": "current",
-      "from": "1937-01-01",
-      "document_class": "act",
-      "note": "Formula for Acts that have a preamble ('therefore' links to the whereas clauses)."
-    },
-    {
       "text": "The Minister for [Portfolio], in exercise of the powers conferred on [him/her/them] by [section N] of the [Parent Act], [year], hereby makes the following [Regulations/Orders]:",
       "position": "preamble",
       "era": "current",
@@ -258,13 +255,21 @@
       "body": "eu",
       "member_since": "1973-01-01",
       "direct_effect": "direct",
-      "direct_effect_instruments": ["regulations", "decisions"],
-      "transposition_required": ["directives"],
+      "direct_effect_instruments": [
+        "regulations",
+        "decisions"
+      ],
+      "transposition_required": [
+        "directives"
+      ],
       "superseded_subjects": [],
       "profile_reference": "/akn/eu",
       "note": "Ireland is an EU member since 1973 with two structured carve-outs: (1) Schengen — Ireland does not participate in the Schengen Area, maintaining instead the Common Travel Area with the UK (Protocol 20 TFEU). (2) Area of Freedom, Security and Justice — Protocol 21 TFEU gives Ireland an opt-in mechanism: measures do not automatically apply, but Ireland can choose to opt in on a case-by-case basis (and has done so for most). This is a subject-matter carve-out structurally, even though in practice Ireland opts in to most measures.",
       "status": "member",
-      "excluded_subjects": ["schengen", "afsj_default"],
+      "excluded_subjects": [
+        "schengen",
+        "afsj_default"
+      ],
       "protocol_references": [
         "Protocol 19 TFEU (Schengen acquis integrated into EU framework)",
         "Protocol 20 TFEU (UK/Ireland on border controls)",
@@ -276,7 +281,9 @@
       "member_since": "1949-08-05",
       "direct_effect": "none",
       "direct_effect_instruments": [],
-      "transposition_required": ["echr"],
+      "transposition_required": [
+        "echr"
+      ],
       "superseded_subjects": [],
       "note": "ECHR incorporated at sub-constitutional level by European Convention on Human Rights Act 2003. Courts may declare legislation 'incompatible' but cannot strike it down. Constitution retains primacy."
     },

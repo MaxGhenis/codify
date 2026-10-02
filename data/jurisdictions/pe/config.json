@@ -278,7 +278,6 @@
       "ley_organica": "/akn/pe/act/{year}/{number}",
       "decreto_legislativo": "/akn/pe/act/dl/{year}/{number}",
       "decreto_urgencia": "/akn/pe/act/du/{year}/{number}",
-      "decreto_supremo": "/akn/pe/act/ds/{year}/{number}-{ministry}",
       "decreto_ley": "/akn/pe/act/decreto-ley/{number}",
       "resolucion_legislativa": "/akn/pe/act/rl/{number}",
       "bill": "/akn/pe/bill/{year}/{number}",
@@ -322,13 +321,6 @@
       "position": "preamble",
       "era": "current",
       "document_class": "decreto_supremo"
-    },
-    {
-      "text": "Mando se publique y cumpla.\nDado en la Casa de Gobierno, en Lima, a los {day} días del mes de {month} del año {year}.",
-      "position": "conclusions",
-      "era": "current",
-      "note": "Presidential promulgation block. Closes with President and minister signatures.",
-      "document_class": "ley"
     }
   ],
   "amendments": {

@@ -200,8 +200,7 @@
       "si": "/akn/in/act/si/{year}/{number}",
       "ordinance": "/akn/in/act/ordinance/{year}/{number}",
       "bill": "/akn/in/bill/{year}/{number}",
-      "constitution": "/akn/in/act/constitution/1950/constitution",
-      "state_act": "/akn/in-{state}/act/{year}/{number}"
+      "constitution": "/akn/in/act/constitution/1950/constitution"
     },
     "date_calendar": "gregorian"
   },
@@ -214,13 +213,8 @@
       "text": "BE it enacted by Parliament in the [Ordinal] Year of the Republic of India as follows:--",
       "position": "preamble",
       "era": "post-republic",
-      "from": "1950-01-26"
-    },
-    {
-      "text": "BE it enacted by the Legislature of the State of [State Name] in the [Ordinal] Year of the Republic of India as follows:--",
-      "position": "preamble",
-      "era": "state_act",
-      "from": "1950-01-26"
+      "from": "1950-01-26",
+      "document_class": "act"
     }
   ],
   "amendments": {

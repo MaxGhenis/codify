@@ -257,8 +257,6 @@
       "decret-loi": "/akn/tn/act/decret-loi/{year}/{number}",
       "decret-presidentiel": "/akn/tn/act/decret-presidentiel/{year}/{number}",
       "decret-gouvernemental": "/akn/tn/act/decret-gouvernemental/{year}/{number}",
-      "arrete": "/akn/tn/act/arrete/{year}/{number-or-slug}",
-      "bill": "/akn/tn/bill/{year}/{slug}",
       "constitution": "/akn/tn/act/constitution/{year}/constitution"
     },
     "date_calendar": "gregorian",

@@ -222,8 +222,7 @@
       "legislative_decree": "/akn/bh/act/{year}/{number}",
       "royal_decree": "/akn/bh/act/royal-decree/{year}/{number}",
       "bill": "/akn/bh/bill/{year}/{number}",
-      "constitution": "/akn/bh/act/constitution/2002/constitution",
-      "official_gazette": "/akn/bh/officialGazette/{year}/{issue-number}"
+      "constitution": "/akn/bh/act/constitution/2002/constitution"
     },
     "date_calendar": "gregorian",
     "hijri_alias": true,

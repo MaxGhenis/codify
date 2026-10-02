@@ -294,11 +294,6 @@
   "frbr": {
     "country_code": "bg",
     "uri_patterns": {
-      "act": "/akn/bg/act/{year}/{sg-issue-number}",
-      "code": "/akn/bg/act/{code-slug}/{year}/{sg-issue-number}",
-      "si": "/akn/bg/act/si/{year}/{decree-number}",
-      "regulation": "/akn/bg/act/regulation/{year}/{sg-issue-number}",
-      "bill": "/akn/bg/bill/{year}/{slug}",
       "constitution": "/akn/bg/act/constitution/1991/constitution"
     },
     "number_source": "sg_issue_number",
@@ -353,7 +348,8 @@
       "text": "На основание чл. 98, т. 4 от Конституцията на Република България УКАЗВАМ: Да се обнародва в «Държавен вестник» Законът за...",
       "translation": "On the basis of Art. 98, para. 4 of the Constitution of the Republic of Bulgaria I DECREE: To be promulgated in the State Gazette the Act on...",
       "position": "presidential_decree",
-      "note": "This is the President's promulgation decree, published as a preamble to the act text in the State Gazette. It is not part of the substantive act text. Model as publication metadata, not as preamble formula."
+      "note": "This is the President's promulgation decree, published as a preamble to the act text in the State Gazette. It is not part of the substantive act text. Model as publication metadata, not as preamble formula.",
+      "document_class": "act"
     }
   ],
   "amendments": {

@@ -137,8 +137,7 @@
       "act": "/akn/ws/act/{year}/{number}",
       "sr": "/akn/ws/act/sr/{year}/{number}",
       "bill": "/akn/ws/bill/{year}/{number}",
-      "constitution": "/akn/ws/act/constitution/1960/constitution",
-      "ordinance": "/akn/ws/act/{year}/{slugified-short-title}"
+      "constitution": "/akn/ws/act/constitution/1960/constitution"
     },
     "date_calendar": "gregorian",
     "notes": "When act number is known (No. NN of YYYY) use numeric {number}. When only short title and year are available, use slugified short title as {number} and record act number as FRBRalias once confirmed. No chapter/cap numbering system — Samoa does not renumber on consolidation."
@@ -154,7 +153,8 @@
       "text": "BE IT ENACTED by the Legislative Assembly of Samoa in Parliament assembled",
       "position": "preamble",
       "era": "post-independence",
-      "from": "1962-01-01"
+      "from": "1962-01-01",
+      "document_class": "act"
     }
   ],
   "amendments": {
@@ -208,7 +208,7 @@
     {
       "eId": "codify",
       "class": "TLCOrganization",
-      "href": "/ontology/organization/stele",
+      "href": "/ontology/org/codify",
       "showAs": "Codify"
     }
   ],

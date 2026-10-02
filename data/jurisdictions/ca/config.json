@@ -177,13 +177,8 @@
   "frbr": {
     "country_code": "ca",
     "uri_patterns": {
-      "act_rsc": "/akn/ca/act/1985/{chapter_code}",
-      "act_sc": "/akn/ca/act/{year}/{chapter}",
       "regulation_sor": "/akn/ca/act/sor/{year}/{number}",
-      "regulation_crc": "/akn/ca/act/sor/crc/{chapter}",
-      "regulation_si": "/akn/ca/act/si/{year}/{number}",
-      "bill": "/akn/ca/bill/{parliament_session}/{bill_number}",
-      "constitution": "/akn/ca/act/constitution/{year}/{identifier}"
+      "regulation_si": "/akn/ca/act/si/{year}/{number}"
     },
     "sample_uris": {
       "Criminal Code (RSC 1985, c. C-46)": "/akn/ca/act/1985/c-46",
@@ -219,27 +214,16 @@
       "text": "His Majesty, by and with the advice and consent of the Senate and House of Commons of Canada, enacts as follows:",
       "era": "post-2022",
       "from": "2022-09-08",
-      "note": "Following accession of King Charles III on 8 September 2022"
-    },
-    {
-      "language": "fra",
-      "text": "Sa Majesté, sur l'avis et avec le consentement du Sénat et de la Chambre des communes du Canada, édicte :",
-      "era": "post-2022",
-      "from": "2022-09-08"
+      "note": "Following accession of King Charles III on 8 September 2022",
+      "document_class": "act"
     },
     {
       "language": "eng",
       "text": "Her Majesty, by and with the advice and consent of the Senate and House of Commons of Canada, enacts as follows:",
       "era": "pre-2022",
       "to": "2022-09-08",
-      "note": "During Queen Elizabeth II's reign"
-    },
-    {
-      "language": "fra",
-      "text": "Sa Majesté, sur l'avis et avec le consentement du Sénat et de la Chambre des communes du Canada, édicte :",
-      "era": "pre-2022",
-      "to": "2022-09-08",
-      "note": "French formula unchanged across monarch transition"
+      "note": "During Queen Elizabeth II's reign",
+      "document_class": "act"
     }
   ],
   "amendments": {

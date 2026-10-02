@@ -223,7 +223,6 @@
       "og": "/akn/md/act/og/{year}/{number}",
       "hp": "/akn/md/act/hp/{year}/{number}",
       "decret": "/akn/md/act/decret/{year}/{number}",
-      "bill": "/akn/md/bill/{year}/{slug}",
       "constitution": "/akn/md/act/constitution/1994/constitution"
     },
     "date_calendar": "gregorian",

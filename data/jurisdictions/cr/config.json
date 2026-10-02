@@ -149,7 +149,6 @@
       "ley": "/akn/cr/act/{year}/{number}",
       "decreto_ejecutivo": "/akn/cr/act/decreto/{year}/{number}",
       "reglamento": "/akn/cr/act/reglamento/{year}/{number}",
-      "bill": "/akn/cr/bill/{year}/{expediente}",
       "constitucion": "/akn/cr/act/constitution/1949/constitucion",
       "tratado": "/akn/cr/act/tratado/{year}/{number}"
     },

@@ -139,7 +139,6 @@
     "country_code": "sb",
     "uri_patterns": {
       "act": "/akn/sb/act/{year}/{number}",
-      "act_cap": "/akn/sb/act/cap{NNN}/cap{NNN}",
       "ln": "/akn/sb/act/ln/{year}/{number}",
       "bill": "/akn/sb/bill/{year}/{number}",
       "constitution": "/akn/sb/act/constitution/1978/constitution"
@@ -158,7 +157,8 @@
       "position": "preamble",
       "era": "current",
       "from": "1978-07-07",
-      "note": "Confirmed verbatim from Constitution (Amendment) (Constituent Assembly) Act 2023 (No. 18 of 2023) — paclii.org. All-caps throughout. The Legislation Act 2023 prescribes this as the statutory form of enacting words."
+      "note": "Confirmed verbatim from Constitution (Amendment) (Constituent Assembly) Act 2023 (No. 18 of 2023) — paclii.org. All-caps throughout. The Legislation Act 2023 prescribes this as the statutory form of enacting words.",
+      "document_class": "act"
     }
   ],
   "amendments": {

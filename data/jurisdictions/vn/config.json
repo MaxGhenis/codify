@@ -293,7 +293,8 @@
       "position": "preamble",
       "issuer": "national_assembly",
       "era": "current",
-      "from": "2013-11-28"
+      "from": "2013-11-28",
+      "document_class": "luat"
     },
     {
       "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;\nỦy ban Thường vụ Quốc hội ban hành Pháp lệnh [tên văn bản].",
@@ -301,7 +302,8 @@
       "position": "preamble",
       "issuer": "standing_committee",
       "era": "current",
-      "from": "2013-11-28"
+      "from": "2013-11-28",
+      "document_class": "phaplenhh"
     },
     {
       "text": "Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam năm 1992;\nQuốc hội ban hành [Luật / Bộ luật] [tên văn bản].",
@@ -309,7 +311,8 @@
       "position": "preamble",
       "issuer": "national_assembly",
       "era": "pre-2013",
-      "to": "2013-11-28"
+      "to": "2013-11-28",
+      "document_class": "luat"
     }
   ],
   "amendments": {

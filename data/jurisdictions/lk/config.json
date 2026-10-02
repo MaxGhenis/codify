@@ -261,8 +261,7 @@
       "regulation": "/akn/lk/act/regulation/{year}/{number}",
       "order": "/akn/lk/act/order/{year}/{number}",
       "proclamation": "/akn/lk/act/proclamation/{year}/{number}",
-      "constitution": "/akn/lk/act/constitution/1978/constitution",
-      "gazette": "/akn/lk/officialGazette/government-gazette/{date}/{number}"
+      "constitution": "/akn/lk/act/constitution/1978/constitution"
     },
     "date_calendar": "gregorian"
   },
@@ -275,21 +274,24 @@
       "text": "BE it enacted by the Parliament of the Democratic Socialist Republic of Sri Lanka as follows:-",
       "position": "preamble",
       "era": "post-1978-constitution",
-      "from": "1978-09-07"
+      "from": "1978-09-07",
+      "document_class": "act"
     },
     {
       "text": "BE it enacted by the National State Assembly of Sri Lanka as follows:-",
       "position": "preamble",
       "era": "first-republic",
       "from": "1972-05-22",
-      "to": "1978-09-06"
+      "to": "1978-09-06",
+      "document_class": "act"
     },
     {
       "text": "BE it enacted by the Senate and House of Representatives of Ceylon in Parliament assembled, as follows:-",
       "position": "preamble",
       "era": "dominion-ceylon",
       "from": "1948-02-04",
-      "to": "1972-05-21"
+      "to": "1972-05-21",
+      "document_class": "act"
     }
   ],
   "amendments": {

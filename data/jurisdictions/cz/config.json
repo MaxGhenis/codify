@@ -229,7 +229,6 @@
       "ustavni_zakon": "/akn/cz/act/ustavn/{year}/{number}",
       "narizeni": "/akn/cz/act/narizeni/{year}/{number}",
       "vyhlaska": "/akn/cz/act/vyhlaska/{year}/{number}",
-      "bill": "/akn/cz/bill/{year}/{slug}",
       "constitution": "/akn/cz/act/ustavn/1993/1",
       "judgment_us": "/akn/cz/judgment/us/{year}/{number}"
     },

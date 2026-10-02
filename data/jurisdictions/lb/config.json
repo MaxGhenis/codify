@@ -274,8 +274,6 @@
       "legislative_decree": "/akn/lb/act/legislative-decree/{year}/{number}",
       "decree_law": "/akn/lb/act/decree-law/{year}/{number}",
       "decree": "/akn/lb/act/decree/{year}/{number}",
-      "personal_status": "/akn/lb/act/personal-status/{community}/{year}/{slug}",
-      "bill": "/akn/lb/bill/{year}/{slug}",
       "constitution": "/akn/lb/act/constitution/1926/constitution",
       "ottoman_era": "/akn/lb/act/ottoman/{year}/{number}"
     },
@@ -308,7 +306,8 @@
       "era": "post-independence",
       "from": "1943-11-22",
       "formula_name": "promulgationFormula",
-      "note": "Standard post-independence promulgation formula. Countersigned by Prime Minister and relevant minister(s). Arabic is authoritative; French text also appears in Official Gazette."
+      "note": "Standard post-independence promulgation formula. Countersigned by Prime Minister and relevant minister(s). Arabic is authoritative; French text also appears in Official Gazette.",
+      "document_class": "law"
     },
     {
       "french": "Le Gouvernement de la République libanaise,\nVu la Constitution,\n[VISA block]\nArrête :",
@@ -316,7 +315,8 @@
       "position": "preamble",
       "era": "legislative_decree",
       "formula_name": "legislativeDecreeFormula",
-      "note": "Used for مراسيم تشريعية (legislative decrees) issued by Council of Ministers when Parliament is not in session. The VISA block references constitutional authorization. 'Arrête'/'تقرر' is the decision verb."
+      "note": "Used for مراسيم تشريعية (legislative decrees) issued by Council of Ministers when Parliament is not in session. The VISA block references constitutional authorization. 'Arrête'/'تقرر' is the decision verb.",
+      "document_class": "legislative_decree"
     },
     {
       "french": "Nous, [Name], Président de la République Libanaise,\nVu la Constitution,\n[VISA block]\nDécrétons :",
@@ -324,7 +324,8 @@
       "era": "french_mandate",
       "to": "1943-11-22",
       "formula_name": "mandateDecreeFormula",
-      "note": "French Mandate-era formula. French only; Arabic translation sometimes appended. 'Décrétons' is the enacting verb. These instruments are legislative decrees with French sole authorship."
+      "note": "French Mandate-era formula. French only; Arabic translation sometimes appended. 'Décrétons' is the enacting verb. These instruments are legislative decrees with French sole authorship.",
+      "document_class": "law"
     }
   ],
   "amendments": {

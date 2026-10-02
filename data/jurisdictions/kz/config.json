@@ -394,7 +394,6 @@
       "kodeks": "/akn/kz/act/{year}/{number}",
       "ukaz": "/akn/kz/act/decree/{year}/{number}",
       "postanovleniye": "/akn/kz/act/resolution/{year}/{number}",
-      "bill": "/akn/kz/bill/{year}/{slug}",
       "constitution": "/akn/kz/act/constitution/1995/constitution"
     },
     "date_calendar": "gregorian",
@@ -418,16 +417,8 @@
       "position": "preface",
       "era": "post-1995",
       "from": "1995-08-30",
-      "note": "The adoption notice appears in the preface block, attributed to Parliament (both chambers). The President's signature/promulgation date is recorded separately. No body-level enacting formula is used — the law begins directly with its articles."
-    },
-    {
-      "text": "Принят Парламентом Республики Казахстан",
-      "translation": "Adopted by the Parliament of the Republic of Kazakhstan",
-      "language": "rus",
-      "position": "preface",
-      "era": "post-1995",
-      "from": "1995-08-30",
-      "note": "Russian-language parallel to the Kazakh adoption notice. Both appear in bilingual official texts."
+      "note": "The adoption notice appears in the preface block, attributed to Parliament (both chambers). The President's signature/promulgation date is recorded separately. No body-level enacting formula is used — the law begins directly with its articles.",
+      "document_class": "zakon"
     }
   ],
   "amendments": {

@@ -958,9 +958,7 @@ def test_a_connector_that_clashes_with_the_number_group_is_refused() -> None:
         )
 
 
-_SHIPPED = [
-    c for c in _CODES if (cfg := load_config(c)) is not None and cfg.public_reference
-]
+_SHIPPED = [c for c in _CODES if (cfg := load_config(c)) is not None and cfg.public_reference]
 # Keys the loader keeps as loose extras and no code reads.
 _DEAD_STRUCTURING_KEYS = {
     "prompt_variant",
@@ -1055,3 +1053,72 @@ def test_the_solar_and_lunar_hijri_formula_bounds_are_converted() -> None:
 
     assert load_config("ir").enacting_formulae[0].from_date == date(1979, 3, 21)
     assert load_config("sa").enacting_formulae[0].from_date == date(1992, 3, 1)
+
+
+def _probe_dates(cfg) -> list:
+    from datetime import timedelta
+
+    dates: set = {None}
+    for f in cfg.enacting_formulae:
+        for d in (f.from_date, f.to_date):
+            if d:
+                dates |= {d, d - timedelta(days=1), d + timedelta(days=1)}
+    return list(dates)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_every_formula_is_reachable(code: str) -> None:
+    """`select_formula` takes the first match and ignores language, so a later
+    formula with the same scope and dates can never be chosen."""
+    from codify.pipeline.enrich.enacting import select_formula
+
+    cfg = load_config(code)
+    chosen = {
+        id(r)
+        for cl in cfg.document_classes
+        for d in _probe_dates(cfg)
+        if (r := select_formula(code, cl, d)) is not None
+    }
+    dead = [i for i, f in enumerate(cfg.enacting_formulae) if id(f) not in chosen]
+    assert not dead, (code, dead)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_no_unscoped_formula_leaks_across_classes(code: str) -> None:
+    from codify.pipeline.enrich.enacting import select_formula
+
+    cfg = load_config(code)
+    if len(cfg.document_classes) < 2:
+        return
+    leaked = {
+        (cl, str(d))
+        for cl in cfg.document_classes
+        for d in _probe_dates(cfg)
+        if (r := select_formula(code, cl, d)) is not None and not _scope(r)
+    }
+    assert not leaked, (code, sorted(leaked))
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_frbr_templates_use_only_supplied_placeholders(code: str) -> None:
+    """`build_frbr_work_uri` formats with year and number only, so any other
+    placeholder raises KeyError and the pattern is silently ignored."""
+    import string
+
+    cfg = load_config(code)
+    for doctype, template in (cfg.frbr.uri_patterns if cfg.frbr else {}).items():
+        fields = {n for _, n, _, _ in string.Formatter().parse(template) if n}
+        assert fields <= {"year", "number"}, (code, doctype, template)
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_frbr_years_and_organisation_links_are_canonical(code: str) -> None:
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    frbr = json.dumps(raw.get("frbr", {}), ensure_ascii=False)
+    for year in re.findall(r"/(\d{4})(?=[/\"@ ])", frbr):
+        assert 1700 <= int(year) <= 2100, (code, year)
+    for tlc in raw["core_tlcs"]:
+        if isinstance(tlc, dict) and tlc["eId"] == "codify":
+            assert tlc["href"] == "/ontology/org/codify", (code, tlc["href"])

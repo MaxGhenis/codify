@@ -233,13 +233,15 @@
       "text": "ENACTED by the Parliament of the United Republic of Tanzania.",
       "position": "preamble",
       "era": "post-independence",
-      "from": "1961-12-09"
+      "from": "1961-12-09",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the Governor of Tanganyika, with the advice and consent of the Legislative Council thereof, as follows:",
       "position": "preamble",
       "era": "colonial-ordinance",
-      "to": "1961-12-09"
+      "to": "1961-12-09",
+      "document_class": "ordinance"
     },
     {
       "text": "[Minister/Authority], in exercise of the powers conferred by section [N] of the [Parent Act], hereby makes the following Regulations:",

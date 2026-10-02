@@ -2,9 +2,15 @@
   "code": "nz",
   "name": "New Zealand",
   "type": "national",
-  "tradition": ["common_law", "sui_generis"],
+  "tradition": [
+    "common_law",
+    "sui_generis"
+  ],
   "calendar": "gregorian",
-  "languages": ["eng", "mri"],
+  "languages": [
+    "eng",
+    "mri"
+  ],
   "authoritative_language": "eng",
   "note": "Māori (te reo Māori) is an official language under the Māori Language Act 1987 (Te Ture mō te Reo Māori 2016 as revised). English is the drafting language of legislation. Some Acts are enacted with Māori-language titles and preambles (e.g., Treaty of Waitangi legislation). NZ Sign Language is also an official language (NZ Sign Language Act 2006) but is not a written legislative language. The sui_generis tradition captures the constitutional status of the Treaty of Waitangi / Te Tiriti o Waitangi as a foundational instrument that influences statutory interpretation and administrative law, without constituting a written constitution.",
   "document_classes": {
@@ -183,8 +189,7 @@
       "act_public": "/akn/nz/act/{year}/{number}",
       "act_private": "/akn/nz/act/private/{year}/{number}",
       "act_local": "/akn/nz/act/local/{year}/{number}",
-      "legislative_instrument": "/akn/nz/act/li/{year}/{number}",
-      "bill": "/akn/nz/bill/{year}/{slug}"
+      "legislative_instrument": "/akn/nz/act/li/{year}/{number}"
     },
     "sample_uris": {
       "Companies Act 1993": "/akn/nz/act/1993/105",
@@ -220,14 +225,16 @@
       "position": "preamble",
       "era": "post-1986",
       "from": "1986-01-01",
-      "note": "Standard formula since the Constitution Act 1986 reconstituted parliament as unicameral. No royal assent formula in the preamble — assent given by Governor-General separately."
+      "note": "Standard formula since the Constitution Act 1986 reconstituted parliament as unicameral. No royal assent formula in the preamble — assent given by Governor-General separately.",
+      "document_class": "act"
     },
     {
       "text": "Be it enacted by the General Assembly of New Zealand in Parliament assembled, and by the authority of the same, as follows:",
       "position": "preamble",
       "era": "pre-1987",
       "to": "1986-12-31",
-      "note": "Pre-Constitution Act 1986 formula, referring to the General Assembly. Legislative Council (upper house) was abolished 1951; this formula was used 1951-1986 with bicameral language retained as convention."
+      "note": "Pre-Constitution Act 1986 formula, referring to the General Assembly. Legislative Council (upper house) was abolished 1951; this formula was used 1951-1986 with bicameral language retained as convention.",
+      "document_class": "act"
     }
   ],
   "amendments": {

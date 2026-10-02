@@ -282,13 +282,7 @@
   "frbr": {
     "country_code": "mx",
     "uri_patterns": {
-      "ley": "/akn/mx/act/{year}/{slug}",
-      "codigo": "/akn/mx/act/{year}/{slug}",
-      "reglamento": "/akn/mx/act/reglamento/{year}/{slug}",
-      "reforma_constitucional": "/akn/mx/act/const-reforma/{year}/{slug}",
-      "bill": "/akn/mx/bill/{year}/{slug}",
-      "constitution": "/akn/mx/act/constitution/1917/cpeum",
-      "dof": "/akn/mx/officialGazette/{year}/{dof-date-slug}"
+      "constitution": "/akn/mx/act/constitution/1917/cpeum"
     },
     "date_calendar": "gregorian",
     "slug_construction": "short_title_no_accents_hyphenated",

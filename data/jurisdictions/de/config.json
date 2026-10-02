@@ -202,10 +202,7 @@
   "frbr": {
     "country_code": "de",
     "uri_patterns": {
-      "act": "/akn/de/act/{year}/{abbreviation}",
-      "verordnung": "/akn/de/act/vo/{year}/{abbreviation}",
-      "grundgesetz": "/akn/de/act/1949/gg",
-      "bill": "/akn/de/bill/{year}/{abbreviation-or-slug}"
+      "grundgesetz": "/akn/de/act/1949/gg"
     },
     "date_calendar": "gregorian"
   },
@@ -219,13 +216,8 @@
       "text": "Der Bundestag hat mit Zustimmung des Bundesrates das folgende Gesetz beschlossen:",
       "position": "preamble",
       "era": "zustimmungsgesetz",
-      "from": "1949-05-23"
-    },
-    {
-      "text": "Der Bundestag hat das folgende Gesetz beschlossen:",
-      "position": "preamble",
-      "era": "einspruchsgesetz",
-      "from": "1949-05-23"
+      "from": "1949-05-23",
+      "document_class": "act"
     }
   ],
   "amendments": {

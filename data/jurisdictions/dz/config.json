@@ -390,7 +390,8 @@
       "position": "preamble",
       "era": "bicameral",
       "from": "1997-01-01",
-      "note": "Standard formula for ordinary laws since establishment of the Conseil de la Nation under the 1996 constitution."
+      "note": "Standard formula for ordinary laws since establishment of the Conseil de la Nation under the 1996 constitution.",
+      "document_class": "loi"
     },
     {
       "text": "L'Assemblée populaire nationale a adopté ;\nLe Président de la République promulgue la loi dont la teneur suit :",
@@ -398,31 +399,29 @@
       "era": "unicameral",
       "from": "1989-02-23",
       "to": "1997-01-01",
-      "note": "Formula for laws enacted under the 1989 constitution before the Conseil de la Nation was established."
+      "note": "Formula for laws enacted under the 1989 constitution before the Conseil de la Nation was established.",
+      "document_class": "loi"
     },
     {
       "text": "Le Président de la République,\nVu la Constitution, notamment ses articles {articles} ;\nVu {parent_instruments} ;\nOrdonne :",
       "position": "preamble",
       "era": "ordonnance",
-      "note": "Formula for ordonnances (presidential recess decrees and historical 1962–1989 instruments). Vu recitals cite constitutional basis and parent legislation."
+      "note": "Formula for ordonnances (presidential recess decrees and historical 1962–1989 instruments). Vu recitals cite constitutional basis and parent legislation.",
+      "document_class": "ordonnance"
     },
     {
       "text": "Le Président de la République,\nVu la Constitution, notamment ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
       "position": "preamble",
       "era": "decret_presidentiel",
-      "note": "Formula for décrets présidentiels. 'Sur rapport du Premier ministre' or 'Sur rapport du ministre' often precedes 'Décrète'."
+      "note": "Formula for décrets présidentiels. 'Sur rapport du Premier ministre' or 'Sur rapport du ministre' often precedes 'Décrète'.",
+      "document_class": "decret_presidentiel"
     },
     {
       "text": "Le Premier ministre,\nVu la Constitution, notamment ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
       "position": "preamble",
       "era": "decret_executif",
-      "note": "Formula for décrets exécutifs signed by the Premier ministre."
-    },
-    {
-      "text": "La présente loi sera publiée au Journal officiel de la République algérienne démocratique et populaire.",
-      "position": "conclusions",
-      "era": "entry_into_force",
-      "note": "Standard entry-into-force clause appearing at the end of laws, before the presidential signature block."
+      "note": "Formula for décrets exécutifs signed by the Premier ministre.",
+      "document_class": "decret_executif"
     }
   ],
   "amendments": {

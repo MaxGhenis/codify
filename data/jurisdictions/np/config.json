@@ -293,14 +293,16 @@
       "text": "Parliament has enacted this Act.",
       "position": "preamble",
       "era": "federal-republic",
-      "from": "2015-09-20"
+      "from": "2015-09-20",
+      "document_class": "act"
     },
     {
       "text": "His Majesty's Government has enacted this Act.",
       "position": "preamble",
       "era": "monarchy",
       "from": "1959-01-01",
-      "to": "2008-05-28"
+      "to": "2008-05-28",
+      "document_class": "act"
     }
   ],
   "amendments": {

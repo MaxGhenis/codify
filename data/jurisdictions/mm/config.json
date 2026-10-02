@@ -123,8 +123,7 @@
       "act": "/akn/mm/act/{year}/{number}",
       "si": "/akn/mm/act/si/{year}/{number}",
       "constitution": "/akn/mm/act/constitution/2008/constitution",
-      "bill": "/akn/mm/bill/{year}/{number}",
-      "state_act": "/akn/mm-{locality}/act/{year}/{number}"
+      "bill": "/akn/mm/bill/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "date_calendar_note": "Myanmar Era dates recorded as FRBRalias. Gregorian used in URIs."
@@ -138,21 +137,24 @@
       "text": "The Pyidaungsu Hluttaw hereby enacts this Law.",
       "position": "preamble",
       "era": "constitutional",
-      "from": "2011-01-31"
+      "from": "2011-01-31",
+      "document_class": "act"
     },
     {
       "text": "The State Law and Order Restoration Council hereby enacts the following Law:",
       "position": "preamble",
       "era": "slorc",
       "from": "1988-09-18",
-      "to": "1997-11-15"
+      "to": "1997-11-15",
+      "document_class": "act"
     },
     {
       "text": "The State Peace and Development Council hereby enacts the following Law:",
       "position": "preamble",
       "era": "spdc",
       "from": "1997-11-15",
-      "to": "2011-01-31"
+      "to": "2011-01-31",
+      "document_class": "act"
     }
   ],
   "amendments": {

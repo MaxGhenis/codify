@@ -125,13 +125,15 @@
       "text": "ENACTED by the Parliament of Barbados as follows:",
       "position": "preamble",
       "era": "post-republic",
-      "from": "2021-11-30"
+      "from": "2021-11-30",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Assembly of Barbados and by the authority of the same as follows:",
       "position": "preamble",
       "era": "pre-republic",
-      "to": "2021-11-30"
+      "to": "2021-11-30",
+      "document_class": "act"
     }
   ],
   "amendments": {

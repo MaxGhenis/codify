@@ -161,7 +161,8 @@
       "position": "preamble",
       "era": "post-basic-law-2021",
       "from": "2021-01-11",
-      "note": "References Basic Law RD 6/2021. Arabic is authoritative."
+      "note": "References Basic Law RD 6/2021. Arabic is authoritative.",
+      "document_class": "act"
     },
     {
       "text": "Having reviewed the Basic Law of the Sultanate issued by Royal Decree No. 101/96, And in pursuance of the public interest, We hereby decree the following:",
@@ -170,7 +171,8 @@
       "era": "post-basic-law-1996",
       "from": "1996-11-06",
       "to": "2021-01-11",
-      "note": "References Basic Law RD 101/1996. Used between 1996 and 2021."
+      "note": "References Basic Law RD 101/1996. Used between 1996 and 2021.",
+      "document_class": "act"
     }
   ],
   "amendments": {

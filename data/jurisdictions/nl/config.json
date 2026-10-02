@@ -242,7 +242,6 @@
       "amvb": "/akn/nl/act/amvb/{year}/{number}",
       "minreg": "/akn/nl/act/minreg/{year}/{number}",
       "rijkswet": "/akn/nl/act/rijkswet/{year}/{number}",
-      "bill": "/akn/nl/bill/{year}/{kamerstuk-number}",
       "constitution": "/akn/nl/act/constitution/1815/grondwet"
     },
     "number_source": "staatsblad_sequential",
@@ -262,14 +261,16 @@
       "text": "Wij Willem-Alexander, bij de gratie Gods, Koning der Nederlanden, Prins van Oranje-Nassau, enz. enz. enz. Allen, die deze zullen zien of horen lezen, saluut! doen te weten: Alzo Wij in overweging genomen hebben, dat [considerans]; Zo is het, dat Wij, de Afdeling advisering van de Raad van State gehoord, en met gemeen overleg der Staten-Generaal, hebben goedgevonden en verstaan, gelijk Wij goedvinden en verstaan bij deze:",
       "position": "preamble",
       "era": "Willem-Alexander",
-      "from": "2013-04-30"
+      "from": "2013-04-30",
+      "document_class": "act"
     },
     {
       "text": "Wij Beatrix, bij de gratie Gods, Koningin der Nederlanden, Prinses van Oranje-Nassau, enz. enz. enz. Allen, die deze zullen zien of horen lezen, saluut! doen te weten: Alzo Wij in overweging genomen hebben, dat [considerans]; Zo is het, dat Wij, de Afdeling advisering van de Raad van State gehoord, en met gemeen overleg der Staten-Generaal, hebben goedgevonden en verstaan, gelijk Wij goedvinden en verstaan bij deze:",
       "position": "preamble",
       "era": "Beatrix",
       "from": "1980-04-30",
-      "to": "2013-04-30"
+      "to": "2013-04-30",
+      "document_class": "act"
     }
   ],
   "closing_formula": {

@@ -265,12 +265,14 @@
       "position": "preamble",
       "era": "post-independence",
       "from": "1962-10-09",
-      "notes": "Confirmed verbatim in Prevention of Trafficking in Persons Act 2009. Unicameral Parliament; no reference to upper house or head of state."
+      "notes": "Confirmed verbatim in Prevention of Trafficking in Persons Act 2009. Unicameral Parliament; no reference to upper house or head of state.",
+      "document_class": "act"
     },
     {
       "text": "In exercise of the powers conferred upon the Minister by section [N] of the [Parent Act], these Regulations are made this [day] day of [month], [year].",
       "position": "preamble",
-      "era": "si"
+      "era": "si",
+      "document_class": "si"
     }
   ],
   "amendments": {

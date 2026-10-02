@@ -245,7 +245,6 @@
       "loi": "/akn/cm/act/{year}/{number}",
       "ordonnance": "/akn/cm/act/ordonnance/{year}/{number}",
       "decret": "/akn/cm/act/decret/{year}/{number}",
-      "code": "/akn/cm/act/{code-slug}/{year}/{number}",
       "bill": "/akn/cm/bill/{year}/{number}",
       "constitution": "/akn/cm/act/constitution/1972/constitution"
     },
@@ -286,7 +285,8 @@
       "era": "bicameral_current",
       "from": "2013-01-01",
       "verified": true,
-      "note": "Formula confirmed from Cameroon legislative practice. Senate first sat in 2013 (100 senators sworn in May 2013). Bicameral formula confirmed as standard from Cameroon Tribune reports on 2024 laws. Source: https://www.senat.cm/ and https://www.cameroon-tribune.cm/"
+      "note": "Formula confirmed from Cameroon legislative practice. Senate first sat in 2013 (100 senators sworn in May 2013). Bicameral formula confirmed as standard from Cameroon Tribune reports on 2024 laws. Source: https://www.senat.cm/ and https://www.cameroon-tribune.cm/",
+      "document_class": "loi"
     },
     {
       "text": "L'Assemblée nationale a délibéré et adopté, le Président de la République promulgue la loi dont la teneur suit :",
@@ -295,19 +295,22 @@
       "era": "unicameral_transitional",
       "from": "1996-01-18",
       "to": "2013-01-01",
-      "note": "Senate created by 1996 Constitution but did not sit until 2013. Unicameral formula used during this period."
+      "note": "Senate created by 1996 Constitution but did not sit until 2013. Unicameral formula used during this period.",
+      "document_class": "loi"
     },
     {
       "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nPromulgue l'ordonnance dont la teneur suit :",
       "position": "preamble",
       "era": "ordonnance",
-      "note": "Ordonnance enabling clause. 'Vu' recitals cite constitutional basis and enabling legislation. Promulgated by President under Art. 28."
+      "note": "Ordonnance enabling clause. 'Vu' recitals cite constitutional basis and enabling legislation. Promulgated by President under Art. 28.",
+      "document_class": "ordonnance"
     },
     {
       "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\n{additional_vus}\nDécrète :",
       "position": "preamble",
       "era": "decret",
-      "note": "Decree enabling clause."
+      "note": "Decree enabling clause.",
+      "document_class": "decret"
     }
   ],
   "amendments": {

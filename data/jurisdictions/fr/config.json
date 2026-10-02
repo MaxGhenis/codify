@@ -315,9 +315,7 @@
       "loi_organique": "/akn/fr/act/lo/{year}/{number}",
       "ordonnance": "/akn/fr/act/ord/{year}/{number}",
       "decret": "/akn/fr/act/decret/{year}/{number}",
-      "arrete": "/akn/fr/act/arrete/{year}/{slug}",
       "constitution": "/akn/fr/act/constitution/1958/constitution",
-      "code": "/akn/fr/act/code/{slug}",
       "bill": "/akn/fr/bill/{year}/{number}"
     },
     "date_calendar": "gregorian",
@@ -335,21 +333,24 @@
       "position": "preamble",
       "era": "cinquieme_republique",
       "from": "1958-10-04",
-      "note": "Standard promulgation formula for ordinary laws under the Fifth Republic. Signed by President, countersigned by Premier ministre and relevant ministers."
+      "note": "Standard promulgation formula for ordinary laws under the Fifth Republic. Signed by President, countersigned by Premier ministre and relevant ministers.",
+      "document_class": "loi"
     },
     {
       "text": "Le Parlement a adopté,\nVu la décision du Conseil constitutionnel n° [number] du [date] déclarant la présente loi organique conforme à la Constitution ;\nLe Président de la République promulgue la loi organique dont la teneur suit :",
       "position": "preamble",
       "era": "loi_organique",
       "from": "1958-10-04",
-      "note": "Organic law formula; includes mandatory Conseil constitutionnel conformity declaration."
+      "note": "Organic law formula; includes mandatory Conseil constitutionnel conformity declaration.",
+      "document_class": "loi_organique"
     },
     {
       "text": "Le Président de la République,\nSur le rapport du Premier ministre et des ministres [portfolios],\nVu l'article 38 de la Constitution,\n[...]\nOrdonne :",
       "position": "preamble",
       "era": "ordonnance_art38",
       "from": "1958-10-04",
-      "note": "Ordonnance issued under Article 38 delegation. VISA block lists authorizing law, Conseil d'Etat opinion, Conseil des ministres deliberation."
+      "note": "Ordonnance issued under Article 38 delegation. VISA block lists authorizing law, Conseil d'Etat opinion, Conseil des ministres deliberation.",
+      "document_class": "ordonnance"
     }
   ],
   "amendments": {

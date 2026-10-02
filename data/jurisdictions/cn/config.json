@@ -157,9 +157,6 @@
   "frbr": {
     "country_code": "cn",
     "uri_patterns": {
-      "act": "/akn/cn/act/{year}/{slug}",
-      "administrative_regulation": "/akn/cn/act/administrative-regulation/{year}/{slug}",
-      "bill": "/akn/cn/bill/{year}/{slug}",
       "constitution": "/akn/cn/act/constitution/1982/constitution"
     },
     "date_calendar": "gregorian"
@@ -172,13 +169,8 @@
       "text": "(Adopted at the [Ordinal] Session of the [Ordinal] National People's Congress on [Date])",
       "position": "preface",
       "era": "npc",
-      "from": "1954-09-20"
-    },
-    {
-      "text": "(Adopted at the [Ordinal] Session of the Standing Committee of the [Ordinal] National People's Congress on [Date])",
-      "position": "preface",
-      "era": "npcsc",
-      "from": "1954-09-20"
+      "from": "1954-09-20",
+      "document_class": "act"
     }
   ],
   "amendments": {

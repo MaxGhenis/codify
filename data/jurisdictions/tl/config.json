@@ -263,13 +263,15 @@
       "text": "O Parlamento Nacional decreta, nos termos do n.o [X] do artigo [Y].o da Constituicao da Republica, para valer como lei, o seguinte:",
       "position": "preamble",
       "era": "independence",
-      "from": "2002-05-20"
+      "from": "2002-05-20",
+      "document_class": "act"
     },
     {
       "text": "O Governo decreta, nos termos do n.o 3 do artigo 115.o da Constituicao da Republica, para valer como lei, o seguinte:",
       "position": "preamble",
       "era": "decreto_lei",
-      "from": "2002-05-20"
+      "from": "2002-05-20",
+      "document_class": "decreto_lei"
     }
   ],
   "amendments": {

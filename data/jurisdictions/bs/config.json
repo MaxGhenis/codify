@@ -184,7 +184,6 @@
     "country_code": "bs",
     "uri_patterns": {
       "act": "/akn/bs/act/{year}/{number}",
-      "act_chapter_only": "/akn/bs/act/ch{chapter}/{identifier}",
       "si": "/akn/bs/act/si/{year}/{number}",
       "bill": "/akn/bs/bill/{year}/{number}",
       "constitution": "/akn/bs/act/constitution/1973/constitution"
@@ -211,15 +210,6 @@
   ],
   "enacting_formulae": [
     {
-      "text": "BE IT ENACTED by the Senate and House of Assembly of the Commonwealth of The Bahamas and by the authority of the same as follows:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1973-07-10",
-      "verified": false,
-      "note": "Reconstructed from constitutional structure and Commonwealth Caribbean pattern. Requires verbatim confirmation from a gazetted principal act PDF.",
-      "document_class": "act"
-    },
-    {
       "text": "Enacted by the Parliament of The Bahamas",
       "position": "preamble",
       "era": "post-independence",
@@ -239,15 +229,6 @@
         "si",
         "act"
       ]
-    },
-    {
-      "text": "The Minister, in exercise of the powers conferred on him by section [N] of the [Parent Act], makes the following Regulations:",
-      "position": "preamble",
-      "era": "post-independence",
-      "from": "1973-07-10",
-      "verified": false,
-      "note": "Inferred from Commonwealth Caribbean SI practice. Requires verbatim confirmation from a gazetted Bahamian SI PDF.",
-      "document_class": "si"
     }
   ],
   "attachments": [

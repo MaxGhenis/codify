@@ -190,14 +190,16 @@
       "text": "ENACTED by the Parliament of Mauritius, as follows —",
       "position": "preamble",
       "era": "post-republic",
-      "from": "1992-03-12"
+      "from": "1992-03-12",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the National Assembly of Mauritius and by the authority of the same as follows:",
       "position": "preamble",
       "era": "pre-republic",
       "from": "1968-03-12",
-      "to": "1992-03-12"
+      "to": "1992-03-12",
+      "document_class": "act"
     }
   ],
   "amendments": {

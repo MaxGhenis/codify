@@ -178,7 +178,6 @@
     "country_code": "uz",
     "uri_patterns": {
       "qonun": "/akn/uz/act/{year}/{number}",
-      "kodeks": "/akn/uz/act/{year}/{slug}",
       "farmon": "/akn/uz/act/decree/{year}/{number}",
       "qaror_prezident": "/akn/uz/act/resolution/{year}/{number}",
       "qaror_vazirlar": "/akn/uz/act/cabinet-resolution/{year}/{number}",
@@ -200,13 +199,8 @@
       "text": "O'zbekiston Respublikasi Qonuni",
       "position": "preface",
       "language": "uzb",
-      "note": "Appears as document type label in the identification block, not as a body enacting formula. The legislative process is recorded in metadata (adopted by Legislative Chamber on [date], approved by Senate on [date], signed by President on [date])."
-    },
-    {
-      "text": "Закон Республики Узбекистан",
-      "position": "preface",
-      "language": "rus",
-      "note": "Russian-language equivalent of the identification block label"
+      "note": "Appears as document type label in the identification block, not as a body enacting formula. The legislative process is recorded in metadata (adopted by Legislative Chamber on [date], approved by Senate on [date], signed by President on [date]).",
+      "document_class": "qonun"
     }
   ],
   "amendments": {

@@ -203,14 +203,8 @@
       "position": "header_metadata",
       "era": "current",
       "from": "1992-06-28",
-      "note": "Adoption notice appears in Riigi Teataja header, not in body text. No body-text enacting formula in Estonian acts."
-    },
-    {
-      "text": "Vabariigi President kuulutab välja järgmise Riigikogu poolt vastu võetud seaduse:",
-      "position": "preamble",
-      "era": "current",
-      "from": "1992-06-28",
-      "note": "Presidential proclamation formula; may appear in formal document header but not in body. Omit from AKN body unless explicitly present in source."
+      "note": "Adoption notice appears in Riigi Teataja header, not in body text. No body-text enacting formula in Estonian acts.",
+      "document_class": "act"
     }
   ],
   "amendments": {

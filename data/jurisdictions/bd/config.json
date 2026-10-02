@@ -239,13 +239,8 @@
       "text": "IT IS HEREBY enacted as follows:-",
       "position": "preamble",
       "era": "post-independence",
-      "from": "1971-12-16"
-    },
-    {
-      "text": "Be it enacted by Parliament as follows:-",
-      "position": "preamble",
-      "era": "parliamentary",
-      "from": "1972-01-01"
+      "from": "1971-12-16",
+      "document_class": "act"
     }
   ],
   "amendments": {

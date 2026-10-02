@@ -205,7 +205,6 @@
   "frbr": {
     "country_code": "il",
     "uri_patterns": {
-      "basic_law": "/akn/il/act/basic/{year}/{slug}",
       "act": "/akn/il/act/{year}/{number}",
       "regulation": "/akn/il/act/si/{year}/{number}",
       "order": "/akn/il/act/order/{year}/{number}",
@@ -229,13 +228,8 @@
       "text": "הכנסת חוקקה ובית משפט זה מצווה לפרש כדלקמן:",
       "position": "preamble",
       "era": "modern",
-      "from": "1948-05-14"
-    },
-    {
-      "text": "The Knesset has enacted and the Court is commanded to interpret as follows:",
-      "position": "preamble",
-      "era": "modern-english",
-      "from": "1948-05-14"
+      "from": "1948-05-14",
+      "document_class": "act"
     }
   ],
   "amendments": {

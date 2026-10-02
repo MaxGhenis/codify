@@ -145,11 +145,9 @@
     "country_code": "zm",
     "uri_patterns": {
       "act": "/akn/zm/act/{year}/{number}",
-      "act_consolidated": "/akn/zm/act/cap{NNN}/cap{NNN}",
       "si": "/akn/zm/act/si/{year}/{number}",
       "bill": "/akn/zm/bill/{year}/{number}",
-      "constitution": "/akn/zm/act/constitution/1991/constitution",
-      "gazette": "/akn/zm/officialGazette/government-gazette/{date}/{number}"
+      "constitution": "/akn/zm/act/constitution/1991/constitution"
     },
     "date_calendar": "gregorian",
     "notes": "ZambiaLII has established canonical URIs for zm jurisdiction. Use ZambiaLII URIs where they exist. For pre-1997 consolidated statutes where original enactment year is unknown, use cap{NNN}/cap{NNN} pattern and record Cap. number as FRBRalias."
@@ -168,7 +166,8 @@
       "position": "preamble",
       "era": "current",
       "from": "1964-10-24",
-      "verified": true
+      "verified": true,
+      "document_class": "act"
     }
   ],
   "amendments": {

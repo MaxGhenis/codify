@@ -151,13 +151,7 @@
   "default_document_class": "act",
   "frbr": {
     "country_code": "se",
-    "uri_patterns": {
-      "act": "/akn/se/act/{year}/{sfs-number}",
-      "fordning": "/akn/se/act/fo/{year}/{sfs-number}",
-      "bill": "/akn/se/bill/{session}/{prop-number}",
-      "grundlag": "/akn/se/act/constitution/{year}/{identifier}",
-      "officialGazette": "/akn/se/officialGazette/{year}/{sfs-number}"
-    },
+    "uri_patterns": {},
     "uri_note": "SFS number YYYY:NNN splits as year=YYYY, sfs-number=NNN (integer after colon). E.g. SFS 2003:460 → /akn/se/act/2003/460. Förordningar use fo/ subtype prefix. Bills use session in YYYY-YY format and the proposition number.",
     "date_calendar": "gregorian",
     "fixed_uris": {
@@ -183,14 +177,8 @@
       "position": "none",
       "era": "current",
       "from": "1974-01-01",
-      "note": "Swedish acts have no enacting formula within the document body. Legislative authority derives from constitutional order. The act text begins directly at § 1. The SFS publication header and government signature block appear in the gazette wrapper, not the act body."
-    },
-    {
-      "text": "På regeringens vägnar\n\n[Minister's name]\n[Ministry name]",
-      "position": "conclusions",
-      "era": "current",
-      "from": "1974-01-01",
-      "note": "Government promulgation signature at the end of the act. Maps to <conclusions> not <preamble>."
+      "note": "Swedish acts have no enacting formula within the document body. Legislative authority derives from constitutional order. The act text begins directly at § 1. The SFS publication header and government signature block appear in the gazette wrapper, not the act body.",
+      "document_class": "act"
     }
   ],
   "amendments": {

@@ -255,11 +255,6 @@
   "frbr": {
     "country_code": "be",
     "uri_patterns": {
-      "act": "/akn/be/act/{year}/{unique-id}",
-      "special_act": "/akn/be/act/special/{year}/{unique-id}",
-      "royal_decree": "/akn/be/act/ar/{year}/{unique-id}",
-      "ministerial_order": "/akn/be/act/am/{year}/{unique-id}",
-      "bill": "/akn/be/bill/{year}/{chamber-doc-number}",
       "constitution": "/akn/be/act/constitution/1831/constitution"
     },
     "sub_national_uri_patterns": {
@@ -321,7 +316,8 @@
       "text_nl": "FILIP, Koning der Belgen, Aan allen die nu zijn en hierna wezen zullen, Onze Groet. De Kamers hebben aangenomen en Wij bekrachtigen hetgeen volgt :",
       "position": "preamble",
       "era": "Philippe/Filip",
-      "from": "2013-07-21"
+      "from": "2013-07-21",
+      "document_class": "act"
     },
     {
       "text_fr": "ALBERT, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
@@ -329,14 +325,16 @@
       "position": "preamble",
       "era": "Albert II",
       "from": "1993-08-09",
-      "to": "2013-07-21"
+      "to": "2013-07-21",
+      "document_class": "act"
     },
     {
       "text_fr": "BAUDOUIN, Roi des Belges, À tous, présents et à venir, Salut. Les Chambres ont adopté et Nous sanctionnons ce qui suit :",
       "position": "preamble",
       "era": "Baudouin/Boudewijn",
       "from": "1951-07-11",
-      "to": "1993-08-09"
+      "to": "1993-08-09",
+      "document_class": "act"
     }
   ],
   "conclusions_formulae": [

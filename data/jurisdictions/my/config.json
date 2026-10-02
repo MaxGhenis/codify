@@ -251,15 +251,11 @@
   "frbr": {
     "country_code": "my",
     "uri_patterns": {
-      "act": "/akn/my/act/{year}/{act-number}",
       "subsidiary_pua": "/akn/my/act/si/{year}/{number}",
       "subsidiary_pub": "/akn/my/doc/si-b/{year}/{number}",
       "bill": "/akn/my/bill/{year}/{number}",
       "constitution": "/akn/my/act/constitution/1957/constitution",
-      "state_enactment": "/akn/my-{state-code}/act/{year}/{number}",
-      "syariah_enactment": "/akn/my-{state-code}/act/syariah/{year}/{number}",
-      "sarawak_ordinance": "/akn/my-sw/act/{year}/{number}",
-      "amendment_act": "/akn/my/act/amendment/{a-number}"
+      "sarawak_ordinance": "/akn/my-sw/act/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "uri_notes": [

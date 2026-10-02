@@ -276,7 +276,8 @@
       "text": "O PRESIDENTE DA REPUBLICA Faco saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei:",
       "position": "preamble",
       "era": "post-1988",
-      "from": "1988-10-05"
+      "from": "1988-10-05",
+      "document_class": "act"
     }
   ],
   "amendments": {

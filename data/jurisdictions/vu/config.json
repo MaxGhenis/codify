@@ -120,7 +120,6 @@
     "country_code": "vu",
     "uri_patterns": {
       "act": "/akn/vu/act/{year}/{number}",
-      "act_consolidated": "/akn/vu/act/cap{NNN}/cap{NNN}",
       "ord": "/akn/vu/act/ord/{year}/{number}",
       "bill": "/akn/vu/bill/{year}/{number}",
       "constitution": "/akn/vu/act/constitution/1980/constitution"
@@ -144,7 +143,8 @@
       "text": "Be it enacted by the President and Parliament as follows:",
       "position": "preamble",
       "era": "post-independence",
-      "from": "1980-07-30"
+      "from": "1980-07-30",
+      "document_class": "act"
     }
   ],
   "amendments": {

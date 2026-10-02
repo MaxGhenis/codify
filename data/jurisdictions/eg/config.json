@@ -177,8 +177,6 @@
     "uri_patterns": {
       "act": "/akn/eg/act/{year}/{number}",
       "decree_law": "/akn/eg/act/decree-law/{year}/{number}",
-      "regulation": "/akn/eg/act/regulation/{year}/{slug}",
-      "bill": "/akn/eg/bill/{year}/{slug}",
       "constitution": "/akn/eg/act/constitution/{year}/constitution"
     },
     "date_calendar": "gregorian",
@@ -203,7 +201,8 @@
       "position": "preamble",
       "era": "post-2014-constitution",
       "from": "2014-01-18",
-      "enacting_body_tlc": "houseOfRepresentatives"
+      "enacting_body_tlc": "houseOfRepresentatives",
+      "document_class": "act"
     },
     {
       "arabic": "أصدر مجلس الشعب القانون الآتي نصه:",
@@ -212,7 +211,8 @@
       "position": "preamble",
       "era": "pre-2014-constitution",
       "to": "2014-01-18",
-      "enacting_body_tlc": "peoplesAssembly"
+      "enacting_body_tlc": "peoplesAssembly",
+      "document_class": "act"
     },
     {
       "arabic": "رئيس الجمهورية. بعد الاطلاع على الدستور... أصدر القرار الآتي:",
@@ -220,7 +220,8 @@
       "position": "preamble",
       "era": "presidential-decree-law",
       "enacting_body_tlc": "president",
-      "note": "Used for مراسيم بقوانين (Presidential Decree-Laws) issued between parliamentary sessions per Constitution Art. 156."
+      "note": "Used for مراسيم بقوانين (Presidential Decree-Laws) issued between parliamentary sessions per Constitution Art. 156.",
+      "document_class": "decree_law"
     }
   ],
   "amendments": {

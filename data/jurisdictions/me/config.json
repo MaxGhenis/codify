@@ -252,13 +252,6 @@
   "frbr": {
     "country_code": "me",
     "uri_patterns": {
-      "zakon": "/akn/me/act/{year}/{item-number}",
-      "zakon_slug": "/akn/me/act/{year}/{slug}",
-      "uredba": "/akn/me/act/uredba/{year}/{item-number}",
-      "pravilnik": "/akn/me/act/pravilnik/{year}/{item-number}",
-      "odluka": "/akn/me/act/odluka/{year}/{item-number}",
-      "naredba": "/akn/me/act/naredba/{year}/{item-number}",
-      "bill": "/akn/me/bill/{year}/{slug}",
       "constitution": "/akn/me/act/constitution/2007/ustav"
     },
     "date_calendar": "gregorian",
@@ -281,7 +274,8 @@
       "era": "post-independence",
       "from": "2006-06-03",
       "verified": true,
-      "note": "Parliamentary adoption formula. Skupština is unicameral, 81 members. Ijekavian form 'donijela' (not Ekavian 'donela'). The ordinal convocation number ('desetog saziva' etc.) and session date appear in the gazette header. Verb 'donijela je' (adopted) confirmed for zakon class. Note: Montenegrin language (cnr) uses Ijekavian forms throughout — 'donijeti', 'izmjene', 'odredbe', 'odjeljak' — distinguishing it from Serbian Ekavian."
+      "note": "Parliamentary adoption formula. Skupština is unicameral, 81 members. Ijekavian form 'donijela' (not Ekavian 'donela'). The ordinal convocation number ('desetog saziva' etc.) and session date appear in the gazette header. Verb 'donijela je' (adopted) confirmed for zakon class. Note: Montenegrin language (cnr) uses Ijekavian forms throughout — 'donijeti', 'izmjene', 'odredbe', 'odjeljak' — distinguishing it from Serbian Ekavian.",
+      "document_class": "zakon"
     },
     {
       "text": "Na osnovu člana {delegating_article} Zakona o {subject}, Vlada Crne Gore, na sjednici od {date}, donijela je",
@@ -289,7 +283,8 @@
       "era": "post-independence",
       "from": "2006-06-03",
       "verified": true,
-      "note": "Government decree formula. Delegating provision reference is mandatory. Verb 'donijela je' also used for uredbe — distinguished from zakon by enacting body (Vlada vs Skupština) not by verb."
+      "note": "Government decree formula. Delegating provision reference is mandatory. Verb 'donijela je' also used for uredbe — distinguished from zakon by enacting body (Vlada vs Skupština) not by verb.",
+      "document_class": "uredba"
     }
   ],
   "amendments": {

@@ -196,7 +196,6 @@
       "decree_law": "/akn/kw/act/decree-law/{year}/{number}",
       "emiri_decree": "/akn/kw/act/emiri-decree/{year}/{number}",
       "ministerial_decision": "/akn/kw/act/ministerial-decision/{year}/{number}",
-      "bill": "/akn/kw/bill/{year}/{slug}",
       "constitution": "/akn/kw/act/constitution/1962/constitution"
     },
     "date_calendar": "gregorian",
@@ -242,7 +241,8 @@
       "position": "preamble",
       "era": "parliamentary_law",
       "from": "1962-11-11",
-      "enacting_body_tlc": "nationalAssembly"
+      "enacting_body_tlc": "nationalAssembly",
+      "document_class": "act"
     },
     {
       "arabic": "بسم الله الرحمن الرحيم\nنحن [اسم الأمير]، أمير دولة الكويت\nبعد الاطلاع على الدستور ... أصدرنا المرسوم الآتي",
@@ -250,7 +250,8 @@
       "position": "preamble",
       "era": "decree_law",
       "enacting_body_tlc": "amir",
-      "note": "Used for مراسيم بقوانين (Decree-Laws) issued when Assembly is not in session per Constitution Art. 71, and for مراسيم أميرية (Emiri Decrees). The preamble typically recites the constitutional provisions consulted."
+      "note": "Used for مراسيم بقوانين (Decree-Laws) issued when Assembly is not in session per Constitution Art. 71, and for مراسيم أميرية (Emiri Decrees). The preamble typically recites the constitutional provisions consulted.",
+      "document_class": "decree_law"
     }
   ],
   "amendments": {

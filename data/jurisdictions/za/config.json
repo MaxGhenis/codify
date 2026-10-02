@@ -173,9 +173,7 @@
       "act": "/akn/za/act/{year}/{number}",
       "regulation": "/akn/za/act/gn/{year}/{number}",
       "bill": "/akn/za/bill/{year}/{number}",
-      "constitution": "/akn/za/act/constitution/1996/constitution",
-      "officialGazette": "/akn/za/officialGazette/government-gazette/{date}/{gazette-number}",
-      "provincial_act": "/akn/za-{province-code}/act/{year}/{number}"
+      "constitution": "/akn/za/act/constitution/1996/constitution"
     },
     "date_calendar": "gregorian",
     "notes": "Expression date = gazette publication date (not presidential assent date). Primary expression language: eng. FRBR URI conventions match Laws.Africa reference implementation exactly — do not deviate."
@@ -193,14 +191,16 @@
       "text": "BE IT ENACTED by the Parliament of the Republic of South Africa, as follows:—",
       "position": "preamble",
       "era": "post-constitution",
-      "from": "1997-02-04"
+      "from": "1997-02-04",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the State President and the Parliament of the Republic of South Africa, as follows:",
       "position": "preamble",
       "era": "tricameral",
       "from": "1984-01-01",
-      "to": "1994-04-26"
+      "to": "1994-04-26",
+      "document_class": "act"
     },
     {
       "text": "The [Minister], in terms of section [N] of the [Act], makes the following regulations:",

@@ -355,13 +355,8 @@
       "text": "WHEREAS it is expedient to [purpose]; It is hereby enacted as follows:--",
       "position": "preamble",
       "era": "post-constitution",
-      "from": "1973-08-14"
-    },
-    {
-      "text": "BE it enacted by the [Provincial Assembly of {Province}] in the [Ordinal] Year of the Republic of Pakistan as follows:--",
-      "position": "preamble",
-      "era": "provincial_post_18th_amendment",
-      "from": "2010-04-19"
+      "from": "1973-08-14",
+      "document_class": "act"
     }
   ],
   "amendments": {

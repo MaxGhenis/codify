@@ -294,7 +294,8 @@
       "era": "unicameral_pre2016",
       "to": "2016-11-08",
       "verified": false,
-      "note": "Pre-2016 unicameral formula. Consistent with French West African drafting convention."
+      "note": "Pre-2016 unicameral formula. Consistent with French West African drafting convention.",
+      "document_class": "loi"
     },
     {
       "text": "L'ASSEMBLÉE NATIONALE ET LE SÉNAT ONT ADOPTÉ ;\nLE PRÉSIDENT DE LA RÉPUBLIQUE PROMULGUE LA LOI DONT LA TENEUR SUIT :",
@@ -302,19 +303,15 @@
       "era": "bicameral_post2016",
       "from": "2016-11-08",
       "verified": true,
-      "note": "Verbatim formula confirmed from Côte d'Ivoire Journal Officiel 2024. Gazette uses full uppercase for both clauses with semicolon separator. Confirmed from LOI n°2024-948, LOI n°2024-362, LOI n°2024-349, LOI n°2024-236. Source: https://agp.africanlii.org/en/akn/ci/act/ord/2024/857/fra@2024-12-23/source.pdf and https://www.juriafrica.com/lex/loi-2024-362-11-juin-2024-56293.htm"
+      "note": "Verbatim formula confirmed from Côte d'Ivoire Journal Officiel 2024. Gazette uses full uppercase for both clauses with semicolon separator. Confirmed from LOI n°2024-948, LOI n°2024-362, LOI n°2024-349, LOI n°2024-236. Source: https://agp.africanlii.org/en/akn/ci/act/ord/2024/857/fra@2024-12-23/source.pdf and https://www.juriafrica.com/lex/loi-2024-362-11-juin-2024-56293.htm",
+      "document_class": "loi"
     },
     {
       "text": "Le Conseil constitutionnel ayant statué, l'Assemblée nationale a adopté, le Président de la République promulgue la loi dont la teneur suit :",
       "position": "preamble",
       "era": "with_conseil_constitutionnel",
-      "note": "Used when the Constitutional Council has examined the text prior to promulgation"
-    },
-    {
-      "text": "Le Président de la République a soumis au référendum, le Conseil constitutionnel a proclamé les résultats du référendum, le peuple de Côte d'Ivoire a adopté, le Président de la République promulgue la loi dont la teneur suit :",
-      "position": "preamble",
-      "era": "referendum",
-      "note": "Used for laws adopted by popular referendum (e.g., Constitution 2016)"
+      "note": "Used when the Constitutional Council has examined the text prior to promulgation",
+      "document_class": "loi"
     }
   ],
   "promulgation_closing": "La présente loi sera publiée au Journal Officiel de la République de Côte d'Ivoire et exécutée comme loi de l'État.",

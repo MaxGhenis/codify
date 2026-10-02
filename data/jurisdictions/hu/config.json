@@ -162,8 +162,7 @@
       "rendelet_korm": "/akn/hu/act/korm/{year}/{number}",
       "rendelet_min": "/akn/hu/act/rendelet/{year}/{number}",
       "bill": "/akn/hu/bill/{year}/{number}",
-      "alaptorvenye": "/akn/hu/act/alaptorvenye/2011/alaptorvenye",
-      "alaptorvenye_amendment": "/akn/hu/act/alaptorvenye/{year}/{ordinal}"
+      "alaptorvenye": "/akn/hu/act/alaptorvenye/2011/alaptorvenye"
     },
     "date_calendar": "gregorian",
     "number_notes": "Roman numeral act number (e.g. LXIX) converted to Arabic integer for URI (e.g. 69). Store Hungarian canonical citation '2024. évi LXIX. törvény' as FRBRalias."

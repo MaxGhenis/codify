@@ -231,7 +231,6 @@
       "ustavny_zakon": "/akn/sk/act/ustavn/{year}/{number}",
       "nariadenie": "/akn/sk/act/nariadenie/{year}/{number}",
       "vyhlaska": "/akn/sk/act/vyhlaska/{year}/{number}",
-      "bill": "/akn/sk/bill/{year}/{slug}",
       "constitution": "/akn/sk/act/ustavn/1992/460",
       "judgment_us": "/akn/sk/judgment/us/{year}/{number}"
     },

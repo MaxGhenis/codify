@@ -195,7 +195,6 @@
     "country_code": "az",
     "uri_patterns": {
       "law": "/akn/az/act/{year}/{number}",
-      "code": "/akn/az/act/{year}/{slug}",
       "bill": "/akn/az/bill/{year}/{number}",
       "constitution": "/akn/az/act/constitution/1995/constitution",
       "decree": "/akn/az/act/decree/{year}/{number}",
@@ -222,7 +221,8 @@
       "position": "conclusions",
       "era": "post-independence",
       "from": "1995-11-27",
-      "note": "Attestation block at end of document, not opening enacting formula. Followed by Presidential signature line."
+      "note": "Attestation block at end of document, not opening enacting formula. Followed by Presidential signature line.",
+      "document_class": "law"
     }
   ],
   "amendments": {

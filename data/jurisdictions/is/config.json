@@ -167,7 +167,6 @@
     "uri_patterns": {
       "act": "/akn/is/act/{year}/{number}",
       "reglugjord": "/akn/is/act/rgj/{year}/{number}",
-      "bill": "/akn/is/bill/{session}/{number}",
       "stjornarskra": "/akn/is/act/constitution/1944/stjornarskra",
       "thingsalyktun": "/akn/is/act/tsa/{year}/{number}",
       "tilskipun": "/akn/is/act/tsk/{year}/{number}",
@@ -189,14 +188,8 @@
       "position": "preamble",
       "era": "thingsalyktun",
       "from": "1944-06-17",
-      "note": "Formula for parliamentary resolutions (þingsályktanir)."
-    },
-    {
-      "text": "Forseti Íslands gjörir kunnugt: Alþingi hefur falið mér að undirrita lög þessi og birta þau.",
-      "position": "preamble",
-      "era": "current",
-      "from": "1944-06-17",
-      "note": "Presidential promulgation formula. The President signs acts into law. Acts promulgated in Stjórnartíðindi. Modern lög begin with this formula or without one — varies by publication. The body of the act follows directly."
+      "note": "Formula for parliamentary resolutions (þingsályktanir).",
+      "document_class": "act"
     }
   ],
   "amendments": {

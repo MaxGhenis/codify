@@ -140,8 +140,6 @@
     "country_code": "to",
     "uri_patterns": {
       "act": "/akn/to/act/{year}/{number}",
-      "si": "/akn/to/act/si/{year}/{slug}",
-      "bill": "/akn/to/bill/{year}/{slug}",
       "constitution": "/akn/to/act/constitution/1875/constitution"
     },
     "uri_fallback_cap": "When only a chapter number is available, use cap{decimal} as both year and number segments, e.g. Cap.11.05 → /akn/to/act/cap11.05/cap11.05. Store chapter number as FRBRalias.",
@@ -159,7 +157,8 @@
       "position": "preamble",
       "era": "current",
       "from": "1875-11-04",
-      "note": "Unchanged since the Constitution of 1875. Invokes both King and Legislative Assembly."
+      "note": "Unchanged since the Constitution of 1875. Invokes both King and Legislative Assembly.",
+      "document_class": "act"
     }
   ],
   "amendments": {

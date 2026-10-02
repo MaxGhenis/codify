@@ -174,8 +174,7 @@
       "act": "/akn/tt/act/{year}/{number}",
       "si": "/akn/tt/act/si/{year}/{number}",
       "bill": "/akn/tt/bill/{year}/{number}",
-      "constitution": "/akn/tt/act/constitution/1976/constitution",
-      "act_consolidated": "/akn/tt/act/chap{chapter}/chap{chapter}"
+      "constitution": "/akn/tt/act/constitution/1976/constitution"
     },
     "date_calendar": "gregorian",
     "notes": "When only a Chapter number (Chap. NN:NN) is known, use 'chap{NN}-{NN}' as both year and number segments (e.g., Chap. 16:01 → chap16-01). Record Chapter number as FRBRalias. Update URI when original act number and year are recovered from laws.gov.tt amendment history. Act numbers appear on gazette PDF title pages as 'Act No. N of YYYY' and are reliably machine-readable."
@@ -201,7 +200,8 @@
         "Act No. 23 of 2019",
         "Act No. 7 of 2021"
       ],
-      "note": "Gazette renders first word in small-caps. The em-dash variant ('as follows:—') also observed (Act No. 2 of 2000). Both forms are equivalent."
+      "note": "Gazette renders first word in small-caps. The em-dash variant ('as follows:—') also observed (Act No. 2 of 2000). Both forms are equivalent.",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, by and with the advice and consent of the Senate and House of Representatives of Trinidad and Tobago, and by the authority of the same, as follows:—",
@@ -210,7 +210,8 @@
       "from": "1962-08-31",
       "to": "1976-08-01",
       "verified": false,
-      "note": "Standard Commonwealth Independence form assumed."
+      "note": "Standard Commonwealth Independence form assumed.",
+      "document_class": "act"
     }
   ],
   "amendments": {

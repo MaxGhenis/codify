@@ -168,7 +168,8 @@
       "text": "EL CONGRESO DE LA NACION PARAGUAYA SANCIONA CON FUERZA DE LEY:",
       "position": "preamble",
       "era": "post-1992",
-      "from": "1992-06-20"
+      "from": "1992-06-20",
+      "document_class": "act"
     }
   ],
   "amendments": {

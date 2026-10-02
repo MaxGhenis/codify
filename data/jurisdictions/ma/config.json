@@ -211,11 +211,6 @@
   "frbr": {
     "country_code": "ma",
     "uri_patterns": {
-      "loi": "/akn/ma/act/{year}/{law-number}",
-      "loi_organique": "/akn/ma/act/organic/{year}/{law-number}",
-      "dahir": "/akn/ma/act/dahir/{year}/{dahir-number}",
-      "decret": "/akn/ma/act/decree/{year}/{decree-number}",
-      "bill": "/akn/ma/bill/{year}/{law-number}",
       "constitution": "/akn/ma/act/constitution/2011/constitution"
     },
     "date_calendar": "gregorian",

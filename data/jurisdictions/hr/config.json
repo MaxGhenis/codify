@@ -215,12 +215,6 @@
   "frbr": {
     "country_code": "hr",
     "uri_patterns": {
-      "zakon": "/akn/hr/act/{year}/{item-number}",
-      "zakon_slug": "/akn/hr/act/{year}/{slug}",
-      "uredba": "/akn/hr/act/uredba/{year}/{item-number}",
-      "pravilnik": "/akn/hr/act/pravilnik/{year}/{item-number}",
-      "odluka": "/akn/hr/act/odluka/{year}/{item-number}",
-      "bill": "/akn/hr/bill/{year}/{slug}",
       "constitution": "/akn/hr/act/constitution/1990/ustav"
     },
     "date_calendar": "gregorian",
@@ -248,15 +242,8 @@
       "component": "parliamentary_enactment",
       "era": "post-independence",
       "from": "1991-06-25",
-      "note": "Parliamentary adoption formula. Appears as opening of law text in Narodne novine."
-    },
-    {
-      "text": "Na temelju članka 88. Ustava Republike Hrvatske, donosim ODLUKU O PROGLAŠENJU {naziv zakona}",
-      "position": "meta_lifecycle",
-      "component": "presidential_promulgation_decree",
-      "era": "post-independence",
-      "from": "1991-06-25",
-      "note": "Presidential promulgation decree. Precedes law text in gazette. Models as lifecycle event in AKN meta, NOT as preamble formula."
+      "note": "Parliamentary adoption formula. Appears as opening of law text in Narodne novine.",
+      "document_class": "zakon"
     }
   ],
   "amendments": {

@@ -212,10 +212,8 @@
     "uri_patterns": {
       "act": "/akn/iq/act/{year}/{number}",
       "decree_law": "/akn/iq/act/decree-law/{year}/{number}",
-      "regulation": "/akn/iq/act/regulation/{year}/{slug}",
       "cpa_order": "/akn/iq/act/cpa-order/{number}",
       "cpa_regulation": "/akn/iq/act/cpa-regulation/{number}",
-      "bill": "/akn/iq/bill/{year}/{slug}",
       "constitution": "/akn/iq/act/constitution/2005/constitution",
       "tal": "/akn/iq/act/constitution/2004/tal",
       "krg_act": "/akn/iq-ku/act/{year}/{number}"
@@ -242,7 +240,8 @@
       "position": "preamble",
       "era": "post-2005-constitution",
       "from": "2006-01-01",
-      "enacting_body_tlc": "councilOfRepresentatives"
+      "enacting_body_tlc": "councilOfRepresentatives",
+      "document_class": "act"
     },
     {
       "arabic": "باسم الشعب",
@@ -251,7 +250,8 @@
       "position": "preamble",
       "era": "post-2003-general",
       "note": "Presidential promulgation preamble that appears in the gazette header alongside the law text. Precedes or accompanies the CoR enacting formula.",
-      "enacting_body_tlc": "president"
+      "enacting_body_tlc": "president",
+      "document_class": "act"
     },
     {
       "text": "Pursuant to my authority as Administrator of the Coalition Provisional Authority (CPA), relevant UN Security Council resolutions, including Resolution 1483 (2003) and 1511 (2003), and the laws and usages of war, I hereby promulgate the following:",
@@ -259,25 +259,8 @@
       "era": "cpa-2003-2004",
       "from": "2003-05-16",
       "to": "2004-06-28",
-      "enacting_body_tlc": "cpaAdministrator"
-    },
-    {
-      "arabic": "قرار مجلس قيادة الثورة",
-      "transliteration": "Qarar Majlis Qiyadat al-Thawra",
-      "translation": "Resolution of the Revolutionary Command Council",
-      "position": "preamble",
-      "era": "rcc-1968-2003",
-      "from": "1968-07-17",
-      "to": "2003-04-09",
-      "enacting_body_tlc": "revolutionaryCommandCouncil"
-    },
-    {
-      "arabic": "يصدر برلمان كردستان - العراق القانون التالي:",
-      "translation": "The Kurdistan Parliament – Iraq enacts the following law:",
-      "position": "preamble",
-      "era": "krg-1992-present",
-      "from": "1992-07-15",
-      "enacting_body_tlc": "kurdistanParliament"
+      "enacting_body_tlc": "cpaAdministrator",
+      "document_class": "cpa_order"
     }
   ],
   "amendments": {

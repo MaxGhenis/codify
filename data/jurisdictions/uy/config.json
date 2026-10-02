@@ -265,7 +265,6 @@
       "decreto_ley": "/akn/uy/act/decreto-ley/{year}/{number}",
       "decreto": "/akn/uy/act/decreto/{year}/{number}",
       "resolucion": "/akn/uy/act/resolucion/{year}/{number}",
-      "bill": "/akn/uy/bill/{year}/{slugified-title}",
       "constitucion": "/akn/uy/act/constitucion/1967/constitucion"
     },
     "number_format": "bare_integer",
@@ -284,21 +283,24 @@
       "position": "preamble",
       "era": "post-1985",
       "from": "1985-03-01",
-      "to": ""
+      "to": "",
+      "document_class": "ley"
     },
     {
       "text": "El Consejo de Estado DECRETA:",
       "position": "preamble",
       "era": "1973-1985",
       "from": "1973-06-27",
-      "to": "1985-02-28"
+      "to": "1985-02-28",
+      "document_class": "decreto_ley"
     },
     {
       "text": "El PODER EJECUTIVO DECRETA:",
       "position": "preamble",
       "era": "post-1985",
       "from": "1985-03-01",
-      "to": ""
+      "to": "",
+      "document_class": "decreto"
     }
   ],
   "amendments": {

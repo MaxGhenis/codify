@@ -184,11 +184,7 @@
   "frbr": {
     "country_code": "pl",
     "uri_patterns": {
-      "act": "/akn/pl/act/{year}/{poz}",
-      "rozp": "/akn/pl/act/rozp/{year}/{poz}",
-      "bill": "/akn/pl/bill/{year}/{druk}",
-      "constitution": "/akn/pl/act/constitution/1997/constitution",
-      "mp": "/akn/pl/act/mp/{year}/{poz}"
+      "constitution": "/akn/pl/act/constitution/1997/constitution"
     },
     "date_calendar": "gregorian",
     "number_field": "Dz.U. pozycja (sequential annual item number)",

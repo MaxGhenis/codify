@@ -3,9 +3,13 @@
   "name": "United Kingdom",
   "name_en": "United Kingdom of Great Britain and Northern Ireland",
   "type": "national",
-  "tradition": ["common_law"],
+  "tradition": [
+    "common_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["eng"],
+  "languages": [
+    "eng"
+  ],
   "authoritative_language": "eng",
   "note": "Westminster Parliament legislates for the whole UK on reserved matters. Devolved legislation is covered here through the publisher's type tokens (asp, anaw, asc, nia, ssi, wsi, nisr and the rest), each a document class below. Scotland has a mixed common-law/civil-law tradition. Welsh is co-official in Wales. The UK has no codified constitution.",
   "document_classes": {
@@ -265,15 +269,12 @@
       "era": "king-charles-iii",
       "from": "2022-09-08",
       "note": "Standard form for Acts passed by both Houses (Public Bills). Used from accession of King Charles III.",
-      "document_class": ["act", "ukpga", "ukla", "ukppa"]
-    },
-    {
-      "text": "BE IT ENACTED by the King's most Excellent Majesty, by and with the advice and consent of the Commons in this present Parliament assembled, in accordance with the provisions of the Parliament Acts 1911 and 1949, and by the authority of the same, as follows:—",
-      "position": "preamble",
-      "era": "king-charles-iii",
-      "from": "2022-09-08",
-      "note": "Money Bills and bills passed under Parliament Acts procedure (Commons only — Lords consent not required). Used from accession of King Charles III.",
-      "document_class": ["act", "ukpga", "ukla", "ukppa"]
+      "document_class": [
+        "act",
+        "ukpga",
+        "ukla",
+        "ukppa"
+      ]
     },
     {
       "text": "BE IT ENACTED by the Queen's most Excellent Majesty, by and with the advice and consent of the Lords Spiritual and Temporal, and Commons, in this present Parliament assembled, and by the authority of the same, as follows:—",
@@ -281,7 +282,12 @@
       "era": "queen-elizabeth-ii",
       "to": "2022-09-08",
       "note": "Standard form used during the reign of Queen Elizabeth II.",
-      "document_class": ["act", "ukpga", "ukla", "ukppa"]
+      "document_class": [
+        "act",
+        "ukpga",
+        "ukla",
+        "ukppa"
+      ]
     }
   ],
   "amendments": {
@@ -331,7 +337,9 @@
       "direct_effect": "indirect_transposition",
       "member_since": "1949-08-05",
       "note": "Founding member. The European Convention on Human Rights was incorporated into domestic law by the Human Rights Act 1998 (indirect transposition, not direct effect). The UK remains a member of the Council of Europe post-Brexit.",
-      "direct_effect_instruments": ["echr_via_hra_1998"],
+      "direct_effect_instruments": [
+        "echr_via_hra_1998"
+      ],
       "transposition_required": true
     },
     {
@@ -387,8 +395,17 @@
         "punishable by",
         "commits an offence and is liable"
       ],
-      "offence_terms": ["offence", "guilty", "contravenes", "commits"],
-      "power_terms": ["may by regulations", "may by order", "may make regulations"],
+      "offence_terms": [
+        "offence",
+        "guilty",
+        "contravenes",
+        "commits"
+      ],
+      "power_terms": [
+        "may by regulations",
+        "may by order",
+        "may make regulations"
+      ],
       "procedure_terms": [
         "laid before",
         "statutory instrument",
@@ -401,21 +418,35 @@
       {
         "id": "penalty_without_offence",
         "severity": "style",
-        "applies_to": ["act", "si"],
+        "applies_to": [
+          "act",
+          "si"
+        ],
         "message": "This unit sets a penalty but names no offence it attaches to.",
         "requires": {
-          "section_containing": ["penalty_terms"],
-          "must_also_contain": ["offence_terms"]
+          "section_containing": [
+            "penalty_terms"
+          ],
+          "must_also_contain": [
+            "offence_terms"
+          ]
         }
       },
       {
         "id": "power_without_procedure",
         "severity": "style",
-        "applies_to": ["act", "si"],
+        "applies_to": [
+          "act",
+          "si"
+        ],
         "message": "This unit confers a power but states no procedure for exercising it.",
         "requires": {
-          "section_containing": ["power_terms"],
-          "must_also_contain": ["procedure_terms"]
+          "section_containing": [
+            "power_terms"
+          ],
+          "must_also_contain": [
+            "procedure_terms"
+          ]
         }
       }
     ]

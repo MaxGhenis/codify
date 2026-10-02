@@ -237,7 +237,6 @@
     "uri_patterns": {
       "act": "/akn/au/act/{year}/{number}",
       "legislative_instrument": "/akn/au/act/li/{year}/{number}",
-      "bill": "/akn/au/bill/{session_parliament}/{bill_number}",
       "constitution": "/akn/au/act/1901/constitution"
     },
     "sample_uris": {
@@ -275,19 +274,22 @@
       "position": "preamble",
       "era": "post-1973",
       "from": "1973-01-01",
-      "note": "Modern enacting formula introduced by the Acts Interpretation Amendment Act 1973. Prior formula used Royal style."
+      "note": "Modern enacting formula introduced by the Acts Interpretation Amendment Act 1973. Prior formula used Royal style.",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the Queen's Most Excellent Majesty, the Senate, and the House of Representatives of the Commonwealth of Australia, as follows:—",
       "position": "preamble",
       "era": "pre-1973-queen",
-      "to": "1973-01-01"
+      "to": "1973-01-01",
+      "document_class": "act"
     },
     {
       "text": "BE IT ENACTED by the King's Most Excellent Majesty, the Senate, and the House of Representatives of the Commonwealth of Australia, as follows:—",
       "position": "preamble",
       "era": "pre-1973-king",
-      "note": "Used during reigns of Edward VII, George V, George VI. Detect by monarch era."
+      "note": "Used during reigns of Edward VII, George V, George VI. Detect by monarch era.",
+      "document_class": "act"
     }
   ],
   "amendments": {

@@ -3,9 +3,14 @@
   "name": "Finland",
   "name_local": "Suomi / Finland",
   "type": "national",
-  "tradition": ["civil_law"],
+  "tradition": [
+    "civil_law"
+  ],
   "calendar": "gregorian",
-  "languages": ["fin", "swe"],
+  "languages": [
+    "fin",
+    "swe"
+  ],
   "authoritative_language": null,
   "document_classes": {
     "act": {
@@ -262,14 +267,6 @@
       "era": "current"
     },
     {
-      "text": "I enlighet med riksdagens beslut föreskrivs:",
-      "language": "swe",
-      "translation": "In accordance with the decision of the Parliament, it is enacted:",
-      "position": "preamble",
-      "document_class": "act",
-      "era": "current"
-    },
-    {
       "text": "Valtioneuvoston päätöksen mukaisesti, joka on tehty oikeusministeriön esittelystä, säädetään:",
       "language": "fin",
       "translation": "By decision of the Government, upon presentation by the Ministry of Justice, it is provided:",
@@ -336,9 +333,14 @@
   },
   "bilingual": {
     "model": "parallel_originals",
-    "languages": ["fin", "swe"],
+    "languages": [
+      "fin",
+      "swe"
+    ],
     "note": "Finnish and Swedish versions are equally authoritative originals, not translations. Model as separate FRBR expressions of the same work. Use FRBRtranslation only for unofficial English translations.",
-    "unofficial_translations": ["eng"],
+    "unofficial_translations": [
+      "eng"
+    ],
     "unofficial_translation_note": "English translations on Finlex are unofficial and not legally authoritative."
   },
   "sub_jurisdictions": [
@@ -349,7 +351,9 @@
       "type": "autonomous_region",
       "legislature": "Lagting (Ålands lagting)",
       "gazette": "Ålands författningssamling (ÅFS)",
-      "language": ["swe"],
+      "language": [
+        "swe"
+      ],
       "note": "Constitutionally autonomous; own legislature and gazette. ISO 3166-1 alpha-2 for Åland: AX. See unresolved ambiguity #6 — consider whether to model as 'ax' rather than 'fi-ax'."
     }
   ],

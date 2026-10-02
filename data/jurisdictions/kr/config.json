@@ -240,7 +240,8 @@
       "text": "국회에서 의결된 다음 법률을 이에 공포한다.",
       "position": "preamble",
       "era": "republic",
-      "from": "1948-07-17"
+      "from": "1948-07-17",
+      "document_class": "act"
     }
   ],
   "amendments": {

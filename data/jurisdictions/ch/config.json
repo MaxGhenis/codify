@@ -264,14 +264,7 @@
   "frbr": {
     "country_code": "ch",
     "uri_patterns": {
-      "bundesgesetz": "/akn/ch/act/{sr_number}",
-      "bundesgesetz_dated": "/akn/ch/act/{year}/{sr_number_or_slug}",
-      "bundesverfassung": "/akn/ch/act/101",
-      "verordnung": "/akn/ch/act/{sr_number}",
-      "bundesbeschluss": "/akn/ch/act/{year}/{slug}",
-      "staatsvertrag": "/akn/ch/act/{sr_number}",
-      "expression": "/akn/ch/act/{sr_number}/{lang}@{date}",
-      "bill": "/akn/ch/bill/{year}/{botschaft-number}"
+      "bundesverfassung": "/akn/ch/act/101"
     },
     "date_calendar": "gregorian",
     "date_calendar_note": "Switzerland uses Gregorian calendar exclusively. SR numbers are the primary identifier — include as the URI number segment where available (e.g. /akn/ch/act/210 for ZGB, /akn/ch/act/101 for BV). FRBR expressions for each language version use ISO 639-3 codes: deu, fra, ita, roh.",
@@ -299,19 +292,15 @@
       "text": "Die Bundesversammlung der Schweizerischen Eidgenossenschaft, gestützt auf die Artikel ... der Bundesverfassung, nach Einsicht in die Botschaft des Bundesrates vom ..., beschliesst:",
       "position": "preamble",
       "era": "federal_act",
-      "from": "1999-01-01"
-    },
-    {
-      "text": "L'Assemblée fédérale de la Confédération suisse, vu les art. ... de la Constitution fédérale, vu le message du Conseil fédéral du ..., arrête:",
-      "position": "preamble",
-      "era": "federal_act_fr",
-      "from": "1999-01-01"
+      "from": "1999-01-01",
+      "document_class": "bundesgesetz"
     },
     {
       "text": "Der Bundesrat der Schweizerischen Eidgenossenschaft verordnet:",
       "position": "preamble",
       "era": "verordnung",
-      "from": "1999-01-01"
+      "from": "1999-01-01",
+      "document_class": "verordnung"
     }
   ],
   "amendments": {

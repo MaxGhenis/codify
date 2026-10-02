@@ -193,7 +193,6 @@
       "lovbekendtgorelse": "/akn/dk/act/{year}/{number}",
       "bekendtgorelse": "/akn/dk/act/bkg/{year}/{number}",
       "cirkulaere": "/akn/dk/act/cir/{year}/{number}",
-      "bill": "/akn/dk/bill/{session}/{l-number}",
       "grundloven": "/akn/dk/act/constitution/1953/grundloven",
       "officialGazette": "/akn/dk/officialGazette/{year}/{number}"
     },
@@ -212,7 +211,8 @@
       "position": "preamble",
       "era": "current",
       "from": "1953-06-05",
-      "note": "This formula appears in the Lovtidende publication notice, not within the act body itself."
+      "note": "This formula appears in the Lovtidende publication notice, not within the act body itself.",
+      "document_class": "act"
     },
     {
       "text": "I medfør af § {N} i lov om {X}, jf. lovbekendtgørelse nr. {NNN} af {dato}, fastsættes:",

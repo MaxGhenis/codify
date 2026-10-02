@@ -280,10 +280,7 @@
       "anayasa": "/akn/tr/act/constitution/1982/anayasa",
       "cumhurbaskanligi-kararnamesi": "/akn/tr/act/cbk/{year}/{number}",
       "khk": "/akn/tr/act/khk/{year}/{number}",
-      "yonetmelik": "/akn/tr/act/ynt/{year}/{slug}",
-      "teblig": "/akn/tr/act/tbl/{year}/{number}",
-      "bill": "/akn/tr/bill/{year}/{slug}",
-      "expression": "/akn/tr/act/{year}/{number}/tur@{date}"
+      "teblig": "/akn/tr/act/tbl/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "date_calendar_note": "Turkey uses Gregorian calendar exclusively since the 1926 calendar reform. No dual-calendar complexity. Law numbers are sequential integers assigned at enactment (e.g., Kanun No. 4721 = Türk Medeni Kanunu, Kanun No. 5237 = Türk Ceza Kanunu). Use year+number pattern for FRBR URIs."
@@ -303,13 +300,8 @@
       "text": "Türkiye Büyük Millet Meclisi'nce kabul edilmiştir.",
       "position": "conclusions",
       "era": "republic",
-      "from": "1920-04-23"
-    },
-    {
-      "text": "Madde 1 — Bu Kanunun amacı ...",
-      "position": "preamble",
-      "era": "republic_amaç",
-      "from": "1980-01-01"
+      "from": "1920-04-23",
+      "document_class": "kanun"
     }
   ],
   "amendments": {

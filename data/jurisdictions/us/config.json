@@ -445,15 +445,9 @@
   "frbr": {
     "country_code": "us",
     "uri_patterns": {
-      "public_law": "/akn/us/act/{congress}/{number}",
-      "usc_title": "/akn/us/act/usc/{title}",
-      "cfr_title": "/akn/us/act/cfr/{title}",
-      "bill_house": "/akn/us/bill/{congress}/hr-{number}",
-      "bill_senate": "/akn/us/bill/{congress}/s-{number}",
       "constitution": "/akn/us/act/constitution/1788/constitution",
       "constitution_amendment": "/akn/us/act/constitution-amendment/{year}/{number}",
-      "executive_order": "/akn/us/doc/executive-order/{year}/{number}",
-      "joint_resolution": "/akn/us/act/{congress}/jr-{number}"
+      "executive_order": "/akn/us/doc/executive-order/{year}/{number}"
     },
     "date_calendar": "gregorian",
     "notes": "Congress number (not calendar year) is used as first path segment for Public Laws and Bills. Pre-1958 laws without Congress-number format should use /akn/us/act/stat/{volume}/{page}."

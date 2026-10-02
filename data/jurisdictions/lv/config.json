@@ -187,9 +187,7 @@
   "frbr": {
     "country_code": "lv",
     "uri_patterns": {
-      "act": "/akn/lv/act/{year}/{slug}",
       "noteikumi": "/akn/lv/act/mk/{year}/{number}",
-      "bill": "/akn/lv/bill/{year}/{slug}",
       "constitution": "/akn/lv/act/1922/satversme",
       "civillikums": "/akn/lv/act/1937/civillikums",
       "kriminallikums": "/akn/lv/act/1998/kriminallikums"

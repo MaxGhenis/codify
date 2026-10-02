@@ -203,7 +203,6 @@
       "legal_notice": "/akn/ke/act/ln/{year}/{number}",
       "bill": "/akn/ke/bill/{year}/{number}",
       "constitution": "/akn/ke/act/2010/constitution",
-      "county_act": "/akn/ke-{county_code}/act/{year}/{number}",
       "eac_instrument": "/akn/aa-eac/act/{year}/{number}"
     },
     "date_calendar": "gregorian",
@@ -221,7 +220,8 @@
       "text": "ENACTED by the Parliament of Kenya, as follows—",
       "position": "preamble",
       "era": "post-2010-constitution",
-      "from": "2010-08-27"
+      "from": "2010-08-27",
+      "document_class": "act"
     }
   ],
   "amendments": {

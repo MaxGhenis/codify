@@ -249,7 +249,6 @@
       "dfl": "/akn/cl/act/dfl/{year}/{number}",
       "dl": "/akn/cl/act/dl/{year}/{number}",
       "ds": "/akn/cl/act/ds/{year}/{number}",
-      "bill": "/akn/cl/bill/{year}/{boletin}",
       "constitucion": "/akn/cl/act/constitucion/1980/constitucion"
     },
     "number_format": "bare_integer",

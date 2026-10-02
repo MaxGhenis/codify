@@ -120,8 +120,7 @@
       "act": "/akn/bw/act/{year}/{number}",
       "si": "/akn/bw/act/si/{year}/{number}",
       "bill": "/akn/bw/bill/{year}/{number}",
-      "constitution": "/akn/bw/act/constitution/1966/constitution",
-      "officialGazette": "/akn/bw/officialGazette/government-gazette/{date}/{number}"
+      "constitution": "/akn/bw/act/constitution/1966/constitution"
     },
     "date_calendar": "gregorian",
     "uri_notes": "When only a Cap. number is known (no original Act year/number), use 'cap{NN}-{NN}' as both year and number segments (e.g., Cap. 42:01 → /akn/bw/act/cap42-01/cap42-01). Record the Cap. number as FRBRalias. Update URI when original year/number is determined. Gazettes.Africa already uses /akn/bw/ — maintain compatibility."
@@ -138,7 +137,8 @@
       "text": "ENACTED by the Parliament of Botswana.",
       "position": "preamble",
       "era": "post-independence",
-      "from": "1966-09-30"
+      "from": "1966-09-30",
+      "document_class": "act"
     }
   ],
   "amendments": {

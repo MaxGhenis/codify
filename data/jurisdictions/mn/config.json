@@ -123,7 +123,8 @@
       "era": "post-socialist",
       "from": "1992-01-13",
       "verified": true,
-      "note": "Mongolian laws contain no formal enacting formula in the body text. Enacted laws begin directly with 'LAW OF MONGOLIA / [date] / [city] / [title]' followed immediately by articles. No 'hereby enacted by the State Great Khural' clause appears. The chairman's signature appears at the end. Verified against multiple laws on legalinfo.mn including the Law on Courts (2021) and Law on Status of Ministries (2004)."
+      "note": "Mongolian laws contain no formal enacting formula in the body text. Enacted laws begin directly with 'LAW OF MONGOLIA / [date] / [city] / [title]' followed immediately by articles. No 'hereby enacted by the State Great Khural' clause appears. The chairman's signature appears at the end. Verified against multiple laws on legalinfo.mn including the Law on Courts (2021) and Law on Status of Ministries (2004).",
+      "document_class": "act"
     }
   ],
   "amendments": {

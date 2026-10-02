@@ -263,7 +263,8 @@
       "era": "unicameral",
       "from": "2012-09-19",
       "verified": true,
-      "note": "Formula confirmed from Journal Officiel de la République du Sénégal (jo.gouv.sn). Amnesty Law (March 2024) and other laws confirmed unicameral formula with 'en sa séance du'. Source: https://jo.gouv.sn/ and search results confirming Assemblée nationale single-chamber adoption post-2012."
+      "note": "Formula confirmed from Journal Officiel de la République du Sénégal (jo.gouv.sn). Amnesty Law (March 2024) and other laws confirmed unicameral formula with 'en sa séance du'. Source: https://jo.gouv.sn/ and search results confirming Assemblée nationale single-chamber adoption post-2012.",
+      "document_class": "loi"
     },
     {
       "text": "L'Assemblée nationale a adopté, en sa séance du {date} ;\nLe Sénat a adopté, en sa séance du {date} ;\nLe Président de la République promulgue la loi dont la teneur suit :",
@@ -272,19 +273,22 @@
       "from": "2007-01-01",
       "to": "2012-09-19",
       "verified": false,
-      "note": "Bicameral era formula (2007 Senate restoration to 2012 abolition). Consistent with constitutional procedure."
+      "note": "Bicameral era formula (2007 Senate restoration to 2012 abolition). Consistent with constitutional procedure.",
+      "document_class": "loi"
     },
     {
       "text": "L'Assemblée nationale a adopté, en sa séance du {date}, conformément à l'article {N} de la Constitution ;\nLe Président de la République promulgue la loi organique dont la teneur suit :",
       "position": "preamble",
       "era": "loi_organique",
-      "note": "Formula for organic laws; Conseil constitutionnel review mandatory before promulgation"
+      "note": "Formula for organic laws; Conseil constitutionnel review mandatory before promulgation",
+      "document_class": "loi_organique"
     },
     {
       "text": "Le Président de la République,\nVu la Constitution, notamment en ses articles {articles} ;\nVu {parent_instruments} ;\n{additional_vus}\nDécrète :",
       "position": "preamble",
       "era": "decret",
-      "note": "Decree enabling clause; 'Vu' recitals cite constitutional basis and parent legislation"
+      "note": "Decree enabling clause; 'Vu' recitals cite constitutional basis and parent legislation",
+      "document_class": "decret"
     }
   ],
   "amendments": {
