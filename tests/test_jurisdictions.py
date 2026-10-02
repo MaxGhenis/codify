@@ -1269,3 +1269,108 @@ def _strings(node):
 @pytest.mark.parametrize("code", ["be", "ca", "ch", "fi", "vu", "cm", "rw", "no"])
 def test_co_authoritative_configs_leave_the_language_unset(code: str) -> None:
     assert load_config(code).authoritative_language is None
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_declared_bluebell_keyword_is_what_the_scaffolder_emits(code: str) -> None:
+    """The scanner emits from `akn_element`, so a differing `bluebell_keyword`
+    would promise a keyword the scaffold never writes."""
+    from codify.pipeline.enrich.anchors import StructuralAnchor
+    from codify.pipeline.enrich.scaffold import scaffold_from_anchors
+
+    mismatched = []
+    for doctype, doc_class in load_config(code).document_classes.items():
+        for entry in doc_class.hierarchy:
+            if not entry.bluebell_keyword:
+                continue
+            anchor = StructuralAnchor(
+                kind=entry.akn_element,
+                keyword=entry.local_term,
+                number="1",
+                char_offset=0,
+                line=0,
+                matched_text="",
+                akn_eid="x_1",
+            )
+            scaffold, _ = scaffold_from_anchors([anchor], country=code)
+            emitted = scaffold.splitlines()[-2].split()[0]
+            if emitted != entry.bluebell_keyword:
+                mismatched.append((doctype, entry.local_term, entry.bluebell_keyword, emitted))
+    assert not mismatched, (code, mismatched)
+
+
+# Scripts each language's own terms are written in; Latin is always allowed for
+# the English labels the profiles carry beside them. A language not listed here
+# is Latin-script or unchecked.
+_LANGUAGE_SCRIPTS = {
+    "hye": {"ARMENIAN"},
+    "kat": {"GEORGIAN"},
+    "ell": {"GREEK"},
+    "heb": {"HEBREW"},
+    "hin": {"DEVANAGARI"},
+    "nep": {"DEVANAGARI"},
+    "ben": {"BENGALI"},
+    "sin": {"SINHALA"},
+    "tam": {"TAMIL"},
+    "khm": {"KHMER"},
+    "lao": {"LAO"},
+    "mya": {"MYANMAR"},
+    "amh": {"ETHIOPIC"},
+    "tha": {"THAI"},
+    **{k: {"CYRILLIC"} for k in "rus bul ukr bel mkd srp kaz kir tgk mon uzb tuk".split()},
+    **{k: {"ARABIC"} for k in "ara fas urd pus kur snd uig prs".split()},
+    **{k: {"CJK", "HIRAGANA", "KATAKANA", "HANGUL"} for k in "zho cmn jpn kor yue".split()},
+}
+# Free text and URI/citation patterns are prose, not match vocabulary.
+_PROSE_PATHS = (
+    "/note",
+    "/notes",
+    "/label",
+    "/description",
+    "/validation",
+    "_note",
+    "/frbr",
+    "/display",
+    "/amendments",
+    "/numbering",
+    "/name",
+    "/example",
+    "citation",
+)
+
+
+def _scripts_of(token: str) -> set[str]:
+    import unicodedata
+
+    return {unicodedata.name(c, "?").split(" ")[0] for c in token if c.isalpha()}
+
+
+def _paths(node, where: str = ""):
+    if isinstance(node, dict):
+        for key, value in node.items():
+            yield from _paths(value, f"{where}/{key}")
+    elif isinstance(node, list):
+        for i, value in enumerate(node):
+            yield from _paths(value, f"{where}[{i}]")
+    elif isinstance(node, str):
+        yield where, node
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_match_vocabulary_uses_one_script_consistent_with_the_languages(code: str) -> None:
+    """A term mixing scripts (an Armenian word with a Cyrillic or Latin
+    homoglyph) never matches the source, so its anchor silently never fires."""
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    native = [lang for lang in raw["languages"] if lang in _LANGUAGE_SCRIPTS]
+    allowed = {"LATIN"}.union(*(_LANGUAGE_SCRIPTS[lang] for lang in native))
+    bad = []
+    for where, text in _paths(raw):
+        if any(part in where for part in _PROSE_PATHS):
+            continue
+        for token in re.findall(r"\w+", text):
+            scripts = _scripts_of(token)
+            if len(scripts) > 1 or (native and scripts - allowed):
+                bad.append((where, token, sorted(scripts)))
+    assert not bad, (code, bad)

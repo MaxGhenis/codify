@@ -45,7 +45,7 @@
         },
         {
           "local_term": "Section (higher) / Section",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman",
@@ -113,7 +113,7 @@
         },
         {
           "local_term": "Section (higher)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman"

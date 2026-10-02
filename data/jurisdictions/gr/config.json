@@ -42,7 +42,7 @@
         },
         {
           "local_term": "Τμήμα (Section/Division)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "greek_capital_letter",

@@ -41,7 +41,7 @@
         },
         {
           "local_term": "Oddíl (Section/grouping)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic",
@@ -49,7 +49,7 @@
         },
         {
           "local_term": "Pododdíl (Sub-section/grouping)",
-          "akn_element": "subsection",
+          "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
           "numbering": "arabic",

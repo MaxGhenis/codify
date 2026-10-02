@@ -59,7 +59,7 @@
           "local_term": "Ustęp",
           "akn_element": "paragraph",
           "level": "subdivision",
-          "bluebell_keyword": "SUBSECTION",
+          "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_period",
           "note": "Numbered with period: 1. 2. 3. — mapped to paragraph in AKN"
         },
@@ -120,7 +120,7 @@
           "local_term": "Ustęp",
           "akn_element": "paragraph",
           "level": "subdivision",
-          "bluebell_keyword": "SUBSECTION",
+          "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_period"
         },
         {
@@ -165,7 +165,7 @@
           "local_term": "Ustęp",
           "akn_element": "paragraph",
           "level": "subdivision",
-          "bluebell_keyword": "SUBSECTION",
+          "bluebell_keyword": "PARAGRAPH",
           "numbering": "arabic_period"
         },
         {

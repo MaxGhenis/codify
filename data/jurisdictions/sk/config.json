@@ -43,7 +43,7 @@
         },
         {
           "local_term": "Oddiel (Section/grouping)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "ordinal_word_slovak",
@@ -107,7 +107,7 @@
         },
         {
           "local_term": "Oddiel (Section)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "ordinal_word_slovak",

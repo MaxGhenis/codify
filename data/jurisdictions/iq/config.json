@@ -45,7 +45,7 @@
         },
         {
           "local_term": "فصل (Fasl/Section-div)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_ordinal",
@@ -188,7 +188,7 @@
         },
         {
           "local_term": "فصل (Fasl/Section)",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_ordinal",

@@ -65,7 +65,7 @@
           "local_term": "Párrafo",
           "akn_element": "subparagraph",
           "level": "subdivision",
-          "bluebell_keyword": "SUBSECTION",
+          "bluebell_keyword": "SUBPARAGRAPH",
           "numbering": "unnumbered",
           "note": "Unnumbered prose paragraph; SUBSECTION used as Bluebell proxy. Post-processing may rename to alinea."
         }

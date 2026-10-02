@@ -41,7 +41,7 @@
         },
         {
           "local_term": "Раздел",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman_restarting_per_chapter"
@@ -119,7 +119,7 @@
         },
         {
           "local_term": "Раздел",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman_restarting_per_chapter"
@@ -183,7 +183,7 @@
         },
         {
           "local_term": "Раздел",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman_restarting_per_chapter"

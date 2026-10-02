@@ -45,7 +45,7 @@
         },
         {
           "local_term": "قسم (Qism) / Section",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic",

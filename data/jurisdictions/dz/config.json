@@ -43,7 +43,7 @@
         },
         {
           "local_term": "Section",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman",
@@ -104,7 +104,7 @@
         },
         {
           "local_term": "Section",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman"
@@ -157,7 +157,7 @@
         },
         {
           "local_term": "Section",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman"
@@ -271,14 +271,14 @@
         },
         {
           "local_term": "Section",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "roman"
         },
         {
           "local_term": "Sous-section",
-          "akn_element": "subsection",
+          "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
           "numbering": "roman",

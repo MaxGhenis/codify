@@ -43,7 +43,7 @@
         },
         {
           "local_term": "Sección",
-          "akn_element": "section",
+          "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
           "numbering": "ordinal_word",
@@ -161,7 +161,7 @@
         },
         {
           "local_term": "Capítulo",
-          "akn_element": "section",
+          "akn_element": "subdivision",
           "level": "higher",
           "bluebell_keyword": "SUBDIVISION",
           "numbering": "ordinal_word",

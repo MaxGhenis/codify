@@ -47,7 +47,7 @@
         },
         {
           "local_term": "Secțiunea",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_ordinal",
@@ -119,7 +119,7 @@
         },
         {
           "local_term": "Secțiunea",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_ordinal"
@@ -254,7 +254,7 @@
         },
         {
           "local_term": "Secțiunea",
-          "akn_element": "section",
+          "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
           "numbering": "arabic_ordinal"
