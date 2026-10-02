@@ -101,13 +101,18 @@ class TestRunningHeads:
         for head in (
             "Act 9          Village Water Supply Act          2031",
             "Act 9 Village Water Supply Act",
+            "Act 4 Village Water Supply (Amendment) (No. 2) Act 2032",
         ):
             out = _strip_furniture_lines(f"{head}\n{_BODY}", furniture_line_patterns("ug"))
             assert out == _BODY
 
     def test_a_body_line_that_starts_with_an_act_number_stays(self) -> None:
-        line = "Act 3 of 2001 is repealed by this Act"
-        assert _strip_furniture_lines(line, furniture_line_patterns("ug")) == line
+        for line in (
+            "Act 3 of 2001 is repealed by this Act",
+            "Act 3 amends the Water Act",
+            "act 9 village water supply act",
+        ):
+            assert _strip_furniture_lines(line, furniture_line_patterns("ug")) == line
 
     def test_a_head_fused_into_a_sentence_is_scrubbed(self) -> None:
         line = (

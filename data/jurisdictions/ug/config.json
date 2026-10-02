@@ -11,7 +11,6 @@
     "eng"
   ],
   "authoritative_language": "eng",
-  "note": "Legislation is enacted and published in English. Acts as passed appear in the Uganda Gazette Acts Supplement (Uganda Printing and Publishing Corporation, Entebbe) and on Parliament's document repository as scanned PDFs; the Laws of Uganda revised edition consolidates Acts under chapter numbers. Drafting follows Westminster conventions: Parts, numbered sections with an inline heading, parenthesised subsections and lettered paragraphs, schedules at the end.",
   "default_document_class": "act",
   "document_classes": {
     "act": {
@@ -19,23 +18,20 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "note": "Acts as passed (Gazette Acts Supplement, Parliament CMIS) and as consolidated in the Laws of Uganda revised edition, where each Act carries a chapter number ('Cap. 230'). The chapter number is a citation, so 'chapter' is deliberately absent from this hierarchy: a revised-edition cover line 'CHAPTER 230' names the Act, and reading it as a container would wrap the whole Act in a phantom chapter.",
       "hierarchy": [
         {
           "local_term": "Part",
           "akn_element": "part",
           "level": "higher",
           "bluebell_keyword": "PART",
-          "numbering": "roman_upper",
-          "note": "'PART IV—CONTRIBUTIONS': roman numeral, em dash, heading in capitals."
+          "numbering": "roman_upper"
         },
         {
           "local_term": "Division",
           "akn_element": "division",
           "level": "higher",
           "bluebell_keyword": "DIVISION",
-          "numbering": "roman_upper",
-          "note": "Seen inside schedules that carry regulations ('DIVISION I—GENERAL PROVISIONS ...', Local Governments (Amendment) (No. 2) Act, 2008, Fifth Schedule)."
+          "numbering": "roman_upper"
         },
         {
           "local_term": "Section",
@@ -43,8 +39,7 @@
           "level": "basic",
           "bluebell_keyword": "SECTION",
           "numbering": "arabic_continuous",
-          "marker_form": "arabic_period",
-          "note": "Sections print as '11. Employee's share of standard contribution': the number and a full stop, then the heading on the same line, with no keyword. The revised edition and Acts as passed share this form."
+          "marker_form": "arabic_period"
         },
         {
           "local_term": "Subsection",
@@ -75,7 +70,6 @@
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "section",
-      "note": "Regulations, orders and rules made under an Act and published in the Gazette's Statutory Instruments Supplement. The basic unit prints as 'regulation' (or 'rule', 'paragraph' in an order) and maps to AKN section with the reg eId prefix. The SI numbering form is recorded as an open ambiguity in validation until a Supplement has been read through the pipeline.",
       "hierarchy": [
         {
           "local_term": "Part",
@@ -120,8 +114,7 @@
     "sample_uris": {
       "Local Governments (Amendment) (No. 2) Act, 2008": "/akn/ug/act/2008/8",
       "Income Tax (Amendment) Act, 2012": "/akn/ug/act/2012/4"
-    },
-    "note": "An Act's FRBR number is its number as passed ('Act 8 of 2008'), read from the cover or the running head. A revised-edition chapter number ('Cap. 230') identifies the consolidation in the Laws of Uganda and is not the FRBR number; minting a work URI from a revised-edition text needs the year and number of the original enactment."
+    }
   },
   "numbering": {
     "act_citation": "{Short Title}, {year}",
@@ -129,14 +122,12 @@
     "citations": {
       "cap": "Cap. {chapter}"
     },
-    "insertion_style": "alphanumeric",
-    "note": "Acts are cited by short title with a comma before the year ('Local Governments (Amendment) (No. 2) Act, 2008') or as 'Act 8 of 2008'; consolidated Acts by chapter ('Cap. 230'). Inserted units take a letter suffix ('(3a)')."
+    "insertion_style": "alphanumeric"
   },
   "enacting_formulae": [
     {
       "text": "BE IT ENACTED by Parliament as follows:",
       "position": "preamble",
-      "note": "Read in Acts of 2008, 2012 and 2024 as ingested; the closing punctuation is a colon or an em dash.",
       "document_class": [
         "act"
       ]
@@ -175,7 +166,6 @@
     }
   ],
   "structuring": {
-    "prompt_variant": null,
     "prompt_additions": "Body-fill task only. Preserve citations, inline markup, and list numbering verbatim. Never emit structural keywords — the scaffold owns hierarchy. Render body text in the legal register of the source language; do not translate or paraphrase."
   },
   "supranational_memberships": [
@@ -195,8 +185,7 @@
     },
     {
       "body": "eac",
-      "direct_effect": "none",
-      "note": "East African Community partner state. Community instruments are not modelled as direct effect in this profile."
+      "direct_effect": "none"
     },
     {
       "body": "comesa",
@@ -232,17 +221,17 @@
     "laws_africa_reference": "ulii.org publishes unofficial consolidations built by Laws.Africa; official texts are the Gazette and the revised edition."
   },
   "ocr_header_patterns": [
-    "^\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+.+$",
-    "^.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5}\\s*$",
-    "^Act\\s+\\d+\\s+(?!of\\b)[A-Z].*\\bAct(\\s+\\d{4})?\\s*$"
+    "^(?-i:\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+[A-Z].*)$",
+    "^(?-i:.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5})\\s*$",
+    "^(?-i:Act\\s+\\d+\\s+(?:(?:[A-Z(][^\\s]*|\\d+\\)|of|and|the|for|in|on|to|by)\\s+)*Act(?:\\s+\\d{4})?)\\s*$"
   ],
   "furniture_line_patterns": [
-    "^\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+.+$",
-    "^.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5}\\s*$",
-    "^Act\\s+\\d+\\s+(?!of\\b)[A-Z].*\\bAct(\\s+\\d{4})?\\s*$"
+    "^(?-i:\\s*\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]\\s+[A-Z].*)$",
+    "^(?-i:.+\\[Cap\\.\\s*\\d+\\.\\s+\\d{3,5})\\s*$",
+    "^(?-i:Act\\s+\\d+\\s+(?:(?:[A-Z(][^\\s]*|\\d+\\)|of|and|the|for|in|on|to|by)\\s+)*Act(?:\\s+\\d{4})?)\\s*$"
   ],
   "furniture_inline_patterns": [
-    "\\b\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]?\\s+[A-Z][A-Za-z ()]+ Act\\b"
+    "(?-i:\\b\\d{3,5}\\s+Cap\\.\\s*\\d+\\.\\]?\\s+[A-Z][A-Za-z ()]+ Act\\b)"
   ],
   "tier": 4,
   "status": "draft",

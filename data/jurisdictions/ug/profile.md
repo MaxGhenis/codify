@@ -30,6 +30,17 @@ Because the section keyword is absent, the section level declares
 `marker_form: "arabic_period"`; without it the scan finds Parts and nothing
 under them.
 
+## Identifiers
+
+An Act's FRBR number is its number as passed ("Act 8 of 2008"), read from the
+cover or the running head. A revised-edition chapter number ("Cap. 230")
+identifies the consolidation, not the work, so minting a work URI from a
+revised-edition text needs the year and number of the original enactment; the
+revised edition prints them in the History line at the end of the Act. For the
+same reason the Act hierarchy has no chapter level: a revised-edition cover line
+"CHAPTER 230" names the Act, and reading it as a container would wrap the whole
+Act in a phantom chapter.
+
 ## What the scan reads and what it gets wrong
 
 Four Acts were ingested end to end while this profile was written: the National
