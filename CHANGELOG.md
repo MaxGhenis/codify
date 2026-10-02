@@ -65,6 +65,19 @@ New, additive:
   numbers the class's work URI from its title digest (`t-...`) and ignores any
   extracted number, for classes whose serials repeat across issuers and so
   collide. Declaring it requires `frbr.title_identity`.
+- `codify.pipeline.segment`: splits a source holding several acts, such as a
+  gazette issue, without a model call. `segment` returns a `Segmentation`:
+  `single` (the text unchanged), `decided` (one segment per act) or
+  `abstained` (what the evidence could not settle is held whole, with a
+  reconciliation table in plain words). A boundary is a declared act heading
+  that a closing phrase, a numbering restart, a contents entry on its page or
+  a page start agrees with. An adopted text, an attachment, a repeat of the
+  open act's heading, a quotation or a missing enacting formula vetoes one.
+  `segment_volume` reads a bound volume a page at a time, cuts it into issues
+  by the same rule and segments each issue. Configured by the jurisdiction's
+  `segmentation` block: `act_heading_patterns`, `issue_heading_patterns`,
+  `contents_keywords` and `printed_page_pattern`, each pattern refused at load
+  if it does not compile or can match empty text.
 
 ## 0.5.0 (2026-09-20)
 
