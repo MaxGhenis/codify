@@ -1599,3 +1599,83 @@ def test_every_level_has_an_alias_in_the_authoritative_script(code: str) -> None
             if needed - have:
                 missing.append((doctype, entry.local_term, sorted(needed - have)))
     assert not missing, (code, missing)
+
+
+# Words a Spanish or Portuguese profile must spell with their accent. Matching
+# does not fold diacritics, and a label or name is read by people.
+_NEEDS_ACCENT = {
+    "spa": {
+        "republica": "República",
+        "nacion": "Nación",
+        "articulo": "Artículo",
+        "constitucion": "Constitución",
+        "camara": "Cámara",
+        "codigo": "Código",
+        "union": "Unión",
+        "region": "Región",
+        "politica": "Política",
+        "seccion": "Sección",
+        "titulo": "Título",
+        "capitulo": "Capítulo",
+        "parrafo": "Párrafo",
+        "direccion": "Dirección",
+        "procuraduria": "Procuraduría",
+        "contraloria": "Contraloría",
+        "modificase": "Modifícase",
+        "fraccion": "Fracción",
+    },
+    "por": {
+        "republica": "República",
+        "nacao": "Nação",
+        "camara": "Câmara",
+        "constituicao": "Constituição",
+        "orgao": "Órgão",
+        "codigo": "Código",
+        "numero": "Número",
+        "secao": "Seção",
+        "seccao": "Secção",
+        "subsecao": "Subseção",
+        "alinea": "Alínea",
+        "paragrafo": "Parágrafo",
+        "titulo": "Título",
+        "capitulo": "Capítulo",
+        "ministerio": "Ministério",
+        "justica": "Justiça",
+        "publica": "Pública",
+        "diario": "Diário",
+        "uniao": "União",
+        "ordinaria": "Ordinária",
+        "provisoria": "Provisória",
+        "redacao": "Redação",
+        "redaccao": "Redação",
+    },
+}
+_IDENTIFIER_PATHS = ("href", "/eId", "akn_element", "bluebell_keyword", "pattern", "/uri", "/name")
+
+
+@pytest.mark.parametrize("code", _SHIPPED, ids=_SHIPPED)
+def test_spanish_and_portuguese_display_text_carries_its_accents(code: str) -> None:
+    import re
+
+    raw = json.loads((JURISDICTIONS_DIR / code / "config.json").read_text())
+    words: dict[str, str] = {}
+    for lang in ("spa", "por"):
+        if lang in raw["languages"]:
+            words.update(_NEEDS_ACCENT[lang])
+    if not words:
+        return
+    misspelt = []
+    for where, text in _paths(raw):
+        if any(part in where for part in _IDENTIFIER_PATHS):
+            continue
+        for token in re.findall(r"[^\W\d_]+", text):
+            if token.casefold() in words and token.casefold() == _fold(token):
+                misspelt.append((where, token, words[token.casefold()]))
+    assert not misspelt, (code, misspelt)
+
+
+def _fold(text: str) -> str:
+    import unicodedata
+
+    decomposed = unicodedata.normalize("NFD", text)
+    return "".join(c for c in decomposed if unicodedata.category(c) != "Mn").casefold()

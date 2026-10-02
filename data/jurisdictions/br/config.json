@@ -12,7 +12,7 @@
   "authoritative_language": "por",
   "document_classes": {
     "act": {
-      "label": "Lei Ordinaria",
+      "label": "Lei Ordinária",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
@@ -46,14 +46,14 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Secao",
+          "local_term": "Seção",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "roman"
         },
         {
-          "local_term": "Subsecao",
+          "local_term": "Subseção",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
@@ -103,7 +103,7 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Secao",
+          "local_term": "Seção",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
@@ -140,7 +140,7 @@
       ]
     },
     "mp": {
-      "label": "Medida Provisoria",
+      "label": "Medida Provisória",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
@@ -176,7 +176,7 @@
       ]
     },
     "constitution": {
-      "label": "Constituicao Federal",
+      "label": "Constituição Federal",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
@@ -196,14 +196,14 @@
           "numbering": "roman"
         },
         {
-          "local_term": "Secao",
+          "local_term": "Seção",
           "akn_element": "section",
           "level": "higher",
           "bluebell_keyword": "SECTION",
           "numbering": "roman"
         },
         {
-          "local_term": "Subsecao",
+          "local_term": "Subseção",
           "akn_element": "subsection",
           "level": "higher",
           "bluebell_keyword": "SUBSECTION",
@@ -252,12 +252,12 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation": "Lei n. {number}, de {year}",
+    "act_citation": "Lei nº {number}, de {year}",
     "insertion_style": "alphanumeric_hyphenated"
   },
   "amendments": {
     "style": "textual_substitution",
-    "phrasing": "passa a vigorar com a seguinte redacao... (NR)",
+    "phrasing": "passa a vigorar com a seguinte redação... (NR)",
     "cross_reference_format": "lei_number_year"
   },
   "core_tlcs": [
@@ -271,13 +271,13 @@
       "eId": "presidente",
       "class": "TLCRole",
       "href": "/ontology/role/br/presidente",
-      "showAs": "Presidente da Republica"
+      "showAs": "Presidente da República"
     },
     {
       "eId": "dou",
       "class": "TLCObject",
       "href": "/ontology/obj/br/dou",
-      "showAs": "Diario Oficial da Uniao"
+      "showAs": "Diário Oficial da União"
     },
     {
       "eId": "codify",

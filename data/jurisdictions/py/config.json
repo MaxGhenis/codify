@@ -99,7 +99,7 @@
       ]
     },
     "constitution": {
-      "label": "Constitucion Nacional",
+      "label": "Constitución Nacional",
       "akn_element": "act",
       "bluebell_compatible": true,
       "basic_unit": "article",
@@ -153,11 +153,11 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation": "Ley N. {number}/{year}"
+    "act_citation": "Ley N° {number}/{year}"
   },
   "amendments": {
     "style": "textual_modification",
-    "phrasing": "Modificase el Articulo [N], que queda redactado de la siguiente manera:",
+    "phrasing": "Modifícase el Artículo [N], que queda redactado de la siguiente manera:",
     "cross_reference_format": "ley_number_year"
   },
   "core_tlcs": [
@@ -165,19 +165,19 @@
       "eId": "congreso",
       "class": "TLCOrganization",
       "href": "/ontology/org/py/congreso",
-      "showAs": "Congreso de la Nacion Paraguaya"
+      "showAs": "Congreso de la Nación Paraguaya"
     },
     {
       "eId": "presidente",
       "class": "TLCRole",
       "href": "/ontology/role/py/presidente",
-      "showAs": "Presidente de la Republica del Paraguay"
+      "showAs": "Presidente de la República del Paraguay"
     },
     {
       "eId": "gacetaOficial",
       "class": "TLCObject",
       "href": "/ontology/obj/py/gaceta-oficial",
-      "showAs": "Gaceta Oficial de la Republica del Paraguay"
+      "showAs": "Gaceta Oficial de la República del Paraguay"
     },
     {
       "eId": "codify",

@@ -68,7 +68,7 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Número (n.o)",
+          "local_term": "Número (n.º)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -82,7 +82,7 @@
           "numbering": "alpha_lower_parenthesized"
         },
         {
-          "local_term": "Sub-alinea",
+          "local_term": "Sub-alínea",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT"
@@ -144,7 +144,7 @@
           "numbering": "arabic_ordinal"
         },
         {
-          "local_term": "Número (n.o)",
+          "local_term": "Número (n.º)",
           "akn_element": "paragraph",
           "level": "subdivision",
           "bluebell_keyword": "PARAGRAPH",
@@ -158,7 +158,7 @@
           "numbering": "alpha_lower_parenthesized"
         },
         {
-          "local_term": "Sub-alinea",
+          "local_term": "Sub-alínea",
           "akn_element": "indent",
           "level": "subdivision",
           "bluebell_keyword": "INDENT"
@@ -247,12 +247,12 @@
     "date_calendar": "gregorian"
   },
   "numbering": {
-    "act_citation": "Lei n.o {number}/{year}",
+    "act_citation": "Lei n.º {number}/{year}",
     "insertion_style": "hyphenated_alpha"
   },
   "amendments": {
     "style": "textual_civil",
-    "phrasing": "O artigo X.o da Lei n.o Y/YYYY passa a ter a seguinte redaccao:",
+    "phrasing": "O artigo X.º da Lei n.º Y/YYYY passa a ter a seguinte redação:",
     "cross_reference_format": "type_number_year_date"
   },
   "core_tlcs": [
@@ -266,7 +266,7 @@
       "eId": "presidente",
       "class": "TLCRole",
       "href": "/ontology/role/tl/presidente-da-republica",
-      "showAs": "Presidente da Republica"
+      "showAs": "Presidente da República"
     },
     {
       "eId": "governo",
@@ -278,7 +278,7 @@
       "eId": "jornalDaRepublica",
       "class": "TLCObject",
       "href": "/ontology/obj/tl/jornal-da-republica",
-      "showAs": "Jornal da Republica"
+      "showAs": "Jornal da República"
     },
     {
       "eId": "untaet",
