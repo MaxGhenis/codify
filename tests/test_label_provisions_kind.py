@@ -1,4 +1,4 @@
-"""The static_site_export migration widens runs_kind_check and nothing else."""
+"""The label_provisions migration widens runs_kind_check and nothing else."""
 
 from __future__ import annotations
 
@@ -14,26 +14,27 @@ from alembic.script import ScriptDirectory
 from sqlalchemy.engine import Connection
 
 _ROOT = Path(__file__).resolve().parents[1]
-_REVISION = "0021_static_site_export_kind"
+_REVISION = "0022_label_provisions_kind"
 
 
 def _migration() -> ModuleType:
     path = _ROOT / f"codify/migrations/versions/{_REVISION}.py"
-    spec = importlib.util.spec_from_file_location("static_site_export_kind", path)
+    spec = importlib.util.spec_from_file_location("label_provisions_kind", path)
     assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
-def test_revision_follows_embeddings() -> None:
+def test_revision_is_the_single_head_after_static_site_export() -> None:
     scripts = ScriptDirectory.from_config(Config(str(_ROOT / "alembic.ini")))
+    assert scripts.get_heads() == [_REVISION]
     rev = scripts.get_revision(_REVISION)
-    assert rev is not None and rev.down_revision == "0020_embeddings_by_jurisdiction"
+    assert rev is not None and rev.down_revision == "0021_static_site_export_kind"
 
 
 def test_adds_only_the_new_run_kind() -> None:
-    assert _migration()._RUN_KINDS == ("static_site_export",)
+    assert _migration()._RUN_KINDS == ("label_provisions",)
 
 
 @pytest.fixture
@@ -82,8 +83,8 @@ def test_upgrade_admits_kind_idempotently_and_downgrade_restores(conn: Connectio
     before = _definition(conn)
     _invoke(conn, "upgrade")
     after = _definition(conn)
-    assert "static_site_export" in after and "other_kind" in after
-    conn.exec_driver_sql("INSERT INTO runs VALUES (2, 'static_site_export')")
+    assert "label_provisions" in after and "other_kind" in after
+    conn.exec_driver_sql("INSERT INTO runs VALUES (2, 'label_provisions')")
     conn.exec_driver_sql("DELETE FROM runs WHERE id = 2")
     _invoke(conn, "upgrade")
     assert _definition(conn) == after
@@ -95,7 +96,7 @@ def test_upgrade_admits_kind_idempotently_and_downgrade_restores(conn: Connectio
 @pytest.mark.integration
 def test_populated_downgrade_refuses(conn: Connection) -> None:
     _invoke(conn, "upgrade")
-    conn.exec_driver_sql("INSERT INTO runs VALUES (2, 'static_site_export')")
+    conn.exec_driver_sql("INSERT INTO runs VALUES (2, 'label_provisions')")
     before = _definition(conn)
     with pytest.raises(RuntimeError, match="retains .* evidence"):
         _invoke(conn, "downgrade")
