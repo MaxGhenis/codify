@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 from bisect import bisect_right
-from collections import deque
+from collections import Counter, deque
 from collections.abc import Generator, Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from functools import lru_cache
@@ -281,6 +281,8 @@ def _contents(
     body = [m for m in markers if m.offset not in as_entries]
     # A quoted act line is cited text, never an entry.
     live = [h for h in headings if not _quoted(text, h.start, country)]
+    # An act named once in the whole text cannot be a listed act with a body.
+    named = Counter(h.key for h in live)
     for found in _live(keyword.finditer(text), text, country):
         if _within(found.start(), blocks):
             continue
@@ -298,7 +300,14 @@ def _contents(
                 nested = next((o for o in listed if o > current.match_end), stop)
                 page = _reference(text, current.match_end, min(stop, nested), pages, country)
                 near = stop - current.match_end <= _ENTRY_MAX_CHARS
-                if page is None and heading is not None and heading.start < end and near:
+                wrapped = heading is not None and named[heading.key] == 1
+                if (
+                    page is None
+                    and wrapped
+                    and heading is not None
+                    and heading.start < end
+                    and near
+                ):
                     # A citation wrapped onto its own line, inside the entry.
                     last = heading
                     continue
@@ -839,6 +848,8 @@ class _OpenIssue:
     pages: list[SourcePage] = field(default_factory=list)
     # Issue headings read as citations, reported with the issue's acts.
     citations: list[ReconciliationRow] = field(default_factory=list)
+    # Why the evidence could not settle an issue heading: the issue is held whole.
+    held: list[str] = field(default_factory=list)
 
 
 def segment_volume(
@@ -878,17 +889,20 @@ def segment_volume(
                 continue
             ahead = list(islice(buffer, 1, None))
             final = exhausted or len(ahead) >= QUOTE_LOOKAHEAD
-            match, pending = _issue_heading(quotes, head, found, ahead, final)
+            matches, pending = _issue_heading(quotes, head, found, ahead, final)
             # Decided once a later page is read: a restart or a closing quote may show there.
             if (not ahead or pending) and not exhausted:
                 break
             buffer.popleft()
-            if match is not None and _read_quotes(quotes, [head.text[: match.start()]])[0].open:
+            first = matches[0] if matches else None
+            if first is not None and _read_quotes(quotes, [head.text[: first.start()]])[0].open:
                 # Read live past open quotes: the openers around it are stray, and dropped.
-                quotes = _read_quotes(_Quotes(ltr=quotes.ltr), [head.text[match.start() :]])[0]
+                quotes = _read_quotes(_Quotes(ltr=quotes.ltr), [head.text[first.start() :]])[0]
             else:
                 quotes = _read_quotes(quotes, [head.text])[0]
-            issue = yield from _settle(issue, head, match, ahead, printed, closing, config, doctype)
+            issue = yield from _settle(
+                issue, head, matches, ahead, printed, closing, config, doctype
+            )
     if issue.pages:
         yield _close(issue, config, doctype)
 
@@ -896,32 +910,30 @@ def segment_volume(
 def _settle(
     issue: _OpenIssue,
     page: SourcePage,
-    match: re.Match[str] | None,
+    matches: list[re.Match[str]],
     ahead: list[SourcePage],
     printed: re.Pattern[str] | None,
     closing: re.Pattern[str] | None,
     config: JurisdictionConfig,
     doctype: str | None,
 ) -> Generator[Issue, None, _OpenIssue]:
-    """Close the open issue at `page` if its unquoted heading `match` is agreed, else
-    absorb the page."""
-    prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
-    context = PAGE_SEPARATOR.join([prefix + page.text, *(p.text for p in ahead)])
-    if match is None or not issue.pages:
-        if match is not None:
+    """Close the open issue at `page` if the evidence agrees one of its unquoted
+    headings `matches` opens an issue, hold it where the evidence cannot tell two
+    apart, else absorb the page."""
+    if not matches or not issue.pages:
+        if matches:
             # The volume's first issue: its heading names it, nothing to close.
-            issue.heading, issue.key = _line(page.text, match), _key(match)
+            issue.heading, issue.key = _line(page.text, matches[0]), _key(matches[0])
         issue.pages.append(page)
         return issue
-    heading, key = _line(page.text, match), _key(match)
+    prefix = "".join(p.text + PAGE_SEPARATOR for p in issue.pages)
+    context = PAGE_SEPARATOR.join([prefix + page.text, *(p.text for p in ahead)])
     issue_pages = issue.pages
-    signals: list[str] = []
-    if _bare(page.text[: page.text.rfind("\n", 0, match.start()) + 1], printed):
-        signals.append("page_start")
+    shared: list[str] = []
     # The page before, read in the open issue's quote context.
     end = len(prefix) - len(PAGE_SEPARATOR)
     if _closes(context, end - len(issue_pages[-1].text), end, closing, config, doctype):
-        signals.append("closing")
+        shared.append("closing")
     seen = [
         n for p in issue_pages if (n := _printed_number(p.text, p.furniture, printed)) is not None
     ]
@@ -932,16 +944,55 @@ def _settle(
     ]
     # Any fall across the window: the new issue's numbers may start a page late.
     if seen and any(b < a for a, b in pairwise([seen[-1], *fresh])):
-        signals.append("restart")
+        shared.append("restart")
+    # One heading per act named, each with the evidence that is its own.
+    distinct: list[re.Match[str]] = []
+    for m in matches:
+        if all(_key(m) != _key(d) for d in distinct):
+            distinct.append(m)
+    own = {id(m): _own_signals(page.text, m, printed, seen[-1] if seen else None) for m in distinct}
+    backed = [m for m in distinct if own[id(m)]]
+    if len(distinct) > 1 and len(backed) != 1 and (shared or backed):
+        labels = " and ".join(repr(_line(page.text, m)) for m in distinct)
+        issue.held.append(f"issue headings {labels} on PDF page {page.page}: no signal tells which")
+        issue.pages.append(page)
+        return issue
+    match = backed[0] if backed else distinct[0]
+    signals = [*own[id(match)], *shared]
     if signals:
         yield _close(issue, config, doctype)
+        heading, key = _line(page.text, match), _key(match)
         issue = _OpenIssue(heading=heading, key=key, status="corroborated", signals=tuple(signals))
     else:
-        issue.citations.append(
-            ReconciliationRow("heading", heading, key, "citation", pdf_page=page.page)
-        )
+        issue.citations += [
+            ReconciliationRow(
+                "heading", _line(page.text, m), _key(m), "citation", pdf_page=page.page
+            )
+            for m in distinct
+        ]
     issue.pages.append(page)
     return issue
+
+
+def _own_signals(
+    text: str, match: re.Match[str], printed: re.Pattern[str] | None, last: int | None
+) -> list[str]:
+    """Evidence belonging to one heading on a page: nothing but furniture above it,
+    or a printed page number starting again in the lines just below it."""
+    signals = []
+    if _bare(text[: text.rfind("\n", 0, match.start()) + 1], printed):
+        signals.append("page_start")
+    below = [line.strip() for line in text[match.end() :].splitlines()[1:] if line.strip()]
+    numbers = [
+        int(normalise_digits(n))
+        for line in below[:_EDGE_LINES]
+        if printed is not None and (hit := printed.search(line))
+        for n in hit.groups()
+        if n and normalise_digits(n).isdecimal()
+    ]
+    if last is not None and numbers and numbers[0] < last:
+        signals.append("restart")
+    return signals
 
 
 _QUOTE_GLYPHS = re.compile(
@@ -987,23 +1038,26 @@ def _issue_heading(
     found: list[re.Match[str]],
     ahead: list[SourcePage],
     final: bool,
-) -> tuple[re.Match[str] | None, bool]:
-    """The page's first heading outside a quotation, and whether one still waits on a
+) -> tuple[list[re.Match[str]], bool]:
+    """The page's headings outside a quotation, and whether one still waits on a
     quotation that has not closed in the pages read; when `final`, it reads as stray."""
+    live: list[re.Match[str]] = []
     for match in found:
         if _text_start(match) is None:
             continue
         here, _ = _read_quotes(state, [page.text[: match.start()]])
         if not here.open:
-            return match, False
+            live.append(match)
+            continue
         rest = [page.text[match.start() :], *(p.text for p in ahead)]
         _, verdict = _read_quotes(here, rest, around=len(here.open))
         if verdict == "closed":
             continue
         if verdict == "stray" or final:
-            return match, False
-        return None, True
-    return None, False
+            live.append(match)
+            continue
+        return [], True
+    return live, False
 
 
 def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -> Issue:
@@ -1021,6 +1075,10 @@ def _close(issue: _OpenIssue, config: JurisdictionConfig, doctype: str | None) -
     text = PAGE_SEPARATOR.join(bodies)
     furniture = {p.page: p.furniture for p in issue.pages if p.furniture}
     result = segment(text, spans, config=config, furniture=furniture, doctype=doctype)
+    if issue.held:
+        first, last = issue.pages[0].page, issue.pages[-1].page
+        whole = HeldSpan(0, len(text), first, last, "; ".join(issue.held), text)
+        result = Segmentation("abstained", (), (whole,), result.reconciliation)
     if issue.citations:
         result = replace(result, reconciliation=(*result.reconciliation, *issue.citations))
     return Issue(

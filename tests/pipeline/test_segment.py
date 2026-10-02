@@ -1376,3 +1376,42 @@ def test_a_left_curly_inside_its_own_span_settles_the_heading_at_once(
     first = next(segment_volume(pages(), config=config))
     assert (first.key, first.last_page) == ("11", 2)
     assert max(read) == 4
+
+
+def test_a_contents_entry_with_no_page_does_not_take_the_next_entrys(
+    config: JurisdictionConfig,
+) -> None:
+    """Unplaced, it is dropped; the next listed act keeps its own page."""
+    pages = _three_act_issue()
+    pages[0].remove("of the Assembly ............ 2")
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    listed = [(r.key, r.printed_page) for r in result.reconciliation if r.source == "contents"]
+    assert listed == [("act 4", 2), ("act 5", 3)]
+
+
+def _two_issue_headings(lines_after_real: list[str]) -> list[list[str]]:
+    """Issue 11, signed, then a page citing issue 9 before issue 12's own heading."""
+    issue = [["ISSUE No. 11", ""], ["- 2 -", "", *_act(1, "THE FERRIES ACT", 3), *_signed()]]
+    filler = ["The keeper shall keep the light."] * 4
+    page = ["Notice", "ISSUE No. 9 lapses.", *filler, "ISSUE No. 12"]
+    issue.append([*page, *lines_after_real, *filler])
+    return issue
+
+
+def test_evidence_of_its_own_picks_the_real_issue_heading(config: JurisdictionConfig) -> None:
+    """The page numbers start again under issue 12, not under the citation."""
+    found = list(segment_volume(_pages([_two_issue_headings(["- 1 -"])]), config=config))
+    assert [(i.key, i.first_page) for i in found] == [("11", 1), ("12", 3)]
+    assert found[1].signals == ("restart", "closing")
+
+
+def test_two_issue_headings_nothing_tells_apart_hold_the_issue(
+    config: JurisdictionConfig,
+) -> None:
+    """Only the closing on the page before agrees, and it agrees with both."""
+    found = list(segment_volume(_pages([_two_issue_headings([])]), config=config))
+    assert [i.key for i in found] == ["11"]
+    held = found[0].segmentation
+    assert held.outcome == "abstained"
+    assert "'ISSUE No. 9 lapses.' and 'ISSUE No. 12'" in held.held[0].reason
