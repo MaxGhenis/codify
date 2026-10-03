@@ -1483,3 +1483,163 @@ def test_a_page_mismatch_holds_from_the_listed_page_to_the_heading(
     assert result.segments == ()
     # Act 5 is no boundary, so pages 3 and 4 hold as one region.
     assert [(h.first_page, h.last_page) for h in result.held] == [(2, 2), (3, 4)]
+
+
+@pytest.mark.parametrize(
+    "lead",
+    [pytest.param([], id="heading-opens-page"), pytest.param(["Notice."], id="heading-mid-page")],
+)
+def test_a_listed_act_is_matched_at_its_listed_page_not_at_a_mention(
+    config: JurisdictionConfig, lead: list[str]
+) -> None:
+    """A prose line naming act 4 on page 2 leaves the entry to act 4's heading on
+    page 3, where the contents lists it, whether or not that heading opens the page."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    first = _act(3, "THE HARBOUR DUES ACT", 3)
+    first[first.index("Section 2. Duty 2") : first.index("Section 2. Duty 2")] = [
+        "ACT No. 4 OF 2020 follows below.",
+        "",
+    ]
+    pages = [
+        contents,
+        ["- 2 -", "", *first, *_signed()],
+        ["- 3 -", "", *lead, *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [(s.key, s.first_page) for s in result.segments] == [("act 3", 2), ("act 4", 3)]
+    rows = [(r.source, r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [
+        ("contents", "matched", 3),
+        ("heading", "heading_only", 2),
+        ("heading", "matched", 3),
+    ]
+
+
+def test_off_its_listed_page_the_heading_opening_a_page_claims_the_entry(
+    config: JurisdictionConfig,
+) -> None:
+    """Listed at page 4, named on pages 2 and 3: the heading opening page 3 is the
+    act's, and its page mismatch is what holds, not the mention's."""
+    contents = _contents_page(
+        [("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 4), ("ACT No. 5 OF 2020", 4)]
+    )
+    first = _act(3, "THE HARBOUR DUES ACT", 3)
+    first[first.index("Section 2. Duty 2") : first.index("Section 2. Duty 2")] = [
+        "ACT No. 4 OF 2020 follows below.",
+        "",
+    ]
+    pages = [
+        contents,
+        ["- 2 -", "", *first, *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+        ["- 4 -", "", *_act(5, "THE BUOYS ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    rows = [(r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [("heading_only", 2), ("page_mismatch", 3), ("page_mismatch", 4)]
+
+
+def _listed_act_with_page_three(lead: list[str]) -> list[list[str]]:
+    """Act 3 then act 4, both listed; `lead` stands above act 4's heading on page 3."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    return [
+        contents,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *lead, *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+
+
+def test_a_quoted_heading_on_the_listed_page_claims_nothing(config: JurisdictionConfig) -> None:
+    lead = ["The form reads: \u201c", "ACT No. 4 OF 2020", "\u201d", ""]
+    text, spans = _join(_listed_act_with_page_three(lead))
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    rows = [(r.source, r.status) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [("contents", "matched"), ("heading", "matched"), ("heading", "vetoed")]
+
+
+def test_a_mention_without_the_formula_claims_nothing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Vetoed for lacking the enacting formula, the mention leaves the entry to the act."""
+    fields = _config(enacting_formula_markers=["BE IT ENACTED"])
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        cfg = load_config(COUNTRY)
+        text, spans = _join(_listed_act_with_page_three(["ACT No. 4 OF 2020 follows.", ""]))
+        result = segment(text, spans, config=cfg)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+    vetoed = [r.veto for r in result.reconciliation if r.status == "vetoed"]
+    assert vetoed == ["carries no enacting formula where the act before it does"]
+
+
+def test_an_earlier_heading_takes_the_claim_a_vetoed_mention_leaves(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Act 4 stands on page 3 but is listed at page 5, where only a formula-less
+    mention names it: act 4 claims the entry, so pages 3 to 5 are in doubt."""
+    fields = _config(enacting_formula_markers=["BE IT ENACTED"])
+    contents = _contents_page(
+        [("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 5), ("ACT No. 5 OF 2020", 4)]
+    )
+    pages = [
+        contents,
+        ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+        ["- 4 -", "", *_act(5, "THE BUOYS ACT", 3), *_signed()],
+        ["- 5 -", "", "ACT No. 4 OF 2020 follows.", "", "The keeper shall keep the light."],
+    ]
+    with isolated_configs(monkeypatch, tmp_path / "j", {COUNTRY: fields}):
+        cfg = load_config(COUNTRY)
+        text, spans = _join(pages)
+        result = segment(text, spans, config=cfg)
+    rows = [(r.source, r.status, r.pdf_page) for r in result.reconciliation if r.key == "act 4"]
+    assert sorted(rows) == [
+        ("contents", "page_mismatch", 5),
+        ("heading", "page_mismatch", 3),
+        ("heading", "vetoed", 5),
+    ]
+    assert all(s.last_page is not None and s.last_page < 3 for s in result.segments)
+    assert max(h.last_page or 0 for h in result.held) == 5
+
+
+def test_a_mention_before_the_first_act_does_not_open_the_source(
+    config: JurisdictionConfig,
+) -> None:
+    """A notice naming act 4 above act 3 on page 2 claims no entry, so act 3 opens."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 2), ("ACT No. 4 OF 2020", 3)])
+    notice = ["Notice.", "ACT No. 4 OF 2020 follows below.", ""]
+    pages = [
+        contents,
+        ["- 2 -", "", *notice, *_act(3, "THE HARBOUR DUES ACT", 3), *_signed()],
+        ["- 3 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "decided"
+    assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_an_act_continuing_under_a_repeated_heading_is_held(config: JurisdictionConfig) -> None:
+    """Act 3 opens page 2 and repeats its heading on page 3, where the contents lists
+    it: neither part is emitted as the act alone."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 3), ("ACT No. 4 OF 2020", 4)])
+    opened = ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 2)]
+    repeat = ["- 3 -", "", "ACT No. 3 OF 2020", "", "Section 3. Duty 3", "Section 4. Duty 4"]
+    pages = [
+        contents,
+        opened,
+        [*repeat, "", *_signed()],
+        ["- 4 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "abstained"
+    assert [s.key for s in result.segments] == ["act 4"]
+    # No act opens before the repeat, so the contents page holds with page 2.
+    assert [(h.first_page, h.last_page) for h in result.held] == [(1, 2), (3, 3)]
+    assert all("and its repeat on PDF page 3" in h.reason for h in result.held)

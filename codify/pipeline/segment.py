@@ -544,13 +544,35 @@ def _decide(
     markers: list[_Marker],
     rules: _Rules,
 ) -> Segmentation:
-    # Where a contents listing exists, only a heading it lists can open the source.
+    """Reconcile to a fixpoint: a claimant the pass vetoes is excluded from the
+    claims and the pass runs again, at most once per heading."""
+    excluded: set[int] = set()
+    while True:
+        eligible = [c for c in candidates if id(c) not in excluded]
+        claims = _claims(text, eligible, entries, pages)
+        result, vetoed = _decide_pass(text, pages, candidates, entries, markers, rules, claims)
+        newly = {id(h) for h in vetoed if claims.get(h.key) is h} - excluded
+        if not newly:
+            return result
+        excluded |= newly
+
+
+def _decide_pass(
+    text: str,
+    pages: _Pages,
+    candidates: list[_Heading],
+    entries: list[_Entry],
+    markers: list[_Marker],
+    rules: _Rules,
+    claims: dict[str, _Heading],
+) -> tuple[Segmentation, list[_Heading]]:
+    # Where a contents listing exists, only the heading claiming an entry can open.
     listed = {e.key for e in entries}
     first = next(
         (
             c
             for c in candidates
-            if (not entries or c.key in listed)
+            if (not entries or claims.get(c.key) is c)
             and not _veto(text, c, None, len(text), markers, rules)
         ),
         None,
@@ -564,6 +586,9 @@ def _decide(
     unmatched = list(entries)
     # An entry another heading names is that heading's, never a mismatch for this one.
     named = {c.key for c in candidates}
+    vetoed: list[_Heading] = []
+    # Headings in doubt so far, for a later claimant of the same act to answer to.
+    doubted: list[_Heading] = []
     open_heading: _Heading | None = None
     previous = 0
     for index, heading in enumerate(candidates):
@@ -572,6 +597,7 @@ def _decide(
         veto = "" if is_opening else _veto(text, heading, open_heading, following, markers, rules)
         if veto:
             rows.append(_row(heading, "vetoed", veto=veto))
+            vetoed.append(heading)
             continue
         signals = (
             ()
@@ -581,7 +607,7 @@ def _decide(
         status: Status
         entry: _Entry | None = None
         if entries:
-            status, entry = _against_contents(heading, entries, unmatched, named)
+            status, entry = _against_contents(heading, entries, unmatched, named, claims)
             if entry is not None:
                 unmatched.remove(entry)
                 rows.append(_entry_row(entry, status))
@@ -591,6 +617,14 @@ def _decide(
             status = "opening" if is_opening else "corroborated" if signals else "citation"
         row = _row(heading, status, signals)
         rows.append(row)
+        earlier = next((d for d in doubted if d.key == heading.key), None)
+        if claims.get(heading.key) is heading and earlier is not None:
+            # The act opened earlier and its entry went to a repeat: hold both.
+            why = (
+                f"{earlier.label!r} on PDF page {earlier.page} and its repeat on PDF page"
+                f" {heading.page}, where the contents lists it: which opens the act is unclear"
+            )
+            doubts.append(((earlier.start, heading.start), why))
         if status in ("matched", "corroborated", "opening"):
             if not is_opening:
                 decided.append((heading, signals))
@@ -602,6 +636,7 @@ def _decide(
                 # Everything between where the listing puts the act and where it stands.
                 at = (min(listed_at, heading.start), max(listed_at, heading.start))
             doubts.append((at, row.describe()))
+            doubted.append(heading)
         if is_opening:
             open_heading, previous = heading, heading.start
     for entry in unmatched:
@@ -610,8 +645,8 @@ def _decide(
         begins = pages.start_of(entry.pdf_page) if entry.pdf_page is not None else None
         doubts.append(((begins, begins) if begins is not None else None, row.describe()))
     if not decided and not doubts:
-        return _single(text, pages.spans, tuple(rows))
-    return _assemble(text, pages, opening, decided, doubts, tuple(rows))
+        return _single(text, pages.spans, tuple(rows)), vetoed
+    return _assemble(text, pages, opening, decided, doubts, tuple(rows)), vetoed
 
 
 def _bound(
@@ -701,11 +736,31 @@ def _signals(
     return tuple(signals)
 
 
+def _claims(
+    text: str, candidates: list[_Heading], entries: list[_Entry], pages: _Pages
+) -> dict[str, _Heading]:
+    """The heading each listed act's entry belongs to, among those naming it: the
+    first on the listed page, else the first opening its page, else the first."""
+    claims: dict[str, _Heading] = {}
+    for entry in entries:
+        same = [c for c in candidates if c.key == entry.key]
+        if same:
+            claims[entry.key] = next(
+                (c for c in same if c.page == entry.pdf_page),
+                next((c for c in same if _page_start(text, c, pages)), same[0]),
+            )
+    return claims
+
+
 def _against_contents(
-    heading: _Heading, entries: list[_Entry], unmatched: list[_Entry], named: set[str]
+    heading: _Heading,
+    entries: list[_Entry],
+    unmatched: list[_Entry],
+    named: set[str],
+    claims: dict[str, _Heading],
 ) -> tuple[Status, _Entry | None]:
     same = next((e for e in unmatched if e.key == heading.key), None)
-    if same is not None:
+    if same is not None and claims.get(heading.key) is heading:
         return ("matched" if same.pdf_page == heading.page else "page_mismatch"), same
     if any(e.key == heading.key for e in entries):
         # Listed once and already claimed: a second heading for one entry.

@@ -23,6 +23,12 @@ New, additive:
   and `printed_page_pattern`, each pattern refused at load if it does not
   compile or can match empty text.
 
+Fixed:
+
+- `segment`: where several headings name one listed act, the contents entry
+  goes to the one on its listed page, so a prose mention elsewhere no longer
+  makes the source abstain.
+
 ## 0.6.0 (2026-10-02)
 
 Eight breaks, so the minor moves, as `VERSIONING.md` prescribes while the major
