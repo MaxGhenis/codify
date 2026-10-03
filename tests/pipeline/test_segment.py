@@ -1622,3 +1622,24 @@ def test_a_mention_before_the_first_act_does_not_open_the_source(
     result = segment(text, spans, config=config)
     assert result.outcome == "decided"
     assert [s.key for s in result.segments] == ["act 3", "act 4"]
+
+
+def test_an_act_continuing_under_a_repeated_heading_is_held(config: JurisdictionConfig) -> None:
+    """Act 3 opens page 2 and repeats its heading on page 3, where the contents lists
+    it: neither part is emitted as the act alone."""
+    contents = _contents_page([("ACT No. 3 OF 2020", 3), ("ACT No. 4 OF 2020", 4)])
+    opened = ["- 2 -", "", *_act(3, "THE HARBOUR DUES ACT", 2)]
+    repeat = ["- 3 -", "", "ACT No. 3 OF 2020", "", "Section 3. Duty 3", "Section 4. Duty 4"]
+    pages = [
+        contents,
+        opened,
+        [*repeat, "", *_signed()],
+        ["- 4 -", "", *_act(4, "THE LIGHTHOUSE ACT", 3), *_signed()],
+    ]
+    text, spans = _join(pages)
+    result = segment(text, spans, config=config)
+    assert result.outcome == "abstained"
+    assert [s.key for s in result.segments] == ["act 4"]
+    # No act opens before the repeat, so the contents page holds with page 2.
+    assert [(h.first_page, h.last_page) for h in result.held] == [(1, 2), (3, 3)]
+    assert all("and its repeat on PDF page 3" in h.reason for h in result.held)

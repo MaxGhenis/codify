@@ -587,6 +587,8 @@ def _decide_pass(
     # An entry another heading names is that heading's, never a mismatch for this one.
     named = {c.key for c in candidates}
     vetoed: list[_Heading] = []
+    # Headings in doubt so far, for a later claimant of the same act to answer to.
+    doubted: list[_Heading] = []
     open_heading: _Heading | None = None
     previous = 0
     for index, heading in enumerate(candidates):
@@ -615,6 +617,14 @@ def _decide_pass(
             status = "opening" if is_opening else "corroborated" if signals else "citation"
         row = _row(heading, status, signals)
         rows.append(row)
+        earlier = next((d for d in doubted if d.key == heading.key), None)
+        if claims.get(heading.key) is heading and earlier is not None:
+            # The act opened earlier and its entry went to a repeat: hold both.
+            why = (
+                f"{earlier.label!r} on PDF page {earlier.page} and its repeat on PDF page"
+                f" {heading.page}, where the contents lists it: which opens the act is unclear"
+            )
+            doubts.append(((earlier.start, heading.start), why))
         if status in ("matched", "corroborated", "opening"):
             if not is_opening:
                 decided.append((heading, signals))
@@ -626,6 +636,7 @@ def _decide_pass(
                 # Everything between where the listing puts the act and where it stands.
                 at = (min(listed_at, heading.start), max(listed_at, heading.start))
             doubts.append((at, row.describe()))
+            doubted.append(heading)
         if is_opening:
             open_heading, previous = heading, heading.start
     for entry in unmatched:
