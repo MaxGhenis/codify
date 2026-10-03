@@ -62,6 +62,24 @@ def test_the_number_match_does_not_fire_on_a_substring() -> None:
     assert not _text_names_law("صدر سنة ١٩٣٠ بشأن الأملاك", "/akn/xa/act/1934/30", None)
 
 
+@pytest.mark.parametrize(
+    ("text", "uri"),
+    [
+        # The drafter pads; the URI does not.
+        ("Act No. 05 of 2020", "/akn/xa/act/2020/5"),
+        # Both pad: the URI's zeros are stripped before the match.
+        ("Act No. 0820 of 2024", "/akn/xa/act/2024/0820"),
+    ],
+)
+def test_a_zero_padded_number_in_the_text_still_names_the_instrument(text: str, uri: str) -> None:
+    assert _text_names_law(text, uri, None)
+
+
+def test_padding_does_not_let_a_longer_number_match() -> None:
+    """`105` is not `05` padded."""
+    assert not _text_names_law("Act No. 105 of 2020", "/akn/xa/act/2020/5", None)
+
+
 def test_the_version_is_ahead_of_the_first_policy() -> None:
     """The selector re-examines rows below this; leaving it at 1 would strand
     every wrong stamp the first policy wrote."""
