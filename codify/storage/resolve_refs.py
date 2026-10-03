@@ -128,7 +128,9 @@ def _text_names_law(source_text: str, work_uri: str, *titles: str | None) -> str
     number, year = (_normalised(part) for part in _number_and_year(work_uri))
     if number and year:
         on_boundary = r"(?<![0-9\w]){}(?![0-9\w])"
-        if re.search(on_boundary.format(re.escape(number)), text) and re.search(
+        # The URI's zeros are already gone; a drafter may still write them.
+        padded = ("0*" if number[0].isdigit() else "") + re.escape(number)
+        if re.search(on_boundary.format(padded), text) and re.search(
             on_boundary.format(re.escape(year)), text
         ):
             return "number_and_year"
