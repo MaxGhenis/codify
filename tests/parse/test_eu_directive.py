@@ -46,7 +46,7 @@ def test_detect_format_akn4eu() -> None:
 
 
 def test_detect_format_formex() -> None:
-    for root in ("DOCUMENT", "ACT", "DOC", "DIR", "REG"):
+    for root in ("DOCUMENT", "ACT", "DOC", "DIR", "REG", "GENERAL"):
         assert _detect_format(f"<{root}/>") == "formex"
 
 
@@ -146,6 +146,60 @@ def test_frbr_from_formex_bib_doc() -> None:
 def test_formex_rejects_toc_stubs(fmx: str, match: str) -> None:
     with pytest.raises(FormexNotAnActError, match=match):
         formex_to_akn4eu(fmx)
+
+
+# Older FORMEX publishes some acts under a GENERAL root, the act's parts inside
+# CONTENTS. Synthetic text in the shape Cellar serves.
+_GENERAL = (
+    '<?xml version="1.0" encoding="UTF-8"?><GENERAL'
+    ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
+    ' xsi:noNamespaceSchemaLocation="http://formex.publications.eu.int/schema/formex-02.00-20050101.xd">'
+    "<BIB.INSTANCE><DOCUMENT.REF><COLL>L</COLL><NO.OJ>345</NO.OJ><YEAR>2042</YEAR>"
+    "<LG.OJ>EN</LG.OJ><PAGE.FIRST>1</PAGE.FIRST></DOCUMENT.REF>"
+    '<DATE ISO="20420105">20420105</DATE><LG.DOC>EN</LG.DOC>'
+    '<NO.DOC FORMAT="YN" TYPE="OJ"><NO.CURRENT>7</NO.CURRENT><YEAR>2042</YEAR>'
+    "<COM>EC</COM></NO.DOC></BIB.INSTANCE>"
+    '<TITLE><TI><P><HT TYPE="UC">Directive 2042/7/EC of the Council</HT></P>'
+    "<P>on lantern keepers</P></TI></TITLE>"
+    "<CONTENTS><PREAMBLE><PREAMBLE.INIT>THE COUNCIL OF THE EUROPEAN UNION,</PREAMBLE.INIT>"
+    "<GR.VISA><VISA>Having regard to the Treaty,</VISA></GR.VISA>"
+    "<GR.CONSID><GR.CONSID.INIT>Whereas:</GR.CONSID.INIT><CONSID><NP><NO.P>(1)</NO.P>"
+    "<TXT>Lantern keepers should be registered.</TXT></NP></CONSID></GR.CONSID>"
+    "<PREAMBLE.FINAL>HAS ADOPTED THIS DIRECTIVE:</PREAMBLE.FINAL></PREAMBLE>"
+    "<TOC><TOC.BLK><TOC.ITEM><NO.ITEM>TITLE I</NO.ITEM><ITEM.CONT>SCOPE</ITEM.CONT>"
+    "<ITEM.REF>2</ITEM.REF></TOC.ITEM></TOC.BLK></TOC>"
+    "<DIVISION><TITLE><TI><P>TITLE I</P></TI><STI><P>SCOPE</P></STI></TITLE>"
+    '<ARTICLE IDENTIFIER="001"><TI.ART>Article 1</TI.ART><STI.ART>Register</STI.ART>'
+    '<PARAG IDENTIFIER="001.001"><NO.PARAG>1.</NO.PARAG><ALINEA>Member States shall'
+    " keep a register.</ALINEA></PARAG></ARTICLE>"
+    '<ARTICLE IDENTIFIER="002"><TI.ART>Article 2</TI.ART>'
+    "<ALINEA>This Directive is addressed to the Member States.</ALINEA></ARTICLE>"
+    "</DIVISION>"
+    '<FINAL><SIGNATURE><PL.DATE><P>Done at Brussels, <DATE ISO="20420105">5 January 2042'
+    "</DATE>.</P></PL.DATE><SIGNATORY><P>For the Council</P></SIGNATORY></SIGNATURE></FINAL>"
+    "</CONTENTS></GENERAL>"
+)
+
+
+def test_a_general_root_maps_like_an_act() -> None:
+    from lxml import etree
+
+    ns = {"a": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"}
+    xml = formex_to_akn4eu(_GENERAL.encode(), frbr_work_uri=celex_to_frbr("32042L0007"))
+    root = etree.fromstring(xml.encode())
+    assert [a.get("eId") for a in root.iterfind(".//a:body//a:article", ns)] == [
+        "tit_1__art_1",
+        "tit_1__art_2",
+    ]
+    assert len(root.findall(".//a:preamble//a:recital", ns)) == 1
+    assert root.find(".//a:conclusions", ns) is not None
+    assert root.find(".//a:preface/a:longTitle", ns) is not None
+
+
+def test_a_general_root_without_articles_is_not_an_act() -> None:
+    stub = re.sub(r"<DIVISION>.*</DIVISION>", "", _GENERAL)
+    with pytest.raises(FormexNotAnActError, match="zero <ARTICLE>"):
+        formex_to_akn4eu(stub.encode())
 
 
 # --- Integration ----------------------------------------------------------

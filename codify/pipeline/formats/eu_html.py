@@ -62,17 +62,19 @@ class _Act:
     duplicate_paragraphs: int = 0
 
 
+_XML_DECLARATION = re.compile(r"^\ufeff?\s*<\?xml[^>]*\?>", re.IGNORECASE)
+
+
 def is_eurlex_html(text: str) -> bool:
     """HTML 4.01 or XHTML, with or without an XML declaration in front."""
-    head = text.lstrip("\ufeff \t\r\n")[:300].lower()
-    if head.startswith("<?xml"):
-        head = head[head.find("?>") + 2 :].lstrip()
+    head = _XML_DECLARATION.sub("", text[:300]).lstrip("\ufeff \t\r\n").lower()
     return head.startswith("<!doctype html") or head.startswith("<html")
 
 
 def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
     """The act's text blocks in order, and the OJ reference from the page's metadata."""
-    root = html.fromstring(text)
+    # Already decoded: lxml refuses a str that still declares its encoding.
+    root = html.fromstring(_XML_DECLARATION.sub("", text, count=1))
     oj: dict[str, str] = {}
     for meta in root.iter("meta"):
         if meta.get("name") == "DC.source":

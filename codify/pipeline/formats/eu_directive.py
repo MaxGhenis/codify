@@ -148,6 +148,7 @@ def _detect_format(xml: str | bytes) -> Literal["akn4eu", "formex"]:
         "CONS_ACT",
         "ACT",
         "DOC",
+        "GENERAL",
     }:
         return "formex"
     raise ValueError(f"unknown EU XML root element: {root.tag!r}")
@@ -221,6 +222,22 @@ def _frbr_from_formex(xml: str | bytes) -> str:
             number = (number_el.text or "").strip().lstrip("0") or "0"
             return build_frbr_work_uri("eu", doctype, year, number)
     return build_frbr_work_uri("eu", doctype, "0000", "0")
+
+
+def _unwrap_general(src: etree._Element) -> None:
+    """Lift a GENERAL document's CONTENTS children to the root, the shape of an ACT.
+
+    Older FORMEX publishes some acts as GENERAL: BIB.INSTANCE, TITLE, then
+    CONTENTS holding PREAMBLE, DIVISION/ARTICLE and FINAL.
+    """
+    if etree.QName(src).localname != "GENERAL":
+        return
+    contents = src.find("CONTENTS")
+    if contents is None:
+        return
+    for child in list(contents):
+        contents.addprevious(child)
+    src.remove(contents)
 
 
 def _require_act_with_articles(src: etree._Element) -> None:
@@ -1714,6 +1731,7 @@ def formex_to_akn4eu(
     and inline markup (HT, DATE, QUOT, NOTE, FT, REF.DOC.OJ) to AKN4EU.
     """
     src = parse_xml(xml)
+    _unwrap_general(src)
     _require_act_with_articles(src)
 
     expr_date = _formex_date(src)

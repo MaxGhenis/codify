@@ -639,3 +639,51 @@ def test_an_act_nested_inside_an_unclosed_paragraph_still_segments() -> None:
     numbers = [n.text for n in nested.iterfind(".//a:article/a:num", NS)]
     assert numbers == [n.text for n in flat.iterfind(".//a:article/a:num", NS)]
     assert len(numbers) == 4
+
+
+# Cellar's CONVEX XHTML for acts with no FORMEX: an encoding declaration first,
+# then the eli-container layout. Synthetic text in that shape.
+_CONVEX_XHTML = (
+    '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML//EN"'
+    ' "xhtml-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml">'
+    "<!-- CONVEX # converter_version:9.17.0 --><head>\n"
+    '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>\n'
+    "<title>L_2042001EN.01000101.xml</title>\n</head>\n<body>\n"
+    '<table width="100%"><tbody><tr><td><p class="oj-hd-date">2.1.2042</p></td>'
+    '<td><p class="oj-hd-oj">L 1/1</p></td></tr></tbody></table>\n'
+    '<div class="eli-container">\n'
+    '<div class="eli-main-title" id="tit_1">'
+    '<p class="oj-doc-ti">COUNCIL REGULATION (EC) No 7/2042</p>'
+    '<p class="oj-doc-ti">of 1 January 2042</p>'
+    '<p class="oj-doc-ti">on the registration of lantern keepers</p></div>\n'
+    '<div class="eli-subdivision" id="pbl_1">'
+    '<p class="oj-normal">THE COUNCIL OF THE EUROPEAN UNION,</p>'
+    '<div class="eli-subdivision" id="cit_1"><p class="oj-normal">'
+    "Having regard to the Treaty,</p></div>"
+    '<p class="oj-normal">HAS ADOPTED THIS REGULATION:</p></div>\n'
+    '<div class="eli-subdivision" id="art_1"><p class="oj-ti-art">Article 1</p>'
+    '<div id="001.001"><p class="oj-normal">Each keeper shall hold an arrêté.</p></div></div>\n'
+    '<div class="eli-subdivision" id="art_2"><p class="oj-ti-art">Article 2</p>'
+    '<p class="oj-normal">This Regulation shall enter into force on 1 January 2042.</p></div>\n'
+    '<div class="eli-subdivision" id="fnp_1"><div class="oj-final">'
+    '<p class="oj-normal">Done at Brussels, 1 January 2042.</p>'
+    '<p class="oj-signatory">For the Council</p></div></div>\n'
+    "</div>\n</body></html>"
+)
+
+
+def test_xhtml_with_an_encoding_declaration_converts() -> None:
+    _, _, root = _convert(_CONVEX_XHTML)
+    assert [n.text for n in root.iterfind(".//a:article/a:num", NS)] == ["Article 1", "Article 2"]
+    texts = [p.text or "" for p in root.iterfind(".//a:article[@eId='art_1']//a:p", NS)]
+    assert any("arrêté" in t for t in texts)
+
+
+async def test_an_xhtml_file_with_an_encoding_declaration_completes(tmp_path: Path) -> None:
+    source = tmp_path / "32042R0007.html"
+    source.write_bytes(_CONVEX_XHTML.encode("utf-8"))
+    events = [e async for e in dispatch(source, "eu", frbr_work_uri="/akn/eu/act/reg/2042/7")]
+    # Conversion is the stage that refused the declaration; enrichment needs config.
+    failed = [e.error for e in events if getattr(e, "stage", "") == "eu_directive"]
+    assert failed == []
+    assert "Complete" in [type(e).__name__ for e in events]
