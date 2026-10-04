@@ -189,15 +189,9 @@ _RUN_IN_DONE_AT = re.compile(r"(?<=[.:;)])\s+(?=Done at\b)", re.IGNORECASE)
 
 
 def _may_precede_heading(text: str, after_division: bool) -> bool:
-    """A sentence end, a division heading or its title, or capitals; prose runs on."""
+    """A sentence end, or a division heading or its title; prose runs on."""
     text = _RUNNING_HEAD.sub("", text).strip()
-    return (
-        not text
-        or after_division
-        or text[-1] in _SENTENCE_END
-        or bool(_DIVISION.match(text))
-        or not any(c.islower() for c in text)
-    )
+    return not text or after_division or text[-1] in _SENTENCE_END or bool(_DIVISION.match(text))
 
 
 def _join_split_headings(blocks: list[str]) -> list[str]:
@@ -246,12 +240,22 @@ def _split_run_in(blocks: list[str]) -> list[str]:
             out.append(m.group(0))
             start, last = m.end(), number
         rest = block[start:].strip()
-        if last and rest:
-            # A signature run into the last article's text starts the conclusions.
-            out.extend(p.strip() for p in _RUN_IN_DONE_AT.split(rest, maxsplit=1))
-        elif rest:
-            out.append(rest)
+        parts = _RUN_IN_DONE_AT.split(rest, maxsplit=1) if last else [rest]
+        # A signature run into the text starts the conclusions only after the last article.
+        if len(parts) == 2 and _heading_ahead([parts[1], *blocks[index + 1 :]], last):
+            parts = [rest]
+        out.extend(p.strip() for p in parts if p.strip())
     return out
+
+
+def _heading_ahead(blocks: list[str], last: int) -> bool:
+    """Whether the next article's number still appears before any annex."""
+    for block in blocks:
+        if _ANNEX.match(block):
+            return False
+        if any(int(m.group(1)) in (last + 1, last + 2) for m in _RUN_IN.finditer(block)):
+            return True
+    return False
 
 
 def _segment(blocks: list[str], oj: dict[str, str]) -> _Act:

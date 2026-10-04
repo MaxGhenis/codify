@@ -862,3 +862,27 @@ def test_a_split_heading_keeps_a_two_letter_suffix() -> None:
     assert page != _SPLIT_HEADINGS
     _, _, root = _convert(page)
     assert list(_article_texts(root)) == ["art_1", "art_1aa"]
+
+
+def test_a_signature_quoted_inside_an_earlier_article_does_not_end_the_body() -> None:
+    page = _SPLIT_HEADINGS.replace(
+        "<p>A levy shall be payable on lantern oil.</p>",
+        "<p>A levy shall be payable. The receipt shall read: Done at the depot.</p>",
+    )
+    assert page != _SPLIT_HEADINGS
+    _, _, root = _convert(page)
+    texts = _article_texts(root)
+    assert list(texts) == ["art_1", "art_2"]
+    assert texts["art_1"].endswith("The receipt shall read: Done at the depot.")
+
+
+def test_a_capitalised_reference_in_the_preamble_is_not_a_heading() -> None:
+    page = _SPLIT_HEADINGS.replace(
+        "<p>HAS ADOPTED THIS REGULATION:</p>",
+        "<p> SEE ARTICLE 1</p><p>HAS ADOPTED THIS REGULATION:</p>",
+    )
+    assert page != _SPLIT_HEADINGS
+    _, _, root = _convert(page)
+    assert list(_article_texts(root)) == ["art_1", "art_2"]
+    assert root.find(".//a:formula/a:p", NS).text == "HAS ADOPTED THIS REGULATION:"
+    assert "SEE ARTICLE 1" in [p.text for p in root.iterfind(".//a:preamble/a:p", NS)]
