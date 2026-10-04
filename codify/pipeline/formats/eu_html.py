@@ -62,17 +62,21 @@ class _Act:
     duplicate_paragraphs: int = 0
 
 
+# Older renderings drop the `oj-` prefix from these classes.
+_HEADER_CLASS = re.compile(r"^(?:oj-)?hd-")
+_XML_DECLARATION = re.compile(r"^\ufeff?\s*<\?xml[^>]*\?>", re.IGNORECASE)
+
+
 def is_eurlex_html(text: str) -> bool:
     """HTML 4.01 or XHTML, with or without an XML declaration in front."""
-    head = text.lstrip("\ufeff \t\r\n")[:300].lower()
-    if head.startswith("<?xml"):
-        head = head[head.find("?>") + 2 :].lstrip()
+    head = _XML_DECLARATION.sub("", text[:300]).lstrip("\ufeff \t\r\n").lower()
     return head.startswith("<!doctype html") or head.startswith("<html")
 
 
 def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
     """The act's text blocks in order, and the OJ reference from the page's metadata."""
-    root = html.fromstring(text)
+    # Already decoded: lxml refuses a str that still declares its encoding.
+    root = html.fromstring(_XML_DECLARATION.sub("", text, count=1))
     oj: dict[str, str] = {}
     for meta in root.iter("meta"):
         if meta.get("name") == "DC.source":
@@ -85,6 +89,10 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
         container = root.find("body")
         if container is None:
             raise EurlexHtmlError("no body in the HTML")
+    # The XHTML rendering's running header (date, OJ page) is a table, not the title.
+    for table in list(container.iter("table")):
+        if any(_HEADER_CLASS.match(p.get("class") or "") for p in table.iter("p")):
+            table.drop_tree()
     # Cellar's older pages open `<p><TXT_TE>` and never close the `<p>`, so the parser
     # nests the whole act inside it; a paragraph holding paragraphs is unwrapped.
     for outer in [p for p in container.iter("p") if next(p.iterdescendants("p"), None) is not None]:
@@ -96,7 +104,11 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
     images = 0
     for img in list(container.iter("img")):
         images += 1
-        marker = f"[image not transcribed: {img.get('src') or img.get('alt') or ''}]"
+        src = img.get("src") or ""
+        # An inline image's src is the whole picture in base64; its alt names it.
+        alt = img.get("alt") or ""
+        name = alt if src[:5].lower() == "data:" else (src or alt)
+        marker = f"[image not transcribed: {name}]"
         if _inside_block(img, container):
             img.tail = f" {marker} " + (img.tail or "")
         else:
@@ -104,9 +116,15 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
             p.text = marker
             img.addprevious(p)
     blocks: list[str] = []
+    previous_title = False
     for el in container.iter(*_BLOCK_TAGS):
         if _inside_block(el, container):
             continue  # a nested block's text is already in its outer block
+        # The XHTML rendering splits the title over several lines; it is one block.
+        is_title = el.get("class") in ("oj-doc-ti", "doc-ti")
+        if is_title and previous_title:
+            blocks[-1] += " " + " ".join(el.text_content().split())
+            continue
         if el.tag == "tr":
             # A table row is one block, its cells separated; the table's shape is not kept.
             cells = [" ".join(c.text_content().split()) for c in el if c.tag in ("td", "th")]
@@ -115,6 +133,7 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
             joined = " ".join(el.text_content().split())
         if joined:
             blocks.append(joined)
+        previous_title = is_title and bool(joined)
     tables = sum(1 for _ in container.iter("table"))
     return (
         blocks,
