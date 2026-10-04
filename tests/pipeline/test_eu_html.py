@@ -714,3 +714,175 @@ async def test_an_xhtml_file_with_an_encoding_declaration_completes(tmp_path: Pa
     failed = [e.error for e in events if getattr(e, "stage", "") == "eu_directive"]
     assert failed == []
     assert "Complete" in [type(e).__name__ for e in events]
+
+
+def _cellar_page(body: str) -> str:
+    """Body markup in the older Cellar wrapper: `<p><TXT_TE>`, the `<p>` never closed."""
+    return (
+        '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html lang="EN">\n'
+        '<head>\n<meta name="DC.source" content="Official Journal L 034 , 06/02/1991 P. 0012 '
+        '- 0013; ">\n</head>\n<body>\n<div id="TexteOnly">\n<p>\n<TXT_TE>\n'
+        f"{body}\n</TXT_TE>\n</p>\n</div>\n</body>\n</html>"
+    )
+
+
+def _convert_dated(page: str, frbr_work_uri: str) -> str:
+    return html_to_akn4eu(page, frbr_work_uri=frbr_work_uri)
+
+
+def _article_texts(root: etree._Element) -> dict[str, str]:
+    return {
+        a.get("eId"): " ".join(" ".join(a.itertext()).split())
+        for a in root.iterfind(".//a:body/a:article", NS)
+    }
+
+
+# Each heading ends the block before its text, or runs on between two sentences.
+_TRAILING_HEADINGS = _cellar_page(
+    "<p>COMMISSION DECISION  of 14 January 1991  concerning lantern oil  (91/999/EEC)</p>"
+    "<p>  THE COMMISSION OF THE EUROPEAN COMMUNITIES, </p>"
+    "<p> Having regard to the Treaty, and in  particular Article 10 thereof, </p>"
+    "<p> Whereas lantern oil should be labelled; </p>"
+    "<p> HAS ADOPTED THIS DECISION:    Article 1 </p>"
+    "<p> 1. Lantern oil shall be labelled. </p>"
+    "<p> 2. The label shall name the refinery.  Article 2 </p>"
+    "<p> Article 3 shall apply from 1 March 1991.  Article 3  The Member States shall "
+    "amend their rules. They shall inform the Commission thereof.  Article 4 </p>"
+    "<p> This Decision is addressed to the Member States.   Done at Brussels, "
+    "14 January 1991. For the Commission </p>"
+    "<p> Member of the Commission   (1) OJ No L 224, 18. 8. 1990, p. 29.   </p>"
+    "<p> ANNEX  </p><p>Refineries listed. </p>"
+)
+
+
+def test_a_heading_run_into_the_text_around_it_still_heads_its_article() -> None:
+    _, provenance, root = _convert(_TRAILING_HEADINGS)
+    texts = _article_texts(root)
+    assert list(texts) == ["art_1", "art_2", "art_3", "art_4"]
+    assert root.find(".//a:formula/a:p", NS).text == "HAS ADOPTED THIS DECISION:"
+    assert texts["art_1"].endswith("2. The label shall name the refinery.")
+    # The next number opening a sentence in lower case is a reference, not a heading.
+    assert texts["art_2"] == "Article 2 Article 3 shall apply from 1 March 1991."
+    assert texts["art_3"].startswith("Article 3 The Member States shall amend")
+    assert texts["art_4"] == "Article 4 This Decision is addressed to the Member States."
+    conclusions = [p.text for p in root.iterfind(".//a:conclusions/a:p", NS)]
+    assert conclusions[0] == "Done at Brussels, 14 January 1991. For the Commission"
+    assert provenance["html_source"]["annexes"] == 1  # type: ignore[index]
+    assert validate_akn(_convert_dated(_TRAILING_HEADINGS, "/akn/eu/act/dec/1991/999")) == []
+
+
+# Each heading opens its block and the text runs on after it, behind any division title.
+_LEADING_HEADINGS = _cellar_page(
+    "<p>COUNCIL DIRECTIVE of 17 April 1989 on lantern keepers (89/999/EEC)</p>"
+    "<p> THE COUNCIL OF THE EUROPEAN COMMUNITIES, </p>"
+    "<p> Having regard to the Treaty, and in particular Article 54 thereof, </p>"
+    "<p> HAS ADOPTED THIS DIRECTIVE: </p>"
+    "<p>  TITLE I General provisions Article 1 The object of this Directive is: </p>"
+    "<p> (a) to register keepers; </p>"
+    "<p> Article 2 1.  Member States shall keep a register. </p>"
+    "<p> 2.  The register shall be public. </p>"
+    "<p> Article 3   Keepers shall register as laid down in Article 4 Member States' rules."
+    " Article 1 Keepers may appeal. </p>"
+    "<p> 31. 12. 88No L 374/ Article 4  Fees Member States may charge a fee. </p>"
+    "<p>  SECTION II</p>"
+    "<p> Cooperation between Member States Article 5 The bodies shall cooperate. </p>"
+    "<p> Article 7 Member States shall inform the Commission. </p>"
+    "<p> Done at Luxembourg, 17 April 1989. </p>"
+)
+
+
+def test_a_heading_opening_its_text_heads_its_article_behind_a_division_or_page_head() -> None:
+    _, _, root = _convert(_LEADING_HEADINGS)
+    texts = _article_texts(root)
+    # Article 6 is absent from the page: Article 7 still heads, and the gap is visible.
+    assert list(texts) == ["art_1", "art_2", "art_3", "art_4", "art_5", "art_7"]
+    assert texts["art_1"].startswith("Article 1 The object of this Directive is:")
+    art_2 = root.find(".//a:article[@eId='art_2']", NS)
+    assert [p.get("eId") for p in art_2.iterfind("a:paragraph", NS)] == [
+        "art_2__para_1",
+        "art_2__para_2",
+    ]
+    # Mid-sentence, or out of sequence, a reference stays prose even before a capital.
+    assert texts["art_3"] == (
+        "Article 3 Keepers shall register as laid down in Article 4 Member States' rules."
+        " Article 1 Keepers may appeal."
+    )
+    # The running head is dropped; a division heading is not modelled and stays as text.
+    assert texts["art_4"] == (
+        "Article 4 Fees Member States may charge a fee."
+        " SECTION II Cooperation between Member States"
+    )
+    assert texts["art_5"] == "Article 5 The bodies shall cooperate."
+
+
+# `Article` and its number arrive as two blocks.
+_SPLIT_HEADINGS = _cellar_page(
+    "<p>COUNCIL REGULATION (EEC) No 9999/92 of 28 December  1992 on lantern oil</p>"
+    "<p>THE  COUNCIL OF THE EUROPEAN COMMUNITIES,</p>"
+    "<p> Having regard to the Treaty, and in particular Article  43 thereof,</p>"
+    "<p>HAS ADOPTED THIS REGULATION:</p><p> </p><p></p>"
+    "<p>Article</p><p> 1</p><p>A levy shall be payable on lantern oil.</p>"
+    "<p>Article</p><p> 2</p><p>The levy shall be paid yearly.</p><p> </p>"
+    "<p> Done at Brussels, 28 December 1992.</p><p> For the Council</p>"
+)
+
+
+def test_a_heading_split_from_its_number_still_heads_its_article() -> None:
+    _, _, root = _convert(_SPLIT_HEADINGS)
+    assert _article_texts(root) == {
+        "art_1": "Article 1 A levy shall be payable on lantern oil.",
+        "art_2": "Article 2 The levy shall be paid yearly.",
+    }
+    assert validate_akn(_convert_dated(_SPLIT_HEADINGS, "/akn/eu/act/reg/1992/9999")) == []
+
+
+# A run-in heading takes the same two-letter suffix and capitals signature as a lone one.
+_RUN_IN_SUFFIX_AND_CAPITALS = _cellar_page(
+    "<p>COUNCIL DIRECTIVE of 1 April 1999 on lantern keepers (99/999/EEC)</p>"
+    "<p> HAS ADOPTED THIS DIRECTIVE:  Article 1 </p>"
+    "<p> Keepers shall register.  Article 1AA </p>"
+    "<p> Registers shall be public.   DONE AT Brussels, 1 April 1999. For the Council </p>"
+)
+
+
+def test_a_run_in_heading_keeps_a_two_letter_suffix() -> None:
+    _, _, root = _convert(_RUN_IN_SUFFIX_AND_CAPITALS)
+    assert list(_article_texts(root)) == ["art_1", "art_1aa"]
+
+
+def test_a_run_in_signature_in_capitals_starts_the_conclusions() -> None:
+    _, _, root = _convert(_RUN_IN_SUFFIX_AND_CAPITALS)
+    assert _article_texts(root)["art_1aa"] == "Article 1AA Registers shall be public."
+    conclusions = [p.text for p in root.iterfind(".//a:conclusions/a:p", NS)]
+    assert conclusions == ["DONE AT Brussels, 1 April 1999. For the Council"]
+
+
+def test_a_split_heading_keeps_a_two_letter_suffix() -> None:
+    page = _SPLIT_HEADINGS.replace("<p>Article</p><p> 2</p>", "<p>Article</p><p> 1AA</p>")
+    assert page != _SPLIT_HEADINGS
+    _, _, root = _convert(page)
+    assert list(_article_texts(root)) == ["art_1", "art_1aa"]
+
+
+def test_a_signature_quoted_inside_an_earlier_article_does_not_end_the_body() -> None:
+    page = _SPLIT_HEADINGS.replace(
+        "<p>A levy shall be payable on lantern oil.</p>",
+        "<p>A levy shall be payable. The receipt shall read: Done at the depot.</p>",
+    )
+    assert page != _SPLIT_HEADINGS
+    _, _, root = _convert(page)
+    texts = _article_texts(root)
+    assert list(texts) == ["art_1", "art_2"]
+    assert texts["art_1"].endswith("The receipt shall read: Done at the depot.")
+
+
+def test_a_capitalised_reference_in_the_preamble_is_not_a_heading() -> None:
+    page = _SPLIT_HEADINGS.replace(
+        "<p>HAS ADOPTED THIS REGULATION:</p>",
+        "<p> SEE ARTICLE 1</p><p>HAS ADOPTED THIS REGULATION:</p>",
+    )
+    assert page != _SPLIT_HEADINGS
+    _, _, root = _convert(page)
+    assert list(_article_texts(root)) == ["art_1", "art_2"]
+    assert root.find(".//a:formula/a:p", NS).text == "HAS ADOPTED THIS REGULATION:"
+    assert "SEE ARTICLE 1" in [p.text for p in root.iterfind(".//a:preamble/a:p", NS)]
