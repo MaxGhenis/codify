@@ -681,12 +681,18 @@ def test_xhtml_with_an_encoding_declaration_converts() -> None:
     assert any("arrêté" in t for t in texts)
 
 
-def test_xhtml_title_lines_are_one_title_and_the_running_header_is_not_it() -> None:
-    _, _, root = _convert(_CONVEX_XHTML)
+# The 1990s renderings use the same classes without the `oj-` prefix.
+_CONVEX_UNPREFIXED = _CONVEX_XHTML.replace('class="oj-hd-', 'class="hd-').replace(
+    'class="oj-doc-ti"', 'class="doc-ti"'
+)
+
+
+@pytest.mark.parametrize("page", [_CONVEX_XHTML, _CONVEX_UNPREFIXED], ids=["oj", "unprefixed"])
+def test_xhtml_title_lines_are_one_title_and_the_running_header_is_not_it(page: str) -> None:
+    _, _, root = _convert(page)
     title = " ".join(root.find(".//a:preface", NS).itertext()).split()
     assert " ".join(title) == (
-        "COUNCIL REGULATION (EC) No 7/2042 of 1 January 2042 "
-        "on the registration of lantern keepers"
+        "COUNCIL REGULATION (EC) No 7/2042 of 1 January 2042 on the registration of lantern keepers"
     )
     # The signature carries no day, so the date can only have come from the title.
     assert root.find(".//a:FRBRExpression/a:FRBRdate", NS).get("date") == "2042-01-01"
