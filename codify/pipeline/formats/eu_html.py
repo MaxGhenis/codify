@@ -124,7 +124,6 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
         if is_title and previous_title:
             blocks[-1] += " " + " ".join(el.text_content().split())
             continue
-        previous_title = is_title
         if el.tag == "tr":
             # A table row is one block, its cells separated; the table's shape is not kept.
             cells = [" ".join(c.text_content().split()) for c in el if c.tag in ("td", "th")]
@@ -133,6 +132,7 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
             joined = " ".join(el.text_content().split())
         if joined:
             blocks.append(joined)
+        previous_title = is_title and bool(joined)
     tables = sum(1 for _ in container.iter("table"))
     return (
         blocks,
