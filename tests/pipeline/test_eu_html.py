@@ -855,3 +855,10 @@ def test_a_run_in_signature_in_capitals_starts_the_conclusions() -> None:
     assert _article_texts(root)["art_1aa"] == "Article 1AA Registers shall be public."
     conclusions = [p.text for p in root.iterfind(".//a:conclusions/a:p", NS)]
     assert conclusions == ["DONE AT Brussels, 1 April 1999. For the Council"]
+
+
+def test_a_split_heading_keeps_a_two_letter_suffix() -> None:
+    page = _SPLIT_HEADINGS.replace("<p>Article</p><p> 2</p>", "<p>Article</p><p> 1AA</p>")
+    assert page != _SPLIT_HEADINGS
+    _, _, root = _convert(page)
+    assert list(_article_texts(root)) == ["art_1", "art_1aa"]

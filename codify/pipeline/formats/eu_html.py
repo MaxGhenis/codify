@@ -184,7 +184,7 @@ _SENTENCE_END = ".:;)'\"\u00b4\u2019\u201d"
 _DIVISION = re.compile(r"^(?:(?:TITLE|SECTION|CHAPTER|PART)\s+[IVXLC\d]+\b|[IVXLC]+\.\s)")
 # The OJ page's running head, `31. 12. 88No L 374/`, left in the text at a page break.
 _RUNNING_HEAD = re.compile(r"\d{1,2}\.\s?\d{1,2}\.\s?\d{2}\s*No [LC] \d+/")
-_SPLIT_NUMBER = re.compile(r"^\d{1,3}[A-Za-z]?$")
+_SPLIT_NUMBER = re.compile(r"^\d{1,3}[A-Za-z]{0,2}$")
 _RUN_IN_DONE_AT = re.compile(r"(?<=[.:;)])\s+(?=Done at\b)", re.IGNORECASE)
 
 
