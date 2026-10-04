@@ -176,9 +176,88 @@ def _uncaptured_chars(container: etree._Element) -> int:
     return total
 
 
+# Older Cellar pages run a heading into the text around it: `... loading. Article 2`,
+# `Article 3 The Member States shall ...`, `TITLE I General provisions Article 1 ...`.
+_RUN_IN = re.compile(r"(?<!\w)(?:Article|ARTICLE)[ \u00a0]+(\d+)([A-Za-z]?)(?!\w)")
+_BODY_START = re.compile(r"[A-Z]|\d{1,3}\.\s")
+_SENTENCE_END = ".:;)'\"\u00b4\u2019\u201d"
+_DIVISION = re.compile(r"^(?:(?:TITLE|SECTION|CHAPTER|PART)\s+[IVXLC\d]+\b|[IVXLC]+\.\s)")
+# The OJ page's running head, `31. 12. 88No L 374/`, left in the text at a page break.
+_RUNNING_HEAD = re.compile(r"\d{1,2}\.\s?\d{1,2}\.\s?\d{2}\s*No [LC] \d+/")
+_SPLIT_NUMBER = re.compile(r"^\d{1,3}[A-Za-z]?$")
+_RUN_IN_DONE_AT = re.compile(r"(?<=[.:;)])\s+(?=Done at\b)")
+
+
+def _may_precede_heading(text: str, after_division: bool) -> bool:
+    """A sentence end, a division heading or its title, or capitals; prose runs on."""
+    text = _RUNNING_HEAD.sub("", text).strip()
+    return (
+        not text
+        or after_division
+        or text[-1] in _SENTENCE_END
+        or bool(_DIVISION.match(text))
+        or not any(c.islower() for c in text)
+    )
+
+
+def _join_split_headings(blocks: list[str]) -> list[str]:
+    """`Article` and its number in two blocks, as some pages print them, make one heading."""
+    out: list[str] = []
+    for block in blocks:
+        if out and out[-1] in ("Article", "ARTICLE") and _SPLIT_NUMBER.match(block):
+            out[-1] = f"{out[-1]} {block}"
+        else:
+            out.append(block)
+    return out
+
+
+def _split_run_in(blocks: list[str]) -> list[str]:
+    """Each run-in heading becomes its own block. Only the next article number in
+    sequence qualifies, between a sentence end and a capital, so references stay prose.
+    Skipping one number lets a missed heading surface as a gap, not swallow the rest."""
+    blocks = _join_split_headings(blocks)
+    out = blocks[:1]
+    last = 0
+    for index, block in enumerate(blocks[1:], start=1):
+        if _ANNEX.match(block) or _DONE_AT.match(out[-1]):
+            out.extend(blocks[index:])  # nothing past the annex or the signature splits
+            break
+        strict = _ARTICLE.match(block)
+        if strict and (strict.group(3) is None or _is_title(strict.group(3))):
+            last = int(strict.group(1))
+            out.append(block)
+            continue
+        # `SECTION IV` alone, then `Its title Article 19 ...`: the title may run in.
+        after_division = bool(_DIVISION.match(out[-1])) and len(out[-1].split()) <= 3
+        start = 0
+        for m in _RUN_IN.finditer(block):
+            number = int(m.group(1))
+            if number not in (last + 1, last + 2) and not (number == last and m.group(2)):
+                continue
+            before = block[start : m.start()].strip()
+            after = block[m.end() :].lstrip()
+            if not _may_precede_heading(before, after_division and start == 0):
+                continue
+            if after and not _BODY_START.match(after):
+                continue
+            before = _RUNNING_HEAD.sub("", before).strip()  # page furniture, not text
+            if before:
+                out.append(before)
+            out.append(m.group(0))
+            start, last = m.end(), number
+        rest = block[start:].strip()
+        if last and rest:
+            # A signature run into the last article's text starts the conclusions.
+            out.extend(p.strip() for p in _RUN_IN_DONE_AT.split(rest, maxsplit=1))
+        elif rest:
+            out.append(rest)
+    return out
+
+
 def _segment(blocks: list[str], oj: dict[str, str]) -> _Act:
     if not blocks:
         raise EurlexHtmlError("no text blocks in the HTML")
+    blocks = _split_run_in(blocks)
     act = _Act(title=blocks[0], oj=oj)
     i = 1
     # The OJ rendering repeats the title as the first body line.
