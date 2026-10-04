@@ -178,14 +178,14 @@ def _uncaptured_chars(container: etree._Element) -> int:
 
 # Older Cellar pages run a heading into the text around it: `... loading. Article 2`,
 # `Article 3 The Member States shall ...`, `TITLE I General provisions Article 1 ...`.
-_RUN_IN = re.compile(r"(?<!\w)(?:Article|ARTICLE)[ \u00a0]+(\d+)([A-Za-z]?)(?!\w)")
+_RUN_IN = re.compile(r"(?<!\w)(?:Article|ARTICLE)[ \u00a0]+(\d+)([A-Za-z]{0,2})(?!\w)")
 _BODY_START = re.compile(r"[A-Z]|\d{1,3}\.\s")
 _SENTENCE_END = ".:;)'\"\u00b4\u2019\u201d"
 _DIVISION = re.compile(r"^(?:(?:TITLE|SECTION|CHAPTER|PART)\s+[IVXLC\d]+\b|[IVXLC]+\.\s)")
 # The OJ page's running head, `31. 12. 88No L 374/`, left in the text at a page break.
 _RUNNING_HEAD = re.compile(r"\d{1,2}\.\s?\d{1,2}\.\s?\d{2}\s*No [LC] \d+/")
 _SPLIT_NUMBER = re.compile(r"^\d{1,3}[A-Za-z]?$")
-_RUN_IN_DONE_AT = re.compile(r"(?<=[.:;)])\s+(?=Done at\b)")
+_RUN_IN_DONE_AT = re.compile(r"(?<=[.:;)])\s+(?=Done at\b)", re.IGNORECASE)
 
 
 def _may_precede_heading(text: str, after_division: bool) -> bool:

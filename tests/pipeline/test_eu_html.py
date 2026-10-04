@@ -834,3 +834,24 @@ def test_a_heading_split_from_its_number_still_heads_its_article() -> None:
         "art_2": "Article 2 The levy shall be paid yearly.",
     }
     assert validate_akn(_convert_dated(_SPLIT_HEADINGS, "/akn/eu/act/reg/1992/9999")) == []
+
+
+# A run-in heading takes the same two-letter suffix and capitals signature as a lone one.
+_RUN_IN_SUFFIX_AND_CAPITALS = _cellar_page(
+    "<p>COUNCIL DIRECTIVE of 1 April 1999 on lantern keepers (99/999/EEC)</p>"
+    "<p> HAS ADOPTED THIS DIRECTIVE:  Article 1 </p>"
+    "<p> Keepers shall register.  Article 1AA </p>"
+    "<p> Registers shall be public.   DONE AT Brussels, 1 April 1999. For the Council </p>"
+)
+
+
+def test_a_run_in_heading_keeps_a_two_letter_suffix() -> None:
+    _, _, root = _convert(_RUN_IN_SUFFIX_AND_CAPITALS)
+    assert list(_article_texts(root)) == ["art_1", "art_1aa"]
+
+
+def test_a_run_in_signature_in_capitals_starts_the_conclusions() -> None:
+    _, _, root = _convert(_RUN_IN_SUFFIX_AND_CAPITALS)
+    assert _article_texts(root)["art_1aa"] == "Article 1AA Registers shall be public."
+    conclusions = [p.text for p in root.iterfind(".//a:conclusions/a:p", NS)]
+    assert conclusions == ["DONE AT Brussels, 1 April 1999. For the Council"]
