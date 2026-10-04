@@ -106,7 +106,8 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
         images += 1
         src = img.get("src") or ""
         # An inline image's src is the whole picture in base64; its alt names it.
-        name = (img.get("alt") or "") if src.startswith("data:") else (src or img.get("alt") or "")
+        alt = img.get("alt") or ""
+        name = alt if src[:5].lower() == "data:" else (src or alt)
         marker = f"[image not transcribed: {name}]"
         if _inside_block(img, container):
             img.tail = f" {marker} " + (img.tail or "")

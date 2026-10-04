@@ -698,8 +698,9 @@ def test_xhtml_title_lines_are_one_title_and_the_running_header_is_not_it(page: 
     assert root.find(".//a:FRBRExpression/a:FRBRdate", NS).get("date") == "2042-01-01"
 
 
-def test_an_inline_image_is_named_by_its_alt_not_its_data() -> None:
-    _, provenance, root = _convert(_CONVEX_XHTML)
+@pytest.mark.parametrize("scheme", ["data:", "DATA:"])
+def test_an_inline_image_is_named_by_its_alt_not_its_data(scheme: str) -> None:
+    _, provenance, root = _convert(_CONVEX_XHTML.replace('src="data:', f'src="{scheme}'))
     texts = [" ".join(p.itertext()) for p in root.iterfind(".//a:article[@eId='art_2']//a:p", NS)]
     assert "[image not transcribed: Image 1]" in texts
     assert provenance["html_images"] == 1
