@@ -108,15 +108,18 @@ def _normal(text: str) -> str:
 
 def locate_cut(page_text: str, marker: str, offset: int) -> int | None:
     """Where the cut `marker` names now falls in `page_text`, nearest `offset`; None
-    when the page no longer carries it. Matched with spacing and case folded."""
+    when the page no longer carries it. A marker is a whole line, matched with
+    spacing and case folded; one cut short at its bound matches a line it opens."""
     if not marker.strip():
         return offset if offset <= len(page_text) else None
     want = _normal(marker)
+    truncated = len(marker) >= _MARKER_CHARS
     found: list[int] = []
     at = 0
     for line in page_text.splitlines(keepends=True):
         stripped = line.lstrip()
-        if _normal(stripped).startswith(want):
+        have = _normal(stripped)
+        if have == want or (truncated and have.startswith(want)):
             found.append(at + len(line) - len(stripped))
         at += len(line)
     if not found:
@@ -125,11 +128,33 @@ def locate_cut(page_text: str, marker: str, offset: int) -> int | None:
     return 0 if offset == 0 else min(found, key=lambda x: abs(x - offset))
 
 
+def locate_generation(
+    pages: Mapping[int, str], cuts: Sequence[SpanCut]
+) -> list[tuple[int, int | None]] | None:
+    """Every cut's start and end found again in re-read `pages`, in order; None if
+    any start is lost. Each end is where the next region starts on that page, so a
+    tiling stays a tiling however the text moved."""
+    starts: list[int] = []
+    for cut in cuts:
+        found = locate_cut(pages.get(cut.first_page, ""), cut.start_marker, cut.start_offset)
+        if found is None:
+            return None
+        starts.append(found)
+    located: list[tuple[int, int | None]] = []
+    for index, cut in enumerate(cuts):
+        following = cuts[index + 1] if index + 1 < len(cuts) else None
+        shares = following is not None and following.first_page == cut.last_page
+        end = starts[index + 1] if shares and starts[index + 1] > 0 else None
+        located.append((starts[index], end))
+    return located
+
+
 def span_text(
     pages: Mapping[int, str], first_page: int, last_page: int, start: int, end: int | None
 ) -> str:
     """A region's text from per-page texts: its pages joined as extraction joins
-    them, trimmed at the cuts. A page with no text is skipped, as extraction skips it."""
+    them, trimmed at the cuts. `pages` holds each page's text as extraction combined
+    it (cleaned of furniture), the text the cuts index; a page with no text is skipped."""
     parts: list[str] = []
     for page in range(first_page, last_page + 1):
         body = pages.get(page)

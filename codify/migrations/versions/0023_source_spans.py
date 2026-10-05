@@ -16,6 +16,9 @@ down_revision: str | None = "0022_label_provisions_kind"
 branch_labels: str | None = None
 depends_on: str | None = None
 
+_FK = "versions_source_span_id_fkey"
+_INDEX = "versions_source_span_idx"
+
 
 def upgrade() -> None:
     op.execute(
@@ -55,11 +58,12 @@ def upgrade() -> None:
         "CREATE INDEX IF NOT EXISTS source_spans_live_idx "
         "ON source_spans (source_sha256, ordinal) WHERE retired_at IS NULL"
     )
+    # Restrict, not cascade: a read a span still draws on must not vanish quietly.
     op.execute(
         """
         CREATE TABLE IF NOT EXISTS source_span_pages (
             span_id uuid NOT NULL REFERENCES source_spans(id) ON DELETE CASCADE,
-            page_read_id uuid NOT NULL REFERENCES page_reads(id) ON DELETE CASCADE,
+            page_read_id uuid NOT NULL REFERENCES page_reads(id) ON DELETE RESTRICT,
             PRIMARY KEY (span_id, page_read_id)
         )
         """
@@ -67,18 +71,33 @@ def upgrade() -> None:
     op.execute(
         "CREATE INDEX IF NOT EXISTS source_span_pages_read_idx ON source_span_pages (page_read_id)"
     )
+    # `versions` is live and large: wait briefly for its lock, never queue reads behind it.
+    op.execute("SET lock_timeout = '5s'")
+    op.execute("ALTER TABLE versions ADD COLUMN IF NOT EXISTS source_span_id uuid")
     op.execute(
-        "ALTER TABLE versions ADD COLUMN IF NOT EXISTS source_span_id uuid "
-        "REFERENCES source_spans(id) ON DELETE SET NULL"
+        f"""
+        DO $$ BEGIN
+            IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = '{_FK}') THEN
+                ALTER TABLE versions ADD CONSTRAINT {_FK} FOREIGN KEY (source_span_id)
+                    REFERENCES source_spans(id) ON DELETE SET NULL NOT VALID;
+            END IF;
+        END $$
+        """
     )
-    op.execute(
-        "CREATE INDEX IF NOT EXISTS versions_source_span_idx "
-        "ON versions (source_span_id) WHERE source_span_id IS NOT NULL"
-    )
+    # The column is all NULL, so validation scans without blocking writes.
+    with op.get_context().autocommit_block():
+        op.execute(f"ALTER TABLE versions VALIDATE CONSTRAINT {_FK}")
+        op.execute(
+            f"CREATE INDEX CONCURRENTLY IF NOT EXISTS {_INDEX} "
+            "ON versions (source_span_id) WHERE source_span_id IS NOT NULL"
+        )
 
 
 def downgrade() -> None:
-    op.execute("DROP INDEX IF EXISTS versions_source_span_idx")
+    with op.get_context().autocommit_block():
+        op.execute(f"DROP INDEX CONCURRENTLY IF EXISTS {_INDEX}")
+    op.execute("SET lock_timeout = '5s'")
+    op.execute(f"ALTER TABLE versions DROP CONSTRAINT IF EXISTS {_FK}")
     op.execute("ALTER TABLE versions DROP COLUMN IF EXISTS source_span_id")
     op.execute("DROP TABLE IF EXISTS source_span_pages")
     op.execute("DROP TABLE IF EXISTS source_spans")

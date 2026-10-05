@@ -18,6 +18,11 @@ New, additive:
   source's own page numbers. `codify.pipeline.span_cuts` turns a `Segmentation`
   into cuts, rebuilds a span's text from page texts, and finds a cut again after
   a re-read by its marker (`None` when the page no longer carries it).
+  `locate_generation` finds a whole split again, each end where the next
+  region now starts. A page read a span links cannot be deleted (`RESTRICT`):
+  a host's cleanup must spare linked reads. The `versions` column is added under
+  a 5-second lock timeout, its foreign key validated and its index built without
+  blocking writes.
   `segmentation.skip_heading_patterns` names instruments that are not acts
   (notices, appointments): their segments are cut as skipped, kept and listed.
 - `codify.pipeline.segment`: splits a source holding several acts, such as a

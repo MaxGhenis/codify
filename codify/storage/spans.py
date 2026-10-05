@@ -6,13 +6,17 @@ from __future__ import annotations
 
 import uuid
 from collections.abc import Mapping, Sequence
+from typing import TYPE_CHECKING
 
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import col, select
 
-from codify.pipeline.span_cuts import SpanCut
 from codify.storage.models import PageRead, SourceSpan, SourceSpanPage
+
+if TYPE_CHECKING:
+    # Type only: importing the pipeline here would load it for every page read.
+    from codify.pipeline.span_cuts import SpanCut
 
 # Matches the source lineage walk: a translation carries no span of its own.
 _LINEAGE_DEPTH_CAP = 100

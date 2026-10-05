@@ -26,9 +26,9 @@ def _migration() -> ModuleType:
     return module
 
 
-def test_revision_is_the_single_head_after_static_site_export() -> None:
+def test_revision_follows_static_site_export_on_a_single_chain() -> None:
     scripts = ScriptDirectory.from_config(Config(str(_ROOT / "alembic.ini")))
-    assert scripts.get_heads() == [_REVISION]
+    assert len(scripts.get_heads()) == 1
     rev = scripts.get_revision(_REVISION)
     assert rev is not None and rev.down_revision == "0021_static_site_export_kind"
 

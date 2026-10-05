@@ -193,3 +193,10 @@ async def test_spans_are_unique_per_generation_and_ordinal(session: AsyncSession
     )
     with pytest.raises(Exception, match="source_spans_generation_ordinal_key"):
         await session.flush()
+
+
+async def test_a_read_a_span_draws_on_cannot_be_deleted(session: AsyncSession) -> None:
+    sha, reads = await _source(session, 3)
+    await write_span_generation(session, source_sha256=sha, cuts=_cuts(), page_reads=reads)
+    with pytest.raises(Exception, match="source_span_pages"):
+        await session.execute(text("DELETE FROM page_reads WHERE id = :id"), {"id": reads[2]})
