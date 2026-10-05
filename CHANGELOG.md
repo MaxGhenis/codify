@@ -7,6 +7,25 @@ the launch tag.
 
 New, additive:
 
+- Migration `0023_source_spans` and `codify.storage.spans`: a multi-act
+  source's split is stored as spans over its pages, one generation at a time.
+  Each span is an act, a held region, a skipped non-act or front matter; its
+  cuts are a page, an offset into that page's text and a marker line.
+  `write_span_generation` retires the live generation and writes the next,
+  deleting nothing. `versions.source_span_id` names a child version's span, and
+  `get_page_reads`, `get_page_read` and `count_disputes_by_page_read` read a
+  child through the page reads its span links (`source_span_pages`), with the
+  source's own page numbers. `codify.pipeline.span_cuts` turns a `Segmentation`
+  into cuts, rebuilds a span's text from page texts, and finds a cut again after
+  a re-read by its marker (`None` when the page no longer carries it).
+  `locate_generation` finds a whole split again, each end where the next
+  region now starts, or `None` when a start is lost or the starts run
+  backwards. A child's repair evidence is trimmed to its span. A page read a span links cannot be deleted (`RESTRICT`):
+  a host's cleanup must spare linked reads. The `versions` column is added under
+  a 5-second lock timeout, its foreign key validated and its index built without
+  blocking writes.
+  `segmentation.skip_heading_patterns` names instruments that are not acts
+  (notices, appointments): their segments are cut as skipped, kept and listed.
 - `codify.pipeline.segment`: splits a source holding several acts, such as a
   gazette issue, without a model call. `segment` returns a `Segmentation`:
   `single` (the text unchanged), `decided` (one segment per act) or

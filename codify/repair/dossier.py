@@ -16,6 +16,7 @@ from codify.jurisdictions import CONFIG_FAULTS
 from codify.pipeline.enrich.ocr import PageLayout, PageResult, PageSpan, furniture_inline_patterns
 from codify.pipeline.enrich.regions import classify_layouts, vocabulary_for_jurisdiction
 from codify.pipeline.enrich.validator import validate_akn
+from codify.pipeline.span_cuts import SpanCut
 from codify.repair.edit_ops import ACTIONABLE_CHECKS
 from codify.repair.grounding import combine_with_spans, eid_to_page, spans_to_json
 
@@ -122,6 +123,20 @@ class DossierInputs:
     # Only populated on the artifact fallback (pre-page_reads versions).
     fallback_text: str = ""
     fallback_spans: list[dict[str, Any]] = dc_field(default_factory=list)
+    # Set for a version cut from a multi-act source: its reads are whole shared pages.
+    span_trim: SpanTrim | None = None
+
+
+@dataclass(frozen=True)
+class SpanTrim:
+    """A span and the regions of its generation that share its pages, in order: the
+    span's text is found by relocating them all, so a reordering is caught."""
+
+    first_page: int
+    last_page: int
+    # The span's own index within `cuts`.
+    index: int
+    cuts: tuple[SpanCut, ...]
 
 
 class PageReadInput(BaseModel):
@@ -256,6 +271,34 @@ def _year_from_uri(expression_uri: str) -> str:
     return match.group(1) if match else ""
 
 
+def _trim_to_span(
+    doc_text: str,
+    spans: list[PageSpan],
+    trim: SpanTrim,
+    furniture: Any,
+    version_id: str,
+) -> tuple[str, list[PageSpan]]:
+    """The span's own text out of whole shared pages. A cut lost or reordered by a
+    re-read withholds the evidence: neighbouring acts must not pass as this one's."""
+    from codify.pipeline.span_cuts import locate_generation
+
+    pages = {s.page: doc_text[s.start : s.end] for s in spans}
+    located = locate_generation(pages, trim.cuts)
+    if located is None:
+        logger.warning("dossier_span_cut_lost", version_id=version_id)
+        return "", []
+    start, end = located[trim.index]
+    kept = []
+    for page in range(trim.first_page, trim.last_page + 1):
+        body = pages.get(page, "")
+        lo = start if page == trim.first_page else 0
+        hi = end if page == trim.last_page and end is not None else len(body)
+        kept.append(
+            PageResult(page_number=page, text=body[lo:hi], method="span", furniture=furniture)
+        )
+    return combine_with_spans(kept)
+
+
 def assemble_dossier(inputs: DossierInputs) -> tuple[RepairDossier, str]:
     """Build the dossier and its combined source text, deterministically.
 
@@ -275,10 +318,27 @@ def assemble_dossier(inputs: DossierInputs) -> tuple[RepairDossier, str]:
             for r in reads
         ]
         doc_text, span_models = combine_with_spans(results)
+        if inputs.span_trim is not None:
+            doc_text, span_models = _trim_to_span(
+                doc_text, span_models, inputs.span_trim, furniture, inputs.version_id
+            )
         spans = spans_to_json(span_models)
     else:
         doc_text = inputs.fallback_text or inputs.stored_source_text
         spans = list(inputs.fallback_spans)
+        if inputs.span_trim is not None and not spans:
+            # Unmapped shared pages cannot be trimmed: only the child's own text is safe.
+            doc_text = inputs.stored_source_text
+        elif inputs.span_trim is not None:
+            # The artifact holds whole shared pages too: trim it the same way.
+            doc_text, trimmed = _trim_to_span(
+                doc_text,
+                [PageSpan.model_validate(x) for x in spans],
+                inputs.span_trim,
+                furniture_inline_patterns(inputs.country),
+                inputs.version_id,
+            )
+            spans = spans_to_json(trimmed)
     mismatch = (
         bool(inputs.stored_source_text) and bool(doc_text) and inputs.stored_source_text != doc_text
     )

@@ -1555,6 +1555,8 @@ export interface components {
             issue_heading_patterns?: string[];
             /** Printed Page Pattern */
             printed_page_pattern?: string | null;
+            /** Skip Heading Patterns */
+            skip_heading_patterns?: string[];
         };
         /**
          * SeriesCitation

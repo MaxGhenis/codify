@@ -10,10 +10,11 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select
 
-from codify.repair.dossier import DossierInputs, EvidenceSource, PageReadInput
-from codify.storage.models import Law, SourceDocument, Version
+from codify.repair.dossier import DossierInputs, EvidenceSource, PageReadInput, SpanTrim
+from codify.storage.models import Law, SourceDocument, SourceSpan, Version
 from codify.storage.page_reads import get_page_reads
 from codify.storage.runs import get_latest_artifact_by_kind
+from codify.storage.spans import span_for_version
 from codify.storage.versions import get_version_source_text
 
 logger = structlog.get_logger()
@@ -35,15 +36,17 @@ async def dossier_inputs_for_version(
     if version is None:
         return None
 
+    # A span-cut child, or its translation, reaches its upload through the span.
+    span = None if version.source_sha256 else await span_for_version(session, version_id)
+    source_sha = version.source_sha256 or (span.source_sha256 if span is not None else None)
     src = None
-    if version.source_sha256:
+    if source_sha:
         src = (
-            await session.execute(
-                select(SourceDocument).where(SourceDocument.sha256 == version.source_sha256)
-            )
+            await session.execute(select(SourceDocument).where(SourceDocument.sha256 == source_sha))
         ).scalar_one_or_none()
 
     reads = await get_page_reads(session, version_id)
+    trim = await _span_trim(session, version_id)
     stored_text = await get_version_source_text(session, version_id) or ""
     law = (await session.execute(select(Law).where(Law.id == version.law_id))).scalar_one_or_none()
 
@@ -61,7 +64,7 @@ async def dossier_inputs_for_version(
         fallback_text, fallback_spans = await artifact_page_text(session, version_id)
         if fallback_spans:
             source = "artifact"
-        elif version.source_sha256 and not is_textual:
+        elif source_sha and not is_textual:
             # Classified on the version's own sha, not the join: a dangling
             # source_documents row is still a scan whose evidence is gone, and
             # calling it "none" would assert it never had pages. Textual
@@ -72,7 +75,7 @@ async def dossier_inputs_for_version(
                 logger.warning(
                     "repair_source_object_gone",
                     version_id=str(version_id),
-                    source_sha256=version.source_sha256,
+                    source_sha256=source_sha,
                 )
         else:
             source = "none"
@@ -85,7 +88,7 @@ async def dossier_inputs_for_version(
         expression_uri=version.expression_uri,
         language=version.language,
         object_key=object_key,
-        source_pdf_sha256=version.source_sha256 or "",
+        source_pdf_sha256=source_sha or "",
         page_evidence_source=source,
         page_reads=[
             PageReadInput(
@@ -104,6 +107,51 @@ async def dossier_inputs_for_version(
         stored_source_text=stored_text,
         fallback_text=fallback_text,
         fallback_spans=fallback_spans,
+        span_trim=trim,
+    )
+
+
+async def _span_trim(session: AsyncSession, version_id: uuid.UUID) -> SpanTrim | None:
+    """Where a span-read version's text sits on its shared pages; None when it owns
+    its reads or was never cut from a multi-act source."""
+    from codify.pipeline.span_cuts import SpanCut
+
+    owned = await session.execute(
+        text("SELECT 1 FROM page_reads WHERE version_id = :vid LIMIT 1"), {"vid": version_id}
+    )
+    if owned.first() is not None:
+        return None
+    span = await span_for_version(session, version_id)
+    if span is None:
+        return None
+    # Its generation's regions starting on its pages: the cuts it is found against.
+    rows = (
+        await session.execute(
+            select(SourceSpan)
+            .where(SourceSpan.source_sha256 == span.source_sha256)
+            .where(SourceSpan.generation == span.generation)
+            .where(SourceSpan.first_page >= span.first_page)
+            .where(SourceSpan.first_page <= span.last_page)
+            .order_by(SourceSpan.ordinal)
+        )
+    ).scalars()
+    near = list(rows)
+    cuts = tuple(
+        SpanCut(
+            kind=r.kind,
+            first_page=r.first_page,
+            last_page=r.last_page,
+            start_offset=r.start_offset,
+            end_offset=r.end_offset,
+            start_marker=r.start_marker,
+        )
+        for r in near
+    )
+    return SpanTrim(
+        first_page=span.first_page,
+        last_page=span.last_page,
+        index=[r.id for r in near].index(span.id),
+        cuts=cuts,
     )
 
 
