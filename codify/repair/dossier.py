@@ -326,7 +326,10 @@ def assemble_dossier(inputs: DossierInputs) -> tuple[RepairDossier, str]:
     else:
         doc_text = inputs.fallback_text or inputs.stored_source_text
         spans = list(inputs.fallback_spans)
-        if inputs.span_trim is not None and spans:
+        if inputs.span_trim is not None and not spans:
+            # Unmapped shared pages cannot be trimmed: only the child's own text is safe.
+            doc_text = inputs.stored_source_text
+        elif inputs.span_trim is not None:
             # The artifact holds whole shared pages too: trim it the same way.
             doc_text, trimmed = _trim_to_span(
                 doc_text,

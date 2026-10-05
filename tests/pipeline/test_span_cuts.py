@@ -64,7 +64,8 @@ def test_a_cut_is_found_again_after_the_page_is_re_read() -> None:
     before = "- 2 -\nACT No. 4 OF 2020\nTHE PILOTS ACT"
     after = "- 2 -\n\n  ACT  No. 4  OF 2020\nTHE PILOTS ACT"
     at = before.index("ACT No. 4")
-    assert locate_cut(after, "ACT No. 4 OF 2020", at) == after.index("ACT  No. 4")
+    # The cut is the heading's line start, indentation included.
+    assert locate_cut(after, "ACT No. 4 OF 2020", at) == after.index("  ACT  No. 4")
 
 
 def test_the_nearest_of_two_markers_is_the_cut() -> None:
@@ -204,3 +205,26 @@ def test_repair_evidence_from_the_ingest_artifact_is_trimmed_to_the_span() -> No
         )
         _dossier, source = assemble_dossier(inputs)
         assert own in source and other not in source, source
+
+
+def test_an_indented_heading_is_cut_at_its_line_start() -> None:
+    page = "Three.\n    ACT No. 4\nFour."
+    assert locate_cut(page, "ACT No. 4", 7) == 7
+
+
+def test_unmapped_artifact_text_never_stands_as_a_childs_evidence() -> None:
+    from codify.repair.dossier import DossierInputs, SpanTrim, assemble_dossier
+
+    cuts = (SpanCut("act", 1, 1, 0, None, start_marker="ACT No. 3"),)
+    akn = "<akomaNtoso xmlns='http://docs.oasis-open.org/legaldocml/ns/akn/3.0'><act/></akomaNtoso>"
+    inputs = DossierInputs(
+        version_id="v",
+        akn_xml=akn,
+        country="",
+        stored_source_text="ACT No. 3\nThree.",
+        fallback_text="ACT No. 3\nThree.\nACT No. 4\nFour.",
+        fallback_spans=[],
+        span_trim=SpanTrim(1, 1, 0, cuts),
+    )
+    _dossier, source = assemble_dossier(inputs)
+    assert source == "ACT No. 3\nThree."

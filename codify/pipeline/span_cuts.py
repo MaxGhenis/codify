@@ -117,8 +117,9 @@ def _matched(page_text: str, marker: str, offset: int) -> int | None:
     for line in page_text.splitlines(keepends=True):
         stripped = line.lstrip()
         have = _normal(stripped)
+        # The line's start, indentation and all, as the segmenter cut it.
         if have == want or (truncated and have.startswith(want)):
-            found.append(at + len(line) - len(stripped))
+            found.append(at)
         at += len(line)
     return min(found, key=lambda x: abs(x - offset)) if found else None
 
