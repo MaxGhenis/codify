@@ -176,3 +176,31 @@ def test_a_reordered_heading_behind_a_page_start_cut_is_caught() -> None:
     ]
     page = "Header\nACT No. 4\nFour.\nACT No. 3\nThree."
     assert locate_generation({1: page}, cuts) is None
+
+
+def test_repair_evidence_from_the_ingest_artifact_is_trimmed_to_the_span() -> None:
+    from codify.repair.dossier import DossierInputs, SpanTrim, assemble_dossier
+
+    pages = ["ACT No. 3\nThree.", "End of three.\nACT No. 4\nFour."]
+    text = "\n\n".join(pages)
+    spans = [
+        {"page": 1, "method": "text_layer", "start": 0, "end": len(pages[0])},
+        {"page": 2, "method": "text_layer", "start": len(pages[0]) + 2, "end": len(text)},
+    ]
+    cut = pages[1].index("ACT No. 4")
+    cuts = (
+        SpanCut("act", 1, 2, 0, cut, start_marker="ACT No. 3"),
+        SpanCut("act", 2, 2, cut, None, start_marker="ACT No. 4"),
+    )
+    akn = "<akomaNtoso xmlns='http://docs.oasis-open.org/legaldocml/ns/akn/3.0'><act/></akomaNtoso>"
+    for index, own, other in ((0, "Three", "Four"), (1, "Four", "Three")):
+        inputs = DossierInputs(
+            version_id="v",
+            akn_xml=akn,
+            country="",
+            fallback_text=text,
+            fallback_spans=spans,
+            span_trim=SpanTrim(cuts[index].first_page, cuts[index].last_page, index, cuts),
+        )
+        _dossier, source = assemble_dossier(inputs)
+        assert own in source and other not in source, source

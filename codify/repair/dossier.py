@@ -326,6 +326,16 @@ def assemble_dossier(inputs: DossierInputs) -> tuple[RepairDossier, str]:
     else:
         doc_text = inputs.fallback_text or inputs.stored_source_text
         spans = list(inputs.fallback_spans)
+        if inputs.span_trim is not None and spans:
+            # The artifact holds whole shared pages too: trim it the same way.
+            doc_text, trimmed = _trim_to_span(
+                doc_text,
+                [PageSpan.model_validate(x) for x in spans],
+                inputs.span_trim,
+                furniture_inline_patterns(inputs.country),
+                inputs.version_id,
+            )
+            spans = spans_to_json(trimmed)
     mismatch = (
         bool(inputs.stored_source_text) and bool(doc_text) and inputs.stored_source_text != doc_text
     )
