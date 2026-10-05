@@ -424,11 +424,12 @@ def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, s
     for numbers in ([s.page for s in spans], list(furniture)):
         if len(set(numbers)) != len(numbers) or not all(1 <= n <= count for n in numbers):
             raise ValueError(f"page numbers must be unique and within 1-{count}: {numbers}")
-    previous = 0
+    previous, page = 0, 0
     for span in sorted(spans, key=lambda s: s.start):
-        if not previous <= span.start <= span.end <= length:
-            raise ValueError(f"page {span.page} spans {span.start}-{span.end}, outside the text")
-        previous = span.end
+        # As extraction writes them: non-empty, in order, pages rising with the text.
+        if not previous <= span.start < span.end <= length or span.page <= page:
+            raise ValueError(f"page {span.page} spans {span.start}-{span.end}, out of order")
+        previous, page = span.end, span.page
     return spans, furniture
 
 
