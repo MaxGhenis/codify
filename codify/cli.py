@@ -39,6 +39,7 @@ from pathlib import Path
 from typing import Any
 
 import structlog
+from pydantic import ValidationError
 
 from codify.core.llm import create_llm_client
 from codify.jurisdictions import JURISDICTIONS_DIR, load_config, resolve_config
@@ -400,17 +401,24 @@ def _page_spans_json(spans: list[PageSpan], pages: list[PageResult]) -> dict[str
 
 def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, str]]:
     """Spans and per-page furniture from a `page_spans.json` payload over a text of
-    `length` characters; ValueError if malformed or out of range."""
+    `length` characters; ValueError if a field is missing, mistyped or out of range."""
     if not isinstance(raw, dict):
         raise ValueError("page spans must be an object")
+    pages, rows = raw.get("pages"), raw.get("furniture")
+    if not isinstance(pages, list) or not isinstance(rows, list):
+        raise ValueError("page spans need a `pages` list and a `furniture` list")
     try:
-        spans = [PageSpan.model_validate(s) for s in raw.get("pages") or []]
-        furniture = {
-            int(row["page"]): "\n".join(p for p in (row.get("header"), row.get("footer")) if p)
-            for row in raw.get("furniture") or []
-        }
-    except (TypeError, KeyError, AttributeError, OverflowError) as exc:
-        raise ValueError(f"malformed page spans: {exc}") from exc
+        # Strict: a page number of 1.5 or true must not land on another page.
+        spans = [PageSpan.model_validate(s, strict=True) for s in pages]
+    except ValidationError as exc:
+        raise ValueError(f"malformed page span: {exc}") from exc
+    furniture: dict[int, str] = {}
+    for row in rows:
+        page = row.get("page") if isinstance(row, dict) else None
+        parts = [row.get(k, "") for k in ("header", "footer")] if isinstance(row, dict) else []
+        if type(page) is not int or not all(isinstance(p, str) for p in parts):
+            raise ValueError(f"malformed furniture row: {row!r}")
+        furniture[page] = "\n".join(p for p in parts if p)
     previous = 0
     for span in sorted(spans, key=lambda s: s.start):
         if not previous <= span.start <= span.end <= length:

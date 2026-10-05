@@ -212,13 +212,22 @@ _SPAN = {"page": 1, "method": "text_layer"}
     "spans",
     [
         [],
-        {"pages": [{"page": 1}]},
+        {"pages": [{"page": 1}], "furniture": []},
         {"pages": [], "furniture": [{"header": "x"}]},
-        {"pages": [{**_SPAN, "start": 3, "end": 1}]},
-        {"pages": [{**_SPAN, "start": 0, "end": 9}]},
-        {"pages": [{**_SPAN, "start": -1, "end": 2}]},
-        {"pages": [{**_SPAN, "start": 0, "end": 3}, {**_SPAN, "page": 2, "start": 2, "end": 4}]},
+        {"pages": [{**_SPAN, "start": 3, "end": 1}], "furniture": []},
+        {"pages": [{**_SPAN, "start": 0, "end": 9}], "furniture": []},
+        {"pages": [{**_SPAN, "start": -1, "end": 2}], "furniture": []},
+        {
+            "pages": [{**_SPAN, "start": 0, "end": 3}, {**_SPAN, "page": 2, "start": 2, "end": 4}],
+            "furniture": [],
+        },
         {"pages": [], "furniture": [{"page": float("inf"), "header": "x"}]},
+        {"furniture": []},
+        {"pages": [], "furniture": None},
+        {"pages": [{**_SPAN, "page": "1", "start": 0, "end": 2}], "furniture": []},
+        {"pages": [], "furniture": [{"page": 1.5, "header": "x"}]},
+        {"pages": [], "furniture": [{"page": True, "header": "x"}]},
+        {"pages": [], "furniture": [{"page": 1, "header": 7}]},
     ],
     ids=[
         "not-an-object",
@@ -229,6 +238,12 @@ _SPAN = {"page": 1, "method": "text_layer"}
         "span-before-the-text",
         "spans-overlapping",
         "furniture-page-infinite",
+        "pages-missing",
+        "furniture-not-a-list",
+        "span-page-a-string",
+        "furniture-page-fractional",
+        "furniture-page-boolean",
+        "furniture-header-not-text",
     ],
 )
 def test_segment_refuses_malformed_page_spans(
@@ -246,6 +261,6 @@ def test_segment_refuses_a_manifest_that_is_not_an_object(
 ) -> None:
     (tmp_path / "manifest.json").write_text("[]")
     (tmp_path / "source.txt").write_text("text")
-    (tmp_path / "page_spans.json").write_text(json.dumps({"pages": []}))
+    (tmp_path / "page_spans.json").write_text(json.dumps({"pages": [], "furniture": []}))
     assert cli.main(["segment", str(tmp_path)]) == 2
     assert "not a readable bundle" in capsys.readouterr().err
