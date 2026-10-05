@@ -18,6 +18,8 @@ New, additive:
   source's own page numbers. `codify.pipeline.span_cuts` turns a `Segmentation`
   into cuts, rebuilds a span's text from page texts, and finds a cut again after
   a re-read by its marker (`None` when the page no longer carries it).
+  `segmentation.skip_heading_patterns` names instruments that are not acts
+  (notices, appointments): their segments are cut as skipped, kept and listed.
 - `codify.pipeline.segment`: splits a source holding several acts, such as a
   gazette issue, without a model call. `segment` returns a `Segmentation`:
   `single` (the text unchanged), `decided` (one segment per act) or

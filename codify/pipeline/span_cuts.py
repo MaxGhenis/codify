@@ -13,6 +13,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 from typing import Literal
 
+from codify.jurisdictions import heading_line_pattern
 from codify.pipeline.enrich.ocr import PageSpan
 from codify.pipeline.segment import PAGE_SEPARATOR, Segmentation
 
@@ -56,16 +57,27 @@ def _marker(text: str, start: int) -> str:
 
 
 def cuts_from_segmentation(
-    result: Segmentation, text: str, spans: Sequence[PageSpan], *, issue: str = ""
+    result: Segmentation,
+    text: str,
+    spans: Sequence[PageSpan],
+    *,
+    issue: str = "",
+    skip: Sequence[str] = (),
 ) -> list[SpanCut]:
     """The regions of `result` in reading order, tiling `text`: front matter, acts
-    and held regions, each placed on the pages `spans` lay out."""
+    and held regions, each placed on the pages `spans` lay out. A segment whose
+    heading matches a `skip` pattern is cut as skipped: kept and listed, not an act."""
     if not spans:
         raise ValueError("a source with no page spans cannot be cut by page")
+    skipping = [heading_line_pattern(p) for p in skip]
     regions: list[tuple[int, int, SpanKind, str, str, tuple[str, ...], str]] = []
     if result.front_matter:
         regions.append((*result.front_matter, "front_matter", "", "", (), ""))
-    regions += [(s.start, s.end, "act", s.heading, s.key, s.signals, "") for s in result.segments]
+    for s in result.segments:
+        skipped = bool(s.heading) and any(p.search(s.heading) for p in skipping)
+        kind: SpanKind = "skipped" if skipped else "act"
+        why = "not an act: its heading names a kind of instrument kept apart" if skipped else ""
+        regions.append((s.start, s.end, kind, s.heading, s.key, s.signals, why))
     regions += [(h.start, h.end, "held", "", "", (), h.reason) for h in result.held]
     cuts: list[SpanCut] = []
     for start, end, kind, heading, key, signals, reason in sorted(regions):

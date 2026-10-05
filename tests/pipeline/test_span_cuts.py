@@ -75,3 +75,24 @@ def test_a_page_start_cut_stays_at_the_page_start_while_its_heading_is_there() -
     page = "- 2 -\nACT No. 4 OF 2020\nTHE PILOTS ACT"
     assert locate_cut(page, "ACT No. 4 OF 2020", 0) == 0
     assert locate_cut("- 2 -\nTHE PILOTS ACT", "ACT No. 4 OF 2020", 0) is None
+
+
+def test_a_segment_headed_as_a_kind_kept_apart_is_cut_as_skipped(
+    config: JurisdictionConfig,
+) -> None:
+    text, spans = _join(_three_act_issue())
+    result = segment(text, spans, config=config)
+    cuts = cuts_from_segmentation(result, text, spans, skip=[r"ACT No\. 4 "])
+    assert [(c.kind, c.act_key) for c in cuts if c.kind != "front_matter"] == [
+        ("act", "act 3"),
+        ("skipped", "act 4"),
+        ("act", "act 5"),
+    ]
+    assert cuts[2].reason
+
+
+def test_a_skip_pattern_that_cannot_compile_is_refused_at_load() -> None:
+    from codify.jurisdictions import SegmentationConfig
+
+    with pytest.raises(ValueError, match="heading pattern"):
+        SegmentationConfig(skip_heading_patterns=["(unclosed"])
