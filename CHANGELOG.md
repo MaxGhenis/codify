@@ -22,6 +22,11 @@ New, additive:
   block: `act_heading_patterns`, `issue_heading_patterns`, `contents_keywords`
   and `printed_page_pattern`, each pattern refused at load if it does not
   compile or can match empty text.
+- `codify ingest-one` writes `page_spans.json` (each page's place in
+  `source.txt`, and its header and footer) and `segmentation.json` (the
+  segmenter's outcome, acts, held regions and reconciliation table) into the
+  bundle. `codify segment <bundle>` re-runs the segmenter over that stored
+  text under the current config, with no model.
 
 Fixed:
 
