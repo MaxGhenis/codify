@@ -436,6 +436,9 @@ def _read_page_spans(raw: Any, text: str) -> tuple[list[PageSpan], dict[int, str
         previous, page = span.end, span.page
     if spans and previous != len(text):
         raise ValueError(f"the spans end at {previous}, short of the text's {len(text)}")
+    # Text with pages but no spans would lose every page: only a text source has none.
+    if not spans and text and count:
+        raise ValueError(f"{count} pages and text, but no page spans")
     return spans, furniture
 
 
