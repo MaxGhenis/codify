@@ -167,3 +167,12 @@ def test_starts_that_run_backwards_are_not_located(page: str) -> None:
         SpanCut("act", 1, 1, 20, None, start_marker="ACT No. 5" if "5" in page else "ACT No. 4"),
     ]
     assert locate_generation({1: page}, cuts) is None
+
+
+def test_a_reordered_heading_behind_a_page_start_cut_is_caught() -> None:
+    cuts = [
+        SpanCut("act", 1, 1, 0, 7, start_marker="ACT No. 3"),
+        SpanCut("act", 1, 1, 7, None, start_marker="ACT No. 4"),
+    ]
+    page = "Header\nACT No. 4\nFour.\nACT No. 3\nThree."
+    assert locate_generation({1: page}, cuts) is None

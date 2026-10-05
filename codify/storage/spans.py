@@ -137,7 +137,6 @@ async def span_page_reads(session: AsyncSession, span_id: uuid.UUID) -> list[Pag
 
 
 __all__ = [
-    "SpanCut",
     "live_spans",
     "span_for_version",
     "span_page_reads",

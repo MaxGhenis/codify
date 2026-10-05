@@ -106,10 +106,8 @@ def _normal(text: str) -> str:
     return _SPACE_RE.sub(" ", text).strip().casefold()
 
 
-def locate_cut(page_text: str, marker: str, offset: int) -> int | None:
-    """Where the cut `marker` names now falls in `page_text`, nearest `offset`; None
-    when the page no longer carries it. A marker is a whole line, matched with
-    spacing and case folded; one cut short at its bound matches a line it opens."""
+def _matched(page_text: str, marker: str, offset: int) -> int | None:
+    """Where the line `marker` names now opens in `page_text`, nearest `offset`."""
     if not marker.strip():
         return offset if offset <= len(page_text) else None
     want = _normal(marker)
@@ -122,10 +120,16 @@ def locate_cut(page_text: str, marker: str, offset: int) -> int | None:
         if have == want or (truncated and have.startswith(want)):
             found.append(at + len(line) - len(stripped))
         at += len(line)
-    if not found:
-        return None
+    return min(found, key=lambda x: abs(x - offset)) if found else None
+
+
+def locate_cut(page_text: str, marker: str, offset: int) -> int | None:
+    """Where the cut `marker` names now falls in `page_text`, nearest `offset`; None
+    when the page no longer carries it. A marker is a whole line, matched with
+    spacing and case folded; one cut short at its bound matches a line it opens."""
+    found = _matched(page_text, marker, offset)
     # A cut at the page's start took the furniture above its heading: it stays there.
-    return 0 if offset == 0 else min(found, key=lambda x: abs(x - offset))
+    return None if found is None else 0 if offset == 0 else found
 
 
 def locate_generation(
@@ -135,13 +139,16 @@ def locate_generation(
     any start is lost or the starts no longer run forward. Each end is where the next
     region starts on that page, so a tiling stays a tiling however the text moved."""
     starts: list[int] = []
+    order: list[tuple[int, int]] = []
     for cut in cuts:
-        found = locate_cut(pages.get(cut.first_page, ""), cut.start_marker, cut.start_offset)
+        page = pages.get(cut.first_page, "")
+        found = _matched(page, cut.start_marker, cut.start_offset)
         if found is None:
             return None
-        starts.append(found)
-    # Reordered or colliding headings run the starts backwards: re-segment instead.
-    order = [(cut.first_page, start) for cut, start in zip(cuts, starts, strict=True)]
+        # Ordered by where the headings stand, not where a page-start cut puts them.
+        order.append((cut.first_page, found))
+        starts.append(0 if cut.start_offset == 0 else found)
+    # Reordered or colliding headings run backwards: re-segment instead.
     if any(a >= b for a, b in zip(order, order[1:], strict=False)):
         return None
     located: list[tuple[int, int | None]] = []
