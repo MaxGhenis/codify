@@ -42,7 +42,7 @@ import structlog
 from pydantic import ValidationError
 
 from codify.core.llm import create_llm_client
-from codify.jurisdictions import JURISDICTIONS_DIR, load_config, resolve_config
+from codify.jurisdictions import CONFIG_FAULTS, JURISDICTIONS_DIR, load_config, resolve_config
 from codify.pipeline.enrich.ocr import (
     PageResult,
     PageSpan,
@@ -494,7 +494,15 @@ def _run_segment(args: argparse.Namespace) -> int:
     if not isinstance(code, str) or not resolve_config(code).found:
         print(f"no config for jurisdiction {code!r}", file=sys.stderr)
         return 2
-    payload = _write_segmentation(bundle, source_text, spans, furniture, resolve_config(code).code)
+    try:
+        payload = _write_segmentation(
+            bundle, source_text, spans, furniture, resolve_config(code).code
+        )
+    except CONFIG_FAULTS as exc:
+        # Nothing written: the last segmentation stays for comparison.
+        print(f"the {code!r} config does not load: {exc}", file=sys.stderr)
+        return 2
+
     print(f"{payload['outcome']}: {len(payload['segments'])} acts, {len(payload['held'])} held")
     for row in payload["reconciliation"]:
         print(f"  {row['reads']}")

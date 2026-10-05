@@ -307,3 +307,18 @@ def test_segment_refuses_a_manifest_that_is_not_an_object(
     )
     assert cli.main(["segment", str(tmp_path)]) == 2
     assert "not a readable bundle" in capsys.readouterr().err
+
+
+async def test_segment_refuses_a_config_that_does_not_load(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    jurisdiction: str,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    out = await _ingest_one(monkeypatch, tmp_path, jurisdiction)
+    before = (out / "segmentation.json").read_bytes()
+    broken = _config(segmentation={**RULES, "act_heading_patterns": ["(unclosed"]})
+    with isolated_configs(monkeypatch, tmp_path / "broken", {COUNTRY: broken}):
+        assert cli.main(["segment", str(out)]) == 2
+    assert "does not load" in capsys.readouterr().err
+    assert (out / "segmentation.json").read_bytes() == before
