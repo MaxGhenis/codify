@@ -173,6 +173,15 @@ class Version(SQLModel, table=True):
     # translation is stale when the parent no longer hashes to it. Not
     # source_sha256, which is the uploaded file.
     source_akn_sha256: str | None = Field(default=None, sa_column=Column(Text, nullable=True))
+    # The span of a multi-act source this version was cut from (migration 0023).
+    source_span_id: uuid.UUID | None = Field(
+        default=None,
+        sa_column=Column(
+            PG_UUID(as_uuid=True),
+            ForeignKey("source_spans.id", ondelete="SET NULL"),
+            nullable=True,
+        ),
+    )
     # Deterministic-repair audit trail. NULL = original ingest; non-NULL =
     # the structurer post-passes were applied to the AKN tree after ingest.
     repaired_at: datetime | None = Field(
@@ -230,6 +239,67 @@ class VersionSourceText(SQLModel, table=True):
     )
     text: str = Field(sa_column=Column(Text, nullable=False))
     created_at: datetime = ts_now()
+
+
+class SourceSpan(SQLModel, table=True):
+    """One region of a multi-act source in one generation of its split. Cuts are a
+    page, a marker line and an offset into that page's text, so a re-read can find
+    them again; a re-split retires the generation and writes the next."""
+
+    __tablename__ = "source_spans"
+    __table_args__ = (
+        UniqueConstraint(
+            "source_sha256", "generation", "ordinal", name="source_spans_generation_ordinal_key"
+        ),
+    )
+
+    id: uuid.UUID = uuid_pk()
+    source_sha256: str = Field(
+        sa_column=Column(
+            Text, ForeignKey("source_documents.sha256", ondelete="CASCADE"), nullable=False
+        )
+    )
+    generation: int = Field(sa_column=Column(Integer, nullable=False))
+    ordinal: int = Field(sa_column=Column(Integer, nullable=False))
+    kind: str = Field(sa_column=Column(Text, nullable=False))
+    first_page: int = Field(sa_column=Column(Integer, nullable=False))
+    last_page: int = Field(sa_column=Column(Integer, nullable=False))
+    start_marker: str = Field(default="", sa_column=Column(Text, nullable=False, server_default=""))
+    start_offset: int = Field(sa_column=Column(Integer, nullable=False))
+    # Exclusive, in the last page's text; NULL runs to the page's end.
+    end_offset: int | None = Field(default=None, sa_column=Column(Integer, nullable=True))
+    issue: str = Field(default="", sa_column=Column(Text, nullable=False, server_default=""))
+    heading: str = Field(default="", sa_column=Column(Text, nullable=False, server_default=""))
+    act_key: str = Field(default="", sa_column=Column(Text, nullable=False, server_default=""))
+    signals: list[str] = Field(
+        default_factory=list, sa_column=Column(ARRAY(Text), nullable=False, server_default="{}")
+    )
+    reason: str = Field(default="", sa_column=Column(Text, nullable=False, server_default=""))
+    created_at: datetime = ts_now()
+    retired_at: datetime | None = Field(
+        default=None, sa_column=Column(TIMESTAMP(timezone=True), nullable=True)
+    )
+
+
+class SourceSpanPage(SQLModel, table=True):
+    """A page read a span draws on; a shared boundary page belongs to two spans."""
+
+    __tablename__ = "source_span_pages"
+
+    span_id: uuid.UUID = Field(
+        sa_column=Column(
+            PG_UUID(as_uuid=True),
+            ForeignKey("source_spans.id", ondelete="CASCADE"),
+            primary_key=True,
+        )
+    )
+    page_read_id: uuid.UUID = Field(
+        sa_column=Column(
+            PG_UUID(as_uuid=True),
+            ForeignKey("page_reads.id", ondelete="CASCADE"),
+            primary_key=True,
+        )
+    )
 
 
 class PageRead(SQLModel, table=True):
