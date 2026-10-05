@@ -88,17 +88,20 @@ async def existing_ingest_for_source(session: AsyncSession, sha256: str) -> dict
     }
 
 
-# A version's own source, else the nearest ancestor's. Translations never carry
+# A version's own source, else its span's, else the nearest ancestor's. Translations never carry
 # a `source_sha256` of their own (the translation workflow saves without one), so
 # without the walk the English expression of a scanned law can never reach the
 # scan it came from, allowing reviewers to compare the source and extraction.
 _NEAREST_SOURCE_SQL = """
 WITH RECURSIVE lineage(origin, id, parent_version_id, source_sha256, depth) AS (
-    SELECT id, id, parent_version_id, source_sha256, 0
-    FROM versions WHERE id = ANY(:ids)
+    SELECT v.id, v.id, v.parent_version_id, coalesce(v.source_sha256, s.source_sha256), 0
+    FROM versions v LEFT JOIN source_spans s ON s.id = v.source_span_id
+    WHERE v.id = ANY(:ids)
     UNION ALL
-    SELECT l.origin, v.id, v.parent_version_id, v.source_sha256, l.depth + 1
+    SELECT l.origin, v.id, v.parent_version_id, coalesce(v.source_sha256, s.source_sha256),
+           l.depth + 1
     FROM versions v JOIN lineage l ON v.id = l.parent_version_id
+    LEFT JOIN source_spans s ON s.id = v.source_span_id
     WHERE l.source_sha256 IS NULL AND l.depth < {cap}
 )
 SELECT DISTINCT ON (origin) origin, source_sha256

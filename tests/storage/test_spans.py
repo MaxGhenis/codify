@@ -331,3 +331,21 @@ async def test_a_child_whose_neighbours_were_re_read_out_of_order_gets_no_eviden
     assert inputs is not None
     _dossier, source = assemble_dossier(inputs)
     assert source == ""
+
+
+async def test_a_span_cut_child_and_its_translation_resolve_their_upload(
+    session: AsyncSession,
+) -> None:
+    from codify.storage.sources import source_document_for_version, versions_with_available_source
+
+    sha, reads = await _source(session, 3)
+    spans = await write_span_generation(session, source_sha256=sha, cuts=_cuts(), page_reads=reads)
+    child = await _version(session, span_id=spans[1].id)
+    translation = await _version(session, span_id=None, parent=child)
+    for version in (child, translation):
+        source = await source_document_for_version(session, version)
+        assert source is not None and source.sha256 == sha
+    assert await versions_with_available_source(session, [child, translation]) == {
+        child,
+        translation,
+    }
