@@ -36,12 +36,13 @@ async def dossier_inputs_for_version(
     if version is None:
         return None
 
+    # A span-cut child, or its translation, reaches its upload through the span.
+    span = None if version.source_sha256 else await span_for_version(session, version_id)
+    source_sha = version.source_sha256 or (span.source_sha256 if span is not None else None)
     src = None
-    if version.source_sha256:
+    if source_sha:
         src = (
-            await session.execute(
-                select(SourceDocument).where(SourceDocument.sha256 == version.source_sha256)
-            )
+            await session.execute(select(SourceDocument).where(SourceDocument.sha256 == source_sha))
         ).scalar_one_or_none()
 
     reads = await get_page_reads(session, version_id)
@@ -63,7 +64,7 @@ async def dossier_inputs_for_version(
         fallback_text, fallback_spans = await artifact_page_text(session, version_id)
         if fallback_spans:
             source = "artifact"
-        elif version.source_sha256 and not is_textual:
+        elif source_sha and not is_textual:
             # Classified on the version's own sha, not the join: a dangling
             # source_documents row is still a scan whose evidence is gone, and
             # calling it "none" would assert it never had pages. Textual
@@ -74,7 +75,7 @@ async def dossier_inputs_for_version(
                 logger.warning(
                     "repair_source_object_gone",
                     version_id=str(version_id),
-                    source_sha256=version.source_sha256,
+                    source_sha256=source_sha,
                 )
         else:
             source = "none"
@@ -87,7 +88,7 @@ async def dossier_inputs_for_version(
         expression_uri=version.expression_uri,
         language=version.language,
         object_key=object_key,
-        source_pdf_sha256=version.source_sha256 or "",
+        source_pdf_sha256=source_sha or "",
         page_evidence_source=source,
         page_reads=[
             PageReadInput(

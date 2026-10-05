@@ -278,7 +278,8 @@ def _trim_to_span(
     furniture: Any,
     version_id: str,
 ) -> tuple[str, list[PageSpan]]:
-    """The span's own text out of whole shared pages; the pages whole if a cut is lost."""
+    """The span's own text out of whole shared pages. A cut lost to a re-read
+    withholds the evidence: neighbouring acts must not pass as this one's source."""
     from codify.pipeline.span_cuts import locate_cut
 
     pages = {s.page: doc_text[s.start : s.end] for s in spans}
@@ -290,7 +291,7 @@ def _trim_to_span(
     )
     if start is None or (trim.end_marker and end is None):
         logger.warning("dossier_span_cut_lost", version_id=version_id)
-        return doc_text, spans
+        return "", []
     kept = []
     for page in range(trim.first_page, trim.last_page + 1):
         body = pages.get(page, "")
