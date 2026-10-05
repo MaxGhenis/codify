@@ -9,6 +9,7 @@ the page reads it draws on, and `versions.source_span_id` names a child's span.
 
 from __future__ import annotations
 
+import sqlalchemy as sa
 from alembic import op
 
 revision: str = "0023_source_spans"
@@ -87,10 +88,26 @@ def upgrade() -> None:
     # The column is all NULL, so validation scans without blocking writes.
     with op.get_context().autocommit_block():
         op.execute(f"ALTER TABLE versions VALIDATE CONSTRAINT {_FK}")
+        # A cancelled concurrent build leaves an unusable index under the name.
+        if _index_valid() is False:
+            op.execute(f"DROP INDEX CONCURRENTLY {_INDEX}")
         op.execute(
             f"CREATE INDEX CONCURRENTLY IF NOT EXISTS {_INDEX} "
             "ON versions (source_span_id) WHERE source_span_id IS NOT NULL"
         )
+
+
+def _index_valid() -> bool | None:
+    """Whether the index exists and is usable; None when it does not exist."""
+    row = (
+        op.get_bind()
+        .execute(
+            sa.text("SELECT i.indisvalid FROM pg_index i WHERE i.indexrelid = to_regclass(:n)"),
+            {"n": _INDEX},
+        )
+        .one_or_none()
+    )
+    return None if row is None else bool(row[0])
 
 
 def downgrade() -> None:

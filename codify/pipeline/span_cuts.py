@@ -132,14 +132,18 @@ def locate_generation(
     pages: Mapping[int, str], cuts: Sequence[SpanCut]
 ) -> list[tuple[int, int | None]] | None:
     """Every cut's start and end found again in re-read `pages`, in order; None if
-    any start is lost. Each end is where the next region starts on that page, so a
-    tiling stays a tiling however the text moved."""
+    any start is lost or the starts no longer run forward. Each end is where the next
+    region starts on that page, so a tiling stays a tiling however the text moved."""
     starts: list[int] = []
     for cut in cuts:
         found = locate_cut(pages.get(cut.first_page, ""), cut.start_marker, cut.start_offset)
         if found is None:
             return None
         starts.append(found)
+    # Reordered or colliding headings run the starts backwards: re-segment instead.
+    order = [(cut.first_page, start) for cut, start in zip(cuts, starts, strict=True)]
+    if any(a >= b for a, b in zip(order, order[1:], strict=False)):
+        return None
     located: list[tuple[int, int | None]] = []
     for index, cut in enumerate(cuts):
         following = cuts[index + 1] if index + 1 < len(cuts) else None

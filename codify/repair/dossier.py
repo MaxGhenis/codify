@@ -122,6 +122,21 @@ class DossierInputs:
     # Only populated on the artifact fallback (pre-page_reads versions).
     fallback_text: str = ""
     fallback_spans: list[dict[str, Any]] = dc_field(default_factory=list)
+    # Set for a version cut from a multi-act source: its reads are whole shared pages.
+    span_trim: SpanTrim | None = None
+
+
+@dataclass(frozen=True)
+class SpanTrim:
+    """Where a span's text starts and ends on its source's pages, found by marker."""
+
+    first_page: int
+    last_page: int
+    start_marker: str
+    start_offset: int
+    # The next region's marker on the shared last page; empty runs to `end_offset`.
+    end_marker: str = ""
+    end_offset: int | None = None
 
 
 class PageReadInput(BaseModel):
@@ -256,6 +271,37 @@ def _year_from_uri(expression_uri: str) -> str:
     return match.group(1) if match else ""
 
 
+def _trim_to_span(
+    doc_text: str,
+    spans: list[PageSpan],
+    trim: SpanTrim,
+    furniture: Any,
+    version_id: str,
+) -> tuple[str, list[PageSpan]]:
+    """The span's own text out of whole shared pages; the pages whole if a cut is lost."""
+    from codify.pipeline.span_cuts import locate_cut
+
+    pages = {s.page: doc_text[s.start : s.end] for s in spans}
+    start = locate_cut(pages.get(trim.first_page, ""), trim.start_marker, trim.start_offset)
+    end = (
+        locate_cut(pages.get(trim.last_page, ""), trim.end_marker, trim.end_offset or 0)
+        if trim.end_marker
+        else trim.end_offset
+    )
+    if start is None or (trim.end_marker and end is None):
+        logger.warning("dossier_span_cut_lost", version_id=version_id)
+        return doc_text, spans
+    kept = []
+    for page in range(trim.first_page, trim.last_page + 1):
+        body = pages.get(page, "")
+        lo = start if page == trim.first_page else 0
+        hi = end if page == trim.last_page and end is not None else len(body)
+        kept.append(
+            PageResult(page_number=page, text=body[lo:hi], method="span", furniture=furniture)
+        )
+    return combine_with_spans(kept)
+
+
 def assemble_dossier(inputs: DossierInputs) -> tuple[RepairDossier, str]:
     """Build the dossier and its combined source text, deterministically.
 
@@ -275,6 +321,10 @@ def assemble_dossier(inputs: DossierInputs) -> tuple[RepairDossier, str]:
             for r in reads
         ]
         doc_text, span_models = combine_with_spans(results)
+        if inputs.span_trim is not None:
+            doc_text, span_models = _trim_to_span(
+                doc_text, span_models, inputs.span_trim, furniture, inputs.version_id
+            )
         spans = spans_to_json(span_models)
     else:
         doc_text = inputs.fallback_text or inputs.stored_source_text

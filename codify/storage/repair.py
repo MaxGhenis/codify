@@ -10,10 +10,11 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select
 
-from codify.repair.dossier import DossierInputs, EvidenceSource, PageReadInput
-from codify.storage.models import Law, SourceDocument, Version
+from codify.repair.dossier import DossierInputs, EvidenceSource, PageReadInput, SpanTrim
+from codify.storage.models import Law, SourceDocument, SourceSpan, Version
 from codify.storage.page_reads import get_page_reads
 from codify.storage.runs import get_latest_artifact_by_kind
+from codify.storage.spans import span_for_version
 from codify.storage.versions import get_version_source_text
 
 logger = structlog.get_logger()
@@ -44,6 +45,7 @@ async def dossier_inputs_for_version(
         ).scalar_one_or_none()
 
     reads = await get_page_reads(session, version_id)
+    trim = await _span_trim(session, version_id)
     stored_text = await get_version_source_text(session, version_id) or ""
     law = (await session.execute(select(Law).where(Law.id == version.law_id))).scalar_one_or_none()
 
@@ -104,6 +106,37 @@ async def dossier_inputs_for_version(
         stored_source_text=stored_text,
         fallback_text=fallback_text,
         fallback_spans=fallback_spans,
+        span_trim=trim,
+    )
+
+
+async def _span_trim(session: AsyncSession, version_id: uuid.UUID) -> SpanTrim | None:
+    """Where a span-read version's text sits on its shared pages; None when it owns
+    its reads or was never cut from a multi-act source."""
+    owned = await session.execute(
+        text("SELECT 1 FROM page_reads WHERE version_id = :vid LIMIT 1"), {"vid": version_id}
+    )
+    if owned.first() is not None:
+        return None
+    span = await span_for_version(session, version_id)
+    if span is None:
+        return None
+    following = (
+        await session.execute(
+            select(SourceSpan)
+            .where(SourceSpan.source_sha256 == span.source_sha256)
+            .where(SourceSpan.generation == span.generation)
+            .where(SourceSpan.ordinal == span.ordinal + 1)
+        )
+    ).scalar_one_or_none()
+    shares = following is not None and following.first_page == span.last_page
+    return SpanTrim(
+        first_page=span.first_page,
+        last_page=span.last_page,
+        start_marker=span.start_marker,
+        start_offset=span.start_offset,
+        end_marker=following.start_marker if shares and following is not None else "",
+        end_offset=span.end_offset,
     )
 
 

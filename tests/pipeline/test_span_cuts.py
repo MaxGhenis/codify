@@ -153,3 +153,17 @@ def test_a_next_act_moved_to_its_page_start_still_ends_the_one_before() -> None:
     assert located == [(0, 0), (0, None)]
     first = span_text(pages, 1, 2, *located[0])
     assert "ACT No. 4" not in first
+
+
+@pytest.mark.parametrize(
+    "page",
+    ["ACT No. 3\nACT No. 5\nACT No. 4", "ACT No. 3\nACT No. 4"],
+    ids=["reordered", "colliding"],
+)
+def test_starts_that_run_backwards_are_not_located(page: str) -> None:
+    cuts = [
+        SpanCut("act", 1, 1, 0, 10, start_marker="ACT No. 3"),
+        SpanCut("act", 1, 1, 10, 20, start_marker="ACT No. 4"),
+        SpanCut("act", 1, 1, 20, None, start_marker="ACT No. 5" if "5" in page else "ACT No. 4"),
+    ]
+    assert locate_generation({1: page}, cuts) is None

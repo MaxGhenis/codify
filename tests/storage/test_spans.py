@@ -213,3 +213,39 @@ async def test_a_version_with_own_reads_reads_no_span_page(session: AsyncSession
         {"id": uuid.uuid4(), "read": reads[1]},
     )
     assert await count_disputes_by_page_read(session, child) == {}
+
+
+async def test_repair_evidence_for_a_child_is_its_own_text(session: AsyncSession) -> None:
+    from codify.repair.dossier import assemble_dossier
+    from codify.storage.repair import dossier_inputs_for_version
+
+    sha = uuid.uuid4().hex * 2
+    session.add(
+        SourceDocument(
+            sha256=sha, original_filename="i.pdf", byte_size=1, object_key=f"k/{sha}.pdf"
+        )
+    )
+    await session.flush()
+    texts = {
+        1: "ACT No. 3 OF 2020\nSection 1\nThe keeper shall levy dues.",
+        2: "Section 2\nThe end of the third act.\nACT No. 4 OF 2020\nSection 1\nPilots.",
+        3: "Section 2\nThe end of the fourth act.",
+    }
+    reads = {n: PageRead(page_number=n, text=t) for n, t in texts.items()}
+    session.add_all(reads.values())
+    await session.flush()
+    cut = texts[2].index("ACT No. 4")
+    cuts = [
+        SpanCut("act", 1, 2, 0, cut, start_marker="ACT No. 3 OF 2020"),
+        SpanCut("act", 2, 3, cut, None, start_marker="ACT No. 4 OF 2020"),
+    ]
+    spans = await write_span_generation(
+        session, source_sha256=sha, cuts=cuts, page_reads={n: r.id for n, r in reads.items()}
+    )
+    first = await _version(session, span_id=spans[0].id)
+    second = await _version(session, span_id=spans[1].id)
+    for version, own, other in ((first, "third", "Pilots"), (second, "fourth", "keeper")):
+        inputs = await dossier_inputs_for_version(session, version)
+        assert inputs is not None and inputs.span_trim is not None
+        _dossier, source = assemble_dossier(inputs)
+        assert own in source and other not in source, source

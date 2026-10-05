@@ -23,3 +23,5 @@ def test_versions_is_altered_under_a_short_lock_and_indexed_concurrently() -> No
     assert "SET lock_timeout = '5s'" in source
     assert "NOT VALID" in source and "VALIDATE CONSTRAINT" in source
     assert "CREATE INDEX CONCURRENTLY IF NOT EXISTS {_INDEX}" in source
+    # A cancelled build is dropped and rebuilt, not skipped by IF NOT EXISTS.
+    assert "indisvalid" in source and "DROP INDEX CONCURRENTLY {_INDEX}" in source
