@@ -57,6 +57,14 @@ async def attach_page_reads_to_version(
     return moved
 
 
+async def _owns_reads(session: AsyncSession, version_id: uuid.UUID) -> bool:
+    """A version with reads of its own reads only those, never its span's."""
+    found = await session.execute(
+        text("SELECT 1 FROM page_reads WHERE version_id = :vid LIMIT 1"), {"vid": version_id}
+    )
+    return found.first() is not None
+
+
 async def get_page_reads(session: AsyncSession, version_id: uuid.UUID) -> list[PageRead]:
     """Every page of a version, in page order. A version cut from a multi-act
     source reads the pages of its span, which carry the source's own page numbers."""
@@ -83,7 +91,7 @@ async def get_page_read(
         .where(col(PageRead.page_number) == page_number)
     )
     own = rows.scalars().first()
-    if own is not None:
+    if own is not None or await _owns_reads(session, version_id):
         return own
     span = await span_for_version(session, version_id)
     if span is None:
@@ -106,7 +114,12 @@ async def count_disputes_by_page_read(
     ruled on, and the rows themselves are fetched per page. A read nobody has
     ruled on is absent, so callers default it to zero.
     """
-    span = await span_for_version(session, version_id)
+    # The span's reads count only where the list falls back to them.
+    span = (
+        None
+        if await _owns_reads(session, version_id)
+        else await span_for_version(session, version_id)
+    )
     rows = await session.execute(
         text(
             "SELECT d.page_read_id, count(*) FROM page_read_disputes d "

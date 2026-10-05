@@ -11,6 +11,7 @@ import pytest
 from codify.jurisdictions import JurisdictionConfig, load_config
 from codify.pipeline.segment import PAGE_SEPARATOR, segment
 from codify.pipeline.span_cuts import (
+    SpanCut,
     cuts_from_segmentation,
     locate_cut,
     locate_generation,
@@ -139,3 +140,16 @@ def test_a_generation_with_a_lost_start_is_not_located(config: JurisdictionConfi
     cuts = cuts_from_segmentation(result, text, spans)
     pages = {s.page: text[s.start : s.end].replace("ACT No. 4", "ACT No. A") for s in spans}
     assert locate_generation(pages, cuts) is None
+
+
+def test_a_next_act_moved_to_its_page_start_still_ends_the_one_before() -> None:
+    cuts = [
+        SpanCut("act", 1, 2, 0, 10, start_marker="ACT No. 3 OF 2020"),
+        SpanCut("act", 2, 2, 10, None, start_marker="ACT No. 4 OF 2020"),
+    ]
+    # The re-read lost the first act's tail on page 2: the second now opens it.
+    pages = {1: "ACT No. 3 OF 2020\nbody", 2: "ACT No. 4 OF 2020\nbody"}
+    located = locate_generation(pages, cuts)
+    assert located == [(0, 0), (0, None)]
+    first = span_text(pages, 1, 2, *located[0])
+    assert "ACT No. 4" not in first

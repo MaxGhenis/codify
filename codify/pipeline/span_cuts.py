@@ -144,7 +144,8 @@ def locate_generation(
     for index, cut in enumerate(cuts):
         following = cuts[index + 1] if index + 1 < len(cuts) else None
         shares = following is not None and following.first_page == cut.last_page
-        end = starts[index + 1] if shares and starts[index + 1] > 0 else None
+        # On a shared page the next start is this end, even at zero.
+        end = starts[index + 1] if shares else None
         located.append((starts[index], end))
     return located
 
@@ -162,5 +163,6 @@ def span_text(
             continue
         lo = start if page == first_page else 0
         hi = end if page == last_page and end is not None else len(body)
-        parts.append(body[lo:hi])
+        if body[lo:hi]:
+            parts.append(body[lo:hi])
     return PAGE_SEPARATOR.join(parts)

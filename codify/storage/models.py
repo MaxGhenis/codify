@@ -296,7 +296,7 @@ class SourceSpanPage(SQLModel, table=True):
     page_read_id: uuid.UUID = Field(
         sa_column=Column(
             PG_UUID(as_uuid=True),
-            ForeignKey("page_reads.id", ondelete="CASCADE"),
+            ForeignKey("page_reads.id", ondelete="RESTRICT"),
             primary_key=True,
         )
     )

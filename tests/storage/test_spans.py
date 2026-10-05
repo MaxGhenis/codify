@@ -3,7 +3,6 @@ page reads a span's version reads through it."""
 
 from __future__ import annotations
 
-import os
 import uuid
 from collections.abc import AsyncIterator
 from datetime import date
@@ -21,20 +20,16 @@ from codify.storage.spans import (
     span_page_reads,
     write_span_generation,
 )
+from codify.testing import postgres_url
 
 pytestmark = pytest.mark.integration
 
 _AKN = "<akomaNtoso xmlns='http://docs.oasis-open.org/legaldocml/ns/akn/3.0'><act/></akomaNtoso>"
 
 
-def _url() -> str:
-    raw = os.environ.get("POSTGRES_URL", "postgresql://codify:codify@localhost:5432/codify")
-    return raw.replace("postgresql://", "postgresql+asyncpg://", 1)
-
-
 @pytest.fixture
 async def session() -> AsyncIterator[AsyncSession]:
-    engine = create_async_engine(_url())
+    engine = create_async_engine(postgres_url())
     maker = async_sessionmaker(engine, expire_on_commit=False)
     async with maker() as s:
         yield s
@@ -200,3 +195,21 @@ async def test_a_read_a_span_draws_on_cannot_be_deleted(session: AsyncSession) -
     await write_span_generation(session, source_sha256=sha, cuts=_cuts(), page_reads=reads)
     with pytest.raises(Exception, match="source_span_pages"):
         await session.execute(text("DELETE FROM page_reads WHERE id = :id"), {"id": reads[2]})
+
+
+async def test_a_version_with_own_reads_reads_no_span_page(session: AsyncSession) -> None:
+    sha, reads = await _source(session, 3)
+    spans = await write_span_generation(session, source_sha256=sha, cuts=_cuts(), page_reads=reads)
+    child = await _version(session, span_id=spans[1].id)
+    session.add(PageRead(page_number=7, text="own", version_id=child))
+    await session.flush()
+    assert await get_page_read(session, child, 1) is None
+    assert (await get_page_read(session, child, 7)) is not None
+    await session.execute(
+        text(
+            "INSERT INTO page_read_disputes (id, page_read_id, verdict, actor) "
+            "VALUES (:id, :read, 'disputed', 'reviewer')"
+        ),
+        {"id": uuid.uuid4(), "read": reads[1]},
+    )
+    assert await count_disputes_by_page_read(session, child) == {}
