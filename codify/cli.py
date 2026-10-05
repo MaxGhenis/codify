@@ -58,7 +58,7 @@ from codify.pipeline.events import (
     ValidationIssued,
 )
 from codify.pipeline.formats.pdf import ingest, ingest_text
-from codify.pipeline.segment import Segmentation, segment
+from codify.pipeline.segment import PAGE_SEPARATOR, Segmentation, segment
 from codify.quality.structural_quality_grade import structural_quality_grade
 
 logger = structlog.get_logger()
@@ -294,7 +294,7 @@ async def _run(args: argparse.Namespace) -> int:
     try:
         # Read back as `codify segment` reads it, so the two cannot differ.
         _write_segmentation(
-            out, source_text, *_read_page_spans(page_spans, len(source_text)), config.code
+            out, source_text, *_read_page_spans(page_spans, source_text), config.code
         )
     except Exception as exc:  # noqa: BLE001, a segmenter fault must not void the spend
         segmentation_failed = f"{type(exc).__name__}: {exc}"
@@ -399,9 +399,9 @@ def _page_spans_json(spans: list[PageSpan], pages: list[PageResult]) -> dict[str
     }
 
 
-def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, str]]:
-    """Spans and per-page furniture from a `page_spans.json` payload over a text of
-    `length` characters; ValueError if a field is missing, mistyped or out of range."""
+def _read_page_spans(raw: Any, text: str) -> tuple[list[PageSpan], dict[int, str]]:
+    """Spans and per-page furniture from a `page_spans.json` payload over `text`;
+    ValueError if a field is missing or mistyped, or the spans do not tile the text."""
     if not isinstance(raw, dict):
         raise ValueError("page spans must be an object")
     count, pages, rows = raw.get("page_count"), raw.get("pages"), raw.get("furniture")
@@ -426,12 +426,16 @@ def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, s
     for numbers in ([s.page for s in spans], furniture_pages):
         if len(set(numbers)) != len(numbers) or not all(1 <= n <= count for n in numbers):
             raise ValueError(f"page numbers must be unique and within 1-{count}: {numbers}")
-    previous, page = 0, 0
+    # As extraction writes them: non-empty, pages rising, tiling the text but for separators.
+    previous, page = None, 0
     for span in sorted(spans, key=lambda s: s.start):
-        # As extraction writes them: non-empty, in order, pages rising with the text.
-        if not previous <= span.start < span.end <= length or span.page <= page:
-            raise ValueError(f"page {span.page} spans {span.start}-{span.end}, out of order")
+        gap = text[previous : span.start] if previous is not None else text[: span.start]
+        expected = PAGE_SEPARATOR if previous is not None else ""
+        if gap != expected or span.end > len(text) or span.start >= span.end or span.page <= page:
+            raise ValueError(f"page {span.page} spans {span.start}-{span.end}, not as extracted")
         previous, page = span.end, span.page
+    if spans and previous != len(text):
+        raise ValueError(f"the spans end at {previous}, short of the text's {len(text)}")
     return spans, furniture
 
 
@@ -478,7 +482,7 @@ def _run_segment(args: argparse.Namespace) -> int:
             raise ValueError("manifest must be an object")
         source_text = (bundle / "source.txt").read_bytes().decode("utf-8")
         spans, furniture = _read_page_spans(
-            json.loads((bundle / "page_spans.json").read_text(encoding="utf-8")), len(source_text)
+            json.loads((bundle / "page_spans.json").read_text(encoding="utf-8")), source_text
         )
     except (OSError, ValueError) as exc:
         print(f"not a readable bundle with page spans: {bundle}: {exc}", file=sys.stderr)

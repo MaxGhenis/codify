@@ -249,6 +249,13 @@ _SPAN = {"page": 1, "method": "text_layer"}
             "pages": [],
             "furniture": [{"page": 1, "header": "a"}, {"page": 1, "header": "b"}],
         },
+        {"page_count": 1, "pages": [{**_SPAN, "start": 1, "end": 4}], "furniture": []},
+        {"page_count": 1, "pages": [{**_SPAN, "start": 0, "end": 3}], "furniture": []},
+        {
+            "page_count": 2,
+            "pages": [{**_SPAN, "start": 0, "end": 1}, {**_SPAN, "page": 2, "start": 2, "end": 4}],
+            "furniture": [],
+        },
     ],
     ids=[
         "not-an-object",
@@ -273,6 +280,9 @@ _SPAN = {"page": 1, "method": "text_layer"}
         "span-empty",
         "span-pages-backwards",
         "furniture-page-repeated",
+        "span-starting-late",
+        "span-ending-short",
+        "spans-with-a-gap",
     ],
 )
 def test_segment_refuses_malformed_page_spans(
