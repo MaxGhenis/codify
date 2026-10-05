@@ -180,6 +180,12 @@ from codify.storage.sources import (
     upsert_source_document,
     versions_with_available_source,
 )
+from codify.storage.spans import (
+    live_spans,
+    span_for_version,
+    span_page_reads,
+    write_span_generation,
+)
 from codify.storage.versions import (
     amend_provision,
     count_embedded_versions,
@@ -321,6 +327,10 @@ __all__ = [
     "supersede_document",
     "existing_ingest_for_source",
     "source_document_for_version",
+    "live_spans",
+    "span_for_version",
+    "span_page_reads",
+    "write_span_generation",
     "versions_with_available_source",
     "upsert_source_document",
     "save_finding",
