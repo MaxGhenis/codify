@@ -114,6 +114,8 @@ async def dossier_inputs_for_version(
 async def _span_trim(session: AsyncSession, version_id: uuid.UUID) -> SpanTrim | None:
     """Where a span-read version's text sits on its shared pages; None when it owns
     its reads or was never cut from a multi-act source."""
+    from codify.pipeline.span_cuts import SpanCut
+
     owned = await session.execute(
         text("SELECT 1 FROM page_reads WHERE version_id = :vid LIMIT 1"), {"vid": version_id}
     )
@@ -122,22 +124,34 @@ async def _span_trim(session: AsyncSession, version_id: uuid.UUID) -> SpanTrim |
     span = await span_for_version(session, version_id)
     if span is None:
         return None
-    following = (
+    # Its generation's regions starting on its pages: the cuts it is found against.
+    rows = (
         await session.execute(
             select(SourceSpan)
             .where(SourceSpan.source_sha256 == span.source_sha256)
             .where(SourceSpan.generation == span.generation)
-            .where(SourceSpan.ordinal == span.ordinal + 1)
+            .where(SourceSpan.first_page >= span.first_page)
+            .where(SourceSpan.first_page <= span.last_page)
+            .order_by(SourceSpan.ordinal)
         )
-    ).scalar_one_or_none()
-    shares = following is not None and following.first_page == span.last_page
+    ).scalars()
+    near = list(rows)
+    cuts = tuple(
+        SpanCut(
+            kind=r.kind,
+            first_page=r.first_page,
+            last_page=r.last_page,
+            start_offset=r.start_offset,
+            end_offset=r.end_offset,
+            start_marker=r.start_marker,
+        )
+        for r in near
+    )
     return SpanTrim(
         first_page=span.first_page,
         last_page=span.last_page,
-        start_marker=span.start_marker,
-        start_offset=span.start_offset,
-        end_marker=following.start_marker if shares and following is not None else "",
-        end_offset=span.end_offset,
+        index=[r.id for r in near].index(span.id),
+        cuts=cuts,
     )
 
 

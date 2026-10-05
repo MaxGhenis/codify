@@ -16,6 +16,7 @@ from codify.jurisdictions import CONFIG_FAULTS
 from codify.pipeline.enrich.ocr import PageLayout, PageResult, PageSpan, furniture_inline_patterns
 from codify.pipeline.enrich.regions import classify_layouts, vocabulary_for_jurisdiction
 from codify.pipeline.enrich.validator import validate_akn
+from codify.pipeline.span_cuts import SpanCut
 from codify.repair.edit_ops import ACTIONABLE_CHECKS
 from codify.repair.grounding import combine_with_spans, eid_to_page, spans_to_json
 
@@ -128,15 +129,14 @@ class DossierInputs:
 
 @dataclass(frozen=True)
 class SpanTrim:
-    """Where a span's text starts and ends on its source's pages, found by marker."""
+    """A span and the regions of its generation that share its pages, in order: the
+    span's text is found by relocating them all, so a reordering is caught."""
 
     first_page: int
     last_page: int
-    start_marker: str
-    start_offset: int
-    # The next region's marker on the shared last page; empty runs to `end_offset`.
-    end_marker: str = ""
-    end_offset: int | None = None
+    # The span's own index within `cuts`.
+    index: int
+    cuts: tuple[SpanCut, ...]
 
 
 class PageReadInput(BaseModel):
@@ -278,20 +278,16 @@ def _trim_to_span(
     furniture: Any,
     version_id: str,
 ) -> tuple[str, list[PageSpan]]:
-    """The span's own text out of whole shared pages. A cut lost to a re-read
-    withholds the evidence: neighbouring acts must not pass as this one's source."""
-    from codify.pipeline.span_cuts import locate_cut
+    """The span's own text out of whole shared pages. A cut lost or reordered by a
+    re-read withholds the evidence: neighbouring acts must not pass as this one's."""
+    from codify.pipeline.span_cuts import locate_generation
 
     pages = {s.page: doc_text[s.start : s.end] for s in spans}
-    start = locate_cut(pages.get(trim.first_page, ""), trim.start_marker, trim.start_offset)
-    end = (
-        locate_cut(pages.get(trim.last_page, ""), trim.end_marker, trim.end_offset or 0)
-        if trim.end_marker
-        else trim.end_offset
-    )
-    if start is None or (trim.end_marker and end is None):
+    located = locate_generation(pages, trim.cuts)
+    if located is None:
         logger.warning("dossier_span_cut_lost", version_id=version_id)
         return "", []
+    start, end = located[trim.index]
     kept = []
     for page in range(trim.first_page, trim.last_page + 1):
         body = pages.get(page, "")

@@ -296,3 +296,38 @@ async def test_a_child_and_its_translation_reach_the_upload_through_the_span(
         inputs = await dossier_inputs_for_version(session, version)
         assert inputs is not None
         assert (inputs.source_pdf_sha256, inputs.object_key) == (sha, f"k/{sha}")
+
+
+async def test_a_child_whose_neighbours_were_re_read_out_of_order_gets_no_evidence(
+    session: AsyncSession,
+) -> None:
+    from codify.repair.dossier import assemble_dossier
+    from codify.storage.repair import dossier_inputs_for_version
+
+    sha = uuid.uuid4().hex * 2
+    session.add(
+        SourceDocument(
+            sha256=sha, original_filename="i.pdf", byte_size=1, object_key=f"k/{sha}.pdf"
+        )
+    )
+    await session.flush()
+    stored = "ACT No. 3\nThree.\nACT No. 4\nFour.\nACT No. 5\nFive."
+    # The read the version now carries puts five before four.
+    reread = "ACT No. 3\nThree.\nACT No. 5\nFive.\nACT No. 4\nFour."
+    read = PageRead(page_number=1, text=reread)
+    session.add(read)
+    await session.flush()
+    at = [stored.index(f"ACT No. {n}") for n in (3, 4, 5)]
+    cuts = [
+        SpanCut("act", 1, 1, at[0], at[1], start_marker="ACT No. 3"),
+        SpanCut("act", 1, 1, at[1], at[2], start_marker="ACT No. 4"),
+        SpanCut("act", 1, 1, at[2], None, start_marker="ACT No. 5"),
+    ]
+    spans = await write_span_generation(
+        session, source_sha256=sha, cuts=cuts, page_reads={1: read.id}
+    )
+    first = await _version(session, span_id=spans[0].id)
+    inputs = await dossier_inputs_for_version(session, first)
+    assert inputs is not None
+    _dossier, source = assemble_dossier(inputs)
+    assert source == ""
