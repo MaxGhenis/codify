@@ -205,10 +205,31 @@ async def test_a_segmenter_fault_leaves_the_bundle_and_says_so(
     assert (out / "page_spans.json").exists() and (out / "source.txt").exists()
 
 
+_SPAN = {"page": 1, "method": "text_layer"}
+
+
 @pytest.mark.parametrize(
     "spans",
-    [[], {"pages": [{"page": 1}]}, {"pages": [], "furniture": [{"header": "x"}]}],
-    ids=["not-an-object", "span-missing-offsets", "furniture-missing-page"],
+    [
+        [],
+        {"pages": [{"page": 1}]},
+        {"pages": [], "furniture": [{"header": "x"}]},
+        {"pages": [{**_SPAN, "start": 3, "end": 1}]},
+        {"pages": [{**_SPAN, "start": 0, "end": 9}]},
+        {"pages": [{**_SPAN, "start": -1, "end": 2}]},
+        {"pages": [{**_SPAN, "start": 0, "end": 3}, {**_SPAN, "page": 2, "start": 2, "end": 4}]},
+        {"pages": [], "furniture": [{"page": float("inf"), "header": "x"}]},
+    ],
+    ids=[
+        "not-an-object",
+        "span-missing-offsets",
+        "furniture-missing-page",
+        "span-reversed",
+        "span-past-the-text",
+        "span-before-the-text",
+        "spans-overlapping",
+        "furniture-page-infinite",
+    ],
 )
 def test_segment_refuses_malformed_page_spans(
     tmp_path: Path, capsys: pytest.CaptureFixture[str], spans: object

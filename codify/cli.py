@@ -292,7 +292,9 @@ async def _run(args: argparse.Namespace) -> int:
     segmentation_failed = None
     try:
         # Read back as `codify segment` reads it, so the two cannot differ.
-        _write_segmentation(out, source_text, *_read_page_spans(page_spans), config.code)
+        _write_segmentation(
+            out, source_text, *_read_page_spans(page_spans, len(source_text)), config.code
+        )
     except Exception as exc:  # noqa: BLE001, a segmenter fault must not void the spend
         segmentation_failed = f"{type(exc).__name__}: {exc}"
         logger.warning("segmentation_failed", error=str(exc)[:300])
@@ -396,8 +398,9 @@ def _page_spans_json(spans: list[PageSpan], pages: list[PageResult]) -> dict[str
     }
 
 
-def _read_page_spans(raw: Any) -> tuple[list[PageSpan], dict[int, str]]:
-    """Spans and per-page furniture from a `page_spans.json` payload; ValueError if malformed."""
+def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, str]]:
+    """Spans and per-page furniture from a `page_spans.json` payload over a text of
+    `length` characters; ValueError if malformed or out of range."""
     if not isinstance(raw, dict):
         raise ValueError("page spans must be an object")
     try:
@@ -406,8 +409,13 @@ def _read_page_spans(raw: Any) -> tuple[list[PageSpan], dict[int, str]]:
             int(row["page"]): "\n".join(p for p in (row.get("header"), row.get("footer")) if p)
             for row in raw.get("furniture") or []
         }
-    except (TypeError, KeyError, AttributeError) as exc:
+    except (TypeError, KeyError, AttributeError, OverflowError) as exc:
         raise ValueError(f"malformed page spans: {exc}") from exc
+    previous = 0
+    for span in sorted(spans, key=lambda s: s.start):
+        if not previous <= span.start <= span.end <= length:
+            raise ValueError(f"page {span.page} spans {span.start}-{span.end}, outside the text")
+        previous = span.end
     return spans, furniture
 
 
@@ -454,7 +462,7 @@ def _run_segment(args: argparse.Namespace) -> int:
             raise ValueError("manifest must be an object")
         source_text = (bundle / "source.txt").read_bytes().decode("utf-8")
         spans, furniture = _read_page_spans(
-            json.loads((bundle / "page_spans.json").read_text(encoding="utf-8"))
+            json.loads((bundle / "page_spans.json").read_text(encoding="utf-8")), len(source_text)
         )
     except (OSError, ValueError) as exc:
         print(f"not a readable bundle with page spans: {bundle}: {exc}", file=sys.stderr)
