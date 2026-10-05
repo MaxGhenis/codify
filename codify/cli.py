@@ -415,13 +415,15 @@ def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, s
     except ValidationError as exc:
         raise ValueError(f"malformed page span: {exc}") from exc
     furniture: dict[int, str] = {}
+    furniture_pages: list[int] = []
     for row in rows:
         page = row.get("page") if isinstance(row, dict) else None
         parts = [row.get(k, "") for k in ("header", "footer")] if isinstance(row, dict) else []
         if type(page) is not int or not all(isinstance(p, str) for p in parts):
             raise ValueError(f"malformed furniture row: {row!r}")
+        furniture_pages.append(page)
         furniture[page] = "\n".join(p for p in parts if p)
-    for numbers in ([s.page for s in spans], list(furniture)):
+    for numbers in ([s.page for s in spans], furniture_pages):
         if len(set(numbers)) != len(numbers) or not all(1 <= n <= count for n in numbers):
             raise ValueError(f"page numbers must be unique and within 1-{count}: {numbers}")
     previous, page = 0, 0
