@@ -283,9 +283,12 @@ async def _run(args: argparse.Namespace) -> int:
     source_text, spans = (
         (raw_bytes.decode("utf-8"), []) if is_text else combine_page_texts_with_spans(pages)
     )
-    (out / "source.txt").write_text(source_text, encoding="utf-8")
+    # Untranslated newlines: span offsets index these exact characters.
+    (out / "source.txt").write_text(source_text, encoding="utf-8", newline="")
     page_spans = _page_spans_json(spans, pages)
-    (out / "page_spans.json").write_text(json.dumps(page_spans, indent=2, ensure_ascii=False))
+    (out / "page_spans.json").write_text(
+        json.dumps(page_spans, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
     segmentation_failed = None
     try:
         _write_segmentation(out, source_text, page_spans, config.code)
@@ -426,7 +429,9 @@ def _write_segmentation(
         "jurisdiction_config": resolve_config(jurisdiction).model_dump(),
         **_segmentation_json(result),
     }
-    (out / "segmentation.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False))
+    (out / "segmentation.json").write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
     return payload
 
 
@@ -435,9 +440,9 @@ def _run_segment(args: argparse.Namespace) -> int:
     bundle = Path(args.bundle)
     try:
         manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
-        source_text = (bundle / "source.txt").read_text(encoding="utf-8")
+        source_text = (bundle / "source.txt").read_bytes().decode("utf-8")
         page_spans = json.loads((bundle / "page_spans.json").read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError) as exc:
         print(f"not a readable bundle with page spans: {bundle}: {exc}", file=sys.stderr)
         return 2
     code = args.jurisdiction or manifest.get("jurisdiction") or ""

@@ -18,7 +18,14 @@ import structlog
 from codify import cli
 from codify.pipeline.enrich.ocr import PageResult
 from tests.config_fixtures import isolated_configs
-from tests.pipeline.test_segment import COUNTRY, SEGMENTATION, _config, _three_act_issue
+from tests.pipeline.test_segment import (
+    COUNTRY,
+    SEGMENTATION,
+    _act,
+    _config,
+    _signed,
+    _three_act_issue,
+)
 
 # Printed numbers only in furniture: a bundle that drops furniture loses the contents.
 RULES = {**SEGMENTATION, "printed_page_pattern": r"^Page (\d+)$"}
@@ -142,3 +149,56 @@ def test_segment_refuses_a_bundle_without_page_spans(
     assert cli.main(["segment", str(tmp_path)]) == 2
     assert "page spans" in capsys.readouterr().err
     assert not (tmp_path / "segmentation.json").exists()
+
+
+class _Offline:
+    def __getattr__(self, name: str) -> object:
+        async def _fail(*_a: object, **_k: object) -> object:
+            raise ConnectionError("offline")
+
+        return _fail
+
+
+async def _ingest_text(monkeypatch: pytest.MonkeyPatch, tmp_path: Path, body: bytes) -> Path:
+    monkeypatch.setattr(cli, "create_llm_client", lambda **_k: _Offline())
+    source = tmp_path / "acts.txt"
+    source.write_bytes(body)
+    out = tmp_path / "bundle"
+    args = argparse.Namespace(
+        source=str(source),
+        jurisdiction=COUNTRY,
+        out=str(out),
+        model="m",
+        ocr_model="",
+        fallback_model="",
+        quiet=True,
+    )
+    await cli._run(args)
+    return out
+
+
+async def test_a_crlf_text_source_segments_the_same_on_a_re_run(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, jurisdiction: str
+) -> None:
+    """Offsets index source.txt as written; a newline translated on reading moves them."""
+    lines = [*_act(3, "THE HARBOUR DUES ACT", 4), *_signed(), *_act(4, "THE PILOTS ACT", 3)]
+    out = await _ingest_text(monkeypatch, tmp_path, "\r\n".join(lines).encode())
+    written = (out / "segmentation.json").read_bytes()
+    assert json.loads(written)["outcome"] == "decided"
+    assert json.loads((out / "page_spans.json").read_text()) == {"pages": [], "furniture": []}
+    assert cli.main(["segment", str(out)]) == 0
+    assert (out / "segmentation.json").read_bytes() == written
+
+
+async def test_a_segmenter_fault_leaves_the_bundle_and_says_so(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, jurisdiction: str
+) -> None:
+    def _raise(*_a: object, **_k: object) -> object:
+        raise RuntimeError("segmenter fault")
+
+    monkeypatch.setattr(cli, "segment", _raise)
+    out = await _ingest_one(monkeypatch, tmp_path, jurisdiction)
+    manifest = json.loads((out / "manifest.json").read_text())
+    assert manifest["segmentation_failed"] == "RuntimeError: segmenter fault"
+    assert not (out / "segmentation.json").exists()
+    assert (out / "page_spans.json").exists() and (out / "source.txt").exists()
