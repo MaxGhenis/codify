@@ -404,7 +404,9 @@ def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, s
     `length` characters; ValueError if a field is missing, mistyped or out of range."""
     if not isinstance(raw, dict):
         raise ValueError("page spans must be an object")
-    pages, rows = raw.get("pages"), raw.get("furniture")
+    count, pages, rows = raw.get("page_count"), raw.get("pages"), raw.get("furniture")
+    if type(count) is not int or count < 0:
+        raise ValueError("page spans need a non-negative integer `page_count`")
     if not isinstance(pages, list) or not isinstance(rows, list):
         raise ValueError("page spans need a `pages` list and a `furniture` list")
     try:
@@ -419,6 +421,9 @@ def _read_page_spans(raw: Any, length: int) -> tuple[list[PageSpan], dict[int, s
         if type(page) is not int or not all(isinstance(p, str) for p in parts):
             raise ValueError(f"malformed furniture row: {row!r}")
         furniture[page] = "\n".join(p for p in parts if p)
+    for numbers in ([s.page for s in spans], list(furniture)):
+        if len(set(numbers)) != len(numbers) or not all(1 <= n <= count for n in numbers):
+            raise ValueError(f"page numbers must be unique and within 1-{count}: {numbers}")
     previous = 0
     for span in sorted(spans, key=lambda s: s.start):
         if not previous <= span.start <= span.end <= length:
