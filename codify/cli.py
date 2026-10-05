@@ -291,7 +291,8 @@ async def _run(args: argparse.Namespace) -> int:
     )
     segmentation_failed = None
     try:
-        _write_segmentation(out, source_text, page_spans, config.code)
+        # Read back as `codify segment` reads it, so the two cannot differ.
+        _write_segmentation(out, source_text, *_read_page_spans(page_spans), config.code)
     except Exception as exc:  # noqa: BLE001, a segmenter fault must not void the spend
         segmentation_failed = f"{type(exc).__name__}: {exc}"
         logger.warning("segmentation_failed", error=str(exc)[:300])
@@ -381,9 +382,11 @@ async def _run(args: argparse.Namespace) -> int:
 
 
 def _page_spans_json(spans: list[PageSpan], pages: list[PageResult]) -> dict[str, Any]:
-    """Each page's place in source.txt and the furniture lifted off it, in the
-    shape the platform's page_texts artifact stores."""
+    """Where each page with body text sits in source.txt, and the furniture lifted off
+    every page, in the shape the platform's page_texts artifact stores. A page with no
+    body text has no span; `page_count` still counts it."""
     return {
+        "page_count": len(pages),
         "pages": [span.model_dump() for span in spans],
         "furniture": [
             {"page": page.page_number, "header": page.header, "footer": page.footer}
@@ -393,11 +396,19 @@ def _page_spans_json(spans: list[PageSpan], pages: list[PageResult]) -> dict[str
     }
 
 
-def _furniture(rows: list[dict[str, Any]]) -> dict[int, str]:
-    return {
-        int(row["page"]): "\n".join(p for p in (row.get("header"), row.get("footer")) if p)
-        for row in rows
-    }
+def _read_page_spans(raw: Any) -> tuple[list[PageSpan], dict[int, str]]:
+    """Spans and per-page furniture from a `page_spans.json` payload; ValueError if malformed."""
+    if not isinstance(raw, dict):
+        raise ValueError("page spans must be an object")
+    try:
+        spans = [PageSpan.model_validate(s) for s in raw.get("pages") or []]
+        furniture = {
+            int(row["page"]): "\n".join(p for p in (row.get("header"), row.get("footer")) if p)
+            for row in raw.get("furniture") or []
+        }
+    except (TypeError, KeyError, AttributeError) as exc:
+        raise ValueError(f"malformed page spans: {exc}") from exc
+    return spans, furniture
 
 
 def _segmentation_json(result: Segmentation) -> dict[str, Any]:
@@ -416,14 +427,13 @@ def _segmentation_json(result: Segmentation) -> dict[str, Any]:
 
 
 def _write_segmentation(
-    out: Path, source_text: str, page_spans: dict[str, Any], jurisdiction: str
+    out: Path,
+    source_text: str,
+    spans: list[PageSpan],
+    furniture: dict[int, str],
+    jurisdiction: str,
 ) -> dict[str, Any]:
-    result = segment(
-        source_text,
-        [PageSpan.model_validate(s) for s in page_spans.get("pages") or []],
-        config=load_config(jurisdiction),
-        furniture=_furniture(page_spans.get("furniture") or []),
-    )
+    result = segment(source_text, spans, config=load_config(jurisdiction), furniture=furniture)
     payload = {
         # Which config decided, so a re-run under an edited one is told apart.
         "jurisdiction_config": resolve_config(jurisdiction).model_dump(),
@@ -440,16 +450,20 @@ def _run_segment(args: argparse.Namespace) -> int:
     bundle = Path(args.bundle)
     try:
         manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
+        if not isinstance(manifest, dict):
+            raise ValueError("manifest must be an object")
         source_text = (bundle / "source.txt").read_bytes().decode("utf-8")
-        page_spans = json.loads((bundle / "page_spans.json").read_text(encoding="utf-8"))
+        spans, furniture = _read_page_spans(
+            json.loads((bundle / "page_spans.json").read_text(encoding="utf-8"))
+        )
     except (OSError, ValueError) as exc:
         print(f"not a readable bundle with page spans: {bundle}: {exc}", file=sys.stderr)
         return 2
     code = args.jurisdiction or manifest.get("jurisdiction") or ""
-    if not resolve_config(code).found:
+    if not isinstance(code, str) or not resolve_config(code).found:
         print(f"no config for jurisdiction {code!r}", file=sys.stderr)
         return 2
-    payload = _write_segmentation(bundle, source_text, page_spans, resolve_config(code).code)
+    payload = _write_segmentation(bundle, source_text, spans, furniture, resolve_config(code).code)
     print(f"{payload['outcome']}: {len(payload['segments'])} acts, {len(payload['held'])} held")
     for row in payload["reconciliation"]:
         print(f"  {row['reads']}")

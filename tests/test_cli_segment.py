@@ -185,7 +185,8 @@ async def test_a_crlf_text_source_segments_the_same_on_a_re_run(
     out = await _ingest_text(monkeypatch, tmp_path, "\r\n".join(lines).encode())
     written = (out / "segmentation.json").read_bytes()
     assert json.loads(written)["outcome"] == "decided"
-    assert json.loads((out / "page_spans.json").read_text()) == {"pages": [], "furniture": []}
+    spans = json.loads((out / "page_spans.json").read_text())
+    assert spans == {"page_count": 0, "pages": [], "furniture": []}
     assert cli.main(["segment", str(out)]) == 0
     assert (out / "segmentation.json").read_bytes() == written
 
@@ -202,3 +203,28 @@ async def test_a_segmenter_fault_leaves_the_bundle_and_says_so(
     assert manifest["segmentation_failed"] == "RuntimeError: segmenter fault"
     assert not (out / "segmentation.json").exists()
     assert (out / "page_spans.json").exists() and (out / "source.txt").exists()
+
+
+@pytest.mark.parametrize(
+    "spans",
+    [[], {"pages": [{"page": 1}]}, {"pages": [], "furniture": [{"header": "x"}]}],
+    ids=["not-an-object", "span-missing-offsets", "furniture-missing-page"],
+)
+def test_segment_refuses_malformed_page_spans(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], spans: object
+) -> None:
+    (tmp_path / "manifest.json").write_text(json.dumps({"jurisdiction": "xa"}))
+    (tmp_path / "source.txt").write_text("text")
+    (tmp_path / "page_spans.json").write_text(json.dumps(spans))
+    assert cli.main(["segment", str(tmp_path)]) == 2
+    assert "not a readable bundle" in capsys.readouterr().err
+
+
+def test_segment_refuses_a_manifest_that_is_not_an_object(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    (tmp_path / "manifest.json").write_text("[]")
+    (tmp_path / "source.txt").write_text("text")
+    (tmp_path / "page_spans.json").write_text(json.dumps({"pages": []}))
+    assert cli.main(["segment", str(tmp_path)]) == 2
+    assert "not a readable bundle" in capsys.readouterr().err
