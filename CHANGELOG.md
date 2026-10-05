@@ -19,7 +19,8 @@ New, additive:
   into cuts, rebuilds a span's text from page texts, and finds a cut again after
   a re-read by its marker (`None` when the page no longer carries it).
   `locate_generation` finds a whole split again, each end where the next
-  region now starts. A page read a span links cannot be deleted (`RESTRICT`):
+  region now starts, or `None` when a start is lost or the starts run
+  backwards. A child's repair evidence is trimmed to its span. A page read a span links cannot be deleted (`RESTRICT`):
   a host's cleanup must spare linked reads. The `versions` column is added under
   a 5-second lock timeout, its foreign key validated and its index built without
   blocking writes.
