@@ -82,7 +82,7 @@ def test_every_file_the_bundle_writes_is_also_cleared(tmp_path: Path) -> None:
         (tmp_path / name).write_text("stale")
     _clear_bundle(tmp_path)
     assert not [n for n in _BUNDLE_FILES if (tmp_path / n).exists()]
-    assert "ambiguity.jsonl" in _BUNDLE_FILES
+    assert {"ambiguity.jsonl", "page_spans.json", "segmentation.json"} <= set(_BUNDLE_FILES)
 
 
 def test_clearing_a_bundle_leaves_everything_else_alone(tmp_path: Path) -> None:

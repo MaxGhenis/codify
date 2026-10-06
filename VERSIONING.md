@@ -41,7 +41,8 @@ not. Minor for new capability or data. Patch for the rest.
 
 ## 0.x
 
-The current version is `0.5.0`. While the major is zero the minor acts as the
-major: pin `>=0.5,<0.6`. The step from `0.1.0` to `0.2.0` carried thirteen
-breaks, the step to `0.3.0` four and the step to `0.5.0` one, each enumerated
-in the changelog; `0.4.0` added commands and carried no break.
+The current version is `0.6.0`. While the major is zero the minor acts as the
+major: pin `>=0.6,<0.7`. The step from `0.1.0` to `0.2.0` carried thirteen
+breaks, the step to `0.3.0` four, the step to `0.5.0` one and the step to
+`0.6.0` eight, each enumerated in the changelog; `0.4.0` added commands and
+carried no break.

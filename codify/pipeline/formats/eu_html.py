@@ -62,17 +62,21 @@ class _Act:
     duplicate_paragraphs: int = 0
 
 
+# Older renderings drop the `oj-` prefix from these classes.
+_HEADER_CLASS = re.compile(r"^(?:oj-)?hd-")
+_XML_DECLARATION = re.compile(r"^\ufeff?\s*<\?xml[^>]*\?>", re.IGNORECASE)
+
+
 def is_eurlex_html(text: str) -> bool:
     """HTML 4.01 or XHTML, with or without an XML declaration in front."""
-    head = text.lstrip("\ufeff \t\r\n")[:300].lower()
-    if head.startswith("<?xml"):
-        head = head[head.find("?>") + 2 :].lstrip()
+    head = _XML_DECLARATION.sub("", text[:300]).lstrip("\ufeff \t\r\n").lower()
     return head.startswith("<!doctype html") or head.startswith("<html")
 
 
 def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
     """The act's text blocks in order, and the OJ reference from the page's metadata."""
-    root = html.fromstring(text)
+    # Already decoded: lxml refuses a str that still declares its encoding.
+    root = html.fromstring(_XML_DECLARATION.sub("", text, count=1))
     oj: dict[str, str] = {}
     for meta in root.iter("meta"):
         if meta.get("name") == "DC.source":
@@ -85,6 +89,10 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
         container = root.find("body")
         if container is None:
             raise EurlexHtmlError("no body in the HTML")
+    # The XHTML rendering's running header (date, OJ page) is a table, not the title.
+    for table in list(container.iter("table")):
+        if any(_HEADER_CLASS.match(p.get("class") or "") for p in table.iter("p")):
+            table.drop_tree()
     # Cellar's older pages open `<p><TXT_TE>` and never close the `<p>`, so the parser
     # nests the whole act inside it; a paragraph holding paragraphs is unwrapped.
     for outer in [p for p in container.iter("p") if next(p.iterdescendants("p"), None) is not None]:
@@ -96,7 +104,11 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
     images = 0
     for img in list(container.iter("img")):
         images += 1
-        marker = f"[image not transcribed: {img.get('src') or img.get('alt') or ''}]"
+        src = img.get("src") or ""
+        # An inline image's src is the whole picture in base64; its alt names it.
+        alt = img.get("alt") or ""
+        name = alt if src[:5].lower() == "data:" else (src or alt)
+        marker = f"[image not transcribed: {name}]"
         if _inside_block(img, container):
             img.tail = f" {marker} " + (img.tail or "")
         else:
@@ -104,9 +116,15 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
             p.text = marker
             img.addprevious(p)
     blocks: list[str] = []
+    previous_title = False
     for el in container.iter(*_BLOCK_TAGS):
         if _inside_block(el, container):
             continue  # a nested block's text is already in its outer block
+        # The XHTML rendering splits the title over several lines; it is one block.
+        is_title = el.get("class") in ("oj-doc-ti", "doc-ti")
+        if is_title and previous_title:
+            blocks[-1] += " " + " ".join(el.text_content().split())
+            continue
         if el.tag == "tr":
             # A table row is one block, its cells separated; the table's shape is not kept.
             cells = [" ".join(c.text_content().split()) for c in el if c.tag in ("td", "th")]
@@ -115,6 +133,7 @@ def _blocks(text: str) -> tuple[list[str], dict[str, str], dict[str, int]]:
             joined = " ".join(el.text_content().split())
         if joined:
             blocks.append(joined)
+        previous_title = is_title and bool(joined)
     tables = sum(1 for _ in container.iter("table"))
     return (
         blocks,
@@ -157,9 +176,92 @@ def _uncaptured_chars(container: etree._Element) -> int:
     return total
 
 
+# Older Cellar pages run a heading into the text around it: `... loading. Article 2`,
+# `Article 3 The Member States shall ...`, `TITLE I General provisions Article 1 ...`.
+_RUN_IN = re.compile(r"(?<!\w)(?:Article|ARTICLE)[ \u00a0]+(\d+)([A-Za-z]{0,2})(?!\w)")
+_BODY_START = re.compile(r"[A-Z]|\d{1,3}\.\s")
+_SENTENCE_END = ".:;)'\"\u00b4\u2019\u201d"
+_DIVISION = re.compile(r"^(?:(?:TITLE|SECTION|CHAPTER|PART)\s+[IVXLC\d]+\b|[IVXLC]+\.\s)")
+# The OJ page's running head, `31. 12. 88No L 374/`, left in the text at a page break.
+_RUNNING_HEAD = re.compile(r"\d{1,2}\.\s?\d{1,2}\.\s?\d{2}\s*No [LC] \d+/")
+_SPLIT_NUMBER = re.compile(r"^\d{1,3}[A-Za-z]{0,2}$")
+_RUN_IN_DONE_AT = re.compile(r"(?<=[.:;)])\s+(?=Done at\b)", re.IGNORECASE)
+
+
+def _may_precede_heading(text: str, after_division: bool) -> bool:
+    """A sentence end, or a division heading or its title; prose runs on."""
+    text = _RUNNING_HEAD.sub("", text).strip()
+    return not text or after_division or text[-1] in _SENTENCE_END or bool(_DIVISION.match(text))
+
+
+def _join_split_headings(blocks: list[str]) -> list[str]:
+    """`Article` and its number in two blocks, as some pages print them, make one heading."""
+    out: list[str] = []
+    for block in blocks:
+        if out and out[-1] in ("Article", "ARTICLE") and _SPLIT_NUMBER.match(block):
+            out[-1] = f"{out[-1]} {block}"
+        else:
+            out.append(block)
+    return out
+
+
+def _split_run_in(blocks: list[str]) -> list[str]:
+    """Each run-in heading becomes its own block. Only the next article number in
+    sequence qualifies, between a sentence end and a capital, so references stay prose.
+    Skipping one number lets a missed heading surface as a gap, not swallow the rest."""
+    blocks = _join_split_headings(blocks)
+    out = blocks[:1]
+    last = 0
+    for index, block in enumerate(blocks[1:], start=1):
+        if _ANNEX.match(block) or _DONE_AT.match(out[-1]):
+            out.extend(blocks[index:])  # nothing past the annex or the signature splits
+            break
+        strict = _ARTICLE.match(block)
+        if strict and (strict.group(3) is None or _is_title(strict.group(3))):
+            last = int(strict.group(1))
+            out.append(block)
+            continue
+        # `SECTION IV` alone, then `Its title Article 19 ...`: the title may run in.
+        after_division = bool(_DIVISION.match(out[-1])) and len(out[-1].split()) <= 3
+        start = 0
+        for m in _RUN_IN.finditer(block):
+            number = int(m.group(1))
+            if number not in (last + 1, last + 2) and not (number == last and m.group(2)):
+                continue
+            before = block[start : m.start()].strip()
+            after = block[m.end() :].lstrip()
+            if not _may_precede_heading(before, after_division and start == 0):
+                continue
+            if after and not _BODY_START.match(after):
+                continue
+            before = _RUNNING_HEAD.sub("", before).strip()  # page furniture, not text
+            if before:
+                out.append(before)
+            out.append(m.group(0))
+            start, last = m.end(), number
+        rest = block[start:].strip()
+        parts = _RUN_IN_DONE_AT.split(rest, maxsplit=1) if last else [rest]
+        # A signature run into the text starts the conclusions only after the last article.
+        if len(parts) == 2 and _heading_ahead([parts[1], *blocks[index + 1 :]], last):
+            parts = [rest]
+        out.extend(p.strip() for p in parts if p.strip())
+    return out
+
+
+def _heading_ahead(blocks: list[str], last: int) -> bool:
+    """Whether the next article's number still appears before any annex."""
+    for block in blocks:
+        if _ANNEX.match(block):
+            return False
+        if any(int(m.group(1)) in (last + 1, last + 2) for m in _RUN_IN.finditer(block)):
+            return True
+    return False
+
+
 def _segment(blocks: list[str], oj: dict[str, str]) -> _Act:
     if not blocks:
         raise EurlexHtmlError("no text blocks in the HTML")
+    blocks = _split_run_in(blocks)
     act = _Act(title=blocks[0], oj=oj)
     i = 1
     # The OJ rendering repeats the title as the first body line.

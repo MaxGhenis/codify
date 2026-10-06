@@ -678,10 +678,12 @@ class SegmentationConfig(BaseModel):
     issue_heading_patterns: list[str] = Field(default_factory=list)
     # Headings of a contents listing, matched case-insensitively at a line start.
     contents_keywords: list[str] = Field(default_factory=list)
-    # A printed page number in a page's furniture; its first group is the number.
+    # A printed page number in a page's furniture; its first participating group is the number.
     printed_page_pattern: str | None = None
+    # Headings of instruments that are not acts (notices, appointments): kept apart, not ingested.
+    skip_heading_patterns: list[str] = Field(default_factory=list)
 
-    @field_validator("act_heading_patterns", "issue_heading_patterns")
+    @field_validator("act_heading_patterns", "issue_heading_patterns", "skip_heading_patterns")
     @classmethod
     def _headings_compile(cls, value: list[str]) -> list[str]:
         for pattern in value:

@@ -5,6 +5,59 @@ the launch tag.
 
 ## Unreleased
 
+New, additive:
+
+- Migration `0023_source_spans` and `codify.storage.spans`: a multi-act
+  source's split is stored as spans over its pages, one generation at a time.
+  Each span is an act, a held region, a skipped non-act or front matter; its
+  cuts are a page, an offset into that page's text and a marker line.
+  `write_span_generation` retires the live generation and writes the next,
+  deleting nothing. `versions.source_span_id` names a child version's span, and
+  `get_page_reads`, `get_page_read` and `count_disputes_by_page_read` read a
+  child through the page reads its span links (`source_span_pages`), with the
+  source's own page numbers. `codify.pipeline.span_cuts` turns a `Segmentation`
+  into cuts, rebuilds a span's text from page texts, and finds a cut again after
+  a re-read by its marker (`None` when the page no longer carries it).
+  `locate_generation` finds a whole split again, each end where the next
+  region now starts, or `None` when a start is lost or the starts run
+  backwards. A child's repair evidence is trimmed to its span. A page read a span links cannot be deleted (`RESTRICT`):
+  a host's cleanup must spare linked reads. The `versions` column is added under
+  a 5-second lock timeout, its foreign key validated and its index built without
+  blocking writes.
+  `segmentation.skip_heading_patterns` names instruments that are not acts
+  (notices, appointments): their segments are cut as skipped, kept and listed.
+- `codify.pipeline.segment`: splits a source holding several acts, such as a
+  gazette issue, without a model call. `segment` returns a `Segmentation`:
+  `single` (the text unchanged), `decided` (one segment per act) or
+  `abstained` (what the evidence could not settle is held whole, with a
+  reconciliation table in plain words). A boundary is a declared act heading
+  that a closing phrase, a numbering restart, a contents entry on its page or
+  a page start agrees with. An adopted text, an attachment, a repeat of the
+  open act's heading, a quotation or a missing enacting formula vetoes one. A
+  heading no signal agrees with is read as a citation where it stands, named
+  in the reconciliation table, and neither splits nor holds. `segment_volume`
+  reads a bound volume a page at a time, cuts it into issues by the same rule
+  and segments each issue. Configured by the jurisdiction's `segmentation`
+  block: `act_heading_patterns`, `issue_heading_patterns`, `contents_keywords`
+  and `printed_page_pattern`, each pattern refused at load if it does not
+  compile or can match empty text.
+- `codify ingest-one` writes `page_spans.json` (the page count, where each
+  page with body text sits in `source.txt`, and each page's header and footer) and `segmentation.json` (the
+  segmenter's outcome, acts, held regions and reconciliation table) into the
+  bundle. `codify segment <bundle>` re-runs the segmenter over that stored
+  text under the current config, with no model.
+
+Fixed:
+
+- `segment`: where several headings name one listed act, the contents entry
+  goes to the one on its listed page, so a prose mention elsewhere no longer
+  makes the source abstain.
+
+## 0.6.0 (2026-10-02)
+
+Eight breaks, so the minor moves, as `VERSIONING.md` prescribes while the major
+is zero; the rest is additive.
+
 Breaks, in that the structurer's output changes for documents it already read:
 
 1. A declared closing phrase also matches where the source breaks the line
@@ -51,8 +104,29 @@ Breaks, in that the structurer's output changes for documents it already read:
    dropped closer on a quoted name in a preamble no longer masks the first
    chapter and article below it. A quotation opening on a heading still masks
    to the blank line, since an amendment may quote several provisions.
+5. A content-filter finish reason that carries a suffix
+   (`content_filter: RECITATION`) counts as a block on page reads and schema
+   calls, so the fallback model is tried. Such a page used to read as empty and
+   such a call to fail validation.
+6. Series-number citations ("Act No. 5") are wrapped only where the
+   jurisdiction config declares them in `numbering.series_citations`; nothing
+   is keyed on a country code. A config that relied on the built-in list must
+   declare its series, and `Blg.` is no longer a default connector.
+7. The amount checks recognise dirhams, riyals, liras and francs, with their
+   Arabic and Hebrew forms, beside the currencies they read before, so the
+   amount-in-words warning and the numeric extractor report amounts they
+   skipped.
+8. The six real jurisdiction configs 0.5.0 shipped are revised: compound
+   heading terms split into a term and its aliases, enacting formulae scoped by
+   document class, diacritics restored, URI patterns kept only for declared
+   classes, and keys no model declares removed. A heading written in an alias
+   now anchors, so output for those jurisdictions can change.
 
 New, additive:
+
+- Configs for 96 more jurisdictions across every region and legal tradition,
+  taking the real jurisdictions shipped from 6 to 102. The registry is
+  regenerated, and a test checks it against the configs on disk.
 
 - `segmentation.act_heading_patterns` in the jurisdiction config: line-start
   regexes for a line opening an act. Where a jurisdiction declares them and
@@ -73,6 +147,25 @@ New, additive:
   numbers the class's work URI from its title digest (`t-...`) and ignores any
   extracted number, for classes whose serials repeat across issuers and so
   collide. Declaring it requires `frbr.title_identity`.
+- `numbering.series_citations` and `numbering.series_citation_connectors` in
+  the jurisdiction config (break 6).
+- A same-document anchor with no stored row of its own resolves to the nearest
+  stored row: the element's own text row, its first stored part, or the row
+  enclosing it, never a part of quoted text or a placeholder. `ResolveStats`
+  counts `resolved_container` and `resolved_enclosing`; `nearest_stored_row`
+  and `element_index` are public. Unresolved rows carry no resolver version, so
+  the next pass re-examines them.
+- The EUR-Lex HTML lane reads older acts whose markup leaves the opening
+  paragraph unclosed; they used to fail with no article blocks.
+- Migration 0021 adds `static_site_export` to the run kinds; the downgrade
+  refuses while rows of that kind exist.
+
+Repository: tests and examples that used jurisdictions the repository does not
+ship run on the fictional ones; CI runs the integration suite against Postgres;
+a shorter README with usage and interface guides; simplified notebooks; a
+corpus ownership design; Dependabot skips TypeScript and `@types/node` major
+bumps. Dependencies: pydantic-ai 2, with the repair agent keeping its early
+end; openai 3; google-genai 2.
 
 ## 0.5.0 (2026-09-20)
 

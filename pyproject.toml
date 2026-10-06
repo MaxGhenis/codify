@@ -1,6 +1,6 @@
 [project]
 name = "codify-core"
-version = "0.5.0"
+version = "0.6.0"
 description = "Legal-AI core library: AKN parsing, embedding, retrieval, comparison"
 readme = "README.md"
 license = "Apache-2.0"

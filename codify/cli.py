@@ -15,6 +15,12 @@ measures the anchor scan over raw sources before anything is ingested, which is
 the only way to count a marker the scanner never claimed. It needs no model and
 no database.
 
+    codify segment bundle/
+
+re-reads a bundle's stored text and page spans and rewrites its
+`segmentation.json` under the jurisdiction's current config: which acts the
+source holds, and why any region was held. It needs no model and no database.
+
 The index-* subcommands build the acquisition indexes a bulk import reads.
 """
 
@@ -33,10 +39,16 @@ from pathlib import Path
 from typing import Any
 
 import structlog
+from pydantic import ValidationError
 
 from codify.core.llm import create_llm_client
-from codify.jurisdictions import JURISDICTIONS_DIR, resolve_config
-from codify.pipeline.enrich.ocr import PageResult, combine_page_texts, unreadable_pages
+from codify.jurisdictions import CONFIG_FAULTS, JURISDICTIONS_DIR, load_config, resolve_config
+from codify.pipeline.enrich.ocr import (
+    PageResult,
+    PageSpan,
+    combine_page_texts_with_spans,
+    unreadable_pages,
+)
 from codify.pipeline.enrich.structure import ScanTrace
 from codify.pipeline.events import (
     Complete,
@@ -46,6 +58,7 @@ from codify.pipeline.events import (
     ValidationIssued,
 )
 from codify.pipeline.formats.pdf import ingest, ingest_text
+from codify.pipeline.segment import PAGE_SEPARATOR, Segmentation, segment
 from codify.quality.structural_quality_grade import structural_quality_grade
 
 logger = structlog.get_logger()
@@ -148,6 +161,8 @@ _BUNDLE_FILES = (
     "final.akn.xml",
     "validator.json",
     "events.jsonl",
+    "page_spans.json",
+    "segmentation.json",
 )
 
 
@@ -266,8 +281,24 @@ async def _run(args: argparse.Namespace) -> int:
     # One trace per run. No scaffold means the gate raised or no anchors were
     # found, which is itself the answer.
     trace = traces[0] if traces else None
-    source_text = raw_bytes.decode("utf-8") if is_text else combine_page_texts(pages)
-    (out / "source.txt").write_text(source_text, encoding="utf-8")
+    source_text, spans = (
+        (raw_bytes.decode("utf-8"), []) if is_text else combine_page_texts_with_spans(pages)
+    )
+    # Untranslated newlines: span offsets index these exact characters.
+    (out / "source.txt").write_text(source_text, encoding="utf-8", newline="")
+    page_spans = _page_spans_json(spans, pages)
+    (out / "page_spans.json").write_text(
+        json.dumps(page_spans, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    segmentation_failed = None
+    try:
+        # Read back as `codify segment` reads it, so the two cannot differ.
+        _write_segmentation(
+            out, source_text, *_read_page_spans(page_spans, source_text), config.code
+        )
+    except Exception as exc:  # noqa: BLE001, a segmenter fault must not void the spend
+        segmentation_failed = f"{type(exc).__name__}: {exc}"
+        logger.warning("segmentation_failed", error=str(exc)[:300])
     (out / "events.jsonl").write_text("".join(f"{line}\n" for line in events), encoding="utf-8")
     (out / "validator.json").write_text(json.dumps(findings, indent=2, ensure_ascii=False))
 
@@ -343,12 +374,139 @@ async def _run(args: argparse.Namespace) -> int:
         # with blocking findings cannot read as a clean one.
         "grade": asdict(structural_quality_grade(findings, degraded=not (validated or halted))),
         "akn_bytes": len(akn_xml),
+        # Set when the segmenter raised, so a missing segmentation.json is explained.
+        "segmentation_failed": segmentation_failed,
         "failed": failure,
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
 
     print(json.dumps(manifest, indent=2, ensure_ascii=False))
     return 1 if failure else 0
+
+
+def _page_spans_json(spans: list[PageSpan], pages: list[PageResult]) -> dict[str, Any]:
+    """Where each page with body text sits in source.txt, and the furniture lifted off
+    every page, in the shape the platform's page_texts artifact stores. A page with no
+    body text has no span; `page_count` still counts it."""
+    return {
+        "page_count": len(pages),
+        "pages": [span.model_dump() for span in spans],
+        "furniture": [
+            {"page": page.page_number, "header": page.header, "footer": page.footer}
+            for page in pages
+            if page.header or page.footer
+        ],
+    }
+
+
+def _read_page_spans(raw: Any, text: str) -> tuple[list[PageSpan], dict[int, str]]:
+    """Spans and per-page furniture from a `page_spans.json` payload over `text`;
+    ValueError if a field is missing or mistyped, or the spans do not tile the text."""
+    if not isinstance(raw, dict):
+        raise ValueError("page spans must be an object")
+    count, pages, rows = raw.get("page_count"), raw.get("pages"), raw.get("furniture")
+    if type(count) is not int or count < 0:
+        raise ValueError("page spans need a non-negative integer `page_count`")
+    if not isinstance(pages, list) or not isinstance(rows, list):
+        raise ValueError("page spans need a `pages` list and a `furniture` list")
+    try:
+        # Strict: a page number of 1.5 or true must not land on another page.
+        spans = [PageSpan.model_validate(s, strict=True) for s in pages]
+    except ValidationError as exc:
+        raise ValueError(f"malformed page span: {exc}") from exc
+    furniture: dict[int, str] = {}
+    furniture_pages: list[int] = []
+    for row in rows:
+        page = row.get("page") if isinstance(row, dict) else None
+        parts = [row.get(k, "") for k in ("header", "footer")] if isinstance(row, dict) else []
+        if type(page) is not int or not all(isinstance(p, str) for p in parts):
+            raise ValueError(f"malformed furniture row: {row!r}")
+        furniture_pages.append(page)
+        furniture[page] = "\n".join(p for p in parts if p)
+    for numbers in ([s.page for s in spans], furniture_pages):
+        if len(set(numbers)) != len(numbers) or not all(1 <= n <= count for n in numbers):
+            raise ValueError(f"page numbers must be unique and within 1-{count}: {numbers}")
+    # As extraction writes them: non-empty, pages rising, tiling the text but for separators.
+    previous, page = None, 0
+    for span in sorted(spans, key=lambda s: s.start):
+        gap = text[previous : span.start] if previous is not None else text[: span.start]
+        expected = PAGE_SEPARATOR if previous is not None else ""
+        if gap != expected or span.end > len(text) or span.start >= span.end or span.page <= page:
+            raise ValueError(f"page {span.page} spans {span.start}-{span.end}, not as extracted")
+        previous, page = span.end, span.page
+    if spans and previous != len(text):
+        raise ValueError(f"the spans end at {previous}, short of the text's {len(text)}")
+    # Text with pages but no spans would lose every page: only a text source has none.
+    if not spans and text and count:
+        raise ValueError(f"{count} pages and text, but no page spans")
+    return spans, furniture
+
+
+def _segmentation_json(result: Segmentation) -> dict[str, Any]:
+    """Offsets index source.txt; texts are left out, since source.txt holds them."""
+
+    def without_text(item: Any) -> dict[str, Any]:
+        return {k: v for k, v in asdict(item).items() if k != "text"}
+
+    return {
+        "outcome": result.outcome,
+        "front_matter": list(result.front_matter) if result.front_matter else None,
+        "segments": [without_text(s) for s in result.segments],
+        "held": [without_text(h) for h in result.held],
+        "reconciliation": [{**asdict(r), "reads": r.describe()} for r in result.reconciliation],
+    }
+
+
+def _write_segmentation(
+    out: Path,
+    source_text: str,
+    spans: list[PageSpan],
+    furniture: dict[int, str],
+    jurisdiction: str,
+) -> dict[str, Any]:
+    result = segment(source_text, spans, config=load_config(jurisdiction), furniture=furniture)
+    payload = {
+        # Which config decided, so a re-run under an edited one is told apart.
+        "jurisdiction_config": resolve_config(jurisdiction).model_dump(),
+        **_segmentation_json(result),
+    }
+    (out / "segmentation.json").write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return payload
+
+
+def _run_segment(args: argparse.Namespace) -> int:
+    """Re-run the segmenter over a bundle's stored text, with no model."""
+    bundle = Path(args.bundle)
+    try:
+        manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
+        if not isinstance(manifest, dict):
+            raise ValueError("manifest must be an object")
+        source_text = (bundle / "source.txt").read_bytes().decode("utf-8")
+        spans, furniture = _read_page_spans(
+            json.loads((bundle / "page_spans.json").read_text(encoding="utf-8")), source_text
+        )
+    except (OSError, ValueError) as exc:
+        print(f"not a readable bundle with page spans: {bundle}: {exc}", file=sys.stderr)
+        return 2
+    code = args.jurisdiction or manifest.get("jurisdiction") or ""
+    if not isinstance(code, str) or not resolve_config(code).found:
+        print(f"no config for jurisdiction {code!r}", file=sys.stderr)
+        return 2
+    try:
+        payload = _write_segmentation(
+            bundle, source_text, spans, furniture, resolve_config(code).code
+        )
+    except CONFIG_FAULTS as exc:
+        # Nothing written: the last segmentation stays for comparison.
+        print(f"the {code!r} config does not load: {exc}", file=sys.stderr)
+        return 2
+
+    print(f"{payload['outcome']}: {len(payload['segments'])} acts, {len(payload['held'])} held")
+    for row in payload["reconciliation"]:
+        print(f"  {row['reads']}")
+    return 0
 
 
 def _by_kind(spans: tuple[Any, ...]) -> dict[str, int]:
@@ -666,6 +824,18 @@ def main(argv: list[str] | None = None) -> int:
     )
     one.add_argument("--quiet", action="store_true", help="suppress per-event progress")
     one.set_defaults(func=lambda a: asyncio.run(_run(a)))
+
+    seg = sub.add_parser(
+        "segment",
+        help="re-run the segmenter over a bundle's stored text into segmentation.json",
+    )
+    seg.add_argument("bundle", help="bundle directory written by ingest-one")
+    seg.add_argument(
+        "--jurisdiction",
+        default="",
+        help="config to segment under (default: the bundle's)",
+    )
+    seg.set_defaults(func=_run_segment)
 
     idx = sub.add_parser(
         "index-datadump", help="map CELEX to archive member for a bulk FORMEX archive"

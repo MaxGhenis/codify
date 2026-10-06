@@ -9,7 +9,8 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import col, select
 
-from codify.storage.models import PageRead
+from codify.storage.models import PageRead, SourceSpanPage
+from codify.storage.spans import span_for_version, span_page_reads
 
 
 async def save_page_reads(
@@ -56,14 +57,27 @@ async def attach_page_reads_to_version(
     return moved
 
 
+async def _owns_reads(session: AsyncSession, version_id: uuid.UUID) -> bool:
+    """A version with reads of its own reads only those, never its span's."""
+    found = await session.execute(
+        text("SELECT 1 FROM page_reads WHERE version_id = :vid LIMIT 1"), {"vid": version_id}
+    )
+    return found.first() is not None
+
+
 async def get_page_reads(session: AsyncSession, version_id: uuid.UUID) -> list[PageRead]:
-    """Every page of a version, in page order."""
+    """Every page of a version, in page order. A version cut from a multi-act
+    source reads the pages of its span, which carry the source's own page numbers."""
     rows = await session.execute(
         select(PageRead)
         .where(col(PageRead.version_id) == version_id)
         .order_by(col(PageRead.page_number))
     )
-    return list(rows.scalars().all())
+    own = list(rows.scalars().all())
+    if own:
+        return own
+    span = await span_for_version(session, version_id)
+    return await span_page_reads(session, span.id) if span is not None else []
 
 
 async def get_page_read(
@@ -74,6 +88,18 @@ async def get_page_read(
     rows = await session.execute(
         select(PageRead)
         .where(col(PageRead.version_id) == version_id)
+        .where(col(PageRead.page_number) == page_number)
+    )
+    own = rows.scalars().first()
+    if own is not None or await _owns_reads(session, version_id):
+        return own
+    span = await span_for_version(session, version_id)
+    if span is None:
+        return None
+    rows = await session.execute(
+        select(PageRead)
+        .join(SourceSpanPage, col(SourceSpanPage.page_read_id) == col(PageRead.id))
+        .where(col(SourceSpanPage.span_id) == span.id)
         .where(col(PageRead.page_number) == page_number)
     )
     return rows.scalars().first()
@@ -88,13 +114,21 @@ async def count_disputes_by_page_read(
     ruled on, and the rows themselves are fetched per page. A read nobody has
     ruled on is absent, so callers default it to zero.
     """
+    # The span's reads count only where the list falls back to them.
+    span = (
+        None
+        if await _owns_reads(session, version_id)
+        else await span_for_version(session, version_id)
+    )
     rows = await session.execute(
         text(
             "SELECT d.page_read_id, count(*) FROM page_read_disputes d "
             "JOIN page_reads p ON p.id = d.page_read_id "
-            "WHERE p.version_id = :vid GROUP BY d.page_read_id"
+            "WHERE p.version_id = :vid OR p.id IN "
+            "(SELECT page_read_id FROM source_span_pages WHERE span_id = :sid) "
+            "GROUP BY d.page_read_id"
         ),
-        {"vid": version_id},
+        {"vid": version_id, "sid": span.id if span is not None else None},
     )
     return {row[0]: int(row[1]) for row in rows.all()}
 

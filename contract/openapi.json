@@ -3457,6 +3457,13 @@
               }
             ],
             "title": "Printed Page Pattern"
+          },
+          "skip_heading_patterns": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Skip Heading Patterns",
+            "type": "array"
           }
         },
         "title": "SegmentationConfig",

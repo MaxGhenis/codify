@@ -46,6 +46,8 @@ CORE_TABLES = frozenset(
         "versions",
         "version_source_texts",
         "page_reads",
+        "source_spans",
+        "source_span_pages",
         "sections",
         "provisions",
         "search_terms",
